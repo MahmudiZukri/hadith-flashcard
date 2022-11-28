@@ -1,5 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:flutter/material.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hadith_flashcard/domain/auth/failures/auth_failures.dart';
@@ -19,16 +18,39 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<AuthEvent>(
       (event, emit) async {
         await event.map(
+          emailChanged: (e) {
+            emit(
+              state.copyWith(
+                email: e.email,
+              ),
+            );
+          },
+          passwordChanged: (e) {
+            emit(
+              state.copyWith(
+                password: e.password,
+              ),
+            );
+          },
           signUp: (e) async {
+            emit(
+              state.copyWith(
+                onLoading: true,
+              ),
+            );
+
             final failureOrSuccess = await _authRepository.signUp(
-              context: e.context,
-              email: e.email.getOrCrash(),
-              password: e.password.getOrCrash(),
+              email: state.email.getOrCrash(),
+              password: state.password.getOrCrash(),
             );
 
             emit(
               state.copyWith(
-                optionFailureOrSuccess: optionOf(failureOrSuccess),
+                onLoading: false,
+                showMessage: !state.showMessage,
+                optionFailureOrSuccess: optionOf(
+                  failureOrSuccess,
+                ),
               ),
             );
           },

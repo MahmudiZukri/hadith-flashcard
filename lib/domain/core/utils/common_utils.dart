@@ -14,14 +14,6 @@ import 'package:fpdart/fpdart.dart';
 import 'package:intl/intl.dart';
 
 class CommonUtils {
-  static final RegExp _emailRegExp = RegExp(
-    r'^([A-Z|a-z|0-9](\.|_){0,1})+[A-Z|a-z|0-9]\@([A-Z|a-z|0-9])+((\.){0,1}[A-Z|a-z|0-9]){2}\.[a-z]{2,3}$',
-  );
-
-  static final RegExp _passwordRegExp = RegExp(
-    r'^((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,64})$',
-  );
-
   static final RegExp _phoneRegExp = RegExp(r'^(?:[+0])?[0-9]{8,15}$');
 
   static String dateFormat(DateTime date, String pattern) {
@@ -57,23 +49,37 @@ class CommonUtils {
     return result + format.format(amount);
   }
 
-  static bool validateEmail(String value) {
-    return _emailRegExp.hasMatch(value);
-  }
-
-  static bool validatePassword(String password) {
-    return _passwordRegExp.hasMatch(password);
-  }
-
-  static bool validatePhone(String phone) {
-    return _phoneRegExp.hasMatch(phone);
-  }
-
-  static String replaceSpace(String value) {
-    return value.replaceAll(' ', '%20');
+  static String firebaseMessageSplit({
+    required String message,
+  }) {
+    return message.split('] ')[1].split(')')[0];
   }
 
   //comment for now
+
+  //   static final RegExp _emailRegExp = RegExp(
+  //   r'^([A-Z|a-z|0-9](\.|_){0,1})+[A-Z|a-z|0-9]\@([A-Z|a-z|0-9])+((\.){0,1}[A-Z|a-z|0-9]){2}\.[a-z]{2,3}$',
+  // );
+
+  // static final RegExp _passwordRegExp = RegExp(
+  //   r'^((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,64})$',
+  // );
+
+  // static bool validateEmail(String value) {
+  //   return _emailRegExp.hasMatch(value);
+  // }
+
+  // static bool validatePassword(String password) {
+  //   return _passwordRegExp.hasMatch(password);
+  // }
+
+  // static bool validatePhone(String phone) {
+  //   return _phoneRegExp.hasMatch(phone);
+  // }
+
+  // static String replaceSpace(String value) {
+  //   return value.replaceAll(' ', '%20');
+  // }
 
   // static Either<String, String> getInitials(String value) {
   //   if (value.isNotEmpty) {
