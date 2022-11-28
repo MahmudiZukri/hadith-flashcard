@@ -10,7 +10,8 @@ class AuthRepository implements IAuthRepository {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   @override
-  Future<Either<AuthFailure, bool>> saveUser({
+  Future<Either<AuthFailure, bool>> signUp({
+    required BuildContext context,
     required String email,
     required String password,
   }) async {
@@ -38,6 +39,15 @@ class AuthRepository implements IAuthRepository {
       );
     } catch (e, stackTrace) {
       debugPrint('------- $stackTrace -------');
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            e.toString(),
+          ),
+        ),
+      );
+
       return left(
         AuthFailure.other(
           message: e.toString(),
