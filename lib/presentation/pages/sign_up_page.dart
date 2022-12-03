@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hadith_flashcard/application/bloc/auth_bloc.dart';
+import 'package:hadith_flashcard/application/auth/auth_bloc.dart';
 import 'package:hadith_flashcard/domain/core/objects/string_objects.dart';
 import 'package:hadith_flashcard/domain/core/shared/shared.dart';
 import 'package:hadith_flashcard/injection.dart';
@@ -12,7 +12,7 @@ class SignUpPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
+    return BlocProvider<AuthBloc>(
       create: (context) => getIt<AuthBloc>(),
       child: const SignUpPageScaffold(),
     );
