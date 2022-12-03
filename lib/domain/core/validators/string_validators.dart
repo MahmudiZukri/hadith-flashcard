@@ -1,6 +1,6 @@
 import 'package:fpdart/fpdart.dart';
 import 'package:hadith_flashcard/domain/core/failures/string/string_failures.dart';
-import 'package:hadith_flashcard/domain/core/utils/common_utils.dart';
+import 'package:hadith_flashcard/domain/core/shared/shared.dart';
 
 class StringValidators {
   static Either<StringFailure, String> validateMaxStringLength(
@@ -109,34 +109,6 @@ class StringValidators {
     }
   }
 
-  static Either<StringFailure, String> validateEnakTableQrUrl(
-    String input,
-  ) {
-    final urlRegex = RegExp(
-        // r"((https?:www\.)|(https?:\/\/)|(www\.))[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9]{1,6}(\/[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)?"
-        r"^https:\/\/app\.enak\.id\/qr\/[a-f\d]{8}-[a-f\d]{4}-[a-f\d]{4}-[a-f\d]{4}-[a-f\d]{12}$");
-
-    if (urlRegex.hasMatch(input)) {
-      return right(input);
-    } else {
-      return left(
-        StringFailure.invalidEnakTableQrUrl(failedValue: input),
-      );
-    }
-  }
-
-  static Either<StringFailure, String> validateCvsayaAttendanceQrUrl(
-    String input,
-  ) {
-    if (input.contains('attendance-qr-codes')) {
-      return right(input);
-    } else {
-      return left(
-        StringFailure.invalidCvsayaAttendanceQrUrl(failedValue: input),
-      );
-    }
-  }
-
   static Either<StringFailure, String> validateStringNotEmpty(String input) {
     if (input.isNotEmpty) {
       return right(input);
@@ -191,16 +163,27 @@ class StringValidators {
   }
 
   static Either<StringFailure, String> validateEmail(String input) {
-    const String _pattern =
+    const String pattern =
         r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
 
     if (input.isEmpty) {
       return left(StringFailure.empty(failedValue: input));
-    } else if (!RegExp(_pattern).hasMatch(input)) {
+    } else if (!RegExp(pattern).hasMatch(input)) {
       return left(StringFailure.invalidEmail(failedValue: input));
     } else {
       return right(input);
     }
+  }
+
+  static Either<StringFailure, String> validatePassword(String input) {
+    return input.length >= 6
+        ? right(input)
+        : left(
+            StringFailure.lengthTooShort(
+              failedValue: input,
+              min: 6,
+            ),
+          );
   }
 
   static Either<StringFailure, String> validateDateWithTime(

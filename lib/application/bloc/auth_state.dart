@@ -4,17 +4,19 @@ part of 'auth_bloc.dart';
 class AuthState with _$AuthState {
   const factory AuthState({
     required bool onLoading,
-    required UnemptyString email,
-    required UnemptyString password,
-    required bool showMessage,
-    required Option<Either<AuthFailure, bool>> optionFailureOrSuccess,
+    required EmailAddress email,
+    required Password password,
+    required bool showErrorMessages,
+    required bool showSnackbar,
+    required Option<Either<AuthFailure, Unit>> optionFailureOrSuccess,
   }) = _AuthState;
 
   factory AuthState.initial() => AuthState(
         onLoading: false,
-        email: UnemptyString(''),
-        password: UnemptyString(''),
+        email: EmailAddress(''),
+        password: Password(''),
+        showErrorMessages: false,
+        showSnackbar: false,
         optionFailureOrSuccess: none(),
-        showMessage: false,
       );
 }

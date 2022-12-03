@@ -44,12 +44,6 @@ class StringFailure with _$StringFailure {
   const factory StringFailure.invalidSKU({
     required String? failedValue,
   }) = InvalidSKU;
-  const factory StringFailure.invalidEnakTableQrUrl({
-    required String? failedValue,
-  }) = InvalidTableQrUrl;
-  const factory StringFailure.invalidCvsayaAttendanceQrUrl({
-    required String? failedValue,
-  }) = InvalidCvsayaAttendanceQrUrl;
   const factory StringFailure.invalidDateTime({
     required DateTime failedValue,
     required String pattern,

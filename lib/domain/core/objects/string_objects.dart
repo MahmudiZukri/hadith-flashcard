@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:hadith_flashcard/domain/core/errors.dart';
 import 'package:hadith_flashcard/domain/core/failures/string/string_failures.dart';
+import 'package:hadith_flashcard/domain/core/failures/value/value_failures.dart';
 import 'package:hadith_flashcard/domain/core/validators/string_validators.dart';
 import 'package:intl/intl.dart';
 
@@ -25,6 +26,28 @@ abstract class StringObject {
     return value.fold((f) => '', id);
   }
 
+  Either<StringFailure, Unit> get failureOrUnit {
+    return value.fold(
+      (l) => left(l),
+      (r) => right(unit),
+    );
+  }
+
+  bool isValid() => value.isRight();
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+
+    return other is StringObject && other.value == value;
+  }
+
+  @override
+  String toString() => 'Value($value)';
+
+  @override
+  int get hashCode => value.hashCode;
+
   String getOrFailureText() => value.fold(
       (f) => f.maybeMap(
           empty: (_) => '',
@@ -38,15 +61,28 @@ abstract class StringObject {
           invalidPhone: (s) => s.failedValue ?? '',
           confirmationNotMatch: (s) => s.failedValue ?? '',
           invalidUrl: (s) => s.failedValue ?? '',
-          invalidEnakTableQrUrl: (s) => s.failedValue ?? '',
           invalidSKU: (s) => s.failedValue ?? '',
           orElse: () {
             throw 'Only accept StringObject';
           }),
       id);
 
-  //do localization later
+  //add localization later
+  String? getFoldValidator({
+    bool exceptEmpty = false,
+  }) =>
+      value.fold(
+        //use maybe map for now
+        (l) => l.maybeMap(
+          empty: (_) => exceptEmpty ? null : 'This cannot be null',
+          invalidEmail: (_) => 'Invalid email format',
+          lengthTooShort: (_) => 'Length is too short',
+          orElse: () => 'String Failure OR ELSE',
+        ),
+        (_) => null,
+      );
 
+  //old localization version
   // String? getFoldValidator(
   //   BuildContext context, {
   //   bool exceptEmpty = false,
@@ -84,27 +120,6 @@ abstract class StringObject {
   //       (r) => null,
   //     );
 
-  Either<StringFailure, Unit> get failureOrUnit {
-    return value.fold(
-      (l) => left(l),
-      (r) => right(unit),
-    );
-  }
-
-  bool isValid() => value.isRight();
-
-  @override
-  bool operator ==(Object o) {
-    if (identical(this, o)) return true;
-
-    return o is StringObject && o.value == value;
-  }
-
-  @override
-  int get hashCode => value.hashCode;
-
-  @override
-  String toString() => 'Value($value)';
 }
 
 class Time extends StringObject {
@@ -305,30 +320,6 @@ class UrlAddress extends StringObject {
   const UrlAddress._(this.value);
 }
 
-class EnakTableQrUrlAddress extends StringObject {
-  @override
-  final Either<StringFailure, String> value;
-
-  factory EnakTableQrUrlAddress(String input) {
-    return EnakTableQrUrlAddress._(
-        StringValidators.validateEnakTableQrUrl(input));
-  }
-
-  const EnakTableQrUrlAddress._(this.value);
-}
-
-class CvsayaAttendanceQrUrlAddress extends StringObject {
-  @override
-  final Either<StringFailure, String> value;
-
-  factory CvsayaAttendanceQrUrlAddress(String input) {
-    return CvsayaAttendanceQrUrlAddress._(
-        StringValidators.validateCvsayaAttendanceQrUrl(input));
-  }
-
-  const CvsayaAttendanceQrUrlAddress._(this.value);
-}
-
 class PersonName extends StringObject {
   @override
   final Either<StringFailure, String> value;
@@ -415,6 +406,21 @@ class EmailAddress extends StringObject {
   }
 
   const EmailAddress._(this.value, this.censoredText);
+}
+
+class Password extends StringObject {
+  @override
+  final Either<StringFailure, String> value;
+
+  factory Password(String input) {
+    return Password._(
+      StringValidators.validatePassword(
+        input,
+      ),
+    );
+  }
+
+  const Password._(this.value);
 }
 
 class DateOnly extends StringObject {

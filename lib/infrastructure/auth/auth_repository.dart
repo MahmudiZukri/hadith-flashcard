@@ -11,7 +11,7 @@ class AuthRepository implements IAuthRepository {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   @override
-  Future<Either<AuthFailure, bool>> signUp({
+  Future<Either<AuthFailure, Unit>> signUp({
     required String email,
     required String password,
   }) async {
@@ -23,7 +23,7 @@ class AuthRepository implements IAuthRepository {
 
       if (credential.user != null) {
         return right(
-          true,
+          unit,
         );
       } else if (credential.user == null) {
         return left(

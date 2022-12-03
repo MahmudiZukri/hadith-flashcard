@@ -21,33 +21,41 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           emailChanged: (e) {
             emit(
               state.copyWith(
-                email: e.email,
+                email: EmailAddress(e.emailStr),
+                optionFailureOrSuccess: none(),
               ),
             );
           },
           passwordChanged: (e) {
             emit(
               state.copyWith(
-                password: e.password,
+                password: Password(e.passwordStr),
+                optionFailureOrSuccess: none(),
               ),
             );
           },
           signUp: (e) async {
-            emit(
-              state.copyWith(
-                onLoading: true,
-              ),
-            );
+            Either<AuthFailure, Unit>? failureOrSuccess;
 
-            final failureOrSuccess = await _authRepository.signUp(
-              email: state.email.getOrCrash(),
-              password: state.password.getOrCrash(),
-            );
+            if (state.email.isValid() && state.password.isValid()) {
+              emit(
+                state.copyWith(
+                  onLoading: true,
+                  optionFailureOrSuccess: none(),
+                ),
+              );
+
+              failureOrSuccess = await _authRepository.signUp(
+                email: state.email.getOrCrash(),
+                password: state.password.getOrCrash(),
+              );
+            }
 
             emit(
               state.copyWith(
                 onLoading: false,
-                showMessage: !state.showMessage,
+                showErrorMessages: true,
+                showSnackbar: !state.showSnackbar,
                 optionFailureOrSuccess: optionOf(
                   failureOrSuccess,
                 ),

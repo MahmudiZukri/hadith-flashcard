@@ -10,11 +10,10 @@
 // import 'package:url_launcher/url_launcher.dart';
 // import 'package:uuid/uuid.dart';
 
-import 'package:fpdart/fpdart.dart';
-import 'package:intl/intl.dart';
+part of 'shared.dart';
 
 class CommonUtils {
-  static final RegExp _phoneRegExp = RegExp(r'^(?:[+0])?[0-9]{8,15}$');
+  // static final RegExp _phoneRegExp = RegExp(r'^(?:[+0])?[0-9]{8,15}$');
 
   static String dateFormat(DateTime date, String pattern) {
     final DateFormat format = DateFormat(

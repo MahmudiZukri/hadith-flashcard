@@ -32,8 +32,6 @@ mixin _$StringFailure {
     required TResult Function(String? failedValue) invalidEmail,
     required TResult Function(String? failedValue) invalidUrl,
     required TResult Function(String? failedValue) invalidSKU,
-    required TResult Function(String? failedValue) invalidEnakTableQrUrl,
-    required TResult Function(String? failedValue) invalidCvsayaAttendanceQrUrl,
     required TResult Function(DateTime failedValue, String pattern)
         invalidDateTime,
     required TResult Function(String? failedValue) invalidPersonName,
@@ -57,8 +55,6 @@ mixin _$StringFailure {
     TResult? Function(String? failedValue)? invalidEmail,
     TResult? Function(String? failedValue)? invalidUrl,
     TResult? Function(String? failedValue)? invalidSKU,
-    TResult? Function(String? failedValue)? invalidEnakTableQrUrl,
-    TResult? Function(String? failedValue)? invalidCvsayaAttendanceQrUrl,
     TResult? Function(DateTime failedValue, String pattern)? invalidDateTime,
     TResult? Function(String? failedValue)? invalidPersonName,
     TResult? Function(String? failedValue)? shortToken,
@@ -81,8 +77,6 @@ mixin _$StringFailure {
     TResult Function(String? failedValue)? invalidEmail,
     TResult Function(String? failedValue)? invalidUrl,
     TResult Function(String? failedValue)? invalidSKU,
-    TResult Function(String? failedValue)? invalidEnakTableQrUrl,
-    TResult Function(String? failedValue)? invalidCvsayaAttendanceQrUrl,
     TResult Function(DateTime failedValue, String pattern)? invalidDateTime,
     TResult Function(String? failedValue)? invalidPersonName,
     TResult Function(String? failedValue)? shortToken,
@@ -105,9 +99,6 @@ mixin _$StringFailure {
     required TResult Function(InvalidEmail value) invalidEmail,
     required TResult Function(InvalidUrl value) invalidUrl,
     required TResult Function(InvalidSKU value) invalidSKU,
-    required TResult Function(InvalidTableQrUrl value) invalidEnakTableQrUrl,
-    required TResult Function(InvalidCvsayaAttendanceQrUrl value)
-        invalidCvsayaAttendanceQrUrl,
     required TResult Function(InvalidDateTime value) invalidDateTime,
     required TResult Function(InvalidPersonName value) invalidPersonName,
     required TResult Function(ShortToken value) shortToken,
@@ -129,9 +120,6 @@ mixin _$StringFailure {
     TResult? Function(InvalidEmail value)? invalidEmail,
     TResult? Function(InvalidUrl value)? invalidUrl,
     TResult? Function(InvalidSKU value)? invalidSKU,
-    TResult? Function(InvalidTableQrUrl value)? invalidEnakTableQrUrl,
-    TResult? Function(InvalidCvsayaAttendanceQrUrl value)?
-        invalidCvsayaAttendanceQrUrl,
     TResult? Function(InvalidDateTime value)? invalidDateTime,
     TResult? Function(InvalidPersonName value)? invalidPersonName,
     TResult? Function(ShortToken value)? shortToken,
@@ -153,9 +141,6 @@ mixin _$StringFailure {
     TResult Function(InvalidEmail value)? invalidEmail,
     TResult Function(InvalidUrl value)? invalidUrl,
     TResult Function(InvalidSKU value)? invalidSKU,
-    TResult Function(InvalidTableQrUrl value)? invalidEnakTableQrUrl,
-    TResult Function(InvalidCvsayaAttendanceQrUrl value)?
-        invalidCvsayaAttendanceQrUrl,
     TResult Function(InvalidDateTime value)? invalidDateTime,
     TResult Function(InvalidPersonName value)? invalidPersonName,
     TResult Function(ShortToken value)? shortToken,
@@ -261,8 +246,6 @@ class _$Empty implements Empty {
     required TResult Function(String? failedValue) invalidEmail,
     required TResult Function(String? failedValue) invalidUrl,
     required TResult Function(String? failedValue) invalidSKU,
-    required TResult Function(String? failedValue) invalidEnakTableQrUrl,
-    required TResult Function(String? failedValue) invalidCvsayaAttendanceQrUrl,
     required TResult Function(DateTime failedValue, String pattern)
         invalidDateTime,
     required TResult Function(String? failedValue) invalidPersonName,
@@ -289,8 +272,6 @@ class _$Empty implements Empty {
     TResult? Function(String? failedValue)? invalidEmail,
     TResult? Function(String? failedValue)? invalidUrl,
     TResult? Function(String? failedValue)? invalidSKU,
-    TResult? Function(String? failedValue)? invalidEnakTableQrUrl,
-    TResult? Function(String? failedValue)? invalidCvsayaAttendanceQrUrl,
     TResult? Function(DateTime failedValue, String pattern)? invalidDateTime,
     TResult? Function(String? failedValue)? invalidPersonName,
     TResult? Function(String? failedValue)? shortToken,
@@ -316,8 +297,6 @@ class _$Empty implements Empty {
     TResult Function(String? failedValue)? invalidEmail,
     TResult Function(String? failedValue)? invalidUrl,
     TResult Function(String? failedValue)? invalidSKU,
-    TResult Function(String? failedValue)? invalidEnakTableQrUrl,
-    TResult Function(String? failedValue)? invalidCvsayaAttendanceQrUrl,
     TResult Function(DateTime failedValue, String pattern)? invalidDateTime,
     TResult Function(String? failedValue)? invalidPersonName,
     TResult Function(String? failedValue)? shortToken,
@@ -346,9 +325,6 @@ class _$Empty implements Empty {
     required TResult Function(InvalidEmail value) invalidEmail,
     required TResult Function(InvalidUrl value) invalidUrl,
     required TResult Function(InvalidSKU value) invalidSKU,
-    required TResult Function(InvalidTableQrUrl value) invalidEnakTableQrUrl,
-    required TResult Function(InvalidCvsayaAttendanceQrUrl value)
-        invalidCvsayaAttendanceQrUrl,
     required TResult Function(InvalidDateTime value) invalidDateTime,
     required TResult Function(InvalidPersonName value) invalidPersonName,
     required TResult Function(ShortToken value) shortToken,
@@ -373,9 +349,6 @@ class _$Empty implements Empty {
     TResult? Function(InvalidEmail value)? invalidEmail,
     TResult? Function(InvalidUrl value)? invalidUrl,
     TResult? Function(InvalidSKU value)? invalidSKU,
-    TResult? Function(InvalidTableQrUrl value)? invalidEnakTableQrUrl,
-    TResult? Function(InvalidCvsayaAttendanceQrUrl value)?
-        invalidCvsayaAttendanceQrUrl,
     TResult? Function(InvalidDateTime value)? invalidDateTime,
     TResult? Function(InvalidPersonName value)? invalidPersonName,
     TResult? Function(ShortToken value)? shortToken,
@@ -400,9 +373,6 @@ class _$Empty implements Empty {
     TResult Function(InvalidEmail value)? invalidEmail,
     TResult Function(InvalidUrl value)? invalidUrl,
     TResult Function(InvalidSKU value)? invalidSKU,
-    TResult Function(InvalidTableQrUrl value)? invalidEnakTableQrUrl,
-    TResult Function(InvalidCvsayaAttendanceQrUrl value)?
-        invalidCvsayaAttendanceQrUrl,
     TResult Function(InvalidDateTime value)? invalidDateTime,
     TResult Function(InvalidPersonName value)? invalidPersonName,
     TResult Function(ShortToken value)? shortToken,
@@ -504,8 +474,6 @@ class _$HasWhitespace implements HasWhitespace {
     required TResult Function(String? failedValue) invalidEmail,
     required TResult Function(String? failedValue) invalidUrl,
     required TResult Function(String? failedValue) invalidSKU,
-    required TResult Function(String? failedValue) invalidEnakTableQrUrl,
-    required TResult Function(String? failedValue) invalidCvsayaAttendanceQrUrl,
     required TResult Function(DateTime failedValue, String pattern)
         invalidDateTime,
     required TResult Function(String? failedValue) invalidPersonName,
@@ -532,8 +500,6 @@ class _$HasWhitespace implements HasWhitespace {
     TResult? Function(String? failedValue)? invalidEmail,
     TResult? Function(String? failedValue)? invalidUrl,
     TResult? Function(String? failedValue)? invalidSKU,
-    TResult? Function(String? failedValue)? invalidEnakTableQrUrl,
-    TResult? Function(String? failedValue)? invalidCvsayaAttendanceQrUrl,
     TResult? Function(DateTime failedValue, String pattern)? invalidDateTime,
     TResult? Function(String? failedValue)? invalidPersonName,
     TResult? Function(String? failedValue)? shortToken,
@@ -559,8 +525,6 @@ class _$HasWhitespace implements HasWhitespace {
     TResult Function(String? failedValue)? invalidEmail,
     TResult Function(String? failedValue)? invalidUrl,
     TResult Function(String? failedValue)? invalidSKU,
-    TResult Function(String? failedValue)? invalidEnakTableQrUrl,
-    TResult Function(String? failedValue)? invalidCvsayaAttendanceQrUrl,
     TResult Function(DateTime failedValue, String pattern)? invalidDateTime,
     TResult Function(String? failedValue)? invalidPersonName,
     TResult Function(String? failedValue)? shortToken,
@@ -589,9 +553,6 @@ class _$HasWhitespace implements HasWhitespace {
     required TResult Function(InvalidEmail value) invalidEmail,
     required TResult Function(InvalidUrl value) invalidUrl,
     required TResult Function(InvalidSKU value) invalidSKU,
-    required TResult Function(InvalidTableQrUrl value) invalidEnakTableQrUrl,
-    required TResult Function(InvalidCvsayaAttendanceQrUrl value)
-        invalidCvsayaAttendanceQrUrl,
     required TResult Function(InvalidDateTime value) invalidDateTime,
     required TResult Function(InvalidPersonName value) invalidPersonName,
     required TResult Function(ShortToken value) shortToken,
@@ -616,9 +577,6 @@ class _$HasWhitespace implements HasWhitespace {
     TResult? Function(InvalidEmail value)? invalidEmail,
     TResult? Function(InvalidUrl value)? invalidUrl,
     TResult? Function(InvalidSKU value)? invalidSKU,
-    TResult? Function(InvalidTableQrUrl value)? invalidEnakTableQrUrl,
-    TResult? Function(InvalidCvsayaAttendanceQrUrl value)?
-        invalidCvsayaAttendanceQrUrl,
     TResult? Function(InvalidDateTime value)? invalidDateTime,
     TResult? Function(InvalidPersonName value)? invalidPersonName,
     TResult? Function(ShortToken value)? shortToken,
@@ -643,9 +601,6 @@ class _$HasWhitespace implements HasWhitespace {
     TResult Function(InvalidEmail value)? invalidEmail,
     TResult Function(InvalidUrl value)? invalidUrl,
     TResult Function(InvalidSKU value)? invalidSKU,
-    TResult Function(InvalidTableQrUrl value)? invalidEnakTableQrUrl,
-    TResult Function(InvalidCvsayaAttendanceQrUrl value)?
-        invalidCvsayaAttendanceQrUrl,
     TResult Function(InvalidDateTime value)? invalidDateTime,
     TResult Function(InvalidPersonName value)? invalidPersonName,
     TResult Function(ShortToken value)? shortToken,
@@ -749,8 +704,6 @@ class _$IsNotAlphanumeric implements IsNotAlphanumeric {
     required TResult Function(String? failedValue) invalidEmail,
     required TResult Function(String? failedValue) invalidUrl,
     required TResult Function(String? failedValue) invalidSKU,
-    required TResult Function(String? failedValue) invalidEnakTableQrUrl,
-    required TResult Function(String? failedValue) invalidCvsayaAttendanceQrUrl,
     required TResult Function(DateTime failedValue, String pattern)
         invalidDateTime,
     required TResult Function(String? failedValue) invalidPersonName,
@@ -777,8 +730,6 @@ class _$IsNotAlphanumeric implements IsNotAlphanumeric {
     TResult? Function(String? failedValue)? invalidEmail,
     TResult? Function(String? failedValue)? invalidUrl,
     TResult? Function(String? failedValue)? invalidSKU,
-    TResult? Function(String? failedValue)? invalidEnakTableQrUrl,
-    TResult? Function(String? failedValue)? invalidCvsayaAttendanceQrUrl,
     TResult? Function(DateTime failedValue, String pattern)? invalidDateTime,
     TResult? Function(String? failedValue)? invalidPersonName,
     TResult? Function(String? failedValue)? shortToken,
@@ -804,8 +755,6 @@ class _$IsNotAlphanumeric implements IsNotAlphanumeric {
     TResult Function(String? failedValue)? invalidEmail,
     TResult Function(String? failedValue)? invalidUrl,
     TResult Function(String? failedValue)? invalidSKU,
-    TResult Function(String? failedValue)? invalidEnakTableQrUrl,
-    TResult Function(String? failedValue)? invalidCvsayaAttendanceQrUrl,
     TResult Function(DateTime failedValue, String pattern)? invalidDateTime,
     TResult Function(String? failedValue)? invalidPersonName,
     TResult Function(String? failedValue)? shortToken,
@@ -834,9 +783,6 @@ class _$IsNotAlphanumeric implements IsNotAlphanumeric {
     required TResult Function(InvalidEmail value) invalidEmail,
     required TResult Function(InvalidUrl value) invalidUrl,
     required TResult Function(InvalidSKU value) invalidSKU,
-    required TResult Function(InvalidTableQrUrl value) invalidEnakTableQrUrl,
-    required TResult Function(InvalidCvsayaAttendanceQrUrl value)
-        invalidCvsayaAttendanceQrUrl,
     required TResult Function(InvalidDateTime value) invalidDateTime,
     required TResult Function(InvalidPersonName value) invalidPersonName,
     required TResult Function(ShortToken value) shortToken,
@@ -861,9 +807,6 @@ class _$IsNotAlphanumeric implements IsNotAlphanumeric {
     TResult? Function(InvalidEmail value)? invalidEmail,
     TResult? Function(InvalidUrl value)? invalidUrl,
     TResult? Function(InvalidSKU value)? invalidSKU,
-    TResult? Function(InvalidTableQrUrl value)? invalidEnakTableQrUrl,
-    TResult? Function(InvalidCvsayaAttendanceQrUrl value)?
-        invalidCvsayaAttendanceQrUrl,
     TResult? Function(InvalidDateTime value)? invalidDateTime,
     TResult? Function(InvalidPersonName value)? invalidPersonName,
     TResult? Function(ShortToken value)? shortToken,
@@ -888,9 +831,6 @@ class _$IsNotAlphanumeric implements IsNotAlphanumeric {
     TResult Function(InvalidEmail value)? invalidEmail,
     TResult Function(InvalidUrl value)? invalidUrl,
     TResult Function(InvalidSKU value)? invalidSKU,
-    TResult Function(InvalidTableQrUrl value)? invalidEnakTableQrUrl,
-    TResult Function(InvalidCvsayaAttendanceQrUrl value)?
-        invalidCvsayaAttendanceQrUrl,
     TResult Function(InvalidDateTime value)? invalidDateTime,
     TResult Function(InvalidPersonName value)? invalidPersonName,
     TResult Function(ShortToken value)? shortToken,
@@ -1002,8 +942,6 @@ class _$ExceedingLength implements ExceedingLength {
     required TResult Function(String? failedValue) invalidEmail,
     required TResult Function(String? failedValue) invalidUrl,
     required TResult Function(String? failedValue) invalidSKU,
-    required TResult Function(String? failedValue) invalidEnakTableQrUrl,
-    required TResult Function(String? failedValue) invalidCvsayaAttendanceQrUrl,
     required TResult Function(DateTime failedValue, String pattern)
         invalidDateTime,
     required TResult Function(String? failedValue) invalidPersonName,
@@ -1030,8 +968,6 @@ class _$ExceedingLength implements ExceedingLength {
     TResult? Function(String? failedValue)? invalidEmail,
     TResult? Function(String? failedValue)? invalidUrl,
     TResult? Function(String? failedValue)? invalidSKU,
-    TResult? Function(String? failedValue)? invalidEnakTableQrUrl,
-    TResult? Function(String? failedValue)? invalidCvsayaAttendanceQrUrl,
     TResult? Function(DateTime failedValue, String pattern)? invalidDateTime,
     TResult? Function(String? failedValue)? invalidPersonName,
     TResult? Function(String? failedValue)? shortToken,
@@ -1057,8 +993,6 @@ class _$ExceedingLength implements ExceedingLength {
     TResult Function(String? failedValue)? invalidEmail,
     TResult Function(String? failedValue)? invalidUrl,
     TResult Function(String? failedValue)? invalidSKU,
-    TResult Function(String? failedValue)? invalidEnakTableQrUrl,
-    TResult Function(String? failedValue)? invalidCvsayaAttendanceQrUrl,
     TResult Function(DateTime failedValue, String pattern)? invalidDateTime,
     TResult Function(String? failedValue)? invalidPersonName,
     TResult Function(String? failedValue)? shortToken,
@@ -1087,9 +1021,6 @@ class _$ExceedingLength implements ExceedingLength {
     required TResult Function(InvalidEmail value) invalidEmail,
     required TResult Function(InvalidUrl value) invalidUrl,
     required TResult Function(InvalidSKU value) invalidSKU,
-    required TResult Function(InvalidTableQrUrl value) invalidEnakTableQrUrl,
-    required TResult Function(InvalidCvsayaAttendanceQrUrl value)
-        invalidCvsayaAttendanceQrUrl,
     required TResult Function(InvalidDateTime value) invalidDateTime,
     required TResult Function(InvalidPersonName value) invalidPersonName,
     required TResult Function(ShortToken value) shortToken,
@@ -1114,9 +1045,6 @@ class _$ExceedingLength implements ExceedingLength {
     TResult? Function(InvalidEmail value)? invalidEmail,
     TResult? Function(InvalidUrl value)? invalidUrl,
     TResult? Function(InvalidSKU value)? invalidSKU,
-    TResult? Function(InvalidTableQrUrl value)? invalidEnakTableQrUrl,
-    TResult? Function(InvalidCvsayaAttendanceQrUrl value)?
-        invalidCvsayaAttendanceQrUrl,
     TResult? Function(InvalidDateTime value)? invalidDateTime,
     TResult? Function(InvalidPersonName value)? invalidPersonName,
     TResult? Function(ShortToken value)? shortToken,
@@ -1141,9 +1069,6 @@ class _$ExceedingLength implements ExceedingLength {
     TResult Function(InvalidEmail value)? invalidEmail,
     TResult Function(InvalidUrl value)? invalidUrl,
     TResult Function(InvalidSKU value)? invalidSKU,
-    TResult Function(InvalidTableQrUrl value)? invalidEnakTableQrUrl,
-    TResult Function(InvalidCvsayaAttendanceQrUrl value)?
-        invalidCvsayaAttendanceQrUrl,
     TResult Function(InvalidDateTime value)? invalidDateTime,
     TResult Function(InvalidPersonName value)? invalidPersonName,
     TResult Function(ShortToken value)? shortToken,
@@ -1256,8 +1181,6 @@ class _$TooShort implements TooShort {
     required TResult Function(String? failedValue) invalidEmail,
     required TResult Function(String? failedValue) invalidUrl,
     required TResult Function(String? failedValue) invalidSKU,
-    required TResult Function(String? failedValue) invalidEnakTableQrUrl,
-    required TResult Function(String? failedValue) invalidCvsayaAttendanceQrUrl,
     required TResult Function(DateTime failedValue, String pattern)
         invalidDateTime,
     required TResult Function(String? failedValue) invalidPersonName,
@@ -1284,8 +1207,6 @@ class _$TooShort implements TooShort {
     TResult? Function(String? failedValue)? invalidEmail,
     TResult? Function(String? failedValue)? invalidUrl,
     TResult? Function(String? failedValue)? invalidSKU,
-    TResult? Function(String? failedValue)? invalidEnakTableQrUrl,
-    TResult? Function(String? failedValue)? invalidCvsayaAttendanceQrUrl,
     TResult? Function(DateTime failedValue, String pattern)? invalidDateTime,
     TResult? Function(String? failedValue)? invalidPersonName,
     TResult? Function(String? failedValue)? shortToken,
@@ -1311,8 +1232,6 @@ class _$TooShort implements TooShort {
     TResult Function(String? failedValue)? invalidEmail,
     TResult Function(String? failedValue)? invalidUrl,
     TResult Function(String? failedValue)? invalidSKU,
-    TResult Function(String? failedValue)? invalidEnakTableQrUrl,
-    TResult Function(String? failedValue)? invalidCvsayaAttendanceQrUrl,
     TResult Function(DateTime failedValue, String pattern)? invalidDateTime,
     TResult Function(String? failedValue)? invalidPersonName,
     TResult Function(String? failedValue)? shortToken,
@@ -1341,9 +1260,6 @@ class _$TooShort implements TooShort {
     required TResult Function(InvalidEmail value) invalidEmail,
     required TResult Function(InvalidUrl value) invalidUrl,
     required TResult Function(InvalidSKU value) invalidSKU,
-    required TResult Function(InvalidTableQrUrl value) invalidEnakTableQrUrl,
-    required TResult Function(InvalidCvsayaAttendanceQrUrl value)
-        invalidCvsayaAttendanceQrUrl,
     required TResult Function(InvalidDateTime value) invalidDateTime,
     required TResult Function(InvalidPersonName value) invalidPersonName,
     required TResult Function(ShortToken value) shortToken,
@@ -1368,9 +1284,6 @@ class _$TooShort implements TooShort {
     TResult? Function(InvalidEmail value)? invalidEmail,
     TResult? Function(InvalidUrl value)? invalidUrl,
     TResult? Function(InvalidSKU value)? invalidSKU,
-    TResult? Function(InvalidTableQrUrl value)? invalidEnakTableQrUrl,
-    TResult? Function(InvalidCvsayaAttendanceQrUrl value)?
-        invalidCvsayaAttendanceQrUrl,
     TResult? Function(InvalidDateTime value)? invalidDateTime,
     TResult? Function(InvalidPersonName value)? invalidPersonName,
     TResult? Function(ShortToken value)? shortToken,
@@ -1395,9 +1308,6 @@ class _$TooShort implements TooShort {
     TResult Function(InvalidEmail value)? invalidEmail,
     TResult Function(InvalidUrl value)? invalidUrl,
     TResult Function(InvalidSKU value)? invalidSKU,
-    TResult Function(InvalidTableQrUrl value)? invalidEnakTableQrUrl,
-    TResult Function(InvalidCvsayaAttendanceQrUrl value)?
-        invalidCvsayaAttendanceQrUrl,
     TResult Function(InvalidDateTime value)? invalidDateTime,
     TResult Function(InvalidPersonName value)? invalidPersonName,
     TResult Function(ShortToken value)? shortToken,
@@ -1511,8 +1421,6 @@ class _$WrongLength implements WrongLength {
     required TResult Function(String? failedValue) invalidEmail,
     required TResult Function(String? failedValue) invalidUrl,
     required TResult Function(String? failedValue) invalidSKU,
-    required TResult Function(String? failedValue) invalidEnakTableQrUrl,
-    required TResult Function(String? failedValue) invalidCvsayaAttendanceQrUrl,
     required TResult Function(DateTime failedValue, String pattern)
         invalidDateTime,
     required TResult Function(String? failedValue) invalidPersonName,
@@ -1539,8 +1447,6 @@ class _$WrongLength implements WrongLength {
     TResult? Function(String? failedValue)? invalidEmail,
     TResult? Function(String? failedValue)? invalidUrl,
     TResult? Function(String? failedValue)? invalidSKU,
-    TResult? Function(String? failedValue)? invalidEnakTableQrUrl,
-    TResult? Function(String? failedValue)? invalidCvsayaAttendanceQrUrl,
     TResult? Function(DateTime failedValue, String pattern)? invalidDateTime,
     TResult? Function(String? failedValue)? invalidPersonName,
     TResult? Function(String? failedValue)? shortToken,
@@ -1566,8 +1472,6 @@ class _$WrongLength implements WrongLength {
     TResult Function(String? failedValue)? invalidEmail,
     TResult Function(String? failedValue)? invalidUrl,
     TResult Function(String? failedValue)? invalidSKU,
-    TResult Function(String? failedValue)? invalidEnakTableQrUrl,
-    TResult Function(String? failedValue)? invalidCvsayaAttendanceQrUrl,
     TResult Function(DateTime failedValue, String pattern)? invalidDateTime,
     TResult Function(String? failedValue)? invalidPersonName,
     TResult Function(String? failedValue)? shortToken,
@@ -1596,9 +1500,6 @@ class _$WrongLength implements WrongLength {
     required TResult Function(InvalidEmail value) invalidEmail,
     required TResult Function(InvalidUrl value) invalidUrl,
     required TResult Function(InvalidSKU value) invalidSKU,
-    required TResult Function(InvalidTableQrUrl value) invalidEnakTableQrUrl,
-    required TResult Function(InvalidCvsayaAttendanceQrUrl value)
-        invalidCvsayaAttendanceQrUrl,
     required TResult Function(InvalidDateTime value) invalidDateTime,
     required TResult Function(InvalidPersonName value) invalidPersonName,
     required TResult Function(ShortToken value) shortToken,
@@ -1623,9 +1524,6 @@ class _$WrongLength implements WrongLength {
     TResult? Function(InvalidEmail value)? invalidEmail,
     TResult? Function(InvalidUrl value)? invalidUrl,
     TResult? Function(InvalidSKU value)? invalidSKU,
-    TResult? Function(InvalidTableQrUrl value)? invalidEnakTableQrUrl,
-    TResult? Function(InvalidCvsayaAttendanceQrUrl value)?
-        invalidCvsayaAttendanceQrUrl,
     TResult? Function(InvalidDateTime value)? invalidDateTime,
     TResult? Function(InvalidPersonName value)? invalidPersonName,
     TResult? Function(ShortToken value)? shortToken,
@@ -1650,9 +1548,6 @@ class _$WrongLength implements WrongLength {
     TResult Function(InvalidEmail value)? invalidEmail,
     TResult Function(InvalidUrl value)? invalidUrl,
     TResult Function(InvalidSKU value)? invalidSKU,
-    TResult Function(InvalidTableQrUrl value)? invalidEnakTableQrUrl,
-    TResult Function(InvalidCvsayaAttendanceQrUrl value)?
-        invalidCvsayaAttendanceQrUrl,
     TResult Function(InvalidDateTime value)? invalidDateTime,
     TResult Function(InvalidPersonName value)? invalidPersonName,
     TResult Function(ShortToken value)? shortToken,
@@ -1758,8 +1653,6 @@ class _$Multiline implements Multiline {
     required TResult Function(String? failedValue) invalidEmail,
     required TResult Function(String? failedValue) invalidUrl,
     required TResult Function(String? failedValue) invalidSKU,
-    required TResult Function(String? failedValue) invalidEnakTableQrUrl,
-    required TResult Function(String? failedValue) invalidCvsayaAttendanceQrUrl,
     required TResult Function(DateTime failedValue, String pattern)
         invalidDateTime,
     required TResult Function(String? failedValue) invalidPersonName,
@@ -1786,8 +1679,6 @@ class _$Multiline implements Multiline {
     TResult? Function(String? failedValue)? invalidEmail,
     TResult? Function(String? failedValue)? invalidUrl,
     TResult? Function(String? failedValue)? invalidSKU,
-    TResult? Function(String? failedValue)? invalidEnakTableQrUrl,
-    TResult? Function(String? failedValue)? invalidCvsayaAttendanceQrUrl,
     TResult? Function(DateTime failedValue, String pattern)? invalidDateTime,
     TResult? Function(String? failedValue)? invalidPersonName,
     TResult? Function(String? failedValue)? shortToken,
@@ -1813,8 +1704,6 @@ class _$Multiline implements Multiline {
     TResult Function(String? failedValue)? invalidEmail,
     TResult Function(String? failedValue)? invalidUrl,
     TResult Function(String? failedValue)? invalidSKU,
-    TResult Function(String? failedValue)? invalidEnakTableQrUrl,
-    TResult Function(String? failedValue)? invalidCvsayaAttendanceQrUrl,
     TResult Function(DateTime failedValue, String pattern)? invalidDateTime,
     TResult Function(String? failedValue)? invalidPersonName,
     TResult Function(String? failedValue)? shortToken,
@@ -1843,9 +1732,6 @@ class _$Multiline implements Multiline {
     required TResult Function(InvalidEmail value) invalidEmail,
     required TResult Function(InvalidUrl value) invalidUrl,
     required TResult Function(InvalidSKU value) invalidSKU,
-    required TResult Function(InvalidTableQrUrl value) invalidEnakTableQrUrl,
-    required TResult Function(InvalidCvsayaAttendanceQrUrl value)
-        invalidCvsayaAttendanceQrUrl,
     required TResult Function(InvalidDateTime value) invalidDateTime,
     required TResult Function(InvalidPersonName value) invalidPersonName,
     required TResult Function(ShortToken value) shortToken,
@@ -1870,9 +1756,6 @@ class _$Multiline implements Multiline {
     TResult? Function(InvalidEmail value)? invalidEmail,
     TResult? Function(InvalidUrl value)? invalidUrl,
     TResult? Function(InvalidSKU value)? invalidSKU,
-    TResult? Function(InvalidTableQrUrl value)? invalidEnakTableQrUrl,
-    TResult? Function(InvalidCvsayaAttendanceQrUrl value)?
-        invalidCvsayaAttendanceQrUrl,
     TResult? Function(InvalidDateTime value)? invalidDateTime,
     TResult? Function(InvalidPersonName value)? invalidPersonName,
     TResult? Function(ShortToken value)? shortToken,
@@ -1897,9 +1780,6 @@ class _$Multiline implements Multiline {
     TResult Function(InvalidEmail value)? invalidEmail,
     TResult Function(InvalidUrl value)? invalidUrl,
     TResult Function(InvalidSKU value)? invalidSKU,
-    TResult Function(InvalidTableQrUrl value)? invalidEnakTableQrUrl,
-    TResult Function(InvalidCvsayaAttendanceQrUrl value)?
-        invalidCvsayaAttendanceQrUrl,
     TResult Function(InvalidDateTime value)? invalidDateTime,
     TResult Function(InvalidPersonName value)? invalidPersonName,
     TResult Function(ShortToken value)? shortToken,
@@ -2015,8 +1895,6 @@ class _$ConfirmationNotMatch implements ConfirmationNotMatch {
     required TResult Function(String? failedValue) invalidEmail,
     required TResult Function(String? failedValue) invalidUrl,
     required TResult Function(String? failedValue) invalidSKU,
-    required TResult Function(String? failedValue) invalidEnakTableQrUrl,
-    required TResult Function(String? failedValue) invalidCvsayaAttendanceQrUrl,
     required TResult Function(DateTime failedValue, String pattern)
         invalidDateTime,
     required TResult Function(String? failedValue) invalidPersonName,
@@ -2043,8 +1921,6 @@ class _$ConfirmationNotMatch implements ConfirmationNotMatch {
     TResult? Function(String? failedValue)? invalidEmail,
     TResult? Function(String? failedValue)? invalidUrl,
     TResult? Function(String? failedValue)? invalidSKU,
-    TResult? Function(String? failedValue)? invalidEnakTableQrUrl,
-    TResult? Function(String? failedValue)? invalidCvsayaAttendanceQrUrl,
     TResult? Function(DateTime failedValue, String pattern)? invalidDateTime,
     TResult? Function(String? failedValue)? invalidPersonName,
     TResult? Function(String? failedValue)? shortToken,
@@ -2070,8 +1946,6 @@ class _$ConfirmationNotMatch implements ConfirmationNotMatch {
     TResult Function(String? failedValue)? invalidEmail,
     TResult Function(String? failedValue)? invalidUrl,
     TResult Function(String? failedValue)? invalidSKU,
-    TResult Function(String? failedValue)? invalidEnakTableQrUrl,
-    TResult Function(String? failedValue)? invalidCvsayaAttendanceQrUrl,
     TResult Function(DateTime failedValue, String pattern)? invalidDateTime,
     TResult Function(String? failedValue)? invalidPersonName,
     TResult Function(String? failedValue)? shortToken,
@@ -2100,9 +1974,6 @@ class _$ConfirmationNotMatch implements ConfirmationNotMatch {
     required TResult Function(InvalidEmail value) invalidEmail,
     required TResult Function(InvalidUrl value) invalidUrl,
     required TResult Function(InvalidSKU value) invalidSKU,
-    required TResult Function(InvalidTableQrUrl value) invalidEnakTableQrUrl,
-    required TResult Function(InvalidCvsayaAttendanceQrUrl value)
-        invalidCvsayaAttendanceQrUrl,
     required TResult Function(InvalidDateTime value) invalidDateTime,
     required TResult Function(InvalidPersonName value) invalidPersonName,
     required TResult Function(ShortToken value) shortToken,
@@ -2127,9 +1998,6 @@ class _$ConfirmationNotMatch implements ConfirmationNotMatch {
     TResult? Function(InvalidEmail value)? invalidEmail,
     TResult? Function(InvalidUrl value)? invalidUrl,
     TResult? Function(InvalidSKU value)? invalidSKU,
-    TResult? Function(InvalidTableQrUrl value)? invalidEnakTableQrUrl,
-    TResult? Function(InvalidCvsayaAttendanceQrUrl value)?
-        invalidCvsayaAttendanceQrUrl,
     TResult? Function(InvalidDateTime value)? invalidDateTime,
     TResult? Function(InvalidPersonName value)? invalidPersonName,
     TResult? Function(ShortToken value)? shortToken,
@@ -2154,9 +2022,6 @@ class _$ConfirmationNotMatch implements ConfirmationNotMatch {
     TResult Function(InvalidEmail value)? invalidEmail,
     TResult Function(InvalidUrl value)? invalidUrl,
     TResult Function(InvalidSKU value)? invalidSKU,
-    TResult Function(InvalidTableQrUrl value)? invalidEnakTableQrUrl,
-    TResult Function(InvalidCvsayaAttendanceQrUrl value)?
-        invalidCvsayaAttendanceQrUrl,
     TResult Function(InvalidDateTime value)? invalidDateTime,
     TResult Function(InvalidPersonName value)? invalidPersonName,
     TResult Function(ShortToken value)? shortToken,
@@ -2262,8 +2127,6 @@ class _$InvalidPhone implements InvalidPhone {
     required TResult Function(String? failedValue) invalidEmail,
     required TResult Function(String? failedValue) invalidUrl,
     required TResult Function(String? failedValue) invalidSKU,
-    required TResult Function(String? failedValue) invalidEnakTableQrUrl,
-    required TResult Function(String? failedValue) invalidCvsayaAttendanceQrUrl,
     required TResult Function(DateTime failedValue, String pattern)
         invalidDateTime,
     required TResult Function(String? failedValue) invalidPersonName,
@@ -2290,8 +2153,6 @@ class _$InvalidPhone implements InvalidPhone {
     TResult? Function(String? failedValue)? invalidEmail,
     TResult? Function(String? failedValue)? invalidUrl,
     TResult? Function(String? failedValue)? invalidSKU,
-    TResult? Function(String? failedValue)? invalidEnakTableQrUrl,
-    TResult? Function(String? failedValue)? invalidCvsayaAttendanceQrUrl,
     TResult? Function(DateTime failedValue, String pattern)? invalidDateTime,
     TResult? Function(String? failedValue)? invalidPersonName,
     TResult? Function(String? failedValue)? shortToken,
@@ -2317,8 +2178,6 @@ class _$InvalidPhone implements InvalidPhone {
     TResult Function(String? failedValue)? invalidEmail,
     TResult Function(String? failedValue)? invalidUrl,
     TResult Function(String? failedValue)? invalidSKU,
-    TResult Function(String? failedValue)? invalidEnakTableQrUrl,
-    TResult Function(String? failedValue)? invalidCvsayaAttendanceQrUrl,
     TResult Function(DateTime failedValue, String pattern)? invalidDateTime,
     TResult Function(String? failedValue)? invalidPersonName,
     TResult Function(String? failedValue)? shortToken,
@@ -2347,9 +2206,6 @@ class _$InvalidPhone implements InvalidPhone {
     required TResult Function(InvalidEmail value) invalidEmail,
     required TResult Function(InvalidUrl value) invalidUrl,
     required TResult Function(InvalidSKU value) invalidSKU,
-    required TResult Function(InvalidTableQrUrl value) invalidEnakTableQrUrl,
-    required TResult Function(InvalidCvsayaAttendanceQrUrl value)
-        invalidCvsayaAttendanceQrUrl,
     required TResult Function(InvalidDateTime value) invalidDateTime,
     required TResult Function(InvalidPersonName value) invalidPersonName,
     required TResult Function(ShortToken value) shortToken,
@@ -2374,9 +2230,6 @@ class _$InvalidPhone implements InvalidPhone {
     TResult? Function(InvalidEmail value)? invalidEmail,
     TResult? Function(InvalidUrl value)? invalidUrl,
     TResult? Function(InvalidSKU value)? invalidSKU,
-    TResult? Function(InvalidTableQrUrl value)? invalidEnakTableQrUrl,
-    TResult? Function(InvalidCvsayaAttendanceQrUrl value)?
-        invalidCvsayaAttendanceQrUrl,
     TResult? Function(InvalidDateTime value)? invalidDateTime,
     TResult? Function(InvalidPersonName value)? invalidPersonName,
     TResult? Function(ShortToken value)? shortToken,
@@ -2401,9 +2254,6 @@ class _$InvalidPhone implements InvalidPhone {
     TResult Function(InvalidEmail value)? invalidEmail,
     TResult Function(InvalidUrl value)? invalidUrl,
     TResult Function(InvalidSKU value)? invalidSKU,
-    TResult Function(InvalidTableQrUrl value)? invalidEnakTableQrUrl,
-    TResult Function(InvalidCvsayaAttendanceQrUrl value)?
-        invalidCvsayaAttendanceQrUrl,
     TResult Function(InvalidDateTime value)? invalidDateTime,
     TResult Function(InvalidPersonName value)? invalidPersonName,
     TResult Function(ShortToken value)? shortToken,
@@ -2507,8 +2357,6 @@ class _$InvalidEmail implements InvalidEmail {
     required TResult Function(String? failedValue) invalidEmail,
     required TResult Function(String? failedValue) invalidUrl,
     required TResult Function(String? failedValue) invalidSKU,
-    required TResult Function(String? failedValue) invalidEnakTableQrUrl,
-    required TResult Function(String? failedValue) invalidCvsayaAttendanceQrUrl,
     required TResult Function(DateTime failedValue, String pattern)
         invalidDateTime,
     required TResult Function(String? failedValue) invalidPersonName,
@@ -2535,8 +2383,6 @@ class _$InvalidEmail implements InvalidEmail {
     TResult? Function(String? failedValue)? invalidEmail,
     TResult? Function(String? failedValue)? invalidUrl,
     TResult? Function(String? failedValue)? invalidSKU,
-    TResult? Function(String? failedValue)? invalidEnakTableQrUrl,
-    TResult? Function(String? failedValue)? invalidCvsayaAttendanceQrUrl,
     TResult? Function(DateTime failedValue, String pattern)? invalidDateTime,
     TResult? Function(String? failedValue)? invalidPersonName,
     TResult? Function(String? failedValue)? shortToken,
@@ -2562,8 +2408,6 @@ class _$InvalidEmail implements InvalidEmail {
     TResult Function(String? failedValue)? invalidEmail,
     TResult Function(String? failedValue)? invalidUrl,
     TResult Function(String? failedValue)? invalidSKU,
-    TResult Function(String? failedValue)? invalidEnakTableQrUrl,
-    TResult Function(String? failedValue)? invalidCvsayaAttendanceQrUrl,
     TResult Function(DateTime failedValue, String pattern)? invalidDateTime,
     TResult Function(String? failedValue)? invalidPersonName,
     TResult Function(String? failedValue)? shortToken,
@@ -2592,9 +2436,6 @@ class _$InvalidEmail implements InvalidEmail {
     required TResult Function(InvalidEmail value) invalidEmail,
     required TResult Function(InvalidUrl value) invalidUrl,
     required TResult Function(InvalidSKU value) invalidSKU,
-    required TResult Function(InvalidTableQrUrl value) invalidEnakTableQrUrl,
-    required TResult Function(InvalidCvsayaAttendanceQrUrl value)
-        invalidCvsayaAttendanceQrUrl,
     required TResult Function(InvalidDateTime value) invalidDateTime,
     required TResult Function(InvalidPersonName value) invalidPersonName,
     required TResult Function(ShortToken value) shortToken,
@@ -2619,9 +2460,6 @@ class _$InvalidEmail implements InvalidEmail {
     TResult? Function(InvalidEmail value)? invalidEmail,
     TResult? Function(InvalidUrl value)? invalidUrl,
     TResult? Function(InvalidSKU value)? invalidSKU,
-    TResult? Function(InvalidTableQrUrl value)? invalidEnakTableQrUrl,
-    TResult? Function(InvalidCvsayaAttendanceQrUrl value)?
-        invalidCvsayaAttendanceQrUrl,
     TResult? Function(InvalidDateTime value)? invalidDateTime,
     TResult? Function(InvalidPersonName value)? invalidPersonName,
     TResult? Function(ShortToken value)? shortToken,
@@ -2646,9 +2484,6 @@ class _$InvalidEmail implements InvalidEmail {
     TResult Function(InvalidEmail value)? invalidEmail,
     TResult Function(InvalidUrl value)? invalidUrl,
     TResult Function(InvalidSKU value)? invalidSKU,
-    TResult Function(InvalidTableQrUrl value)? invalidEnakTableQrUrl,
-    TResult Function(InvalidCvsayaAttendanceQrUrl value)?
-        invalidCvsayaAttendanceQrUrl,
     TResult Function(InvalidDateTime value)? invalidDateTime,
     TResult Function(InvalidPersonName value)? invalidPersonName,
     TResult Function(ShortToken value)? shortToken,
@@ -2752,8 +2587,6 @@ class _$InvalidUrl implements InvalidUrl {
     required TResult Function(String? failedValue) invalidEmail,
     required TResult Function(String? failedValue) invalidUrl,
     required TResult Function(String? failedValue) invalidSKU,
-    required TResult Function(String? failedValue) invalidEnakTableQrUrl,
-    required TResult Function(String? failedValue) invalidCvsayaAttendanceQrUrl,
     required TResult Function(DateTime failedValue, String pattern)
         invalidDateTime,
     required TResult Function(String? failedValue) invalidPersonName,
@@ -2780,8 +2613,6 @@ class _$InvalidUrl implements InvalidUrl {
     TResult? Function(String? failedValue)? invalidEmail,
     TResult? Function(String? failedValue)? invalidUrl,
     TResult? Function(String? failedValue)? invalidSKU,
-    TResult? Function(String? failedValue)? invalidEnakTableQrUrl,
-    TResult? Function(String? failedValue)? invalidCvsayaAttendanceQrUrl,
     TResult? Function(DateTime failedValue, String pattern)? invalidDateTime,
     TResult? Function(String? failedValue)? invalidPersonName,
     TResult? Function(String? failedValue)? shortToken,
@@ -2807,8 +2638,6 @@ class _$InvalidUrl implements InvalidUrl {
     TResult Function(String? failedValue)? invalidEmail,
     TResult Function(String? failedValue)? invalidUrl,
     TResult Function(String? failedValue)? invalidSKU,
-    TResult Function(String? failedValue)? invalidEnakTableQrUrl,
-    TResult Function(String? failedValue)? invalidCvsayaAttendanceQrUrl,
     TResult Function(DateTime failedValue, String pattern)? invalidDateTime,
     TResult Function(String? failedValue)? invalidPersonName,
     TResult Function(String? failedValue)? shortToken,
@@ -2837,9 +2666,6 @@ class _$InvalidUrl implements InvalidUrl {
     required TResult Function(InvalidEmail value) invalidEmail,
     required TResult Function(InvalidUrl value) invalidUrl,
     required TResult Function(InvalidSKU value) invalidSKU,
-    required TResult Function(InvalidTableQrUrl value) invalidEnakTableQrUrl,
-    required TResult Function(InvalidCvsayaAttendanceQrUrl value)
-        invalidCvsayaAttendanceQrUrl,
     required TResult Function(InvalidDateTime value) invalidDateTime,
     required TResult Function(InvalidPersonName value) invalidPersonName,
     required TResult Function(ShortToken value) shortToken,
@@ -2864,9 +2690,6 @@ class _$InvalidUrl implements InvalidUrl {
     TResult? Function(InvalidEmail value)? invalidEmail,
     TResult? Function(InvalidUrl value)? invalidUrl,
     TResult? Function(InvalidSKU value)? invalidSKU,
-    TResult? Function(InvalidTableQrUrl value)? invalidEnakTableQrUrl,
-    TResult? Function(InvalidCvsayaAttendanceQrUrl value)?
-        invalidCvsayaAttendanceQrUrl,
     TResult? Function(InvalidDateTime value)? invalidDateTime,
     TResult? Function(InvalidPersonName value)? invalidPersonName,
     TResult? Function(ShortToken value)? shortToken,
@@ -2891,9 +2714,6 @@ class _$InvalidUrl implements InvalidUrl {
     TResult Function(InvalidEmail value)? invalidEmail,
     TResult Function(InvalidUrl value)? invalidUrl,
     TResult Function(InvalidSKU value)? invalidSKU,
-    TResult Function(InvalidTableQrUrl value)? invalidEnakTableQrUrl,
-    TResult Function(InvalidCvsayaAttendanceQrUrl value)?
-        invalidCvsayaAttendanceQrUrl,
     TResult Function(InvalidDateTime value)? invalidDateTime,
     TResult Function(InvalidPersonName value)? invalidPersonName,
     TResult Function(ShortToken value)? shortToken,
@@ -2996,8 +2816,6 @@ class _$InvalidSKU implements InvalidSKU {
     required TResult Function(String? failedValue) invalidEmail,
     required TResult Function(String? failedValue) invalidUrl,
     required TResult Function(String? failedValue) invalidSKU,
-    required TResult Function(String? failedValue) invalidEnakTableQrUrl,
-    required TResult Function(String? failedValue) invalidCvsayaAttendanceQrUrl,
     required TResult Function(DateTime failedValue, String pattern)
         invalidDateTime,
     required TResult Function(String? failedValue) invalidPersonName,
@@ -3024,8 +2842,6 @@ class _$InvalidSKU implements InvalidSKU {
     TResult? Function(String? failedValue)? invalidEmail,
     TResult? Function(String? failedValue)? invalidUrl,
     TResult? Function(String? failedValue)? invalidSKU,
-    TResult? Function(String? failedValue)? invalidEnakTableQrUrl,
-    TResult? Function(String? failedValue)? invalidCvsayaAttendanceQrUrl,
     TResult? Function(DateTime failedValue, String pattern)? invalidDateTime,
     TResult? Function(String? failedValue)? invalidPersonName,
     TResult? Function(String? failedValue)? shortToken,
@@ -3051,8 +2867,6 @@ class _$InvalidSKU implements InvalidSKU {
     TResult Function(String? failedValue)? invalidEmail,
     TResult Function(String? failedValue)? invalidUrl,
     TResult Function(String? failedValue)? invalidSKU,
-    TResult Function(String? failedValue)? invalidEnakTableQrUrl,
-    TResult Function(String? failedValue)? invalidCvsayaAttendanceQrUrl,
     TResult Function(DateTime failedValue, String pattern)? invalidDateTime,
     TResult Function(String? failedValue)? invalidPersonName,
     TResult Function(String? failedValue)? shortToken,
@@ -3081,9 +2895,6 @@ class _$InvalidSKU implements InvalidSKU {
     required TResult Function(InvalidEmail value) invalidEmail,
     required TResult Function(InvalidUrl value) invalidUrl,
     required TResult Function(InvalidSKU value) invalidSKU,
-    required TResult Function(InvalidTableQrUrl value) invalidEnakTableQrUrl,
-    required TResult Function(InvalidCvsayaAttendanceQrUrl value)
-        invalidCvsayaAttendanceQrUrl,
     required TResult Function(InvalidDateTime value) invalidDateTime,
     required TResult Function(InvalidPersonName value) invalidPersonName,
     required TResult Function(ShortToken value) shortToken,
@@ -3108,9 +2919,6 @@ class _$InvalidSKU implements InvalidSKU {
     TResult? Function(InvalidEmail value)? invalidEmail,
     TResult? Function(InvalidUrl value)? invalidUrl,
     TResult? Function(InvalidSKU value)? invalidSKU,
-    TResult? Function(InvalidTableQrUrl value)? invalidEnakTableQrUrl,
-    TResult? Function(InvalidCvsayaAttendanceQrUrl value)?
-        invalidCvsayaAttendanceQrUrl,
     TResult? Function(InvalidDateTime value)? invalidDateTime,
     TResult? Function(InvalidPersonName value)? invalidPersonName,
     TResult? Function(ShortToken value)? shortToken,
@@ -3135,9 +2943,6 @@ class _$InvalidSKU implements InvalidSKU {
     TResult Function(InvalidEmail value)? invalidEmail,
     TResult Function(InvalidUrl value)? invalidUrl,
     TResult Function(InvalidSKU value)? invalidSKU,
-    TResult Function(InvalidTableQrUrl value)? invalidEnakTableQrUrl,
-    TResult Function(InvalidCvsayaAttendanceQrUrl value)?
-        invalidCvsayaAttendanceQrUrl,
     TResult Function(InvalidDateTime value)? invalidDateTime,
     TResult Function(InvalidPersonName value)? invalidPersonName,
     TResult Function(ShortToken value)? shortToken,
@@ -3159,499 +2964,6 @@ abstract class InvalidSKU implements StringFailure {
   @JsonKey(ignore: true)
   _$$InvalidSKUCopyWith<_$InvalidSKU> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$InvalidTableQrUrlCopyWith<$Res> {
-  factory _$$InvalidTableQrUrlCopyWith(
-          _$InvalidTableQrUrl value, $Res Function(_$InvalidTableQrUrl) then) =
-      __$$InvalidTableQrUrlCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String? failedValue});
-}
-
-/// @nodoc
-class __$$InvalidTableQrUrlCopyWithImpl<$Res>
-    extends _$StringFailureCopyWithImpl<$Res, _$InvalidTableQrUrl>
-    implements _$$InvalidTableQrUrlCopyWith<$Res> {
-  __$$InvalidTableQrUrlCopyWithImpl(
-      _$InvalidTableQrUrl _value, $Res Function(_$InvalidTableQrUrl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? failedValue = freezed,
-  }) {
-    return _then(_$InvalidTableQrUrl(
-      failedValue: freezed == failedValue
-          ? _value.failedValue
-          : failedValue // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$InvalidTableQrUrl implements InvalidTableQrUrl {
-  const _$InvalidTableQrUrl({required this.failedValue});
-
-  @override
-  final String? failedValue;
-
-  @override
-  String toString() {
-    return 'StringFailure.invalidEnakTableQrUrl(failedValue: $failedValue)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$InvalidTableQrUrl &&
-            (identical(other.failedValue, failedValue) ||
-                other.failedValue == failedValue));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, failedValue);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$InvalidTableQrUrlCopyWith<_$InvalidTableQrUrl> get copyWith =>
-      __$$InvalidTableQrUrlCopyWithImpl<_$InvalidTableQrUrl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String? failedValue) empty,
-    required TResult Function(String? failedValue) hasWhitespace,
-    required TResult Function(String? failedValue) isNotAlphanumeric,
-    required TResult Function(String? failedValue, int max) exceedingLength,
-    required TResult Function(String? failedValue, int min) lengthTooShort,
-    required TResult Function(String? failedValue, int length) wrongLength,
-    required TResult Function(String? failedValue) multiline,
-    required TResult Function(
-            String? failedValue, String? failedConfirmationValue)
-        confirmationNotMatch,
-    required TResult Function(String? failedValue) invalidPhone,
-    required TResult Function(String? failedValue) invalidEmail,
-    required TResult Function(String? failedValue) invalidUrl,
-    required TResult Function(String? failedValue) invalidSKU,
-    required TResult Function(String? failedValue) invalidEnakTableQrUrl,
-    required TResult Function(String? failedValue) invalidCvsayaAttendanceQrUrl,
-    required TResult Function(DateTime failedValue, String pattern)
-        invalidDateTime,
-    required TResult Function(String? failedValue) invalidPersonName,
-    required TResult Function(String? failedValue) shortToken,
-    required TResult Function(String? failedValue) invalidTime,
-    required TResult Function(String? failedValue) invalidDate,
-  }) {
-    return invalidEnakTableQrUrl(failedValue);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String? failedValue)? empty,
-    TResult? Function(String? failedValue)? hasWhitespace,
-    TResult? Function(String? failedValue)? isNotAlphanumeric,
-    TResult? Function(String? failedValue, int max)? exceedingLength,
-    TResult? Function(String? failedValue, int min)? lengthTooShort,
-    TResult? Function(String? failedValue, int length)? wrongLength,
-    TResult? Function(String? failedValue)? multiline,
-    TResult? Function(String? failedValue, String? failedConfirmationValue)?
-        confirmationNotMatch,
-    TResult? Function(String? failedValue)? invalidPhone,
-    TResult? Function(String? failedValue)? invalidEmail,
-    TResult? Function(String? failedValue)? invalidUrl,
-    TResult? Function(String? failedValue)? invalidSKU,
-    TResult? Function(String? failedValue)? invalidEnakTableQrUrl,
-    TResult? Function(String? failedValue)? invalidCvsayaAttendanceQrUrl,
-    TResult? Function(DateTime failedValue, String pattern)? invalidDateTime,
-    TResult? Function(String? failedValue)? invalidPersonName,
-    TResult? Function(String? failedValue)? shortToken,
-    TResult? Function(String? failedValue)? invalidTime,
-    TResult? Function(String? failedValue)? invalidDate,
-  }) {
-    return invalidEnakTableQrUrl?.call(failedValue);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? failedValue)? empty,
-    TResult Function(String? failedValue)? hasWhitespace,
-    TResult Function(String? failedValue)? isNotAlphanumeric,
-    TResult Function(String? failedValue, int max)? exceedingLength,
-    TResult Function(String? failedValue, int min)? lengthTooShort,
-    TResult Function(String? failedValue, int length)? wrongLength,
-    TResult Function(String? failedValue)? multiline,
-    TResult Function(String? failedValue, String? failedConfirmationValue)?
-        confirmationNotMatch,
-    TResult Function(String? failedValue)? invalidPhone,
-    TResult Function(String? failedValue)? invalidEmail,
-    TResult Function(String? failedValue)? invalidUrl,
-    TResult Function(String? failedValue)? invalidSKU,
-    TResult Function(String? failedValue)? invalidEnakTableQrUrl,
-    TResult Function(String? failedValue)? invalidCvsayaAttendanceQrUrl,
-    TResult Function(DateTime failedValue, String pattern)? invalidDateTime,
-    TResult Function(String? failedValue)? invalidPersonName,
-    TResult Function(String? failedValue)? shortToken,
-    TResult Function(String? failedValue)? invalidTime,
-    TResult Function(String? failedValue)? invalidDate,
-    required TResult orElse(),
-  }) {
-    if (invalidEnakTableQrUrl != null) {
-      return invalidEnakTableQrUrl(failedValue);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Empty value) empty,
-    required TResult Function(HasWhitespace value) hasWhitespace,
-    required TResult Function(IsNotAlphanumeric value) isNotAlphanumeric,
-    required TResult Function(ExceedingLength value) exceedingLength,
-    required TResult Function(TooShort value) lengthTooShort,
-    required TResult Function(WrongLength value) wrongLength,
-    required TResult Function(Multiline value) multiline,
-    required TResult Function(ConfirmationNotMatch value) confirmationNotMatch,
-    required TResult Function(InvalidPhone value) invalidPhone,
-    required TResult Function(InvalidEmail value) invalidEmail,
-    required TResult Function(InvalidUrl value) invalidUrl,
-    required TResult Function(InvalidSKU value) invalidSKU,
-    required TResult Function(InvalidTableQrUrl value) invalidEnakTableQrUrl,
-    required TResult Function(InvalidCvsayaAttendanceQrUrl value)
-        invalidCvsayaAttendanceQrUrl,
-    required TResult Function(InvalidDateTime value) invalidDateTime,
-    required TResult Function(InvalidPersonName value) invalidPersonName,
-    required TResult Function(ShortToken value) shortToken,
-    required TResult Function(InvalidTime value) invalidTime,
-    required TResult Function(InvalidDate value) invalidDate,
-  }) {
-    return invalidEnakTableQrUrl(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Empty value)? empty,
-    TResult? Function(HasWhitespace value)? hasWhitespace,
-    TResult? Function(IsNotAlphanumeric value)? isNotAlphanumeric,
-    TResult? Function(ExceedingLength value)? exceedingLength,
-    TResult? Function(TooShort value)? lengthTooShort,
-    TResult? Function(WrongLength value)? wrongLength,
-    TResult? Function(Multiline value)? multiline,
-    TResult? Function(ConfirmationNotMatch value)? confirmationNotMatch,
-    TResult? Function(InvalidPhone value)? invalidPhone,
-    TResult? Function(InvalidEmail value)? invalidEmail,
-    TResult? Function(InvalidUrl value)? invalidUrl,
-    TResult? Function(InvalidSKU value)? invalidSKU,
-    TResult? Function(InvalidTableQrUrl value)? invalidEnakTableQrUrl,
-    TResult? Function(InvalidCvsayaAttendanceQrUrl value)?
-        invalidCvsayaAttendanceQrUrl,
-    TResult? Function(InvalidDateTime value)? invalidDateTime,
-    TResult? Function(InvalidPersonName value)? invalidPersonName,
-    TResult? Function(ShortToken value)? shortToken,
-    TResult? Function(InvalidTime value)? invalidTime,
-    TResult? Function(InvalidDate value)? invalidDate,
-  }) {
-    return invalidEnakTableQrUrl?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Empty value)? empty,
-    TResult Function(HasWhitespace value)? hasWhitespace,
-    TResult Function(IsNotAlphanumeric value)? isNotAlphanumeric,
-    TResult Function(ExceedingLength value)? exceedingLength,
-    TResult Function(TooShort value)? lengthTooShort,
-    TResult Function(WrongLength value)? wrongLength,
-    TResult Function(Multiline value)? multiline,
-    TResult Function(ConfirmationNotMatch value)? confirmationNotMatch,
-    TResult Function(InvalidPhone value)? invalidPhone,
-    TResult Function(InvalidEmail value)? invalidEmail,
-    TResult Function(InvalidUrl value)? invalidUrl,
-    TResult Function(InvalidSKU value)? invalidSKU,
-    TResult Function(InvalidTableQrUrl value)? invalidEnakTableQrUrl,
-    TResult Function(InvalidCvsayaAttendanceQrUrl value)?
-        invalidCvsayaAttendanceQrUrl,
-    TResult Function(InvalidDateTime value)? invalidDateTime,
-    TResult Function(InvalidPersonName value)? invalidPersonName,
-    TResult Function(ShortToken value)? shortToken,
-    TResult Function(InvalidTime value)? invalidTime,
-    TResult Function(InvalidDate value)? invalidDate,
-    required TResult orElse(),
-  }) {
-    if (invalidEnakTableQrUrl != null) {
-      return invalidEnakTableQrUrl(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class InvalidTableQrUrl implements StringFailure {
-  const factory InvalidTableQrUrl({required final String? failedValue}) =
-      _$InvalidTableQrUrl;
-
-  String? get failedValue;
-  @JsonKey(ignore: true)
-  _$$InvalidTableQrUrlCopyWith<_$InvalidTableQrUrl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$InvalidCvsayaAttendanceQrUrlCopyWith<$Res> {
-  factory _$$InvalidCvsayaAttendanceQrUrlCopyWith(
-          _$InvalidCvsayaAttendanceQrUrl value,
-          $Res Function(_$InvalidCvsayaAttendanceQrUrl) then) =
-      __$$InvalidCvsayaAttendanceQrUrlCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String? failedValue});
-}
-
-/// @nodoc
-class __$$InvalidCvsayaAttendanceQrUrlCopyWithImpl<$Res>
-    extends _$StringFailureCopyWithImpl<$Res, _$InvalidCvsayaAttendanceQrUrl>
-    implements _$$InvalidCvsayaAttendanceQrUrlCopyWith<$Res> {
-  __$$InvalidCvsayaAttendanceQrUrlCopyWithImpl(
-      _$InvalidCvsayaAttendanceQrUrl _value,
-      $Res Function(_$InvalidCvsayaAttendanceQrUrl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? failedValue = freezed,
-  }) {
-    return _then(_$InvalidCvsayaAttendanceQrUrl(
-      failedValue: freezed == failedValue
-          ? _value.failedValue
-          : failedValue // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$InvalidCvsayaAttendanceQrUrl implements InvalidCvsayaAttendanceQrUrl {
-  const _$InvalidCvsayaAttendanceQrUrl({required this.failedValue});
-
-  @override
-  final String? failedValue;
-
-  @override
-  String toString() {
-    return 'StringFailure.invalidCvsayaAttendanceQrUrl(failedValue: $failedValue)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$InvalidCvsayaAttendanceQrUrl &&
-            (identical(other.failedValue, failedValue) ||
-                other.failedValue == failedValue));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, failedValue);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$InvalidCvsayaAttendanceQrUrlCopyWith<_$InvalidCvsayaAttendanceQrUrl>
-      get copyWith => __$$InvalidCvsayaAttendanceQrUrlCopyWithImpl<
-          _$InvalidCvsayaAttendanceQrUrl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String? failedValue) empty,
-    required TResult Function(String? failedValue) hasWhitespace,
-    required TResult Function(String? failedValue) isNotAlphanumeric,
-    required TResult Function(String? failedValue, int max) exceedingLength,
-    required TResult Function(String? failedValue, int min) lengthTooShort,
-    required TResult Function(String? failedValue, int length) wrongLength,
-    required TResult Function(String? failedValue) multiline,
-    required TResult Function(
-            String? failedValue, String? failedConfirmationValue)
-        confirmationNotMatch,
-    required TResult Function(String? failedValue) invalidPhone,
-    required TResult Function(String? failedValue) invalidEmail,
-    required TResult Function(String? failedValue) invalidUrl,
-    required TResult Function(String? failedValue) invalidSKU,
-    required TResult Function(String? failedValue) invalidEnakTableQrUrl,
-    required TResult Function(String? failedValue) invalidCvsayaAttendanceQrUrl,
-    required TResult Function(DateTime failedValue, String pattern)
-        invalidDateTime,
-    required TResult Function(String? failedValue) invalidPersonName,
-    required TResult Function(String? failedValue) shortToken,
-    required TResult Function(String? failedValue) invalidTime,
-    required TResult Function(String? failedValue) invalidDate,
-  }) {
-    return invalidCvsayaAttendanceQrUrl(failedValue);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String? failedValue)? empty,
-    TResult? Function(String? failedValue)? hasWhitespace,
-    TResult? Function(String? failedValue)? isNotAlphanumeric,
-    TResult? Function(String? failedValue, int max)? exceedingLength,
-    TResult? Function(String? failedValue, int min)? lengthTooShort,
-    TResult? Function(String? failedValue, int length)? wrongLength,
-    TResult? Function(String? failedValue)? multiline,
-    TResult? Function(String? failedValue, String? failedConfirmationValue)?
-        confirmationNotMatch,
-    TResult? Function(String? failedValue)? invalidPhone,
-    TResult? Function(String? failedValue)? invalidEmail,
-    TResult? Function(String? failedValue)? invalidUrl,
-    TResult? Function(String? failedValue)? invalidSKU,
-    TResult? Function(String? failedValue)? invalidEnakTableQrUrl,
-    TResult? Function(String? failedValue)? invalidCvsayaAttendanceQrUrl,
-    TResult? Function(DateTime failedValue, String pattern)? invalidDateTime,
-    TResult? Function(String? failedValue)? invalidPersonName,
-    TResult? Function(String? failedValue)? shortToken,
-    TResult? Function(String? failedValue)? invalidTime,
-    TResult? Function(String? failedValue)? invalidDate,
-  }) {
-    return invalidCvsayaAttendanceQrUrl?.call(failedValue);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? failedValue)? empty,
-    TResult Function(String? failedValue)? hasWhitespace,
-    TResult Function(String? failedValue)? isNotAlphanumeric,
-    TResult Function(String? failedValue, int max)? exceedingLength,
-    TResult Function(String? failedValue, int min)? lengthTooShort,
-    TResult Function(String? failedValue, int length)? wrongLength,
-    TResult Function(String? failedValue)? multiline,
-    TResult Function(String? failedValue, String? failedConfirmationValue)?
-        confirmationNotMatch,
-    TResult Function(String? failedValue)? invalidPhone,
-    TResult Function(String? failedValue)? invalidEmail,
-    TResult Function(String? failedValue)? invalidUrl,
-    TResult Function(String? failedValue)? invalidSKU,
-    TResult Function(String? failedValue)? invalidEnakTableQrUrl,
-    TResult Function(String? failedValue)? invalidCvsayaAttendanceQrUrl,
-    TResult Function(DateTime failedValue, String pattern)? invalidDateTime,
-    TResult Function(String? failedValue)? invalidPersonName,
-    TResult Function(String? failedValue)? shortToken,
-    TResult Function(String? failedValue)? invalidTime,
-    TResult Function(String? failedValue)? invalidDate,
-    required TResult orElse(),
-  }) {
-    if (invalidCvsayaAttendanceQrUrl != null) {
-      return invalidCvsayaAttendanceQrUrl(failedValue);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Empty value) empty,
-    required TResult Function(HasWhitespace value) hasWhitespace,
-    required TResult Function(IsNotAlphanumeric value) isNotAlphanumeric,
-    required TResult Function(ExceedingLength value) exceedingLength,
-    required TResult Function(TooShort value) lengthTooShort,
-    required TResult Function(WrongLength value) wrongLength,
-    required TResult Function(Multiline value) multiline,
-    required TResult Function(ConfirmationNotMatch value) confirmationNotMatch,
-    required TResult Function(InvalidPhone value) invalidPhone,
-    required TResult Function(InvalidEmail value) invalidEmail,
-    required TResult Function(InvalidUrl value) invalidUrl,
-    required TResult Function(InvalidSKU value) invalidSKU,
-    required TResult Function(InvalidTableQrUrl value) invalidEnakTableQrUrl,
-    required TResult Function(InvalidCvsayaAttendanceQrUrl value)
-        invalidCvsayaAttendanceQrUrl,
-    required TResult Function(InvalidDateTime value) invalidDateTime,
-    required TResult Function(InvalidPersonName value) invalidPersonName,
-    required TResult Function(ShortToken value) shortToken,
-    required TResult Function(InvalidTime value) invalidTime,
-    required TResult Function(InvalidDate value) invalidDate,
-  }) {
-    return invalidCvsayaAttendanceQrUrl(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Empty value)? empty,
-    TResult? Function(HasWhitespace value)? hasWhitespace,
-    TResult? Function(IsNotAlphanumeric value)? isNotAlphanumeric,
-    TResult? Function(ExceedingLength value)? exceedingLength,
-    TResult? Function(TooShort value)? lengthTooShort,
-    TResult? Function(WrongLength value)? wrongLength,
-    TResult? Function(Multiline value)? multiline,
-    TResult? Function(ConfirmationNotMatch value)? confirmationNotMatch,
-    TResult? Function(InvalidPhone value)? invalidPhone,
-    TResult? Function(InvalidEmail value)? invalidEmail,
-    TResult? Function(InvalidUrl value)? invalidUrl,
-    TResult? Function(InvalidSKU value)? invalidSKU,
-    TResult? Function(InvalidTableQrUrl value)? invalidEnakTableQrUrl,
-    TResult? Function(InvalidCvsayaAttendanceQrUrl value)?
-        invalidCvsayaAttendanceQrUrl,
-    TResult? Function(InvalidDateTime value)? invalidDateTime,
-    TResult? Function(InvalidPersonName value)? invalidPersonName,
-    TResult? Function(ShortToken value)? shortToken,
-    TResult? Function(InvalidTime value)? invalidTime,
-    TResult? Function(InvalidDate value)? invalidDate,
-  }) {
-    return invalidCvsayaAttendanceQrUrl?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Empty value)? empty,
-    TResult Function(HasWhitespace value)? hasWhitespace,
-    TResult Function(IsNotAlphanumeric value)? isNotAlphanumeric,
-    TResult Function(ExceedingLength value)? exceedingLength,
-    TResult Function(TooShort value)? lengthTooShort,
-    TResult Function(WrongLength value)? wrongLength,
-    TResult Function(Multiline value)? multiline,
-    TResult Function(ConfirmationNotMatch value)? confirmationNotMatch,
-    TResult Function(InvalidPhone value)? invalidPhone,
-    TResult Function(InvalidEmail value)? invalidEmail,
-    TResult Function(InvalidUrl value)? invalidUrl,
-    TResult Function(InvalidSKU value)? invalidSKU,
-    TResult Function(InvalidTableQrUrl value)? invalidEnakTableQrUrl,
-    TResult Function(InvalidCvsayaAttendanceQrUrl value)?
-        invalidCvsayaAttendanceQrUrl,
-    TResult Function(InvalidDateTime value)? invalidDateTime,
-    TResult Function(InvalidPersonName value)? invalidPersonName,
-    TResult Function(ShortToken value)? shortToken,
-    TResult Function(InvalidTime value)? invalidTime,
-    TResult Function(InvalidDate value)? invalidDate,
-    required TResult orElse(),
-  }) {
-    if (invalidCvsayaAttendanceQrUrl != null) {
-      return invalidCvsayaAttendanceQrUrl(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class InvalidCvsayaAttendanceQrUrl implements StringFailure {
-  const factory InvalidCvsayaAttendanceQrUrl(
-      {required final String? failedValue}) = _$InvalidCvsayaAttendanceQrUrl;
-
-  String? get failedValue;
-  @JsonKey(ignore: true)
-  _$$InvalidCvsayaAttendanceQrUrlCopyWith<_$InvalidCvsayaAttendanceQrUrl>
-      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -3741,8 +3053,6 @@ class _$InvalidDateTime implements InvalidDateTime {
     required TResult Function(String? failedValue) invalidEmail,
     required TResult Function(String? failedValue) invalidUrl,
     required TResult Function(String? failedValue) invalidSKU,
-    required TResult Function(String? failedValue) invalidEnakTableQrUrl,
-    required TResult Function(String? failedValue) invalidCvsayaAttendanceQrUrl,
     required TResult Function(DateTime failedValue, String pattern)
         invalidDateTime,
     required TResult Function(String? failedValue) invalidPersonName,
@@ -3769,8 +3079,6 @@ class _$InvalidDateTime implements InvalidDateTime {
     TResult? Function(String? failedValue)? invalidEmail,
     TResult? Function(String? failedValue)? invalidUrl,
     TResult? Function(String? failedValue)? invalidSKU,
-    TResult? Function(String? failedValue)? invalidEnakTableQrUrl,
-    TResult? Function(String? failedValue)? invalidCvsayaAttendanceQrUrl,
     TResult? Function(DateTime failedValue, String pattern)? invalidDateTime,
     TResult? Function(String? failedValue)? invalidPersonName,
     TResult? Function(String? failedValue)? shortToken,
@@ -3796,8 +3104,6 @@ class _$InvalidDateTime implements InvalidDateTime {
     TResult Function(String? failedValue)? invalidEmail,
     TResult Function(String? failedValue)? invalidUrl,
     TResult Function(String? failedValue)? invalidSKU,
-    TResult Function(String? failedValue)? invalidEnakTableQrUrl,
-    TResult Function(String? failedValue)? invalidCvsayaAttendanceQrUrl,
     TResult Function(DateTime failedValue, String pattern)? invalidDateTime,
     TResult Function(String? failedValue)? invalidPersonName,
     TResult Function(String? failedValue)? shortToken,
@@ -3826,9 +3132,6 @@ class _$InvalidDateTime implements InvalidDateTime {
     required TResult Function(InvalidEmail value) invalidEmail,
     required TResult Function(InvalidUrl value) invalidUrl,
     required TResult Function(InvalidSKU value) invalidSKU,
-    required TResult Function(InvalidTableQrUrl value) invalidEnakTableQrUrl,
-    required TResult Function(InvalidCvsayaAttendanceQrUrl value)
-        invalidCvsayaAttendanceQrUrl,
     required TResult Function(InvalidDateTime value) invalidDateTime,
     required TResult Function(InvalidPersonName value) invalidPersonName,
     required TResult Function(ShortToken value) shortToken,
@@ -3853,9 +3156,6 @@ class _$InvalidDateTime implements InvalidDateTime {
     TResult? Function(InvalidEmail value)? invalidEmail,
     TResult? Function(InvalidUrl value)? invalidUrl,
     TResult? Function(InvalidSKU value)? invalidSKU,
-    TResult? Function(InvalidTableQrUrl value)? invalidEnakTableQrUrl,
-    TResult? Function(InvalidCvsayaAttendanceQrUrl value)?
-        invalidCvsayaAttendanceQrUrl,
     TResult? Function(InvalidDateTime value)? invalidDateTime,
     TResult? Function(InvalidPersonName value)? invalidPersonName,
     TResult? Function(ShortToken value)? shortToken,
@@ -3880,9 +3180,6 @@ class _$InvalidDateTime implements InvalidDateTime {
     TResult Function(InvalidEmail value)? invalidEmail,
     TResult Function(InvalidUrl value)? invalidUrl,
     TResult Function(InvalidSKU value)? invalidSKU,
-    TResult Function(InvalidTableQrUrl value)? invalidEnakTableQrUrl,
-    TResult Function(InvalidCvsayaAttendanceQrUrl value)?
-        invalidCvsayaAttendanceQrUrl,
     TResult Function(InvalidDateTime value)? invalidDateTime,
     TResult Function(InvalidPersonName value)? invalidPersonName,
     TResult Function(ShortToken value)? shortToken,
@@ -3988,8 +3285,6 @@ class _$InvalidPersonName implements InvalidPersonName {
     required TResult Function(String? failedValue) invalidEmail,
     required TResult Function(String? failedValue) invalidUrl,
     required TResult Function(String? failedValue) invalidSKU,
-    required TResult Function(String? failedValue) invalidEnakTableQrUrl,
-    required TResult Function(String? failedValue) invalidCvsayaAttendanceQrUrl,
     required TResult Function(DateTime failedValue, String pattern)
         invalidDateTime,
     required TResult Function(String? failedValue) invalidPersonName,
@@ -4016,8 +3311,6 @@ class _$InvalidPersonName implements InvalidPersonName {
     TResult? Function(String? failedValue)? invalidEmail,
     TResult? Function(String? failedValue)? invalidUrl,
     TResult? Function(String? failedValue)? invalidSKU,
-    TResult? Function(String? failedValue)? invalidEnakTableQrUrl,
-    TResult? Function(String? failedValue)? invalidCvsayaAttendanceQrUrl,
     TResult? Function(DateTime failedValue, String pattern)? invalidDateTime,
     TResult? Function(String? failedValue)? invalidPersonName,
     TResult? Function(String? failedValue)? shortToken,
@@ -4043,8 +3336,6 @@ class _$InvalidPersonName implements InvalidPersonName {
     TResult Function(String? failedValue)? invalidEmail,
     TResult Function(String? failedValue)? invalidUrl,
     TResult Function(String? failedValue)? invalidSKU,
-    TResult Function(String? failedValue)? invalidEnakTableQrUrl,
-    TResult Function(String? failedValue)? invalidCvsayaAttendanceQrUrl,
     TResult Function(DateTime failedValue, String pattern)? invalidDateTime,
     TResult Function(String? failedValue)? invalidPersonName,
     TResult Function(String? failedValue)? shortToken,
@@ -4073,9 +3364,6 @@ class _$InvalidPersonName implements InvalidPersonName {
     required TResult Function(InvalidEmail value) invalidEmail,
     required TResult Function(InvalidUrl value) invalidUrl,
     required TResult Function(InvalidSKU value) invalidSKU,
-    required TResult Function(InvalidTableQrUrl value) invalidEnakTableQrUrl,
-    required TResult Function(InvalidCvsayaAttendanceQrUrl value)
-        invalidCvsayaAttendanceQrUrl,
     required TResult Function(InvalidDateTime value) invalidDateTime,
     required TResult Function(InvalidPersonName value) invalidPersonName,
     required TResult Function(ShortToken value) shortToken,
@@ -4100,9 +3388,6 @@ class _$InvalidPersonName implements InvalidPersonName {
     TResult? Function(InvalidEmail value)? invalidEmail,
     TResult? Function(InvalidUrl value)? invalidUrl,
     TResult? Function(InvalidSKU value)? invalidSKU,
-    TResult? Function(InvalidTableQrUrl value)? invalidEnakTableQrUrl,
-    TResult? Function(InvalidCvsayaAttendanceQrUrl value)?
-        invalidCvsayaAttendanceQrUrl,
     TResult? Function(InvalidDateTime value)? invalidDateTime,
     TResult? Function(InvalidPersonName value)? invalidPersonName,
     TResult? Function(ShortToken value)? shortToken,
@@ -4127,9 +3412,6 @@ class _$InvalidPersonName implements InvalidPersonName {
     TResult Function(InvalidEmail value)? invalidEmail,
     TResult Function(InvalidUrl value)? invalidUrl,
     TResult Function(InvalidSKU value)? invalidSKU,
-    TResult Function(InvalidTableQrUrl value)? invalidEnakTableQrUrl,
-    TResult Function(InvalidCvsayaAttendanceQrUrl value)?
-        invalidCvsayaAttendanceQrUrl,
     TResult Function(InvalidDateTime value)? invalidDateTime,
     TResult Function(InvalidPersonName value)? invalidPersonName,
     TResult Function(ShortToken value)? shortToken,
@@ -4233,8 +3515,6 @@ class _$ShortToken implements ShortToken {
     required TResult Function(String? failedValue) invalidEmail,
     required TResult Function(String? failedValue) invalidUrl,
     required TResult Function(String? failedValue) invalidSKU,
-    required TResult Function(String? failedValue) invalidEnakTableQrUrl,
-    required TResult Function(String? failedValue) invalidCvsayaAttendanceQrUrl,
     required TResult Function(DateTime failedValue, String pattern)
         invalidDateTime,
     required TResult Function(String? failedValue) invalidPersonName,
@@ -4261,8 +3541,6 @@ class _$ShortToken implements ShortToken {
     TResult? Function(String? failedValue)? invalidEmail,
     TResult? Function(String? failedValue)? invalidUrl,
     TResult? Function(String? failedValue)? invalidSKU,
-    TResult? Function(String? failedValue)? invalidEnakTableQrUrl,
-    TResult? Function(String? failedValue)? invalidCvsayaAttendanceQrUrl,
     TResult? Function(DateTime failedValue, String pattern)? invalidDateTime,
     TResult? Function(String? failedValue)? invalidPersonName,
     TResult? Function(String? failedValue)? shortToken,
@@ -4288,8 +3566,6 @@ class _$ShortToken implements ShortToken {
     TResult Function(String? failedValue)? invalidEmail,
     TResult Function(String? failedValue)? invalidUrl,
     TResult Function(String? failedValue)? invalidSKU,
-    TResult Function(String? failedValue)? invalidEnakTableQrUrl,
-    TResult Function(String? failedValue)? invalidCvsayaAttendanceQrUrl,
     TResult Function(DateTime failedValue, String pattern)? invalidDateTime,
     TResult Function(String? failedValue)? invalidPersonName,
     TResult Function(String? failedValue)? shortToken,
@@ -4318,9 +3594,6 @@ class _$ShortToken implements ShortToken {
     required TResult Function(InvalidEmail value) invalidEmail,
     required TResult Function(InvalidUrl value) invalidUrl,
     required TResult Function(InvalidSKU value) invalidSKU,
-    required TResult Function(InvalidTableQrUrl value) invalidEnakTableQrUrl,
-    required TResult Function(InvalidCvsayaAttendanceQrUrl value)
-        invalidCvsayaAttendanceQrUrl,
     required TResult Function(InvalidDateTime value) invalidDateTime,
     required TResult Function(InvalidPersonName value) invalidPersonName,
     required TResult Function(ShortToken value) shortToken,
@@ -4345,9 +3618,6 @@ class _$ShortToken implements ShortToken {
     TResult? Function(InvalidEmail value)? invalidEmail,
     TResult? Function(InvalidUrl value)? invalidUrl,
     TResult? Function(InvalidSKU value)? invalidSKU,
-    TResult? Function(InvalidTableQrUrl value)? invalidEnakTableQrUrl,
-    TResult? Function(InvalidCvsayaAttendanceQrUrl value)?
-        invalidCvsayaAttendanceQrUrl,
     TResult? Function(InvalidDateTime value)? invalidDateTime,
     TResult? Function(InvalidPersonName value)? invalidPersonName,
     TResult? Function(ShortToken value)? shortToken,
@@ -4372,9 +3642,6 @@ class _$ShortToken implements ShortToken {
     TResult Function(InvalidEmail value)? invalidEmail,
     TResult Function(InvalidUrl value)? invalidUrl,
     TResult Function(InvalidSKU value)? invalidSKU,
-    TResult Function(InvalidTableQrUrl value)? invalidEnakTableQrUrl,
-    TResult Function(InvalidCvsayaAttendanceQrUrl value)?
-        invalidCvsayaAttendanceQrUrl,
     TResult Function(InvalidDateTime value)? invalidDateTime,
     TResult Function(InvalidPersonName value)? invalidPersonName,
     TResult Function(ShortToken value)? shortToken,
@@ -4477,8 +3744,6 @@ class _$InvalidTime implements InvalidTime {
     required TResult Function(String? failedValue) invalidEmail,
     required TResult Function(String? failedValue) invalidUrl,
     required TResult Function(String? failedValue) invalidSKU,
-    required TResult Function(String? failedValue) invalidEnakTableQrUrl,
-    required TResult Function(String? failedValue) invalidCvsayaAttendanceQrUrl,
     required TResult Function(DateTime failedValue, String pattern)
         invalidDateTime,
     required TResult Function(String? failedValue) invalidPersonName,
@@ -4505,8 +3770,6 @@ class _$InvalidTime implements InvalidTime {
     TResult? Function(String? failedValue)? invalidEmail,
     TResult? Function(String? failedValue)? invalidUrl,
     TResult? Function(String? failedValue)? invalidSKU,
-    TResult? Function(String? failedValue)? invalidEnakTableQrUrl,
-    TResult? Function(String? failedValue)? invalidCvsayaAttendanceQrUrl,
     TResult? Function(DateTime failedValue, String pattern)? invalidDateTime,
     TResult? Function(String? failedValue)? invalidPersonName,
     TResult? Function(String? failedValue)? shortToken,
@@ -4532,8 +3795,6 @@ class _$InvalidTime implements InvalidTime {
     TResult Function(String? failedValue)? invalidEmail,
     TResult Function(String? failedValue)? invalidUrl,
     TResult Function(String? failedValue)? invalidSKU,
-    TResult Function(String? failedValue)? invalidEnakTableQrUrl,
-    TResult Function(String? failedValue)? invalidCvsayaAttendanceQrUrl,
     TResult Function(DateTime failedValue, String pattern)? invalidDateTime,
     TResult Function(String? failedValue)? invalidPersonName,
     TResult Function(String? failedValue)? shortToken,
@@ -4562,9 +3823,6 @@ class _$InvalidTime implements InvalidTime {
     required TResult Function(InvalidEmail value) invalidEmail,
     required TResult Function(InvalidUrl value) invalidUrl,
     required TResult Function(InvalidSKU value) invalidSKU,
-    required TResult Function(InvalidTableQrUrl value) invalidEnakTableQrUrl,
-    required TResult Function(InvalidCvsayaAttendanceQrUrl value)
-        invalidCvsayaAttendanceQrUrl,
     required TResult Function(InvalidDateTime value) invalidDateTime,
     required TResult Function(InvalidPersonName value) invalidPersonName,
     required TResult Function(ShortToken value) shortToken,
@@ -4589,9 +3847,6 @@ class _$InvalidTime implements InvalidTime {
     TResult? Function(InvalidEmail value)? invalidEmail,
     TResult? Function(InvalidUrl value)? invalidUrl,
     TResult? Function(InvalidSKU value)? invalidSKU,
-    TResult? Function(InvalidTableQrUrl value)? invalidEnakTableQrUrl,
-    TResult? Function(InvalidCvsayaAttendanceQrUrl value)?
-        invalidCvsayaAttendanceQrUrl,
     TResult? Function(InvalidDateTime value)? invalidDateTime,
     TResult? Function(InvalidPersonName value)? invalidPersonName,
     TResult? Function(ShortToken value)? shortToken,
@@ -4616,9 +3871,6 @@ class _$InvalidTime implements InvalidTime {
     TResult Function(InvalidEmail value)? invalidEmail,
     TResult Function(InvalidUrl value)? invalidUrl,
     TResult Function(InvalidSKU value)? invalidSKU,
-    TResult Function(InvalidTableQrUrl value)? invalidEnakTableQrUrl,
-    TResult Function(InvalidCvsayaAttendanceQrUrl value)?
-        invalidCvsayaAttendanceQrUrl,
     TResult Function(InvalidDateTime value)? invalidDateTime,
     TResult Function(InvalidPersonName value)? invalidPersonName,
     TResult Function(ShortToken value)? shortToken,
@@ -4722,8 +3974,6 @@ class _$InvalidDate implements InvalidDate {
     required TResult Function(String? failedValue) invalidEmail,
     required TResult Function(String? failedValue) invalidUrl,
     required TResult Function(String? failedValue) invalidSKU,
-    required TResult Function(String? failedValue) invalidEnakTableQrUrl,
-    required TResult Function(String? failedValue) invalidCvsayaAttendanceQrUrl,
     required TResult Function(DateTime failedValue, String pattern)
         invalidDateTime,
     required TResult Function(String? failedValue) invalidPersonName,
@@ -4750,8 +4000,6 @@ class _$InvalidDate implements InvalidDate {
     TResult? Function(String? failedValue)? invalidEmail,
     TResult? Function(String? failedValue)? invalidUrl,
     TResult? Function(String? failedValue)? invalidSKU,
-    TResult? Function(String? failedValue)? invalidEnakTableQrUrl,
-    TResult? Function(String? failedValue)? invalidCvsayaAttendanceQrUrl,
     TResult? Function(DateTime failedValue, String pattern)? invalidDateTime,
     TResult? Function(String? failedValue)? invalidPersonName,
     TResult? Function(String? failedValue)? shortToken,
@@ -4777,8 +4025,6 @@ class _$InvalidDate implements InvalidDate {
     TResult Function(String? failedValue)? invalidEmail,
     TResult Function(String? failedValue)? invalidUrl,
     TResult Function(String? failedValue)? invalidSKU,
-    TResult Function(String? failedValue)? invalidEnakTableQrUrl,
-    TResult Function(String? failedValue)? invalidCvsayaAttendanceQrUrl,
     TResult Function(DateTime failedValue, String pattern)? invalidDateTime,
     TResult Function(String? failedValue)? invalidPersonName,
     TResult Function(String? failedValue)? shortToken,
@@ -4807,9 +4053,6 @@ class _$InvalidDate implements InvalidDate {
     required TResult Function(InvalidEmail value) invalidEmail,
     required TResult Function(InvalidUrl value) invalidUrl,
     required TResult Function(InvalidSKU value) invalidSKU,
-    required TResult Function(InvalidTableQrUrl value) invalidEnakTableQrUrl,
-    required TResult Function(InvalidCvsayaAttendanceQrUrl value)
-        invalidCvsayaAttendanceQrUrl,
     required TResult Function(InvalidDateTime value) invalidDateTime,
     required TResult Function(InvalidPersonName value) invalidPersonName,
     required TResult Function(ShortToken value) shortToken,
@@ -4834,9 +4077,6 @@ class _$InvalidDate implements InvalidDate {
     TResult? Function(InvalidEmail value)? invalidEmail,
     TResult? Function(InvalidUrl value)? invalidUrl,
     TResult? Function(InvalidSKU value)? invalidSKU,
-    TResult? Function(InvalidTableQrUrl value)? invalidEnakTableQrUrl,
-    TResult? Function(InvalidCvsayaAttendanceQrUrl value)?
-        invalidCvsayaAttendanceQrUrl,
     TResult? Function(InvalidDateTime value)? invalidDateTime,
     TResult? Function(InvalidPersonName value)? invalidPersonName,
     TResult? Function(ShortToken value)? shortToken,
@@ -4861,9 +4101,6 @@ class _$InvalidDate implements InvalidDate {
     TResult Function(InvalidEmail value)? invalidEmail,
     TResult Function(InvalidUrl value)? invalidUrl,
     TResult Function(InvalidSKU value)? invalidSKU,
-    TResult Function(InvalidTableQrUrl value)? invalidEnakTableQrUrl,
-    TResult Function(InvalidCvsayaAttendanceQrUrl value)?
-        invalidCvsayaAttendanceQrUrl,
     TResult Function(InvalidDateTime value)? invalidDateTime,
     TResult Function(InvalidPersonName value)? invalidPersonName,
     TResult Function(ShortToken value)? shortToken,
