@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:hadith_flashcard/injection.dart';
-import 'package:hadith_flashcard/presentation/pages/sign_up_page.dart';
+import 'package:hadith_flashcard/presentation/pages/auth/sign_up_page.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -14,7 +14,9 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

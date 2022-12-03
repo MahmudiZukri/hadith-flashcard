@@ -159,7 +159,7 @@ class SignUpPageScaffold extends StatelessWidget {
                         child: const Text(
                           'Sign Up',
                         ),
-                      )
+                      ),
               ],
             ),
           );
