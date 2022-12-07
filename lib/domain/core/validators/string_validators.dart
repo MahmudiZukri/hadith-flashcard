@@ -188,8 +188,8 @@ class StringValidators {
 
   static Either<StringFailure, String> validateDateWithTime(
       DateTime input, String pattern) {
-    final String? sDate = CommonUtils.dateFormat(input, pattern);
-    if (sDate == null) {
+    final String sDate = CommonUtils.dateFormat(input, pattern);
+    if (sDate == '') {
       return left(
           StringFailure.invalidDateTime(failedValue: input, pattern: pattern));
     }

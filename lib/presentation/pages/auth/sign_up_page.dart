@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hadith_flashcard/application/auth/auth_bloc.dart';
 import 'package:hadith_flashcard/domain/core/objects/string_objects.dart';
 import 'package:hadith_flashcard/domain/core/shared/shared.dart';
@@ -55,7 +56,7 @@ class SignUpPageScaffold extends StatelessWidget {
                   ),
                 );
               },
-              (r) {
+              (_) {
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(
                     content: Text(
@@ -160,6 +161,18 @@ class SignUpPageScaffold extends StatelessWidget {
                           'Sign Up',
                         ),
                       ),
+                const Spacer(),
+                TextButton(
+                  onPressed: () {
+                    context.go('/signin');
+                  },
+                  child: const Text(
+                    'Sign In',
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                )
               ],
             ),
           );
