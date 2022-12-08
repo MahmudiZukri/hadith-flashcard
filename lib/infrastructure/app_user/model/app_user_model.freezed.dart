@@ -21,8 +21,8 @@ AppUserModel _$AppUserModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$AppUserModel {
   String get id => throw _privateConstructorUsedError;
-  String get email => throw _privateConstructorUsedError;
-  String get password => throw _privateConstructorUsedError;
+  String? get email => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +36,7 @@ abstract class $AppUserModelCopyWith<$Res> {
           AppUserModel value, $Res Function(AppUserModel) then) =
       _$AppUserModelCopyWithImpl<$Res, AppUserModel>;
   @useResult
-  $Res call({String id, String email, String password});
+  $Res call({String id, String? email, String name});
 }
 
 /// @nodoc
@@ -53,21 +53,21 @@ class _$AppUserModelCopyWithImpl<$Res, $Val extends AppUserModel>
   @override
   $Res call({
     Object? id = null,
-    Object? email = null,
-    Object? password = null,
+    Object? email = freezed,
+    Object? name = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      email: null == email
+      email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
+              as String?,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -81,7 +81,7 @@ abstract class _$$_AppUserModelCopyWith<$Res>
       __$$_AppUserModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String email, String password});
+  $Res call({String id, String? email, String name});
 }
 
 /// @nodoc
@@ -96,21 +96,21 @@ class __$$_AppUserModelCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? email = null,
-    Object? password = null,
+    Object? email = freezed,
+    Object? name = null,
   }) {
     return _then(_$_AppUserModel(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      email: null == email
+      email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
+              as String?,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -120,7 +120,7 @@ class __$$_AppUserModelCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_AppUserModel implements _AppUserModel {
   const _$_AppUserModel(
-      {required this.id, required this.email, required this.password});
+      {required this.id, required this.email, required this.name});
 
   factory _$_AppUserModel.fromJson(Map<String, dynamic> json) =>
       _$$_AppUserModelFromJson(json);
@@ -128,13 +128,13 @@ class _$_AppUserModel implements _AppUserModel {
   @override
   final String id;
   @override
-  final String email;
+  final String? email;
   @override
-  final String password;
+  final String name;
 
   @override
   String toString() {
-    return 'AppUserModel(id: $id, email: $email, password: $password)';
+    return 'AppUserModel(id: $id, email: $email, name: $name)';
   }
 
   @override
@@ -144,13 +144,12 @@ class _$_AppUserModel implements _AppUserModel {
             other is _$_AppUserModel &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.email, email) || other.email == email) &&
-            (identical(other.password, password) ||
-                other.password == password));
+            (identical(other.name, name) || other.name == name));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, email, password);
+  int get hashCode => Object.hash(runtimeType, id, email, name);
 
   @JsonKey(ignore: true)
   @override
@@ -169,8 +168,8 @@ class _$_AppUserModel implements _AppUserModel {
 abstract class _AppUserModel implements AppUserModel {
   const factory _AppUserModel(
       {required final String id,
-      required final String email,
-      required final String password}) = _$_AppUserModel;
+      required final String? email,
+      required final String name}) = _$_AppUserModel;
 
   factory _AppUserModel.fromJson(Map<String, dynamic> json) =
       _$_AppUserModel.fromJson;
@@ -178,9 +177,9 @@ abstract class _AppUserModel implements AppUserModel {
   @override
   String get id;
   @override
-  String get email;
+  String? get email;
   @override
-  String get password;
+  String get name;
   @override
   @JsonKey(ignore: true)
   _$$_AppUserModelCopyWith<_$_AppUserModel> get copyWith =>

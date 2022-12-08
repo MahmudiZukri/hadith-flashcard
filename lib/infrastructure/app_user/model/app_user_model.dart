@@ -9,8 +9,8 @@ part 'app_user_model.g.dart';
 class AppUserModel with _$AppUserModel {
   const factory AppUserModel({
     required String id,
-    required String email,
-    required String password,
+    required String? email,
+    required String name,
   }) = _AppUserModel;
 
   factory AppUserModel.fromJson(Map<String, dynamic> json) =>
@@ -20,7 +20,7 @@ class AppUserModel with _$AppUserModel {
 extension AppUserModelX on AppUserModel {
   AppUser toDomain() => AppUser(
         id: UniqueString.fromUniqueString(id),
-        email: UnemptyString(email),
-        password: UnemptyString(password),
+        email: email != null ? EmailAddress(email!) : EmailAddress.empty(),
+        name: PersonName(name),
       );
 }

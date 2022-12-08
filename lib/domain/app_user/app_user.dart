@@ -7,7 +7,7 @@ part 'app_user.freezed.dart';
 class AppUser with _$AppUser {
   const factory AppUser({
     required UniqueString id,
-    required UnemptyString email,
-    required UnemptyString password,
+    required EmailAddress email,
+    required PersonName name,
   }) = _AppUser;
 }

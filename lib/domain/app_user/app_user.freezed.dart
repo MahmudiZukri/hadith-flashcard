@@ -17,8 +17,8 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$AppUser {
   UniqueString get id => throw _privateConstructorUsedError;
-  UnemptyString get email => throw _privateConstructorUsedError;
-  UnemptyString get password => throw _privateConstructorUsedError;
+  EmailAddress get email => throw _privateConstructorUsedError;
+  PersonName get name => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AppUserCopyWith<AppUser> get copyWith => throw _privateConstructorUsedError;
@@ -29,7 +29,7 @@ abstract class $AppUserCopyWith<$Res> {
   factory $AppUserCopyWith(AppUser value, $Res Function(AppUser) then) =
       _$AppUserCopyWithImpl<$Res, AppUser>;
   @useResult
-  $Res call({UniqueString id, UnemptyString email, UnemptyString password});
+  $Res call({UniqueString id, EmailAddress email, PersonName name});
 }
 
 /// @nodoc
@@ -47,7 +47,7 @@ class _$AppUserCopyWithImpl<$Res, $Val extends AppUser>
   $Res call({
     Object? id = null,
     Object? email = null,
-    Object? password = null,
+    Object? name = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -57,11 +57,11 @@ class _$AppUserCopyWithImpl<$Res, $Val extends AppUser>
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as UnemptyString,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as UnemptyString,
+              as EmailAddress,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as PersonName,
     ) as $Val);
   }
 }
@@ -73,7 +73,7 @@ abstract class _$$_AppUserCopyWith<$Res> implements $AppUserCopyWith<$Res> {
       __$$_AppUserCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({UniqueString id, UnemptyString email, UnemptyString password});
+  $Res call({UniqueString id, EmailAddress email, PersonName name});
 }
 
 /// @nodoc
@@ -88,7 +88,7 @@ class __$$_AppUserCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? email = null,
-    Object? password = null,
+    Object? name = null,
   }) {
     return _then(_$_AppUser(
       id: null == id
@@ -98,11 +98,11 @@ class __$$_AppUserCopyWithImpl<$Res>
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as UnemptyString,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as UnemptyString,
+              as EmailAddress,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as PersonName,
     ));
   }
 }
@@ -110,19 +110,18 @@ class __$$_AppUserCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_AppUser implements _AppUser {
-  const _$_AppUser(
-      {required this.id, required this.email, required this.password});
+  const _$_AppUser({required this.id, required this.email, required this.name});
 
   @override
   final UniqueString id;
   @override
-  final UnemptyString email;
+  final EmailAddress email;
   @override
-  final UnemptyString password;
+  final PersonName name;
 
   @override
   String toString() {
-    return 'AppUser(id: $id, email: $email, password: $password)';
+    return 'AppUser(id: $id, email: $email, name: $name)';
   }
 
   @override
@@ -132,12 +131,11 @@ class _$_AppUser implements _AppUser {
             other is _$_AppUser &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.email, email) || other.email == email) &&
-            (identical(other.password, password) ||
-                other.password == password));
+            (identical(other.name, name) || other.name == name));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, email, password);
+  int get hashCode => Object.hash(runtimeType, id, email, name);
 
   @JsonKey(ignore: true)
   @override
@@ -149,15 +147,15 @@ class _$_AppUser implements _AppUser {
 abstract class _AppUser implements AppUser {
   const factory _AppUser(
       {required final UniqueString id,
-      required final UnemptyString email,
-      required final UnemptyString password}) = _$_AppUser;
+      required final EmailAddress email,
+      required final PersonName name}) = _$_AppUser;
 
   @override
   UniqueString get id;
   @override
-  UnemptyString get email;
+  EmailAddress get email;
   @override
-  UnemptyString get password;
+  PersonName get name;
   @override
   @JsonKey(ignore: true)
   _$$_AppUserCopyWith<_$_AppUser> get copyWith =>
