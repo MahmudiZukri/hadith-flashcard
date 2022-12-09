@@ -5,6 +5,7 @@ class AuthState with _$AuthState {
   const factory AuthState({
     required bool onLoading,
     required EmailAddress email,
+    required PersonName name,
     required Password password,
     required bool showErrorMessages,
     required bool showSnackbar,
@@ -13,8 +14,9 @@ class AuthState with _$AuthState {
 
   factory AuthState.initial() => AuthState(
         onLoading: false,
-        email: EmailAddress(''),
-        password: Password(''),
+        email: EmailAddress.empty(),
+        password: Password.empty(),
+        name: PersonName.empty(),
         showErrorMessages: false,
         showSnackbar: false,
         optionFailureOrSuccess: none(),

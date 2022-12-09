@@ -41,9 +41,6 @@ class StringFailure with _$StringFailure {
   const factory StringFailure.invalidUrl({
     required String? failedValue,
   }) = InvalidUrl;
-  const factory StringFailure.invalidSKU({
-    required String? failedValue,
-  }) = InvalidSKU;
   const factory StringFailure.invalidDateTime({
     required DateTime failedValue,
     required String pattern,

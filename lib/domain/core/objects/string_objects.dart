@@ -61,7 +61,6 @@ abstract class StringObject {
           invalidPhone: (s) => s.failedValue ?? '',
           confirmationNotMatch: (s) => s.failedValue ?? '',
           invalidUrl: (s) => s.failedValue ?? '',
-          invalidSKU: (s) => s.failedValue ?? '',
           orElse: () {
             throw 'Only accept StringObject';
           }),
@@ -77,6 +76,7 @@ abstract class StringObject {
           empty: (_) => exceptEmpty ? null : 'This cannot be null',
           invalidEmail: (_) => 'Invalid email format',
           lengthTooShort: (_) => 'Length is too short',
+          invalidPersonName: (_) => 'Name cannot be filled with numbers',
           orElse: () => 'String Failure OR ELSE',
         ),
         (_) => null,
@@ -296,18 +296,6 @@ class PhoneNumber extends StringObject {
   );
 }
 
-class SKU extends StringObject {
-  @override
-  final Either<StringFailure, String> value;
-
-  factory SKU(String input) {
-    return SKU._(StringValidators.validateStringNotEmpty(input)
-        .flatMap(StringValidators.validateSKU));
-  }
-
-  const SKU._(this.value);
-}
-
 class UrlAddress extends StringObject {
   @override
   final Either<StringFailure, String> value;
@@ -331,6 +319,8 @@ class PersonName extends StringObject {
       ),
     );
   }
+
+  factory PersonName.empty() => PersonName('');
 
   const PersonName._(this.value);
 }
@@ -405,6 +395,8 @@ class EmailAddress extends StringObject {
     );
   }
 
+  factory EmailAddress.empty() => EmailAddress('');
+
   const EmailAddress._(this.value, this.censoredText);
 }
 
@@ -419,6 +411,8 @@ class Password extends StringObject {
       ),
     );
   }
+
+  factory Password.empty() => Password('');
 
   const Password._(this.value);
 }

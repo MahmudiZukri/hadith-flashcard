@@ -18,6 +18,14 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<AuthEvent>(
       (event, emit) async {
         await event.map(
+          nameChanged: (e) {
+            emit(
+              state.copyWith(
+                name: PersonName(e.nameStr),
+                optionFailureOrSuccess: none(),
+              ),
+            );
+          },
           emailChanged: (e) {
             emit(
               state.copyWith(
@@ -46,6 +54,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
               );
 
               failureOrSuccess = await _authRepository.signUp(
+                name: state.name.getOrCrash(),
                 email: state.email.getOrCrash(),
                 password: state.password.getOrCrash(),
               );
@@ -62,6 +71,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
               ),
             );
           },
+          signIn: (e) async {},
         );
       },
     );

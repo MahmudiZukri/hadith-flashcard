@@ -78,18 +78,6 @@ class StringValidators {
     }
   }
 
-  static Either<StringFailure, String> validateSKU(
-    String input,
-  ) {
-    if (input.startsWith('SKU-')) {
-      return right(input);
-    } else {
-      return left(
-        StringFailure.invalidSKU(failedValue: input),
-      );
-    }
-  }
-
   static Either<StringFailure, String> validateURl(
     String input,
   ) {

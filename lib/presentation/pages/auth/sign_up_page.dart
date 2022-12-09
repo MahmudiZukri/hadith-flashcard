@@ -29,12 +29,17 @@ class SignUpPageScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     final formKey = GlobalKey<FormState>();
 
-    TextEditingController emailController = TextEditingController();
-    TextEditingController passwordController = TextEditingController();
-
     return Scaffold(
+      backgroundColor: backgroundColor,
       appBar: AppBar(
-        title: const Text('Sign Up Page'),
+        backgroundColor: primaryColor,
+        title: Text(
+          'Sign Up Page',
+          style: whiteTextFont.copyWith(
+            fontSize: 22.0,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
       ),
       body: BlocConsumer<AuthBloc, AuthState>(
         listenWhen: (previous, current) {
@@ -47,7 +52,9 @@ class SignUpPageScaffold extends StatelessWidget {
               (f) {
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
-                    duration: const Duration(seconds: 1),
+                    duration: const Duration(
+                      seconds: 1,
+                    ),
                     content: Text(
                       CommonUtils.firebaseMessageSplit(
                         message: f.toString(),
@@ -84,13 +91,75 @@ class SignUpPageScaffold extends StatelessWidget {
                   child: Column(
                     children: [
                       TextFormField(
-                        controller: emailController,
+                        style: primaryTextFont,
                         decoration: InputDecoration(
-                          labelText: 'Email',
+                          labelText: 'Name',
+                          labelStyle: primaryTextFont,
                           filled: true,
-                          fillColor: Colors.white,
+                          fillColor: backgroundColor,
                           border: OutlineInputBorder(
                             borderRadius: defaultBorderRadius(),
+                            borderSide: const BorderSide(
+                              color: primaryColor,
+                              width: 2.0,
+                            ),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: defaultBorderRadius(),
+                            borderSide: const BorderSide(
+                              color: primaryColor,
+                              width: 2.0,
+                            ),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: defaultBorderRadius(),
+                            borderSide: const BorderSide(
+                              color: primaryColor,
+                              width: 2.0,
+                            ),
+                          ),
+                        ),
+                        onChanged: (val) {
+                          //tempDebugPrint
+                          debugPrint(val);
+                          context.read<AuthBloc>().add(
+                                AuthEvent.nameChanged(
+                                  nameStr: val,
+                                ),
+                              );
+                        },
+                        validator: (_) => state.name.getFoldValidator(
+                          exceptEmpty: true,
+                        ),
+                      ),
+                      const SizedBox(height: 20.0),
+                      TextFormField(
+                        style: primaryTextFont,
+                        decoration: InputDecoration(
+                          labelText: 'Email',
+                          labelStyle: primaryTextFont,
+                          filled: true,
+                          fillColor: backgroundColor,
+                          border: OutlineInputBorder(
+                            borderRadius: defaultBorderRadius(),
+                            borderSide: const BorderSide(
+                              color: primaryColor,
+                              width: 2.0,
+                            ),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: defaultBorderRadius(),
+                            borderSide: const BorderSide(
+                              color: primaryColor,
+                              width: 2.0,
+                            ),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: defaultBorderRadius(),
+                            borderSide: const BorderSide(
+                              color: primaryColor,
+                              width: 2.0,
+                            ),
                           ),
                         ),
                         onChanged: (val) {
@@ -108,13 +177,33 @@ class SignUpPageScaffold extends StatelessWidget {
                       ),
                       const SizedBox(height: 20.0),
                       TextFormField(
-                        controller: passwordController,
+                        style: primaryTextFont,
                         decoration: InputDecoration(
                           labelText: 'Password',
+                          labelStyle: primaryTextFont,
                           filled: true,
-                          fillColor: Colors.white,
+                          fillColor: backgroundColor,
                           border: OutlineInputBorder(
-                              borderRadius: defaultBorderRadius()),
+                            borderRadius: defaultBorderRadius(),
+                            borderSide: const BorderSide(
+                              color: primaryColor,
+                              width: 2.0,
+                            ),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: defaultBorderRadius(),
+                            borderSide: const BorderSide(
+                              color: primaryColor,
+                              width: 2.0,
+                            ),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: defaultBorderRadius(),
+                            borderSide: const BorderSide(
+                              color: primaryColor,
+                              width: 2.0,
+                            ),
+                          ),
                         ),
                         onChanged: (val) {
                           //tempDebugPrint
@@ -132,7 +221,7 @@ class SignUpPageScaffold extends StatelessWidget {
                     ],
                   ),
                 ),
-                const SizedBox(height: 20.0),
+                const Spacer(),
                 state.onLoading
                     ? const CircularProgressIndicator()
                     : ElevatedButton(
@@ -144,12 +233,14 @@ class SignUpPageScaffold extends StatelessWidget {
                           shape: RoundedRectangleBorder(
                             borderRadius: defaultBorderRadius(),
                           ),
-                          backgroundColor: state.email == EmailAddress('') ||
+                          backgroundColor: state.name == PersonName('') ||
+                                  state.email == EmailAddress('') ||
                                   state.password == Password('')
-                              ? Colors.grey
-                              : Colors.blue,
+                              ? backgroundColor
+                              : primaryColor,
                         ),
-                        onPressed: state.email == EmailAddress('') ||
+                        onPressed: state.name == PersonName('') ||
+                                state.email == EmailAddress('') ||
                                 state.password == Password('')
                             ? () {}
                             : () {
@@ -157,21 +248,44 @@ class SignUpPageScaffold extends StatelessWidget {
                                       const AuthEvent.signUp(),
                                     );
                               },
-                        child: const Text(
+                        child: Text(
                           'Sign Up',
+                          style: state.name == PersonName('') ||
+                                  state.email == EmailAddress('') ||
+                                  state.password == Password('')
+                              ? secondaryTextFont.copyWith(
+                                  fontSize: 16.0,
+                                  fontWeight: FontWeight.w500,
+                                )
+                              : whiteTextFont.copyWith(
+                                  fontSize: 16.0,
+                                ),
                         ),
                       ),
-                const Spacer(),
-                TextButton(
-                  onPressed: () {
-                    context.go('/signin');
-                  },
-                  child: const Text(
-                    'Sign In',
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Already have an account?',
+                      style: secondaryTextFont,
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        context.go(
+                          '/signin',
+                        );
+                      },
+                      child: Text(
+                        'Sign In',
+                        style: primaryTextFont.copyWith(
+                          decoration: TextDecoration.underline,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
                 const SizedBox(
-                  height: 20,
+                  height: 40,
                 )
               ],
             ),
