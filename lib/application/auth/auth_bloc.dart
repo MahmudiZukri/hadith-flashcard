@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hadith_flashcard/domain/auth/failures/auth_failures.dart';
 import 'package:hadith_flashcard/domain/auth/interfaces/i_auth_repository.dart';
+import 'package:hadith_flashcard/domain/core/failures/common_failures/common_failures.dart';
 import 'package:hadith_flashcard/domain/core/objects/string_objects.dart';
 import 'package:injectable/injectable.dart';
 
@@ -43,7 +43,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             );
           },
           signUp: (e) async {
-            Either<AuthFailure, Unit>? failureOrSuccess;
+            Either<CommonFailures, Unit>? failureOrSuccess;
 
             if (state.email.isValid() && state.password.isValid()) {
               emit(

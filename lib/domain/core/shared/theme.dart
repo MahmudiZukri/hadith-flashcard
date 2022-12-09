@@ -39,13 +39,10 @@ Shader textGradient = const LinearGradient(
 
 TextStyle greyTextFont = const TextStyle(
   color: lightGreyColor,
-  fontWeight: FontWeight.w500,
 );
 
 TextStyle blackTextFont = const TextStyle(
   color: blackColor,
-  fontSize: 16,
-  fontWeight: FontWeight.w500,
 );
 
 TextStyle primaryTextFont = const TextStyle(
@@ -62,7 +59,6 @@ TextStyle accentTextFont = const TextStyle(
 
 TextStyle whiteTextFont = const TextStyle(
   color: whiteColor,
-  fontWeight: FontWeight.w500,
 );
 
 TextStyle lightWhiteTextFont = const TextStyle(

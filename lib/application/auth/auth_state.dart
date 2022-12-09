@@ -9,7 +9,7 @@ class AuthState with _$AuthState {
     required Password password,
     required bool showErrorMessages,
     required bool showSnackbar,
-    required Option<Either<AuthFailure, Unit>> optionFailureOrSuccess,
+    required Option<Either<CommonFailures, Unit>> optionFailureOrSuccess,
   }) = _AuthState;
 
   factory AuthState.initial() => AuthState(

@@ -792,7 +792,7 @@ mixin _$AuthState {
   Password get password => throw _privateConstructorUsedError;
   bool get showErrorMessages => throw _privateConstructorUsedError;
   bool get showSnackbar => throw _privateConstructorUsedError;
-  Option<Either<AuthFailure, Unit>> get optionFailureOrSuccess =>
+  Option<Either<CommonFailures, Unit>> get optionFailureOrSuccess =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -812,7 +812,7 @@ abstract class $AuthStateCopyWith<$Res> {
       Password password,
       bool showErrorMessages,
       bool showSnackbar,
-      Option<Either<AuthFailure, Unit>> optionFailureOrSuccess});
+      Option<Either<CommonFailures, Unit>> optionFailureOrSuccess});
 }
 
 /// @nodoc
@@ -864,7 +864,7 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
       optionFailureOrSuccess: null == optionFailureOrSuccess
           ? _value.optionFailureOrSuccess
           : optionFailureOrSuccess // ignore: cast_nullable_to_non_nullable
-              as Option<Either<AuthFailure, Unit>>,
+              as Option<Either<CommonFailures, Unit>>,
     ) as $Val);
   }
 }
@@ -883,7 +883,7 @@ abstract class _$$_AuthStateCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
       Password password,
       bool showErrorMessages,
       bool showSnackbar,
-      Option<Either<AuthFailure, Unit>> optionFailureOrSuccess});
+      Option<Either<CommonFailures, Unit>> optionFailureOrSuccess});
 }
 
 /// @nodoc
@@ -933,7 +933,7 @@ class __$$_AuthStateCopyWithImpl<$Res>
       optionFailureOrSuccess: null == optionFailureOrSuccess
           ? _value.optionFailureOrSuccess
           : optionFailureOrSuccess // ignore: cast_nullable_to_non_nullable
-              as Option<Either<AuthFailure, Unit>>,
+              as Option<Either<CommonFailures, Unit>>,
     ));
   }
 }
@@ -963,7 +963,7 @@ class _$_AuthState implements _AuthState {
   @override
   final bool showSnackbar;
   @override
-  final Option<Either<AuthFailure, Unit>> optionFailureOrSuccess;
+  final Option<Either<CommonFailures, Unit>> optionFailureOrSuccess;
 
   @override
   String toString() {
@@ -1008,7 +1008,7 @@ abstract class _AuthState implements AuthState {
       required final Password password,
       required final bool showErrorMessages,
       required final bool showSnackbar,
-      required final Option<Either<AuthFailure, Unit>>
+      required final Option<Either<CommonFailures, Unit>>
           optionFailureOrSuccess}) = _$_AuthState;
 
   @override
@@ -1024,7 +1024,7 @@ abstract class _AuthState implements AuthState {
   @override
   bool get showSnackbar;
   @override
-  Option<Either<AuthFailure, Unit>> get optionFailureOrSuccess;
+  Option<Either<CommonFailures, Unit>> get optionFailureOrSuccess;
   @override
   @JsonKey(ignore: true)
   _$$_AuthStateCopyWith<_$_AuthState> get copyWith =>
