@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -10,6 +11,7 @@ import 'package:injectable/injectable.dart';
 
 @LazySingleton(as: IAuthRepository)
 class AuthRepository implements IAuthRepository {
+  final userCollection = FirebaseFirestore.instance.collection('users');
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   @override
@@ -24,7 +26,26 @@ class AuthRepository implements IAuthRepository {
         password: password,
       );
 
-      AppUserModel user = credential.user!.convertToAppUser(name: name);
+      AppUserModel user = credential.user!.convertToAppUser(
+        name: name,
+      );
+
+      //add to firestore
+      try {
+        await userCollection.doc(user.id).set(
+          {
+            'email': user.email,
+            'name': user.name,
+          },
+        );
+      } catch (e, stackTrace) {
+        debugPrint('1------- $stackTrace -------1');
+        return left(
+          CommonFailures.other(
+            message: e.toString(),
+          ),
+        );
+      }
 
       if (credential.user != null) {
         return right(
@@ -32,32 +53,32 @@ class AuthRepository implements IAuthRepository {
         );
       } else if (credential.user == null) {
         return left(
-          const CommonFailures.handledByFirebase(
-            message: 'User Not Found (NULL)',
+          const CommonFailures.other(
+            message: 'User Not Found',
           ),
         );
       }
       return left(
         const CommonFailures.handledByFirebase(
-          message: 'Something went wrong in repositoy',
+          message: 'Something went wrong in repository',
         ),
       );
     } on PlatformException catch (e, stackTrace) {
-      debugPrint('------- $stackTrace -------');
+      debugPrint('2------- $stackTrace -------2');
       return left(
         CommonFailures.handledByFirebase(
-          message: e.message ?? 'Platform Exception',
+          message: e.message.toString(),
         ),
       );
     } on FirebaseAuthException catch (e, stackTrace) {
-      debugPrint('------- $stackTrace -------');
+      debugPrint('3------- $stackTrace -------3');
       return left(
         CommonFailures.handledByFirebase(
-          message: e.toString(),
+          message: e.message.toString(),
         ),
       );
     } catch (e, stackTrace) {
-      debugPrint('------- $stackTrace -------');
+      debugPrint('4------- $stackTrace -------4');
 
       return left(
         CommonFailures.handledByFirebase(

@@ -53,13 +53,12 @@ class SignUpPageScaffold extends StatelessWidget {
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
                     duration: const Duration(
-                      seconds: 1,
+                      seconds: 2,
                     ),
-                    content: Text(
-                      CommonUtils.firebaseMessageSplit(
-                        message: f.toString(),
-                      ),
-                    ),
+                    content: Text(f.maybeMap(
+                      handledByFirebase: (s) => s.message,
+                      orElse: () => 'Something went wrong ($f)',
+                    )),
                   ),
                 );
               },
@@ -223,43 +222,53 @@ class SignUpPageScaffold extends StatelessWidget {
                 ),
                 const Spacer(),
                 state.onLoading
-                    ? const CircularProgressIndicator()
-                    : ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          minimumSize: Size(
-                            screenWidth(context),
-                            46.0,
-                          ),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: defaultBorderRadius(),
-                          ),
-                          backgroundColor: state.name == PersonName('') ||
-                                  state.email == EmailAddress('') ||
-                                  state.password == Password('')
-                              ? backgroundColor
-                              : primaryColor,
-                        ),
-                        onPressed: state.name == PersonName('') ||
+                    ? const CircularProgressIndicator(
+                        color: primaryColor,
+                      )
+                    : Opacity(
+                        opacity: state.name == PersonName('') ||
                                 state.email == EmailAddress('') ||
                                 state.password == Password('')
-                            ? () {}
-                            : () {
-                                context.read<AuthBloc>().add(
-                                      const AuthEvent.signUp(),
-                                    );
-                              },
-                        child: Text(
-                          'Sign Up',
-                          style: state.name == PersonName('') ||
+                            ? 0.5
+                            : 1,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            minimumSize: Size(
+                              screenWidth(context),
+                              46.0,
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: defaultBorderRadius(),
+                            ),
+                            backgroundColor: state.name == PersonName('') ||
+                                    state.email == EmailAddress('') ||
+                                    state.password == Password('')
+                                ? backgroundColor
+                                : primaryColor,
+                          ),
+                          onPressed: state.name == PersonName('') ||
                                   state.email == EmailAddress('') ||
                                   state.password == Password('')
-                              ? secondaryTextFont.copyWith(
-                                  fontSize: 16.0,
-                                  fontWeight: FontWeight.w500,
-                                )
-                              : whiteTextFont.copyWith(
-                                  fontSize: 16.0,
-                                ),
+                              ? () {}
+                              : () {
+                                  context.read<AuthBloc>().add(
+                                        const AuthEvent.signUp(),
+                                      );
+                                },
+                          child: Text(
+                            'Sign Up',
+                            style: state.name == PersonName('') ||
+                                    state.email == EmailAddress('') ||
+                                    state.password == Password('')
+                                ? primaryTextFont.copyWith(
+                                    fontSize: 16.0,
+                                    fontWeight: FontWeight.w600,
+                                  )
+                                : whiteTextFont.copyWith(
+                                    fontSize: 16.0,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                          ),
                         ),
                       ),
                 Row(

@@ -20,32 +20,38 @@ mixin _$CommonFailures {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String message) handledByFirebase,
+    required TResult Function(String message) other,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String message)? handledByFirebase,
+    TResult? Function(String message)? other,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String message)? handledByFirebase,
+    TResult Function(String message)? other,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_HandledByFirebase value) handledByFirebase,
+    required TResult Function(_Other value) other,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_HandledByFirebase value)? handledByFirebase,
+    TResult? Function(_Other value)? other,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_HandledByFirebase value)? handledByFirebase,
+    TResult Function(_Other value)? other,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -156,6 +162,7 @@ class _$_HandledByFirebase implements _HandledByFirebase {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String message) handledByFirebase,
+    required TResult Function(String message) other,
   }) {
     return handledByFirebase(message);
   }
@@ -164,6 +171,7 @@ class _$_HandledByFirebase implements _HandledByFirebase {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String message)? handledByFirebase,
+    TResult? Function(String message)? other,
   }) {
     return handledByFirebase?.call(message);
   }
@@ -172,6 +180,7 @@ class _$_HandledByFirebase implements _HandledByFirebase {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String message)? handledByFirebase,
+    TResult Function(String message)? other,
     required TResult orElse(),
   }) {
     if (handledByFirebase != null) {
@@ -184,6 +193,7 @@ class _$_HandledByFirebase implements _HandledByFirebase {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_HandledByFirebase value) handledByFirebase,
+    required TResult Function(_Other value) other,
   }) {
     return handledByFirebase(this);
   }
@@ -192,6 +202,7 @@ class _$_HandledByFirebase implements _HandledByFirebase {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_HandledByFirebase value)? handledByFirebase,
+    TResult? Function(_Other value)? other,
   }) {
     return handledByFirebase?.call(this);
   }
@@ -200,6 +211,7 @@ class _$_HandledByFirebase implements _HandledByFirebase {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_HandledByFirebase value)? handledByFirebase,
+    TResult Function(_Other value)? other,
     required TResult orElse(),
   }) {
     if (handledByFirebase != null) {
@@ -218,5 +230,140 @@ abstract class _HandledByFirebase implements CommonFailures {
   @override
   @JsonKey(ignore: true)
   _$$_HandledByFirebaseCopyWith<_$_HandledByFirebase> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_OtherCopyWith<$Res>
+    implements $CommonFailuresCopyWith<$Res> {
+  factory _$$_OtherCopyWith(_$_Other value, $Res Function(_$_Other) then) =
+      __$$_OtherCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$_OtherCopyWithImpl<$Res>
+    extends _$CommonFailuresCopyWithImpl<$Res, _$_Other>
+    implements _$$_OtherCopyWith<$Res> {
+  __$$_OtherCopyWithImpl(_$_Other _value, $Res Function(_$_Other) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$_Other(
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_Other implements _Other {
+  const _$_Other({required this.message});
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'CommonFailures.other(message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Other &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_OtherCopyWith<_$_Other> get copyWith =>
+      __$$_OtherCopyWithImpl<_$_Other>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String message) handledByFirebase,
+    required TResult Function(String message) other,
+  }) {
+    return other(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String message)? handledByFirebase,
+    TResult? Function(String message)? other,
+  }) {
+    return other?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String message)? handledByFirebase,
+    TResult Function(String message)? other,
+    required TResult orElse(),
+  }) {
+    if (other != null) {
+      return other(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_HandledByFirebase value) handledByFirebase,
+    required TResult Function(_Other value) other,
+  }) {
+    return other(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_HandledByFirebase value)? handledByFirebase,
+    TResult? Function(_Other value)? other,
+  }) {
+    return other?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_HandledByFirebase value)? handledByFirebase,
+    TResult Function(_Other value)? other,
+    required TResult orElse(),
+  }) {
+    if (other != null) {
+      return other(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Other implements CommonFailures {
+  const factory _Other({required final String message}) = _$_Other;
+
+  @override
+  String get message;
+  @override
+  @JsonKey(ignore: true)
+  _$$_OtherCopyWith<_$_Other> get copyWith =>
       throw _privateConstructorUsedError;
 }
