@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fpdart/fpdart.dart';
+import 'package:hadith_flashcard/domain/app_user/app_user.dart';
 import 'package:hadith_flashcard/domain/auth/interfaces/i_auth_repository.dart';
 import 'package:hadith_flashcard/domain/core/failures/common_failures/common_failures.dart';
 import 'package:hadith_flashcard/infrastructure/app_user/model/app_user_model.dart';
@@ -12,7 +13,6 @@ import 'package:injectable/injectable.dart';
 @LazySingleton(as: IAuthRepository)
 class AuthRepository implements IAuthRepository {
   final userCollection = FirebaseFirestore.instance.collection('users');
-  final FirebaseAuth _auth = FirebaseAuth.instance;
 
   @override
   Future<Either<CommonFailures, Unit>> signUp({
@@ -21,7 +21,8 @@ class AuthRepository implements IAuthRepository {
     required String password,
   }) async {
     try {
-      final credential = await _auth.createUserWithEmailAndPassword(
+      final credential =
+          await IAuthRepository.auth.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
@@ -85,6 +86,53 @@ class AuthRepository implements IAuthRepository {
           message: e.toString(),
         ),
       );
+    }
+  }
+
+  @override
+  Future<Either<CommonFailures, AppUser>> signIn({
+    required String email,
+    required String password,
+  }) async {
+    try {
+      final credential = await IAuthRepository.auth.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+
+      final String userID = credential.user!.uid;
+
+      DocumentSnapshot<Map<String, dynamic>> snapshot =
+          await userCollection.doc(userID).get();
+
+      return right(
+        AppUserModel(
+                id: userID,
+                email: snapshot.data()!['email'],
+                name: snapshot.data()!['name'])
+            .toDomain(),
+      );
+    } on PlatformException catch (e, stackTrace) {
+      debugPrint('1------- $stackTrace -------1');
+      return left(
+        CommonFailures.handledByFirebase(
+          message: e.message.toString(),
+        ),
+      );
+    } on FirebaseAuthException catch (e, stackTrace) {
+      debugPrint('2------- $stackTrace -------2');
+      return left(
+        CommonFailures.handledByFirebase(
+          message: e.message.toString(),
+        ),
+      );
+    } catch (e, stackTrace) {
+      debugPrint('3------- $stackTrace -------3');
+      return (left(
+        CommonFailures.handledByFirebase(
+          message: e.toString(),
+        ),
+      ));
     }
   }
 }
