@@ -792,7 +792,9 @@ mixin _$AuthState {
   Password get password => throw _privateConstructorUsedError;
   bool get showErrorMessages => throw _privateConstructorUsedError;
   bool get showSnackbar => throw _privateConstructorUsedError;
-  Option<Either<CommonFailures, Unit>> get optionFailureOrSuccess =>
+  Option<Either<CommonFailures, Unit>> get optionFailureOrSuccessSignUp =>
+      throw _privateConstructorUsedError;
+  Option<Either<CommonFailures, AppUser>> get optionFailureOrSuccessSignIn =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -812,7 +814,8 @@ abstract class $AuthStateCopyWith<$Res> {
       Password password,
       bool showErrorMessages,
       bool showSnackbar,
-      Option<Either<CommonFailures, Unit>> optionFailureOrSuccess});
+      Option<Either<CommonFailures, Unit>> optionFailureOrSuccessSignUp,
+      Option<Either<CommonFailures, AppUser>> optionFailureOrSuccessSignIn});
 }
 
 /// @nodoc
@@ -834,7 +837,8 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
     Object? password = null,
     Object? showErrorMessages = null,
     Object? showSnackbar = null,
-    Object? optionFailureOrSuccess = null,
+    Object? optionFailureOrSuccessSignUp = null,
+    Object? optionFailureOrSuccessSignIn = null,
   }) {
     return _then(_value.copyWith(
       onLoading: null == onLoading
@@ -861,10 +865,14 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
           ? _value.showSnackbar
           : showSnackbar // ignore: cast_nullable_to_non_nullable
               as bool,
-      optionFailureOrSuccess: null == optionFailureOrSuccess
-          ? _value.optionFailureOrSuccess
-          : optionFailureOrSuccess // ignore: cast_nullable_to_non_nullable
+      optionFailureOrSuccessSignUp: null == optionFailureOrSuccessSignUp
+          ? _value.optionFailureOrSuccessSignUp
+          : optionFailureOrSuccessSignUp // ignore: cast_nullable_to_non_nullable
               as Option<Either<CommonFailures, Unit>>,
+      optionFailureOrSuccessSignIn: null == optionFailureOrSuccessSignIn
+          ? _value.optionFailureOrSuccessSignIn
+          : optionFailureOrSuccessSignIn // ignore: cast_nullable_to_non_nullable
+              as Option<Either<CommonFailures, AppUser>>,
     ) as $Val);
   }
 }
@@ -883,7 +891,8 @@ abstract class _$$_AuthStateCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
       Password password,
       bool showErrorMessages,
       bool showSnackbar,
-      Option<Either<CommonFailures, Unit>> optionFailureOrSuccess});
+      Option<Either<CommonFailures, Unit>> optionFailureOrSuccessSignUp,
+      Option<Either<CommonFailures, AppUser>> optionFailureOrSuccessSignIn});
 }
 
 /// @nodoc
@@ -903,7 +912,8 @@ class __$$_AuthStateCopyWithImpl<$Res>
     Object? password = null,
     Object? showErrorMessages = null,
     Object? showSnackbar = null,
-    Object? optionFailureOrSuccess = null,
+    Object? optionFailureOrSuccessSignUp = null,
+    Object? optionFailureOrSuccessSignIn = null,
   }) {
     return _then(_$_AuthState(
       onLoading: null == onLoading
@@ -930,10 +940,14 @@ class __$$_AuthStateCopyWithImpl<$Res>
           ? _value.showSnackbar
           : showSnackbar // ignore: cast_nullable_to_non_nullable
               as bool,
-      optionFailureOrSuccess: null == optionFailureOrSuccess
-          ? _value.optionFailureOrSuccess
-          : optionFailureOrSuccess // ignore: cast_nullable_to_non_nullable
+      optionFailureOrSuccessSignUp: null == optionFailureOrSuccessSignUp
+          ? _value.optionFailureOrSuccessSignUp
+          : optionFailureOrSuccessSignUp // ignore: cast_nullable_to_non_nullable
               as Option<Either<CommonFailures, Unit>>,
+      optionFailureOrSuccessSignIn: null == optionFailureOrSuccessSignIn
+          ? _value.optionFailureOrSuccessSignIn
+          : optionFailureOrSuccessSignIn // ignore: cast_nullable_to_non_nullable
+              as Option<Either<CommonFailures, AppUser>>,
     ));
   }
 }
@@ -948,7 +962,8 @@ class _$_AuthState implements _AuthState {
       required this.password,
       required this.showErrorMessages,
       required this.showSnackbar,
-      required this.optionFailureOrSuccess});
+      required this.optionFailureOrSuccessSignUp,
+      required this.optionFailureOrSuccessSignIn});
 
   @override
   final bool onLoading;
@@ -963,11 +978,13 @@ class _$_AuthState implements _AuthState {
   @override
   final bool showSnackbar;
   @override
-  final Option<Either<CommonFailures, Unit>> optionFailureOrSuccess;
+  final Option<Either<CommonFailures, Unit>> optionFailureOrSuccessSignUp;
+  @override
+  final Option<Either<CommonFailures, AppUser>> optionFailureOrSuccessSignIn;
 
   @override
   String toString() {
-    return 'AuthState(onLoading: $onLoading, email: $email, name: $name, password: $password, showErrorMessages: $showErrorMessages, showSnackbar: $showSnackbar, optionFailureOrSuccess: $optionFailureOrSuccess)';
+    return 'AuthState(onLoading: $onLoading, email: $email, name: $name, password: $password, showErrorMessages: $showErrorMessages, showSnackbar: $showSnackbar, optionFailureOrSuccessSignUp: $optionFailureOrSuccessSignUp, optionFailureOrSuccessSignIn: $optionFailureOrSuccessSignIn)';
   }
 
   @override
@@ -985,13 +1002,27 @@ class _$_AuthState implements _AuthState {
                 other.showErrorMessages == showErrorMessages) &&
             (identical(other.showSnackbar, showSnackbar) ||
                 other.showSnackbar == showSnackbar) &&
-            (identical(other.optionFailureOrSuccess, optionFailureOrSuccess) ||
-                other.optionFailureOrSuccess == optionFailureOrSuccess));
+            (identical(other.optionFailureOrSuccessSignUp,
+                    optionFailureOrSuccessSignUp) ||
+                other.optionFailureOrSuccessSignUp ==
+                    optionFailureOrSuccessSignUp) &&
+            (identical(other.optionFailureOrSuccessSignIn,
+                    optionFailureOrSuccessSignIn) ||
+                other.optionFailureOrSuccessSignIn ==
+                    optionFailureOrSuccessSignIn));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, onLoading, email, name, password,
-      showErrorMessages, showSnackbar, optionFailureOrSuccess);
+  int get hashCode => Object.hash(
+      runtimeType,
+      onLoading,
+      email,
+      name,
+      password,
+      showErrorMessages,
+      showSnackbar,
+      optionFailureOrSuccessSignUp,
+      optionFailureOrSuccessSignIn);
 
   @JsonKey(ignore: true)
   @override
@@ -1009,7 +1040,9 @@ abstract class _AuthState implements AuthState {
       required final bool showErrorMessages,
       required final bool showSnackbar,
       required final Option<Either<CommonFailures, Unit>>
-          optionFailureOrSuccess}) = _$_AuthState;
+          optionFailureOrSuccessSignUp,
+      required final Option<Either<CommonFailures, AppUser>>
+          optionFailureOrSuccessSignIn}) = _$_AuthState;
 
   @override
   bool get onLoading;
@@ -1024,7 +1057,9 @@ abstract class _AuthState implements AuthState {
   @override
   bool get showSnackbar;
   @override
-  Option<Either<CommonFailures, Unit>> get optionFailureOrSuccess;
+  Option<Either<CommonFailures, Unit>> get optionFailureOrSuccessSignUp;
+  @override
+  Option<Either<CommonFailures, AppUser>> get optionFailureOrSuccessSignIn;
   @override
   @JsonKey(ignore: true)
   _$$_AuthStateCopyWith<_$_AuthState> get copyWith =>

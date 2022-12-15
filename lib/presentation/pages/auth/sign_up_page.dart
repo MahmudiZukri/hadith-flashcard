@@ -46,7 +46,7 @@ class SignUpPageScaffold extends StatelessWidget {
           return previous.showSnackbar != current.showSnackbar;
         },
         listener: (context, state) {
-          state.optionFailureOrSuccess.match(
+          state.optionFailureOrSuccessSignUp.match(
             () => null,
             (either) => either.fold(
               (f) {
@@ -57,7 +57,7 @@ class SignUpPageScaffold extends StatelessWidget {
                     ),
                     content: Text(f.maybeMap(
                       handledByFirebase: (s) => s.message,
-                      orElse: () => 'Something went wrong ($f)',
+                      orElse: () => 'Something went wrong ($f).',
                     )),
                   ),
                 );

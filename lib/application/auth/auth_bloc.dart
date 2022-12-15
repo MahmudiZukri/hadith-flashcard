@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hadith_flashcard/domain/app_user/app_user.dart';
 import 'package:hadith_flashcard/domain/auth/interfaces/i_auth_repository.dart';
 import 'package:hadith_flashcard/domain/core/failures/common_failures/common_failures.dart';
 import 'package:hadith_flashcard/domain/core/objects/string_objects.dart';
@@ -22,7 +23,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             emit(
               state.copyWith(
                 name: PersonName(e.nameStr),
-                optionFailureOrSuccess: none(),
+                optionFailureOrSuccessSignUp: none(),
+                optionFailureOrSuccessSignIn: none(),
               ),
             );
           },
@@ -30,7 +32,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             emit(
               state.copyWith(
                 email: EmailAddress(e.emailStr),
-                optionFailureOrSuccess: none(),
+                optionFailureOrSuccessSignUp: none(),
+                optionFailureOrSuccessSignIn: none(),
               ),
             );
           },
@@ -38,18 +41,21 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             emit(
               state.copyWith(
                 password: Password(e.passwordStr),
-                optionFailureOrSuccess: none(),
+                optionFailureOrSuccessSignUp: none(),
+                optionFailureOrSuccessSignIn: none(),
               ),
             );
           },
           signUp: (e) async {
             Either<CommonFailures, Unit>? failureOrSuccess;
 
-            if (state.email.isValid() && state.password.isValid()) {
+            if (state.name.isValid() &&
+                state.email.isValid() &&
+                state.password.isValid()) {
               emit(
                 state.copyWith(
                   onLoading: true,
-                  optionFailureOrSuccess: none(),
+                  optionFailureOrSuccessSignUp: none(),
                 ),
               );
 
@@ -65,13 +71,40 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
                 onLoading: false,
                 showErrorMessages: true,
                 showSnackbar: !state.showSnackbar,
-                optionFailureOrSuccess: optionOf(
+                optionFailureOrSuccessSignUp: optionOf(
                   failureOrSuccess,
                 ),
               ),
             );
           },
-          signIn: (e) async {},
+          signIn: (e) async {
+            Either<CommonFailures, AppUser>? failureOrSuccess;
+
+            if (state.email.isValid() && state.password.isValid()) {
+              emit(
+                state.copyWith(
+                  onLoading: true,
+                  optionFailureOrSuccessSignIn: none(),
+                ),
+              );
+
+              failureOrSuccess = await _authRepository.signIn(
+                email: state.email.getOrCrash(),
+                password: state.password.getOrCrash(),
+              );
+            }
+
+            emit(
+              state.copyWith(
+                onLoading: false,
+                showErrorMessages: true,
+                showSnackbar: !state.showSnackbar,
+                optionFailureOrSuccessSignIn: optionOf(
+                  failureOrSuccess,
+                ),
+              ),
+            );
+          },
         );
       },
     );
