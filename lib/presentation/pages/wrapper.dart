@@ -6,7 +6,7 @@ class Wrapper extends StatelessWidget {
     required this.user,
   });
 
-  final auth.User user;
+  final auth.User? user;
 
   @override
   Widget build(BuildContext context) {

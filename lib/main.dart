@@ -1,7 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:go_router/go_router.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:hadith_flashcard/application/auth/auth_bloc.dart';
+import 'package:hadith_flashcard/application/page/page_bloc.dart';
 import 'package:hadith_flashcard/domain/auth/interfaces/i_auth_repository.dart';
 import 'package:hadith_flashcard/injection.dart';
 import 'package:hadith_flashcard/presentation/pages/pages.dart';
@@ -28,54 +31,33 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    GlobalKey<NavigatorState>? navigatorKey;
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<AuthBloc>(
+          create: (context) => getIt<AuthBloc>(),
+        ),
+        BlocProvider<PageBloc>(
+          create: (context) => getIt<PageBloc>(),
+        ),
+      ],
+      child: StreamBuilder(
+        stream: IAuthRepository.userStream,
+        initialData: FirebaseAuth.instance.currentUser,
+        builder: (context, AsyncSnapshot<User?> snapshot) {
+          User? user = snapshot.data;
 
-    return StreamBuilder<User?>(
-      stream: IAuthRepository.userStream,
-      initialData: FirebaseAuth.instance.currentUser,
-      builder: (context, snapshot) {
-        User? user = snapshot.data;
-
-        final router = GoRouter(
-          navigatorKey: navigatorKey,
-          routes: [
-            GoRoute(
-              path: '/signup',
-              name: 'signup',
-              builder: (context, state) => const SignUpPage(),
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            title: 'Hadith Flashcard',
+            theme: ThemeData(
+              textTheme: GoogleFonts.poppinsTextTheme(),
             ),
-            GoRoute(
-              path: '/signin',
-              name: 'signin',
-              builder: (context, state) => const SignInPage(),
+            home: Wrapper(
+              user: user,
             ),
-            GoRoute(
-              path: '/home',
-              name: 'home',
-              builder: (context, state) => const HomePage(),
-            ),
-          ],
-          redirect: (context, state) {
-            if (user == null) {
-              return '/signin';
-            } else {
-              return '/home';
-            }
-          },
-          initialLocation: '/signin',
-          debugLogDiagnostics: true,
-        );
-
-        return MaterialApp.router(
-          debugShowCheckedModeBanner: false,
-          routerDelegate: router.routerDelegate,
-          routeInformationParser: router.routeInformationParser,
-          routeInformationProvider: router.routeInformationProvider,
-          theme: ThemeData(
-            primarySwatch: Colors.blue,
-          ),
-        );
-      },
+          );
+        },
+      ),
     );
   }
 }

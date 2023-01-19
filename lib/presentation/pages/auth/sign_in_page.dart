@@ -219,19 +219,19 @@ class SignInPageScaffold extends StatelessWidget {
                       "Don't have an account yet?",
                       style: secondaryTextFont,
                     ),
-                    TextButton(
-                      onPressed: () {
-                        context.go(
-                          '/signup',
-                        );
-                      },
-                      child: Text(
-                        'Sign Up',
-                        style: primaryTextFont.copyWith(
-                          decoration: TextDecoration.underline,
-                        ),
-                      ),
-                    ),
+                    // TextButton(
+                    //   onPressed: () {
+                    //     context.go(
+                    //       '/signup',
+                    //     );
+                    //   },
+                    //   child: Text(
+                    //     'Sign Up',
+                    //     style: primaryTextFont.copyWith(
+                    //       decoration: TextDecoration.underline,
+                    //     ),
+                    //   ),
+                    // ),
                   ],
                 ),
                 const SizedBox(

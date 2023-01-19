@@ -8,7 +8,8 @@
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
-import 'application/auth/auth_bloc.dart' as _i5;
+import 'application/auth/auth_bloc.dart' as _i6;
+import 'application/page/page_bloc.dart' as _i5;
 import 'domain/auth/interfaces/i_auth_repository.dart' as _i3;
 import 'infrastructure/auth/auth_repository.dart'
     as _i4; // ignore_for_file: unnecessary_lambdas
@@ -26,6 +27,7 @@ _i1.GetIt $initGetIt(
     environmentFilter,
   );
   gh.lazySingleton<_i3.IAuthRepository>(() => _i4.AuthRepository());
-  gh.factory<_i5.AuthBloc>(() => _i5.AuthBloc(get<_i3.IAuthRepository>()));
+  gh.factory<_i5.PageBloc>(() => _i5.PageBloc());
+  gh.factory<_i6.AuthBloc>(() => _i6.AuthBloc(get<_i3.IAuthRepository>()));
   return get;
 }

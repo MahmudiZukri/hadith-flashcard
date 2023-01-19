@@ -215,14 +215,14 @@ class SignUpPageScaffold extends StatelessWidget {
                   ),
                 ),
                 const Spacer(),
-                TextButton(
-                  onPressed: () {
-                    context.go('/home');
-                  },
-                  child: Text(
-                    'home',
-                  ),
-                ),
+                // TextButton(
+                //   onPressed: () {
+                //     context.go('/home');
+                //   },
+                //   child: Text(
+                //     'home',
+                //   ),
+                // ),
                 state.onLoading
                     ? const CircularProgressIndicator(
                         color: primaryColor,
@@ -280,22 +280,19 @@ class SignUpPageScaffold extends StatelessWidget {
                       'Already have an account?',
                       style: secondaryTextFont,
                     ),
-                    TextButton(
-                      onPressed: () {
-                        context.go(
-                          '/signin',
-                        );
-                        // context.push(
-                        //   '/signin',
-                        // );
-                      },
-                      child: Text(
-                        'Sign In',
-                        style: primaryTextFont.copyWith(
-                          decoration: TextDecoration.underline,
-                        ),
-                      ),
-                    ),
+                    // TextButton(
+                    //   onPressed: () {
+                    //     context.go(
+                    //       '/signin',
+                    //     );
+                    //   },
+                    //   child: Text(
+                    //     'Sign In',
+                    //     style: primaryTextFont.copyWith(
+                    //       decoration: TextDecoration.underline,
+                    //     ),
+                    //   ),
+                    // ),
                   ],
                 ),
                 const SizedBox(
