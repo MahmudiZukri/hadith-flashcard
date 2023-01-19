@@ -1,10 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
-import 'package:hadith_flashcard/application/auth/auth_bloc.dart';
-import 'package:hadith_flashcard/domain/core/objects/string_objects.dart';
-import 'package:hadith_flashcard/domain/core/shared/shared.dart';
-import 'package:hadith_flashcard/injection.dart';
+part of '../pages.dart';
 
 class SignUpPage extends StatelessWidget {
   const SignUpPage({
@@ -221,6 +215,14 @@ class SignUpPageScaffold extends StatelessWidget {
                   ),
                 ),
                 const Spacer(),
+                TextButton(
+                  onPressed: () {
+                    context.go('/home');
+                  },
+                  child: Text(
+                    'home',
+                  ),
+                ),
                 state.onLoading
                     ? const CircularProgressIndicator(
                         color: primaryColor,
@@ -283,6 +285,9 @@ class SignUpPageScaffold extends StatelessWidget {
                         context.go(
                           '/signin',
                         );
+                        // context.push(
+                        //   '/signin',
+                        // );
                       },
                       child: Text(
                         'Sign In',
@@ -295,7 +300,7 @@ class SignUpPageScaffold extends StatelessWidget {
                 ),
                 const SizedBox(
                   height: 40,
-                )
+                ),
               ],
             ),
           );

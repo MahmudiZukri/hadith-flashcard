@@ -20,6 +20,7 @@ mixin _$AuthEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() signUp,
     required TResult Function() signIn,
+    required TResult Function() signOut,
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
@@ -29,6 +30,7 @@ mixin _$AuthEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? signUp,
     TResult? Function()? signIn,
+    TResult? Function()? signOut,
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String passwordStr)? passwordChanged,
@@ -38,6 +40,7 @@ mixin _$AuthEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? signUp,
     TResult Function()? signIn,
+    TResult Function()? signOut,
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
@@ -48,6 +51,7 @@ mixin _$AuthEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_SignUp value) signUp,
     required TResult Function(_SignIn value) signIn,
+    required TResult Function(_SignOut value) signOut,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_EmailChanged value) emailChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
@@ -57,6 +61,7 @@ mixin _$AuthEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SignUp value)? signUp,
     TResult? Function(_SignIn value)? signIn,
+    TResult? Function(_SignOut value)? signOut,
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_EmailChanged value)? emailChanged,
     TResult? Function(_PasswordChanged value)? passwordChanged,
@@ -66,6 +71,7 @@ mixin _$AuthEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SignUp value)? signUp,
     TResult Function(_SignIn value)? signIn,
+    TResult Function(_SignOut value)? signOut,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_EmailChanged value)? emailChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
@@ -129,6 +135,7 @@ class _$_SignUp implements _SignUp {
   TResult when<TResult extends Object?>({
     required TResult Function() signUp,
     required TResult Function() signIn,
+    required TResult Function() signOut,
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
@@ -141,6 +148,7 @@ class _$_SignUp implements _SignUp {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? signUp,
     TResult? Function()? signIn,
+    TResult? Function()? signOut,
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String passwordStr)? passwordChanged,
@@ -153,6 +161,7 @@ class _$_SignUp implements _SignUp {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? signUp,
     TResult Function()? signIn,
+    TResult Function()? signOut,
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
@@ -169,6 +178,7 @@ class _$_SignUp implements _SignUp {
   TResult map<TResult extends Object?>({
     required TResult Function(_SignUp value) signUp,
     required TResult Function(_SignIn value) signIn,
+    required TResult Function(_SignOut value) signOut,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_EmailChanged value) emailChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
@@ -181,6 +191,7 @@ class _$_SignUp implements _SignUp {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SignUp value)? signUp,
     TResult? Function(_SignIn value)? signIn,
+    TResult? Function(_SignOut value)? signOut,
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_EmailChanged value)? emailChanged,
     TResult? Function(_PasswordChanged value)? passwordChanged,
@@ -193,6 +204,7 @@ class _$_SignUp implements _SignUp {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SignUp value)? signUp,
     TResult Function(_SignIn value)? signIn,
+    TResult Function(_SignOut value)? signOut,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_EmailChanged value)? emailChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
@@ -247,6 +259,7 @@ class _$_SignIn implements _SignIn {
   TResult when<TResult extends Object?>({
     required TResult Function() signUp,
     required TResult Function() signIn,
+    required TResult Function() signOut,
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
@@ -259,6 +272,7 @@ class _$_SignIn implements _SignIn {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? signUp,
     TResult? Function()? signIn,
+    TResult? Function()? signOut,
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String passwordStr)? passwordChanged,
@@ -271,6 +285,7 @@ class _$_SignIn implements _SignIn {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? signUp,
     TResult Function()? signIn,
+    TResult Function()? signOut,
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
@@ -287,6 +302,7 @@ class _$_SignIn implements _SignIn {
   TResult map<TResult extends Object?>({
     required TResult Function(_SignUp value) signUp,
     required TResult Function(_SignIn value) signIn,
+    required TResult Function(_SignOut value) signOut,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_EmailChanged value) emailChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
@@ -299,6 +315,7 @@ class _$_SignIn implements _SignIn {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SignUp value)? signUp,
     TResult? Function(_SignIn value)? signIn,
+    TResult? Function(_SignOut value)? signOut,
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_EmailChanged value)? emailChanged,
     TResult? Function(_PasswordChanged value)? passwordChanged,
@@ -311,6 +328,7 @@ class _$_SignIn implements _SignIn {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SignUp value)? signUp,
     TResult Function(_SignIn value)? signIn,
+    TResult Function(_SignOut value)? signOut,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_EmailChanged value)? emailChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
@@ -325,6 +343,131 @@ class _$_SignIn implements _SignIn {
 
 abstract class _SignIn implements AuthEvent {
   const factory _SignIn() = _$_SignIn;
+}
+
+/// @nodoc
+abstract class _$$_SignOutCopyWith<$Res> {
+  factory _$$_SignOutCopyWith(
+          _$_SignOut value, $Res Function(_$_SignOut) then) =
+      __$$_SignOutCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_SignOutCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$_SignOut>
+    implements _$$_SignOutCopyWith<$Res> {
+  __$$_SignOutCopyWithImpl(_$_SignOut _value, $Res Function(_$_SignOut) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_SignOut implements _SignOut {
+  const _$_SignOut();
+
+  @override
+  String toString() {
+    return 'AuthEvent.signOut()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_SignOut);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() signUp,
+    required TResult Function() signIn,
+    required TResult Function() signOut,
+    required TResult Function(String nameStr) nameChanged,
+    required TResult Function(String emailStr) emailChanged,
+    required TResult Function(String passwordStr) passwordChanged,
+  }) {
+    return signOut();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? signUp,
+    TResult? Function()? signIn,
+    TResult? Function()? signOut,
+    TResult? Function(String nameStr)? nameChanged,
+    TResult? Function(String emailStr)? emailChanged,
+    TResult? Function(String passwordStr)? passwordChanged,
+  }) {
+    return signOut?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? signUp,
+    TResult Function()? signIn,
+    TResult Function()? signOut,
+    TResult Function(String nameStr)? nameChanged,
+    TResult Function(String emailStr)? emailChanged,
+    TResult Function(String passwordStr)? passwordChanged,
+    required TResult orElse(),
+  }) {
+    if (signOut != null) {
+      return signOut();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SignUp value) signUp,
+    required TResult Function(_SignIn value) signIn,
+    required TResult Function(_SignOut value) signOut,
+    required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_EmailChanged value) emailChanged,
+    required TResult Function(_PasswordChanged value) passwordChanged,
+  }) {
+    return signOut(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SignUp value)? signUp,
+    TResult? Function(_SignIn value)? signIn,
+    TResult? Function(_SignOut value)? signOut,
+    TResult? Function(_NameChanged value)? nameChanged,
+    TResult? Function(_EmailChanged value)? emailChanged,
+    TResult? Function(_PasswordChanged value)? passwordChanged,
+  }) {
+    return signOut?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SignUp value)? signUp,
+    TResult Function(_SignIn value)? signIn,
+    TResult Function(_SignOut value)? signOut,
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_EmailChanged value)? emailChanged,
+    TResult Function(_PasswordChanged value)? passwordChanged,
+    required TResult orElse(),
+  }) {
+    if (signOut != null) {
+      return signOut(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SignOut implements AuthEvent {
+  const factory _SignOut() = _$_SignOut;
 }
 
 /// @nodoc
@@ -393,6 +536,7 @@ class _$_NameChanged implements _NameChanged {
   TResult when<TResult extends Object?>({
     required TResult Function() signUp,
     required TResult Function() signIn,
+    required TResult Function() signOut,
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
@@ -405,6 +549,7 @@ class _$_NameChanged implements _NameChanged {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? signUp,
     TResult? Function()? signIn,
+    TResult? Function()? signOut,
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String passwordStr)? passwordChanged,
@@ -417,6 +562,7 @@ class _$_NameChanged implements _NameChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? signUp,
     TResult Function()? signIn,
+    TResult Function()? signOut,
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
@@ -433,6 +579,7 @@ class _$_NameChanged implements _NameChanged {
   TResult map<TResult extends Object?>({
     required TResult Function(_SignUp value) signUp,
     required TResult Function(_SignIn value) signIn,
+    required TResult Function(_SignOut value) signOut,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_EmailChanged value) emailChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
@@ -445,6 +592,7 @@ class _$_NameChanged implements _NameChanged {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SignUp value)? signUp,
     TResult? Function(_SignIn value)? signIn,
+    TResult? Function(_SignOut value)? signOut,
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_EmailChanged value)? emailChanged,
     TResult? Function(_PasswordChanged value)? passwordChanged,
@@ -457,6 +605,7 @@ class _$_NameChanged implements _NameChanged {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SignUp value)? signUp,
     TResult Function(_SignIn value)? signIn,
+    TResult Function(_SignOut value)? signOut,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_EmailChanged value)? emailChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
@@ -545,6 +694,7 @@ class _$_EmailChanged implements _EmailChanged {
   TResult when<TResult extends Object?>({
     required TResult Function() signUp,
     required TResult Function() signIn,
+    required TResult Function() signOut,
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
@@ -557,6 +707,7 @@ class _$_EmailChanged implements _EmailChanged {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? signUp,
     TResult? Function()? signIn,
+    TResult? Function()? signOut,
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String passwordStr)? passwordChanged,
@@ -569,6 +720,7 @@ class _$_EmailChanged implements _EmailChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? signUp,
     TResult Function()? signIn,
+    TResult Function()? signOut,
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
@@ -585,6 +737,7 @@ class _$_EmailChanged implements _EmailChanged {
   TResult map<TResult extends Object?>({
     required TResult Function(_SignUp value) signUp,
     required TResult Function(_SignIn value) signIn,
+    required TResult Function(_SignOut value) signOut,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_EmailChanged value) emailChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
@@ -597,6 +750,7 @@ class _$_EmailChanged implements _EmailChanged {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SignUp value)? signUp,
     TResult? Function(_SignIn value)? signIn,
+    TResult? Function(_SignOut value)? signOut,
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_EmailChanged value)? emailChanged,
     TResult? Function(_PasswordChanged value)? passwordChanged,
@@ -609,6 +763,7 @@ class _$_EmailChanged implements _EmailChanged {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SignUp value)? signUp,
     TResult Function(_SignIn value)? signIn,
+    TResult Function(_SignOut value)? signOut,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_EmailChanged value)? emailChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
@@ -698,6 +853,7 @@ class _$_PasswordChanged implements _PasswordChanged {
   TResult when<TResult extends Object?>({
     required TResult Function() signUp,
     required TResult Function() signIn,
+    required TResult Function() signOut,
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
@@ -710,6 +866,7 @@ class _$_PasswordChanged implements _PasswordChanged {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? signUp,
     TResult? Function()? signIn,
+    TResult? Function()? signOut,
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String passwordStr)? passwordChanged,
@@ -722,6 +879,7 @@ class _$_PasswordChanged implements _PasswordChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? signUp,
     TResult Function()? signIn,
+    TResult Function()? signOut,
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
@@ -738,6 +896,7 @@ class _$_PasswordChanged implements _PasswordChanged {
   TResult map<TResult extends Object?>({
     required TResult Function(_SignUp value) signUp,
     required TResult Function(_SignIn value) signIn,
+    required TResult Function(_SignOut value) signOut,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_EmailChanged value) emailChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
@@ -750,6 +909,7 @@ class _$_PasswordChanged implements _PasswordChanged {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SignUp value)? signUp,
     TResult? Function(_SignIn value)? signIn,
+    TResult? Function(_SignOut value)? signOut,
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_EmailChanged value)? emailChanged,
     TResult? Function(_PasswordChanged value)? passwordChanged,
@@ -762,6 +922,7 @@ class _$_PasswordChanged implements _PasswordChanged {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SignUp value)? signUp,
     TResult Function(_SignIn value)? signIn,
+    TResult Function(_SignOut value)? signOut,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_EmailChanged value)? emailChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,

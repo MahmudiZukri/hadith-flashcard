@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -8,12 +7,11 @@ import 'package:hadith_flashcard/domain/auth/interfaces/i_auth_repository.dart';
 import 'package:hadith_flashcard/domain/core/failures/common_failures/common_failures.dart';
 import 'package:hadith_flashcard/infrastructure/app_user/model/app_user_model.dart';
 import 'package:hadith_flashcard/infrastructure/core/extensions/extensions.dart';
+import 'package:hadith_flashcard/infrastructure/core/services/services.dart';
 import 'package:injectable/injectable.dart';
 
 @LazySingleton(as: IAuthRepository)
 class AuthRepository implements IAuthRepository {
-  final userCollection = FirebaseFirestore.instance.collection('users');
-
   @override
   Future<Either<CommonFailures, Unit>> signUp({
     required String email,
@@ -26,19 +24,14 @@ class AuthRepository implements IAuthRepository {
         email: email,
         password: password,
       );
-
+      // uid and email automatically passed
       AppUserModel user = credential.user!.convertToAppUser(
         name: name,
       );
 
-      //add to firestore
+      // add to firestore
       try {
-        await userCollection.doc(user.id).set(
-          {
-            'email': user.email,
-            'name': user.name,
-          },
-        );
+        await UserServices.addUser(user);
       } catch (e, stackTrace) {
         debugPrint('1------- $stackTrace -------1');
         return left(
@@ -100,17 +93,11 @@ class AuthRepository implements IAuthRepository {
         password: password,
       );
 
-      final String userID = credential.user!.uid;
-
-      DocumentSnapshot<Map<String, dynamic>> snapshot =
-          await userCollection.doc(userID).get();
+      // credential > uid > fromFirestore > getUser > user
+      final user = await credential.user!.fromFirestore();
 
       return right(
-        AppUserModel(
-                id: userID,
-                email: snapshot.data()!['email'],
-                name: snapshot.data()!['name'])
-            .toDomain(),
+        user.toDomain(),
       );
     } on PlatformException catch (e, stackTrace) {
       debugPrint('1------- $stackTrace -------1');
@@ -133,6 +120,22 @@ class AuthRepository implements IAuthRepository {
           message: e.toString(),
         ),
       ));
+    }
+  }
+
+  @override
+  Future<Either<CommonFailures, Unit>> signOut() async {
+    try {
+      await IAuthRepository.auth.signOut();
+      return (right(
+        unit,
+      ));
+    } catch (e) {
+      return left(
+        CommonFailures.handledByFirebase(
+          message: e.toString(),
+        ),
+      );
     }
   }
 }
