@@ -27,14 +27,14 @@ class HomePage extends StatelessWidget {
                 'sign out',
               ),
             ),
-            TextButton(
-              onPressed: () {
-                context.go('/signup');
-              },
-              child: const Text(
-                'sign up',
-              ),
-            )
+            // TextButton(
+            //   onPressed: () {
+            //     context.go('/signup');
+            //   },
+            //   child: const Text(
+            //     'sign up',
+            //   ),
+            // )
           ],
         ),
       ),
