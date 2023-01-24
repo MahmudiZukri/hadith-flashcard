@@ -5,9 +5,12 @@ class UserServices {
       FirebaseFirestore.instance.collection('users');
 
   static Future<void> addUser(AppUserModel user) async {
-    await _userCollection
-        .doc(user.id)
-        .set({'email': user.email, 'name': user.name});
+    await _userCollection.doc(user.id).set(
+      {
+        'email': user.email,
+        'name': user.name,
+      },
+    );
   }
 
   static Future<AppUserModel> getUser(String userID) async {
@@ -15,8 +18,9 @@ class UserServices {
         await _userCollection.doc(userID).get();
 
     return AppUserModel(
-        id: userID,
-        email: snapshot.data()!['email'],
-        name: snapshot.data()!['name']);
+      id: userID,
+      email: snapshot.data()?['email'],
+      name: snapshot.data()?['name'],
+    );
   }
 }

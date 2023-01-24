@@ -19,13 +19,11 @@ class UserBloc extends Bloc<UserEvent, UserState> {
           loadUser: (e) async {
             final user = await UserServices.getUser(
               e.userID.getOrCrash(),
-            ).then(
-              (value) => value.toDomain(),
             );
 
             emit(
               state.copyWith(
-                user: user,
+                user: user.toDomain(),
               ),
             );
           },

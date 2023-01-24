@@ -11,20 +11,30 @@ class Wrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (user == null) {
-      if (prevPageEvent is! GotoSignUpPage) {
-        prevPageEvent = GotoSignUpPage();
-        BlocProvider.of<PageBloc>(context).add(prevPageEvent!);
+      if (prevPageEvent is! GotoSignInPage) {
+        prevPageEvent = GotoSignInPage();
+        context.read<PageBloc>().add(prevPageEvent!);
       }
     } else {
       if (prevPageEvent is! GotoHomePage) {
-        // BlocProvider.of<UserBloc>(context).add(LoadUser(user!.uid));
-        // BlocProvider.of<CardBloc>(context).add(GetCard(user!.uid));
+        context.read<UserBloc>().add(
+              UserEvent.loadUser(
+                userID: UniqueString.fromUniqueString(user!.uid),
+              ),
+            );
 
         prevPageEvent = GotoHomePage();
-        // context.read()<PageBloc>().add(prevPageEvent);
-        BlocProvider.of<PageBloc>(context).add(prevPageEvent!);
+        context.read<PageBloc>().add(prevPageEvent!);
       }
     }
-    return Container();
+    return BlocBuilder<PageBloc, PageState>(
+      builder: (_, pageState) {
+        return pageState is OnSignUpPage
+            ? const SignUpPage()
+            : pageState is OnSignInPage
+                ? const SignInPage()
+                : const HomePage();
+      },
+    );
   }
 }

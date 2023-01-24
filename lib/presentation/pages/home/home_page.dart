@@ -10,14 +10,25 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'asd',
+          'Home Page',
         ),
       ),
       body: Center(
         child: Column(
           children: [
+            const SizedBox(height: 20),
             const Text(
               'Home',
+            ),
+            BlocBuilder<UserBloc, UserState>(
+              builder: (_, state) => Column(
+                children: [
+                  Text(state.user.toString()),
+                  Text(
+                    state.user?.name.getOrCrash() ?? 'kosong',
+                  ),
+                ],
+              ),
             ),
             TextButton(
               onPressed: () {

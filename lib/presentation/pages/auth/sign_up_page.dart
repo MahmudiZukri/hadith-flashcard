@@ -280,19 +280,17 @@ class SignUpPageScaffold extends StatelessWidget {
                       'Already have an account?',
                       style: secondaryTextFont,
                     ),
-                    // TextButton(
-                    //   onPressed: () {
-                    //     context.go(
-                    //       '/signin',
-                    //     );
-                    //   },
-                    //   child: Text(
-                    //     'Sign In',
-                    //     style: primaryTextFont.copyWith(
-                    //       decoration: TextDecoration.underline,
-                    //     ),
-                    //   ),
-                    // ),
+                    TextButton(
+                      onPressed: () => context.read<PageBloc>().add(
+                            GotoSignInPage(),
+                          ),
+                      child: Text(
+                        'Sign In',
+                        style: primaryTextFont.copyWith(
+                          decoration: TextDecoration.underline,
+                        ),
+                      ),
+                    ),
                   ],
                 ),
                 const SizedBox(
