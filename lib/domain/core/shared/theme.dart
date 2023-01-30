@@ -2,12 +2,14 @@ part of 'shared.dart';
 
 const Color primaryColor = Color(0xFF285430);
 const Color secondaryColor = Color(0xFF5F8D4E);
+const Color greyColor = Color(0xFFA8A8A8);
 const Color lightGreyColor = Color(0xFFC8C6C6);
 const Color lightColor = Color(0xFFF0E5CF);
 const Color tealColor = Color(0xFF46A0AE);
 const Color tealBrightColor = Color(0xFF00FFCB);
 const Color accentColor = Color(0xFFA4BE7B);
-const Color backgroundColor = Color(0xFFE5D9B6);
+// const Color backgroundColor = Color(0xFFE5D9B6);
+const Color backgroundColor = Colors.white;
 const Color whiteColor = Colors.white;
 const Color blackColor = Colors.black;
 
@@ -38,7 +40,7 @@ Shader textGradient = const LinearGradient(
 );
 
 TextStyle greyTextFont = const TextStyle(
-  color: lightGreyColor,
+  color: greyColor,
 );
 
 TextStyle blackTextFont = const TextStyle(
@@ -59,6 +61,10 @@ TextStyle accentTextFont = const TextStyle(
 
 TextStyle whiteTextFont = const TextStyle(
   color: whiteColor,
+);
+
+TextStyle redTextFont = TextStyle(
+  color: Colors.red[500],
 );
 
 TextStyle lightWhiteTextFont = const TextStyle(
