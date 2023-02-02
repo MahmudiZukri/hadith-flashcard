@@ -2,7 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fpdart/fpdart.dart';
-import 'package:hadith_flashcard/domain/app_user/app_user.dart';
 import 'package:hadith_flashcard/domain/auth/interfaces/i_auth_repository.dart';
 import 'package:hadith_flashcard/domain/core/failures/common_failures/common_failures.dart';
 import 'package:hadith_flashcard/infrastructure/app_user/model/app_user_model.dart';
@@ -60,7 +59,7 @@ class AuthRepository implements IAuthRepository {
     } on PlatformException catch (e, stackTrace) {
       debugPrint('2------- $stackTrace -------2');
       return left(
-        CommonFailures.handledByFirebase(
+        CommonFailures.platformException(
           message: e.message.toString(),
         ),
       );
@@ -83,7 +82,7 @@ class AuthRepository implements IAuthRepository {
   }
 
   @override
-  Future<Either<CommonFailures, AppUser>> signIn({
+  Future<Either<CommonFailures, Unit>> signIn({
     required String email,
     required String password,
   }) async {
@@ -92,17 +91,21 @@ class AuthRepository implements IAuthRepository {
         email: email,
         password: password,
       );
-
-      // credential > uid > fromFirestore > getUser > user
-      final user = await credential.user!.fromFirestore();
-
-      return right(
-        user.toDomain(),
-      );
+      if (credential.user != null) {
+        return right(
+          unit,
+        );
+      } else {
+        return left(
+          const CommonFailures.other(
+            message: 'Sign In Failed',
+          ),
+        );
+      }
     } on PlatformException catch (e, stackTrace) {
       debugPrint('1------- $stackTrace -------1');
       return left(
-        CommonFailures.handledByFirebase(
+        CommonFailures.platformException(
           message: e.message.toString(),
         ),
       );
@@ -130,7 +133,43 @@ class AuthRepository implements IAuthRepository {
       return (right(
         unit,
       ));
-    } catch (e) {
+    } catch (e, stackTrace) {
+      debugPrint('1------- $stackTrace -------1');
+      return left(
+        CommonFailures.handledByFirebase(
+          message: e.toString(),
+        ),
+      );
+    }
+  }
+
+  @override
+  Future<Either<CommonFailures, Unit>> resetPassword({
+    required String email,
+  }) async {
+    try {
+      await IAuthRepository.auth.sendPasswordResetEmail(
+        email: email,
+      );
+      return (right(
+        unit,
+      ));
+    } on PlatformException catch (e, stackTrace) {
+      debugPrint('1------- $stackTrace -------1');
+      return left(
+        CommonFailures.platformException(
+          message: e.message.toString(),
+        ),
+      );
+    } on FirebaseAuthException catch (e, stackTrace) {
+      debugPrint('2------- $stackTrace -------2');
+      return left(
+        CommonFailures.handledByFirebase(
+          message: e.message.toString(),
+        ),
+      );
+    } catch (e, stackTrace) {
+      debugPrint('1------- $stackTrace -------1');
       return left(
         CommonFailures.handledByFirebase(
           message: e.toString(),

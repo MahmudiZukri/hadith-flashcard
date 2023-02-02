@@ -3,14 +3,14 @@ part of 'pages.dart';
 class Wrapper extends StatelessWidget {
   const Wrapper({
     super.key,
-    required this.user,
+    required this.userID,
   });
 
-  final auth.User? user;
+  final UniqueString? userID;
 
   @override
   Widget build(BuildContext context) {
-    if (user == null) {
+    if (userID == null) {
       if (prevPageEvent is! GotoSignInPage) {
         prevPageEvent = GotoSignInPage();
         context.read<PageBloc>().add(prevPageEvent!);
@@ -19,7 +19,7 @@ class Wrapper extends StatelessWidget {
       if (prevPageEvent is! GotoHomePage) {
         context.read<UserBloc>().add(
               UserEvent.loadUser(
-                userID: UniqueString.fromUniqueString(user!.uid),
+                userID: userID!,
               ),
             );
 
@@ -29,11 +29,13 @@ class Wrapper extends StatelessWidget {
     }
     return BlocBuilder<PageBloc, PageState>(
       builder: (_, pageState) {
-        return pageState is OnSignUpPage
-            ? const SignUpPage()
-            : pageState is OnSignInPage
-                ? const SignInPage()
-                : const HomePage();
+        if (pageState is OnSignUpPage) {
+          return const SignUpPage();
+        } else if (pageState is OnSignInPage) {
+          return const SignInPage();
+        } else {
+          return const HomePage();
+        }
       },
     );
   }

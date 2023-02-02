@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fpdart/fpdart.dart';
-import 'package:hadith_flashcard/domain/app_user/app_user.dart';
 import 'package:hadith_flashcard/domain/core/failures/common_failures/common_failures.dart';
 
 abstract class IAuthRepository {
@@ -12,9 +11,13 @@ abstract class IAuthRepository {
     required String name,
     required String password,
   });
-  Future<Either<CommonFailures, AppUser>> signIn({
+  Future<Either<CommonFailures, Unit>> signIn({
     required String email,
     required String password,
   });
   Future<Either<CommonFailures, Unit>> signOut();
+
+  Future<Either<CommonFailures, Unit>> resetPassword({
+    required String email,
+  });
 }

@@ -23,8 +23,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             emit(
               state.copyWith(
                 name: PersonName(e.nameStr),
-                optionFailureOrSuccessSignUp: none(),
-                optionFailureOrSuccessSignIn: none(),
+                optionFailureOrSuccess: none(),
               ),
             );
           },
@@ -32,8 +31,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             emit(
               state.copyWith(
                 email: EmailAddress(e.emailStr),
-                optionFailureOrSuccessSignUp: none(),
-                optionFailureOrSuccessSignIn: none(),
+                optionFailureOrSuccess: none(),
               ),
             );
           },
@@ -41,8 +39,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             emit(
               state.copyWith(
                 password: Password(e.passwordStr),
-                optionFailureOrSuccessSignUp: none(),
-                optionFailureOrSuccessSignIn: none(),
+                optionFailureOrSuccess: none(),
               ),
             );
           },
@@ -55,7 +52,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
               emit(
                 state.copyWith(
                   onLoading: true,
-                  optionFailureOrSuccessSignUp: none(),
+                  optionFailureOrSuccess: none(),
                 ),
               );
 
@@ -71,20 +68,20 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
                 onLoading: false,
                 showErrorMessages: true,
                 showSnackbar: !state.showSnackbar,
-                optionFailureOrSuccessSignUp: optionOf(
+                optionFailureOrSuccess: optionOf(
                   failureOrSuccess,
                 ),
               ),
             );
           },
           signIn: (e) async {
-            Either<CommonFailures, AppUser>? failureOrSuccess;
+            Either<CommonFailures, Unit>? failureOrSuccess;
 
             if (state.email.isValid() && state.password.isValid()) {
               emit(
                 state.copyWith(
                   onLoading: true,
-                  optionFailureOrSuccessSignIn: none(),
+                  optionFailureOrSuccess: none(),
                 ),
               );
 
@@ -99,13 +96,27 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
                 onLoading: false,
                 showErrorMessages: true,
                 showSnackbar: !state.showSnackbar,
-                optionFailureOrSuccessSignIn: optionOf(
+                optionFailureOrSuccess: optionOf(
                   failureOrSuccess,
                 ),
               ),
             );
           },
           signOut: (e) => _authRepository.signOut(),
+          resetPassword: (e) async {
+            final failureOrResponse = await _authRepository.resetPassword(
+              email: e.emailStr,
+            );
+
+            emit(
+              state.copyWith(
+                showSnackbar: !state.showSnackbar,
+                optionFailureOrSuccess: optionOf(
+                  failureOrResponse,
+                ),
+              ),
+            );
+          },
         );
       },
     );

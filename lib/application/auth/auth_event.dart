@@ -14,4 +14,7 @@ class AuthEvent with _$AuthEvent {
   const factory AuthEvent.passwordChanged({
     required String passwordStr,
   }) = _PasswordChanged;
+  const factory AuthEvent.resetPassword({
+    required String emailStr,
+  }) = _ResetPassword;
 }

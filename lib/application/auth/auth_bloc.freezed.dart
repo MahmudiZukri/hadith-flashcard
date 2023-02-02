@@ -24,6 +24,7 @@ mixin _$AuthEvent {
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function(String emailStr) resetPassword,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -34,6 +35,7 @@ mixin _$AuthEvent {
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String passwordStr)? passwordChanged,
+    TResult? Function(String emailStr)? resetPassword,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,6 +46,7 @@ mixin _$AuthEvent {
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
+    TResult Function(String emailStr)? resetPassword,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -55,6 +58,7 @@ mixin _$AuthEvent {
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_EmailChanged value) emailChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
+    required TResult Function(_ResetPassword value) resetPassword,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -65,6 +69,7 @@ mixin _$AuthEvent {
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_EmailChanged value)? emailChanged,
     TResult? Function(_PasswordChanged value)? passwordChanged,
+    TResult? Function(_ResetPassword value)? resetPassword,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -75,6 +80,7 @@ mixin _$AuthEvent {
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_EmailChanged value)? emailChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
+    TResult Function(_ResetPassword value)? resetPassword,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -139,6 +145,7 @@ class _$_SignUp implements _SignUp {
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function(String emailStr) resetPassword,
   }) {
     return signUp();
   }
@@ -152,6 +159,7 @@ class _$_SignUp implements _SignUp {
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String passwordStr)? passwordChanged,
+    TResult? Function(String emailStr)? resetPassword,
   }) {
     return signUp?.call();
   }
@@ -165,6 +173,7 @@ class _$_SignUp implements _SignUp {
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
+    TResult Function(String emailStr)? resetPassword,
     required TResult orElse(),
   }) {
     if (signUp != null) {
@@ -182,6 +191,7 @@ class _$_SignUp implements _SignUp {
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_EmailChanged value) emailChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
+    required TResult Function(_ResetPassword value) resetPassword,
   }) {
     return signUp(this);
   }
@@ -195,6 +205,7 @@ class _$_SignUp implements _SignUp {
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_EmailChanged value)? emailChanged,
     TResult? Function(_PasswordChanged value)? passwordChanged,
+    TResult? Function(_ResetPassword value)? resetPassword,
   }) {
     return signUp?.call(this);
   }
@@ -208,6 +219,7 @@ class _$_SignUp implements _SignUp {
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_EmailChanged value)? emailChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
+    TResult Function(_ResetPassword value)? resetPassword,
     required TResult orElse(),
   }) {
     if (signUp != null) {
@@ -263,6 +275,7 @@ class _$_SignIn implements _SignIn {
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function(String emailStr) resetPassword,
   }) {
     return signIn();
   }
@@ -276,6 +289,7 @@ class _$_SignIn implements _SignIn {
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String passwordStr)? passwordChanged,
+    TResult? Function(String emailStr)? resetPassword,
   }) {
     return signIn?.call();
   }
@@ -289,6 +303,7 @@ class _$_SignIn implements _SignIn {
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
+    TResult Function(String emailStr)? resetPassword,
     required TResult orElse(),
   }) {
     if (signIn != null) {
@@ -306,6 +321,7 @@ class _$_SignIn implements _SignIn {
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_EmailChanged value) emailChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
+    required TResult Function(_ResetPassword value) resetPassword,
   }) {
     return signIn(this);
   }
@@ -319,6 +335,7 @@ class _$_SignIn implements _SignIn {
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_EmailChanged value)? emailChanged,
     TResult? Function(_PasswordChanged value)? passwordChanged,
+    TResult? Function(_ResetPassword value)? resetPassword,
   }) {
     return signIn?.call(this);
   }
@@ -332,6 +349,7 @@ class _$_SignIn implements _SignIn {
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_EmailChanged value)? emailChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
+    TResult Function(_ResetPassword value)? resetPassword,
     required TResult orElse(),
   }) {
     if (signIn != null) {
@@ -388,6 +406,7 @@ class _$_SignOut implements _SignOut {
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function(String emailStr) resetPassword,
   }) {
     return signOut();
   }
@@ -401,6 +420,7 @@ class _$_SignOut implements _SignOut {
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String passwordStr)? passwordChanged,
+    TResult? Function(String emailStr)? resetPassword,
   }) {
     return signOut?.call();
   }
@@ -414,6 +434,7 @@ class _$_SignOut implements _SignOut {
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
+    TResult Function(String emailStr)? resetPassword,
     required TResult orElse(),
   }) {
     if (signOut != null) {
@@ -431,6 +452,7 @@ class _$_SignOut implements _SignOut {
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_EmailChanged value) emailChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
+    required TResult Function(_ResetPassword value) resetPassword,
   }) {
     return signOut(this);
   }
@@ -444,6 +466,7 @@ class _$_SignOut implements _SignOut {
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_EmailChanged value)? emailChanged,
     TResult? Function(_PasswordChanged value)? passwordChanged,
+    TResult? Function(_ResetPassword value)? resetPassword,
   }) {
     return signOut?.call(this);
   }
@@ -457,6 +480,7 @@ class _$_SignOut implements _SignOut {
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_EmailChanged value)? emailChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
+    TResult Function(_ResetPassword value)? resetPassword,
     required TResult orElse(),
   }) {
     if (signOut != null) {
@@ -540,6 +564,7 @@ class _$_NameChanged implements _NameChanged {
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function(String emailStr) resetPassword,
   }) {
     return nameChanged(nameStr);
   }
@@ -553,6 +578,7 @@ class _$_NameChanged implements _NameChanged {
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String passwordStr)? passwordChanged,
+    TResult? Function(String emailStr)? resetPassword,
   }) {
     return nameChanged?.call(nameStr);
   }
@@ -566,6 +592,7 @@ class _$_NameChanged implements _NameChanged {
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
+    TResult Function(String emailStr)? resetPassword,
     required TResult orElse(),
   }) {
     if (nameChanged != null) {
@@ -583,6 +610,7 @@ class _$_NameChanged implements _NameChanged {
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_EmailChanged value) emailChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
+    required TResult Function(_ResetPassword value) resetPassword,
   }) {
     return nameChanged(this);
   }
@@ -596,6 +624,7 @@ class _$_NameChanged implements _NameChanged {
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_EmailChanged value)? emailChanged,
     TResult? Function(_PasswordChanged value)? passwordChanged,
+    TResult? Function(_ResetPassword value)? resetPassword,
   }) {
     return nameChanged?.call(this);
   }
@@ -609,6 +638,7 @@ class _$_NameChanged implements _NameChanged {
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_EmailChanged value)? emailChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
+    TResult Function(_ResetPassword value)? resetPassword,
     required TResult orElse(),
   }) {
     if (nameChanged != null) {
@@ -698,6 +728,7 @@ class _$_EmailChanged implements _EmailChanged {
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function(String emailStr) resetPassword,
   }) {
     return emailChanged(emailStr);
   }
@@ -711,6 +742,7 @@ class _$_EmailChanged implements _EmailChanged {
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String passwordStr)? passwordChanged,
+    TResult? Function(String emailStr)? resetPassword,
   }) {
     return emailChanged?.call(emailStr);
   }
@@ -724,6 +756,7 @@ class _$_EmailChanged implements _EmailChanged {
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
+    TResult Function(String emailStr)? resetPassword,
     required TResult orElse(),
   }) {
     if (emailChanged != null) {
@@ -741,6 +774,7 @@ class _$_EmailChanged implements _EmailChanged {
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_EmailChanged value) emailChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
+    required TResult Function(_ResetPassword value) resetPassword,
   }) {
     return emailChanged(this);
   }
@@ -754,6 +788,7 @@ class _$_EmailChanged implements _EmailChanged {
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_EmailChanged value)? emailChanged,
     TResult? Function(_PasswordChanged value)? passwordChanged,
+    TResult? Function(_ResetPassword value)? resetPassword,
   }) {
     return emailChanged?.call(this);
   }
@@ -767,6 +802,7 @@ class _$_EmailChanged implements _EmailChanged {
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_EmailChanged value)? emailChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
+    TResult Function(_ResetPassword value)? resetPassword,
     required TResult orElse(),
   }) {
     if (emailChanged != null) {
@@ -857,6 +893,7 @@ class _$_PasswordChanged implements _PasswordChanged {
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function(String emailStr) resetPassword,
   }) {
     return passwordChanged(passwordStr);
   }
@@ -870,6 +907,7 @@ class _$_PasswordChanged implements _PasswordChanged {
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String passwordStr)? passwordChanged,
+    TResult? Function(String emailStr)? resetPassword,
   }) {
     return passwordChanged?.call(passwordStr);
   }
@@ -883,6 +921,7 @@ class _$_PasswordChanged implements _PasswordChanged {
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
+    TResult Function(String emailStr)? resetPassword,
     required TResult orElse(),
   }) {
     if (passwordChanged != null) {
@@ -900,6 +939,7 @@ class _$_PasswordChanged implements _PasswordChanged {
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_EmailChanged value) emailChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
+    required TResult Function(_ResetPassword value) resetPassword,
   }) {
     return passwordChanged(this);
   }
@@ -913,6 +953,7 @@ class _$_PasswordChanged implements _PasswordChanged {
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_EmailChanged value)? emailChanged,
     TResult? Function(_PasswordChanged value)? passwordChanged,
+    TResult? Function(_ResetPassword value)? resetPassword,
   }) {
     return passwordChanged?.call(this);
   }
@@ -926,6 +967,7 @@ class _$_PasswordChanged implements _PasswordChanged {
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_EmailChanged value)? emailChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
+    TResult Function(_ResetPassword value)? resetPassword,
     required TResult orElse(),
   }) {
     if (passwordChanged != null) {
@@ -946,6 +988,171 @@ abstract class _PasswordChanged implements AuthEvent {
 }
 
 /// @nodoc
+abstract class _$$_ResetPasswordCopyWith<$Res> {
+  factory _$$_ResetPasswordCopyWith(
+          _$_ResetPassword value, $Res Function(_$_ResetPassword) then) =
+      __$$_ResetPasswordCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String emailStr});
+}
+
+/// @nodoc
+class __$$_ResetPasswordCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$_ResetPassword>
+    implements _$$_ResetPasswordCopyWith<$Res> {
+  __$$_ResetPasswordCopyWithImpl(
+      _$_ResetPassword _value, $Res Function(_$_ResetPassword) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? emailStr = null,
+  }) {
+    return _then(_$_ResetPassword(
+      emailStr: null == emailStr
+          ? _value.emailStr
+          : emailStr // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ResetPassword implements _ResetPassword {
+  const _$_ResetPassword({required this.emailStr});
+
+  @override
+  final String emailStr;
+
+  @override
+  String toString() {
+    return 'AuthEvent.resetPassword(emailStr: $emailStr)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ResetPassword &&
+            (identical(other.emailStr, emailStr) ||
+                other.emailStr == emailStr));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, emailStr);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ResetPasswordCopyWith<_$_ResetPassword> get copyWith =>
+      __$$_ResetPasswordCopyWithImpl<_$_ResetPassword>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() signUp,
+    required TResult Function() signIn,
+    required TResult Function() signOut,
+    required TResult Function(String nameStr) nameChanged,
+    required TResult Function(String emailStr) emailChanged,
+    required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function(String emailStr) resetPassword,
+  }) {
+    return resetPassword(emailStr);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? signUp,
+    TResult? Function()? signIn,
+    TResult? Function()? signOut,
+    TResult? Function(String nameStr)? nameChanged,
+    TResult? Function(String emailStr)? emailChanged,
+    TResult? Function(String passwordStr)? passwordChanged,
+    TResult? Function(String emailStr)? resetPassword,
+  }) {
+    return resetPassword?.call(emailStr);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? signUp,
+    TResult Function()? signIn,
+    TResult Function()? signOut,
+    TResult Function(String nameStr)? nameChanged,
+    TResult Function(String emailStr)? emailChanged,
+    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function(String emailStr)? resetPassword,
+    required TResult orElse(),
+  }) {
+    if (resetPassword != null) {
+      return resetPassword(emailStr);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SignUp value) signUp,
+    required TResult Function(_SignIn value) signIn,
+    required TResult Function(_SignOut value) signOut,
+    required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_EmailChanged value) emailChanged,
+    required TResult Function(_PasswordChanged value) passwordChanged,
+    required TResult Function(_ResetPassword value) resetPassword,
+  }) {
+    return resetPassword(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SignUp value)? signUp,
+    TResult? Function(_SignIn value)? signIn,
+    TResult? Function(_SignOut value)? signOut,
+    TResult? Function(_NameChanged value)? nameChanged,
+    TResult? Function(_EmailChanged value)? emailChanged,
+    TResult? Function(_PasswordChanged value)? passwordChanged,
+    TResult? Function(_ResetPassword value)? resetPassword,
+  }) {
+    return resetPassword?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SignUp value)? signUp,
+    TResult Function(_SignIn value)? signIn,
+    TResult Function(_SignOut value)? signOut,
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_EmailChanged value)? emailChanged,
+    TResult Function(_PasswordChanged value)? passwordChanged,
+    TResult Function(_ResetPassword value)? resetPassword,
+    required TResult orElse(),
+  }) {
+    if (resetPassword != null) {
+      return resetPassword(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ResetPassword implements AuthEvent {
+  const factory _ResetPassword({required final String emailStr}) =
+      _$_ResetPassword;
+
+  String get emailStr;
+  @JsonKey(ignore: true)
+  _$$_ResetPasswordCopyWith<_$_ResetPassword> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$AuthState {
   bool get onLoading => throw _privateConstructorUsedError;
   EmailAddress get email => throw _privateConstructorUsedError;
@@ -953,9 +1160,7 @@ mixin _$AuthState {
   Password get password => throw _privateConstructorUsedError;
   bool get showErrorMessages => throw _privateConstructorUsedError;
   bool get showSnackbar => throw _privateConstructorUsedError;
-  Option<Either<CommonFailures, Unit>> get optionFailureOrSuccessSignUp =>
-      throw _privateConstructorUsedError;
-  Option<Either<CommonFailures, AppUser>> get optionFailureOrSuccessSignIn =>
+  Option<Either<CommonFailures, Unit>> get optionFailureOrSuccess =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -975,8 +1180,7 @@ abstract class $AuthStateCopyWith<$Res> {
       Password password,
       bool showErrorMessages,
       bool showSnackbar,
-      Option<Either<CommonFailures, Unit>> optionFailureOrSuccessSignUp,
-      Option<Either<CommonFailures, AppUser>> optionFailureOrSuccessSignIn});
+      Option<Either<CommonFailures, Unit>> optionFailureOrSuccess});
 }
 
 /// @nodoc
@@ -998,8 +1202,7 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
     Object? password = null,
     Object? showErrorMessages = null,
     Object? showSnackbar = null,
-    Object? optionFailureOrSuccessSignUp = null,
-    Object? optionFailureOrSuccessSignIn = null,
+    Object? optionFailureOrSuccess = null,
   }) {
     return _then(_value.copyWith(
       onLoading: null == onLoading
@@ -1026,14 +1229,10 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
           ? _value.showSnackbar
           : showSnackbar // ignore: cast_nullable_to_non_nullable
               as bool,
-      optionFailureOrSuccessSignUp: null == optionFailureOrSuccessSignUp
-          ? _value.optionFailureOrSuccessSignUp
-          : optionFailureOrSuccessSignUp // ignore: cast_nullable_to_non_nullable
+      optionFailureOrSuccess: null == optionFailureOrSuccess
+          ? _value.optionFailureOrSuccess
+          : optionFailureOrSuccess // ignore: cast_nullable_to_non_nullable
               as Option<Either<CommonFailures, Unit>>,
-      optionFailureOrSuccessSignIn: null == optionFailureOrSuccessSignIn
-          ? _value.optionFailureOrSuccessSignIn
-          : optionFailureOrSuccessSignIn // ignore: cast_nullable_to_non_nullable
-              as Option<Either<CommonFailures, AppUser>>,
     ) as $Val);
   }
 }
@@ -1052,8 +1251,7 @@ abstract class _$$_AuthStateCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
       Password password,
       bool showErrorMessages,
       bool showSnackbar,
-      Option<Either<CommonFailures, Unit>> optionFailureOrSuccessSignUp,
-      Option<Either<CommonFailures, AppUser>> optionFailureOrSuccessSignIn});
+      Option<Either<CommonFailures, Unit>> optionFailureOrSuccess});
 }
 
 /// @nodoc
@@ -1073,8 +1271,7 @@ class __$$_AuthStateCopyWithImpl<$Res>
     Object? password = null,
     Object? showErrorMessages = null,
     Object? showSnackbar = null,
-    Object? optionFailureOrSuccessSignUp = null,
-    Object? optionFailureOrSuccessSignIn = null,
+    Object? optionFailureOrSuccess = null,
   }) {
     return _then(_$_AuthState(
       onLoading: null == onLoading
@@ -1101,14 +1298,10 @@ class __$$_AuthStateCopyWithImpl<$Res>
           ? _value.showSnackbar
           : showSnackbar // ignore: cast_nullable_to_non_nullable
               as bool,
-      optionFailureOrSuccessSignUp: null == optionFailureOrSuccessSignUp
-          ? _value.optionFailureOrSuccessSignUp
-          : optionFailureOrSuccessSignUp // ignore: cast_nullable_to_non_nullable
+      optionFailureOrSuccess: null == optionFailureOrSuccess
+          ? _value.optionFailureOrSuccess
+          : optionFailureOrSuccess // ignore: cast_nullable_to_non_nullable
               as Option<Either<CommonFailures, Unit>>,
-      optionFailureOrSuccessSignIn: null == optionFailureOrSuccessSignIn
-          ? _value.optionFailureOrSuccessSignIn
-          : optionFailureOrSuccessSignIn // ignore: cast_nullable_to_non_nullable
-              as Option<Either<CommonFailures, AppUser>>,
     ));
   }
 }
@@ -1123,8 +1316,7 @@ class _$_AuthState implements _AuthState {
       required this.password,
       required this.showErrorMessages,
       required this.showSnackbar,
-      required this.optionFailureOrSuccessSignUp,
-      required this.optionFailureOrSuccessSignIn});
+      required this.optionFailureOrSuccess});
 
   @override
   final bool onLoading;
@@ -1139,13 +1331,11 @@ class _$_AuthState implements _AuthState {
   @override
   final bool showSnackbar;
   @override
-  final Option<Either<CommonFailures, Unit>> optionFailureOrSuccessSignUp;
-  @override
-  final Option<Either<CommonFailures, AppUser>> optionFailureOrSuccessSignIn;
+  final Option<Either<CommonFailures, Unit>> optionFailureOrSuccess;
 
   @override
   String toString() {
-    return 'AuthState(onLoading: $onLoading, email: $email, name: $name, password: $password, showErrorMessages: $showErrorMessages, showSnackbar: $showSnackbar, optionFailureOrSuccessSignUp: $optionFailureOrSuccessSignUp, optionFailureOrSuccessSignIn: $optionFailureOrSuccessSignIn)';
+    return 'AuthState(onLoading: $onLoading, email: $email, name: $name, password: $password, showErrorMessages: $showErrorMessages, showSnackbar: $showSnackbar, optionFailureOrSuccess: $optionFailureOrSuccess)';
   }
 
   @override
@@ -1163,27 +1353,13 @@ class _$_AuthState implements _AuthState {
                 other.showErrorMessages == showErrorMessages) &&
             (identical(other.showSnackbar, showSnackbar) ||
                 other.showSnackbar == showSnackbar) &&
-            (identical(other.optionFailureOrSuccessSignUp,
-                    optionFailureOrSuccessSignUp) ||
-                other.optionFailureOrSuccessSignUp ==
-                    optionFailureOrSuccessSignUp) &&
-            (identical(other.optionFailureOrSuccessSignIn,
-                    optionFailureOrSuccessSignIn) ||
-                other.optionFailureOrSuccessSignIn ==
-                    optionFailureOrSuccessSignIn));
+            (identical(other.optionFailureOrSuccess, optionFailureOrSuccess) ||
+                other.optionFailureOrSuccess == optionFailureOrSuccess));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      onLoading,
-      email,
-      name,
-      password,
-      showErrorMessages,
-      showSnackbar,
-      optionFailureOrSuccessSignUp,
-      optionFailureOrSuccessSignIn);
+  int get hashCode => Object.hash(runtimeType, onLoading, email, name, password,
+      showErrorMessages, showSnackbar, optionFailureOrSuccess);
 
   @JsonKey(ignore: true)
   @override
@@ -1201,9 +1377,7 @@ abstract class _AuthState implements AuthState {
       required final bool showErrorMessages,
       required final bool showSnackbar,
       required final Option<Either<CommonFailures, Unit>>
-          optionFailureOrSuccessSignUp,
-      required final Option<Either<CommonFailures, AppUser>>
-          optionFailureOrSuccessSignIn}) = _$_AuthState;
+          optionFailureOrSuccess}) = _$_AuthState;
 
   @override
   bool get onLoading;
@@ -1218,9 +1392,7 @@ abstract class _AuthState implements AuthState {
   @override
   bool get showSnackbar;
   @override
-  Option<Either<CommonFailures, Unit>> get optionFailureOrSuccessSignUp;
-  @override
-  Option<Either<CommonFailures, AppUser>> get optionFailureOrSuccessSignIn;
+  Option<Either<CommonFailures, Unit>> get optionFailureOrSuccess;
   @override
   @JsonKey(ignore: true)
   _$$_AuthStateCopyWith<_$_AuthState> get copyWith =>

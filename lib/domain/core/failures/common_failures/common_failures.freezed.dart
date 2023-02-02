@@ -20,18 +20,21 @@ mixin _$CommonFailures {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String message) handledByFirebase,
+    required TResult Function(String message) platformException,
     required TResult Function(String message) other,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String message)? handledByFirebase,
+    TResult? Function(String message)? platformException,
     TResult? Function(String message)? other,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String message)? handledByFirebase,
+    TResult Function(String message)? platformException,
     TResult Function(String message)? other,
     required TResult orElse(),
   }) =>
@@ -39,18 +42,21 @@ mixin _$CommonFailures {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_HandledByFirebase value) handledByFirebase,
+    required TResult Function(_PlatformException value) platformException,
     required TResult Function(_Other value) other,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_HandledByFirebase value)? handledByFirebase,
+    TResult? Function(_PlatformException value)? platformException,
     TResult? Function(_Other value)? other,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_HandledByFirebase value)? handledByFirebase,
+    TResult Function(_PlatformException value)? platformException,
     TResult Function(_Other value)? other,
     required TResult orElse(),
   }) =>
@@ -162,6 +168,7 @@ class _$_HandledByFirebase implements _HandledByFirebase {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String message) handledByFirebase,
+    required TResult Function(String message) platformException,
     required TResult Function(String message) other,
   }) {
     return handledByFirebase(message);
@@ -171,6 +178,7 @@ class _$_HandledByFirebase implements _HandledByFirebase {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String message)? handledByFirebase,
+    TResult? Function(String message)? platformException,
     TResult? Function(String message)? other,
   }) {
     return handledByFirebase?.call(message);
@@ -180,6 +188,7 @@ class _$_HandledByFirebase implements _HandledByFirebase {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String message)? handledByFirebase,
+    TResult Function(String message)? platformException,
     TResult Function(String message)? other,
     required TResult orElse(),
   }) {
@@ -193,6 +202,7 @@ class _$_HandledByFirebase implements _HandledByFirebase {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_HandledByFirebase value) handledByFirebase,
+    required TResult Function(_PlatformException value) platformException,
     required TResult Function(_Other value) other,
   }) {
     return handledByFirebase(this);
@@ -202,6 +212,7 @@ class _$_HandledByFirebase implements _HandledByFirebase {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_HandledByFirebase value)? handledByFirebase,
+    TResult? Function(_PlatformException value)? platformException,
     TResult? Function(_Other value)? other,
   }) {
     return handledByFirebase?.call(this);
@@ -211,6 +222,7 @@ class _$_HandledByFirebase implements _HandledByFirebase {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_HandledByFirebase value)? handledByFirebase,
+    TResult Function(_PlatformException value)? platformException,
     TResult Function(_Other value)? other,
     required TResult orElse(),
   }) {
@@ -230,6 +242,151 @@ abstract class _HandledByFirebase implements CommonFailures {
   @override
   @JsonKey(ignore: true)
   _$$_HandledByFirebaseCopyWith<_$_HandledByFirebase> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_PlatformExceptionCopyWith<$Res>
+    implements $CommonFailuresCopyWith<$Res> {
+  factory _$$_PlatformExceptionCopyWith(_$_PlatformException value,
+          $Res Function(_$_PlatformException) then) =
+      __$$_PlatformExceptionCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$_PlatformExceptionCopyWithImpl<$Res>
+    extends _$CommonFailuresCopyWithImpl<$Res, _$_PlatformException>
+    implements _$$_PlatformExceptionCopyWith<$Res> {
+  __$$_PlatformExceptionCopyWithImpl(
+      _$_PlatformException _value, $Res Function(_$_PlatformException) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$_PlatformException(
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_PlatformException implements _PlatformException {
+  const _$_PlatformException({required this.message});
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'CommonFailures.platformException(message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_PlatformException &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_PlatformExceptionCopyWith<_$_PlatformException> get copyWith =>
+      __$$_PlatformExceptionCopyWithImpl<_$_PlatformException>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String message) handledByFirebase,
+    required TResult Function(String message) platformException,
+    required TResult Function(String message) other,
+  }) {
+    return platformException(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String message)? handledByFirebase,
+    TResult? Function(String message)? platformException,
+    TResult? Function(String message)? other,
+  }) {
+    return platformException?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String message)? handledByFirebase,
+    TResult Function(String message)? platformException,
+    TResult Function(String message)? other,
+    required TResult orElse(),
+  }) {
+    if (platformException != null) {
+      return platformException(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_HandledByFirebase value) handledByFirebase,
+    required TResult Function(_PlatformException value) platformException,
+    required TResult Function(_Other value) other,
+  }) {
+    return platformException(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_HandledByFirebase value)? handledByFirebase,
+    TResult? Function(_PlatformException value)? platformException,
+    TResult? Function(_Other value)? other,
+  }) {
+    return platformException?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_HandledByFirebase value)? handledByFirebase,
+    TResult Function(_PlatformException value)? platformException,
+    TResult Function(_Other value)? other,
+    required TResult orElse(),
+  }) {
+    if (platformException != null) {
+      return platformException(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PlatformException implements CommonFailures {
+  const factory _PlatformException({required final String message}) =
+      _$_PlatformException;
+
+  @override
+  String get message;
+  @override
+  @JsonKey(ignore: true)
+  _$$_PlatformExceptionCopyWith<_$_PlatformException> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -298,6 +455,7 @@ class _$_Other implements _Other {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String message) handledByFirebase,
+    required TResult Function(String message) platformException,
     required TResult Function(String message) other,
   }) {
     return other(message);
@@ -307,6 +465,7 @@ class _$_Other implements _Other {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String message)? handledByFirebase,
+    TResult? Function(String message)? platformException,
     TResult? Function(String message)? other,
   }) {
     return other?.call(message);
@@ -316,6 +475,7 @@ class _$_Other implements _Other {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String message)? handledByFirebase,
+    TResult Function(String message)? platformException,
     TResult Function(String message)? other,
     required TResult orElse(),
   }) {
@@ -329,6 +489,7 @@ class _$_Other implements _Other {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_HandledByFirebase value) handledByFirebase,
+    required TResult Function(_PlatformException value) platformException,
     required TResult Function(_Other value) other,
   }) {
     return other(this);
@@ -338,6 +499,7 @@ class _$_Other implements _Other {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_HandledByFirebase value)? handledByFirebase,
+    TResult? Function(_PlatformException value)? platformException,
     TResult? Function(_Other value)? other,
   }) {
     return other?.call(this);
@@ -347,6 +509,7 @@ class _$_Other implements _Other {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_HandledByFirebase value)? handledByFirebase,
+    TResult Function(_PlatformException value)? platformException,
     TResult Function(_Other value)? other,
     required TResult orElse(),
   }) {

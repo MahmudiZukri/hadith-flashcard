@@ -40,7 +40,7 @@ class SignUpPageScaffold extends StatelessWidget {
           return previous.showSnackbar != current.showSnackbar;
         },
         listener: (context, state) {
-          state.optionFailureOrSuccessSignUp.match(
+          state.optionFailureOrSuccess.match(
             () => null,
             (either) => either.fold(
               (f) {

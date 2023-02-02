@@ -7,6 +7,9 @@ class CommonFailures with _$CommonFailures {
   const factory CommonFailures.handledByFirebase({
     required String message,
   }) = _HandledByFirebase;
+  const factory CommonFailures.platformException({
+    required String message,
+  }) = _PlatformException;
   const factory CommonFailures.other({
     required String message,
   }) = _Other;

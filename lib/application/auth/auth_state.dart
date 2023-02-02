@@ -9,9 +9,7 @@ class AuthState with _$AuthState {
     required Password password,
     required bool showErrorMessages,
     required bool showSnackbar,
-    required Option<Either<CommonFailures, Unit>> optionFailureOrSuccessSignUp,
-    required Option<Either<CommonFailures, AppUser>>
-        optionFailureOrSuccessSignIn,
+    required Option<Either<CommonFailures, Unit>> optionFailureOrSuccess,
   }) = _AuthState;
 
   factory AuthState.initial() => AuthState(
@@ -21,7 +19,6 @@ class AuthState with _$AuthState {
         name: PersonName.empty(),
         showErrorMessages: false,
         showSnackbar: false,
-        optionFailureOrSuccessSignUp: none(),
-        optionFailureOrSuccessSignIn: none(),
+        optionFailureOrSuccess: none(),
       );
 }

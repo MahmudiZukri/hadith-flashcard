@@ -88,11 +88,10 @@ class SignInPageScaffold extends StatelessWidget {
                     ),
                   ),
                   child: BlocConsumer<AuthBloc, AuthState>(
-                    listenWhen: (previous, current) {
-                      return previous.showSnackbar != current.showSnackbar;
-                    },
+                    listenWhen: (previous, current) =>
+                        previous.showSnackbar != current.showSnackbar,
                     listener: (_, state) {
-                      state.optionFailureOrSuccessSignIn.match(
+                      state.optionFailureOrSuccess.match(
                         () => null,
                         (either) => either.fold(
                           (f) {
@@ -114,7 +113,7 @@ class SignInPageScaffold extends StatelessWidget {
                             ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(
                                 content: Text(
-                                  'Account successfully created!',
+                                  'Signed in successfully!',
                                 ),
                               ),
                             );
@@ -122,157 +121,162 @@ class SignInPageScaffold extends StatelessWidget {
                         ),
                       );
                     },
-                    builder: (_, state) {
-                      return Form(
-                        autovalidateMode: state.showErrorMessages
-                            ? AutovalidateMode.always
-                            : AutovalidateMode.disabled,
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            SizedBox(height: screenHeight(context) / 16),
-                            Text(
-                              'Welcome!',
-                              style: blackTextFont.copyWith(
-                                fontSize: 24,
-                                fontWeight: FontWeight.bold,
-                              ),
+                    builder: (_, state) => Form(
+                      autovalidateMode: state.showErrorMessages
+                          ? AutovalidateMode.always
+                          : AutovalidateMode.disabled,
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          SizedBox(height: screenHeight(context) / 16),
+                          Text(
+                            'Welcome!',
+                            style: blackTextFont.copyWith(
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
                             ),
-                            const SizedBox(height: 30.0),
-                            CustomTextFormField(
-                              labelText: 'Email',
-                              hintText: 'Enter your email',
-                              onChanged: (val) {
-                                context.read<AuthBloc>().add(
-                                      AuthEvent.emailChanged(
-                                        emailStr: val,
-                                      ),
-                                    );
-                              },
-                              validator: (val) =>
-                                  EmailAddress(val!).getFoldValidator(),
-                            ),
-                            const SizedBox(height: 20.0),
-                            CustomTextFormField(
-                              labelText: 'Password',
-                              hintText: 'Enter your password',
-                              onChanged: (val) {
-                                context.read<AuthBloc>().add(
-                                      AuthEvent.passwordChanged(
-                                        passwordStr: val,
-                                      ),
-                                    );
-                              },
-                              validator: (val) =>
-                                  Password(val!).getFoldValidator(),
-                            ),
-                            const SizedBox(height: 8.0),
-                            Align(
-                              alignment: Alignment.centerRight,
+                          ),
+                          const SizedBox(height: 30.0),
+                          CustomTextFormField(
+                            labelText: 'Email',
+                            hintText: 'Enter your email',
+                            onChanged: (val) => context.read<AuthBloc>().add(
+                                  AuthEvent.emailChanged(
+                                    emailStr: val,
+                                  ),
+                                ),
+                            validator: (val) =>
+                                EmailAddress(val!).getFoldValidator(),
+                          ),
+                          const SizedBox(height: 20.0),
+                          CustomTextFormField(
+                            labelText: 'Password',
+                            hintText: 'Enter your password',
+                            onChanged: (val) => context.read<AuthBloc>().add(
+                                  AuthEvent.passwordChanged(
+                                    passwordStr: val,
+                                  ),
+                                ),
+                            validator: (val) =>
+                                Password(val!).getFoldValidator(),
+                          ),
+                          const SizedBox(height: 8.0),
+                          Align(
+                            alignment: Alignment.centerRight,
+                            child: GestureDetector(
+                              onTap: () => context.read<AuthBloc>().add(
+                                    AuthEvent.resetPassword(
+                                      emailStr: state.email.getOrEmpty(),
+                                    ),
+                                  ),
                               child: Text(
                                 'Forgot password?',
                                 style: greyTextFont.copyWith(fontSize: 12.0),
                               ),
                             ),
-                            const Spacer(),
-                            state.onLoading
-                                ? const CircularProgressIndicator(
-                                    color: primaryColor,
-                                  )
-                                : Opacity(
-                                    opacity: state.email == EmailAddress('') ||
-                                            state.password == Password('')
-                                        ? 0.5
-                                        : 1,
-                                    child: CustomElevatedButton(
-                                      text: 'Sign In',
-                                      isActive:
-                                          state.email != EmailAddress('') &&
-                                              state.password != Password(''),
-                                      backgroundColor: primaryColor,
-                                      textStyle: whiteTextFont.copyWith(
-                                        fontSize: 16.0,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                      onPressed: () {
+                          ),
+                          const Spacer(),
+                          state.onLoading
+                              ? const CircularProgressIndicator(
+                                  color: primaryColor,
+                                )
+                              : Opacity(
+                                  opacity: state.email == EmailAddress('') ||
+                                          state.password == Password('')
+                                      ? 0.5
+                                      : 1,
+                                  child: CustomElevatedButton(
+                                    text: 'Sign In',
+                                    isActive: state.email != EmailAddress('') &&
+                                        state.password != Password(''),
+                                    backgroundColor: primaryColor,
+                                    textStyle: whiteTextFont.copyWith(
+                                      fontSize: 16.0,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                    onPressed: () =>
                                         context.read<AuthBloc>().add(
                                               const AuthEvent.signIn(),
-                                            );
-                                      },
-                                    ),
-                                  ),
-                            const SizedBox(height: 16.0),
-                            Row(
-                              children: [
-                                Expanded(
-                                  child: Container(
-                                    height: 1,
-                                    color: greyColor,
+                                            ),
                                   ),
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 8.0,
-                                  ),
-                                  child: Text(
-                                    'Or',
-                                    style: greyTextFont.copyWith(fontSize: 12),
-                                  ),
+                          const SizedBox(height: 16.0),
+                          Row(
+                            children: [
+                              Expanded(
+                                child: Container(
+                                  height: 1,
+                                  color: greyColor,
                                 ),
-                                Expanded(
-                                  child: Container(
-                                    height: 1,
-                                    color: greyColor,
-                                  ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 8.0,
                                 ),
-                              ],
-                            ),
-                            const SizedBox(height: 16.0),
-                            Row(
-                              children: [
-                                Expanded(
-                                  child: CustomElevatedButton(
-                                    text: 'Guest',
-                                    backgroundColor: backgroundColor,
-                                    icon: SvgPicture.asset(
-                                      'assets/icon/profile.svg',
-                                      color: primaryColor,
-                                      height: 20,
-                                    ),
-                                    textStyle: blackTextFont.copyWith(
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                    onPressed: () {},
-                                  ),
+                                child: Text(
+                                  'Or',
+                                  style: greyTextFont.copyWith(fontSize: 12),
                                 ),
-                                const SizedBox(width: 18),
-                                Expanded(
-                                  child: CustomElevatedButton(
-                                    text: 'Gmail',
-                                    backgroundColor: backgroundColor,
-                                    icon: SvgPicture.asset(
-                                      'assets/icon/gmail.svg',
-                                      height: 18,
-                                    ),
-                                    textStyle: blackTextFont.copyWith(
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                    onPressed: () {},
-                                  ),
+                              ),
+                              Expanded(
+                                child: Container(
+                                  height: 1,
+                                  color: greyColor,
                                 ),
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  "Don't have an account yet?",
-                                  style: secondaryTextFont.copyWith(
-                                    fontSize: 12.0,
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 16.0),
+                          Row(
+                            children: [
+                              Expanded(
+                                child: CustomElevatedButton(
+                                  text: 'Guest',
+                                  backgroundColor: backgroundColor,
+                                  icon: SvgPicture.asset(
+                                    'assets/icon/profile.svg',
+                                    color: primaryColor,
+                                    height: 20,
                                   ),
+                                  textStyle: blackTextFont.copyWith(
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                  onPressed: () {},
                                 ),
-                                TextButton(
-                                  onPressed: () => context.read<PageBloc>().add(
+                              ),
+                              const SizedBox(width: 18),
+                              Expanded(
+                                child: CustomElevatedButton(
+                                  text: 'Gmail',
+                                  backgroundColor: backgroundColor,
+                                  icon: SvgPicture.asset(
+                                    'assets/icon/gmail.svg',
+                                    height: 18,
+                                  ),
+                                  textStyle: blackTextFont.copyWith(
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                  onPressed: () {},
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "Don't have an account yet?",
+                                style: secondaryTextFont.copyWith(
+                                  fontSize: 12.0,
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 4,
+                                  vertical: 10,
+                                ),
+                                child: GestureDetector(
+                                  onTap: () => context.read<PageBloc>().add(
                                         GotoSignUpPage(),
                                       ),
                                   child: Text(
@@ -283,16 +287,16 @@ class SignInPageScaffold extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                              ],
-                            ),
-                            AnimatedContainer(
-                              duration: defaultDuration(),
-                              height: keyboardSize(context) == 0 ? 40 : 10,
-                            )
-                          ],
-                        ),
-                      );
-                    },
+                              ),
+                            ],
+                          ),
+                          AnimatedContainer(
+                            duration: defaultDuration(),
+                            height: keyboardSize(context) == 0 ? 40 : 10,
+                          )
+                        ],
+                      ),
+                    ),
                   ),
                 ),
               ],
