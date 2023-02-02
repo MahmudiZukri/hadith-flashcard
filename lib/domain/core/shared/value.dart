@@ -6,4 +6,4 @@ PageEvent? prevPageEvent;
 double screenWidth(context) => MediaQuery.of(context).size.width;
 double screenHeight(context) => MediaQuery.of(context).size.height;
 double keyboardSize(context) => MediaQuery.of(context).viewInsets.bottom;
-BorderRadius defaultBorderRadius() => BorderRadius.circular(12.0);
+BorderRadius defaultBorderRadius() => BorderRadius.circular(30.0);

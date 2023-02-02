@@ -22,11 +22,12 @@ class CustomTextFormField extends StatelessWidget {
       style: blackTextFont,
       decoration: InputDecoration(
         labelText: labelText,
-        labelStyle: primaryTextFont,
+        labelStyle: primaryTextFont.copyWith(fontSize: 15.0),
         hintText: hintText,
         hintStyle: greyTextFont,
         filled: true,
         fillColor: fillColor,
+        contentPadding: const EdgeInsets.all(18.0),
         border: OutlineInputBorder(
           borderRadius: defaultBorderRadius(),
           borderSide: const BorderSide(
@@ -37,7 +38,7 @@ class CustomTextFormField extends StatelessWidget {
         enabledBorder: OutlineInputBorder(
           borderRadius: defaultBorderRadius(),
           borderSide: BorderSide(
-            color: primaryColor.withOpacity(0.5),
+            color: primaryColor.withOpacity(0.2),
             width: 2.0,
           ),
         ),
