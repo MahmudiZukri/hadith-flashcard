@@ -12,6 +12,8 @@ const Color accentColor = Color(0xFFA4BE7B);
 const Color backgroundColor = Colors.white;
 const Color whiteColor = Colors.white;
 const Color blackColor = Colors.black;
+const Color facebookColor = Color(0xFF4267B2);
+const Color googleColor = Color(0xFFDD4B39);
 
 const primaryGradient = LinearGradient(
   colors: <Color>[tealColor, tealBrightColor],

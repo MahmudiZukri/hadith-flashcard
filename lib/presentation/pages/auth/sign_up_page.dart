@@ -138,6 +138,18 @@ class SignUpPageScaffold extends StatelessWidget {
                           ),
                           const SizedBox(height: 30.0),
                           CustomTextFormField(
+                            labelText: 'Name',
+                            hintText: 'Enter your name',
+                            onChanged: (val) => context.read<AuthBloc>().add(
+                                  AuthEvent.nameChanged(
+                                    nameStr: val,
+                                  ),
+                                ),
+                            validator: (val) =>
+                                EmailAddress(val!).getFoldValidator(),
+                          ),
+                          const SizedBox(height: 20.0),
+                          CustomTextFormField(
                             labelText: 'Email',
                             hintText: 'Enter your email',
                             onChanged: (val) => context.read<AuthBloc>().add(
@@ -216,14 +228,14 @@ class SignUpPageScaffold extends StatelessWidget {
                             children: [
                               Expanded(
                                 child: CustomElevatedButton(
-                                  text: 'Guest',
-                                  backgroundColor: backgroundColor,
+                                  text: 'Facebook',
+                                  backgroundColor: facebookColor,
                                   icon: SvgPicture.asset(
-                                    'assets/icon/profile.svg',
-                                    color: primaryColor,
-                                    height: 20,
+                                    'assets/icon/facebook.svg',
+                                    color: whiteColor,
+                                    height: 18,
                                   ),
-                                  textStyle: blackTextFont.copyWith(
+                                  textStyle: whiteTextFont.copyWith(
                                     fontWeight: FontWeight.w500,
                                   ),
                                   onPressed: () {},
@@ -233,12 +245,13 @@ class SignUpPageScaffold extends StatelessWidget {
                               Expanded(
                                 child: CustomElevatedButton(
                                   text: 'Gmail',
-                                  backgroundColor: backgroundColor,
+                                  backgroundColor: googleColor,
                                   icon: SvgPicture.asset(
-                                    'assets/icon/gmail.svg',
+                                    'assets/icon/google.svg',
+                                    color: whiteColor,
                                     height: 18,
                                   ),
-                                  textStyle: blackTextFont.copyWith(
+                                  textStyle: whiteTextFont.copyWith(
                                     fontWeight: FontWeight.w500,
                                   ),
                                   onPressed: () {},

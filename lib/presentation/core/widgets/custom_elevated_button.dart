@@ -40,7 +40,7 @@ class CustomElevatedButton extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             icon ?? const SizedBox(),
-            SizedBox(width: icon != null ? 8.0 : 0),
+            SizedBox(width: icon != null ? 10.0 : 0),
             Text(
               text,
               style: textStyle.copyWith(

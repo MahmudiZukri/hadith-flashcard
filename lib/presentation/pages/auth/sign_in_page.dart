@@ -231,14 +231,14 @@ class SignInPageScaffold extends StatelessWidget {
                             children: [
                               Expanded(
                                 child: CustomElevatedButton(
-                                  text: 'Guest',
-                                  backgroundColor: backgroundColor,
+                                  text: 'Facebook',
+                                  backgroundColor: facebookColor,
                                   icon: SvgPicture.asset(
-                                    'assets/icon/profile.svg',
-                                    color: primaryColor,
-                                    height: 20,
+                                    'assets/icon/facebook.svg',
+                                    color: whiteColor,
+                                    height: 18,
                                   ),
-                                  textStyle: blackTextFont.copyWith(
+                                  textStyle: whiteTextFont.copyWith(
                                     fontWeight: FontWeight.w500,
                                   ),
                                   onPressed: () {},
@@ -248,12 +248,13 @@ class SignInPageScaffold extends StatelessWidget {
                               Expanded(
                                 child: CustomElevatedButton(
                                   text: 'Gmail',
-                                  backgroundColor: backgroundColor,
+                                  backgroundColor: googleColor,
                                   icon: SvgPicture.asset(
-                                    'assets/icon/gmail.svg',
+                                    'assets/icon/google.svg',
+                                    color: whiteColor,
                                     height: 18,
                                   ),
-                                  textStyle: blackTextFont.copyWith(
+                                  textStyle: whiteTextFont.copyWith(
                                     fontWeight: FontWeight.w500,
                                   ),
                                   onPressed: () {},
