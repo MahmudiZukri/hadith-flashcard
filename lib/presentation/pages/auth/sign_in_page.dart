@@ -177,9 +177,7 @@ class SignInPageScaffold extends StatelessWidget {
                           ),
                           const Spacer(),
                           state.onLoading
-                              ? const CircularProgressIndicator(
-                                  color: primaryColor,
-                                )
+                              ? const CustomCircularProgressIndicator()
                               : Opacity(
                                   opacity: state.email == EmailAddress('') ||
                                           state.password == Password('')

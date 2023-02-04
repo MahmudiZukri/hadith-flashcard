@@ -7,7 +7,6 @@ import 'package:hadith_flashcard/application/user/user_bloc.dart';
 import 'package:hadith_flashcard/domain/core/objects/string_objects.dart';
 import 'package:hadith_flashcard/domain/core/shared/shared.dart';
 import 'package:hadith_flashcard/injection.dart';
-import 'package:hadith_flashcard/presentation/core/widgets/custom_elevated_button.dart';
 import 'package:hadith_flashcard/presentation/core/widgets/widgets.dart';
 
 part 'wrapper.dart';

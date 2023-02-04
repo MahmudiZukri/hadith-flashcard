@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:hadith_flashcard/domain/core/shared/shared.dart';
+part of 'widgets.dart';
 
 class CustomElevatedButton extends StatelessWidget {
   const CustomElevatedButton({

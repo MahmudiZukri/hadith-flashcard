@@ -146,7 +146,7 @@ class SignUpPageScaffold extends StatelessWidget {
                                   ),
                                 ),
                             validator: (val) =>
-                                EmailAddress(val!).getFoldValidator(),
+                                PersonName(val!).getFoldValidator(),
                           ),
                           const SizedBox(height: 20.0),
                           CustomTextFormField(
@@ -174,9 +174,7 @@ class SignUpPageScaffold extends StatelessWidget {
                           ),
                           const Spacer(),
                           state.onLoading
-                              ? const CircularProgressIndicator(
-                                  color: primaryColor,
-                                )
+                              ? const CustomCircularProgressIndicator()
                               : Opacity(
                                   opacity: state.email == EmailAddress('') ||
                                           state.password == Password('')

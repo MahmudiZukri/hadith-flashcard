@@ -119,7 +119,6 @@ abstract class StringObject {
   //       ),
   //       (r) => null,
   //     );
-
 }
 
 class Time extends StringObject {
@@ -323,50 +322,6 @@ class PersonName extends StringObject {
   factory PersonName.empty() => PersonName('');
 
   const PersonName._(this.value);
-}
-
-class LastName extends StringObject {
-  @override
-  final Either<StringFailure, String> value;
-  factory LastName(String input) {
-    return LastName._(
-      StringValidators.validatePersonName(input),
-    );
-  }
-  const LastName._(this.value);
-}
-
-class Address extends StringObject {
-  @override
-  final Either<StringFailure, String> value;
-  factory Address(String input) {
-    return Address._(
-      StringValidators.validateStringNotEmpty(input),
-    );
-  }
-  const Address._(this.value);
-}
-
-class BirthPlace extends StringObject {
-  @override
-  final Either<StringFailure, String> value;
-  factory BirthPlace(String input) {
-    return BirthPlace._(
-      StringValidators.validateStringNotEmpty(input),
-    );
-  }
-  const BirthPlace._(this.value);
-}
-
-class IdentityNumber extends StringObject {
-  @override
-  final Either<StringFailure, String> value;
-  factory IdentityNumber(String input) {
-    return IdentityNumber._(
-      StringValidators.validateIdentityNumber(input),
-    );
-  }
-  const IdentityNumber._(this.value);
 }
 
 class EmailAddress extends StringObject {
