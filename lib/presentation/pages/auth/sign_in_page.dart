@@ -109,15 +109,7 @@ class SignInPageScaffold extends StatelessWidget {
                               ),
                             );
                           },
-                          (_) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                content: Text(
-                                  'Signed in successfully!',
-                                ),
-                              ),
-                            );
-                          },
+                          (_) {},
                         ),
                       );
                     },
@@ -130,7 +122,7 @@ class SignInPageScaffold extends StatelessWidget {
                         children: [
                           SizedBox(height: screenHeight(context) / 16),
                           Text(
-                            'Welcome !',
+                            'Welcome!',
                             style: blackTextFont.copyWith(
                               fontSize: 24,
                               fontWeight: FontWeight.bold,

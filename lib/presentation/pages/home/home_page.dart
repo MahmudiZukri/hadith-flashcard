@@ -7,6 +7,8 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    PageController pageController = PageController(initialPage: 2);
+
     return Scaffold(
       backgroundColor: backgroundColor,
       bottomNavigationBar: Container(
@@ -29,6 +31,7 @@ class HomePage extends StatelessWidget {
             vertical: 13.0,
           ),
           onTabChange: (value) {
+            //buat event onchanged page
             debugPrint(
               value.toString(),
             );
@@ -53,7 +56,7 @@ class HomePage extends StatelessWidget {
       ),
       body: BlocBuilder<UserBloc, UserState>(
         builder: (_, state) => state.user == null
-            ? const CustomCircularProgressIndicator()
+            ? const SizedBox()
             : Stack(
                 children: [
                   Container(
@@ -71,51 +74,65 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                   SafeArea(
-                    child: Container(
-                      height: double.infinity,
-                      width: double.infinity,
-                      padding: const EdgeInsets.all(24.0),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            height: screenHeight(context) / 2,
-                            width: screenWidth(context) -
-                                (screenWidth(context) / 6),
-                            padding: const EdgeInsets.all(defaultMargin),
-                            decoration: BoxDecoration(
-                              color: whiteColor,
-                              borderRadius: BorderRadius.circular(
-                                24.0,
+                    child: PageView(
+                      controller: pageController,
+                      onPageChanged: (value) {
+                        debugPrint(value.toString());
+                      },
+                      children: [
+                        Container(
+                          height: double.infinity,
+                          width: double.infinity,
+                          padding: const EdgeInsets.all(24.0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Container(
+                                height: screenHeight(context) / 2,
+                                width: screenWidth(context) -
+                                    (screenWidth(context) / 6),
+                                padding: const EdgeInsets.all(defaultMargin),
+                                decoration: BoxDecoration(
+                                  color: whiteColor,
+                                  borderRadius: BorderRadius.circular(
+                                    24.0,
+                                  ),
+                                ),
+                                child: Center(
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      const Text(
+                                        'Content',
+                                      ),
+                                      Text(
+                                        state.user!.name.getOrCrash(),
+                                      ),
+                                      TextButton(
+                                        onPressed: () {
+                                          context.read<AuthBloc>().add(
+                                                const AuthEvent.signOut(),
+                                              );
+                                        },
+                                        child: const Text(
+                                          'Sign Out',
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
                               ),
-                            ),
-                            child: Center(
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  const Text(
-                                    'Content',
-                                  ),
-                                  Text(
-                                    state.user!.name.getOrCrash(),
-                                  ),
-                                  TextButton(
-                                    onPressed: () {
-                                      context.read<AuthBloc>().add(
-                                            const AuthEvent.signOut(),
-                                          );
-                                    },
-                                    child: const Text(
-                                      'Sign Out',
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
+                            ],
                           ),
-                        ],
-                      ),
+                        ),
+                        Container(
+                          child: Text('asd'),
+                        ),
+                        Container(
+                          child: Text('dsa'),
+                        ),
+                      ],
                     ),
                   ),
                 ],

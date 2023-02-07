@@ -33,8 +33,10 @@ class Wrapper extends StatelessWidget {
           return const SignUpPage();
         } else if (pageState is OnSignInPage) {
           return const SignInPage();
-        } else {
+        } else if (pageState is OnHomePage) {
           return const HomePage();
+        } else {
+          return const SignInPage();
         }
       },
     );

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'string_failures.dart';
 
@@ -16,6 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$StringFailure {
+  Object? get failedValue => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String? failedValue) empty,
@@ -378,6 +379,7 @@ class _$Empty implements Empty {
 abstract class Empty implements StringFailure {
   const factory Empty({required final String? failedValue}) = _$Empty;
 
+  @override
   String? get failedValue;
   @JsonKey(ignore: true)
   _$$EmptyCopyWith<_$Empty> get copyWith => throw _privateConstructorUsedError;
@@ -601,6 +603,7 @@ abstract class HasWhitespace implements StringFailure {
   const factory HasWhitespace({required final String? failedValue}) =
       _$HasWhitespace;
 
+  @override
   String? get failedValue;
   @JsonKey(ignore: true)
   _$$HasWhitespaceCopyWith<_$HasWhitespace> get copyWith =>
@@ -825,6 +828,7 @@ abstract class IsNotAlphanumeric implements StringFailure {
   const factory IsNotAlphanumeric({required final String? failedValue}) =
       _$IsNotAlphanumeric;
 
+  @override
   String? get failedValue;
   @JsonKey(ignore: true)
   _$$IsNotAlphanumericCopyWith<_$IsNotAlphanumeric> get copyWith =>
@@ -1058,6 +1062,7 @@ abstract class ExceedingLength implements StringFailure {
       {required final String? failedValue,
       required final int max}) = _$ExceedingLength;
 
+  @override
   String? get failedValue;
   int get max;
   @JsonKey(ignore: true)
@@ -1291,6 +1296,7 @@ abstract class TooShort implements StringFailure {
       {required final String? failedValue,
       required final int min}) = _$TooShort;
 
+  @override
   String? get failedValue;
   int get min;
   @JsonKey(ignore: true)
@@ -1525,6 +1531,7 @@ abstract class WrongLength implements StringFailure {
       {required final String? failedValue,
       required final int length}) = _$WrongLength;
 
+  @override
   String? get failedValue;
   int get length;
   @JsonKey(ignore: true)
@@ -1749,6 +1756,7 @@ class _$Multiline implements Multiline {
 abstract class Multiline implements StringFailure {
   const factory Multiline({required final String? failedValue}) = _$Multiline;
 
+  @override
   String? get failedValue;
   @JsonKey(ignore: true)
   _$$MultilineCopyWith<_$Multiline> get copyWith =>
@@ -1987,6 +1995,7 @@ abstract class ConfirmationNotMatch implements StringFailure {
       {required final String? failedValue,
       required final String? failedConfirmationValue}) = _$ConfirmationNotMatch;
 
+  @override
   String? get failedValue;
   String? get failedConfirmationValue;
   @JsonKey(ignore: true)
@@ -2212,6 +2221,7 @@ abstract class InvalidPhone implements StringFailure {
   const factory InvalidPhone({required final String? failedValue}) =
       _$InvalidPhone;
 
+  @override
   String? get failedValue;
   @JsonKey(ignore: true)
   _$$InvalidPhoneCopyWith<_$InvalidPhone> get copyWith =>
@@ -2436,6 +2446,7 @@ abstract class InvalidEmail implements StringFailure {
   const factory InvalidEmail({required final String? failedValue}) =
       _$InvalidEmail;
 
+  @override
   String? get failedValue;
   @JsonKey(ignore: true)
   _$$InvalidEmailCopyWith<_$InvalidEmail> get copyWith =>
@@ -2659,6 +2670,7 @@ class _$InvalidUrl implements InvalidUrl {
 abstract class InvalidUrl implements StringFailure {
   const factory InvalidUrl({required final String? failedValue}) = _$InvalidUrl;
 
+  @override
   String? get failedValue;
   @JsonKey(ignore: true)
   _$$InvalidUrlCopyWith<_$InvalidUrl> get copyWith =>
@@ -2892,6 +2904,7 @@ abstract class InvalidDateTime implements StringFailure {
       {required final DateTime failedValue,
       required final String pattern}) = _$InvalidDateTime;
 
+  @override
   DateTime get failedValue;
   String get pattern;
   @JsonKey(ignore: true)
@@ -3117,6 +3130,7 @@ abstract class InvalidPersonName implements StringFailure {
   const factory InvalidPersonName({required final String? failedValue}) =
       _$InvalidPersonName;
 
+  @override
   String? get failedValue;
   @JsonKey(ignore: true)
   _$$InvalidPersonNameCopyWith<_$InvalidPersonName> get copyWith =>
@@ -3340,6 +3354,7 @@ class _$ShortToken implements ShortToken {
 abstract class ShortToken implements StringFailure {
   const factory ShortToken({required final String? failedValue}) = _$ShortToken;
 
+  @override
   String? get failedValue;
   @JsonKey(ignore: true)
   _$$ShortTokenCopyWith<_$ShortToken> get copyWith =>
@@ -3564,6 +3579,7 @@ abstract class InvalidTime implements StringFailure {
   const factory InvalidTime({required final String? failedValue}) =
       _$InvalidTime;
 
+  @override
   String? get failedValue;
   @JsonKey(ignore: true)
   _$$InvalidTimeCopyWith<_$InvalidTime> get copyWith =>
@@ -3788,6 +3804,7 @@ abstract class InvalidDate implements StringFailure {
   const factory InvalidDate({required final String? failedValue}) =
       _$InvalidDate;
 
+  @override
   String? get failedValue;
   @JsonKey(ignore: true)
   _$$InvalidDateCopyWith<_$InvalidDate> get copyWith =>

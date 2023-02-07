@@ -109,15 +109,7 @@ class SignUpPageScaffold extends StatelessWidget {
                               ),
                             );
                           },
-                          (_) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                content: Text(
-                                  'Signed in successfully!',
-                                ),
-                              ),
-                            );
-                          },
+                          (_) {},
                         ),
                       );
                     },
