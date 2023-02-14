@@ -29,16 +29,35 @@ class Wrapper extends StatelessWidget {
     }
     return BlocBuilder<PageBloc, PageState>(
       builder: (_, pageState) {
-        if (pageState is OnSignUpPage) {
-          return const SignUpPage();
-        } else if (pageState is OnSignInPage) {
-          return const SignInPage();
-        } else if (pageState is OnHomePage) {
-          return const HomePage();
-        } else {
-          return const SignInPage();
-        }
+        return AnimatedSwitcher(
+          switchOutCurve: const Threshold(0),
+          transitionBuilder: (Widget child, Animation<double> animation) {
+            return SlideTransition(
+              position: Tween<Offset>(
+                begin: const Offset(0, 0.25),
+                end: Offset.zero,
+              ).animate(animation),
+              child: child,
+            );
+          },
+          duration: defaultDuration(),
+          child: pageTransition(
+            pageState: pageState,
+          ),
+        );
       },
     );
+  }
+}
+
+Widget pageTransition({required PageState pageState}) {
+  if (pageState is OnSignUpPage) {
+    return const SignUpPage();
+  } else if (pageState is OnSignInPage) {
+    return const SignInPage();
+  } else if (pageState is OnHomePage) {
+    return const HomePage();
+  } else {
+    return const SignInPage();
   }
 }
