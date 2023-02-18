@@ -185,11 +185,6 @@ class SignInPageScaffold extends StatelessWidget {
                                 context.read<PageBloc>().add(
                                       GotoForgotPasswordPage(),
                                     );
-                                // context.read<AuthBloc>().add(
-                                //     AuthEvent.resetPassword(
-                                //       emailStr: state.email.getOrEmpty(),
-                                //     ),
-                                //   );
                               },
                               child: Text(
                                 'Forgot password?',

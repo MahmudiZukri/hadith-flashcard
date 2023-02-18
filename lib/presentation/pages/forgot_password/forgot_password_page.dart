@@ -1,12 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hadith_flashcard/application/auth/auth_bloc.dart';
+import 'package:hadith_flashcard/application/forgot_password/forgot_password_bloc.dart';
 import 'package:hadith_flashcard/application/page/page_bloc.dart';
+import 'package:hadith_flashcard/domain/core/objects/string_objects.dart';
 import 'package:hadith_flashcard/domain/core/shared/shared.dart';
+import 'package:hadith_flashcard/injection.dart';
 import 'package:hadith_flashcard/presentation/core/widgets/widgets.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class ForgotPasswordPage extends StatelessWidget {
   const ForgotPasswordPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) => getIt<ForgotPasswordBloc>(),
+      child: const ForgotPasswordPageScaffold(),
+    );
+  }
+}
+
+class ForgotPasswordPageScaffold extends StatelessWidget {
+  const ForgotPasswordPageScaffold({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -64,14 +80,26 @@ class ForgotPasswordPage extends StatelessWidget {
                     const CustomTextFormField(),
                     const SizedBox(height: 16.0),
                     const Spacer(),
-                    CustomElevatedButton(
-                      text: 'Reset',
-                      backgroundColor: primaryColor,
-                      textStyle: whiteTextFont.copyWith(
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.w600,
-                      ),
-                      onPressed: () {},
+                    BlocSelector<ForgotPasswordBloc, ForgotPasswordState,
+                        EmailAddress>(
+                      selector: (state) => state.email,
+                      builder: (context, emailState) {
+                        return CustomElevatedButton(
+                          text: 'Reset',
+                          backgroundColor: primaryColor,
+                          textStyle: whiteTextFont.copyWith(
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.w600,
+                          ),
+                          onPressed: () {
+                            context.read<AuthBloc>().add(
+                                  AuthEvent.resetPassword(
+                                    emailStr: emailState.getOrEmpty(),
+                                  ),
+                                );
+                          },
+                        );
+                      },
                     ),
                     SizedBox(height: screenHeight(context) / 20),
                   ],
