@@ -121,13 +121,15 @@ class SignUpPageScaffold extends StatelessWidget {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           SizedBox(height: screenHeight(context) / 16),
-                          Text(
-                            'Create an account.',
-                            style: blackTextFont.copyWith(
-                              fontSize: 24,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
+                          keyboardSize(context) == 0
+                              ? Text(
+                                  'Create an account.',
+                                  style: blackTextFont.copyWith(
+                                    fontSize: 24,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                )
+                              : const SizedBox(),
                           const SizedBox(height: 30.0),
                           CustomTextFormField(
                             labelText: 'Name',
@@ -140,7 +142,7 @@ class SignUpPageScaffold extends StatelessWidget {
                             validator: (val) =>
                                 PersonName(val!).getFoldValidator(),
                           ),
-                          const SizedBox(height: 20.0),
+                          const SizedBox(height: 16.0),
                           CustomTextFormField(
                             labelText: 'Email',
                             hintText: 'Enter your email',
@@ -152,7 +154,7 @@ class SignUpPageScaffold extends StatelessWidget {
                             validator: (val) =>
                                 EmailAddress(val!).getFoldValidator(),
                           ),
-                          const SizedBox(height: 20.0),
+                          const SizedBox(height: 16.0),
                           CustomTextFormField(
                             labelText: 'Password',
                             hintText: 'Enter your password',
@@ -164,6 +166,7 @@ class SignUpPageScaffold extends StatelessWidget {
                             validator: (val) =>
                                 Password(val!).getFoldValidator(),
                           ),
+                          const SizedBox(height: 16.0),
                           const Spacer(),
                           state.onLoading
                               ? const CustomCircularProgressIndicator()

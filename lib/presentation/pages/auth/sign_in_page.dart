@@ -121,13 +121,15 @@ class SignInPageScaffold extends StatelessWidget {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           SizedBox(height: screenHeight(context) / 16),
-                          Text(
-                            'Welcome!',
-                            style: blackTextFont.copyWith(
-                              fontSize: 24,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
+                          keyboardSize(context) == 0
+                              ? Text(
+                                  'Welcome!',
+                                  style: blackTextFont.copyWith(
+                                    fontSize: 24,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                )
+                              : const SizedBox(),
                           const SizedBox(height: 30.0),
                           CustomTextFormField(
                             labelText: 'Email',
@@ -140,7 +142,7 @@ class SignInPageScaffold extends StatelessWidget {
                             validator: (val) =>
                                 EmailAddress(val!).getFoldValidator(),
                           ),
-                          const SizedBox(height: 20.0),
+                          const SizedBox(height: 16.0),
                           CustomTextFormField(
                             labelText: 'Password',
                             hintText: 'Enter your password',
@@ -151,6 +153,11 @@ class SignInPageScaffold extends StatelessWidget {
                                 ),
                             validator: (val) =>
                                 Password(val!).getFoldValidator(),
+                            isPasswordTextField: true,
+                            isEyeOpen: true,
+                            eyeOnTap: (val) {
+                              debugPrint(val.toString());
+                            },
                           ),
                           const SizedBox(height: 8.0),
                           Align(
@@ -167,6 +174,7 @@ class SignInPageScaffold extends StatelessWidget {
                               ),
                             ),
                           ),
+                          const SizedBox(height: 16.0),
                           const Spacer(),
                           state.onLoading
                               ? const CustomCircularProgressIndicator()
