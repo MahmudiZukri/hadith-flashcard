@@ -57,6 +57,8 @@ Widget pageTransition({required PageState pageState}) {
     return const SignInPage();
   } else if (pageState is OnHomePage) {
     return const HomePage();
+  } else if (pageState is OnForgotPasswordPage) {
+    return const ForgotPasswordPage();
   } else {
     return const SignInPage();
   }

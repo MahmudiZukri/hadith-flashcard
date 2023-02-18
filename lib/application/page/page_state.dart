@@ -14,3 +14,5 @@ class OnSignUpPage extends PageState {}
 class OnSignInPage extends PageState {}
 
 class OnHomePage extends PageState {}
+
+class OnForgotPasswordPage extends PageState {}

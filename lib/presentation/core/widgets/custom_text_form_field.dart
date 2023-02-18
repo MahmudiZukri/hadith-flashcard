@@ -2,24 +2,24 @@ part of 'widgets.dart';
 
 class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField({
-    required this.labelText,
-    required this.hintText,
-    required this.onChanged,
-    required this.validator,
+    this.labelText,
+    this.hintText,
+    this.onChanged,
+    this.validator,
     this.isPasswordTextField = false,
     this.eyeOnTap,
-    this.isEyeOpen = false,
+    this.isEyeOpen,
     this.fillColor = backgroundColor,
     Key? key,
   }) : super(key: key);
 
-  final String labelText;
-  final String hintText;
+  final String? labelText;
+  final String? hintText;
   final Function(String)? onChanged;
-  final String? Function(String?) validator;
+  final String? Function(String?)? validator;
   final bool isPasswordTextField;
-  final Function(bool)? eyeOnTap;
-  final bool isEyeOpen;
+  final Function()? eyeOnTap;
+  final bool? isEyeOpen;
   final Color? fillColor;
 
   @override
@@ -27,7 +27,7 @@ class CustomTextFormField extends StatelessWidget {
     return TextFormField(
       style: blackTextFont,
       obscureText: isPasswordTextField
-          ? isEyeOpen
+          ? isEyeOpen!
               ? false
               : true
           : false,
@@ -40,13 +40,11 @@ class CustomTextFormField extends StatelessWidget {
         hintStyle: greyTextFont,
         filled: true,
         fillColor: fillColor,
-        suffixIcon: isPasswordTextField
+        suffix: isPasswordTextField
             ? GestureDetector(
-                onTap: eyeOnTap!(
-                  isEyeOpen,
-                ),
+                onTap: eyeOnTap!(),
                 child: Icon(
-                  isEyeOpen ? MdiIcons.eyeOff : MdiIcons.eye,
+                  isEyeOpen! ? MdiIcons.eyeOff : MdiIcons.eye,
                 ),
               )
             : const SizedBox(),

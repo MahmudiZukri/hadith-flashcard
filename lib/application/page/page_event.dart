@@ -12,3 +12,5 @@ class GotoSignUpPage extends PageEvent {}
 class GotoSignInPage extends PageEvent {}
 
 class GotoHomePage extends PageEvent {}
+
+class GotoForgotPasswordPage extends PageEvent {}

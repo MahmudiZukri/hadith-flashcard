@@ -7,8 +7,15 @@ class SignInPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<AuthBloc>(
-      create: (context) => getIt<AuthBloc>(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<AuthBloc>(
+          create: (context) => getIt<AuthBloc>(),
+        ),
+        BlocProvider<PasswordTextFieldBloc>(
+          create: (context) => getIt<PasswordTextFieldBloc>(),
+        ),
+      ],
       child: const SignInPageScaffold(),
     );
   }
@@ -143,31 +150,47 @@ class SignInPageScaffold extends StatelessWidget {
                                 EmailAddress(val!).getFoldValidator(),
                           ),
                           const SizedBox(height: 16.0),
-                          CustomTextFormField(
-                            labelText: 'Password',
-                            hintText: 'Enter your password',
-                            onChanged: (val) => context.read<AuthBloc>().add(
-                                  AuthEvent.passwordChanged(
-                                    passwordStr: val,
-                                  ),
-                                ),
-                            validator: (val) =>
-                                Password(val!).getFoldValidator(),
-                            isPasswordTextField: true,
-                            isEyeOpen: true,
-                            eyeOnTap: (val) {
-                              debugPrint(val.toString());
+                          BlocSelector<PasswordTextFieldBloc,
+                              PasswordTextFieldState, bool>(
+                            selector: (state) => state.isSignInTextFieldObscure,
+                            builder: (context, isSignInTextFieldObscure) {
+                              return CustomTextFormField(
+                                labelText: 'Password',
+                                hintText: 'Enter your password',
+                                onChanged: (val) =>
+                                    context.read<AuthBloc>().add(
+                                          AuthEvent.passwordChanged(
+                                            passwordStr: val,
+                                          ),
+                                        ),
+                                validator: (val) =>
+                                    Password(val!).getFoldValidator(),
+                                isPasswordTextField: true,
+                                isEyeOpen: isSignInTextFieldObscure,
+                                eyeOnTap: () {
+                                  // do later
+                                  // context.read<PasswordTextFieldBloc>().add(
+                                  //       const PasswordTextFieldEvent
+                                  //           .signInTextFieldObsecureChanged(),
+                                  //     );
+                                },
+                              );
                             },
                           ),
                           const SizedBox(height: 8.0),
                           Align(
                             alignment: Alignment.centerRight,
                             child: GestureDetector(
-                              onTap: () => context.read<AuthBloc>().add(
-                                    AuthEvent.resetPassword(
-                                      emailStr: state.email.getOrEmpty(),
-                                    ),
-                                  ),
+                              onTap: () {
+                                context.read<PageBloc>().add(
+                                      GotoForgotPasswordPage(),
+                                    );
+                                // context.read<AuthBloc>().add(
+                                //     AuthEvent.resetPassword(
+                                //       emailStr: state.email.getOrEmpty(),
+                                //     ),
+                                //   );
+                              },
                               child: Text(
                                 'Forgot password?',
                                 style: greyTextFont.copyWith(fontSize: 12.0),

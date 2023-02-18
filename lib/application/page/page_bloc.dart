@@ -17,5 +17,8 @@ class PageBloc extends Bloc<PageEvent, PageState> {
     on<GotoHomePage>((event, emit) => emit(
           OnHomePage(),
         ));
+    on<GotoForgotPasswordPage>((event, emit) => emit(
+          OnForgotPasswordPage(),
+        ));
   }
 }
