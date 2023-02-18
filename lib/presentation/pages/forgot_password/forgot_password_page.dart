@@ -14,8 +14,15 @@ class ForgotPasswordPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => getIt<ForgotPasswordBloc>(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<AuthBloc>(
+          create: (context) => getIt<AuthBloc>(),
+        ),
+        BlocProvider<ForgotPasswordBloc>(
+          create: (context) => getIt<ForgotPasswordBloc>(),
+        ),
+      ],
       child: const ForgotPasswordPageScaffold(),
     );
   }
@@ -35,11 +42,9 @@ class ForgotPasswordPageScaffold extends StatelessWidget {
           children: [
             SafeArea(
               child: GestureDetector(
-                onTap: () {
-                  context.read<PageBloc>().add(
-                        GotoSignInPage(),
-                      );
-                },
+                onTap: () => context.read<PageBloc>().add(
+                      GotoSignInPage(),
+                    ),
                 child: Row(
                   children: [
                     const SizedBox(width: defaultMargin),
@@ -53,56 +58,96 @@ class ForgotPasswordPageScaffold extends StatelessWidget {
                 ),
               ),
             ),
-            Expanded(
-              child: Container(
-                height: 100,
-                padding: const EdgeInsets.symmetric(
-                  horizontal: defaultMargin,
-                ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Reset Password',
-                      style: blackTextFont.copyWith(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const SizedBox(height: 20.0),
-                    const Text(
-                      'Please provide us with the email address associated with your account. Once we verify your email, we will send you detailed instructions on how to reset your password securely.',
-                    ),
-                    const SizedBox(height: 20.0),
-                    const Text('Email address'),
-                    const SizedBox(height: 10.0),
-                    const CustomTextFormField(),
-                    const SizedBox(height: 16.0),
-                    const Spacer(),
-                    BlocSelector<ForgotPasswordBloc, ForgotPasswordState,
-                        EmailAddress>(
-                      selector: (state) => state.email,
-                      builder: (context, emailState) {
-                        return CustomElevatedButton(
-                          text: 'Reset',
-                          backgroundColor: primaryColor,
-                          textStyle: whiteTextFont.copyWith(
-                            fontSize: 16.0,
-                            fontWeight: FontWeight.w600,
+            BlocListener<AuthBloc, AuthState>(
+              listenWhen: (previous, current) =>
+                  previous.showSnackbar != current.showSnackbar,
+              listener: (context, state) {
+                state.optionFailureOrSuccess.match(
+                  () => null,
+                  (either) => either.fold(
+                    (f) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          duration: const Duration(
+                            seconds: 2,
                           ),
-                          onPressed: () {
-                            context.read<AuthBloc>().add(
-                                  AuthEvent.resetPassword(
-                                    emailStr: emailState.getOrEmpty(),
-                                  ),
-                                );
-                          },
-                        );
-                      },
-                    ),
-                    SizedBox(height: screenHeight(context) / 20),
-                  ],
+                          content: Text(
+                            f.maybeMap(
+                              handledByFirebase: (s) => s.message,
+                              orElse: () => 'Something went wrong ($f).',
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                    (_) {},
+                  ),
+                );
+              },
+              child: Expanded(
+                child: Container(
+                  height: 100,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: defaultMargin,
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Reset Password',
+                        style: blackTextFont.copyWith(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(height: 20.0),
+                      Text(
+                        'Please provide us with the email address associated with your account. Once we verify your email, we will send you detailed instructions on how to reset your password securely.',
+                        style: greyTextFont,
+                      ),
+                      const SizedBox(height: 20.0),
+                      const Text('Email address'),
+                      const SizedBox(height: 10.0),
+                      CustomTextFormField(
+                        onChanged: (val) {
+                          context.read<ForgotPasswordBloc>().add(
+                                ForgotPasswordEvent.emailChanged(
+                                  emailStr: val,
+                                ),
+                              );
+                        },
+                      ),
+                      const SizedBox(height: 16.0),
+                      const Spacer(),
+                      BlocSelector<ForgotPasswordBloc, ForgotPasswordState,
+                          EmailAddress>(
+                        selector: (state) => state.email,
+                        builder: (context, emailState) {
+                          return Opacity(
+                            opacity: emailState == EmailAddress('') ? 0.5 : 1,
+                            child: CustomElevatedButton(
+                              text: 'Reset',
+                              isActive: emailState != EmailAddress(''),
+                              backgroundColor: primaryColor,
+                              textStyle: whiteTextFont.copyWith(
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.w600,
+                              ),
+                              onPressed: () {
+                                context.read<AuthBloc>().add(
+                                      AuthEvent.resetPassword(
+                                        emailStr: emailState.getOrEmpty(),
+                                      ),
+                                    );
+                              },
+                            ),
+                          );
+                        },
+                      ),
+                      SizedBox(height: screenHeight(context) / 20),
+                    ],
+                  ),
                 ),
               ),
             ),

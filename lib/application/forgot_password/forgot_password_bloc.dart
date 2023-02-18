@@ -11,8 +11,20 @@ part 'forgot_password_bloc.freezed.dart';
 class ForgotPasswordBloc
     extends Bloc<ForgotPasswordEvent, ForgotPasswordState> {
   ForgotPasswordBloc() : super(ForgotPasswordState.initial()) {
-    on<ForgotPasswordEvent>((event, emit) {
-      // TODO: implement event handler
-    });
+    on<ForgotPasswordEvent>(
+      (event, emit) {
+        event.map(
+          emailChanged: (e) {
+            emit(
+              state.copyWith(
+                email: EmailAddress(
+                  e.emailStr,
+                ),
+              ),
+            );
+          },
+        );
+      },
+    );
   }
 }
