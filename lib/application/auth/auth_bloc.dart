@@ -103,12 +103,20 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           },
           signOut: (e) => _authRepository.signOut(),
           resetPassword: (e) async {
+            emit(
+              state.copyWith(
+                onLoading: true,
+                optionFailureOrSuccess: none(),
+              ),
+            );
+
             final failureOrResponse = await _authRepository.resetPassword(
               email: e.emailStr,
             );
 
             emit(
               state.copyWith(
+                onLoading: false,
                 showSnackbar: !state.showSnackbar,
                 optionFailureOrSuccess: optionOf(
                   failureOrResponse,

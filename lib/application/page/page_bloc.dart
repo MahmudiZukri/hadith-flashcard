@@ -20,5 +20,8 @@ class PageBloc extends Bloc<PageEvent, PageState> {
     on<GotoForgotPasswordPage>((event, emit) => emit(
           OnForgotPasswordPage(),
         ));
+    on<GotoCheckEmailPage>((event, emit) => emit(
+          OnCheckEmailPage(),
+        ));
   }
 }

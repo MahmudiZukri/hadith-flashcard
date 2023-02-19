@@ -59,6 +59,8 @@ Widget pageTransition({required PageState pageState}) {
     return const HomePage();
   } else if (pageState is OnForgotPasswordPage) {
     return const ForgotPasswordPage();
+  } else if (pageState is OnCheckEmailPage) {
+    return const CheckEmailPage();
   } else {
     return const SignInPage();
   }
