@@ -1,3 +1,5 @@
+import 'package:hadith_flashcard/domain/core/failures/number/number_failures.dart';
+
 import 'failures/string/string_failures.dart';
 import 'failures/value/value_failures.dart';
 
@@ -27,15 +29,15 @@ class UnexpectedStringError extends Error {
   }
 }
 
-// class UnexpectedNumberError extends Error {
-//   final NumberFailure valueFailure;
+class UnexpectedNumberError extends Error {
+  final NumberFailure valueFailure;
 
-//   UnexpectedNumberError(this.valueFailure);
+  UnexpectedNumberError(this.valueFailure);
 
-//   @override
-//   String toString() {
-//     const explanation =
-//         'Encountered a NumberFailure at an unrecoverable point. Terminating.';
-//     return Error.safeToString('$explanation Failure was: $valueFailure');
-//   }
-// }
+  @override
+  String toString() {
+    const explanation =
+        'Encountered a NumberFailure at an unrecoverable point. Terminating.';
+    return Error.safeToString('$explanation Failure was: $valueFailure');
+  }
+}
