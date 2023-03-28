@@ -8,7 +8,8 @@ const Color lightColor = Color(0xFFF0E5CF);
 const Color tealColor = Color(0xFF46A0AE);
 const Color tealBrightColor = Color(0xFF00FFCB);
 const Color accentColor = Color(0xFFA4BE7B);
-const Color backgroundColor = Color(0xFFFFFDFA);
+const Color backgroundColor = Color(0xFFF1F1F8);
+
 // const Color backgroundColor = Color(0xFFE5D9B6);
 const Color whiteColor = Colors.white;
 const Color blackColor = Colors.black;
