@@ -48,7 +48,7 @@ class ForgotPasswordPageScaffold extends StatelessWidget {
                 child: Row(
                   children: [
                     const SizedBox(width: defaultMargin),
-                    const Icon(MdiIcons.arrowLeft, size: 26.0),
+                    Icon(MdiIcons.arrowLeft, size: 26.0),
                     const SizedBox(width: 6.0),
                     Text(
                       'Back',

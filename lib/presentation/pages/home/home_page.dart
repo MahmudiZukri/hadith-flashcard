@@ -28,9 +28,9 @@ class HomePageScaffold extends StatelessWidget {
         return Scaffold(
           backgroundColor: backgroundColor,
           bottomNavigationBar: Container(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 34.0,
-              vertical: 22.0,
+            padding: EdgeInsets.symmetric(
+              horizontal: screenWidth(context) / 14,
+              vertical: screenHeight(context) / 50,
             ),
             color: primaryColor,
             child: GNav(
@@ -39,21 +39,23 @@ class HomePageScaffold extends StatelessWidget {
               backgroundColor: primaryColor,
               activeColor: primaryColor,
               tabBackgroundColor: whiteColor,
-              duration: const Duration(milliseconds: 300),
-              gap: 12.0,
+              duration: const Duration(
+                milliseconds: 300,
+              ),
+              gap: screenWidth(context) / 60,
               textStyle: const TextStyle(
                 color: primaryColor,
               ),
-              padding: const EdgeInsets.symmetric(
-                horizontal: 28.0,
-                vertical: 13.0,
+              padding: EdgeInsets.symmetric(
+                horizontal: screenWidth(context) / 20,
+                vertical: screenHeight(context) / 62,
               ),
               onTabChange: (value) {
                 pageController.jumpToPage(
                   value,
                 );
               },
-              tabs: const [
+              tabs: [
                 GButton(
                   text: 'Add Card',
                   icon: MdiIcons.plusBoxOutline,
@@ -77,19 +79,23 @@ class HomePageScaffold extends StatelessWidget {
           ),
           body: Stack(
             children: [
-              Container(
-                height: screenHeight(context) / 3,
-                decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(
-                      30.0,
-                    ),
-                    bottomRight: Radius.circular(
-                      30.0,
+              Column(
+                children: [
+                  Container(
+                    height: screenHeight(context) / 3,
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(
+                          30.0,
+                        ),
+                        bottomRight: Radius.circular(
+                          30.0,
+                        ),
+                      ),
+                      color: primaryColor,
                     ),
                   ),
-                  color: primaryColor,
-                ),
+                ],
               ),
               SafeArea(
                 child: BlocBuilder<UserBloc, UserState>(
@@ -105,51 +111,106 @@ class HomePageScaffold extends StatelessWidget {
                                 );
                           },
                           children: [
-                            const Center(
-                              child: Text('Add Card Page'),
-                            ),
+                            const AddFlashcardPage(),
                             Container(
                               height: double.infinity,
                               width: double.infinity,
                               padding: const EdgeInsets.all(24.0),
                               child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
+                                // mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Container(
-                                    height: screenHeight(context) / 2,
-                                    width: screenWidth(context) -
-                                        (screenWidth(context) / 6),
-                                    padding:
-                                        const EdgeInsets.all(defaultMargin),
-                                    decoration: BoxDecoration(
-                                      color: whiteColor,
-                                      borderRadius: BorderRadius.circular(
-                                        24.0,
-                                      ),
-                                    ),
-                                    child: Center(
-                                      child: Column(
+                                  // Row(
+                                  //   children: [
+                                  //     const Text('55 Hadiths'),
+                                  //     const SizedBox(width: 10.0),
+                                  //     Container(
+                                  //       height: 10.0,
+                                  //       width: screenWidth(context) / 3,
+                                  //       decoration: BoxDecoration(
+                                  //         color: secondaryColor,
+                                  //         borderRadius: BorderRadius.circular(
+                                  //           10.0,
+                                  //         ),
+                                  //       ),
+                                  //     ),
+                                  //   ],
+                                  // ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: List.generate(
+                                      3,
+                                      (index) => Column(
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
                                         children: [
-                                          const Text(
-                                            'Content',
-                                          ),
-                                          Text(
-                                            userState.user!.name.getOrCrash(),
-                                          ),
-                                          TextButton(
-                                            onPressed: () {
-                                              context.read<AuthBloc>().add(
-                                                    const AuthEvent.signOut(),
-                                                  );
-                                            },
-                                            child: const Text(
-                                              'Sign Out',
+                                          Container(
+                                            height: 18,
+                                            width: 18,
+                                            margin: EdgeInsets.only(
+                                                right: index == 2 ? 0 : 50),
+                                            decoration: const BoxDecoration(
+                                              color: Colors.red,
+                                              shape: BoxShape.circle,
                                             ),
                                           ),
+                                          const Text('Reviewing')
                                         ],
+                                      ),
+                                    ),
+                                  ),
+
+                                  Expanded(
+                                    child: Center(
+                                      child: Container(
+                                        height: screenHeight(context) / 2,
+                                        width: screenWidth(context) -
+                                            (screenWidth(context) / 6),
+                                        // padding:
+                                        //     const EdgeInsets.all(defaultMargin),
+                                        decoration: BoxDecoration(
+                                          color: whiteColor,
+                                          borderRadius: defaultBorderRadius(),
+                                        ),
+                                        child: Center(
+                                          child: Column(
+                                            // mainAxisAlignment:
+                                            //     MainAxisAlignment.center,
+                                            children: [
+                                              // Container(
+                                              //   height:
+                                              //       screenHeight(context) / 4,
+                                              //   decoration: BoxDecoration(
+                                              //     color: greyColor,
+                                              //     borderRadius:
+                                              //         defaultBorderRadius(),
+                                              //   ),
+                                              // ),
+                                              const Text(
+                                                'Content',
+                                              ),
+                                              Text(
+                                                userState.user!.name
+                                                    .getOrCrash(),
+                                              ),
+                                              TextButton(
+                                                onPressed: () {
+                                                  context.read<AuthBloc>().add(
+                                                        const AuthEvent
+                                                            .signOut(),
+                                                      );
+                                                },
+                                                child: const Text(
+                                                  'Sign Out',
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
                                       ),
                                     ),
                                   ),

@@ -8,10 +8,10 @@ import 'package:hadith_flashcard/application/page/page_bloc.dart';
 import 'package:hadith_flashcard/application/user/user_bloc.dart';
 import 'package:hadith_flashcard/domain/auth/interfaces/i_auth_repository.dart';
 import 'package:hadith_flashcard/domain/core/objects/string_objects.dart';
+import 'package:hadith_flashcard/firebase_options.dart';
 import 'package:hadith_flashcard/injection.dart';
 import 'package:hadith_flashcard/presentation/pages/pages.dart';
 import 'package:injectable/injectable.dart';
-import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,6 +19,12 @@ void main() async {
     Environment.dev,
   );
   await Firebase.initializeApp(
+    // options: const FirebaseOptions(
+    //   apiKey: 'AIzaSyDY_bUSdCWDf3idRHStG1YfPPo5owesg48',
+    //   appId: '1:988688359058:android:09e23bc6cab1f3fc58d04b',
+    //   messagingSenderId: '988688359058',
+    //   projectId: 'hadith-flashcard',
+    // ),
     options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp(
