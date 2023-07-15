@@ -5,7 +5,6 @@ import 'package:hadith_flashcard/domain/core/failures/common_failures/common_fai
 abstract class IAuthRepository {
   static final FirebaseAuth auth = FirebaseAuth.instance;
   static Stream<User?> get userStream => auth.authStateChanges();
-
   Future<Either<CommonFailures, Unit>> signUp({
     required String email,
     required String name,
@@ -16,7 +15,6 @@ abstract class IAuthRepository {
     required String password,
   });
   Future<Either<CommonFailures, Unit>> signOut();
-
   Future<Either<CommonFailures, Unit>> resetPassword({
     required String email,
   });

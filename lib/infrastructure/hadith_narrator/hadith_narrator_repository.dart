@@ -7,7 +7,6 @@ import 'package:hadith_flashcard/domain/core/failures/network/network_failure.da
 import 'package:hadith_flashcard/domain/core/interfaces/i_network_service.dart';
 import 'package:hadith_flashcard/infrastructure/core/urls.dart';
 import 'package:hadith_flashcard/infrastructure/hadith_narrator/model/hadith_narrator_model.dart';
-import 'package:http/http.dart' as http;
 import 'package:hadith_flashcard/domain/hadith_narrator/hadith_narrator.dart';
 import 'package:hadith_flashcard/domain/core/failures/common_failures/common_failures.dart';
 import 'package:hadith_flashcard/domain/hadith_narrator/i_hadith_narrator_repository.dart';
@@ -32,9 +31,8 @@ class HadithNarratorRepository implements IHadithNarratorRepository {
       );
 
   @override
-  Future<Either<CommonFailures, IList<HadithNarrator>>> getAllHadithNarrators({
-    required http.Client? client,
-  }) async {
+  Future<Either<CommonFailures, IList<HadithNarrator>>>
+      getAllHadithNarrators() async {
     final response = await _networkService.getHttp(
       path: Urls.getHadithNarrators,
     );
