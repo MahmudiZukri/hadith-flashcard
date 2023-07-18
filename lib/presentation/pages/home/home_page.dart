@@ -5,8 +5,15 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<PageViewBloc>(
-      create: (context) => getIt<PageViewBloc>(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<PageViewBloc>(
+          create: (context) => getIt<PageViewBloc>(),
+        ),
+        BlocProvider<HadithNarratorBloc>(
+          create: (context) => getIt<HadithNarratorBloc>(),
+        ),
+      ],
       child: const HomePageScaffold(),
     );
   }
@@ -193,6 +200,7 @@ class HomePageScaffold extends StatelessWidget {
                                               const Text(
                                                 'Content',
                                               ),
+
                                               Text(
                                                 userState.user!.name
                                                     .getOrCrash(),

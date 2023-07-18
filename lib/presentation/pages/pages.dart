@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:hadith_flashcard/application/auth/auth_bloc.dart';
+import 'package:hadith_flashcard/application/hadith_narrator/hadith_narrator_bloc.dart';
 import 'package:hadith_flashcard/application/page/page_bloc.dart';
 import 'package:hadith_flashcard/application/page_view/page_view_bloc.dart';
 import 'package:hadith_flashcard/application/password_textfield/password_textfield_bloc.dart';
