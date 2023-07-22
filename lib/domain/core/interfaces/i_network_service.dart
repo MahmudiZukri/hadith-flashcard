@@ -57,6 +57,6 @@ abstract class INetworkService {
     Function(int, int)? onReceiveProgress,
   });
 
-  void addInterceptors(Iterable<Interceptor> interceptors);
+  // void addInterceptors(Iterable<Interceptor> interceptors);
   Dio getDio();
 }

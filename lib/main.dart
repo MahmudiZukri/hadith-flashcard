@@ -16,7 +16,7 @@ import 'package:injectable/injectable.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   configureInjection(
-    Environment.dev,
+    Environment.prod,
   );
   await Firebase.initializeApp(
     // options: const FirebaseOptions(

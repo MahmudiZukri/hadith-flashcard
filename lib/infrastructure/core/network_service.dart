@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:hadith_flashcard/domain/core/failures/network/network_failure.dart';
 import 'package:hadith_flashcard/domain/core/interfaces/i_network_service.dart';
+import 'package:injectable/injectable.dart';
 
 class NetworkService implements INetworkService {
   late final Dio _dio;
@@ -66,10 +67,10 @@ class NetworkService implements INetworkService {
     connectivity = Connectivity();
   }
 
-  @override
-  void addInterceptors(Iterable<Interceptor> interceptors) {
-    _dio.interceptors.addAll(interceptors);
-  }
+  // @override
+  // void addInterceptors(Iterable<Interceptor> interceptors) {
+  //   _dio.interceptors.addAll(interceptors);
+  // }
 
   @override
   Future<Either<NetworkFailure, dynamic>> getHttp({
@@ -84,7 +85,7 @@ class NetworkService implements INetworkService {
     final connectivityResult = await connectivity.checkConnectivity();
     if (connectivityResult != ConnectivityResult.none) {
       try {
-        final Map<String, dynamic> _dioHeader = _dio.options.headers;
+        final Map<String, dynamic> dioHeader = _dio.options.headers;
         final Map<String, dynamic> headers = {
           'content-type': ContentType.json.mimeType,
           'Accept': ContentType.json.mimeType,
@@ -96,8 +97,8 @@ class NetworkService implements INetworkService {
         if (header != null) {
           headers.addAll(header);
         }
-        _dioHeader.addAll(headers);
-        _dio.options.headers = _dioHeader;
+        dioHeader.addAll(headers);
+        _dio.options.headers = dioHeader;
 
         if (responseType != null) {
           _dio.options = _dio.options.copyWith(
@@ -144,7 +145,7 @@ class NetworkService implements INetworkService {
     if (connectivityResult != ConnectivityResult.none) {
       try {
         if (content is! FormData) {
-          final Map<String, dynamic> _dioHeader = _dio.options.headers;
+          final Map<String, dynamic> dioHeader = _dio.options.headers;
           final Map<String, dynamic> headers = {
             'content-type': contentType ?? ContentType.json.mimeType,
             'Accept': contentType ?? ContentType.json.mimeType,
@@ -152,8 +153,8 @@ class NetworkService implements INetworkService {
           if (header != null) {
             headers.addAll(header);
           }
-          _dioHeader.addAll(headers);
-          _dio.options.headers = _dioHeader;
+          dioHeader.addAll(headers);
+          _dio.options.headers = dioHeader;
         }
         if (responseType != null) {
           _dio.options = _dio.options.copyWith(
@@ -202,7 +203,7 @@ class NetworkService implements INetworkService {
     if (connectivityResult != ConnectivityResult.none) {
       try {
         // await baseStorage.openBox(StorageConstants.base);
-        final Map<String, dynamic> _dioHeader = _dio.options.headers;
+        final Map<String, dynamic> dioHeader = _dio.options.headers;
         final Map<String, dynamic> headers = {
           'content-type': ContentType.json.mimeType,
           'Accept': ContentType.json.mimeType,
@@ -210,8 +211,8 @@ class NetworkService implements INetworkService {
         if (header != null) {
           headers.addAll(header);
         }
-        _dioHeader.addAll(headers);
-        _dio.options.headers = _dioHeader;
+        dioHeader.addAll(headers);
+        _dio.options.headers = dioHeader;
         if (responseType != null) {
           _dio.options = _dio.options.copyWith(
             responseType: responseType,
@@ -259,7 +260,7 @@ class NetworkService implements INetworkService {
     if (connectivityResult != ConnectivityResult.none) {
       try {
         // await baseStorage.openBox(StorageConstants.base);
-        final Map<String, dynamic> _dioHeader = _dio.options.headers;
+        final Map<String, dynamic> dioHeader = _dio.options.headers;
         final Map<String, dynamic> headers = {
           'content-type': ContentType.json.mimeType,
           'Accept': ContentType.json.mimeType,
@@ -267,8 +268,8 @@ class NetworkService implements INetworkService {
         if (header != null) {
           headers.addAll(header);
         }
-        _dioHeader.addAll(headers);
-        _dio.options.headers = _dioHeader;
+        dioHeader.addAll(headers);
+        _dio.options.headers = dioHeader;
         final Response response = await _dio.delete(
           '$path${parameter ?? ""}',
         );
@@ -310,15 +311,15 @@ class NetworkService implements INetworkService {
         if (!hasExisted) {
           await savedDir.create(recursive: true);
         }
-        final Map<String, dynamic> _dioHeader = _dio.options.headers;
+        final Map<String, dynamic> dioHeader = _dio.options.headers;
         final Map<String, dynamic> headers = {
           'Accept': ContentType.binary.mimeType,
         };
         if (header != null) {
           headers.addAll(header);
         }
-        _dioHeader.addAll(headers);
-        _dio.options.headers = _dioHeader;
+        dioHeader.addAll(headers);
+        _dio.options.headers = dioHeader;
 
         final Response response = await _dio.download(
           url,

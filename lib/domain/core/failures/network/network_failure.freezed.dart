@@ -21,7 +21,7 @@ mixin _$NetworkFailure {
     required TResult Function() noInternet,
     required TResult Function(Response<dynamic>? response) serverError,
     required TResult Function() timeout,
-    required TResult Function(DioException e) other,
+    required TResult Function(DioError e) other,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,7 +29,7 @@ mixin _$NetworkFailure {
     TResult? Function()? noInternet,
     TResult? Function(Response<dynamic>? response)? serverError,
     TResult? Function()? timeout,
-    TResult? Function(DioException e)? other,
+    TResult? Function(DioError e)? other,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,7 +37,7 @@ mixin _$NetworkFailure {
     TResult Function()? noInternet,
     TResult Function(Response<dynamic>? response)? serverError,
     TResult Function()? timeout,
-    TResult Function(DioException e)? other,
+    TResult Function(DioError e)? other,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -127,7 +127,7 @@ class _$_NoInternet implements _NoInternet {
     required TResult Function() noInternet,
     required TResult Function(Response<dynamic>? response) serverError,
     required TResult Function() timeout,
-    required TResult Function(DioException e) other,
+    required TResult Function(DioError e) other,
   }) {
     return noInternet();
   }
@@ -138,7 +138,7 @@ class _$_NoInternet implements _NoInternet {
     TResult? Function()? noInternet,
     TResult? Function(Response<dynamic>? response)? serverError,
     TResult? Function()? timeout,
-    TResult? Function(DioException e)? other,
+    TResult? Function(DioError e)? other,
   }) {
     return noInternet?.call();
   }
@@ -149,7 +149,7 @@ class _$_NoInternet implements _NoInternet {
     TResult Function()? noInternet,
     TResult Function(Response<dynamic>? response)? serverError,
     TResult Function()? timeout,
-    TResult Function(DioException e)? other,
+    TResult Function(DioError e)? other,
     required TResult orElse(),
   }) {
     if (noInternet != null) {
@@ -268,7 +268,7 @@ class _$_ServerError implements _ServerError {
     required TResult Function() noInternet,
     required TResult Function(Response<dynamic>? response) serverError,
     required TResult Function() timeout,
-    required TResult Function(DioException e) other,
+    required TResult Function(DioError e) other,
   }) {
     return serverError(response);
   }
@@ -279,7 +279,7 @@ class _$_ServerError implements _ServerError {
     TResult? Function()? noInternet,
     TResult? Function(Response<dynamic>? response)? serverError,
     TResult? Function()? timeout,
-    TResult? Function(DioException e)? other,
+    TResult? Function(DioError e)? other,
   }) {
     return serverError?.call(response);
   }
@@ -290,7 +290,7 @@ class _$_ServerError implements _ServerError {
     TResult Function()? noInternet,
     TResult Function(Response<dynamic>? response)? serverError,
     TResult Function()? timeout,
-    TResult Function(DioException e)? other,
+    TResult Function(DioError e)? other,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -387,7 +387,7 @@ class _$_Timeout implements _Timeout {
     required TResult Function() noInternet,
     required TResult Function(Response<dynamic>? response) serverError,
     required TResult Function() timeout,
-    required TResult Function(DioException e) other,
+    required TResult Function(DioError e) other,
   }) {
     return timeout();
   }
@@ -398,7 +398,7 @@ class _$_Timeout implements _Timeout {
     TResult? Function()? noInternet,
     TResult? Function(Response<dynamic>? response)? serverError,
     TResult? Function()? timeout,
-    TResult? Function(DioException e)? other,
+    TResult? Function(DioError e)? other,
   }) {
     return timeout?.call();
   }
@@ -409,7 +409,7 @@ class _$_Timeout implements _Timeout {
     TResult Function()? noInternet,
     TResult Function(Response<dynamic>? response)? serverError,
     TResult Function()? timeout,
-    TResult Function(DioException e)? other,
+    TResult Function(DioError e)? other,
     required TResult orElse(),
   }) {
     if (timeout != null) {
@@ -465,7 +465,7 @@ abstract class _$$_OtherCopyWith<$Res> {
   factory _$$_OtherCopyWith(_$_Other value, $Res Function(_$_Other) then) =
       __$$_OtherCopyWithImpl<$Res>;
   @useResult
-  $Res call({DioException e});
+  $Res call({DioError e});
 }
 
 /// @nodoc
@@ -484,7 +484,7 @@ class __$$_OtherCopyWithImpl<$Res>
       e: null == e
           ? _value.e
           : e // ignore: cast_nullable_to_non_nullable
-              as DioException,
+              as DioError,
     ));
   }
 }
@@ -495,7 +495,7 @@ class _$_Other implements _Other {
   const _$_Other({required this.e});
 
   @override
-  final DioException e;
+  final DioError e;
 
   @override
   String toString() {
@@ -525,7 +525,7 @@ class _$_Other implements _Other {
     required TResult Function() noInternet,
     required TResult Function(Response<dynamic>? response) serverError,
     required TResult Function() timeout,
-    required TResult Function(DioException e) other,
+    required TResult Function(DioError e) other,
   }) {
     return other(e);
   }
@@ -536,7 +536,7 @@ class _$_Other implements _Other {
     TResult? Function()? noInternet,
     TResult? Function(Response<dynamic>? response)? serverError,
     TResult? Function()? timeout,
-    TResult? Function(DioException e)? other,
+    TResult? Function(DioError e)? other,
   }) {
     return other?.call(e);
   }
@@ -547,7 +547,7 @@ class _$_Other implements _Other {
     TResult Function()? noInternet,
     TResult Function(Response<dynamic>? response)? serverError,
     TResult Function()? timeout,
-    TResult Function(DioException e)? other,
+    TResult Function(DioError e)? other,
     required TResult orElse(),
   }) {
     if (other != null) {
@@ -595,9 +595,9 @@ class _$_Other implements _Other {
 }
 
 abstract class _Other implements NetworkFailure {
-  const factory _Other({required final DioException e}) = _$_Other;
+  const factory _Other({required final DioError e}) = _$_Other;
 
-  DioException get e;
+  DioError get e;
   @JsonKey(ignore: true)
   _$$_OtherCopyWith<_$_Other> get copyWith =>
       throw _privateConstructorUsedError;

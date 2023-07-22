@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:hadith_flashcard/domain/core/failures/network/network_failure.dart';
 import 'package:hadith_flashcard/domain/core/interfaces/i_network_service.dart';
+import 'package:hadith_flashcard/infrastructure/core/network_service_type.dart';
 import 'package:hadith_flashcard/infrastructure/core/urls.dart';
 import 'package:hadith_flashcard/infrastructure/hadith_narrator/model/hadith_narrator_model.dart';
 import 'package:hadith_flashcard/domain/hadith_narrator/hadith_narrator.dart';
@@ -17,8 +18,7 @@ class HadithNarratorRepository implements IHadithNarratorRepository {
   final INetworkService _networkService;
 
   HadithNarratorRepository(
-    //di bagian sini agak beda dengan kada
-    this._networkService,
+    @Named(NetworkServiceType.hadithFlashcard) this._networkService,
   );
 
   FutureOr<Either<CommonFailures, R>> _handleFailure<R>(NetworkFailure l) =>
