@@ -244,6 +244,7 @@ mixin _$Pagination {
   PositiveNumber get endPage => throw _privateConstructorUsedError;
   PositiveNumber get endIndex => throw _privateConstructorUsedError;
   int get startIndex => throw _privateConstructorUsedError;
+  IList<int> get pages => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PaginationCopyWith<Pagination> get copyWith =>
@@ -264,7 +265,8 @@ abstract class $PaginationCopyWith<$Res> {
       PositiveNumber startPage,
       PositiveNumber endPage,
       PositiveNumber endIndex,
-      int startIndex});
+      int startIndex,
+      IList<int> pages});
 }
 
 /// @nodoc
@@ -288,6 +290,7 @@ class _$PaginationCopyWithImpl<$Res, $Val extends Pagination>
     Object? endPage = null,
     Object? endIndex = null,
     Object? startIndex = null,
+    Object? pages = null,
   }) {
     return _then(_value.copyWith(
       totalItems: null == totalItems
@@ -322,6 +325,10 @@ class _$PaginationCopyWithImpl<$Res, $Val extends Pagination>
           ? _value.startIndex
           : startIndex // ignore: cast_nullable_to_non_nullable
               as int,
+      pages: null == pages
+          ? _value.pages
+          : pages // ignore: cast_nullable_to_non_nullable
+              as IList<int>,
     ) as $Val);
   }
 }
@@ -342,7 +349,8 @@ abstract class _$$_PaginationCopyWith<$Res>
       PositiveNumber startPage,
       PositiveNumber endPage,
       PositiveNumber endIndex,
-      int startIndex});
+      int startIndex,
+      IList<int> pages});
 }
 
 /// @nodoc
@@ -364,6 +372,7 @@ class __$$_PaginationCopyWithImpl<$Res>
     Object? endPage = null,
     Object? endIndex = null,
     Object? startIndex = null,
+    Object? pages = null,
   }) {
     return _then(_$_Pagination(
       totalItems: null == totalItems
@@ -398,6 +407,10 @@ class __$$_PaginationCopyWithImpl<$Res>
           ? _value.startIndex
           : startIndex // ignore: cast_nullable_to_non_nullable
               as int,
+      pages: null == pages
+          ? _value.pages
+          : pages // ignore: cast_nullable_to_non_nullable
+              as IList<int>,
     ));
   }
 }
@@ -413,7 +426,8 @@ class _$_Pagination implements _Pagination {
       required this.startPage,
       required this.endPage,
       required this.endIndex,
-      required this.startIndex});
+      required this.startIndex,
+      required this.pages});
 
   @override
   final PositiveNumber totalItems;
@@ -431,10 +445,12 @@ class _$_Pagination implements _Pagination {
   final PositiveNumber endIndex;
   @override
   final int startIndex;
+  @override
+  final IList<int> pages;
 
   @override
   String toString() {
-    return 'Pagination(totalItems: $totalItems, currentPage: $currentPage, pageSize: $pageSize, totalPages: $totalPages, startPage: $startPage, endPage: $endPage, endIndex: $endIndex, startIndex: $startIndex)';
+    return 'Pagination(totalItems: $totalItems, currentPage: $currentPage, pageSize: $pageSize, totalPages: $totalPages, startPage: $startPage, endPage: $endPage, endIndex: $endIndex, startIndex: $startIndex, pages: $pages)';
   }
 
   @override
@@ -456,12 +472,22 @@ class _$_Pagination implements _Pagination {
             (identical(other.endIndex, endIndex) ||
                 other.endIndex == endIndex) &&
             (identical(other.startIndex, startIndex) ||
-                other.startIndex == startIndex));
+                other.startIndex == startIndex) &&
+            const DeepCollectionEquality().equals(other.pages, pages));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, totalItems, currentPage,
-      pageSize, totalPages, startPage, endPage, endIndex, startIndex);
+  int get hashCode => Object.hash(
+      runtimeType,
+      totalItems,
+      currentPage,
+      pageSize,
+      totalPages,
+      startPage,
+      endPage,
+      endIndex,
+      startIndex,
+      const DeepCollectionEquality().hash(pages));
 
   @JsonKey(ignore: true)
   @override
@@ -479,7 +505,8 @@ abstract class _Pagination implements Pagination {
       required final PositiveNumber startPage,
       required final PositiveNumber endPage,
       required final PositiveNumber endIndex,
-      required final int startIndex}) = _$_Pagination;
+      required final int startIndex,
+      required final IList<int> pages}) = _$_Pagination;
 
   @override
   PositiveNumber get totalItems;
@@ -497,6 +524,8 @@ abstract class _Pagination implements Pagination {
   PositiveNumber get endIndex;
   @override
   int get startIndex;
+  @override
+  IList<int> get pages;
   @override
   @JsonKey(ignore: true)
   _$$_PaginationCopyWith<_$_Pagination> get copyWith =>

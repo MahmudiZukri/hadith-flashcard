@@ -48,6 +48,7 @@ class PaginationModel with _$PaginationModel {
     required int endPage,
     required int endIndex,
     required int startIndex,
+    required IList<int> pages,
   }) = _PaginationModel;
 
   factory PaginationModel.fromJson(Map<String, dynamic> json) =>
@@ -64,6 +65,7 @@ extension PaginationModelX on PaginationModel {
         endPage: PositiveNumber(endPage),
         endIndex: PositiveNumber(endIndex),
         startIndex: startIndex,
+        pages: pages,
       );
 }
 

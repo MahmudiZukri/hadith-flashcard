@@ -6,8 +6,8 @@ import 'package:hadith_flashcard/domain/core/shared/shared.dart';
 import 'package:hadith_flashcard/presentation/core/widgets/custom_dropdown_button_widget.dart';
 import 'package:hadith_flashcard/presentation/core/widgets/custom_search_widget.dart';
 
-class AddFlashcardPage extends StatelessWidget {
-  const AddFlashcardPage({
+class NarratorPage extends StatelessWidget {
+  const NarratorPage({
     super.key,
   });
 
@@ -91,6 +91,7 @@ class AddFlashcardPage extends StatelessWidget {
                         subtitle: Text(
                           hadithNarrators[index].total.getOrCrash().toString(),
                         ),
+                        onTap: () {},
                       ),
                     ),
                   ),

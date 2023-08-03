@@ -27,6 +27,7 @@ class Pagination with _$Pagination {
     required PositiveNumber endPage,
     required PositiveNumber endIndex,
     required int startIndex,
+    required IList<int> pages,
   }) = _Pagination;
 }
 

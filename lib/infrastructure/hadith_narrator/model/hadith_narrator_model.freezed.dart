@@ -268,6 +268,7 @@ mixin _$PaginationModel {
   int get endPage => throw _privateConstructorUsedError;
   int get endIndex => throw _privateConstructorUsedError;
   int get startIndex => throw _privateConstructorUsedError;
+  IList<int> get pages => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -289,7 +290,8 @@ abstract class $PaginationModelCopyWith<$Res> {
       int startPage,
       int endPage,
       int endIndex,
-      int startIndex});
+      int startIndex,
+      IList<int> pages});
 }
 
 /// @nodoc
@@ -313,6 +315,7 @@ class _$PaginationModelCopyWithImpl<$Res, $Val extends PaginationModel>
     Object? endPage = null,
     Object? endIndex = null,
     Object? startIndex = null,
+    Object? pages = null,
   }) {
     return _then(_value.copyWith(
       totalItems: null == totalItems
@@ -347,6 +350,10 @@ class _$PaginationModelCopyWithImpl<$Res, $Val extends PaginationModel>
           ? _value.startIndex
           : startIndex // ignore: cast_nullable_to_non_nullable
               as int,
+      pages: null == pages
+          ? _value.pages
+          : pages // ignore: cast_nullable_to_non_nullable
+              as IList<int>,
     ) as $Val);
   }
 }
@@ -367,7 +374,8 @@ abstract class _$$_PaginationModelCopyWith<$Res>
       int startPage,
       int endPage,
       int endIndex,
-      int startIndex});
+      int startIndex,
+      IList<int> pages});
 }
 
 /// @nodoc
@@ -389,6 +397,7 @@ class __$$_PaginationModelCopyWithImpl<$Res>
     Object? endPage = null,
     Object? endIndex = null,
     Object? startIndex = null,
+    Object? pages = null,
   }) {
     return _then(_$_PaginationModel(
       totalItems: null == totalItems
@@ -423,6 +432,10 @@ class __$$_PaginationModelCopyWithImpl<$Res>
           ? _value.startIndex
           : startIndex // ignore: cast_nullable_to_non_nullable
               as int,
+      pages: null == pages
+          ? _value.pages
+          : pages // ignore: cast_nullable_to_non_nullable
+              as IList<int>,
     ));
   }
 }
@@ -438,7 +451,8 @@ class _$_PaginationModel implements _PaginationModel {
       required this.startPage,
       required this.endPage,
       required this.endIndex,
-      required this.startIndex});
+      required this.startIndex,
+      required this.pages});
 
   factory _$_PaginationModel.fromJson(Map<String, dynamic> json) =>
       _$$_PaginationModelFromJson(json);
@@ -459,10 +473,12 @@ class _$_PaginationModel implements _PaginationModel {
   final int endIndex;
   @override
   final int startIndex;
+  @override
+  final IList<int> pages;
 
   @override
   String toString() {
-    return 'PaginationModel(totalItems: $totalItems, currentPage: $currentPage, pageSize: $pageSize, totalPages: $totalPages, startPage: $startPage, endPage: $endPage, endIndex: $endIndex, startIndex: $startIndex)';
+    return 'PaginationModel(totalItems: $totalItems, currentPage: $currentPage, pageSize: $pageSize, totalPages: $totalPages, startPage: $startPage, endPage: $endPage, endIndex: $endIndex, startIndex: $startIndex, pages: $pages)';
   }
 
   @override
@@ -484,13 +500,23 @@ class _$_PaginationModel implements _PaginationModel {
             (identical(other.endIndex, endIndex) ||
                 other.endIndex == endIndex) &&
             (identical(other.startIndex, startIndex) ||
-                other.startIndex == startIndex));
+                other.startIndex == startIndex) &&
+            const DeepCollectionEquality().equals(other.pages, pages));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, totalItems, currentPage,
-      pageSize, totalPages, startPage, endPage, endIndex, startIndex);
+  int get hashCode => Object.hash(
+      runtimeType,
+      totalItems,
+      currentPage,
+      pageSize,
+      totalPages,
+      startPage,
+      endPage,
+      endIndex,
+      startIndex,
+      const DeepCollectionEquality().hash(pages));
 
   @JsonKey(ignore: true)
   @override
@@ -515,7 +541,8 @@ abstract class _PaginationModel implements PaginationModel {
       required final int startPage,
       required final int endPage,
       required final int endIndex,
-      required final int startIndex}) = _$_PaginationModel;
+      required final int startIndex,
+      required final IList<int> pages}) = _$_PaginationModel;
 
   factory _PaginationModel.fromJson(Map<String, dynamic> json) =
       _$_PaginationModel.fromJson;
@@ -536,6 +563,8 @@ abstract class _PaginationModel implements PaginationModel {
   int get endIndex;
   @override
   int get startIndex;
+  @override
+  IList<int> get pages;
   @override
   @JsonKey(ignore: true)
   _$$_PaginationModelCopyWith<_$_PaginationModel> get copyWith =>

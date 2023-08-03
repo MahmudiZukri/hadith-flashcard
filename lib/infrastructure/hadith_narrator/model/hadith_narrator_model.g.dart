@@ -44,6 +44,7 @@ _$_PaginationModel _$$_PaginationModelFromJson(Map<String, dynamic> json) =>
       endPage: json['endPage'] as int,
       endIndex: json['endIndex'] as int,
       startIndex: json['startIndex'] as int,
+      pages: IList<int>.fromJson(json['pages'], (value) => value as int),
     );
 
 Map<String, dynamic> _$$_PaginationModelToJson(_$_PaginationModel instance) =>
@@ -56,6 +57,9 @@ Map<String, dynamic> _$$_PaginationModelToJson(_$_PaginationModel instance) =>
       'endPage': instance.endPage,
       'endIndex': instance.endIndex,
       'startIndex': instance.startIndex,
+      'pages': instance.pages.toJson(
+        (value) => value,
+      ),
     };
 
 _$_ItemModel _$$_ItemModelFromJson(Map<String, dynamic> json) => _$_ItemModel(

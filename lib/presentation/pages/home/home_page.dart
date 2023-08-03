@@ -125,7 +125,7 @@ class HomePageScaffold extends StatelessWidget {
                                 );
                           },
                           children: [
-                            const AddFlashcardPage(),
+                            const NarratorPage(),
                             Container(
                               height: double.infinity,
                               width: double.infinity,
@@ -232,6 +232,7 @@ class HomePageScaffold extends StatelessWidget {
                                 ],
                               ),
                             ),
+                            //add profile page later
                             const Center(
                               child: Text('Profile Page'),
                             ),
