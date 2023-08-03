@@ -29,7 +29,7 @@ class SignInPageScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundColor,
+      backgroundColor: defaultBackgroundColor,
       body: Stack(
         children: [
           Container(
@@ -57,7 +57,7 @@ class SignInPageScaffold extends StatelessWidget {
                 horizontal: 6.0,
               ),
               decoration: BoxDecoration(
-                color: backgroundColor.withOpacity(0.5),
+                color: defaultBackgroundColor.withOpacity(0.5),
                 borderRadius: const BorderRadius.only(
                   topRight: Radius.circular(34),
                   topLeft: Radius.circular(34),
@@ -88,7 +88,7 @@ class SignInPageScaffold extends StatelessWidget {
                     horizontal: defaultMargin,
                   ),
                   decoration: const BoxDecoration(
-                    color: backgroundColor,
+                    color: defaultBackgroundColor,
                     borderRadius: BorderRadius.only(
                       topRight: Radius.circular(24),
                       topLeft: Radius.circular(24),

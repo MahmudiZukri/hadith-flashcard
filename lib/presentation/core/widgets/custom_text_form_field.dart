@@ -9,7 +9,7 @@ class CustomTextFormField extends StatelessWidget {
     this.isPasswordTextField = false,
     this.eyeOnTap,
     this.isEyeOpen,
-    this.fillColor = backgroundColor,
+    this.fillColor = defaultBackgroundColor,
     Key? key,
   }) : super(key: key);
 
@@ -50,21 +50,21 @@ class CustomTextFormField extends StatelessWidget {
             : const SizedBox(),
         contentPadding: const EdgeInsets.all(18.0),
         border: OutlineInputBorder(
-          borderRadius: defaultBorderRadius(),
+          borderRadius: largeBorderRadius(),
           borderSide: const BorderSide(
             color: primaryColor,
             width: 2.0,
           ),
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: defaultBorderRadius(),
+          borderRadius: largeBorderRadius(),
           borderSide: BorderSide(
             color: primaryColor.withOpacity(0.2),
             width: 2.0,
           ),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: defaultBorderRadius(),
+          borderRadius: largeBorderRadius(),
           borderSide: const BorderSide(
             color: primaryColor,
             width: 2.0,

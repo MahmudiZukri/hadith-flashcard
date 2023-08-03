@@ -11,7 +11,10 @@ class HomePage extends StatelessWidget {
           create: (context) => getIt<PageViewBloc>(),
         ),
         BlocProvider<HadithNarratorBloc>(
-          create: (context) => getIt<HadithNarratorBloc>(),
+          create: (context) => getIt<HadithNarratorBloc>()
+            ..add(
+              const HadithNarratorEvent.getHadithNarrators(),
+            ),
         ),
       ],
       child: const HomePageScaffold(),
@@ -33,7 +36,7 @@ class HomePageScaffold extends StatelessWidget {
     return BlocBuilder<PageViewBloc, PageViewState>(
       builder: (context, pageViewState) {
         return Scaffold(
-          backgroundColor: backgroundColor,
+          backgroundColor: defaultBackgroundColor,
           bottomNavigationBar: Container(
             padding: EdgeInsets.symmetric(
               horizontal: screenWidth(context) / 14,
@@ -89,7 +92,11 @@ class HomePageScaffold extends StatelessWidget {
               Column(
                 children: [
                   Container(
-                    height: screenHeight(context) / 3,
+                    height: statusBarHeight(context),
+                    color: primaryColor,
+                  ),
+                  Container(
+                    height: screenHeight(context) / 5.4,
                     decoration: const BoxDecoration(
                       borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(
@@ -181,7 +188,7 @@ class HomePageScaffold extends StatelessWidget {
                                         //     const EdgeInsets.all(defaultMargin),
                                         decoration: BoxDecoration(
                                           color: whiteColor,
-                                          borderRadius: defaultBorderRadius(),
+                                          borderRadius: largeBorderRadius(),
                                         ),
                                         child: Center(
                                           child: Column(
@@ -194,7 +201,7 @@ class HomePageScaffold extends StatelessWidget {
                                               //   decoration: BoxDecoration(
                                               //     color: greyColor,
                                               //     borderRadius:
-                                              //         defaultBorderRadius(),
+                                              //         largeBorderRadius(),
                                               //   ),
                                               // ),
                                               const Text(

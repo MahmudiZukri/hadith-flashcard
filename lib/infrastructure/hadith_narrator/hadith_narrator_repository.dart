@@ -42,7 +42,7 @@ class HadithNarratorRepository implements IHadithNarratorRepository {
       (r) {
         try {
           final hadithNarrator = IList<HadithNarratorModel>.fromJson(
-            r as Map<String, dynamic>,
+            r,
             (val) => HadithNarratorModel.fromJson(
               val as Map<String, dynamic>,
             ),

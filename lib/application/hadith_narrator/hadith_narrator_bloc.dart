@@ -20,8 +20,8 @@ class HadithNarratorBloc
     this.hadithNarratorRepository,
   ) : super(HadithNarratorState.initial()) {
     on<HadithNarratorEvent>(
-      (event, emit) {
-        event.map(
+      (event, emit) async {
+        await event.map(
           getHadithNarrators: (_) async {
             final failureOrResponse =
                 await hadithNarratorRepository.getAllHadithNarrators();

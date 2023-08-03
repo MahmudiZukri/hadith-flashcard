@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:hadith_flashcard/domain/core/failures/network/network_failure.dart';
 import 'package:hadith_flashcard/domain/core/interfaces/i_network_service.dart';
-import 'package:injectable/injectable.dart';
 
 class NetworkService implements INetworkService {
   late final Dio _dio;
