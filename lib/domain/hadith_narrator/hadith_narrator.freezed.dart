@@ -19,6 +19,8 @@ mixin _$HadithNarrator {
   PersonName get name => throw _privateConstructorUsedError;
   UniqueString get slug => throw _privateConstructorUsedError;
   PositiveNumber get total => throw _privateConstructorUsedError;
+  Pagination? get pagination => throw _privateConstructorUsedError;
+  IList<Item>? get items => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HadithNarratorCopyWith<HadithNarrator> get copyWith =>
@@ -31,7 +33,14 @@ abstract class $HadithNarratorCopyWith<$Res> {
           HadithNarrator value, $Res Function(HadithNarrator) then) =
       _$HadithNarratorCopyWithImpl<$Res, HadithNarrator>;
   @useResult
-  $Res call({PersonName name, UniqueString slug, PositiveNumber total});
+  $Res call(
+      {PersonName name,
+      UniqueString slug,
+      PositiveNumber total,
+      Pagination? pagination,
+      IList<Item>? items});
+
+  $PaginationCopyWith<$Res>? get pagination;
 }
 
 /// @nodoc
@@ -50,6 +59,8 @@ class _$HadithNarratorCopyWithImpl<$Res, $Val extends HadithNarrator>
     Object? name = null,
     Object? slug = null,
     Object? total = null,
+    Object? pagination = freezed,
+    Object? items = freezed,
   }) {
     return _then(_value.copyWith(
       name: null == name
@@ -64,7 +75,27 @@ class _$HadithNarratorCopyWithImpl<$Res, $Val extends HadithNarrator>
           ? _value.total
           : total // ignore: cast_nullable_to_non_nullable
               as PositiveNumber,
+      pagination: freezed == pagination
+          ? _value.pagination
+          : pagination // ignore: cast_nullable_to_non_nullable
+              as Pagination?,
+      items: freezed == items
+          ? _value.items
+          : items // ignore: cast_nullable_to_non_nullable
+              as IList<Item>?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PaginationCopyWith<$Res>? get pagination {
+    if (_value.pagination == null) {
+      return null;
+    }
+
+    return $PaginationCopyWith<$Res>(_value.pagination!, (value) {
+      return _then(_value.copyWith(pagination: value) as $Val);
+    });
   }
 }
 
@@ -76,7 +107,15 @@ abstract class _$$_HadithNarratorCopyWith<$Res>
       __$$_HadithNarratorCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({PersonName name, UniqueString slug, PositiveNumber total});
+  $Res call(
+      {PersonName name,
+      UniqueString slug,
+      PositiveNumber total,
+      Pagination? pagination,
+      IList<Item>? items});
+
+  @override
+  $PaginationCopyWith<$Res>? get pagination;
 }
 
 /// @nodoc
@@ -93,6 +132,8 @@ class __$$_HadithNarratorCopyWithImpl<$Res>
     Object? name = null,
     Object? slug = null,
     Object? total = null,
+    Object? pagination = freezed,
+    Object? items = freezed,
   }) {
     return _then(_$_HadithNarrator(
       name: null == name
@@ -107,6 +148,14 @@ class __$$_HadithNarratorCopyWithImpl<$Res>
           ? _value.total
           : total // ignore: cast_nullable_to_non_nullable
               as PositiveNumber,
+      pagination: freezed == pagination
+          ? _value.pagination
+          : pagination // ignore: cast_nullable_to_non_nullable
+              as Pagination?,
+      items: freezed == items
+          ? _value.items
+          : items // ignore: cast_nullable_to_non_nullable
+              as IList<Item>?,
     ));
   }
 }
@@ -115,7 +164,11 @@ class __$$_HadithNarratorCopyWithImpl<$Res>
 
 class _$_HadithNarrator implements _HadithNarrator {
   const _$_HadithNarrator(
-      {required this.name, required this.slug, required this.total});
+      {required this.name,
+      required this.slug,
+      required this.total,
+      required this.pagination,
+      required this.items});
 
   @override
   final PersonName name;
@@ -123,10 +176,14 @@ class _$_HadithNarrator implements _HadithNarrator {
   final UniqueString slug;
   @override
   final PositiveNumber total;
+  @override
+  final Pagination? pagination;
+  @override
+  final IList<Item>? items;
 
   @override
   String toString() {
-    return 'HadithNarrator(name: $name, slug: $slug, total: $total)';
+    return 'HadithNarrator(name: $name, slug: $slug, total: $total, pagination: $pagination, items: $items)';
   }
 
   @override
@@ -136,11 +193,15 @@ class _$_HadithNarrator implements _HadithNarrator {
             other is _$_HadithNarrator &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.slug, slug) || other.slug == slug) &&
-            (identical(other.total, total) || other.total == total));
+            (identical(other.total, total) || other.total == total) &&
+            (identical(other.pagination, pagination) ||
+                other.pagination == pagination) &&
+            const DeepCollectionEquality().equals(other.items, items));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, name, slug, total);
+  int get hashCode => Object.hash(runtimeType, name, slug, total, pagination,
+      const DeepCollectionEquality().hash(items));
 
   @JsonKey(ignore: true)
   @override
@@ -153,7 +214,9 @@ abstract class _HadithNarrator implements HadithNarrator {
   const factory _HadithNarrator(
       {required final PersonName name,
       required final UniqueString slug,
-      required final PositiveNumber total}) = _$_HadithNarrator;
+      required final PositiveNumber total,
+      required final Pagination? pagination,
+      required final IList<Item>? items}) = _$_HadithNarrator;
 
   @override
   PersonName get name;
@@ -162,7 +225,425 @@ abstract class _HadithNarrator implements HadithNarrator {
   @override
   PositiveNumber get total;
   @override
+  Pagination? get pagination;
+  @override
+  IList<Item>? get items;
+  @override
   @JsonKey(ignore: true)
   _$$_HadithNarratorCopyWith<_$_HadithNarrator> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+mixin _$Pagination {
+  PositiveNumber get totalItems => throw _privateConstructorUsedError;
+  PositiveNumber get currentPage => throw _privateConstructorUsedError;
+  PositiveNumber get pageSize => throw _privateConstructorUsedError;
+  PositiveNumber get totalPages => throw _privateConstructorUsedError;
+  PositiveNumber get startPage => throw _privateConstructorUsedError;
+  PositiveNumber get endPage => throw _privateConstructorUsedError;
+  PositiveNumber get endIndex => throw _privateConstructorUsedError;
+  int get startIndex => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $PaginationCopyWith<Pagination> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $PaginationCopyWith<$Res> {
+  factory $PaginationCopyWith(
+          Pagination value, $Res Function(Pagination) then) =
+      _$PaginationCopyWithImpl<$Res, Pagination>;
+  @useResult
+  $Res call(
+      {PositiveNumber totalItems,
+      PositiveNumber currentPage,
+      PositiveNumber pageSize,
+      PositiveNumber totalPages,
+      PositiveNumber startPage,
+      PositiveNumber endPage,
+      PositiveNumber endIndex,
+      int startIndex});
+}
+
+/// @nodoc
+class _$PaginationCopyWithImpl<$Res, $Val extends Pagination>
+    implements $PaginationCopyWith<$Res> {
+  _$PaginationCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? totalItems = null,
+    Object? currentPage = null,
+    Object? pageSize = null,
+    Object? totalPages = null,
+    Object? startPage = null,
+    Object? endPage = null,
+    Object? endIndex = null,
+    Object? startIndex = null,
+  }) {
+    return _then(_value.copyWith(
+      totalItems: null == totalItems
+          ? _value.totalItems
+          : totalItems // ignore: cast_nullable_to_non_nullable
+              as PositiveNumber,
+      currentPage: null == currentPage
+          ? _value.currentPage
+          : currentPage // ignore: cast_nullable_to_non_nullable
+              as PositiveNumber,
+      pageSize: null == pageSize
+          ? _value.pageSize
+          : pageSize // ignore: cast_nullable_to_non_nullable
+              as PositiveNumber,
+      totalPages: null == totalPages
+          ? _value.totalPages
+          : totalPages // ignore: cast_nullable_to_non_nullable
+              as PositiveNumber,
+      startPage: null == startPage
+          ? _value.startPage
+          : startPage // ignore: cast_nullable_to_non_nullable
+              as PositiveNumber,
+      endPage: null == endPage
+          ? _value.endPage
+          : endPage // ignore: cast_nullable_to_non_nullable
+              as PositiveNumber,
+      endIndex: null == endIndex
+          ? _value.endIndex
+          : endIndex // ignore: cast_nullable_to_non_nullable
+              as PositiveNumber,
+      startIndex: null == startIndex
+          ? _value.startIndex
+          : startIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_PaginationCopyWith<$Res>
+    implements $PaginationCopyWith<$Res> {
+  factory _$$_PaginationCopyWith(
+          _$_Pagination value, $Res Function(_$_Pagination) then) =
+      __$$_PaginationCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {PositiveNumber totalItems,
+      PositiveNumber currentPage,
+      PositiveNumber pageSize,
+      PositiveNumber totalPages,
+      PositiveNumber startPage,
+      PositiveNumber endPage,
+      PositiveNumber endIndex,
+      int startIndex});
+}
+
+/// @nodoc
+class __$$_PaginationCopyWithImpl<$Res>
+    extends _$PaginationCopyWithImpl<$Res, _$_Pagination>
+    implements _$$_PaginationCopyWith<$Res> {
+  __$$_PaginationCopyWithImpl(
+      _$_Pagination _value, $Res Function(_$_Pagination) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? totalItems = null,
+    Object? currentPage = null,
+    Object? pageSize = null,
+    Object? totalPages = null,
+    Object? startPage = null,
+    Object? endPage = null,
+    Object? endIndex = null,
+    Object? startIndex = null,
+  }) {
+    return _then(_$_Pagination(
+      totalItems: null == totalItems
+          ? _value.totalItems
+          : totalItems // ignore: cast_nullable_to_non_nullable
+              as PositiveNumber,
+      currentPage: null == currentPage
+          ? _value.currentPage
+          : currentPage // ignore: cast_nullable_to_non_nullable
+              as PositiveNumber,
+      pageSize: null == pageSize
+          ? _value.pageSize
+          : pageSize // ignore: cast_nullable_to_non_nullable
+              as PositiveNumber,
+      totalPages: null == totalPages
+          ? _value.totalPages
+          : totalPages // ignore: cast_nullable_to_non_nullable
+              as PositiveNumber,
+      startPage: null == startPage
+          ? _value.startPage
+          : startPage // ignore: cast_nullable_to_non_nullable
+              as PositiveNumber,
+      endPage: null == endPage
+          ? _value.endPage
+          : endPage // ignore: cast_nullable_to_non_nullable
+              as PositiveNumber,
+      endIndex: null == endIndex
+          ? _value.endIndex
+          : endIndex // ignore: cast_nullable_to_non_nullable
+              as PositiveNumber,
+      startIndex: null == startIndex
+          ? _value.startIndex
+          : startIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_Pagination implements _Pagination {
+  const _$_Pagination(
+      {required this.totalItems,
+      required this.currentPage,
+      required this.pageSize,
+      required this.totalPages,
+      required this.startPage,
+      required this.endPage,
+      required this.endIndex,
+      required this.startIndex});
+
+  @override
+  final PositiveNumber totalItems;
+  @override
+  final PositiveNumber currentPage;
+  @override
+  final PositiveNumber pageSize;
+  @override
+  final PositiveNumber totalPages;
+  @override
+  final PositiveNumber startPage;
+  @override
+  final PositiveNumber endPage;
+  @override
+  final PositiveNumber endIndex;
+  @override
+  final int startIndex;
+
+  @override
+  String toString() {
+    return 'Pagination(totalItems: $totalItems, currentPage: $currentPage, pageSize: $pageSize, totalPages: $totalPages, startPage: $startPage, endPage: $endPage, endIndex: $endIndex, startIndex: $startIndex)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Pagination &&
+            (identical(other.totalItems, totalItems) ||
+                other.totalItems == totalItems) &&
+            (identical(other.currentPage, currentPage) ||
+                other.currentPage == currentPage) &&
+            (identical(other.pageSize, pageSize) ||
+                other.pageSize == pageSize) &&
+            (identical(other.totalPages, totalPages) ||
+                other.totalPages == totalPages) &&
+            (identical(other.startPage, startPage) ||
+                other.startPage == startPage) &&
+            (identical(other.endPage, endPage) || other.endPage == endPage) &&
+            (identical(other.endIndex, endIndex) ||
+                other.endIndex == endIndex) &&
+            (identical(other.startIndex, startIndex) ||
+                other.startIndex == startIndex));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, totalItems, currentPage,
+      pageSize, totalPages, startPage, endPage, endIndex, startIndex);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_PaginationCopyWith<_$_Pagination> get copyWith =>
+      __$$_PaginationCopyWithImpl<_$_Pagination>(this, _$identity);
+}
+
+abstract class _Pagination implements Pagination {
+  const factory _Pagination(
+      {required final PositiveNumber totalItems,
+      required final PositiveNumber currentPage,
+      required final PositiveNumber pageSize,
+      required final PositiveNumber totalPages,
+      required final PositiveNumber startPage,
+      required final PositiveNumber endPage,
+      required final PositiveNumber endIndex,
+      required final int startIndex}) = _$_Pagination;
+
+  @override
+  PositiveNumber get totalItems;
+  @override
+  PositiveNumber get currentPage;
+  @override
+  PositiveNumber get pageSize;
+  @override
+  PositiveNumber get totalPages;
+  @override
+  PositiveNumber get startPage;
+  @override
+  PositiveNumber get endPage;
+  @override
+  PositiveNumber get endIndex;
+  @override
+  int get startIndex;
+  @override
+  @JsonKey(ignore: true)
+  _$$_PaginationCopyWith<_$_Pagination> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+mixin _$Item {
+  PositiveNumber get number => throw _privateConstructorUsedError;
+  UnemptyString get arab => throw _privateConstructorUsedError;
+  UnemptyString get id => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $ItemCopyWith<Item> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ItemCopyWith<$Res> {
+  factory $ItemCopyWith(Item value, $Res Function(Item) then) =
+      _$ItemCopyWithImpl<$Res, Item>;
+  @useResult
+  $Res call({PositiveNumber number, UnemptyString arab, UnemptyString id});
+}
+
+/// @nodoc
+class _$ItemCopyWithImpl<$Res, $Val extends Item>
+    implements $ItemCopyWith<$Res> {
+  _$ItemCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? number = null,
+    Object? arab = null,
+    Object? id = null,
+  }) {
+    return _then(_value.copyWith(
+      number: null == number
+          ? _value.number
+          : number // ignore: cast_nullable_to_non_nullable
+              as PositiveNumber,
+      arab: null == arab
+          ? _value.arab
+          : arab // ignore: cast_nullable_to_non_nullable
+              as UnemptyString,
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as UnemptyString,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_ItemCopyWith<$Res> implements $ItemCopyWith<$Res> {
+  factory _$$_ItemCopyWith(_$_Item value, $Res Function(_$_Item) then) =
+      __$$_ItemCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({PositiveNumber number, UnemptyString arab, UnemptyString id});
+}
+
+/// @nodoc
+class __$$_ItemCopyWithImpl<$Res> extends _$ItemCopyWithImpl<$Res, _$_Item>
+    implements _$$_ItemCopyWith<$Res> {
+  __$$_ItemCopyWithImpl(_$_Item _value, $Res Function(_$_Item) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? number = null,
+    Object? arab = null,
+    Object? id = null,
+  }) {
+    return _then(_$_Item(
+      number: null == number
+          ? _value.number
+          : number // ignore: cast_nullable_to_non_nullable
+              as PositiveNumber,
+      arab: null == arab
+          ? _value.arab
+          : arab // ignore: cast_nullable_to_non_nullable
+              as UnemptyString,
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as UnemptyString,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_Item implements _Item {
+  const _$_Item({required this.number, required this.arab, required this.id});
+
+  @override
+  final PositiveNumber number;
+  @override
+  final UnemptyString arab;
+  @override
+  final UnemptyString id;
+
+  @override
+  String toString() {
+    return 'Item(number: $number, arab: $arab, id: $id)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Item &&
+            (identical(other.number, number) || other.number == number) &&
+            (identical(other.arab, arab) || other.arab == arab) &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, number, arab, id);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ItemCopyWith<_$_Item> get copyWith =>
+      __$$_ItemCopyWithImpl<_$_Item>(this, _$identity);
+}
+
+abstract class _Item implements Item {
+  const factory _Item(
+      {required final PositiveNumber number,
+      required final UnemptyString arab,
+      required final UnemptyString id}) = _$_Item;
+
+  @override
+  PositiveNumber get number;
+  @override
+  UnemptyString get arab;
+  @override
+  UnemptyString get id;
+  @override
+  @JsonKey(ignore: true)
+  _$$_ItemCopyWith<_$_Item> get copyWith => throw _privateConstructorUsedError;
 }
