@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:hadith_flashcard/domain/hadith_narrator/hadith_narrator.dart';
 import 'package:injectable/injectable.dart';
 
 part 'page_event.dart';
@@ -8,20 +9,39 @@ part 'page_state.dart';
 @injectable
 class PageBloc extends Bloc<PageEvent, PageState> {
   PageBloc() : super(PageInitial()) {
-    on<GotoSignUpPage>((event, emit) => emit(
-          OnSignUpPage(),
-        ));
-    on<GotoSignInPage>((event, emit) => emit(
-          OnSignInPage(),
-        ));
-    on<GotoHomePage>((event, emit) => emit(
-          OnHomePage(),
-        ));
-    on<GotoForgotPasswordPage>((event, emit) => emit(
-          OnForgotPasswordPage(),
-        ));
-    on<GotoCheckEmailPage>((event, emit) => emit(
-          OnCheckEmailPage(),
-        ));
+    on<GotoSignUpPage>(
+      (event, emit) => emit(
+        OnSignUpPage(),
+      ),
+    );
+    on<GotoSignInPage>(
+      (event, emit) => emit(
+        OnSignInPage(),
+      ),
+    );
+    on<GotoHomePage>(
+      (event, emit) => emit(
+        OnHomePage(
+          pageIndex: event.pageIndex,
+        ),
+      ),
+    );
+    on<GotoForgotPasswordPage>(
+      (event, emit) => emit(
+        OnForgotPasswordPage(),
+      ),
+    );
+    on<GotoCheckEmailPage>(
+      (event, emit) => emit(
+        OnCheckEmailPage(),
+      ),
+    );
+    on<GotoHadithPage>(
+      (event, emit) => emit(
+        OnHadithPage(
+          hadithNarrator: event.hadithNarrator,
+        ),
+      ),
+    );
   }
 }

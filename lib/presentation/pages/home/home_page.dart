@@ -1,14 +1,24 @@
 part of '../pages.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  const HomePage({
+    required this.pageIndex,
+    super.key,
+  });
+
+  final int pageIndex;
 
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
         BlocProvider<PageViewBloc>(
-          create: (context) => getIt<PageViewBloc>(),
+          create: (context) => getIt<PageViewBloc>()
+            ..add(
+              PageViewEvent.pageViewChanged(
+                pageViewIndex: pageIndex,
+              ),
+            ),
         ),
         BlocProvider<HadithNarratorBloc>(
           create: (context) => getIt<HadithNarratorBloc>()
@@ -17,20 +27,25 @@ class HomePage extends StatelessWidget {
             ),
         ),
       ],
-      child: const HomePageScaffold(),
+      child: HomePageScaffold(
+        pageIndex: pageIndex,
+      ),
     );
   }
 }
 
 class HomePageScaffold extends StatelessWidget {
   const HomePageScaffold({
+    required this.pageIndex,
     super.key,
   });
+
+  final int pageIndex;
 
   @override
   Widget build(BuildContext context) {
     PageController pageController = PageController(
-      initialPage: 1,
+      initialPage: pageIndex,
     );
 
     return BlocBuilder<PageViewBloc, PageViewState>(

@@ -23,7 +23,9 @@ class Wrapper extends StatelessWidget {
               ),
             );
 
-        prevPageEvent = GotoHomePage();
+        prevPageEvent = const GotoHomePage(
+          pageIndex: 1,
+        );
         context.read<PageBloc>().add(prevPageEvent!);
       }
     }
@@ -56,11 +58,17 @@ Widget pageTransition({required PageState pageState}) {
   } else if (pageState is OnSignInPage) {
     return const SignInPage();
   } else if (pageState is OnHomePage) {
-    return const HomePage();
+    return HomePage(
+      pageIndex: pageState.pageIndex,
+    );
   } else if (pageState is OnForgotPasswordPage) {
     return const ForgotPasswordPage();
   } else if (pageState is OnCheckEmailPage) {
     return const CheckEmailPage();
+  } else if (pageState is OnHadithPage) {
+    return HadithPage(
+      hadithNarrator: pageState.hadithNarrator,
+    );
   } else {
     return const SignInPage();
   }

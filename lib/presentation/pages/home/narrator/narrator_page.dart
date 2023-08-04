@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hadith_flashcard/application/hadith_narrator/hadith_narrator_bloc.dart';
+import 'package:hadith_flashcard/application/page/page_bloc.dart';
 import 'package:hadith_flashcard/domain/core/failures/common_failures/common_failures.dart';
 import 'package:hadith_flashcard/domain/core/shared/shared.dart';
 import 'package:hadith_flashcard/presentation/core/widgets/custom_dropdown_button_widget.dart';
@@ -16,6 +17,7 @@ class NarratorPage extends StatelessWidget {
     return BlocBuilder<HadithNarratorBloc, HadithNarratorState>(
       builder: (context, hadithNarratorState) {
         return hadithNarratorState.optionFailureOrHadithNarrator.match(
+          // TODO: change later
           () => const Text('Loading..'),
           (either) => either.fold(
             (l) => Text(
@@ -91,7 +93,13 @@ class NarratorPage extends StatelessWidget {
                         subtitle: Text(
                           hadithNarrators[index].total.getOrCrash().toString(),
                         ),
-                        onTap: () {},
+                        onTap: () {
+                          context.read<PageBloc>().add(
+                                GotoHadithPage(
+                                  hadithNarrator: hadithNarrators[index],
+                                ),
+                              );
+                        },
                       ),
                     ),
                   ),

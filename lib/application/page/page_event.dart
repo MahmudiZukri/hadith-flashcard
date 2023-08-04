@@ -11,8 +11,22 @@ class GotoSignUpPage extends PageEvent {}
 
 class GotoSignInPage extends PageEvent {}
 
-class GotoHomePage extends PageEvent {}
+class GotoHomePage extends PageEvent {
+  final int pageIndex;
+
+  const GotoHomePage({
+    required this.pageIndex,
+  });
+}
 
 class GotoForgotPasswordPage extends PageEvent {}
 
 class GotoCheckEmailPage extends PageEvent {}
+
+class GotoHadithPage extends PageEvent {
+  final HadithNarrator hadithNarrator;
+
+  const GotoHadithPage({
+    required this.hadithNarrator,
+  });
+}
