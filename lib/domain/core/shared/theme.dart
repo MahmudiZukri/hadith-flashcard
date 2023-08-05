@@ -50,6 +50,11 @@ TextStyle blackTextFont = const TextStyle(
   color: blackColor,
 );
 
+TextStyle arabicTextFont = const TextStyle(
+  color: blackColor,
+  fontSize: 22.0,
+);
+
 TextStyle primaryTextFont = const TextStyle(
   color: primaryColor,
 );

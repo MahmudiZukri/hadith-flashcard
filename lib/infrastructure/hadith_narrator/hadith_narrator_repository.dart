@@ -80,8 +80,8 @@ class HadithNarratorRepository implements IHadithNarratorRepository {
         narratorName,
       ),
       queryParameter: {
-        'page': page,
-        'limit': limit,
+        'page': page ?? 1,
+        'limit': limit ?? 20,
       },
     );
 

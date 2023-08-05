@@ -2,7 +2,7 @@ part of 'shared.dart';
 
 PageEvent? prevPageEvent;
 const double defaultMargin = 24;
-Duration defaultDuration() => const Duration(milliseconds: 250);
+Duration defaultDuration() => const Duration(milliseconds: 200);
 double screenWidth(context) => MediaQuery.of(context).size.width;
 double screenHeight(context) => MediaQuery.of(context).size.height;
 double keyboardSize(context) => MediaQuery.of(context).viewInsets.bottom;

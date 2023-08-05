@@ -40,8 +40,8 @@ class HadithNarratorBloc
             final failureOrResponse =
                 await hadithNarratorRepository.getHadithNarratorByName(
               narratorName: e.narratorName.getOrCrash(),
-              page: e.page?.getOrNull()?.toInt(),
-              limit: e.limit?.getOrNull()?.toInt(),
+              page: e.page?.getOrNull()?.toInt() ?? 1,
+              limit: e.limit?.getOrNull()?.toInt() ?? 20,
             );
 
             emit(

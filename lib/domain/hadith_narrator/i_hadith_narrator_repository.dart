@@ -7,7 +7,7 @@ abstract class IHadithNarratorRepository {
   Future<Either<CommonFailures, IList<HadithNarrator>>> getAllHadithNarrators();
   Future<Either<CommonFailures, HadithNarrator>> getHadithNarratorByName({
     required String narratorName,
-    int? page,
-    int? limit,
+    required int page,
+    required int limit,
   });
 }
