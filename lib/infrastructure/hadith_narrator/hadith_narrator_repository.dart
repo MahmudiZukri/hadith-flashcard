@@ -68,4 +68,45 @@ class HadithNarratorRepository implements IHadithNarratorRepository {
       },
     );
   }
+
+  @override
+  Future<Either<CommonFailures, HadithNarrator>> getHadithNarratorByName({
+    required String narratorName,
+    int? page,
+    int? limit,
+  }) async {
+    final response = await _networkService.getHttp(
+      path: Urls.getHadithsByNarrator(
+        narratorName,
+      ),
+      queryParameter: {
+        'page': page,
+        'limit': limit,
+      },
+    );
+
+    return response.fold(
+      _handleFailure,
+      (r) {
+        try {
+          final hadithNarrator = HadithNarratorModel.fromJson(
+            r as Map<String, dynamic>,
+          );
+
+          return right(
+            hadithNarrator.toDomain(),
+          );
+        } catch (e, stackTrace) {
+          debugPrint(
+            stackTrace.toString(),
+          );
+          return left(
+            CommonFailures.parseError(
+              message: e.toString(),
+            ),
+          );
+        }
+      },
+    );
+  }
 }
