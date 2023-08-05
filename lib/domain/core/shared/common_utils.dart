@@ -54,6 +54,19 @@ class CommonUtils {
     return message.split('] ')[1].split(')')[0];
   }
 
+  static String replaceFarsiNumber(String input) {
+    const num = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+    const farsi = ['۰', '۱', '۲', '۳', '٤', '۵', '٦', '۷', '۸', '۹'];
+
+    for (int i = 0; i < num.length; i++) {
+      input = input.replaceAll(
+        num[i],
+        farsi[i],
+      );
+    }
+    return input;
+  }
+
   //comment for now
 
   //   static final RegExp _emailRegExp = RegExp(
