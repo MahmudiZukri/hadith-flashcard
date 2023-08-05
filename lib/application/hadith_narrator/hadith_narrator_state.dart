@@ -4,10 +4,13 @@ part of 'hadith_narrator_bloc.dart';
 class HadithNarratorState with _$HadithNarratorState {
   const factory HadithNarratorState({
     required Option<Either<CommonFailures, IList<HadithNarrator>>>
-        optionFailureOrHadithNarrator,
+        optionFailureOrHadithNarrators,
+    required Option<Either<CommonFailures, HadithNarrator>>
+        optionFailureOrHadithNarratorByName,
   }) = _HadithNarratorState;
 
   factory HadithNarratorState.initial() => HadithNarratorState(
-        optionFailureOrHadithNarrator: none(),
+        optionFailureOrHadithNarrators: none(),
+        optionFailureOrHadithNarratorByName: none(),
       );
 }

@@ -6,6 +6,7 @@ import 'package:hadith_flashcard/domain/core/failures/common_failures/common_fai
 import 'package:hadith_flashcard/domain/core/shared/shared.dart';
 import 'package:hadith_flashcard/presentation/core/widgets/custom_dropdown_button_widget.dart';
 import 'package:hadith_flashcard/presentation/core/widgets/custom_search_widget.dart';
+import 'package:hadith_flashcard/presentation/core/widgets/widgets.dart';
 
 class NarratorPage extends StatelessWidget {
   const NarratorPage({
@@ -16,9 +17,9 @@ class NarratorPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<HadithNarratorBloc, HadithNarratorState>(
       builder: (context, hadithNarratorState) {
-        return hadithNarratorState.optionFailureOrHadithNarrator.match(
-          // TODO: change later
-          () => const Text('Loading..'),
+        return hadithNarratorState.optionFailureOrHadithNarrators.match(
+          // TODO: maybe change to shimmer later
+          () => const CustomCircularProgressIndicator(),
           (either) => either.fold(
             (l) => Text(
               l.message,

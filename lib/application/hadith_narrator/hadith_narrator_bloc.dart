@@ -3,6 +3,8 @@ import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hadith_flashcard/domain/core/failures/common_failures/common_failures.dart';
+import 'package:hadith_flashcard/domain/core/objects/number_objects.dart';
+import 'package:hadith_flashcard/domain/core/objects/string_objects.dart';
 import 'package:hadith_flashcard/domain/hadith_narrator/hadith_narrator.dart';
 import 'package:hadith_flashcard/domain/hadith_narrator/i_hadith_narrator_repository.dart';
 import 'package:injectable/injectable.dart';
@@ -28,7 +30,23 @@ class HadithNarratorBloc
 
             emit(
               state.copyWith(
-                optionFailureOrHadithNarrator: optionOf(
+                optionFailureOrHadithNarrators: optionOf(
+                  failureOrResponse,
+                ),
+              ),
+            );
+          },
+          getHadithNarratorByName: (e) async {
+            final failureOrResponse =
+                await hadithNarratorRepository.getHadithNarratorByName(
+              narratorName: e.narratorName.getOrCrash(),
+              page: e.page?.getOrNull()?.toInt(),
+              limit: e.limit?.getOrNull()?.toInt(),
+            );
+
+            emit(
+              state.copyWith(
+                optionFailureOrHadithNarratorByName: optionOf(
                   failureOrResponse,
                 ),
               ),
