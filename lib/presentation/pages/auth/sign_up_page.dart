@@ -131,7 +131,7 @@ class SignUpPageScaffold extends StatelessWidget {
                                 )
                               : const SizedBox(),
                           const SizedBox(height: 30.0),
-                          CustomTextFormField(
+                          CustomTextFormFieldWidget(
                             labelText: 'Name',
                             hintText: 'Enter your name',
                             onChanged: (val) => context.read<AuthBloc>().add(
@@ -143,7 +143,7 @@ class SignUpPageScaffold extends StatelessWidget {
                                 PersonName(val!).getFoldValidator(),
                           ),
                           const SizedBox(height: 16.0),
-                          CustomTextFormField(
+                          CustomTextFormFieldWidget(
                             labelText: 'Email',
                             hintText: 'Enter your email',
                             onChanged: (val) => context.read<AuthBloc>().add(
@@ -155,7 +155,7 @@ class SignUpPageScaffold extends StatelessWidget {
                                 EmailAddress(val!).getFoldValidator(),
                           ),
                           const SizedBox(height: 16.0),
-                          CustomTextFormField(
+                          CustomTextFormFieldWidget(
                             labelText: 'Password',
                             hintText: 'Enter your password',
                             onChanged: (val) => context.read<AuthBloc>().add(
@@ -169,13 +169,13 @@ class SignUpPageScaffold extends StatelessWidget {
                           const SizedBox(height: 16.0),
                           const Spacer(),
                           state.onLoading
-                              ? const CustomCircularProgressIndicator()
+                              ? const CustomCircularProgressIndicatorWidget()
                               : Opacity(
                                   opacity: state.email == EmailAddress('') ||
                                           state.password == Password('')
                                       ? 0.5
                                       : 1,
-                                  child: CustomElevatedButton(
+                                  child: CustomElevatedButtonWidget(
                                     text: 'Sign Up',
                                     isActive: state.email != EmailAddress('') &&
                                         state.password != Password(''),
@@ -220,7 +220,7 @@ class SignUpPageScaffold extends StatelessWidget {
                           Row(
                             children: [
                               Expanded(
-                                child: CustomElevatedButton(
+                                child: CustomElevatedButtonWidget(
                                   text: 'Facebook',
                                   backgroundColor: facebookColor,
                                   icon: SvgPicture.asset(
@@ -236,7 +236,7 @@ class SignUpPageScaffold extends StatelessWidget {
                               ),
                               const SizedBox(width: 18),
                               Expanded(
-                                child: CustomElevatedButton(
+                                child: CustomElevatedButtonWidget(
                                   text: 'Gmail',
                                   backgroundColor: googleColor,
                                   icon: SvgPicture.asset(

@@ -1,7 +1,7 @@
 part of 'widgets.dart';
 
-class CustomElevatedButton extends StatelessWidget {
-  const CustomElevatedButton({
+class CustomElevatedButtonWidget extends StatelessWidget {
+  const CustomElevatedButtonWidget({
     Key? key,
     required this.text,
     required this.backgroundColor,

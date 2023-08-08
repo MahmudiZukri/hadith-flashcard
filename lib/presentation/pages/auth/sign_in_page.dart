@@ -138,7 +138,7 @@ class SignInPageScaffold extends StatelessWidget {
                                 )
                               : const SizedBox(),
                           const SizedBox(height: 30.0),
-                          CustomTextFormField(
+                          CustomTextFormFieldWidget(
                             labelText: 'Email',
                             hintText: 'Enter your email',
                             onChanged: (val) => context.read<AuthBloc>().add(
@@ -154,7 +154,7 @@ class SignInPageScaffold extends StatelessWidget {
                               PasswordTextFieldState, bool>(
                             selector: (state) => state.isSignInTextFieldObscure,
                             builder: (context, isSignInTextFieldObscure) {
-                              return CustomTextFormField(
+                              return CustomTextFormFieldWidget(
                                 labelText: 'Password',
                                 hintText: 'Enter your password',
                                 onChanged: (val) =>
@@ -195,13 +195,13 @@ class SignInPageScaffold extends StatelessWidget {
                           const SizedBox(height: 16.0),
                           const Spacer(),
                           state.onLoading
-                              ? const CustomCircularProgressIndicator()
+                              ? const CustomCircularProgressIndicatorWidget()
                               : Opacity(
                                   opacity: state.email == EmailAddress('') ||
                                           state.password == Password('')
                                       ? 0.5
                                       : 1,
-                                  child: CustomElevatedButton(
+                                  child: CustomElevatedButtonWidget(
                                     text: 'Sign In',
                                     isActive: state.email != EmailAddress('') &&
                                         state.password != Password(''),
@@ -246,7 +246,7 @@ class SignInPageScaffold extends StatelessWidget {
                           Row(
                             children: [
                               Expanded(
-                                child: CustomElevatedButton(
+                                child: CustomElevatedButtonWidget(
                                   text: 'Facebook',
                                   backgroundColor: facebookColor,
                                   icon: SvgPicture.asset(
@@ -262,7 +262,7 @@ class SignInPageScaffold extends StatelessWidget {
                               ),
                               const SizedBox(width: 18),
                               Expanded(
-                                child: CustomElevatedButton(
+                                child: CustomElevatedButtonWidget(
                                   text: 'Gmail',
                                   backgroundColor: googleColor,
                                   icon: SvgPicture.asset(

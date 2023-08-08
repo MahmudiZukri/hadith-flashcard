@@ -129,7 +129,7 @@ class HomePageScaffold extends StatelessWidget {
               SafeArea(
                 child: BlocBuilder<UserBloc, UserState>(
                   builder: (context, userState) => userState.user == null
-                      ? const CustomCircularProgressIndicator()
+                      ? const CustomCircularProgressIndicatorWidget()
                       : PageView(
                           controller: pageController,
                           onPageChanged: (value) {

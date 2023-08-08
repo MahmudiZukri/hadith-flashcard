@@ -102,7 +102,7 @@ class ForgotPasswordPageScaffold extends StatelessWidget {
                       const SizedBox(height: 20.0),
                       const Text('Email address'),
                       const SizedBox(height: 10.0),
-                      CustomTextFormField(
+                      CustomTextFormFieldWidget(
                         onChanged: (val) {
                           context.read<ForgotPasswordBloc>().add(
                                 ForgotPasswordEvent.emailChanged(
@@ -124,8 +124,8 @@ class ForgotPasswordPageScaffold extends StatelessWidget {
                             return Opacity(
                               opacity: emailState == EmailAddress('') ? 0.5 : 1,
                               child: onLoadingState
-                                  ? const CustomCircularProgressIndicator()
-                                  : CustomElevatedButton(
+                                  ? const CustomCircularProgressIndicatorWidget()
+                                  : CustomElevatedButtonWidget(
                                       text: 'Reset',
                                       isActive: emailState != EmailAddress(''),
                                       backgroundColor: primaryColor,

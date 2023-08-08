@@ -11,7 +11,7 @@ class NarratorPage extends StatelessWidget {
       builder: (context, hadithNarratorState) {
         return hadithNarratorState.optionFailureOrHadithNarrators.match(
           // TODO: maybe change to shimmer later
-          () => const CustomCircularProgressIndicator(),
+          () => const CustomCircularProgressIndicatorWidget(),
           (either) => either.fold(
             (l) => Text(
               l.message,

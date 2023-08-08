@@ -1,7 +1,7 @@
 part of 'widgets.dart';
 
-class CustomTextFormField extends StatelessWidget {
-  const CustomTextFormField({
+class CustomTextFormFieldWidget extends StatelessWidget {
+  const CustomTextFormFieldWidget({
     this.labelText,
     this.hintText,
     this.onChanged,
