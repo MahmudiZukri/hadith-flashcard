@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:hadith_flashcard/domain/core/shared/shared.dart';
+part of 'widgets.dart';
 
 class CustomDropdownButtonWidget extends StatelessWidget {
   const CustomDropdownButtonWidget({

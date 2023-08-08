@@ -1,12 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hadith_flashcard/application/hadith_narrator/hadith_narrator_bloc.dart';
-import 'package:hadith_flashcard/application/page/page_bloc.dart';
-import 'package:hadith_flashcard/domain/core/failures/common_failures/common_failures.dart';
-import 'package:hadith_flashcard/domain/core/shared/shared.dart';
-import 'package:hadith_flashcard/presentation/core/widgets/custom_dropdown_button_widget.dart';
-import 'package:hadith_flashcard/presentation/core/widgets/custom_search_widget.dart';
-import 'package:hadith_flashcard/presentation/core/widgets/widgets.dart';
+part of '../../pages.dart';
 
 class NarratorPage extends StatelessWidget {
   const NarratorPage({
