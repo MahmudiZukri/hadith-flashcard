@@ -35,55 +35,17 @@ class HadithPageScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // TODO: makes appbar reusable later (makes its own widget)
-      appBar: AppBar(
-        centerTitle: true,
-        backgroundColor: primaryColor,
-        leadingWidth: screenWidth(context) / 4,
-        leading:
-            // TODO: makes this reusable later (makes its own widget)
-
-            GestureDetector(
-          behavior: HitTestBehavior.translucent,
-          onTap: () {
-            // TODO: find out how to change the animation if we go to previous page like this event
-            context.read<PageBloc>().add(
-                  const GotoHomePage(
-                    pageIndex: 0,
-                  ),
-                );
-          },
-          child: Row(
-            children: [
-              const SizedBox(width: 12.0),
-              Icon(MdiIcons.arrowLeft, size: 20.0),
-              const SizedBox(width: 8.0),
-              Text(
-                'Back',
-                style: whiteTextFont.copyWith(fontSize: 14.0),
-              ),
-            ],
-          ),
-        ),
-
-        //TODO: change later
-        title: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Text(
-              hadithNarrator.name.getOrCrash(),
-              style: whiteTextFont.copyWith(
-                fontSize: 18.0,
-              ),
-            ),
-            Text(
-              '${hadithNarrator.total.getOrCrash()} hadiths',
-              style: greyTextFont.copyWith(
-                fontSize: 10.0,
-              ),
-            ),
-          ],
-        ),
+      appBar: CustomAppBarWidget(
+        title: hadithNarrator.name.getOrCrash(),
+        desc: '${hadithNarrator.total.getOrCrash()} hadiths',
+        leadingOnTap: () {
+          // TODO: find out how to change the animation if we go to previous page like this event ( not really important )
+          context.read<PageBloc>().add(
+                const GotoHomePage(
+                  pageIndex: 0,
+                ),
+              );
+        },
       ),
       body: BlocBuilder<HadithNarratorBloc, HadithNarratorState>(
         builder: (context, hadithNarratorState) {
@@ -107,9 +69,11 @@ class HadithPageScaffold extends StatelessWidget {
                 ),
                 const SizedBox(height: 12.0),
                 hadithNarratorState.optionFailureOrHadithNarratorByName.match(
-                  // TODO: temp text
-                  () => const Text(
-                    'Kosong',
+                  // TODO : change to a better shimmer ( widget already created )
+                  () => const CustomShimmerWidget(
+                    height: 30.0,
+                    width: double.infinity,
+                    borderRadius: 24,
                   ),
                   (either) => either.fold(
                     (l) => Text(
