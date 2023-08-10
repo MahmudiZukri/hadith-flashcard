@@ -11,3 +11,4 @@ part 'custom_search_widget.dart';
 part 'custom_dropdown_button_widget.dart';
 part 'custom_app_bar_widget.dart';
 part 'custom_shimmer_widget.dart';
+part 'custom_modal_bottom_sheet.dart';

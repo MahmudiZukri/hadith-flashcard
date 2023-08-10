@@ -104,30 +104,75 @@ class HadithPageScaffold extends StatelessWidget {
                                 ),
                               ),
                               Expanded(
-                                child: Column(
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                        left: 20.0,
+                                child: GestureDetector(
+                                  onTap: () {
+                                    CustomModalBottomSheet(context).show(
+                                      children: [
+                                        const SizedBox(height: 18.0),
+                                        Container(
+                                          height: 3,
+                                          width: 36.0,
+                                          color: lightGreyColor,
+                                        ),
+                                        const SizedBox(height: 6.0),
+                                        ListTile(
+                                          leading: SvgPicture.asset(
+                                            'assets/icon/add_icon.svg',
+                                            height: 26.0,
+                                            color: primaryColor,
+                                          ),
+                                          onTap: () {
+                                            //code later
+                                          },
+                                          title: const Text(
+                                            'Add to flashcard',
+                                          ),
+                                        ),
+                                        ListTile(
+                                          leading: SvgPicture.asset(
+                                            'assets/icon/close_icon.svg',
+                                            height: 26.0,
+                                            color: primaryColor,
+                                          ),
+                                          onTap: () {
+                                            Navigator.pop(context);
+                                          },
+                                          title: const Text(
+                                            'Close',
+                                          ),
+                                        ),
+                                        const SizedBox(height: 18.0),
+                                      ],
+                                    );
+                                  },
+                                  child: Column(
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                          left: 20.0,
+                                        ),
+                                        child: Text(
+                                          hadithNarrator.items?[index].arab
+                                                  .getOrCrash() ??
+                                              '',
+                                          textAlign: TextAlign.right,
+                                          style: arabicTextFont.copyWith(
+                                            height: 1.6,
+                                          ),
+                                        ),
                                       ),
-                                      child: Text(
-                                        hadithNarrator.items?[index].arab
+                                      const SizedBox(height: 10.0),
+                                      Text(
+                                        hadithNarrator.items?[index].id
                                                 .getOrCrash() ??
                                             '',
-                                        textAlign: TextAlign.right,
-                                        style: arabicTextFont,
-                                      ),
-                                    ),
-                                    const SizedBox(height: 10.0),
-                                    Text(
-                                      hadithNarrator.items?[index].id
-                                              .getOrCrash() ??
-                                          '',
-                                      style: greyTextFont.copyWith(
-                                        fontSize: 12.0,
-                                      ),
-                                    )
-                                  ],
+                                        style: greyTextFont.copyWith(
+                                          fontSize: 12.0,
+                                          height: 1.6,
+                                        ),
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
                             ],

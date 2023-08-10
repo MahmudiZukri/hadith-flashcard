@@ -49,7 +49,7 @@ dependencies:
   firebase_analytics: ^10.0.7
   equatable: ^2.0.5
   google_fonts: ^5.1.0
-  flutter_svg: ^2.0.7
+  flutter_svg: ^1.1.5
   google_nav_bar: ^5.0.6
   material_design_icons_flutter: ^7.0.7296
   fast_immutable_collections: ^9.0.0
