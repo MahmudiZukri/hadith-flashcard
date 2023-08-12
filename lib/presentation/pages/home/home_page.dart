@@ -146,7 +146,7 @@ class HomePageScaffold extends StatelessWidget {
                               width: double.infinity,
                               padding: const EdgeInsets.all(24.0),
                               child: Column(
-                                // mainAxisAlignment: MainAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   // Row(
@@ -207,22 +207,12 @@ class HomePageScaffold extends StatelessWidget {
                                         ),
                                         child: Center(
                                           child: Column(
-                                            // mainAxisAlignment:
-                                            //     MainAxisAlignment.center,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
                                             children: [
-                                              // Container(
-                                              //   height:
-                                              //       screenHeight(context) / 4,
-                                              //   decoration: BoxDecoration(
-                                              //     color: greyColor,
-                                              //     borderRadius:
-                                              //         largeBorderRadius(),
-                                              //   ),
-                                              // ),
                                               const Text(
                                                 'Content',
                                               ),
-
                                               Text(
                                                 userState.user!.name
                                                     .getOrCrash(),
