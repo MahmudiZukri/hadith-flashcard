@@ -53,7 +53,7 @@ class AuthRepository implements IAuthRepository {
       }
       return left(
         const CommonFailures.handledByFirebase(
-          message: 'Something went wrong in repository',
+          message: 'Something went wrong in auth repository',
         ),
       );
     } on PlatformException catch (e, stackTrace) {
