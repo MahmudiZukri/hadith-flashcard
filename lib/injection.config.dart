@@ -26,7 +26,7 @@ import 'package:hadith_flashcard/domain/auth/interfaces/i_auth_repository.dart'
     as _i6;
 import 'package:hadith_flashcard/domain/core/interfaces/i_network_service.dart'
     as _i8;
-import 'package:hadith_flashcard/domain/hadith_narrator/i_hadith_narrator_repository.dart'
+import 'package:hadith_flashcard/domain/hadith_narrator/interfaces/i_hadith_narrator_repository.dart'
     as _i15;
 import 'package:hadith_flashcard/infrastructure/auth/auth_repository.dart'
     as _i7;

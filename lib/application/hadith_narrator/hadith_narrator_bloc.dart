@@ -6,7 +6,7 @@ import 'package:hadith_flashcard/domain/core/failures/common_failures/common_fai
 import 'package:hadith_flashcard/domain/core/objects/number_objects.dart';
 import 'package:hadith_flashcard/domain/core/objects/string_objects.dart';
 import 'package:hadith_flashcard/domain/hadith_narrator/hadith_narrator.dart';
-import 'package:hadith_flashcard/domain/hadith_narrator/i_hadith_narrator_repository.dart';
+import 'package:hadith_flashcard/domain/hadith_narrator/interface/i_hadith_narrator_repository.dart';
 import 'package:injectable/injectable.dart';
 
 part 'hadith_narrator_event.dart';
