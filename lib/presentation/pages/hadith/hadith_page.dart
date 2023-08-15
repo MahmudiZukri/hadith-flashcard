@@ -2,10 +2,12 @@ part of '../pages.dart';
 
 class HadithPage extends StatelessWidget {
   const HadithPage({
+    required this.userID,
     required this.hadithNarrator,
     super.key,
   });
 
+  final UniqueString userID;
   final HadithNarrator hadithNarrator;
 
   @override
@@ -18,6 +20,7 @@ class HadithPage extends StatelessWidget {
           ),
         ),
       child: HadithPageScaffold(
+        userID: userID,
         hadithNarrator: hadithNarrator,
       ),
     );
@@ -26,10 +29,12 @@ class HadithPage extends StatelessWidget {
 
 class HadithPageScaffold extends StatelessWidget {
   const HadithPageScaffold({
+    required this.userID,
     required this.hadithNarrator,
     super.key,
   });
 
+  final UniqueString userID;
   final HadithNarrator hadithNarrator;
 
   @override
@@ -41,7 +46,8 @@ class HadithPageScaffold extends StatelessWidget {
         leadingOnTap: () {
           // TODO: find out how to change the animation if we go to previous page like this event ( not really important )
           context.read<PageBloc>().add(
-                const GotoHomePage(
+                GotoHomePage(
+                  userID: userID,
                   pageIndex: 0,
                 ),
               );
@@ -122,7 +128,25 @@ class HadithPageScaffold extends StatelessWidget {
                                             color: primaryColor,
                                           ),
                                           onTap: () {
-                                            //code later
+                                            context
+                                                .read<HadithFlashcardBloc>()
+                                                .add(
+                                                  HadithFlashcardEvent
+                                                      .saveFlashcard(
+                                                    userID: userID,
+                                                    flashcard:
+                                                        HadithFlashcardModel(
+                                                      question:
+                                                          "What's the content of ${hadithNarrator.name} ${hadithNarrator.items?[index].number.getOrCrash()}",
+                                                      answer:
+                                                          '${hadithNarrator.items?[index].arab.getOrCrash()}',
+                                                      translation:
+                                                          '${hadithNarrator.items?[index].id.getOrCrash()}',
+                                                      reviewedDate:
+                                                          DateTime.now(),
+                                                    ),
+                                                  ),
+                                                );
                                           },
                                           title: const Text(
                                             'Add to flashcard',

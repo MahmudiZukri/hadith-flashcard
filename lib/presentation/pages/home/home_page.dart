@@ -2,10 +2,12 @@ part of '../pages.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({
+    required this.userID,
     required this.pageIndex,
     super.key,
   });
 
+  final UniqueString userID;
   final int pageIndex;
 
   @override
@@ -28,6 +30,7 @@ class HomePage extends StatelessWidget {
         ),
       ],
       child: HomePageScaffold(
+        userID: userID,
         pageIndex: pageIndex,
       ),
     );
@@ -36,10 +39,12 @@ class HomePage extends StatelessWidget {
 
 class HomePageScaffold extends StatelessWidget {
   const HomePageScaffold({
+    required this.userID,
     required this.pageIndex,
     super.key,
   });
 
+  final UniqueString userID;
   final int pageIndex;
 
   @override
@@ -140,7 +145,9 @@ class HomePageScaffold extends StatelessWidget {
                                 );
                           },
                           children: [
-                            const NarratorPage(),
+                            NarratorPage(
+                              userID: userID,
+                            ),
                             Container(
                               height: double.infinity,
                               width: double.infinity,

@@ -4,7 +4,7 @@ import 'package:hadith_flashcard/infrastructure/hadith_flashcard/model/hadith_fl
 
 abstract class IHadithFlashcardRepository {
   Future<Either<CommonFailures, Unit>> saveFlashcard({
-    required String userId,
+    required String userID,
     required HadithFlashcardModel flashcard,
   });
 }

@@ -23,7 +23,8 @@ class Wrapper extends StatelessWidget {
               ),
             );
 
-        prevPageEvent = const GotoHomePage(
+        prevPageEvent = GotoHomePage(
+          userID: userID!,
           pageIndex: 1,
         );
         context.read<PageBloc>().add(prevPageEvent!);
@@ -59,6 +60,7 @@ Widget pageTransition({required PageState pageState}) {
     return const SignInPage();
   } else if (pageState is OnHomePage) {
     return HomePage(
+      userID: pageState.userID,
       pageIndex: pageState.pageIndex,
     );
   } else if (pageState is OnForgotPasswordPage) {
@@ -67,6 +69,7 @@ Widget pageTransition({required PageState pageState}) {
     return const CheckEmailPage();
   } else if (pageState is OnHadithPage) {
     return HadithPage(
+      userID: pageState.userID,
       hadithNarrator: pageState.hadithNarrator,
     );
   } else {

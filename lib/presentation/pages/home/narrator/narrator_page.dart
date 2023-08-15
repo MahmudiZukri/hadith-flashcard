@@ -2,8 +2,11 @@ part of '../../pages.dart';
 
 class NarratorPage extends StatelessWidget {
   const NarratorPage({
+    required this.userID,
     super.key,
   });
+
+  final UniqueString userID;
 
   @override
   Widget build(BuildContext context) {
@@ -89,6 +92,7 @@ class NarratorPage extends StatelessWidget {
                         onTap: () {
                           context.read<PageBloc>().add(
                                 GotoHadithPage(
+                                  userID: userID,
                                   hadithNarrator: hadithNarrators[index],
                                 ),
                               );

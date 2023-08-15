@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:hadith_flashcard/domain/core/objects/string_objects.dart';
 import 'package:hadith_flashcard/domain/hadith_narrator/hadith_narrator.dart';
 import 'package:injectable/injectable.dart';
 
@@ -22,6 +23,7 @@ class PageBloc extends Bloc<PageEvent, PageState> {
     on<GotoHomePage>(
       (event, emit) => emit(
         OnHomePage(
+          userID: event.userID,
           pageIndex: event.pageIndex,
         ),
       ),
@@ -39,6 +41,7 @@ class PageBloc extends Bloc<PageEvent, PageState> {
     on<GotoHadithPage>(
       (event, emit) => emit(
         OnHadithPage(
+          userID: event.userID,
           hadithNarrator: event.hadithNarrator,
         ),
       ),

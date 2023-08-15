@@ -14,9 +14,11 @@ class OnSignUpPage extends PageState {}
 class OnSignInPage extends PageState {}
 
 class OnHomePage extends PageState {
+  final UniqueString userID;
   final int pageIndex;
 
   const OnHomePage({
+    required this.userID,
     required this.pageIndex,
   });
 }
@@ -26,9 +28,11 @@ class OnForgotPasswordPage extends PageState {}
 class OnCheckEmailPage extends PageState {}
 
 class OnHadithPage extends PageState {
+  final UniqueString userID;
   final HadithNarrator hadithNarrator;
 
   const OnHadithPage({
+    required this.userID,
     required this.hadithNarrator,
   });
 }

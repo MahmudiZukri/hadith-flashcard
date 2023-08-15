@@ -16,24 +16,24 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$HadithFlashcardEvent {
-  UniqueString get userId => throw _privateConstructorUsedError;
+  UniqueString get userID => throw _privateConstructorUsedError;
   HadithFlashcardModel get flashcard => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            UniqueString userId, HadithFlashcardModel flashcard)
+            UniqueString userID, HadithFlashcardModel flashcard)
         saveFlashcard,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(UniqueString userId, HadithFlashcardModel flashcard)?
+    TResult? Function(UniqueString userID, HadithFlashcardModel flashcard)?
         saveFlashcard,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(UniqueString userId, HadithFlashcardModel flashcard)?
+    TResult Function(UniqueString userID, HadithFlashcardModel flashcard)?
         saveFlashcard,
     required TResult orElse(),
   }) =>
@@ -66,7 +66,7 @@ abstract class $HadithFlashcardEventCopyWith<$Res> {
           $Res Function(HadithFlashcardEvent) then) =
       _$HadithFlashcardEventCopyWithImpl<$Res, HadithFlashcardEvent>;
   @useResult
-  $Res call({UniqueString userId, HadithFlashcardModel flashcard});
+  $Res call({UniqueString userID, HadithFlashcardModel flashcard});
 
   $HadithFlashcardModelCopyWith<$Res> get flashcard;
 }
@@ -85,13 +85,13 @@ class _$HadithFlashcardEventCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? userId = null,
+    Object? userID = null,
     Object? flashcard = null,
   }) {
     return _then(_value.copyWith(
-      userId: null == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
+      userID: null == userID
+          ? _value.userID
+          : userID // ignore: cast_nullable_to_non_nullable
               as UniqueString,
       flashcard: null == flashcard
           ? _value.flashcard
@@ -117,7 +117,7 @@ abstract class _$$_SaveFlashcardCopyWith<$Res>
       __$$_SaveFlashcardCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({UniqueString userId, HadithFlashcardModel flashcard});
+  $Res call({UniqueString userID, HadithFlashcardModel flashcard});
 
   @override
   $HadithFlashcardModelCopyWith<$Res> get flashcard;
@@ -134,13 +134,13 @@ class __$$_SaveFlashcardCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? userId = null,
+    Object? userID = null,
     Object? flashcard = null,
   }) {
     return _then(_$_SaveFlashcard(
-      userId: null == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
+      userID: null == userID
+          ? _value.userID
+          : userID // ignore: cast_nullable_to_non_nullable
               as UniqueString,
       flashcard: null == flashcard
           ? _value.flashcard
@@ -153,16 +153,16 @@ class __$$_SaveFlashcardCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_SaveFlashcard implements _SaveFlashcard {
-  const _$_SaveFlashcard({required this.userId, required this.flashcard});
+  const _$_SaveFlashcard({required this.userID, required this.flashcard});
 
   @override
-  final UniqueString userId;
+  final UniqueString userID;
   @override
   final HadithFlashcardModel flashcard;
 
   @override
   String toString() {
-    return 'HadithFlashcardEvent.saveFlashcard(userId: $userId, flashcard: $flashcard)';
+    return 'HadithFlashcardEvent.saveFlashcard(userID: $userID, flashcard: $flashcard)';
   }
 
   @override
@@ -170,13 +170,13 @@ class _$_SaveFlashcard implements _SaveFlashcard {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SaveFlashcard &&
-            (identical(other.userId, userId) || other.userId == userId) &&
+            (identical(other.userID, userID) || other.userID == userID) &&
             (identical(other.flashcard, flashcard) ||
                 other.flashcard == flashcard));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, userId, flashcard);
+  int get hashCode => Object.hash(runtimeType, userID, flashcard);
 
   @JsonKey(ignore: true)
   @override
@@ -188,30 +188,30 @@ class _$_SaveFlashcard implements _SaveFlashcard {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            UniqueString userId, HadithFlashcardModel flashcard)
+            UniqueString userID, HadithFlashcardModel flashcard)
         saveFlashcard,
   }) {
-    return saveFlashcard(userId, flashcard);
+    return saveFlashcard(userID, flashcard);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(UniqueString userId, HadithFlashcardModel flashcard)?
+    TResult? Function(UniqueString userID, HadithFlashcardModel flashcard)?
         saveFlashcard,
   }) {
-    return saveFlashcard?.call(userId, flashcard);
+    return saveFlashcard?.call(userID, flashcard);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(UniqueString userId, HadithFlashcardModel flashcard)?
+    TResult Function(UniqueString userID, HadithFlashcardModel flashcard)?
         saveFlashcard,
     required TResult orElse(),
   }) {
     if (saveFlashcard != null) {
-      return saveFlashcard(userId, flashcard);
+      return saveFlashcard(userID, flashcard);
     }
     return orElse();
   }
@@ -247,11 +247,11 @@ class _$_SaveFlashcard implements _SaveFlashcard {
 
 abstract class _SaveFlashcard implements HadithFlashcardEvent {
   const factory _SaveFlashcard(
-      {required final UniqueString userId,
+      {required final UniqueString userID,
       required final HadithFlashcardModel flashcard}) = _$_SaveFlashcard;
 
   @override
-  UniqueString get userId;
+  UniqueString get userID;
   @override
   HadithFlashcardModel get flashcard;
   @override

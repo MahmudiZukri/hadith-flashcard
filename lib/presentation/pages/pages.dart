@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:hadith_flashcard/application/auth/auth_bloc.dart';
 import 'package:hadith_flashcard/application/forgot_password/forgot_password_bloc.dart';
+import 'package:hadith_flashcard/application/hadith_flashcard/hadith_flashcard_bloc.dart';
 import 'package:hadith_flashcard/application/hadith_narrator/hadith_narrator_bloc.dart';
 import 'package:hadith_flashcard/application/page/page_bloc.dart';
 import 'package:hadith_flashcard/application/page_view/page_view_bloc.dart';
@@ -13,6 +14,7 @@ import 'package:hadith_flashcard/domain/core/failures/common_failures/common_fai
 import 'package:hadith_flashcard/domain/core/objects/string_objects.dart';
 import 'package:hadith_flashcard/domain/core/shared/shared.dart';
 import 'package:hadith_flashcard/domain/hadith_narrator/hadith_narrator.dart';
+import 'package:hadith_flashcard/infrastructure/hadith_flashcard/model/hadith_flashcard_model.dart';
 import 'package:hadith_flashcard/injection.dart';
 import 'package:hadith_flashcard/presentation/core/widgets/widgets.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';

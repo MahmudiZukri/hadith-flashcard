@@ -6,12 +6,12 @@ class HadithFlashcardServices {
       FirebaseFirestore.instance.collection('flashcard');
 
   static Future<void> saveFlashcard({
-    required String userId,
+    required String userID,
     required HadithFlashcardModel flashcard,
   }) async {
-    await _hadithFlashcardCollection.doc('$userId${flashcard.answer}').set(
+    await _hadithFlashcardCollection.doc('$userID${flashcard.answer}').set(
       {
-        'userID': userId,
+        'userID': userID,
         'question': flashcard.question,
         'answer': flashcard.answer,
         'repetition': flashcard.repetition,
@@ -23,13 +23,13 @@ class HadithFlashcardServices {
   }
 
   static Future<List<HadithFlashcardModel>> getFlashcard({
-    required String userId,
+    required String userID,
   }) async {
     QuerySnapshot<Map<String, dynamic>> snapshot =
         await _hadithFlashcardCollection.get();
 
     var documents = snapshot.docs.where(
-      (doc) => doc.data()['userId'] == userId,
+      (doc) => doc.data()['userID'] == userID,
     );
 
     List<HadithFlashcardModel> flashcards = [];
@@ -39,6 +39,7 @@ class HadithFlashcardServices {
         HadithFlashcardModel(
           question: document.data()['question'],
           answer: document.data()['answer'],
+          translation: document.data()['translation'],
           repetition: (document.data()['repetition'] as num).toInt(),
           interval: (document.data()['interval'] as num).toInt(),
           easeFactor: (document.data()['easeFactor'] as num).toDouble(),

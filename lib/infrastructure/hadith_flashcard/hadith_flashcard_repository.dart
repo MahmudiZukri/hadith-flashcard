@@ -4,12 +4,12 @@ part of '../repositories.dart';
 class HadithFlashcardRepository implements IHadithFlashcardRepository {
   @override
   Future<Either<CommonFailures, Unit>> saveFlashcard({
-    required String userId,
+    required String userID,
     required HadithFlashcardModel flashcard,
   }) async {
     try {
       HadithFlashcardServices.saveFlashcard(
-        userId: userId,
+        userID: userID,
         flashcard: flashcard,
       );
     } on PlatformException catch (e, stackTrace) {

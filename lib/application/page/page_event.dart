@@ -12,9 +12,12 @@ class GotoSignUpPage extends PageEvent {}
 class GotoSignInPage extends PageEvent {}
 
 class GotoHomePage extends PageEvent {
+  final UniqueString userID;
+
   final int pageIndex;
 
   const GotoHomePage({
+    required this.userID,
     required this.pageIndex,
   });
 }
@@ -24,9 +27,11 @@ class GotoForgotPasswordPage extends PageEvent {}
 class GotoCheckEmailPage extends PageEvent {}
 
 class GotoHadithPage extends PageEvent {
+  final UniqueString userID;
   final HadithNarrator hadithNarrator;
 
   const GotoHadithPage({
+    required this.userID,
     required this.hadithNarrator,
   });
 }
