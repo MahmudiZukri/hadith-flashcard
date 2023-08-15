@@ -18,10 +18,11 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$HadithFlashcard {
   UnemptyString get question => throw _privateConstructorUsedError;
   UnemptyString get answer => throw _privateConstructorUsedError;
-  PositiveNumber get interval => throw _privateConstructorUsedError;
+  UnemptyString get translation => throw _privateConstructorUsedError;
+  DateTime get reviewedDate => throw _privateConstructorUsedError;
+  int get interval => throw _privateConstructorUsedError;
   int get repetition => throw _privateConstructorUsedError;
   double get easeFactor => throw _privateConstructorUsedError;
-  DateTime get reviewedDate => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HadithFlashcardCopyWith<HadithFlashcard> get copyWith =>
@@ -37,10 +38,11 @@ abstract class $HadithFlashcardCopyWith<$Res> {
   $Res call(
       {UnemptyString question,
       UnemptyString answer,
-      PositiveNumber interval,
+      UnemptyString translation,
+      DateTime reviewedDate,
+      int interval,
       int repetition,
-      double easeFactor,
-      DateTime reviewedDate});
+      double easeFactor});
 }
 
 /// @nodoc
@@ -58,10 +60,11 @@ class _$HadithFlashcardCopyWithImpl<$Res, $Val extends HadithFlashcard>
   $Res call({
     Object? question = null,
     Object? answer = null,
+    Object? translation = null,
+    Object? reviewedDate = null,
     Object? interval = null,
     Object? repetition = null,
     Object? easeFactor = null,
-    Object? reviewedDate = null,
   }) {
     return _then(_value.copyWith(
       question: null == question
@@ -72,10 +75,18 @@ class _$HadithFlashcardCopyWithImpl<$Res, $Val extends HadithFlashcard>
           ? _value.answer
           : answer // ignore: cast_nullable_to_non_nullable
               as UnemptyString,
+      translation: null == translation
+          ? _value.translation
+          : translation // ignore: cast_nullable_to_non_nullable
+              as UnemptyString,
+      reviewedDate: null == reviewedDate
+          ? _value.reviewedDate
+          : reviewedDate // ignore: cast_nullable_to_non_nullable
+              as DateTime,
       interval: null == interval
           ? _value.interval
           : interval // ignore: cast_nullable_to_non_nullable
-              as PositiveNumber,
+              as int,
       repetition: null == repetition
           ? _value.repetition
           : repetition // ignore: cast_nullable_to_non_nullable
@@ -84,10 +95,6 @@ class _$HadithFlashcardCopyWithImpl<$Res, $Val extends HadithFlashcard>
           ? _value.easeFactor
           : easeFactor // ignore: cast_nullable_to_non_nullable
               as double,
-      reviewedDate: null == reviewedDate
-          ? _value.reviewedDate
-          : reviewedDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
     ) as $Val);
   }
 }
@@ -103,10 +110,11 @@ abstract class _$$_HadithNarratorCopyWith<$Res>
   $Res call(
       {UnemptyString question,
       UnemptyString answer,
-      PositiveNumber interval,
+      UnemptyString translation,
+      DateTime reviewedDate,
+      int interval,
       int repetition,
-      double easeFactor,
-      DateTime reviewedDate});
+      double easeFactor});
 }
 
 /// @nodoc
@@ -122,10 +130,11 @@ class __$$_HadithNarratorCopyWithImpl<$Res>
   $Res call({
     Object? question = null,
     Object? answer = null,
+    Object? translation = null,
+    Object? reviewedDate = null,
     Object? interval = null,
     Object? repetition = null,
     Object? easeFactor = null,
-    Object? reviewedDate = null,
   }) {
     return _then(_$_HadithNarrator(
       question: null == question
@@ -136,10 +145,18 @@ class __$$_HadithNarratorCopyWithImpl<$Res>
           ? _value.answer
           : answer // ignore: cast_nullable_to_non_nullable
               as UnemptyString,
+      translation: null == translation
+          ? _value.translation
+          : translation // ignore: cast_nullable_to_non_nullable
+              as UnemptyString,
+      reviewedDate: null == reviewedDate
+          ? _value.reviewedDate
+          : reviewedDate // ignore: cast_nullable_to_non_nullable
+              as DateTime,
       interval: null == interval
           ? _value.interval
           : interval // ignore: cast_nullable_to_non_nullable
-              as PositiveNumber,
+              as int,
       repetition: null == repetition
           ? _value.repetition
           : repetition // ignore: cast_nullable_to_non_nullable
@@ -148,10 +165,6 @@ class __$$_HadithNarratorCopyWithImpl<$Res>
           ? _value.easeFactor
           : easeFactor // ignore: cast_nullable_to_non_nullable
               as double,
-      reviewedDate: null == reviewedDate
-          ? _value.reviewedDate
-          : reviewedDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
     ));
   }
 }
@@ -162,27 +175,30 @@ class _$_HadithNarrator implements _HadithNarrator {
   const _$_HadithNarrator(
       {required this.question,
       required this.answer,
+      required this.translation,
+      required this.reviewedDate,
       required this.interval,
       required this.repetition,
-      required this.easeFactor,
-      required this.reviewedDate});
+      required this.easeFactor});
 
   @override
   final UnemptyString question;
   @override
   final UnemptyString answer;
   @override
-  final PositiveNumber interval;
+  final UnemptyString translation;
+  @override
+  final DateTime reviewedDate;
+  @override
+  final int interval;
   @override
   final int repetition;
   @override
   final double easeFactor;
-  @override
-  final DateTime reviewedDate;
 
   @override
   String toString() {
-    return 'HadithFlashcard(question: $question, answer: $answer, interval: $interval, repetition: $repetition, easeFactor: $easeFactor, reviewedDate: $reviewedDate)';
+    return 'HadithFlashcard(question: $question, answer: $answer, translation: $translation, reviewedDate: $reviewedDate, interval: $interval, repetition: $repetition, easeFactor: $easeFactor)';
   }
 
   @override
@@ -193,19 +209,21 @@ class _$_HadithNarrator implements _HadithNarrator {
             (identical(other.question, question) ||
                 other.question == question) &&
             (identical(other.answer, answer) || other.answer == answer) &&
+            (identical(other.translation, translation) ||
+                other.translation == translation) &&
+            (identical(other.reviewedDate, reviewedDate) ||
+                other.reviewedDate == reviewedDate) &&
             (identical(other.interval, interval) ||
                 other.interval == interval) &&
             (identical(other.repetition, repetition) ||
                 other.repetition == repetition) &&
             (identical(other.easeFactor, easeFactor) ||
-                other.easeFactor == easeFactor) &&
-            (identical(other.reviewedDate, reviewedDate) ||
-                other.reviewedDate == reviewedDate));
+                other.easeFactor == easeFactor));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, question, answer, interval,
-      repetition, easeFactor, reviewedDate);
+  int get hashCode => Object.hash(runtimeType, question, answer, translation,
+      reviewedDate, interval, repetition, easeFactor);
 
   @JsonKey(ignore: true)
   @override
@@ -218,23 +236,26 @@ abstract class _HadithNarrator implements HadithFlashcard {
   const factory _HadithNarrator(
       {required final UnemptyString question,
       required final UnemptyString answer,
-      required final PositiveNumber interval,
+      required final UnemptyString translation,
+      required final DateTime reviewedDate,
+      required final int interval,
       required final int repetition,
-      required final double easeFactor,
-      required final DateTime reviewedDate}) = _$_HadithNarrator;
+      required final double easeFactor}) = _$_HadithNarrator;
 
   @override
   UnemptyString get question;
   @override
   UnemptyString get answer;
   @override
-  PositiveNumber get interval;
+  UnemptyString get translation;
+  @override
+  DateTime get reviewedDate;
+  @override
+  int get interval;
   @override
   int get repetition;
   @override
   double get easeFactor;
-  @override
-  DateTime get reviewedDate;
   @override
   @JsonKey(ignore: true)
   _$$_HadithNarratorCopyWith<_$_HadithNarrator> get copyWith =>

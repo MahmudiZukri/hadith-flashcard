@@ -11,10 +11,11 @@ _$_HadithFlashcardModel _$$_HadithFlashcardModelFromJson(
     _$_HadithFlashcardModel(
       question: json['question'] as String,
       answer: json['answer'] as String,
-      interval: json['interval'] as int,
-      repetition: json['repetition'] as int,
-      easeFactor: (json['easeFactor'] as num).toDouble(),
+      translation: json['translation'] as String,
       reviewedDate: DateTime.parse(json['reviewedDate'] as String),
+      interval: json['interval'] as int?,
+      repetition: json['repetition'] as int?,
+      easeFactor: (json['easeFactor'] as num?)?.toDouble(),
     );
 
 Map<String, dynamic> _$$_HadithFlashcardModelToJson(
@@ -22,8 +23,9 @@ Map<String, dynamic> _$$_HadithFlashcardModelToJson(
     <String, dynamic>{
       'question': instance.question,
       'answer': instance.answer,
+      'translation': instance.translation,
+      'reviewedDate': instance.reviewedDate.toIso8601String(),
       'interval': instance.interval,
       'repetition': instance.repetition,
       'easeFactor': instance.easeFactor,
-      'reviewedDate': instance.reviewedDate.toIso8601String(),
     };
