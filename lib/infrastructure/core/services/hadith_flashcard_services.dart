@@ -14,9 +14,10 @@ class HadithFlashcardServices {
         'userID': userID,
         'question': flashcard.question,
         'answer': flashcard.answer,
-        'repetition': flashcard.repetition,
-        'interval': flashcard.interval,
-        'easeFactor': flashcard.easeFactor,
+        'translation': flashcard.translation,
+        'repetition': flashcard.repetition ?? 0,
+        'interval': flashcard.interval ?? 0,
+        'easeFactor': flashcard.easeFactor ?? 0,
         'reviewedDate': flashcard.reviewedDate.millisecondsSinceEpoch,
       },
     );

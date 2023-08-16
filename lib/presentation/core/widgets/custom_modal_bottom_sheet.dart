@@ -6,7 +6,7 @@ class CustomModalBottomSheet {
   final BuildContext context;
 
   Future<dynamic> show<T>({
-    required List<Widget> children,
+    required Widget widget,
     double horizontalPadding = 8,
   }) {
     return showModalBottomSheet(
@@ -27,10 +27,7 @@ class CustomModalBottomSheet {
             padding: EdgeInsets.symmetric(
               horizontal: horizontalPadding,
             ),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: children,
-            ),
+            child: widget,
           ),
         );
       },

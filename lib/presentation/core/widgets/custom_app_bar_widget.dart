@@ -28,7 +28,7 @@ class CustomAppBarWidget extends StatelessWidget
         child: Row(
           children: [
             const SizedBox(width: 12.0),
-            Icon(MdiIcons.arrowLeft, size: 20.0),
+            Icon(MdiIcons.arrowLeft, size: 16.0),
             const SizedBox(width: 8.0),
             Text(
               'Back',

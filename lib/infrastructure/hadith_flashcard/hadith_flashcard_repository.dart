@@ -30,16 +30,12 @@ class HadithFlashcardRepository implements IHadithFlashcardRepository {
       debugPrint('3------- $stackTrace -------3');
 
       return left(
-        CommonFailures.handledByFirebase(
-          message: e.toString(),
+        const CommonFailures.other(
+          message: 'Something went wrong in hadith flashcard repository',
         ),
       );
     }
 
-    return left(
-      const CommonFailures.other(
-        message: 'Something went wrong in hadith flashcard repository',
-      ),
-    );
+    return right(unit);
   }
 }

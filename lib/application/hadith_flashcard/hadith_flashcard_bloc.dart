@@ -5,11 +5,13 @@ import 'package:hadith_flashcard/domain/core/failures/common_failures/common_fai
 import 'package:hadith_flashcard/domain/core/objects/string_objects.dart';
 import 'package:hadith_flashcard/domain/hadith_flashcard/interfaces/i_hadith_flashcard_repository.dart';
 import 'package:hadith_flashcard/infrastructure/hadith_flashcard/model/hadith_flashcard_model.dart';
+import 'package:injectable/injectable.dart';
 
 part 'hadith_flashcard_event.dart';
 part 'hadith_flashcard_state.dart';
 part 'hadith_flashcard_bloc.freezed.dart';
 
+@injectable
 class HadithFlashcardBloc
     extends Bloc<HadithFlashcardEvent, HadithFlashcardState> {
   final IHadithFlashcardRepository hadithFlashcardRepository;
