@@ -17,40 +17,45 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$HadithFlashcardEvent {
   UniqueString get userID => throw _privateConstructorUsedError;
-  HadithFlashcardModel get flashcard => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
             UniqueString userID, HadithFlashcardModel flashcard)
         saveFlashcard,
+    required TResult Function(UniqueString userID) getFlashcard,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(UniqueString userID, HadithFlashcardModel flashcard)?
         saveFlashcard,
+    TResult? Function(UniqueString userID)? getFlashcard,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(UniqueString userID, HadithFlashcardModel flashcard)?
         saveFlashcard,
+    TResult Function(UniqueString userID)? getFlashcard,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_SaveFlashcard value) saveFlashcard,
+    required TResult Function(_GetFlashcard value) getFlashcard,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SaveFlashcard value)? saveFlashcard,
+    TResult? Function(_GetFlashcard value)? getFlashcard,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SaveFlashcard value)? saveFlashcard,
+    TResult Function(_GetFlashcard value)? getFlashcard,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -66,9 +71,7 @@ abstract class $HadithFlashcardEventCopyWith<$Res> {
           $Res Function(HadithFlashcardEvent) then) =
       _$HadithFlashcardEventCopyWithImpl<$Res, HadithFlashcardEvent>;
   @useResult
-  $Res call({UniqueString userID, HadithFlashcardModel flashcard});
-
-  $HadithFlashcardModelCopyWith<$Res> get flashcard;
+  $Res call({UniqueString userID});
 }
 
 /// @nodoc
@@ -86,26 +89,13 @@ class _$HadithFlashcardEventCopyWithImpl<$Res,
   @override
   $Res call({
     Object? userID = null,
-    Object? flashcard = null,
   }) {
     return _then(_value.copyWith(
       userID: null == userID
           ? _value.userID
           : userID // ignore: cast_nullable_to_non_nullable
               as UniqueString,
-      flashcard: null == flashcard
-          ? _value.flashcard
-          : flashcard // ignore: cast_nullable_to_non_nullable
-              as HadithFlashcardModel,
     ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $HadithFlashcardModelCopyWith<$Res> get flashcard {
-    return $HadithFlashcardModelCopyWith<$Res>(_value.flashcard, (value) {
-      return _then(_value.copyWith(flashcard: value) as $Val);
-    });
   }
 }
 
@@ -119,7 +109,6 @@ abstract class _$$_SaveFlashcardCopyWith<$Res>
   @useResult
   $Res call({UniqueString userID, HadithFlashcardModel flashcard});
 
-  @override
   $HadithFlashcardModelCopyWith<$Res> get flashcard;
 }
 
@@ -147,6 +136,14 @@ class __$$_SaveFlashcardCopyWithImpl<$Res>
           : flashcard // ignore: cast_nullable_to_non_nullable
               as HadithFlashcardModel,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $HadithFlashcardModelCopyWith<$Res> get flashcard {
+    return $HadithFlashcardModelCopyWith<$Res>(_value.flashcard, (value) {
+      return _then(_value.copyWith(flashcard: value));
+    });
   }
 }
 
@@ -190,6 +187,7 @@ class _$_SaveFlashcard implements _SaveFlashcard {
     required TResult Function(
             UniqueString userID, HadithFlashcardModel flashcard)
         saveFlashcard,
+    required TResult Function(UniqueString userID) getFlashcard,
   }) {
     return saveFlashcard(userID, flashcard);
   }
@@ -199,6 +197,7 @@ class _$_SaveFlashcard implements _SaveFlashcard {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(UniqueString userID, HadithFlashcardModel flashcard)?
         saveFlashcard,
+    TResult? Function(UniqueString userID)? getFlashcard,
   }) {
     return saveFlashcard?.call(userID, flashcard);
   }
@@ -208,6 +207,7 @@ class _$_SaveFlashcard implements _SaveFlashcard {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(UniqueString userID, HadithFlashcardModel flashcard)?
         saveFlashcard,
+    TResult Function(UniqueString userID)? getFlashcard,
     required TResult orElse(),
   }) {
     if (saveFlashcard != null) {
@@ -220,6 +220,7 @@ class _$_SaveFlashcard implements _SaveFlashcard {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_SaveFlashcard value) saveFlashcard,
+    required TResult Function(_GetFlashcard value) getFlashcard,
   }) {
     return saveFlashcard(this);
   }
@@ -228,6 +229,7 @@ class _$_SaveFlashcard implements _SaveFlashcard {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SaveFlashcard value)? saveFlashcard,
+    TResult? Function(_GetFlashcard value)? getFlashcard,
   }) {
     return saveFlashcard?.call(this);
   }
@@ -236,6 +238,7 @@ class _$_SaveFlashcard implements _SaveFlashcard {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SaveFlashcard value)? saveFlashcard,
+    TResult Function(_GetFlashcard value)? getFlashcard,
     required TResult orElse(),
   }) {
     if (saveFlashcard != null) {
@@ -252,7 +255,6 @@ abstract class _SaveFlashcard implements HadithFlashcardEvent {
 
   @override
   UniqueString get userID;
-  @override
   HadithFlashcardModel get flashcard;
   @override
   @JsonKey(ignore: true)
@@ -261,9 +263,155 @@ abstract class _SaveFlashcard implements HadithFlashcardEvent {
 }
 
 /// @nodoc
-mixin _$HadithFlashcardState {
-  Option<Either<CommonFailures, Unit>> get optionFailureOrSuccess =>
+abstract class _$$_GetFlashcardCopyWith<$Res>
+    implements $HadithFlashcardEventCopyWith<$Res> {
+  factory _$$_GetFlashcardCopyWith(
+          _$_GetFlashcard value, $Res Function(_$_GetFlashcard) then) =
+      __$$_GetFlashcardCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({UniqueString userID});
+}
+
+/// @nodoc
+class __$$_GetFlashcardCopyWithImpl<$Res>
+    extends _$HadithFlashcardEventCopyWithImpl<$Res, _$_GetFlashcard>
+    implements _$$_GetFlashcardCopyWith<$Res> {
+  __$$_GetFlashcardCopyWithImpl(
+      _$_GetFlashcard _value, $Res Function(_$_GetFlashcard) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? userID = null,
+  }) {
+    return _then(_$_GetFlashcard(
+      userID: null == userID
+          ? _value.userID
+          : userID // ignore: cast_nullable_to_non_nullable
+              as UniqueString,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_GetFlashcard implements _GetFlashcard {
+  const _$_GetFlashcard({required this.userID});
+
+  @override
+  final UniqueString userID;
+
+  @override
+  String toString() {
+    return 'HadithFlashcardEvent.getFlashcard(userID: $userID)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_GetFlashcard &&
+            (identical(other.userID, userID) || other.userID == userID));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, userID);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_GetFlashcardCopyWith<_$_GetFlashcard> get copyWith =>
+      __$$_GetFlashcardCopyWithImpl<_$_GetFlashcard>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            UniqueString userID, HadithFlashcardModel flashcard)
+        saveFlashcard,
+    required TResult Function(UniqueString userID) getFlashcard,
+  }) {
+    return getFlashcard(userID);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(UniqueString userID, HadithFlashcardModel flashcard)?
+        saveFlashcard,
+    TResult? Function(UniqueString userID)? getFlashcard,
+  }) {
+    return getFlashcard?.call(userID);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(UniqueString userID, HadithFlashcardModel flashcard)?
+        saveFlashcard,
+    TResult Function(UniqueString userID)? getFlashcard,
+    required TResult orElse(),
+  }) {
+    if (getFlashcard != null) {
+      return getFlashcard(userID);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SaveFlashcard value) saveFlashcard,
+    required TResult Function(_GetFlashcard value) getFlashcard,
+  }) {
+    return getFlashcard(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SaveFlashcard value)? saveFlashcard,
+    TResult? Function(_GetFlashcard value)? getFlashcard,
+  }) {
+    return getFlashcard?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SaveFlashcard value)? saveFlashcard,
+    TResult Function(_GetFlashcard value)? getFlashcard,
+    required TResult orElse(),
+  }) {
+    if (getFlashcard != null) {
+      return getFlashcard(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetFlashcard implements HadithFlashcardEvent {
+  const factory _GetFlashcard({required final UniqueString userID}) =
+      _$_GetFlashcard;
+
+  @override
+  UniqueString get userID;
+  @override
+  @JsonKey(ignore: true)
+  _$$_GetFlashcardCopyWith<_$_GetFlashcard> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+mixin _$HadithFlashcardState {
+  Option<Either<CommonFailures, Unit>>
+      get optionFailureOrSaveFlashcardSuccess =>
+          throw _privateConstructorUsedError;
+  Option<Either<CommonFailures, IList<HadithFlashcard>>>
+      get optionFailureOrGetFlashcardSuccess =>
+          throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HadithFlashcardStateCopyWith<HadithFlashcardState> get copyWith =>
@@ -276,7 +424,10 @@ abstract class $HadithFlashcardStateCopyWith<$Res> {
           $Res Function(HadithFlashcardState) then) =
       _$HadithFlashcardStateCopyWithImpl<$Res, HadithFlashcardState>;
   @useResult
-  $Res call({Option<Either<CommonFailures, Unit>> optionFailureOrSuccess});
+  $Res call(
+      {Option<Either<CommonFailures, Unit>> optionFailureOrSaveFlashcardSuccess,
+      Option<Either<CommonFailures, IList<HadithFlashcard>>>
+          optionFailureOrGetFlashcardSuccess});
 }
 
 /// @nodoc
@@ -293,13 +444,20 @@ class _$HadithFlashcardStateCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? optionFailureOrSuccess = null,
+    Object? optionFailureOrSaveFlashcardSuccess = null,
+    Object? optionFailureOrGetFlashcardSuccess = null,
   }) {
     return _then(_value.copyWith(
-      optionFailureOrSuccess: null == optionFailureOrSuccess
-          ? _value.optionFailureOrSuccess
-          : optionFailureOrSuccess // ignore: cast_nullable_to_non_nullable
+      optionFailureOrSaveFlashcardSuccess: null ==
+              optionFailureOrSaveFlashcardSuccess
+          ? _value.optionFailureOrSaveFlashcardSuccess
+          : optionFailureOrSaveFlashcardSuccess // ignore: cast_nullable_to_non_nullable
               as Option<Either<CommonFailures, Unit>>,
+      optionFailureOrGetFlashcardSuccess: null ==
+              optionFailureOrGetFlashcardSuccess
+          ? _value.optionFailureOrGetFlashcardSuccess
+          : optionFailureOrGetFlashcardSuccess // ignore: cast_nullable_to_non_nullable
+              as Option<Either<CommonFailures, IList<HadithFlashcard>>>,
     ) as $Val);
   }
 }
@@ -312,7 +470,10 @@ abstract class _$$_HadithFlashcardStateCopyWith<$Res>
       __$$_HadithFlashcardStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Option<Either<CommonFailures, Unit>> optionFailureOrSuccess});
+  $Res call(
+      {Option<Either<CommonFailures, Unit>> optionFailureOrSaveFlashcardSuccess,
+      Option<Either<CommonFailures, IList<HadithFlashcard>>>
+          optionFailureOrGetFlashcardSuccess});
 }
 
 /// @nodoc
@@ -326,13 +487,20 @@ class __$$_HadithFlashcardStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? optionFailureOrSuccess = null,
+    Object? optionFailureOrSaveFlashcardSuccess = null,
+    Object? optionFailureOrGetFlashcardSuccess = null,
   }) {
     return _then(_$_HadithFlashcardState(
-      optionFailureOrSuccess: null == optionFailureOrSuccess
-          ? _value.optionFailureOrSuccess
-          : optionFailureOrSuccess // ignore: cast_nullable_to_non_nullable
+      optionFailureOrSaveFlashcardSuccess: null ==
+              optionFailureOrSaveFlashcardSuccess
+          ? _value.optionFailureOrSaveFlashcardSuccess
+          : optionFailureOrSaveFlashcardSuccess // ignore: cast_nullable_to_non_nullable
               as Option<Either<CommonFailures, Unit>>,
+      optionFailureOrGetFlashcardSuccess: null ==
+              optionFailureOrGetFlashcardSuccess
+          ? _value.optionFailureOrGetFlashcardSuccess
+          : optionFailureOrGetFlashcardSuccess // ignore: cast_nullable_to_non_nullable
+              as Option<Either<CommonFailures, IList<HadithFlashcard>>>,
     ));
   }
 }
@@ -340,14 +508,20 @@ class __$$_HadithFlashcardStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_HadithFlashcardState implements _HadithFlashcardState {
-  const _$_HadithFlashcardState({required this.optionFailureOrSuccess});
+  const _$_HadithFlashcardState(
+      {required this.optionFailureOrSaveFlashcardSuccess,
+      required this.optionFailureOrGetFlashcardSuccess});
 
   @override
-  final Option<Either<CommonFailures, Unit>> optionFailureOrSuccess;
+  final Option<Either<CommonFailures, Unit>>
+      optionFailureOrSaveFlashcardSuccess;
+  @override
+  final Option<Either<CommonFailures, IList<HadithFlashcard>>>
+      optionFailureOrGetFlashcardSuccess;
 
   @override
   String toString() {
-    return 'HadithFlashcardState(optionFailureOrSuccess: $optionFailureOrSuccess)';
+    return 'HadithFlashcardState(optionFailureOrSaveFlashcardSuccess: $optionFailureOrSaveFlashcardSuccess, optionFailureOrGetFlashcardSuccess: $optionFailureOrGetFlashcardSuccess)';
   }
 
   @override
@@ -355,12 +529,19 @@ class _$_HadithFlashcardState implements _HadithFlashcardState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_HadithFlashcardState &&
-            (identical(other.optionFailureOrSuccess, optionFailureOrSuccess) ||
-                other.optionFailureOrSuccess == optionFailureOrSuccess));
+            (identical(other.optionFailureOrSaveFlashcardSuccess,
+                    optionFailureOrSaveFlashcardSuccess) ||
+                other.optionFailureOrSaveFlashcardSuccess ==
+                    optionFailureOrSaveFlashcardSuccess) &&
+            (identical(other.optionFailureOrGetFlashcardSuccess,
+                    optionFailureOrGetFlashcardSuccess) ||
+                other.optionFailureOrGetFlashcardSuccess ==
+                    optionFailureOrGetFlashcardSuccess));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, optionFailureOrSuccess);
+  int get hashCode => Object.hash(runtimeType,
+      optionFailureOrSaveFlashcardSuccess, optionFailureOrGetFlashcardSuccess);
 
   @JsonKey(ignore: true)
   @override
@@ -373,10 +554,15 @@ class _$_HadithFlashcardState implements _HadithFlashcardState {
 abstract class _HadithFlashcardState implements HadithFlashcardState {
   const factory _HadithFlashcardState(
       {required final Option<Either<CommonFailures, Unit>>
-          optionFailureOrSuccess}) = _$_HadithFlashcardState;
+          optionFailureOrSaveFlashcardSuccess,
+      required final Option<Either<CommonFailures, IList<HadithFlashcard>>>
+          optionFailureOrGetFlashcardSuccess}) = _$_HadithFlashcardState;
 
   @override
-  Option<Either<CommonFailures, Unit>> get optionFailureOrSuccess;
+  Option<Either<CommonFailures, Unit>> get optionFailureOrSaveFlashcardSuccess;
+  @override
+  Option<Either<CommonFailures, IList<HadithFlashcard>>>
+      get optionFailureOrGetFlashcardSuccess;
   @override
   @JsonKey(ignore: true)
   _$$_HadithFlashcardStateCopyWith<_$_HadithFlashcardState> get copyWith =>

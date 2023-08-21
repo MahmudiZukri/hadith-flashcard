@@ -7,6 +7,7 @@ import 'package:fpdart/fpdart.dart';
 import 'package:hadith_flashcard/domain/core/failures/common_failures/common_failures.dart';
 import 'package:hadith_flashcard/domain/core/failures/network/network_failure.dart';
 import 'package:hadith_flashcard/domain/core/interfaces/i_network_service.dart';
+import 'package:hadith_flashcard/domain/hadith_flashcard/hadith_flashcard.dart';
 import 'package:hadith_flashcard/domain/hadith_flashcard/interfaces/i_hadith_flashcard_repository.dart';
 import 'package:hadith_flashcard/domain/hadith_narrator/hadith_narrator.dart';
 import 'package:hadith_flashcard/domain/hadith_narrator/interfaces/i_hadith_narrator_repository.dart';

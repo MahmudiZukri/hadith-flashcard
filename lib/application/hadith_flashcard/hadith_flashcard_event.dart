@@ -6,4 +6,7 @@ class HadithFlashcardEvent with _$HadithFlashcardEvent {
     required UniqueString userID,
     required HadithFlashcardModel flashcard,
   }) = _SaveFlashcard;
+  const factory HadithFlashcardEvent.getFlashcard({
+    required UniqueString userID,
+  }) = _GetFlashcard;
 }

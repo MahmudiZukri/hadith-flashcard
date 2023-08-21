@@ -64,7 +64,7 @@ class HadithPageScaffold extends StatelessWidget {
         builder: (context, hadithNarratorState) {
           return BlocListener<HadithFlashcardBloc, HadithFlashcardState>(
             listener: (context, hadithFlashcardState) {
-              hadithFlashcardState.optionFailureOrSuccess.match(
+              hadithFlashcardState.optionFailureOrSaveFlashcardSuccess.match(
                 () => null,
                 (either) => either.fold(
                   (l) {
@@ -130,10 +130,18 @@ class HadithPageScaffold extends StatelessWidget {
                   const SizedBox(height: 12.0),
                   hadithNarratorState.optionFailureOrHadithNarratorByName.match(
                     // TODO : change to a better shimmer ( widget already created )
-                    () => const CustomShimmerWidget(
-                      height: 30.0,
-                      width: double.infinity,
-                      borderRadius: 24,
+                    () => Column(
+                      children: List.generate(
+                        6,
+                        (index) => const Padding(
+                          padding: EdgeInsets.only(top: 20.0),
+                          child: CustomShimmerWidget(
+                            height: 120.0,
+                            width: double.infinity,
+                            borderRadius: 14,
+                          ),
+                        ),
+                      ),
                     ),
                     (either) => either.fold(
                       (l) => Text(
@@ -244,7 +252,7 @@ class HadithPageScaffold extends StatelessWidget {
                                       children: [
                                         Padding(
                                           padding: const EdgeInsets.only(
-                                            left: 20.0,
+                                            left: 18.0,
                                           ),
                                           child: Text(
                                             hadithNarrator.items?[index].arab
@@ -256,7 +264,7 @@ class HadithPageScaffold extends StatelessWidget {
                                             ),
                                           ),
                                         ),
-                                        const SizedBox(height: 10.0),
+                                        const SizedBox(height: 8.0),
                                         Text(
                                           hadithNarrator.items?[index].id
                                                   .getOrCrash() ??
