@@ -18,9 +18,10 @@ class CustomModalBottomSheet {
       context: context,
       builder: (context) {
         return Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(
-              16.0,
+          decoration: const BoxDecoration(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(16.0),
+              topRight: Radius.circular(16.0),
             ),
           ),
           child: Padding(

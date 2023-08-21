@@ -15,6 +15,7 @@ class ReviewPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          // comment for now
           // Row(
           //   children: [
           //     const Text('55 Hadiths'),
@@ -54,41 +55,42 @@ class ReviewPage extends StatelessWidget {
               ),
             ),
           ),
-
           Expanded(
             child: Center(
-              child: Container(
-                height: screenHeight(context) / 2,
-                width: screenWidth(context) - (screenWidth(context) / 6),
-                // padding:
-                //     const EdgeInsets.all(defaultMargin),
-                decoration: BoxDecoration(
-                  color: whiteColor,
-                  borderRadius: largeBorderRadius(),
-                ),
-                child: Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text(
-                        'Content',
-                      ),
-                      // Text(
-                      //   userState.user!.name.getOrCrash(),
-                      // ),
-                      TextButton(
-                        onPressed: () {
-                          context.read<AuthBloc>().add(
-                                const AuthEvent.signOut(),
-                              );
-                        },
-                        child: const Text(
-                          'Sign Out',
+              child: BlocBuilder<HadithFlashcardBloc, HadithFlashcardState>(
+                builder: (context, hadithFlashcardState) {
+                  return Container(
+                    height: screenHeight(context) / 2,
+                    width: screenWidth(context) - (screenWidth(context) / 6),
+                    padding: const EdgeInsets.all(
+                      defaultMargin,
+                    ),
+                    decoration: BoxDecoration(
+                      color: whiteColor,
+                      borderRadius: largeBorderRadius(),
+                    ),
+                    child: hadithFlashcardState
+                        .optionFailureOrGetFlashcardSuccess
+                        .match(
+                      () => const CustomCircularProgressIndicatorWidget(),
+                      (either) => either.fold(
+                        (l) => Text(
+                          l.message,
+                        ),
+                        (flashcards) => Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                flashcards.first.answer.getOrCrash(),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                    ],
-                  ),
-                ),
+                    ),
+                  );
+                },
               ),
             ),
           ),

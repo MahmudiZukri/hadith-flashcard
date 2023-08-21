@@ -14,7 +14,30 @@ class NarratorPage extends StatelessWidget {
       builder: (context, hadithNarratorState) {
         return hadithNarratorState.optionFailureOrHadithNarrators.match(
           // TODO: maybe change to shimmer later
-          () => const CustomCircularProgressIndicatorWidget(),
+          () => Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: defaultMargin,
+            ),
+            child: ListView(
+              children: [
+                SizedBox(
+                  height: screenHeight(context) / 5.2,
+                ),
+                ...List.generate(
+                  12,
+                  (index) => const Padding(
+                    padding: EdgeInsets.only(top: 20.0),
+                    child: CustomShimmerWidget(
+                      height: 48.0,
+                      width: double.infinity,
+                      borderRadius: 14,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+
           (either) => either.fold(
             (l) => Text(
               l.message,
@@ -83,6 +106,9 @@ class NarratorPage extends StatelessWidget {
                       hadithNarrators.length,
                       (index) => ListTile(
                         dense: true,
+                        contentPadding: const EdgeInsets.symmetric(
+                          horizontal: 14.0,
+                        ),
                         title: Text(
                           hadithNarrators[index].name.getOrCrash(),
                         ),

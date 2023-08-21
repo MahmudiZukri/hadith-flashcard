@@ -14,6 +14,14 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
+        BlocProvider<UserBloc>(
+          create: (context) => getIt<UserBloc>()
+            ..add(
+              UserEvent.loadUser(
+                userID: userID,
+              ),
+            ),
+        ),
         BlocProvider<PageViewBloc>(
           create: (context) => getIt<PageViewBloc>()
             ..add(
@@ -26,6 +34,14 @@ class HomePage extends StatelessWidget {
           create: (context) => getIt<HadithNarratorBloc>()
             ..add(
               const HadithNarratorEvent.getHadithNarrators(),
+            ),
+        ),
+        BlocProvider<HadithFlashcardBloc>(
+          create: (context) => getIt<HadithFlashcardBloc>()
+            ..add(
+              HadithFlashcardEvent.getFlashcard(
+                userID: userID,
+              ),
             ),
         ),
       ],
@@ -134,7 +150,7 @@ class HomePageScaffold extends StatelessWidget {
               SafeArea(
                 child: BlocBuilder<UserBloc, UserState>(
                   builder: (context, userState) => userState.user == null
-                      ? const CustomCircularProgressIndicatorWidget()
+                      ? const SizedBox()
                       : PageView(
                           controller: pageController,
                           onPageChanged: (value) {
@@ -149,9 +165,8 @@ class HomePageScaffold extends StatelessWidget {
                               userID: userID,
                             ),
                             const ReviewPage(),
-                            //add profile page later
-                            const Center(
-                              child: Text('Profile Page'),
+                            ProfilePage(
+                              userID: userID,
                             ),
                           ],
                         ),

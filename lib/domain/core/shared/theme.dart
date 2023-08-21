@@ -10,7 +10,6 @@ const Color tealBrightColor = Color(0xFF00FFCB);
 const Color accentColor = Color(0xFFA4BE7B);
 const Color defaultBackgroundColor = Color(0xFFF1F1F8);
 
-// const Color backgroundColor = Color(0xFFE5D9B6);
 const Color whiteColor = Colors.white;
 const Color blackColor = Colors.black;
 const Color facebookColor = Color(0xFF4267B2);
@@ -50,8 +49,13 @@ TextStyle blackTextFont = const TextStyle(
   color: blackColor,
 );
 
-TextStyle arabicTextFont = const TextStyle(
-  color: blackColor,
+// TextStyle arabicTextFont = const TextStyle(
+//   color: blackColor,
+//   fontSize: 22.0,
+// );
+
+// TODO: make sure later
+TextStyle arabicTextFont = GoogleFonts.aBeeZee(
   fontSize: 22.0,
 );
 

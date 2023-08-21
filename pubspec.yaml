@@ -54,7 +54,7 @@ dependencies:
   material_design_icons_flutter: ^7.0.7296
   fast_immutable_collections: ^9.0.0
   dio: ^4.0.4
-  connectivity_plus: ^4.0.1
+  connectivity_plus: ^4.0.2
   firebase_remote_config: ^4.2.0
   shimmer: ^3.0.0
 

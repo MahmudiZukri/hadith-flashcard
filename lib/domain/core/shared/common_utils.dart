@@ -1,15 +1,3 @@
-// import 'dart:math';
-
-// import 'package:connectivity_plus/connectivity_plus.dart';
-// import 'package:flutter/material.dart';
-// import 'package:fpdart/fpdart.dart';
-// import 'package:image_cropper/image_cropper.dart';
-// import 'package:intl/intl.dart';
-// import 'package:kada/presentation/core/color_palette.dart';
-// import 'package:permission_handler/permission_handler.dart';
-// import 'package:url_launcher/url_launcher.dart';
-// import 'package:uuid/uuid.dart';
-
 part of 'shared.dart';
 
 class CommonUtils {
@@ -65,6 +53,11 @@ class CommonUtils {
       );
     }
     return input;
+  }
+
+  static Future<bool> checkInternetConnection(Connectivity connectivity) async {
+    final result = await connectivity.checkConnectivity();
+    return result != ConnectivityResult.none;
   }
 
   //comment for now
@@ -214,11 +207,6 @@ class CommonUtils {
   // static DateTime lastDateOfMonth(DateTime dateTime) {
   //   return DateTime(dateTime.year, dateTime.month + 1)
   //       .subtract(const Duration(days: 1));
-  // }
-
-  // static Future<bool> checkInternetConnection(Connectivity connectivity) async {
-  //   final result = await connectivity.checkConnectivity();
-  //   return result != ConnectivityResult.none;
   // }
 
   // static String getRandomString(int length) {
