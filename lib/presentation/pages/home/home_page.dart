@@ -73,55 +73,9 @@ class HomePageScaffold extends StatelessWidget {
       builder: (context, pageViewState) {
         return Scaffold(
           backgroundColor: defaultBackgroundColor,
-          bottomNavigationBar: Container(
-            padding: EdgeInsets.symmetric(
-              horizontal: screenWidth(context) / 14,
-              vertical: screenHeight(context) / 50,
-            ),
-            color: primaryColor,
-            child: GNav(
-              selectedIndex: pageViewState.pageViewIndex,
-              color: whiteColor,
-              backgroundColor: primaryColor,
-              activeColor: primaryColor,
-              tabBackgroundColor: whiteColor,
-              duration: const Duration(
-                milliseconds: 300,
-              ),
-              gap: screenWidth(context) / 60,
-              textStyle: const TextStyle(
-                color: primaryColor,
-              ),
-              padding: EdgeInsets.symmetric(
-                horizontal: screenWidth(context) / 20,
-                vertical: screenHeight(context) / 62,
-              ),
-              onTabChange: (value) {
-                pageController.jumpToPage(
-                  value,
-                );
-              },
-              tabs: [
-                GButton(
-                  text: 'Add Card',
-                  icon: MdiIcons.plusBoxOutline,
-                  rippleColor: secondaryColor,
-                  haptic: true,
-                ),
-                GButton(
-                  text: 'Review',
-                  icon: MdiIcons.cardsOutline,
-                  rippleColor: secondaryColor,
-                  haptic: true,
-                ),
-                GButton(
-                  text: 'Profile',
-                  icon: MdiIcons.accountBoxOutline,
-                  rippleColor: secondaryColor,
-                  haptic: true,
-                ),
-              ],
-            ),
+          bottomNavigationBar: CustomBottomNavigation(
+            pageSelectedIndex: pageViewState.pageViewIndex,
+            pageController: pageController,
           ),
           body: Stack(
             children: [
@@ -132,14 +86,14 @@ class HomePageScaffold extends StatelessWidget {
                     color: primaryColor,
                   ),
                   Container(
-                    height: screenHeight(context) / 5.4,
+                    height: screenHeight(context) / 3,
                     decoration: const BoxDecoration(
                       borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(
-                          30.0,
+                          70.0,
                         ),
                         bottomRight: Radius.circular(
-                          30.0,
+                          70.0,
                         ),
                       ),
                       color: primaryColor,

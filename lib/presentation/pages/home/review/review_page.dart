@@ -7,6 +7,8 @@ class ReviewPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    FlipCardController cardController = FlipCardController();
+
     return Container(
       height: double.infinity,
       width: double.infinity,
@@ -16,22 +18,22 @@ class ReviewPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           // comment for now
-          // Row(
-          //   children: [
-          //     const Text('55 Hadiths'),
-          //     const SizedBox(width: 10.0),
-          //     Container(
-          //       height: 10.0,
-          //       width: screenWidth(context) / 3,
-          //       decoration: BoxDecoration(
-          //         color: secondaryColor,
-          //         borderRadius: BorderRadius.circular(
-          //           10.0,
-          //         ),
-          //       ),
-          //     ),
-          //   ],
-          // ),
+          Row(
+            children: [
+              const Text('55 Hadiths'),
+              const SizedBox(width: 10.0),
+              Container(
+                height: 10.0,
+                width: screenWidth(context) / 3,
+                decoration: BoxDecoration(
+                  color: secondaryColor,
+                  borderRadius: BorderRadius.circular(
+                    10.0,
+                  ),
+                ),
+              ),
+            ],
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -56,20 +58,12 @@ class ReviewPage extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: Center(
-              child: BlocBuilder<HadithFlashcardBloc, HadithFlashcardState>(
-                builder: (context, hadithFlashcardState) {
-                  return Container(
-                    height: screenHeight(context) / 2,
-                    width: screenWidth(context) - (screenWidth(context) / 6),
-                    padding: const EdgeInsets.all(
-                      defaultMargin,
-                    ),
-                    decoration: BoxDecoration(
-                      color: whiteColor,
-                      borderRadius: largeBorderRadius(),
-                    ),
-                    child: hadithFlashcardState
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                BlocBuilder<HadithFlashcardBloc, HadithFlashcardState>(
+                  builder: (context, hadithFlashcardState) {
+                    return hadithFlashcardState
                         .optionFailureOrGetFlashcardSuccess
                         .match(
                       () => const CustomCircularProgressIndicatorWidget(),
@@ -78,20 +72,17 @@ class ReviewPage extends StatelessWidget {
                           l.message,
                         ),
                         (flashcards) => Center(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                flashcards.first.answer.getOrCrash(),
-                              ),
-                            ],
-                          ),
-                        ),
+                            child: CustomFlipCard(
+                          cardModel: flashcards.first,
+                          controller: cardController,
+                        )),
                       ),
-                    ),
-                  );
-                },
-              ),
+                    );
+                  },
+                ),
+                const SizedBox(height: 30.0),
+                const Text('asd')
+              ],
             ),
           ),
         ],
