@@ -1,12 +1,15 @@
 part of 'shared.dart';
 
-const Color primaryColor = Color(0xFF285430);
-const Color secondaryColor = Color(0xFF5F8D4E);
+// const Color primaryColor = Color(0xFF285430);
+// const Color secondaryColor = Color(0xFF5F8D4E);
+const Color primaryColor = Color(0xFF54B435);
+const Color secondaryColor = Color(0xFF82CD47);
 const Color greyColor = Color(0xFFA8A8A8);
 const Color lightGreyColor = Color(0xFFC8C6C6);
 const Color lightColor = Color(0xFFF0E5CF);
 const Color tealColor = Color(0xFF46A0AE);
 const Color tealBrightColor = Color(0xFF00FFCB);
+const Color redColor = Color(0xFFF96666);
 const Color accentColor = Color(0xFFA4BE7B);
 const Color defaultBackgroundColor = Color(0xFFF1F1F8);
 

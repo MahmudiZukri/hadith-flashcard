@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:hadith_flashcard/domain/core/objects/string_objects.dart';
+import 'package:hadith_flashcard/domain/core/objects/objects.dart';
 import 'package:hadith_flashcard/domain/hadith_narrator/hadith_narrator.dart';
 import 'package:injectable/injectable.dart';
 

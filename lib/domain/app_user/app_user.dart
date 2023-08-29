@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hadith_flashcard/domain/core/objects/string_objects.dart';
+import 'package:hadith_flashcard/domain/core/objects/objects.dart';
 
 part 'app_user.freezed.dart';
 

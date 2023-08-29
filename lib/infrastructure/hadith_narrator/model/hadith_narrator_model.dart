@@ -1,7 +1,6 @@
 import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hadith_flashcard/domain/core/objects/number_objects.dart';
-import 'package:hadith_flashcard/domain/core/objects/string_objects.dart';
+import 'package:hadith_flashcard/domain/core/objects/objects.dart';
 import 'package:hadith_flashcard/domain/hadith_narrator/hadith_narrator.dart';
 
 part 'hadith_narrator_model.freezed.dart';

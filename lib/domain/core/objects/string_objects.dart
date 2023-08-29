@@ -1,10 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:fpdart/fpdart.dart';
-import 'package:hadith_flashcard/domain/core/errors.dart';
-import 'package:hadith_flashcard/domain/core/failures/string/string_failures.dart';
-import 'package:hadith_flashcard/domain/core/failures/value/value_failures.dart';
-import 'package:hadith_flashcard/domain/core/validators/string_validators.dart';
-import 'package:intl/intl.dart';
+part of 'objects.dart';
 
 @immutable
 abstract class StringObject {

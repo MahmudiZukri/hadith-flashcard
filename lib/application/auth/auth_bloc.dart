@@ -3,7 +3,7 @@ import 'package:fpdart/fpdart.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hadith_flashcard/domain/auth/interfaces/i_auth_repository.dart';
 import 'package:hadith_flashcard/domain/core/failures/common_failures/common_failures.dart';
-import 'package:hadith_flashcard/domain/core/objects/string_objects.dart';
+import 'package:hadith_flashcard/domain/core/objects/objects.dart';
 import 'package:injectable/injectable.dart';
 
 part 'auth_event.dart';

@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hadith_flashcard/domain/app_user/app_user.dart';
-import 'package:hadith_flashcard/domain/core/objects/string_objects.dart';
+import 'package:hadith_flashcard/domain/core/objects/objects.dart';
 
 part 'app_user_model.freezed.dart';
 part 'app_user_model.g.dart';
