@@ -8,13 +8,15 @@ part 'hadith_flashcard_model.g.dart';
 @freezed
 class HadithFlashcardModel with _$HadithFlashcardModel {
   const factory HadithFlashcardModel({
+    required String hadithNarratorName,
+    required int hadithNumber,
     required String question,
     required String answer,
     required String translation,
+    required int interval,
+    required int repetition,
+    required double easeFactor,
     required DateTime reviewedDate,
-    int? interval,
-    int? repetition,
-    double? easeFactor,
   }) = _HadithFlashcardModel;
 
   factory HadithFlashcardModel.fromJson(Map<String, dynamic> json) =>
@@ -23,12 +25,14 @@ class HadithFlashcardModel with _$HadithFlashcardModel {
 
 extension HadithFlashcardModelX on HadithFlashcardModel {
   HadithFlashcard toDomain() => HadithFlashcard(
+        hadithNarratorName: PersonName(hadithNarratorName),
+        hadithNumber: PositiveNumber(hadithNumber),
         question: UnemptyString(question),
         answer: UnemptyString(answer),
         translation: UnemptyString(translation),
-        interval: interval ?? 0,
-        repetition: repetition ?? 0,
-        easeFactor: easeFactor ?? 0,
+        interval: interval,
+        repetition: repetition,
+        easeFactor: easeFactor,
         reviewedDate: reviewedDate,
       );
 }

@@ -16,6 +16,8 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$HadithFlashcard {
+  PersonName get hadithNarratorName => throw _privateConstructorUsedError;
+  PositiveNumber get hadithNumber => throw _privateConstructorUsedError;
   UnemptyString get question => throw _privateConstructorUsedError;
   UnemptyString get answer => throw _privateConstructorUsedError;
   UnemptyString get translation => throw _privateConstructorUsedError;
@@ -36,7 +38,9 @@ abstract class $HadithFlashcardCopyWith<$Res> {
       _$HadithFlashcardCopyWithImpl<$Res, HadithFlashcard>;
   @useResult
   $Res call(
-      {UnemptyString question,
+      {PersonName hadithNarratorName,
+      PositiveNumber hadithNumber,
+      UnemptyString question,
       UnemptyString answer,
       UnemptyString translation,
       DateTime reviewedDate,
@@ -58,6 +62,8 @@ class _$HadithFlashcardCopyWithImpl<$Res, $Val extends HadithFlashcard>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? hadithNarratorName = null,
+    Object? hadithNumber = null,
     Object? question = null,
     Object? answer = null,
     Object? translation = null,
@@ -67,6 +73,14 @@ class _$HadithFlashcardCopyWithImpl<$Res, $Val extends HadithFlashcard>
     Object? easeFactor = null,
   }) {
     return _then(_value.copyWith(
+      hadithNarratorName: null == hadithNarratorName
+          ? _value.hadithNarratorName
+          : hadithNarratorName // ignore: cast_nullable_to_non_nullable
+              as PersonName,
+      hadithNumber: null == hadithNumber
+          ? _value.hadithNumber
+          : hadithNumber // ignore: cast_nullable_to_non_nullable
+              as PositiveNumber,
       question: null == question
           ? _value.question
           : question // ignore: cast_nullable_to_non_nullable
@@ -108,7 +122,9 @@ abstract class _$$_HadithNarratorCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {UnemptyString question,
+      {PersonName hadithNarratorName,
+      PositiveNumber hadithNumber,
+      UnemptyString question,
       UnemptyString answer,
       UnemptyString translation,
       DateTime reviewedDate,
@@ -128,6 +144,8 @@ class __$$_HadithNarratorCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? hadithNarratorName = null,
+    Object? hadithNumber = null,
     Object? question = null,
     Object? answer = null,
     Object? translation = null,
@@ -137,6 +155,14 @@ class __$$_HadithNarratorCopyWithImpl<$Res>
     Object? easeFactor = null,
   }) {
     return _then(_$_HadithNarrator(
+      hadithNarratorName: null == hadithNarratorName
+          ? _value.hadithNarratorName
+          : hadithNarratorName // ignore: cast_nullable_to_non_nullable
+              as PersonName,
+      hadithNumber: null == hadithNumber
+          ? _value.hadithNumber
+          : hadithNumber // ignore: cast_nullable_to_non_nullable
+              as PositiveNumber,
       question: null == question
           ? _value.question
           : question // ignore: cast_nullable_to_non_nullable
@@ -173,7 +199,9 @@ class __$$_HadithNarratorCopyWithImpl<$Res>
 
 class _$_HadithNarrator implements _HadithNarrator {
   const _$_HadithNarrator(
-      {required this.question,
+      {required this.hadithNarratorName,
+      required this.hadithNumber,
+      required this.question,
       required this.answer,
       required this.translation,
       required this.reviewedDate,
@@ -181,6 +209,10 @@ class _$_HadithNarrator implements _HadithNarrator {
       required this.repetition,
       required this.easeFactor});
 
+  @override
+  final PersonName hadithNarratorName;
+  @override
+  final PositiveNumber hadithNumber;
   @override
   final UnemptyString question;
   @override
@@ -198,7 +230,7 @@ class _$_HadithNarrator implements _HadithNarrator {
 
   @override
   String toString() {
-    return 'HadithFlashcard(question: $question, answer: $answer, translation: $translation, reviewedDate: $reviewedDate, interval: $interval, repetition: $repetition, easeFactor: $easeFactor)';
+    return 'HadithFlashcard(hadithNarratorName: $hadithNarratorName, hadithNumber: $hadithNumber, question: $question, answer: $answer, translation: $translation, reviewedDate: $reviewedDate, interval: $interval, repetition: $repetition, easeFactor: $easeFactor)';
   }
 
   @override
@@ -206,6 +238,10 @@ class _$_HadithNarrator implements _HadithNarrator {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_HadithNarrator &&
+            (identical(other.hadithNarratorName, hadithNarratorName) ||
+                other.hadithNarratorName == hadithNarratorName) &&
+            (identical(other.hadithNumber, hadithNumber) ||
+                other.hadithNumber == hadithNumber) &&
             (identical(other.question, question) ||
                 other.question == question) &&
             (identical(other.answer, answer) || other.answer == answer) &&
@@ -222,8 +258,17 @@ class _$_HadithNarrator implements _HadithNarrator {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, question, answer, translation,
-      reviewedDate, interval, repetition, easeFactor);
+  int get hashCode => Object.hash(
+      runtimeType,
+      hadithNarratorName,
+      hadithNumber,
+      question,
+      answer,
+      translation,
+      reviewedDate,
+      interval,
+      repetition,
+      easeFactor);
 
   @JsonKey(ignore: true)
   @override
@@ -234,7 +279,9 @@ class _$_HadithNarrator implements _HadithNarrator {
 
 abstract class _HadithNarrator implements HadithFlashcard {
   const factory _HadithNarrator(
-      {required final UnemptyString question,
+      {required final PersonName hadithNarratorName,
+      required final PositiveNumber hadithNumber,
+      required final UnemptyString question,
       required final UnemptyString answer,
       required final UnemptyString translation,
       required final DateTime reviewedDate,
@@ -242,6 +289,10 @@ abstract class _HadithNarrator implements HadithFlashcard {
       required final int repetition,
       required final double easeFactor}) = _$_HadithNarrator;
 
+  @override
+  PersonName get hadithNarratorName;
+  @override
+  PositiveNumber get hadithNumber;
   @override
   UnemptyString get question;
   @override

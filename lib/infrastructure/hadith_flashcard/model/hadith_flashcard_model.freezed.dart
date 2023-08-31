@@ -20,13 +20,15 @@ HadithFlashcardModel _$HadithFlashcardModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$HadithFlashcardModel {
+  String get hadithNarratorName => throw _privateConstructorUsedError;
+  int get hadithNumber => throw _privateConstructorUsedError;
   String get question => throw _privateConstructorUsedError;
   String get answer => throw _privateConstructorUsedError;
   String get translation => throw _privateConstructorUsedError;
+  int get interval => throw _privateConstructorUsedError;
+  int get repetition => throw _privateConstructorUsedError;
+  double get easeFactor => throw _privateConstructorUsedError;
   DateTime get reviewedDate => throw _privateConstructorUsedError;
-  int? get interval => throw _privateConstructorUsedError;
-  int? get repetition => throw _privateConstructorUsedError;
-  double? get easeFactor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,13 +43,15 @@ abstract class $HadithFlashcardModelCopyWith<$Res> {
       _$HadithFlashcardModelCopyWithImpl<$Res, HadithFlashcardModel>;
   @useResult
   $Res call(
-      {String question,
+      {String hadithNarratorName,
+      int hadithNumber,
+      String question,
       String answer,
       String translation,
-      DateTime reviewedDate,
-      int? interval,
-      int? repetition,
-      double? easeFactor});
+      int interval,
+      int repetition,
+      double easeFactor,
+      DateTime reviewedDate});
 }
 
 /// @nodoc
@@ -64,15 +68,25 @@ class _$HadithFlashcardModelCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? hadithNarratorName = null,
+    Object? hadithNumber = null,
     Object? question = null,
     Object? answer = null,
     Object? translation = null,
+    Object? interval = null,
+    Object? repetition = null,
+    Object? easeFactor = null,
     Object? reviewedDate = null,
-    Object? interval = freezed,
-    Object? repetition = freezed,
-    Object? easeFactor = freezed,
   }) {
     return _then(_value.copyWith(
+      hadithNarratorName: null == hadithNarratorName
+          ? _value.hadithNarratorName
+          : hadithNarratorName // ignore: cast_nullable_to_non_nullable
+              as String,
+      hadithNumber: null == hadithNumber
+          ? _value.hadithNumber
+          : hadithNumber // ignore: cast_nullable_to_non_nullable
+              as int,
       question: null == question
           ? _value.question
           : question // ignore: cast_nullable_to_non_nullable
@@ -85,22 +99,22 @@ class _$HadithFlashcardModelCopyWithImpl<$Res,
           ? _value.translation
           : translation // ignore: cast_nullable_to_non_nullable
               as String,
+      interval: null == interval
+          ? _value.interval
+          : interval // ignore: cast_nullable_to_non_nullable
+              as int,
+      repetition: null == repetition
+          ? _value.repetition
+          : repetition // ignore: cast_nullable_to_non_nullable
+              as int,
+      easeFactor: null == easeFactor
+          ? _value.easeFactor
+          : easeFactor // ignore: cast_nullable_to_non_nullable
+              as double,
       reviewedDate: null == reviewedDate
           ? _value.reviewedDate
           : reviewedDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      interval: freezed == interval
-          ? _value.interval
-          : interval // ignore: cast_nullable_to_non_nullable
-              as int?,
-      repetition: freezed == repetition
-          ? _value.repetition
-          : repetition // ignore: cast_nullable_to_non_nullable
-              as int?,
-      easeFactor: freezed == easeFactor
-          ? _value.easeFactor
-          : easeFactor // ignore: cast_nullable_to_non_nullable
-              as double?,
     ) as $Val);
   }
 }
@@ -114,13 +128,15 @@ abstract class _$$_HadithFlashcardModelCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String question,
+      {String hadithNarratorName,
+      int hadithNumber,
+      String question,
       String answer,
       String translation,
-      DateTime reviewedDate,
-      int? interval,
-      int? repetition,
-      double? easeFactor});
+      int interval,
+      int repetition,
+      double easeFactor,
+      DateTime reviewedDate});
 }
 
 /// @nodoc
@@ -134,15 +150,25 @@ class __$$_HadithFlashcardModelCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? hadithNarratorName = null,
+    Object? hadithNumber = null,
     Object? question = null,
     Object? answer = null,
     Object? translation = null,
+    Object? interval = null,
+    Object? repetition = null,
+    Object? easeFactor = null,
     Object? reviewedDate = null,
-    Object? interval = freezed,
-    Object? repetition = freezed,
-    Object? easeFactor = freezed,
   }) {
     return _then(_$_HadithFlashcardModel(
+      hadithNarratorName: null == hadithNarratorName
+          ? _value.hadithNarratorName
+          : hadithNarratorName // ignore: cast_nullable_to_non_nullable
+              as String,
+      hadithNumber: null == hadithNumber
+          ? _value.hadithNumber
+          : hadithNumber // ignore: cast_nullable_to_non_nullable
+              as int,
       question: null == question
           ? _value.question
           : question // ignore: cast_nullable_to_non_nullable
@@ -155,22 +181,22 @@ class __$$_HadithFlashcardModelCopyWithImpl<$Res>
           ? _value.translation
           : translation // ignore: cast_nullable_to_non_nullable
               as String,
+      interval: null == interval
+          ? _value.interval
+          : interval // ignore: cast_nullable_to_non_nullable
+              as int,
+      repetition: null == repetition
+          ? _value.repetition
+          : repetition // ignore: cast_nullable_to_non_nullable
+              as int,
+      easeFactor: null == easeFactor
+          ? _value.easeFactor
+          : easeFactor // ignore: cast_nullable_to_non_nullable
+              as double,
       reviewedDate: null == reviewedDate
           ? _value.reviewedDate
           : reviewedDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      interval: freezed == interval
-          ? _value.interval
-          : interval // ignore: cast_nullable_to_non_nullable
-              as int?,
-      repetition: freezed == repetition
-          ? _value.repetition
-          : repetition // ignore: cast_nullable_to_non_nullable
-              as int?,
-      easeFactor: freezed == easeFactor
-          ? _value.easeFactor
-          : easeFactor // ignore: cast_nullable_to_non_nullable
-              as double?,
     ));
   }
 }
@@ -179,17 +205,23 @@ class __$$_HadithFlashcardModelCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_HadithFlashcardModel implements _HadithFlashcardModel {
   const _$_HadithFlashcardModel(
-      {required this.question,
+      {required this.hadithNarratorName,
+      required this.hadithNumber,
+      required this.question,
       required this.answer,
       required this.translation,
-      required this.reviewedDate,
-      this.interval,
-      this.repetition,
-      this.easeFactor});
+      required this.interval,
+      required this.repetition,
+      required this.easeFactor,
+      required this.reviewedDate});
 
   factory _$_HadithFlashcardModel.fromJson(Map<String, dynamic> json) =>
       _$$_HadithFlashcardModelFromJson(json);
 
+  @override
+  final String hadithNarratorName;
+  @override
+  final int hadithNumber;
   @override
   final String question;
   @override
@@ -197,17 +229,17 @@ class _$_HadithFlashcardModel implements _HadithFlashcardModel {
   @override
   final String translation;
   @override
+  final int interval;
+  @override
+  final int repetition;
+  @override
+  final double easeFactor;
+  @override
   final DateTime reviewedDate;
-  @override
-  final int? interval;
-  @override
-  final int? repetition;
-  @override
-  final double? easeFactor;
 
   @override
   String toString() {
-    return 'HadithFlashcardModel(question: $question, answer: $answer, translation: $translation, reviewedDate: $reviewedDate, interval: $interval, repetition: $repetition, easeFactor: $easeFactor)';
+    return 'HadithFlashcardModel(hadithNarratorName: $hadithNarratorName, hadithNumber: $hadithNumber, question: $question, answer: $answer, translation: $translation, interval: $interval, repetition: $repetition, easeFactor: $easeFactor, reviewedDate: $reviewedDate)';
   }
 
   @override
@@ -215,25 +247,38 @@ class _$_HadithFlashcardModel implements _HadithFlashcardModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_HadithFlashcardModel &&
+            (identical(other.hadithNarratorName, hadithNarratorName) ||
+                other.hadithNarratorName == hadithNarratorName) &&
+            (identical(other.hadithNumber, hadithNumber) ||
+                other.hadithNumber == hadithNumber) &&
             (identical(other.question, question) ||
                 other.question == question) &&
             (identical(other.answer, answer) || other.answer == answer) &&
             (identical(other.translation, translation) ||
                 other.translation == translation) &&
-            (identical(other.reviewedDate, reviewedDate) ||
-                other.reviewedDate == reviewedDate) &&
             (identical(other.interval, interval) ||
                 other.interval == interval) &&
             (identical(other.repetition, repetition) ||
                 other.repetition == repetition) &&
             (identical(other.easeFactor, easeFactor) ||
-                other.easeFactor == easeFactor));
+                other.easeFactor == easeFactor) &&
+            (identical(other.reviewedDate, reviewedDate) ||
+                other.reviewedDate == reviewedDate));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, question, answer, translation,
-      reviewedDate, interval, repetition, easeFactor);
+  int get hashCode => Object.hash(
+      runtimeType,
+      hadithNarratorName,
+      hadithNumber,
+      question,
+      answer,
+      translation,
+      interval,
+      repetition,
+      easeFactor,
+      reviewedDate);
 
   @JsonKey(ignore: true)
   @override
@@ -252,17 +297,23 @@ class _$_HadithFlashcardModel implements _HadithFlashcardModel {
 
 abstract class _HadithFlashcardModel implements HadithFlashcardModel {
   const factory _HadithFlashcardModel(
-      {required final String question,
+      {required final String hadithNarratorName,
+      required final int hadithNumber,
+      required final String question,
       required final String answer,
       required final String translation,
-      required final DateTime reviewedDate,
-      final int? interval,
-      final int? repetition,
-      final double? easeFactor}) = _$_HadithFlashcardModel;
+      required final int interval,
+      required final int repetition,
+      required final double easeFactor,
+      required final DateTime reviewedDate}) = _$_HadithFlashcardModel;
 
   factory _HadithFlashcardModel.fromJson(Map<String, dynamic> json) =
       _$_HadithFlashcardModel.fromJson;
 
+  @override
+  String get hadithNarratorName;
+  @override
+  int get hadithNumber;
   @override
   String get question;
   @override
@@ -270,13 +321,13 @@ abstract class _HadithFlashcardModel implements HadithFlashcardModel {
   @override
   String get translation;
   @override
+  int get interval;
+  @override
+  int get repetition;
+  @override
+  double get easeFactor;
+  @override
   DateTime get reviewedDate;
-  @override
-  int? get interval;
-  @override
-  int? get repetition;
-  @override
-  double? get easeFactor;
   @override
   @JsonKey(ignore: true)
   _$$_HadithFlashcardModelCopyWith<_$_HadithFlashcardModel> get copyWith =>

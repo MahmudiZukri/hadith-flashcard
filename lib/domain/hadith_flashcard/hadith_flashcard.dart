@@ -6,6 +6,8 @@ part 'hadith_flashcard.freezed.dart';
 @freezed
 class HadithFlashcard with _$HadithFlashcard {
   const factory HadithFlashcard({
+    required PersonName hadithNarratorName,
+    required PositiveNumber hadithNumber,
     required UnemptyString question,
     required UnemptyString answer,
     required UnemptyString translation,
