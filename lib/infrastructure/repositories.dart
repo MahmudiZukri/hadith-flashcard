@@ -11,7 +11,7 @@ import 'package:hadith_flashcard/domain/hadith_flashcard/hadith_flashcard.dart';
 import 'package:hadith_flashcard/domain/hadith_flashcard/interfaces/i_hadith_flashcard_repository.dart';
 import 'package:hadith_flashcard/domain/hadith_narrator/hadith_narrator.dart';
 import 'package:hadith_flashcard/domain/hadith_narrator/interfaces/i_hadith_narrator_repository.dart';
-import 'package:hadith_flashcard/infrastructure/core/network_service_type.dart';
+import 'package:hadith_flashcard/infrastructure/core/services/network_service_type.dart';
 import 'package:hadith_flashcard/infrastructure/core/services/services.dart';
 import 'package:hadith_flashcard/infrastructure/core/urls.dart';
 import 'package:hadith_flashcard/infrastructure/hadith_flashcard/model/hadith_flashcard_model.dart';

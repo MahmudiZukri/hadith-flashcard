@@ -12,6 +12,8 @@ class HadithFlashcardRepository implements IHadithFlashcardRepository {
         userID: userID,
         flashcard: flashcard,
       );
+
+      return right(unit);
     } on PlatformException catch (e, stackTrace) {
       debugPrint('1------- $stackTrace -------1');
       return left(
@@ -35,8 +37,6 @@ class HadithFlashcardRepository implements IHadithFlashcardRepository {
         ),
       );
     }
-
-    return right(unit);
   }
 
   @override
