@@ -12,15 +12,16 @@ class Sm2Response extends Equatable {
 }
 
 class Sm2 {
-  static Sm2Response calc(
-      {required int quality,
-      required int repetitions,
-      required int previousInterval,
-      required double previousEaseFactor}) {
+  static Sm2Response calc({
+    required int quality,
+    required int repetition,
+    required int previousInterval,
+    required double previousEaseFactor,
+  }) {
     int interval;
     double easeFactor;
     if (quality >= 3) {
-      switch (repetitions) {
+      switch (repetition) {
         case 0:
           interval = 1;
           break;
@@ -31,11 +32,11 @@ class Sm2 {
           interval = (previousInterval * previousEaseFactor).round();
       }
 
-      repetitions++;
+      repetition++;
       easeFactor = previousEaseFactor +
           (0.1 - (5 - quality) * (0.08 + (5 - quality) * 0.02));
     } else {
-      repetitions = 0;
+      repetition = 0;
       interval = 1;
       easeFactor = previousEaseFactor;
     }
@@ -44,6 +45,6 @@ class Sm2 {
       easeFactor = 1.3;
     }
 
-    return Sm2Response(interval, repetitions, easeFactor);
+    return Sm2Response(interval, repetition, easeFactor);
   }
 }
