@@ -53,10 +53,10 @@ abstract class NumberObject {
   bool isValid() => value.isRight();
 
   @override
-  bool operator ==(Object o) {
-    if (identical(this, o)) return true;
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
 
-    return o is NumberObject && o.value == value;
+    return other is NumberObject && other.value == value;
   }
 
   @override

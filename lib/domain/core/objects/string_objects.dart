@@ -44,19 +44,39 @@ abstract class StringObject {
 
   String getOrFailureText() => value.fold(
       (f) => f.maybeMap(
-          empty: (_) => '',
-          hasWhitespace: (s) => s.failedValue ?? '',
-          isNotAlphanumeric: (s) => s.failedValue ?? '',
-          lengthTooShort: (s) => s.failedValue ?? '',
-          exceedingLength: (s) => s.failedValue ?? '',
-          wrongLength: (s) => s.failedValue ?? '',
-          invalidEmail: (s) => s.failedValue ?? '',
-          invalidPersonName: (s) => s.failedValue ?? '',
-          invalidPhone: (s) => s.failedValue ?? '',
-          confirmationNotMatch: (s) => s.failedValue ?? '',
-          invalidUrl: (s) => s.failedValue ?? '',
+          empty: (_) => "Something went wrong (Empty value)",
+          hasWhitespace: (s) => s.failedValue != null
+              ? "(${s.failedValue!}) Has Whitespace"
+              : 'Has Whitespace',
+          isNotAlphanumeric: (s) => s.failedValue != null
+              ? "(${s.failedValue!}) Is Not Alphanumeric"
+              : 'Is Not Alphanumeric',
+          lengthTooShort: (s) => s.failedValue != null
+              ? "(${s.failedValue!}) Length Too Short"
+              : 'Length Too Short',
+          exceedingLength: (s) => s.failedValue != null
+              ? "(${s.failedValue!}) Exceeding Length"
+              : 'Exceeding Length',
+          wrongLength: (s) => s.failedValue != null
+              ? "(${s.failedValue!}) Wrong Length"
+              : 'Wrong Length',
+          invalidEmail: (s) => s.failedValue != null
+              ? "(${s.failedValue!}) Invalid Email"
+              : 'Invalid Email',
+          invalidPersonName: (s) => s.failedValue != null
+              ? "(${s.failedValue!}) Invalid PersonName"
+              : 'Invalid PersonName',
+          invalidPhone: (s) => s.failedValue != null
+              ? "(${s.failedValue!}) Has Whitespace"
+              : 'Has Whitespace',
+          confirmationNotMatch: (s) => s.failedValue != null
+              ? "(${s.failedValue!}) Confirmation Not Match"
+              : 'Confirmation Not Match',
+          invalidUrl: (s) => s.failedValue != null
+              ? "(${s.failedValue!}) Invalid Url"
+              : 'Invalid Url',
           orElse: () {
-            throw 'Only accept StringObject';
+            throw 'Only accept String Object';
           }),
       id);
 
