@@ -2,12 +2,12 @@ part of 'widgets.dart';
 
 class CustomFlipCard extends StatelessWidget {
   const CustomFlipCard({
-    required this.cardModel,
+    required this.card,
     required this.controller,
     super.key,
   });
 
-  final HadithFlashcard cardModel;
+  final HadithFlashcard card;
   final FlipCardController controller;
 
   @override
@@ -20,6 +20,8 @@ class CustomFlipCard extends StatelessWidget {
         color: whiteColor,
         child: Center(
           child: Text(
+            // TODO: implement localizations later
+
             // (context.locale.toString() == 'en_US' &&
             //         widget.cardModel.question[0] == 'A')
             //     ? widget.cardModel.question
@@ -32,7 +34,7 @@ class CustomFlipCard extends StatelessWidget {
             // 'Apa bunyi dari',
             // )
             // : widget.cardModel.question,
-            'temp question',
+            card.question.getOrFailureText(),
             style: blackTextFont.copyWith(
               fontSize: 16,
             ),
@@ -48,7 +50,7 @@ class CustomFlipCard extends StatelessWidget {
             child: SingleChildScrollView(
               physics: const BouncingScrollPhysics(),
               child: Text(
-                cardModel.answer.getOrCrash(),
+                card.answer.getOrFailureText(),
                 style: blackTextFont.copyWith(
                   fontSize: 24,
                 ),

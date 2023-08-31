@@ -50,7 +50,7 @@ class CustomAppBarWidget extends StatelessWidget
               ? const SizedBox()
               : Text(
                   desc!,
-                  style: greyTextFont.copyWith(
+                  style: whiteTextFont.copyWith(
                     fontSize: 10.0,
                   ),
                 ),
