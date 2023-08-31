@@ -14,3 +14,24 @@ class HadithFlashcardState with _$HadithFlashcardState {
         optionFailureOrGetFlashcardSuccess: none(),
       );
 }
+
+extension HadithFlashcardStateX on HadithFlashcardState {
+  IList<HadithFlashcard> get getFlashcardsToReview =>
+      optionFailureOrGetFlashcardSuccess.match(
+        () => <HadithFlashcard>[].lock,
+        (either) => either.fold(
+          (l) => <HadithFlashcard>[].lock,
+          (flashcards) {
+            return flashcards.where(
+              (flashcard) {
+                return CommonUtils.daysBetween(
+                      from: flashcard.reviewedDate,
+                      to: DateTime.now(),
+                    ) >=
+                    flashcard.interval;
+              },
+            ).toIList();
+          },
+        ),
+      );
+}
