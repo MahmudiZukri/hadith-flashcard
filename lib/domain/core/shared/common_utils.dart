@@ -55,6 +55,24 @@ class CommonUtils {
     return input;
   }
 
+  static int daysBetween({
+    required DateTime from,
+    required DateTime to,
+  }) {
+    from = DateTime(
+      from.year,
+      from.month,
+      from.day,
+    );
+    to = DateTime(
+      to.year,
+      to.month,
+      to.day,
+    );
+
+    return ((to.difference(from).inHours / 24)).round();
+  }
+
   static Future<bool> checkInternetConnection(Connectivity connectivity) async {
     final result = await connectivity.checkConnectivity();
     return result != ConnectivityResult.none;
