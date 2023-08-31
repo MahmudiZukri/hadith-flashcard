@@ -9,16 +9,26 @@ class HadithFlashcardServices {
     required String userID,
     required HadithFlashcardModel flashcard,
   }) async {
-    await _hadithFlashcardCollection.doc('$userID${flashcard.answer}').set(
+    await _hadithFlashcardCollection
+        .doc('$userID${flashcard.hadithNarratorName}${flashcard.hadithNumber}')
+        .set(
       {
         'userID': userID,
+        'hadithNarratorName': flashcard.hadithNarratorName,
+        'hadithNumber': flashcard.hadithNumber,
         'question': flashcard.question,
         'answer': flashcard.answer,
         'translation': flashcard.translation,
-        'repetition': flashcard.repetition ?? 0,
-        'interval': flashcard.interval ?? 0,
-        'easeFactor': flashcard.easeFactor ?? 0,
+        'repetition': flashcard.repetition,
+        'interval': flashcard.interval,
+        'easeFactor': flashcard.easeFactor,
         'reviewedDate': flashcard.reviewedDate.millisecondsSinceEpoch,
+      },
+    ).onError(
+      (error, stackTrace) {
+        debugPrint(
+          'stacktrace : ($stackTrace) ||  error: ($error)',
+        );
       },
     );
   }
@@ -38,6 +48,8 @@ class HadithFlashcardServices {
     for (var document in documents) {
       flashcards.add(
         HadithFlashcardModel(
+          hadithNarratorName: document.data()['hadithNarratorName'],
+          hadithNumber: document.data()['hadithNumber'],
           question: document.data()['question'],
           answer: document.data()['answer'],
           translation: document.data()['translation'],

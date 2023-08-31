@@ -4,8 +4,9 @@ import 'package:injectable/injectable.dart';
 import 'package:logger/logger.dart';
 import 'package:hadith_flashcard/domain/core/interfaces/i_network_service.dart';
 import 'package:hadith_flashcard/infrastructure/core/configs/env.dart';
-import 'package:hadith_flashcard/infrastructure/core/network_service.dart';
-import 'package:hadith_flashcard/infrastructure/core/network_service_type.dart';
+import 'package:hadith_flashcard/infrastructure/core/services/network_service_type.dart';
+
+import 'services/services.dart';
 
 @module
 abstract class RegisterModule {

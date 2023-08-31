@@ -1,11 +1,4 @@
-import 'dart:io';
-import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:dio/adapter.dart';
-import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
-import 'package:fpdart/fpdart.dart';
-import 'package:hadith_flashcard/domain/core/failures/network/network_failure.dart';
-import 'package:hadith_flashcard/domain/core/interfaces/i_network_service.dart';
+part of 'services.dart';
 
 class NetworkService implements INetworkService {
   late final Dio _dio;
@@ -32,7 +25,7 @@ class NetworkService implements INetworkService {
     bool setRequestContentTypeWhenNoPayload = false,
     Dio? dio,
   }) : _dio = dio ?? Dio() {
-    final BaseOptions _options = BaseOptions(
+    final BaseOptions options = BaseOptions(
       connectTimeout: connectTimeout,
       receiveTimeout: receiveTimeout,
       sendTimeout: sendTimeout,
@@ -61,7 +54,7 @@ class NetworkService implements INetworkService {
       return client;
     };
 
-    _dio.options = _options;
+    _dio.options = options;
 
     connectivity = Connectivity();
   }
