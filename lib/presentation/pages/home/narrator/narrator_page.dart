@@ -13,16 +13,13 @@ class NarratorPage extends StatelessWidget {
     return BlocBuilder<HadithNarratorBloc, HadithNarratorState>(
       builder: (context, hadithNarratorState) {
         return hadithNarratorState.optionFailureOrHadithNarrators.match(
-          // TODO: maybe change to shimmer later
           () => Padding(
             padding: const EdgeInsets.symmetric(
               horizontal: defaultMargin,
             ),
             child: ListView(
               children: [
-                SizedBox(
-                  height: screenHeight(context) / 5.2,
-                ),
+                const SizedBox(height: 14.0),
                 ...List.generate(
                   12,
                   (index) => const Padding(
@@ -37,7 +34,6 @@ class NarratorPage extends StatelessWidget {
               ],
             ),
           ),
-
           (either) => either.fold(
             (l) => Text(
               l.message,
@@ -53,8 +49,12 @@ class NarratorPage extends StatelessWidget {
                     children: [
                       const SizedBox(height: 14.0),
                       Text(
-                        'Hadith Narrator',
-                        style: whiteTextFont.copyWith(fontSize: 20.0),
+                        'Hadith Narrators',
+                        style: whiteTextFont.copyWith(
+                          fontSize: 20.0,
+                          letterSpacing: 2,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                       const SizedBox(height: 24.0),
                       Row(
@@ -94,7 +94,7 @@ class NarratorPage extends StatelessWidget {
                     ],
                   ),
                 ),
-                Flexible(
+                Expanded(
                   child: Container(
                     margin: const EdgeInsets.symmetric(
                       horizontal: 20,

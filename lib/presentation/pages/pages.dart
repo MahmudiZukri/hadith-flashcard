@@ -1,3 +1,4 @@
+import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:flip_card/flip_card_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -13,8 +14,8 @@ import 'package:hadith_flashcard/application/user/user_bloc.dart';
 import 'package:hadith_flashcard/domain/core/failures/common_failures/common_failures.dart';
 import 'package:hadith_flashcard/domain/core/objects/objects.dart';
 import 'package:hadith_flashcard/domain/core/shared/shared.dart';
+import 'package:hadith_flashcard/domain/hadith_flashcard/hadith_flashcard.dart';
 import 'package:hadith_flashcard/domain/hadith_narrator/hadith_narrator.dart';
-import 'package:hadith_flashcard/infrastructure/hadith_flashcard/model/hadith_flashcard_model.dart';
 import 'package:hadith_flashcard/injection.dart';
 import 'package:hadith_flashcard/presentation/core/widgets/widgets.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';

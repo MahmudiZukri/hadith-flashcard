@@ -118,7 +118,9 @@ class HomePageScaffold extends StatelessWidget {
                             NarratorPage(
                               userID: userID,
                             ),
-                            const ReviewPage(),
+                            ReviewPage(
+                              userID: userID,
+                            ),
                             ProfilePage(
                               userID: userID,
                             ),

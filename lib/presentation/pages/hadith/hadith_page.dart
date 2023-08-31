@@ -81,6 +81,10 @@ class HadithPageScaffold extends StatelessWidget {
                     ScaffoldMessenger.of(context).showSnackBar(
                       snackBar,
                     );
+
+                    context.read<HadithFlashcardBloc>().add(
+                          const HadithFlashcardEvent.resetFlashcardSnackBar(),
+                        );
                   },
                   (r) {
                     const snackBar = SnackBar(
@@ -105,6 +109,10 @@ class HadithPageScaffold extends StatelessWidget {
                     ScaffoldMessenger.of(context).showSnackBar(
                       snackBar,
                     );
+
+                    context.read<HadithFlashcardBloc>().add(
+                          const HadithFlashcardEvent.resetFlashcardSnackBar(),
+                        );
                   },
                 ),
               );
@@ -129,7 +137,6 @@ class HadithPageScaffold extends StatelessWidget {
                   ),
                   const SizedBox(height: 12.0),
                   hadithNarratorState.optionFailureOrHadithNarratorByName.match(
-                    // TODO : change to a better shimmer ( widget already created )
                     () => Column(
                       children: List.generate(
                         6,
@@ -210,13 +217,32 @@ class HadithPageScaffold extends StatelessWidget {
                                                             .saveFlashcard(
                                                           userID: userID,
                                                           flashcard:
-                                                              HadithFlashcardModel(
+                                                              HadithFlashcard(
+                                                            hadithNarratorName:
+                                                                hadithNarrator
+                                                                    .name,
+                                                            hadithNumber:
+                                                                hadithNarrator
+                                                                    .items![
+                                                                        index]
+                                                                    .number,
                                                             question:
-                                                                "What's the content of ${hadithNarrator.name.getOrCrash()} ${hadithNarrator.items?[index].number.getOrCrash()}",
+                                                                UnemptyString(
+                                                              "What's the content of ${hadithNarrator.name.getOrCrash()} ${hadithNarrator.items![index].number.getOrCrash()}",
+                                                            ),
                                                             answer:
-                                                                '${hadithNarrator.items?[index].arab.getOrCrash()}',
+                                                                hadithNarrator
+                                                                    .items![
+                                                                        index]
+                                                                    .arab,
                                                             translation:
-                                                                '${hadithNarrator.items?[index].id.getOrCrash()}',
+                                                                hadithNarrator
+                                                                    .items![
+                                                                        index]
+                                                                    .id,
+                                                            interval: 0,
+                                                            repetition: 0,
+                                                            easeFactor: 0,
                                                             reviewedDate:
                                                                 DateTime.now(),
                                                           ),

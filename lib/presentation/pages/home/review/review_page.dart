@@ -2,8 +2,11 @@ part of '../../pages.dart';
 
 class ReviewPage extends StatelessWidget {
   const ReviewPage({
+    required this.userID,
     super.key,
   });
+
+  final UniqueString userID;
 
   @override
   Widget build(BuildContext context) {
@@ -12,80 +15,113 @@ class ReviewPage extends StatelessWidget {
     return Container(
       height: double.infinity,
       width: double.infinity,
-      padding: const EdgeInsets.all(24.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          // comment for now
-          Row(
-            children: [
-              const Text('55 Hadiths'),
-              const SizedBox(width: 10.0),
-              Container(
-                height: 10.0,
-                width: screenWidth(context) / 3,
-                decoration: BoxDecoration(
-                  color: secondaryColor,
-                  borderRadius: BorderRadius.circular(
-                    10.0,
-                  ),
-                ),
+      padding: const EdgeInsets.symmetric(
+        horizontal: defaultMargin,
+      ),
+      child: BlocBuilder<HadithFlashcardBloc, HadithFlashcardState>(
+        builder: (context, hadithFlashcardState) {
+          return hadithFlashcardState.optionFailureOrGetFlashcardSuccess.match(
+            () => const CustomCircularProgressIndicatorWidget(),
+            (either) => either.fold(
+              (l) => Text(
+                l.message,
               ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: List.generate(
-              3,
-              (index) => Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    height: 18,
-                    width: 18,
-                    margin: EdgeInsets.only(right: index == 2 ? 0 : 50),
-                    decoration: const BoxDecoration(
-                      color: Colors.red,
-                      shape: BoxShape.circle,
-                    ),
-                  ),
-                  const Text('Reviewing')
-                ],
-              ),
-            ),
-          ),
-          Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                BlocBuilder<HadithFlashcardBloc, HadithFlashcardState>(
-                  builder: (context, hadithFlashcardState) {
-                    return hadithFlashcardState
-                        .optionFailureOrGetFlashcardSuccess
-                        .match(
-                      () => const CustomCircularProgressIndicatorWidget(),
-                      (either) => either.fold(
-                        (l) => Text(
-                          l.message,
-                        ),
-                        (flashcards) => Center(
-                            child: CustomFlipCard(
-                          cardModel: flashcards.first,
-                          controller: cardController,
-                        )),
+              (flashcards) {
+                // TODO: update UI of these :
+                // 1. user don't have card at all
+                // 2. user have card but don't have to review
+
+                if (flashcards == <HadithFlashcard>[].lock) {
+                  return const Center(child: Text('flashcard is empty'));
+                } else if (hadithFlashcardState.getFlashcardsToReview ==
+                    <HadithFlashcard>[].lock) {
+                  return const Center(
+                      child: Text('you dont have flashcards to review'));
+                } else {
+                  return Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Stack(
+                        children: [
+                          Container(
+                            height: 20.0,
+                            width: double.infinity,
+                            padding: const EdgeInsets.fromLTRB(
+                              8,
+                              4,
+                              8,
+                              12,
+                            ),
+                            decoration: BoxDecoration(
+                              color: blackColor.withOpacity(
+                                0.3,
+                              ),
+                              borderRadius: mediumBorderRadius(),
+                            ),
+                          ),
+                          Container(
+                            height: 20.0,
+                            width: 100,
+                            padding: const EdgeInsets.fromLTRB(
+                              8,
+                              4,
+                              8,
+                              12,
+                            ),
+                            decoration: BoxDecoration(
+                              color: secondaryColor,
+                              borderRadius: mediumBorderRadius(),
+                            ),
+                            child: Container(
+                              height: 8.0,
+                              decoration: BoxDecoration(
+                                color: whiteColor.withOpacity(
+                                  0.5,
+                                ),
+                                borderRadius: mediumBorderRadius(),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                    );
-                  },
-                ),
-                const SizedBox(height: 30.0),
-                const Text('asd')
-              ],
+                      CustomFlipCard(
+                        card: hadithFlashcardState.getFlashcardsToReview.first,
+                        controller: cardController,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: List.generate(
+                          6,
+                          (index) => CustomReviewButton(
+                            userID: userID.getOrCrash(),
+                            quality: index,
+                            cardController: cardController,
+                            onTap: () {
+                              context.read<HadithFlashcardBloc>()
+                                ..add(
+                                  HadithFlashcardEvent.saveFlashcard(
+                                    userID: userID,
+                                    flashcard: hadithFlashcardState
+                                        .getFlashcardsToReview.first,
+                                    quality: index,
+                                  ),
+                                )
+                                ..add(
+                                  HadithFlashcardEvent.getFlashcard(
+                                    userID: userID,
+                                  ),
+                                );
+                            },
+                          ),
+                        ),
+                      ),
+                    ],
+                  );
+                }
+              },
             ),
-          ),
-        ],
+          );
+        },
       ),
     );
   }
