@@ -27,10 +27,13 @@ class CommonFailures with _$CommonFailures {
 extension CommonFailuresX on CommonFailures {
   String get message => maybeWhen(
         empty: () => '',
-        noInternet: () => 'No internet connection found.',
-        serverError: (msg) => msg ?? 'Something went wrong.',
-        timeout: () => 'Connection timeout.',
-        parseError: (msg) => msg,
+        noInternet: () => 'No internet connection found',
+        serverError: (msg) => msg ?? 'Server went wrong ($msg)',
+        timeout: () => 'Connection timeout',
+        parseError: (msg) => 'Parse Error ($msg)',
+        handledByFirebase: (msg) => 'Firebase Error',
+        platformException: (msg) => 'Platform Exception',
+        other: (msg) => msg ?? 'Something went wrong',
         orElse: () => 'Something went wrong',
       );
 }
