@@ -5,12 +5,15 @@ class CustomAppBarWidget extends StatelessWidget
   const CustomAppBarWidget({
     required this.title,
     required this.leadingOnTap,
+    this.actions,
     this.desc,
     super.key,
   });
 
   final String title;
   final Function() leadingOnTap;
+  final List<Widget>? actions;
+
   final String? desc;
 
   @override
@@ -22,6 +25,7 @@ class CustomAppBarWidget extends StatelessWidget
       centerTitle: true,
       backgroundColor: primaryColor,
       leadingWidth: screenWidth(context) / 4,
+      actions: actions,
       leading: GestureDetector(
         behavior: HitTestBehavior.translucent,
         onTap: leadingOnTap,

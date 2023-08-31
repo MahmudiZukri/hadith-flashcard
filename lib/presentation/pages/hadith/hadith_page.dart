@@ -50,6 +50,20 @@ class HadithPageScaffold extends StatelessWidget {
       appBar: CustomAppBarWidget(
         title: hadithNarrator.name.getOrCrash(),
         desc: '${hadithNarrator.total.getOrCrash()} hadiths',
+        actions: [
+          GestureDetector(
+            onTap: () => context.read<PageBloc>().add(
+                  GotoHomePage(
+                    userID: userID,
+                    pageIndex: 1,
+                  ),
+                ),
+            child: Icon(
+              MdiIcons.cardsOutline,
+            ),
+          ),
+          const SizedBox(width: 12.0),
+        ],
         leadingOnTap: () {
           // TODO: find out how to change the animation if we go to previous page like this event ( not really important )
           context.read<PageBloc>().add(
