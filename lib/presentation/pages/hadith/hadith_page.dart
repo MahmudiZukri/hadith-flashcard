@@ -209,13 +209,26 @@ class HadithPageScaffold extends StatelessWidget {
                                           child: Column(
                                             mainAxisSize: MainAxisSize.min,
                                             children: [
-                                              const SizedBox(height: 18.0),
+                                              const SizedBox(height: 20.0),
                                               Container(
-                                                height: 3,
-                                                width: 36.0,
-                                                color: lightGreyColor,
+                                                height: 5,
+                                                width: 44.0,
+                                                decoration: BoxDecoration(
+                                                  color: blackColor
+                                                      .withOpacity(0.1),
+                                                  borderRadius:
+                                                      mediumBorderRadius(),
+                                                ),
                                               ),
-                                              const SizedBox(height: 6.0),
+                                              const SizedBox(height: 20.0),
+                                              Text(
+                                                'Hadith ${hadithNarrator.name.getOrFailureText()} Number ${hadithNarrator.items![index].number.getOrCrash().toString()}',
+                                                style: primaryTextFont.copyWith(
+                                                  fontSize: 17.0,
+                                                  fontWeight: FontWeight.w600,
+                                                ),
+                                              ),
+                                              const SizedBox(height: 8.0),
                                               ListTile(
                                                 leading: SvgPicture.asset(
                                                   'assets/icon/add_icon.svg',
