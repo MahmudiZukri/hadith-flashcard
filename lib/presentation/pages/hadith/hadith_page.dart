@@ -78,7 +78,7 @@ class HadithPageScaffold extends StatelessWidget {
         builder: (context, hadithNarratorState) {
           return BlocListener<HadithFlashcardBloc, HadithFlashcardState>(
             listener: (context, hadithFlashcardState) {
-              hadithFlashcardState.optionFailureOrSaveFlashcardSuccess.match(
+              hadithFlashcardState.optionFailureOrSaveFlashcard.match(
                 () => null,
                 (either) => either.fold(
                   (l) {
@@ -255,7 +255,7 @@ class HadithPageScaffold extends StatelessWidget {
                                                                     .number,
                                                             question:
                                                                 UnemptyString(
-                                                              "What's the content of ${hadithNarrator.name.getOrCrash()} ${hadithNarrator.items![index].number.getOrCrash()}",
+                                                              "What's the content of ${hadithNarrator.name.getOrCrash()} ${hadithNarrator.items![index].number.getOrCrash()} ?",
                                                             ),
                                                             answer:
                                                                 hadithNarrator

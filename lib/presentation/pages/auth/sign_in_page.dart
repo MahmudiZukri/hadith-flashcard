@@ -168,7 +168,7 @@ class SignInPageScaffold extends StatelessWidget {
                                 isPasswordTextField: true,
                                 isEyeOpen: isSignInTextFieldObscure,
                                 eyeOnTap: () {
-                                  // do later
+                                  //TODO: Do later
                                   // context.read<PasswordTextFieldBloc>().add(
                                   //       const PasswordTextFieldEvent
                                   //           .signInTextFieldObsecureChanged(),

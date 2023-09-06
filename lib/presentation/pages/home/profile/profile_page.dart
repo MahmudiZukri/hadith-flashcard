@@ -52,11 +52,13 @@ class ProfilePage extends StatelessWidget {
                     ),
                   ),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          //TODO: change this to beautiful icon later
                           const CircleAvatar(
                             minRadius: 32.0,
                             backgroundColor: blackColor,
@@ -83,7 +85,10 @@ class ProfilePage extends StatelessWidget {
                       ),
                       const SizedBox(height: 24.0),
                       const CustomDivider(),
-                      // think about the content later here
+                      const SizedBox(height: 24.0),
+                      // TODO: think about the content later here
+
+                      Text('Language'),
                       // temp
                       const Spacer(),
                       const Text('About app'),

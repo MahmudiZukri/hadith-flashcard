@@ -36,7 +36,7 @@ class CustomFlipCard extends StatelessWidget {
             // : widget.cardModel.question,
             card.question.getOrFailureText(),
             style: blackTextFont.copyWith(
-              fontSize: 16,
+              fontSize: 15,
             ),
             textAlign: TextAlign.center,
           ),

@@ -37,13 +37,14 @@ class HomePage extends StatelessWidget {
             ),
         ),
         BlocProvider<HadithFlashcardBloc>(
-          create: (context) => getIt<HadithFlashcardBloc>()
-            ..add(
-              HadithFlashcardEvent.getFlashcard(
-                userID: userID,
-              ),
+            create: (context) => getIt<HadithFlashcardBloc>()
+              ..add(
+                HadithFlashcardEvent.getFlashcard(
+                  userID: userID,
+                ),
+              )
+            //TODO: find out how to get total flashcard to review today
             ),
-        ),
       ],
       child: HomePageScaffold(
         userID: userID,
@@ -120,6 +121,14 @@ class HomePageScaffold extends StatelessWidget {
                             ),
                             ReviewPage(
                               userID: userID,
+                              gotoNarratorPageOnPressed: () {
+                                pageController.jumpToPage(0);
+                                context.read<PageViewBloc>().add(
+                                      const PageViewEvent.pageViewChanged(
+                                        pageViewIndex: 0,
+                                      ),
+                                    );
+                              },
                             ),
                             ProfilePage(
                               userID: userID,
