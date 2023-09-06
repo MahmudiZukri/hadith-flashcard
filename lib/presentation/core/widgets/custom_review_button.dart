@@ -6,6 +6,7 @@ class CustomReviewButton extends StatelessWidget {
     required this.cardController,
     required this.quality,
     required this.onTap,
+    this.disabled = true,
     super.key,
   });
 
@@ -13,6 +14,7 @@ class CustomReviewButton extends StatelessWidget {
   final FlipCardController cardController;
   final int quality;
   final Function() onTap;
+  final bool disabled;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +25,11 @@ class CustomReviewButton extends StatelessWidget {
         width: ((screenWidth(context) - defaultMargin * 2) / 6) - 10,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16.0),
-          color: quality > 2 ? primaryColor : redColor,
+          color: disabled
+              ? greyColor
+              : quality > 2
+                  ? primaryColor
+                  : redColor,
         ),
         child: Center(
           child: Text(
