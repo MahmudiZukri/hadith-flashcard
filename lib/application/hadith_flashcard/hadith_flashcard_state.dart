@@ -3,21 +3,24 @@ part of 'hadith_flashcard_bloc.dart';
 @freezed
 class HadithFlashcardState with _$HadithFlashcardState {
   const factory HadithFlashcardState({
-    required Option<Either<CommonFailures, Unit>>
-        optionFailureOrSaveFlashcardSuccess,
+    required int flashcardToReviewLength,
+    required IList<HadithFlashcard> flashcards,
+    required Option<Either<CommonFailures, Unit>> optionFailureOrSaveFlashcard,
     required Option<Either<CommonFailures, IList<HadithFlashcard>>>
-        optionFailureOrGetFlashcardSuccess,
+        optionFailureOrGetFlashcard,
   }) = _HadithFlashcardState;
 
   factory HadithFlashcardState.initial() => HadithFlashcardState(
-        optionFailureOrSaveFlashcardSuccess: none(),
-        optionFailureOrGetFlashcardSuccess: none(),
+        flashcardToReviewLength: 0,
+        flashcards: <HadithFlashcard>[].lock,
+        optionFailureOrSaveFlashcard: none(),
+        optionFailureOrGetFlashcard: none(),
       );
 }
 
 extension HadithFlashcardStateX on HadithFlashcardState {
   IList<HadithFlashcard> get getFlashcardsToReview =>
-      optionFailureOrGetFlashcardSuccess.match(
+      optionFailureOrGetFlashcard.match(
         () => <HadithFlashcard>[].lock,
         (either) => either.fold(
           (l) => <HadithFlashcard>[].lock,

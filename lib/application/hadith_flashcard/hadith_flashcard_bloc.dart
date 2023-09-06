@@ -26,10 +26,10 @@ class HadithFlashcardBloc
     on<HadithFlashcardEvent>(
       (event, emit) async {
         await event.map(
-          resetFlashcardSnackBar: (value) {
+          resetFlashcardSnackBar: (_) {
             emit(
               state.copyWith(
-                optionFailureOrSaveFlashcardSuccess: none(),
+                optionFailureOrSaveFlashcard: none(),
               ),
             );
           },
@@ -66,7 +66,7 @@ class HadithFlashcardBloc
 
             emit(
               state.copyWith(
-                optionFailureOrSaveFlashcardSuccess: optionOf(
+                optionFailureOrSaveFlashcard: optionOf(
                   failureOrResponse,
                 ),
               ),
@@ -80,7 +80,7 @@ class HadithFlashcardBloc
 
             emit(
               state.copyWith(
-                optionFailureOrGetFlashcardSuccess: optionOf(
+                optionFailureOrGetFlashcard: optionOf(
                   failureOrResponse,
                 ),
               ),

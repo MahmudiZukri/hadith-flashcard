@@ -532,12 +532,12 @@ abstract class _ResetFlashcardSnackBar implements HadithFlashcardEvent {
 
 /// @nodoc
 mixin _$HadithFlashcardState {
-  Option<Either<CommonFailures, Unit>>
-      get optionFailureOrSaveFlashcardSuccess =>
-          throw _privateConstructorUsedError;
+  int get flashcardToReviewLength => throw _privateConstructorUsedError;
+  IList<HadithFlashcard> get flashcards => throw _privateConstructorUsedError;
+  Option<Either<CommonFailures, Unit>> get optionFailureOrSaveFlashcard =>
+      throw _privateConstructorUsedError;
   Option<Either<CommonFailures, IList<HadithFlashcard>>>
-      get optionFailureOrGetFlashcardSuccess =>
-          throw _privateConstructorUsedError;
+      get optionFailureOrGetFlashcard => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HadithFlashcardStateCopyWith<HadithFlashcardState> get copyWith =>
@@ -551,9 +551,11 @@ abstract class $HadithFlashcardStateCopyWith<$Res> {
       _$HadithFlashcardStateCopyWithImpl<$Res, HadithFlashcardState>;
   @useResult
   $Res call(
-      {Option<Either<CommonFailures, Unit>> optionFailureOrSaveFlashcardSuccess,
+      {int flashcardToReviewLength,
+      IList<HadithFlashcard> flashcards,
+      Option<Either<CommonFailures, Unit>> optionFailureOrSaveFlashcard,
       Option<Either<CommonFailures, IList<HadithFlashcard>>>
-          optionFailureOrGetFlashcardSuccess});
+          optionFailureOrGetFlashcard});
 }
 
 /// @nodoc
@@ -570,19 +572,27 @@ class _$HadithFlashcardStateCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? optionFailureOrSaveFlashcardSuccess = null,
-    Object? optionFailureOrGetFlashcardSuccess = null,
+    Object? flashcardToReviewLength = null,
+    Object? flashcards = null,
+    Object? optionFailureOrSaveFlashcard = null,
+    Object? optionFailureOrGetFlashcard = null,
   }) {
     return _then(_value.copyWith(
-      optionFailureOrSaveFlashcardSuccess: null ==
-              optionFailureOrSaveFlashcardSuccess
-          ? _value.optionFailureOrSaveFlashcardSuccess
-          : optionFailureOrSaveFlashcardSuccess // ignore: cast_nullable_to_non_nullable
+      flashcardToReviewLength: null == flashcardToReviewLength
+          ? _value.flashcardToReviewLength
+          : flashcardToReviewLength // ignore: cast_nullable_to_non_nullable
+              as int,
+      flashcards: null == flashcards
+          ? _value.flashcards
+          : flashcards // ignore: cast_nullable_to_non_nullable
+              as IList<HadithFlashcard>,
+      optionFailureOrSaveFlashcard: null == optionFailureOrSaveFlashcard
+          ? _value.optionFailureOrSaveFlashcard
+          : optionFailureOrSaveFlashcard // ignore: cast_nullable_to_non_nullable
               as Option<Either<CommonFailures, Unit>>,
-      optionFailureOrGetFlashcardSuccess: null ==
-              optionFailureOrGetFlashcardSuccess
-          ? _value.optionFailureOrGetFlashcardSuccess
-          : optionFailureOrGetFlashcardSuccess // ignore: cast_nullable_to_non_nullable
+      optionFailureOrGetFlashcard: null == optionFailureOrGetFlashcard
+          ? _value.optionFailureOrGetFlashcard
+          : optionFailureOrGetFlashcard // ignore: cast_nullable_to_non_nullable
               as Option<Either<CommonFailures, IList<HadithFlashcard>>>,
     ) as $Val);
   }
@@ -597,9 +607,11 @@ abstract class _$$_HadithFlashcardStateCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {Option<Either<CommonFailures, Unit>> optionFailureOrSaveFlashcardSuccess,
+      {int flashcardToReviewLength,
+      IList<HadithFlashcard> flashcards,
+      Option<Either<CommonFailures, Unit>> optionFailureOrSaveFlashcard,
       Option<Either<CommonFailures, IList<HadithFlashcard>>>
-          optionFailureOrGetFlashcardSuccess});
+          optionFailureOrGetFlashcard});
 }
 
 /// @nodoc
@@ -613,19 +625,27 @@ class __$$_HadithFlashcardStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? optionFailureOrSaveFlashcardSuccess = null,
-    Object? optionFailureOrGetFlashcardSuccess = null,
+    Object? flashcardToReviewLength = null,
+    Object? flashcards = null,
+    Object? optionFailureOrSaveFlashcard = null,
+    Object? optionFailureOrGetFlashcard = null,
   }) {
     return _then(_$_HadithFlashcardState(
-      optionFailureOrSaveFlashcardSuccess: null ==
-              optionFailureOrSaveFlashcardSuccess
-          ? _value.optionFailureOrSaveFlashcardSuccess
-          : optionFailureOrSaveFlashcardSuccess // ignore: cast_nullable_to_non_nullable
+      flashcardToReviewLength: null == flashcardToReviewLength
+          ? _value.flashcardToReviewLength
+          : flashcardToReviewLength // ignore: cast_nullable_to_non_nullable
+              as int,
+      flashcards: null == flashcards
+          ? _value.flashcards
+          : flashcards // ignore: cast_nullable_to_non_nullable
+              as IList<HadithFlashcard>,
+      optionFailureOrSaveFlashcard: null == optionFailureOrSaveFlashcard
+          ? _value.optionFailureOrSaveFlashcard
+          : optionFailureOrSaveFlashcard // ignore: cast_nullable_to_non_nullable
               as Option<Either<CommonFailures, Unit>>,
-      optionFailureOrGetFlashcardSuccess: null ==
-              optionFailureOrGetFlashcardSuccess
-          ? _value.optionFailureOrGetFlashcardSuccess
-          : optionFailureOrGetFlashcardSuccess // ignore: cast_nullable_to_non_nullable
+      optionFailureOrGetFlashcard: null == optionFailureOrGetFlashcard
+          ? _value.optionFailureOrGetFlashcard
+          : optionFailureOrGetFlashcard // ignore: cast_nullable_to_non_nullable
               as Option<Either<CommonFailures, IList<HadithFlashcard>>>,
     ));
   }
@@ -635,19 +655,24 @@ class __$$_HadithFlashcardStateCopyWithImpl<$Res>
 
 class _$_HadithFlashcardState implements _HadithFlashcardState {
   const _$_HadithFlashcardState(
-      {required this.optionFailureOrSaveFlashcardSuccess,
-      required this.optionFailureOrGetFlashcardSuccess});
+      {required this.flashcardToReviewLength,
+      required this.flashcards,
+      required this.optionFailureOrSaveFlashcard,
+      required this.optionFailureOrGetFlashcard});
 
   @override
-  final Option<Either<CommonFailures, Unit>>
-      optionFailureOrSaveFlashcardSuccess;
+  final int flashcardToReviewLength;
+  @override
+  final IList<HadithFlashcard> flashcards;
+  @override
+  final Option<Either<CommonFailures, Unit>> optionFailureOrSaveFlashcard;
   @override
   final Option<Either<CommonFailures, IList<HadithFlashcard>>>
-      optionFailureOrGetFlashcardSuccess;
+      optionFailureOrGetFlashcard;
 
   @override
   String toString() {
-    return 'HadithFlashcardState(optionFailureOrSaveFlashcardSuccess: $optionFailureOrSaveFlashcardSuccess, optionFailureOrGetFlashcardSuccess: $optionFailureOrGetFlashcardSuccess)';
+    return 'HadithFlashcardState(flashcardToReviewLength: $flashcardToReviewLength, flashcards: $flashcards, optionFailureOrSaveFlashcard: $optionFailureOrSaveFlashcard, optionFailureOrGetFlashcard: $optionFailureOrGetFlashcard)';
   }
 
   @override
@@ -655,19 +680,28 @@ class _$_HadithFlashcardState implements _HadithFlashcardState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_HadithFlashcardState &&
-            (identical(other.optionFailureOrSaveFlashcardSuccess,
-                    optionFailureOrSaveFlashcardSuccess) ||
-                other.optionFailureOrSaveFlashcardSuccess ==
-                    optionFailureOrSaveFlashcardSuccess) &&
-            (identical(other.optionFailureOrGetFlashcardSuccess,
-                    optionFailureOrGetFlashcardSuccess) ||
-                other.optionFailureOrGetFlashcardSuccess ==
-                    optionFailureOrGetFlashcardSuccess));
+            (identical(
+                    other.flashcardToReviewLength, flashcardToReviewLength) ||
+                other.flashcardToReviewLength == flashcardToReviewLength) &&
+            const DeepCollectionEquality()
+                .equals(other.flashcards, flashcards) &&
+            (identical(other.optionFailureOrSaveFlashcard,
+                    optionFailureOrSaveFlashcard) ||
+                other.optionFailureOrSaveFlashcard ==
+                    optionFailureOrSaveFlashcard) &&
+            (identical(other.optionFailureOrGetFlashcard,
+                    optionFailureOrGetFlashcard) ||
+                other.optionFailureOrGetFlashcard ==
+                    optionFailureOrGetFlashcard));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType,
-      optionFailureOrSaveFlashcardSuccess, optionFailureOrGetFlashcardSuccess);
+  int get hashCode => Object.hash(
+      runtimeType,
+      flashcardToReviewLength,
+      const DeepCollectionEquality().hash(flashcards),
+      optionFailureOrSaveFlashcard,
+      optionFailureOrGetFlashcard);
 
   @JsonKey(ignore: true)
   @override
@@ -679,16 +713,22 @@ class _$_HadithFlashcardState implements _HadithFlashcardState {
 
 abstract class _HadithFlashcardState implements HadithFlashcardState {
   const factory _HadithFlashcardState(
-      {required final Option<Either<CommonFailures, Unit>>
-          optionFailureOrSaveFlashcardSuccess,
+      {required final int flashcardToReviewLength,
+      required final IList<HadithFlashcard> flashcards,
+      required final Option<Either<CommonFailures, Unit>>
+          optionFailureOrSaveFlashcard,
       required final Option<Either<CommonFailures, IList<HadithFlashcard>>>
-          optionFailureOrGetFlashcardSuccess}) = _$_HadithFlashcardState;
+          optionFailureOrGetFlashcard}) = _$_HadithFlashcardState;
 
   @override
-  Option<Either<CommonFailures, Unit>> get optionFailureOrSaveFlashcardSuccess;
+  int get flashcardToReviewLength;
+  @override
+  IList<HadithFlashcard> get flashcards;
+  @override
+  Option<Either<CommonFailures, Unit>> get optionFailureOrSaveFlashcard;
   @override
   Option<Either<CommonFailures, IList<HadithFlashcard>>>
-      get optionFailureOrGetFlashcardSuccess;
+      get optionFailureOrGetFlashcard;
   @override
   @JsonKey(ignore: true)
   _$$_HadithFlashcardStateCopyWith<_$_HadithFlashcardState> get copyWith =>
