@@ -78,8 +78,8 @@ TextStyle whiteTextFont = const TextStyle(
   color: whiteColor,
 );
 
-TextStyle redTextFont = TextStyle(
-  color: Colors.red[500],
+TextStyle redTextFont = const TextStyle(
+  color: redColor,
 );
 
 TextStyle lightWhiteTextFont = const TextStyle(

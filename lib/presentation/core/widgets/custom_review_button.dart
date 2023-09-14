@@ -19,7 +19,7 @@ class CustomReviewButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
+      onTap: disabled ? () {} : onTap,
       child: Container(
         height: 44,
         width: ((screenWidth(context) - defaultMargin * 2) / 6) - 10,

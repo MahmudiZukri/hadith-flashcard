@@ -85,7 +85,7 @@ class HadithPageScaffold extends StatelessWidget {
                     final snackBar = SnackBar(
                       backgroundColor: Colors.red,
                       duration: const Duration(
-                        milliseconds: 1500,
+                        milliseconds: 1700,
                       ),
                       content: Text(
                         'Something went wrong (${l.message})',
@@ -101,21 +101,42 @@ class HadithPageScaffold extends StatelessWidget {
                         );
                   },
                   (r) {
-                    const snackBar = SnackBar(
+                    final snackBar = SnackBar(
                       backgroundColor: primaryColor,
-                      duration: Duration(
-                        milliseconds: 1500,
+                      duration: const Duration(
+                        milliseconds: 1700,
                       ),
                       content: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Icon(
-                            Icons.check_circle,
-                            color: whiteColor,
+                          const Row(
+                            children: [
+                              Icon(
+                                Icons.check_circle,
+                                color: whiteColor,
+                              ),
+                              SizedBox(width: 12.0),
+                              Text(
+                                'Flashcard added successfully !',
+                              ),
+                            ],
                           ),
-                          SizedBox(width: 12.0),
-                          Text(
-                            'Flashcard added successfully !',
-                          ),
+                          GestureDetector(
+                            onTap: () {
+                              ScaffoldMessenger.of(context)
+                                  .hideCurrentSnackBar();
+
+                              context.read<PageBloc>().add(
+                                    GotoHomePage(
+                                      userID: userID,
+                                      pageIndex: 1,
+                                    ),
+                                  );
+                            },
+                            child: const Text(
+                              'Review card',
+                            ),
+                          )
                         ],
                       ),
                     );

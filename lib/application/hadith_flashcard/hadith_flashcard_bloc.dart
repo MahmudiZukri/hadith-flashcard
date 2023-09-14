@@ -69,6 +69,9 @@ class HadithFlashcardBloc
                 optionFailureOrSaveFlashcard: optionOf(
                   failureOrResponse,
                 ),
+                flashcardToReviewLength: failureOrResponse.isRight()
+                    ? state.flashcardToReviewLength + 1
+                    : state.flashcardToReviewLength,
               ),
             );
           },
@@ -83,6 +86,12 @@ class HadithFlashcardBloc
                 optionFailureOrGetFlashcard: optionOf(
                   failureOrResponse,
                 ),
+              ),
+            );
+
+            emit(
+              state.copyWith(
+                flashcardToReviewLength: state.getFlashcardsToReview.length,
               ),
             );
           },

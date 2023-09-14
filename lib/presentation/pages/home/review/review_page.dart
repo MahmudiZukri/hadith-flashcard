@@ -29,8 +29,6 @@ class ReviewPage extends StatelessWidget {
                 l.message,
               ),
               (flashcards) {
-                final flashcardsToReviewLength =
-                    hadithFlashcardState.getFlashcardsToReview.length;
                 final flashcardIsEmpty = flashcards == <HadithFlashcard>[].lock;
                 final flashcardToReviewIsEmpty =
                     hadithFlashcardState.getFlashcardsToReview ==
@@ -87,7 +85,7 @@ class ReviewPage extends StatelessWidget {
                       ],
                     ),
                     Text(
-                      flashcardsToReviewLength.toString(),
+                      hadithFlashcardState.flashcardToReviewLength.toString(),
                     ),
                     flashcardIsEmpty
                         ? CustomContainer(
@@ -95,8 +93,12 @@ class ReviewPage extends StatelessWidget {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
+                                Lottie.asset(
+                                  'assets/lottie/empty_flashcards.json',
+                                  height: screenWidth(context) / 2.4,
+                                ),
+                                const SizedBox(height: 40),
                                 Text(
-                                  // TODO: add lottie animation later here
                                   "You don't have any flashcard",
                                   textAlign: TextAlign.center,
                                   style: blackTextFont.copyWith(
@@ -122,8 +124,12 @@ class ReviewPage extends StatelessWidget {
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
+                                    Lottie.asset(
+                                      'assets/lottie/empty_flashcards.json',
+                                      height: screenWidth(context) / 2.4,
+                                    ),
+                                    const SizedBox(height: 40),
                                     Text(
-                                      // TODO: add lottie animation later here
                                       "You don't have flashcards to review :(",
                                       textAlign: TextAlign.center,
                                       style: blackTextFont.copyWith(

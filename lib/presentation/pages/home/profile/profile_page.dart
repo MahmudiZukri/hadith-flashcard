@@ -54,55 +54,107 @@ class ProfilePage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          //TODO: change this to beautiful icon later
-                          const CircleAvatar(
-                            minRadius: 32.0,
-                            backgroundColor: blackColor,
-                          ),
-                          const SizedBox(width: 20.0),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                userState.user?.name.getOrNull() ??
-                                    'You are in guest mode',
-                                style: blackTextFont.copyWith(
-                                  fontWeight: FontWeight.bold,
+                      IntrinsicHeight(
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            //TODO: change this to beautiful icon later
+                            const CircleAvatar(
+                              minRadius: 32.0,
+                              backgroundColor: blackColor,
+                            ),
+                            const SizedBox(width: 20.0),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  userState.user?.name.getOrNull() ??
+                                      'You are in guest mode',
+                                  style: blackTextFont.copyWith(
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
+                                const SizedBox(height: 3.0),
+                                Text(
+                                  userState.user?.email.getOrNull() ?? '',
+                                  style: greyTextFont,
+                                ),
+                              ],
+                            ),
+                            const Spacer(),
+                            GestureDetector(
+                              onTap: () {
+                                // TODO: create edit profile page later
+                              },
+                              child: const Icon(
+                                Icons.edit,
                               ),
-                              Text(
-                                userState.user?.email.getOrNull() ?? '',
-                                style: blackTextFont,
-                              ),
-                            ],
-                          )
-                        ],
+                            )
+                          ],
+                        ),
                       ),
                       const SizedBox(height: 24.0),
                       const CustomDivider(),
                       const SizedBox(height: 24.0),
-                      // TODO: think about the content later here
 
-                      Text('Language'),
-                      // temp
-                      const Spacer(),
-                      const Text('About app'),
-                      TextButton(
-                        onPressed: () {
-                          context.read<AuthBloc>().add(
-                                const AuthEvent.signOut(),
-                              );
-                        },
-                        child: Text(
-                          'Sign Out',
-                          style: redTextFont,
+                      // TODO: think about the content later here
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                GestureDetector(
+                                  onTap: () {
+                                    // TODO: implement later
+                                  },
+                                  child: const Text(
+                                    'Language',
+                                  ),
+                                ),
+                                GestureDetector(
+                                  onTap: () {
+                                    // TODO: implement later
+                                  },
+                                  child: const Text(
+                                    'About app',
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Center(
+                              child: Container(
+                                width: double.infinity,
+                                decoration: BoxDecoration(
+                                  color: redColor.withOpacity(0.2),
+                                  border: Border.all(
+                                    width: 2,
+                                    color: redColor,
+                                  ),
+                                  borderRadius: largeBorderRadius(),
+                                ),
+                                child: TextButton(
+                                  onPressed: () {
+                                    context.read<AuthBloc>().add(
+                                          const AuthEvent.signOut(),
+                                        );
+                                  },
+                                  child: Text(
+                                    'Sign Out',
+                                    style: redTextFont.copyWith(
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
+
                       const SizedBox(height: 10.0),
 
                       // mungkin nanti kita tambahkan seberapa banyak yang udah dihafalkan dia dsini
