@@ -252,7 +252,7 @@ class HadithPageScaffold extends StatelessWidget {
                                               const SizedBox(height: 8.0),
                                               ListTile(
                                                 leading: SvgPicture.asset(
-                                                  'assets/icon/add_icon.svg',
+                                                  AssetUrl.addIcon,
                                                   height: 26.0,
                                                   color: primaryColor,
                                                 ),
@@ -305,7 +305,7 @@ class HadithPageScaffold extends StatelessWidget {
                                               ),
                                               ListTile(
                                                 leading: SvgPicture.asset(
-                                                  'assets/icon/close_icon.svg',
+                                                  AssetUrl.closeIcon,
                                                   height: 26.0,
                                                   color: primaryColor,
                                                 ),

@@ -250,7 +250,7 @@ class SignInPageScaffold extends StatelessWidget {
                                   text: 'Facebook',
                                   backgroundColor: facebookColor,
                                   icon: SvgPicture.asset(
-                                    'assets/icon/facebook.svg',
+                                    AssetUrl.facebookIcon,
                                     color: whiteColor,
                                     height: 18,
                                   ),
@@ -266,7 +266,7 @@ class SignInPageScaffold extends StatelessWidget {
                                   text: 'Gmail',
                                   backgroundColor: googleColor,
                                   icon: SvgPicture.asset(
-                                    'assets/icon/google.svg',
+                                    AssetUrl.googleIcon,
                                     color: whiteColor,
                                     height: 18,
                                   ),

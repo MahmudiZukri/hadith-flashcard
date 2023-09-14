@@ -94,7 +94,7 @@ class ReviewPage extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Lottie.asset(
-                                  'assets/lottie/empty_flashcards.json',
+                                  AssetUrl.emptyFlashcardLottie,
                                   height: screenWidth(context) / 2.4,
                                 ),
                                 const SizedBox(height: 40),
@@ -125,7 +125,7 @@ class ReviewPage extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Lottie.asset(
-                                      'assets/lottie/empty_flashcards.json',
+                                      AssetUrl.emptyFlashcardLottie,
                                       height: screenWidth(context) / 2.4,
                                     ),
                                     const SizedBox(height: 40),

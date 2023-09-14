@@ -35,6 +35,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  easy_localization: ^3.0.3
   firebase_core: ^2.3.0
   fpdart: ^0.6.0
   freezed_annotation: ^2.2.0
@@ -44,7 +45,7 @@ dependencies:
   bloc: ^8.1.0
   flutter_bloc: ^8.1.1
   get_it: ^7.2.0
-  intl: ^0.18.1
+  intl: ^0.18.0
   cloud_firestore: ^4.2.0
   firebase_analytics: ^10.0.7
   equatable: ^2.0.5
@@ -91,6 +92,9 @@ flutter:
     - assets/
     - assets/icon/
     - assets/lottie/
+    - assets/localization/
+    - assets/flag/
+
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
