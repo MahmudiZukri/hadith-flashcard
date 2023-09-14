@@ -15,4 +15,6 @@ abstract class AssetUrl {
       '$_assetLottie/empty_flashcards.json';
 
   // flag
+  static const String indonesiaFlag = '$_assetFlag/indonesia.png';
+  static const String unitedStatesFlag = '$_assetFlag/united-states.png';
 }

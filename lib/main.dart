@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -19,6 +20,7 @@ void main() async {
     Environment.prod,
   );
   await Firebase.initializeApp(
+    // TODO: find out later
     // options: const FirebaseOptions(
     //   apiKey: 'AIzaSyDY_bUSdCWDf3idRHStG1YfPPo5owesg48',
     //   appId: '1:988688359058:android:09e23bc6cab1f3fc58d04b',
@@ -28,7 +30,15 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp(
-    const MyApp(),
+    EasyLocalization(
+      supportedLocales: const [
+        Locale('id'),
+        Locale('en', 'US'),
+      ],
+      path: 'assets/localization',
+      startLocale: const Locale('id'),
+      child: const MyApp(),
+    ),
   );
 }
 

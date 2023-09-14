@@ -45,6 +45,7 @@ class HomePage extends StatelessWidget {
               )
             //TODO: find out how to get total flashcard to review today
             ),
+        BlocProvider<SettingBloc>(create: (context) => getIt<SettingBloc>()),
       ],
       child: HomePageScaffold(
         userID: userID,
