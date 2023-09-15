@@ -175,6 +175,7 @@ class SignUpPageScaffold extends StatelessWidget {
                                           state.password == Password('')
                                       ? 0.5
                                       : 1,
+                                  // TODO : adjust disabled button style
                                   child: CustomElevatedButtonWidget(
                                     text: 'Sign Up',
                                     isActive: state.email != EmailAddress('') &&

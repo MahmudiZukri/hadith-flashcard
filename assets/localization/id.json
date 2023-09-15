@@ -1,0 +1,12 @@
+{
+    "welcome" : "Selamat datang!",
+    "somethingWentWrong": "Terjadi kesalahan",
+    "enterYourEmail": "Masukkan email anda",
+    "password": "Kata sandi",
+    "enterYourPassword" : "Masukkan kata sandi anda",
+    "forgotPassword": "Lupa sandi?",
+    "signIn": "Masuk",
+    "or": "Atau",
+    "don'tHaveAnAccountYet" : "Belum punya akun?",
+    "register": "Daftar"
+}

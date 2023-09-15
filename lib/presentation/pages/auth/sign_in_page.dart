@@ -110,7 +110,8 @@ class SignInPageScaffold extends StatelessWidget {
                                 content: Text(
                                   f.maybeMap(
                                     handledByFirebase: (s) => s.message,
-                                    orElse: () => 'Something went wrong ($f).',
+                                    orElse: () =>
+                                        '${'somethingWentWrong'.tr()}($f).',
                                   ),
                                 ),
                               ),
@@ -130,17 +131,17 @@ class SignInPageScaffold extends StatelessWidget {
                           SizedBox(height: screenHeight(context) / 16),
                           keyboardSize(context) == 0
                               ? Text(
-                                  'Welcome!',
+                                  'welcome',
                                   style: blackTextFont.copyWith(
                                     fontSize: 24,
                                     fontWeight: FontWeight.bold,
                                   ),
-                                )
+                                ).tr()
                               : const SizedBox(),
                           const SizedBox(height: 30.0),
                           CustomTextFormFieldWidget(
                             labelText: 'Email',
-                            hintText: 'Enter your email',
+                            hintText: 'enterYourEmail'.tr(),
                             onChanged: (val) => context.read<AuthBloc>().add(
                                   AuthEvent.emailChanged(
                                     emailStr: val,
@@ -155,8 +156,8 @@ class SignInPageScaffold extends StatelessWidget {
                             selector: (state) => state.isSignInTextFieldObscure,
                             builder: (context, isSignInTextFieldObscure) {
                               return CustomTextFormFieldWidget(
-                                labelText: 'Password',
-                                hintText: 'Enter your password',
+                                labelText: 'password'.tr(),
+                                hintText: 'enterYourPassword'.tr(),
                                 onChanged: (val) =>
                                     context.read<AuthBloc>().add(
                                           AuthEvent.passwordChanged(
@@ -168,7 +169,7 @@ class SignInPageScaffold extends StatelessWidget {
                                 isPasswordTextField: true,
                                 isEyeOpen: isSignInTextFieldObscure,
                                 eyeOnTap: () {
-                                  //TODO: Do later
+                                  //TODO: do later
                                   // context.read<PasswordTextFieldBloc>().add(
                                   //       const PasswordTextFieldEvent
                                   //           .signInTextFieldObsecureChanged(),
@@ -187,9 +188,9 @@ class SignInPageScaffold extends StatelessWidget {
                                     );
                               },
                               child: Text(
-                                'Forgot password?',
+                                'forgotPassword',
                                 style: greyTextFont.copyWith(fontSize: 12.0),
-                              ),
+                              ).tr(),
                             ),
                           ),
                           const SizedBox(height: 16.0),
@@ -201,8 +202,9 @@ class SignInPageScaffold extends StatelessWidget {
                                           state.password == Password('')
                                       ? 0.5
                                       : 1,
+                                  // TODO : adjust disabled button style
                                   child: CustomElevatedButtonWidget(
-                                    text: 'Sign In',
+                                    text: 'signIn'.tr(),
                                     isActive: state.email != EmailAddress('') &&
                                         state.password != Password(''),
                                     backgroundColor: primaryColor,
@@ -230,7 +232,7 @@ class SignInPageScaffold extends StatelessWidget {
                                   horizontal: 8.0,
                                 ),
                                 child: Text(
-                                  'Or',
+                                  'or'.tr(),
                                   style: greyTextFont.copyWith(fontSize: 12),
                                 ),
                               ),
@@ -257,7 +259,9 @@ class SignInPageScaffold extends StatelessWidget {
                                   textStyle: whiteTextFont.copyWith(
                                     fontWeight: FontWeight.w500,
                                   ),
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    // TODO : implement later
+                                  },
                                 ),
                               ),
                               const SizedBox(width: 18),
@@ -273,7 +277,9 @@ class SignInPageScaffold extends StatelessWidget {
                                   textStyle: whiteTextFont.copyWith(
                                     fontWeight: FontWeight.w500,
                                   ),
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    // TODO : implement later
+                                  },
                                 ),
                               ),
                             ],
@@ -282,11 +288,11 @@ class SignInPageScaffold extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                "Don't have an account yet?",
+                                "don'tHaveAnAccountYet",
                                 style: secondaryTextFont.copyWith(
                                   fontSize: 12.0,
                                 ),
-                              ),
+                              ).tr(),
                               Padding(
                                 padding: const EdgeInsets.symmetric(
                                   horizontal: 4,
@@ -297,12 +303,12 @@ class SignInPageScaffold extends StatelessWidget {
                                         GotoSignUpPage(),
                                       ),
                                   child: Text(
-                                    'Register',
+                                    'register',
                                     style: primaryTextFont.copyWith(
                                       fontSize: 12.0,
                                       decoration: TextDecoration.underline,
                                     ),
-                                  ),
+                                  ).tr(),
                                 ),
                               ),
                             ],

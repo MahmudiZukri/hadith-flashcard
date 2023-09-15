@@ -1,0 +1,12 @@
+{
+    "welcome" : "Welcome!",
+    "somethingWentWrong": "Something went wrong",
+    "enterYourEmail": "Enter your email",
+    "password": "Password",
+    "enterYourPassword" : "Enter your password",
+    "forgotPassword": "Forgot password?",
+    "signIn": "Sign In",
+    "or": "Or",
+    "don'tHaveAnAccountYet" : "Don't have an account yet?",
+    "register": "Register"
+}

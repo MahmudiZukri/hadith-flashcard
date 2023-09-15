@@ -6,7 +6,7 @@ class SettingState with _$SettingState {
     required ELanguage selectedLang,
   }) = _SettingState;
 
-  factory SettingState.initial() => SettingState(
+  factory SettingState.initial() => const SettingState(
         selectedLang: ELanguage.indonesia,
       );
 }

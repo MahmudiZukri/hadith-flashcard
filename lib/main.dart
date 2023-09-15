@@ -29,6 +29,7 @@ void main() async {
     // ),
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  await EasyLocalization.ensureInitialized();
   runApp(
     EasyLocalization(
       supportedLocales: const [
@@ -69,6 +70,9 @@ class MyApp extends StatelessWidget {
 
           return MaterialApp(
             debugShowCheckedModeBanner: false,
+            localizationsDelegates: context.localizationDelegates,
+            supportedLocales: context.supportedLocales,
+            locale: context.locale,
             title: 'Hadith Flashcard',
             theme: ThemeData(
               textTheme: GoogleFonts.poppinsTextTheme(),
