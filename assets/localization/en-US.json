@@ -1,5 +1,5 @@
 {
-    "welcome" : "Welcome!",
+    "welcome" : "Welcome !",
     "somethingWentWrong": "Something went wrong",
     "enterYourEmail": "Enter your email",
     "password": "Password",
@@ -8,5 +8,10 @@
     "signIn": "Sign In",
     "or": "Or",
     "don'tHaveAnAccountYet" : "Don't have an account yet?",
-    "register": "Register"
+    "register": "Register",
+    "createAnAccount":"Create an account",
+    "name" : "Name",
+    "enterYourName": "Enter your name",
+    "signUp" : "Sign Up",
+    "alreadyHaveAnAccount": "Already have an account?"
 }

@@ -1,5 +1,5 @@
 {
-    "welcome" : "Selamat datang!",
+    "welcome" : "Selamat datang !",
     "somethingWentWrong": "Terjadi kesalahan",
     "enterYourEmail": "Masukkan email anda",
     "password": "Kata sandi",
@@ -8,5 +8,10 @@
     "signIn": "Masuk",
     "or": "Atau",
     "don'tHaveAnAccountYet" : "Belum punya akun?",
-    "register": "Daftar"
+    "register": "Daftar",
+    "createAnAccount":"Daftar akun",
+    "name" : "Nama",
+    "enterYourName": "Masukkan nama Anda",
+    "signUp" : "Daftar",
+    "alreadyHaveAnAccount": "Sudah punya akun?"
 }

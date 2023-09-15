@@ -103,7 +103,8 @@ class SignUpPageScaffold extends StatelessWidget {
                                 content: Text(
                                   f.maybeMap(
                                     handledByFirebase: (s) => s.message,
-                                    orElse: () => 'Something went wrong ($f).',
+                                    orElse: () =>
+                                        '${'somethingWentWrong'.tr()}($f).',
                                   ),
                                 ),
                               ),
@@ -123,17 +124,17 @@ class SignUpPageScaffold extends StatelessWidget {
                           SizedBox(height: screenHeight(context) / 16),
                           keyboardSize(context) == 0
                               ? Text(
-                                  'Create an account.',
+                                  'createAnAccount',
                                   style: blackTextFont.copyWith(
                                     fontSize: 24,
                                     fontWeight: FontWeight.bold,
                                   ),
-                                )
+                                ).tr()
                               : const SizedBox(),
                           const SizedBox(height: 30.0),
                           CustomTextFormFieldWidget(
-                            labelText: 'Name',
-                            hintText: 'Enter your name',
+                            labelText: 'name'.tr(),
+                            hintText: 'enterYourName'.tr(),
                             onChanged: (val) => context.read<AuthBloc>().add(
                                   AuthEvent.nameChanged(
                                     nameStr: val,
@@ -145,7 +146,7 @@ class SignUpPageScaffold extends StatelessWidget {
                           const SizedBox(height: 16.0),
                           CustomTextFormFieldWidget(
                             labelText: 'Email',
-                            hintText: 'Enter your email',
+                            hintText: 'enterYourEmail'.tr(),
                             onChanged: (val) => context.read<AuthBloc>().add(
                                   AuthEvent.emailChanged(
                                     emailStr: val,
@@ -156,8 +157,8 @@ class SignUpPageScaffold extends StatelessWidget {
                           ),
                           const SizedBox(height: 16.0),
                           CustomTextFormFieldWidget(
-                            labelText: 'Password',
-                            hintText: 'Enter your password',
+                            labelText: 'password'.tr(),
+                            hintText: 'enterYourPassword'.tr(),
                             onChanged: (val) => context.read<AuthBloc>().add(
                                   AuthEvent.passwordChanged(
                                     passwordStr: val,
@@ -177,7 +178,7 @@ class SignUpPageScaffold extends StatelessWidget {
                                       : 1,
                                   // TODO : adjust disabled button style
                                   child: CustomElevatedButtonWidget(
-                                    text: 'Sign Up',
+                                    text: 'signUp'.tr(),
                                     isActive: state.email != EmailAddress('') &&
                                         state.password != Password(''),
                                     backgroundColor: primaryColor,
@@ -205,9 +206,9 @@ class SignUpPageScaffold extends StatelessWidget {
                                   horizontal: 8.0,
                                 ),
                                 child: Text(
-                                  'Or',
+                                  'or',
                                   style: greyTextFont.copyWith(fontSize: 12),
-                                ),
+                                ).tr(),
                               ),
                               Expanded(
                                 child: Container(
@@ -248,7 +249,9 @@ class SignUpPageScaffold extends StatelessWidget {
                                   textStyle: whiteTextFont.copyWith(
                                     fontWeight: FontWeight.w500,
                                   ),
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    // TODO : implement later
+                                  },
                                 ),
                               ),
                             ],
@@ -257,11 +260,11 @@ class SignUpPageScaffold extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                'Already have an account?',
+                                'alreadyHaveAnAccount',
                                 style: secondaryTextFont.copyWith(
                                   fontSize: 12.0,
                                 ),
-                              ),
+                              ).tr(),
                               Padding(
                                 padding: const EdgeInsets.symmetric(
                                   horizontal: 4,
@@ -272,12 +275,12 @@ class SignUpPageScaffold extends StatelessWidget {
                                         GotoSignInPage(),
                                       ),
                                   child: Text(
-                                    'Sign In',
+                                    'signIn',
                                     style: primaryTextFont.copyWith(
                                       fontSize: 12.0,
                                       decoration: TextDecoration.underline,
                                     ),
-                                  ),
+                                  ).tr(),
                                 ),
                               ),
                             ],
