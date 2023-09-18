@@ -37,6 +37,7 @@ class ReviewPage extends StatelessWidget {
                 return Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
+                    //TODO: fix bar later
                     Stack(
                       children: [
                         Container(
