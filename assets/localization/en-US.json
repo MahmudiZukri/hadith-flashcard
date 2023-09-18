@@ -13,5 +13,16 @@
     "name" : "Name",
     "enterYourName": "Enter your name",
     "signUp" : "Sign Up",
-    "alreadyHaveAnAccount": "Already have an account?"
+    "alreadyHaveAnAccount": "Already have an account?",
+    "hadithNarrators" : "Hadith Narrators",
+    "youDon'tHaveAnyFlashcard" : "You don't have any flashcard",
+    "addYourFlashcard": "Add Your Flashcard",
+    "youDon'tHaveFlashcardsToReview" : "You don't have flashcards to review today :(",
+    "addMoreFlashcards" : "Add More Flashcards",
+    "profile": "Profile",
+    "youAreInGuestMode": "You are in guest mode",
+    "language": "Language",
+    "aboutApp" : "About app",
+    "chooseLanguage": "Choose language :",
+    "signOut" : "Sign Out"
 }

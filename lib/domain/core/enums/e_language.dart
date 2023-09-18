@@ -3,7 +3,7 @@ part of 'enums.dart';
 enum ELanguage { indonesia, english }
 
 extension ELanguageX on ELanguage {
-  static const index = {
+  static const indexes = {
     ELanguage.indonesia: 0,
     ELanguage.english: 1,
   };
@@ -13,10 +13,24 @@ extension ELanguageX on ELanguage {
     ELanguage.english: 'English US',
   };
 
-  static const images = {
+  static const locales = {
+    ELanguage.indonesia: 'id',
+    ELanguage.english: 'en_US',
+  };
+
+  static const imageUrls = {
     ELanguage.indonesia: AssetUrl.indonesiaFlag,
     ELanguage.english: AssetUrl.unitedStatesFlag,
   };
 
-  String? get imageUrl => images[this];
+  static const questionPrefixes = {
+    ELanguage.indonesia: 'Apa bunyi dari',
+    ELanguage.english: 'What is the content of',
+  };
+
+  int get index => indexes[this] ?? 0;
+  String get name => names[this] ?? 'Indonesia';
+  String get imageUrl => imageUrls[this] ?? AssetUrl.indonesiaFlag;
+  String get locale => locales[this] ?? 'id';
+  String get questionPrefix => questionPrefixes[this] ?? 'Apa bunyi dari';
 }

@@ -9,6 +9,7 @@ abstract class AssetUrl {
   static const String closeIcon = '$_assetIcon/close_icon.svg';
   static const String googleIcon = '$_assetIcon/google.svg';
   static const String facebookIcon = '$_assetIcon/facebook.svg';
+  static const String profileIcon = '$_assetIcon/profile_icon.svg';
 
   // lottie
   static const String emptyFlashcardLottie =
