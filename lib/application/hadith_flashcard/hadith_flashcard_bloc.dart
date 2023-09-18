@@ -49,8 +49,7 @@ class HadithFlashcardBloc
             cardModel = HadithFlashcardModel(
               hadithNarratorName: e.flashcard.hadithNarratorName.getOrCrash(),
               hadithNumber: e.flashcard.hadithNumber.getOrCrash().toInt(),
-              question: e.flashcard.question.getOrCrash(),
-              answer: e.flashcard.answer.getOrCrash(),
+              arab: e.flashcard.arab.getOrCrash(),
               translation: e.flashcard.translation.getOrCrash(),
               interval: smResponse?.interval ?? e.flashcard.interval,
               repetition: smResponse?.interval ?? e.flashcard.interval,

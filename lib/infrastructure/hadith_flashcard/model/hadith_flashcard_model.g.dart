@@ -11,8 +11,7 @@ _$_HadithFlashcardModel _$$_HadithFlashcardModelFromJson(
     _$_HadithFlashcardModel(
       hadithNarratorName: json['hadithNarratorName'] as String,
       hadithNumber: json['hadithNumber'] as int,
-      question: json['question'] as String,
-      answer: json['answer'] as String,
+      arab: json['arab'] as String,
       translation: json['translation'] as String,
       interval: json['interval'] as int,
       repetition: json['repetition'] as int,
@@ -25,8 +24,7 @@ Map<String, dynamic> _$$_HadithFlashcardModelToJson(
     <String, dynamic>{
       'hadithNarratorName': instance.hadithNarratorName,
       'hadithNumber': instance.hadithNumber,
-      'question': instance.question,
-      'answer': instance.answer,
+      'arab': instance.arab,
       'translation': instance.translation,
       'interval': instance.interval,
       'repetition': instance.repetition,

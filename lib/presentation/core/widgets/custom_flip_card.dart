@@ -4,11 +4,12 @@ class CustomFlipCard extends StatelessWidget {
   const CustomFlipCard({
     required this.card,
     required this.controller,
+    required this.selectedLanguage,
     super.key,
   });
-
   final HadithFlashcard card;
   final FlipCardController controller;
+  final ELanguage selectedLanguage;
 
   @override
   Widget build(BuildContext context) {
@@ -20,21 +21,7 @@ class CustomFlipCard extends StatelessWidget {
         color: whiteColor,
         child: Center(
           child: Text(
-            // TODO: implement localizations later
-
-            // (context.locale.toString() == 'en_US' &&
-            //         widget.cardModel.question[0] == 'A')
-            //     ? widget.cardModel.question
-            //         .replaceAll('Apa bunyi dari', 'What is the content of')
-            //     : (context.locale.toString() == 'id' &&
-            //             widget.cardModel.question[0] == 'W')
-            //         ? widget.cardModel.question
-            //             .replaceAll(
-            // 'What is the content of',
-            // 'Apa bunyi dari',
-            // )
-            // : widget.cardModel.question,
-            card.question.getOrFailureText(),
+            '${selectedLanguage.questionPrefix} ${card.hadithNarratorName.getOrFailureText()} ${card.hadithNumber.getOrZero()} ?',
             style: blackTextFont.copyWith(
               fontSize: 15,
             ),
@@ -44,13 +31,12 @@ class CustomFlipCard extends StatelessWidget {
       ),
       back: RawScrollbar(
         child: CustomContainer(
-          // color: primaryColor,
           color: whiteColor,
           child: Center(
             child: SingleChildScrollView(
               physics: const BouncingScrollPhysics(),
               child: Text(
-                card.answer.getOrFailureText(),
+                card.arab.getOrFailureText(),
                 style: blackTextFont.copyWith(
                   fontSize: 24,
                 ),

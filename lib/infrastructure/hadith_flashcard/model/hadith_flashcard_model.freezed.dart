@@ -22,8 +22,7 @@ HadithFlashcardModel _$HadithFlashcardModelFromJson(Map<String, dynamic> json) {
 mixin _$HadithFlashcardModel {
   String get hadithNarratorName => throw _privateConstructorUsedError;
   int get hadithNumber => throw _privateConstructorUsedError;
-  String get question => throw _privateConstructorUsedError;
-  String get answer => throw _privateConstructorUsedError;
+  String get arab => throw _privateConstructorUsedError;
   String get translation => throw _privateConstructorUsedError;
   int get interval => throw _privateConstructorUsedError;
   int get repetition => throw _privateConstructorUsedError;
@@ -45,8 +44,7 @@ abstract class $HadithFlashcardModelCopyWith<$Res> {
   $Res call(
       {String hadithNarratorName,
       int hadithNumber,
-      String question,
-      String answer,
+      String arab,
       String translation,
       int interval,
       int repetition,
@@ -70,8 +68,7 @@ class _$HadithFlashcardModelCopyWithImpl<$Res,
   $Res call({
     Object? hadithNarratorName = null,
     Object? hadithNumber = null,
-    Object? question = null,
-    Object? answer = null,
+    Object? arab = null,
     Object? translation = null,
     Object? interval = null,
     Object? repetition = null,
@@ -87,13 +84,9 @@ class _$HadithFlashcardModelCopyWithImpl<$Res,
           ? _value.hadithNumber
           : hadithNumber // ignore: cast_nullable_to_non_nullable
               as int,
-      question: null == question
-          ? _value.question
-          : question // ignore: cast_nullable_to_non_nullable
-              as String,
-      answer: null == answer
-          ? _value.answer
-          : answer // ignore: cast_nullable_to_non_nullable
+      arab: null == arab
+          ? _value.arab
+          : arab // ignore: cast_nullable_to_non_nullable
               as String,
       translation: null == translation
           ? _value.translation
@@ -130,8 +123,7 @@ abstract class _$$_HadithFlashcardModelCopyWith<$Res>
   $Res call(
       {String hadithNarratorName,
       int hadithNumber,
-      String question,
-      String answer,
+      String arab,
       String translation,
       int interval,
       int repetition,
@@ -152,8 +144,7 @@ class __$$_HadithFlashcardModelCopyWithImpl<$Res>
   $Res call({
     Object? hadithNarratorName = null,
     Object? hadithNumber = null,
-    Object? question = null,
-    Object? answer = null,
+    Object? arab = null,
     Object? translation = null,
     Object? interval = null,
     Object? repetition = null,
@@ -169,13 +160,9 @@ class __$$_HadithFlashcardModelCopyWithImpl<$Res>
           ? _value.hadithNumber
           : hadithNumber // ignore: cast_nullable_to_non_nullable
               as int,
-      question: null == question
-          ? _value.question
-          : question // ignore: cast_nullable_to_non_nullable
-              as String,
-      answer: null == answer
-          ? _value.answer
-          : answer // ignore: cast_nullable_to_non_nullable
+      arab: null == arab
+          ? _value.arab
+          : arab // ignore: cast_nullable_to_non_nullable
               as String,
       translation: null == translation
           ? _value.translation
@@ -207,8 +194,7 @@ class _$_HadithFlashcardModel implements _HadithFlashcardModel {
   const _$_HadithFlashcardModel(
       {required this.hadithNarratorName,
       required this.hadithNumber,
-      required this.question,
-      required this.answer,
+      required this.arab,
       required this.translation,
       required this.interval,
       required this.repetition,
@@ -223,9 +209,7 @@ class _$_HadithFlashcardModel implements _HadithFlashcardModel {
   @override
   final int hadithNumber;
   @override
-  final String question;
-  @override
-  final String answer;
+  final String arab;
   @override
   final String translation;
   @override
@@ -239,7 +223,7 @@ class _$_HadithFlashcardModel implements _HadithFlashcardModel {
 
   @override
   String toString() {
-    return 'HadithFlashcardModel(hadithNarratorName: $hadithNarratorName, hadithNumber: $hadithNumber, question: $question, answer: $answer, translation: $translation, interval: $interval, repetition: $repetition, easeFactor: $easeFactor, reviewedDate: $reviewedDate)';
+    return 'HadithFlashcardModel(hadithNarratorName: $hadithNarratorName, hadithNumber: $hadithNumber, arab: $arab, translation: $translation, interval: $interval, repetition: $repetition, easeFactor: $easeFactor, reviewedDate: $reviewedDate)';
   }
 
   @override
@@ -251,9 +235,7 @@ class _$_HadithFlashcardModel implements _HadithFlashcardModel {
                 other.hadithNarratorName == hadithNarratorName) &&
             (identical(other.hadithNumber, hadithNumber) ||
                 other.hadithNumber == hadithNumber) &&
-            (identical(other.question, question) ||
-                other.question == question) &&
-            (identical(other.answer, answer) || other.answer == answer) &&
+            (identical(other.arab, arab) || other.arab == arab) &&
             (identical(other.translation, translation) ||
                 other.translation == translation) &&
             (identical(other.interval, interval) ||
@@ -268,17 +250,8 @@ class _$_HadithFlashcardModel implements _HadithFlashcardModel {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      hadithNarratorName,
-      hadithNumber,
-      question,
-      answer,
-      translation,
-      interval,
-      repetition,
-      easeFactor,
-      reviewedDate);
+  int get hashCode => Object.hash(runtimeType, hadithNarratorName, hadithNumber,
+      arab, translation, interval, repetition, easeFactor, reviewedDate);
 
   @JsonKey(ignore: true)
   @override
@@ -299,8 +272,7 @@ abstract class _HadithFlashcardModel implements HadithFlashcardModel {
   const factory _HadithFlashcardModel(
       {required final String hadithNarratorName,
       required final int hadithNumber,
-      required final String question,
-      required final String answer,
+      required final String arab,
       required final String translation,
       required final int interval,
       required final int repetition,
@@ -315,9 +287,7 @@ abstract class _HadithFlashcardModel implements HadithFlashcardModel {
   @override
   int get hadithNumber;
   @override
-  String get question;
-  @override
-  String get answer;
+  String get arab;
   @override
   String get translation;
   @override

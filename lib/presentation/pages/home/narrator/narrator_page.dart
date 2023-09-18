@@ -21,9 +21,11 @@ class NarratorPage extends StatelessWidget {
               children: [
                 const SizedBox(height: 14.0),
                 ...List.generate(
-                  12,
+                  10,
                   (index) => const Padding(
-                    padding: EdgeInsets.only(top: 20.0),
+                    padding: EdgeInsets.only(
+                      top: 34,
+                    ),
                     child: CustomShimmerWidget(
                       height: 48.0,
                       width: double.infinity,
@@ -49,13 +51,13 @@ class NarratorPage extends StatelessWidget {
                     children: [
                       const SizedBox(height: 14.0),
                       Text(
-                        'Hadith Narrators',
+                        'hadithNarrators',
                         style: whiteTextFont.copyWith(
                           fontSize: 20.0,
-                          letterSpacing: 2,
+                          letterSpacing: 3,
                           fontWeight: FontWeight.bold,
                         ),
-                      ),
+                      ).tr(),
                       const SizedBox(height: 24.0),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,

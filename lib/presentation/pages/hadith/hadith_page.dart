@@ -274,15 +274,9 @@ class HadithPageScaffold extends StatelessWidget {
                                                                     .items![
                                                                         index]
                                                                     .number,
-                                                            question:
-                                                                UnemptyString(
-                                                              "What's the content of ${hadithNarrator.name.getOrCrash()} ${hadithNarrator.items![index].number.getOrCrash()} ?",
-                                                            ),
-                                                            answer:
-                                                                hadithNarrator
-                                                                    .items![
-                                                                        index]
-                                                                    .arab,
+                                                            arab: hadithNarrator
+                                                                .items![index]
+                                                                .arab,
                                                             translation:
                                                                 hadithNarrator
                                                                     .items![

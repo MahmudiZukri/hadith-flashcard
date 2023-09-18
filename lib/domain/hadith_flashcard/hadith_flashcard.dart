@@ -8,8 +8,7 @@ class HadithFlashcard with _$HadithFlashcard {
   const factory HadithFlashcard({
     required PersonName hadithNarratorName,
     required PositiveNumber hadithNumber,
-    required UnemptyString question,
-    required UnemptyString answer,
+    required UnemptyString arab,
     required UnemptyString translation,
     required DateTime reviewedDate,
     required int interval,

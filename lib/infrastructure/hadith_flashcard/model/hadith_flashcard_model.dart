@@ -10,8 +10,7 @@ class HadithFlashcardModel with _$HadithFlashcardModel {
   const factory HadithFlashcardModel({
     required String hadithNarratorName,
     required int hadithNumber,
-    required String question,
-    required String answer,
+    required String arab,
     required String translation,
     required int interval,
     required int repetition,
@@ -27,8 +26,7 @@ extension HadithFlashcardModelX on HadithFlashcardModel {
   HadithFlashcard toDomain() => HadithFlashcard(
         hadithNarratorName: PersonName(hadithNarratorName),
         hadithNumber: PositiveNumber(hadithNumber),
-        question: UnemptyString(question),
-        answer: UnemptyString(answer),
+        arab: UnemptyString(arab),
         translation: UnemptyString(translation),
         interval: interval,
         repetition: repetition,

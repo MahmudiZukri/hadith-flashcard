@@ -99,21 +99,21 @@ class ReviewPage extends StatelessWidget {
                                 ),
                                 const SizedBox(height: 40),
                                 Text(
-                                  "You don't have any flashcard",
+                                  "youDon'tHaveAnyFlashcard",
                                   textAlign: TextAlign.center,
                                   style: blackTextFont.copyWith(
                                     fontSize: 15,
                                   ),
-                                ),
+                                ).tr(),
                                 TextButton(
                                   onPressed: gotoNarratorPageOnPressed,
                                   child: Text(
-                                    'Add Your Flashcard',
+                                    'addYourFlashcard',
                                     style: primaryTextFont.copyWith(
                                       fontSize: 15,
                                       decoration: TextDecoration.underline,
                                     ),
-                                  ),
+                                  ).tr(),
                                 ),
                               ],
                             ),
@@ -130,7 +130,7 @@ class ReviewPage extends StatelessWidget {
                                     ),
                                     const SizedBox(height: 40),
                                     Text(
-                                      "You don't have flashcards to review :(",
+                                      "youDon'tHaveFlashcardsToReview",
                                       textAlign: TextAlign.center,
                                       style: blackTextFont.copyWith(
                                         fontSize: 15,
@@ -139,7 +139,7 @@ class ReviewPage extends StatelessWidget {
                                     TextButton(
                                       onPressed: gotoNarratorPageOnPressed,
                                       child: Text(
-                                        'Add More Flashcards',
+                                        'addMoreFlashcards',
                                         style: primaryTextFont.copyWith(
                                           fontSize: 15,
                                           decoration: TextDecoration.underline,
@@ -155,6 +155,12 @@ class ReviewPage extends StatelessWidget {
                                     card: hadithFlashcardState
                                         .getFlashcardsToReview.first,
                                     controller: cardController,
+                                    selectedLanguage:
+                                        ELanguage.values.firstWhere(
+                                      (element) =>
+                                          element.locale ==
+                                          context.locale.toString(),
+                                    ),
                                   ),
                                 ],
                               ),
