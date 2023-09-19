@@ -36,3 +36,11 @@ class OnHadithPage extends PageState {
     required this.hadithNarrator,
   });
 }
+
+class OnEditProfilePage extends PageState {
+  final UniqueString userID;
+
+  const OnEditProfilePage({
+    required this.userID,
+  });
+}

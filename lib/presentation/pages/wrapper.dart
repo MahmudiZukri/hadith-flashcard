@@ -72,6 +72,10 @@ Widget pageTransition({required PageState pageState}) {
       userID: pageState.userID,
       hadithNarrator: pageState.hadithNarrator,
     );
+  } else if (pageState is OnEditProfilePage) {
+    return EditProfilePage(
+      userID: pageState.userID,
+    );
   } else {
     return const SignInPage();
   }

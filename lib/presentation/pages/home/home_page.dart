@@ -117,9 +117,11 @@ class HomePageScaffold extends StatelessWidget {
                                 );
                           },
                           children: [
+                            // Narrator page
                             NarratorPage(
                               userID: userID,
                             ),
+                            // Review page
                             ReviewPage(
                               userID: userID,
                               gotoNarratorPageOnPressed: () {
@@ -131,9 +133,8 @@ class HomePageScaffold extends StatelessWidget {
                                     );
                               },
                             ),
-                            ProfilePage(
-                              userID: userID,
-                            ),
+                            // Profile page
+                            const ProfilePage(),
                           ],
                         ),
                 ),

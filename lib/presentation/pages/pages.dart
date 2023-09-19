@@ -32,6 +32,7 @@ part 'home/home_page.dart';
 part 'home/narrator/narrator_page.dart';
 part 'home/review/review_page.dart';
 part 'home/profile/profile_page.dart';
+part 'home/profile/edit_profile_page.dart';
 part 'forgot_password/forgot_password_page.dart';
 part 'forgot_password/check_email/check_email_page.dart';
 part 'hadith/hadith_page.dart';

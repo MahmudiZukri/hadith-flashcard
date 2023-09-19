@@ -2,11 +2,8 @@ part of '../../pages.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({
-    required this.userID,
     super.key,
   });
-
-  final UniqueString userID;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +12,9 @@ class ProfilePage extends StatelessWidget {
         return Container(
           height: double.infinity,
           width: double.infinity,
-          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          padding: const EdgeInsets.symmetric(
+            horizontal: defaultMargin,
+          ),
           child: Column(
             children: [
               // Title
@@ -36,10 +35,7 @@ class ProfilePage extends StatelessWidget {
               // Main container
               Expanded(
                 child: Container(
-                  padding: const EdgeInsets.fromLTRB(
-                    defaultMargin,
-                    defaultMargin,
-                    defaultMargin,
+                  padding: const EdgeInsets.all(
                     defaultMargin,
                   ),
                   decoration: const BoxDecoration(
@@ -179,7 +175,13 @@ class UserInfomation extends StatelessWidget {
           // Edit button
           GestureDetector(
             onTap: () {
-              // TODO: create edit profile page later
+              if (userState.user != null) {
+                context.read<PageBloc>().add(
+                      GotoEditProfilePage(
+                        userID: userState.user!.id,
+                      ),
+                    );
+              }
             },
             child: const Icon(
               Icons.edit,

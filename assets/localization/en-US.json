@@ -24,5 +24,6 @@
     "language": "Language",
     "aboutApp" : "About app",
     "chooseLanguage": "Choose language :",
-    "signOut" : "Sign Out"
+    "signOut" : "Sign Out",
+    "editProfile" : "Edit Profile"
 }

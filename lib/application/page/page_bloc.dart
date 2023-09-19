@@ -46,5 +46,12 @@ class PageBloc extends Bloc<PageEvent, PageState> {
         ),
       ),
     );
+    on<GotoEditProfilePage>(
+      (event, emit) => emit(
+        OnEditProfilePage(
+          userID: event.userID,
+        ),
+      ),
+    );
   }
 }

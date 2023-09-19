@@ -35,3 +35,11 @@ class GotoHadithPage extends PageEvent {
     required this.hadithNarrator,
   });
 }
+
+class GotoEditProfilePage extends PageEvent {
+  final UniqueString userID;
+
+  const GotoEditProfilePage({
+    required this.userID,
+  });
+}
