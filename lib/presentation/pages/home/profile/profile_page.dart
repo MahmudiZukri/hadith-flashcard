@@ -117,11 +117,11 @@ class SignOut extends StatelessWidget {
                 );
           },
           child: Text(
-            'signOut',
+            context.tr('signOut'),
             style: redTextFont.copyWith(
               fontWeight: FontWeight.w600,
             ),
-          ).tr(),
+          ),
         ),
       ),
     );
@@ -160,7 +160,8 @@ class UserInfomation extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    userState.user?.name.getOrNull() ?? 'youAreInGuestMode',
+                    userState.user?.name.getOrNull() ??
+                        context.tr('youAreInGuestMode'),
                     maxLines: 3,
                     style: blackTextFont.copyWith(
                       fontWeight: FontWeight.bold,
@@ -177,15 +178,15 @@ class UserInfomation extends StatelessWidget {
           ),
           const SizedBox(width: 14.0),
           // Edit button
-          GestureDetector(
-            onTap: () {
-              // TODO: create edit profile page later
-            },
-            child: const Icon(
-              Icons.edit,
-              color: primaryColor,
-            ),
-          )
+          // GestureDetector(
+          //   onTap: () {
+          //     // TODO: create edit profile page later
+          //   },
+          //   child: const Icon(
+          //     Icons.edit,
+          //     color: primaryColor,
+          //   ),
+          // )
         ],
       ),
     );
@@ -203,9 +204,9 @@ class AboutApp extends StatelessWidget {
       onTap: () {
         // TODO: implement later
       },
-      child: const Text(
-        'aboutApp',
-      ).tr(),
+      child: Text(
+        context.tr('aboutApp'),
+      ),
     );
   }
 }

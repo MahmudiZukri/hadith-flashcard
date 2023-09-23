@@ -176,7 +176,6 @@ class SignUpPageScaffold extends StatelessWidget {
                                           state.password == Password('')
                                       ? 0.5
                                       : 1,
-                                  // TODO : adjust disabled button style
                                   child: CustomElevatedButtonWidget(
                                     text: 'signUp'.tr(),
                                     isActive: state.email != EmailAddress('') &&
@@ -233,7 +232,9 @@ class SignUpPageScaffold extends StatelessWidget {
                                   textStyle: whiteTextFont.copyWith(
                                     fontWeight: FontWeight.w500,
                                   ),
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    // TODO : implement later
+                                  },
                                 ),
                               ),
                               const SizedBox(width: 18),

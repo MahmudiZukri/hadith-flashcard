@@ -202,7 +202,6 @@ class SignInPageScaffold extends StatelessWidget {
                                           state.password == Password('')
                                       ? 0.5
                                       : 1,
-                                  // TODO : adjust disabled button style
                                   child: CustomElevatedButtonWidget(
                                     text: 'signIn'.tr(),
                                     isActive: state.email != EmailAddress('') &&

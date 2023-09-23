@@ -43,7 +43,7 @@ class CustomElevatedButtonWidget extends StatelessWidget {
             Text(
               text,
               style: textStyle.copyWith(
-                color: isActive ? textStyle.color : primaryColor,
+                color: isActive ? textStyle.color : whiteColor,
               ),
             ),
           ],
