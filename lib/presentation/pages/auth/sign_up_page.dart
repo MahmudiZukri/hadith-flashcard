@@ -220,24 +220,25 @@ class SignUpPageScaffold extends StatelessWidget {
                           const SizedBox(height: 16.0),
                           Row(
                             children: [
-                              Expanded(
-                                child: CustomElevatedButtonWidget(
-                                  text: 'Facebook',
-                                  backgroundColor: facebookColor,
-                                  icon: SvgPicture.asset(
-                                    AssetUrl.facebookIcon,
-                                    color: whiteColor,
-                                    height: 18,
-                                  ),
-                                  textStyle: whiteTextFont.copyWith(
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                  onPressed: () {
-                                    // TODO : implement later
-                                  },
-                                ),
-                              ),
-                              const SizedBox(width: 18),
+                              // TODO : comment for now
+                              // Expanded(
+                              //   child: CustomElevatedButtonWidget(
+                              //     text: 'Facebook',
+                              //     backgroundColor: facebookColor,
+                              //     icon: SvgPicture.asset(
+                              //       AssetUrl.facebookIcon,
+                              //       color: whiteColor,
+                              //       height: 18,
+                              //     ),
+                              //     textStyle: whiteTextFont.copyWith(
+                              //       fontWeight: FontWeight.w500,
+                              //     ),
+                              //     onPressed: () {
+                              //       // TODO : implement later
+                              //     },
+                              //   ),
+                              // ),
+                              // const SizedBox(width: 18),
                               Expanded(
                                 child: CustomElevatedButtonWidget(
                                   text: 'Gmail',

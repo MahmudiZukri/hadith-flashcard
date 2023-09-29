@@ -2,6 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fpdart/fpdart.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:hadith_flashcard/domain/app_user/app_user.dart';
 import 'package:hadith_flashcard/domain/auth/interfaces/i_auth_repository.dart';
 import 'package:hadith_flashcard/domain/core/failures/common_failures/common_failures.dart';
 import 'package:hadith_flashcard/infrastructure/app_user/model/app_user_model.dart';
@@ -23,12 +25,12 @@ class AuthRepository implements IAuthRepository {
         email: email,
         password: password,
       );
-      // uid and email automatically passed
+      // Uid and email automatically passed
       AppUserModel user = credential.user!.convertToAppUser(
         name: name,
       );
 
-      // add to firestore
+      // Add to firestore
       try {
         await UserServices.addUser(user);
       } catch (e, stackTrace) {
@@ -79,6 +81,91 @@ class AuthRepository implements IAuthRepository {
         ),
       );
     }
+  }
+
+  @override
+  Future<Either<CommonFailures, Unit>> signUpOrSignInWithGoogle() async {
+    try {
+      // Trigger the authentication flow
+      final googleUser = await IAuthRepository.googleSignIn.signIn();
+
+      // Obtain the auth details from the request
+      final GoogleSignInAuthentication? googleAuth =
+          await googleUser?.authentication;
+
+      // Create a new credential
+      final credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth?.accessToken,
+        idToken: googleAuth?.idToken,
+      );
+
+      // Once signed in, get the UserCredential
+      final UserCredential userCredential =
+          await FirebaseAuth.instance.signInWithCredential(
+        credential,
+      );
+
+      if (userCredential.user != null) {
+        // Uid and email automatically passed
+        AppUserModel user = userCredential.user!.convertToAppUser(
+          name: userCredential.user?.displayName,
+        );
+
+        // Add to firestore
+        try {
+          await UserServices.addUser(user);
+        } catch (e, stackTrace) {
+          debugPrint('1------- $stackTrace -------1');
+          return left(
+            CommonFailures.other(
+              message: e.toString(),
+            ),
+          );
+        }
+        return right(
+          unit,
+        );
+      } else if (userCredential.user == null) {
+        return left(
+          const CommonFailures.other(
+            message: 'User Not Found',
+          ),
+        );
+      }
+
+      return left(
+        const CommonFailures.handledByFirebase(
+          message: 'Something went wrong in auth repository',
+        ),
+      );
+    } on PlatformException catch (e, stackTrace) {
+      debugPrint('1------- $stackTrace -------1');
+      return left(
+        CommonFailures.platformException(
+          message: e.message.toString(),
+        ),
+      );
+    } on FirebaseAuthException catch (e, stackTrace) {
+      debugPrint('2------- $stackTrace -------2');
+      return left(
+        CommonFailures.handledByFirebase(
+          message: e.message.toString(),
+        ),
+      );
+    } catch (e, stackTrace) {
+      debugPrint('3------- $stackTrace -------3');
+      return (left(
+        CommonFailures.handledByFirebase(
+          message: e.toString(),
+        ),
+      ));
+    }
+  }
+
+  @override
+  Future<Either<CommonFailures, AppUser>> signUpOrSignInWithFacebook() {
+    // TODO: implement signUpWithFacebook
+    throw UnimplementedError();
   }
 
   @override

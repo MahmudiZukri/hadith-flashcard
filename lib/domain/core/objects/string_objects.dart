@@ -80,14 +80,14 @@ abstract class StringObject {
           }),
       id);
 
-  //add localization later
+  // TODO : add localization later
   String? getFoldValidator({
     bool exceptEmpty = false,
   }) =>
       value.fold(
         //use maybe map for now
         (l) => l.maybeMap(
-          empty: (_) => exceptEmpty ? null : 'This cannot be null',
+          empty: (_) => exceptEmpty ? null : 'This cannot be empty',
           invalidEmail: (_) => 'Invalid email format',
           lengthTooShort: (_) => 'Length is too short',
           invalidPersonName: (_) => 'Name cannot be filled with numbers',

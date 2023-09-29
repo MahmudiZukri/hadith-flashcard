@@ -19,6 +19,8 @@ mixin _$AuthEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() signUp,
+    required TResult Function() signUpOrSignInWithGoogle,
+    required TResult Function() signUpOrSignInWithFacebook,
     required TResult Function() signIn,
     required TResult Function() signOut,
     required TResult Function(String nameStr) nameChanged,
@@ -30,6 +32,8 @@ mixin _$AuthEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? signUp,
+    TResult? Function()? signUpOrSignInWithGoogle,
+    TResult? Function()? signUpOrSignInWithFacebook,
     TResult? Function()? signIn,
     TResult? Function()? signOut,
     TResult? Function(String nameStr)? nameChanged,
@@ -41,6 +45,8 @@ mixin _$AuthEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? signUp,
+    TResult Function()? signUpOrSignInWithGoogle,
+    TResult Function()? signUpOrSignInWithFacebook,
     TResult Function()? signIn,
     TResult Function()? signOut,
     TResult Function(String nameStr)? nameChanged,
@@ -53,6 +59,10 @@ mixin _$AuthEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_SignUp value) signUp,
+    required TResult Function(_SignUpOrSignInWithGoogle value)
+        signUpOrSignInWithGoogle,
+    required TResult Function(_SignUpOrSignInWithFacebook value)
+        signUpOrSignInWithFacebook,
     required TResult Function(_SignIn value) signIn,
     required TResult Function(_SignOut value) signOut,
     required TResult Function(_NameChanged value) nameChanged,
@@ -64,6 +74,10 @@ mixin _$AuthEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SignUp value)? signUp,
+    TResult? Function(_SignUpOrSignInWithGoogle value)?
+        signUpOrSignInWithGoogle,
+    TResult? Function(_SignUpOrSignInWithFacebook value)?
+        signUpOrSignInWithFacebook,
     TResult? Function(_SignIn value)? signIn,
     TResult? Function(_SignOut value)? signOut,
     TResult? Function(_NameChanged value)? nameChanged,
@@ -75,6 +89,9 @@ mixin _$AuthEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SignUp value)? signUp,
+    TResult Function(_SignUpOrSignInWithGoogle value)? signUpOrSignInWithGoogle,
+    TResult Function(_SignUpOrSignInWithFacebook value)?
+        signUpOrSignInWithFacebook,
     TResult Function(_SignIn value)? signIn,
     TResult Function(_SignOut value)? signOut,
     TResult Function(_NameChanged value)? nameChanged,
@@ -140,6 +157,8 @@ class _$_SignUp implements _SignUp {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() signUp,
+    required TResult Function() signUpOrSignInWithGoogle,
+    required TResult Function() signUpOrSignInWithFacebook,
     required TResult Function() signIn,
     required TResult Function() signOut,
     required TResult Function(String nameStr) nameChanged,
@@ -154,6 +173,8 @@ class _$_SignUp implements _SignUp {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? signUp,
+    TResult? Function()? signUpOrSignInWithGoogle,
+    TResult? Function()? signUpOrSignInWithFacebook,
     TResult? Function()? signIn,
     TResult? Function()? signOut,
     TResult? Function(String nameStr)? nameChanged,
@@ -168,6 +189,8 @@ class _$_SignUp implements _SignUp {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? signUp,
+    TResult Function()? signUpOrSignInWithGoogle,
+    TResult Function()? signUpOrSignInWithFacebook,
     TResult Function()? signIn,
     TResult Function()? signOut,
     TResult Function(String nameStr)? nameChanged,
@@ -186,6 +209,10 @@ class _$_SignUp implements _SignUp {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_SignUp value) signUp,
+    required TResult Function(_SignUpOrSignInWithGoogle value)
+        signUpOrSignInWithGoogle,
+    required TResult Function(_SignUpOrSignInWithFacebook value)
+        signUpOrSignInWithFacebook,
     required TResult Function(_SignIn value) signIn,
     required TResult Function(_SignOut value) signOut,
     required TResult Function(_NameChanged value) nameChanged,
@@ -200,6 +227,10 @@ class _$_SignUp implements _SignUp {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SignUp value)? signUp,
+    TResult? Function(_SignUpOrSignInWithGoogle value)?
+        signUpOrSignInWithGoogle,
+    TResult? Function(_SignUpOrSignInWithFacebook value)?
+        signUpOrSignInWithFacebook,
     TResult? Function(_SignIn value)? signIn,
     TResult? Function(_SignOut value)? signOut,
     TResult? Function(_NameChanged value)? nameChanged,
@@ -214,6 +245,9 @@ class _$_SignUp implements _SignUp {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SignUp value)? signUp,
+    TResult Function(_SignUpOrSignInWithGoogle value)? signUpOrSignInWithGoogle,
+    TResult Function(_SignUpOrSignInWithFacebook value)?
+        signUpOrSignInWithFacebook,
     TResult Function(_SignIn value)? signIn,
     TResult Function(_SignOut value)? signOut,
     TResult Function(_NameChanged value)? nameChanged,
@@ -231,6 +265,309 @@ class _$_SignUp implements _SignUp {
 
 abstract class _SignUp implements AuthEvent {
   const factory _SignUp() = _$_SignUp;
+}
+
+/// @nodoc
+abstract class _$$_SignUpOrSignInWithGoogleCopyWith<$Res> {
+  factory _$$_SignUpOrSignInWithGoogleCopyWith(
+          _$_SignUpOrSignInWithGoogle value,
+          $Res Function(_$_SignUpOrSignInWithGoogle) then) =
+      __$$_SignUpOrSignInWithGoogleCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_SignUpOrSignInWithGoogleCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$_SignUpOrSignInWithGoogle>
+    implements _$$_SignUpOrSignInWithGoogleCopyWith<$Res> {
+  __$$_SignUpOrSignInWithGoogleCopyWithImpl(_$_SignUpOrSignInWithGoogle _value,
+      $Res Function(_$_SignUpOrSignInWithGoogle) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_SignUpOrSignInWithGoogle implements _SignUpOrSignInWithGoogle {
+  const _$_SignUpOrSignInWithGoogle();
+
+  @override
+  String toString() {
+    return 'AuthEvent.signUpOrSignInWithGoogle()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SignUpOrSignInWithGoogle);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() signUp,
+    required TResult Function() signUpOrSignInWithGoogle,
+    required TResult Function() signUpOrSignInWithFacebook,
+    required TResult Function() signIn,
+    required TResult Function() signOut,
+    required TResult Function(String nameStr) nameChanged,
+    required TResult Function(String emailStr) emailChanged,
+    required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function(String emailStr) resetPassword,
+  }) {
+    return signUpOrSignInWithGoogle();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? signUp,
+    TResult? Function()? signUpOrSignInWithGoogle,
+    TResult? Function()? signUpOrSignInWithFacebook,
+    TResult? Function()? signIn,
+    TResult? Function()? signOut,
+    TResult? Function(String nameStr)? nameChanged,
+    TResult? Function(String emailStr)? emailChanged,
+    TResult? Function(String passwordStr)? passwordChanged,
+    TResult? Function(String emailStr)? resetPassword,
+  }) {
+    return signUpOrSignInWithGoogle?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? signUp,
+    TResult Function()? signUpOrSignInWithGoogle,
+    TResult Function()? signUpOrSignInWithFacebook,
+    TResult Function()? signIn,
+    TResult Function()? signOut,
+    TResult Function(String nameStr)? nameChanged,
+    TResult Function(String emailStr)? emailChanged,
+    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function(String emailStr)? resetPassword,
+    required TResult orElse(),
+  }) {
+    if (signUpOrSignInWithGoogle != null) {
+      return signUpOrSignInWithGoogle();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SignUp value) signUp,
+    required TResult Function(_SignUpOrSignInWithGoogle value)
+        signUpOrSignInWithGoogle,
+    required TResult Function(_SignUpOrSignInWithFacebook value)
+        signUpOrSignInWithFacebook,
+    required TResult Function(_SignIn value) signIn,
+    required TResult Function(_SignOut value) signOut,
+    required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_EmailChanged value) emailChanged,
+    required TResult Function(_PasswordChanged value) passwordChanged,
+    required TResult Function(_ResetPassword value) resetPassword,
+  }) {
+    return signUpOrSignInWithGoogle(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SignUp value)? signUp,
+    TResult? Function(_SignUpOrSignInWithGoogle value)?
+        signUpOrSignInWithGoogle,
+    TResult? Function(_SignUpOrSignInWithFacebook value)?
+        signUpOrSignInWithFacebook,
+    TResult? Function(_SignIn value)? signIn,
+    TResult? Function(_SignOut value)? signOut,
+    TResult? Function(_NameChanged value)? nameChanged,
+    TResult? Function(_EmailChanged value)? emailChanged,
+    TResult? Function(_PasswordChanged value)? passwordChanged,
+    TResult? Function(_ResetPassword value)? resetPassword,
+  }) {
+    return signUpOrSignInWithGoogle?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SignUp value)? signUp,
+    TResult Function(_SignUpOrSignInWithGoogle value)? signUpOrSignInWithGoogle,
+    TResult Function(_SignUpOrSignInWithFacebook value)?
+        signUpOrSignInWithFacebook,
+    TResult Function(_SignIn value)? signIn,
+    TResult Function(_SignOut value)? signOut,
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_EmailChanged value)? emailChanged,
+    TResult Function(_PasswordChanged value)? passwordChanged,
+    TResult Function(_ResetPassword value)? resetPassword,
+    required TResult orElse(),
+  }) {
+    if (signUpOrSignInWithGoogle != null) {
+      return signUpOrSignInWithGoogle(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SignUpOrSignInWithGoogle implements AuthEvent {
+  const factory _SignUpOrSignInWithGoogle() = _$_SignUpOrSignInWithGoogle;
+}
+
+/// @nodoc
+abstract class _$$_SignUpOrSignInWithFacebookCopyWith<$Res> {
+  factory _$$_SignUpOrSignInWithFacebookCopyWith(
+          _$_SignUpOrSignInWithFacebook value,
+          $Res Function(_$_SignUpOrSignInWithFacebook) then) =
+      __$$_SignUpOrSignInWithFacebookCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_SignUpOrSignInWithFacebookCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$_SignUpOrSignInWithFacebook>
+    implements _$$_SignUpOrSignInWithFacebookCopyWith<$Res> {
+  __$$_SignUpOrSignInWithFacebookCopyWithImpl(
+      _$_SignUpOrSignInWithFacebook _value,
+      $Res Function(_$_SignUpOrSignInWithFacebook) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_SignUpOrSignInWithFacebook implements _SignUpOrSignInWithFacebook {
+  const _$_SignUpOrSignInWithFacebook();
+
+  @override
+  String toString() {
+    return 'AuthEvent.signUpOrSignInWithFacebook()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SignUpOrSignInWithFacebook);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() signUp,
+    required TResult Function() signUpOrSignInWithGoogle,
+    required TResult Function() signUpOrSignInWithFacebook,
+    required TResult Function() signIn,
+    required TResult Function() signOut,
+    required TResult Function(String nameStr) nameChanged,
+    required TResult Function(String emailStr) emailChanged,
+    required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function(String emailStr) resetPassword,
+  }) {
+    return signUpOrSignInWithFacebook();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? signUp,
+    TResult? Function()? signUpOrSignInWithGoogle,
+    TResult? Function()? signUpOrSignInWithFacebook,
+    TResult? Function()? signIn,
+    TResult? Function()? signOut,
+    TResult? Function(String nameStr)? nameChanged,
+    TResult? Function(String emailStr)? emailChanged,
+    TResult? Function(String passwordStr)? passwordChanged,
+    TResult? Function(String emailStr)? resetPassword,
+  }) {
+    return signUpOrSignInWithFacebook?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? signUp,
+    TResult Function()? signUpOrSignInWithGoogle,
+    TResult Function()? signUpOrSignInWithFacebook,
+    TResult Function()? signIn,
+    TResult Function()? signOut,
+    TResult Function(String nameStr)? nameChanged,
+    TResult Function(String emailStr)? emailChanged,
+    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function(String emailStr)? resetPassword,
+    required TResult orElse(),
+  }) {
+    if (signUpOrSignInWithFacebook != null) {
+      return signUpOrSignInWithFacebook();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SignUp value) signUp,
+    required TResult Function(_SignUpOrSignInWithGoogle value)
+        signUpOrSignInWithGoogle,
+    required TResult Function(_SignUpOrSignInWithFacebook value)
+        signUpOrSignInWithFacebook,
+    required TResult Function(_SignIn value) signIn,
+    required TResult Function(_SignOut value) signOut,
+    required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_EmailChanged value) emailChanged,
+    required TResult Function(_PasswordChanged value) passwordChanged,
+    required TResult Function(_ResetPassword value) resetPassword,
+  }) {
+    return signUpOrSignInWithFacebook(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SignUp value)? signUp,
+    TResult? Function(_SignUpOrSignInWithGoogle value)?
+        signUpOrSignInWithGoogle,
+    TResult? Function(_SignUpOrSignInWithFacebook value)?
+        signUpOrSignInWithFacebook,
+    TResult? Function(_SignIn value)? signIn,
+    TResult? Function(_SignOut value)? signOut,
+    TResult? Function(_NameChanged value)? nameChanged,
+    TResult? Function(_EmailChanged value)? emailChanged,
+    TResult? Function(_PasswordChanged value)? passwordChanged,
+    TResult? Function(_ResetPassword value)? resetPassword,
+  }) {
+    return signUpOrSignInWithFacebook?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SignUp value)? signUp,
+    TResult Function(_SignUpOrSignInWithGoogle value)? signUpOrSignInWithGoogle,
+    TResult Function(_SignUpOrSignInWithFacebook value)?
+        signUpOrSignInWithFacebook,
+    TResult Function(_SignIn value)? signIn,
+    TResult Function(_SignOut value)? signOut,
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_EmailChanged value)? emailChanged,
+    TResult Function(_PasswordChanged value)? passwordChanged,
+    TResult Function(_ResetPassword value)? resetPassword,
+    required TResult orElse(),
+  }) {
+    if (signUpOrSignInWithFacebook != null) {
+      return signUpOrSignInWithFacebook(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SignUpOrSignInWithFacebook implements AuthEvent {
+  const factory _SignUpOrSignInWithFacebook() = _$_SignUpOrSignInWithFacebook;
 }
 
 /// @nodoc
@@ -270,6 +607,8 @@ class _$_SignIn implements _SignIn {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() signUp,
+    required TResult Function() signUpOrSignInWithGoogle,
+    required TResult Function() signUpOrSignInWithFacebook,
     required TResult Function() signIn,
     required TResult Function() signOut,
     required TResult Function(String nameStr) nameChanged,
@@ -284,6 +623,8 @@ class _$_SignIn implements _SignIn {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? signUp,
+    TResult? Function()? signUpOrSignInWithGoogle,
+    TResult? Function()? signUpOrSignInWithFacebook,
     TResult? Function()? signIn,
     TResult? Function()? signOut,
     TResult? Function(String nameStr)? nameChanged,
@@ -298,6 +639,8 @@ class _$_SignIn implements _SignIn {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? signUp,
+    TResult Function()? signUpOrSignInWithGoogle,
+    TResult Function()? signUpOrSignInWithFacebook,
     TResult Function()? signIn,
     TResult Function()? signOut,
     TResult Function(String nameStr)? nameChanged,
@@ -316,6 +659,10 @@ class _$_SignIn implements _SignIn {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_SignUp value) signUp,
+    required TResult Function(_SignUpOrSignInWithGoogle value)
+        signUpOrSignInWithGoogle,
+    required TResult Function(_SignUpOrSignInWithFacebook value)
+        signUpOrSignInWithFacebook,
     required TResult Function(_SignIn value) signIn,
     required TResult Function(_SignOut value) signOut,
     required TResult Function(_NameChanged value) nameChanged,
@@ -330,6 +677,10 @@ class _$_SignIn implements _SignIn {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SignUp value)? signUp,
+    TResult? Function(_SignUpOrSignInWithGoogle value)?
+        signUpOrSignInWithGoogle,
+    TResult? Function(_SignUpOrSignInWithFacebook value)?
+        signUpOrSignInWithFacebook,
     TResult? Function(_SignIn value)? signIn,
     TResult? Function(_SignOut value)? signOut,
     TResult? Function(_NameChanged value)? nameChanged,
@@ -344,6 +695,9 @@ class _$_SignIn implements _SignIn {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SignUp value)? signUp,
+    TResult Function(_SignUpOrSignInWithGoogle value)? signUpOrSignInWithGoogle,
+    TResult Function(_SignUpOrSignInWithFacebook value)?
+        signUpOrSignInWithFacebook,
     TResult Function(_SignIn value)? signIn,
     TResult Function(_SignOut value)? signOut,
     TResult Function(_NameChanged value)? nameChanged,
@@ -401,6 +755,8 @@ class _$_SignOut implements _SignOut {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() signUp,
+    required TResult Function() signUpOrSignInWithGoogle,
+    required TResult Function() signUpOrSignInWithFacebook,
     required TResult Function() signIn,
     required TResult Function() signOut,
     required TResult Function(String nameStr) nameChanged,
@@ -415,6 +771,8 @@ class _$_SignOut implements _SignOut {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? signUp,
+    TResult? Function()? signUpOrSignInWithGoogle,
+    TResult? Function()? signUpOrSignInWithFacebook,
     TResult? Function()? signIn,
     TResult? Function()? signOut,
     TResult? Function(String nameStr)? nameChanged,
@@ -429,6 +787,8 @@ class _$_SignOut implements _SignOut {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? signUp,
+    TResult Function()? signUpOrSignInWithGoogle,
+    TResult Function()? signUpOrSignInWithFacebook,
     TResult Function()? signIn,
     TResult Function()? signOut,
     TResult Function(String nameStr)? nameChanged,
@@ -447,6 +807,10 @@ class _$_SignOut implements _SignOut {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_SignUp value) signUp,
+    required TResult Function(_SignUpOrSignInWithGoogle value)
+        signUpOrSignInWithGoogle,
+    required TResult Function(_SignUpOrSignInWithFacebook value)
+        signUpOrSignInWithFacebook,
     required TResult Function(_SignIn value) signIn,
     required TResult Function(_SignOut value) signOut,
     required TResult Function(_NameChanged value) nameChanged,
@@ -461,6 +825,10 @@ class _$_SignOut implements _SignOut {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SignUp value)? signUp,
+    TResult? Function(_SignUpOrSignInWithGoogle value)?
+        signUpOrSignInWithGoogle,
+    TResult? Function(_SignUpOrSignInWithFacebook value)?
+        signUpOrSignInWithFacebook,
     TResult? Function(_SignIn value)? signIn,
     TResult? Function(_SignOut value)? signOut,
     TResult? Function(_NameChanged value)? nameChanged,
@@ -475,6 +843,9 @@ class _$_SignOut implements _SignOut {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SignUp value)? signUp,
+    TResult Function(_SignUpOrSignInWithGoogle value)? signUpOrSignInWithGoogle,
+    TResult Function(_SignUpOrSignInWithFacebook value)?
+        signUpOrSignInWithFacebook,
     TResult Function(_SignIn value)? signIn,
     TResult Function(_SignOut value)? signOut,
     TResult Function(_NameChanged value)? nameChanged,
@@ -559,6 +930,8 @@ class _$_NameChanged implements _NameChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() signUp,
+    required TResult Function() signUpOrSignInWithGoogle,
+    required TResult Function() signUpOrSignInWithFacebook,
     required TResult Function() signIn,
     required TResult Function() signOut,
     required TResult Function(String nameStr) nameChanged,
@@ -573,6 +946,8 @@ class _$_NameChanged implements _NameChanged {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? signUp,
+    TResult? Function()? signUpOrSignInWithGoogle,
+    TResult? Function()? signUpOrSignInWithFacebook,
     TResult? Function()? signIn,
     TResult? Function()? signOut,
     TResult? Function(String nameStr)? nameChanged,
@@ -587,6 +962,8 @@ class _$_NameChanged implements _NameChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? signUp,
+    TResult Function()? signUpOrSignInWithGoogle,
+    TResult Function()? signUpOrSignInWithFacebook,
     TResult Function()? signIn,
     TResult Function()? signOut,
     TResult Function(String nameStr)? nameChanged,
@@ -605,6 +982,10 @@ class _$_NameChanged implements _NameChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_SignUp value) signUp,
+    required TResult Function(_SignUpOrSignInWithGoogle value)
+        signUpOrSignInWithGoogle,
+    required TResult Function(_SignUpOrSignInWithFacebook value)
+        signUpOrSignInWithFacebook,
     required TResult Function(_SignIn value) signIn,
     required TResult Function(_SignOut value) signOut,
     required TResult Function(_NameChanged value) nameChanged,
@@ -619,6 +1000,10 @@ class _$_NameChanged implements _NameChanged {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SignUp value)? signUp,
+    TResult? Function(_SignUpOrSignInWithGoogle value)?
+        signUpOrSignInWithGoogle,
+    TResult? Function(_SignUpOrSignInWithFacebook value)?
+        signUpOrSignInWithFacebook,
     TResult? Function(_SignIn value)? signIn,
     TResult? Function(_SignOut value)? signOut,
     TResult? Function(_NameChanged value)? nameChanged,
@@ -633,6 +1018,9 @@ class _$_NameChanged implements _NameChanged {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SignUp value)? signUp,
+    TResult Function(_SignUpOrSignInWithGoogle value)? signUpOrSignInWithGoogle,
+    TResult Function(_SignUpOrSignInWithFacebook value)?
+        signUpOrSignInWithFacebook,
     TResult Function(_SignIn value)? signIn,
     TResult Function(_SignOut value)? signOut,
     TResult Function(_NameChanged value)? nameChanged,
@@ -723,6 +1111,8 @@ class _$_EmailChanged implements _EmailChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() signUp,
+    required TResult Function() signUpOrSignInWithGoogle,
+    required TResult Function() signUpOrSignInWithFacebook,
     required TResult Function() signIn,
     required TResult Function() signOut,
     required TResult Function(String nameStr) nameChanged,
@@ -737,6 +1127,8 @@ class _$_EmailChanged implements _EmailChanged {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? signUp,
+    TResult? Function()? signUpOrSignInWithGoogle,
+    TResult? Function()? signUpOrSignInWithFacebook,
     TResult? Function()? signIn,
     TResult? Function()? signOut,
     TResult? Function(String nameStr)? nameChanged,
@@ -751,6 +1143,8 @@ class _$_EmailChanged implements _EmailChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? signUp,
+    TResult Function()? signUpOrSignInWithGoogle,
+    TResult Function()? signUpOrSignInWithFacebook,
     TResult Function()? signIn,
     TResult Function()? signOut,
     TResult Function(String nameStr)? nameChanged,
@@ -769,6 +1163,10 @@ class _$_EmailChanged implements _EmailChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_SignUp value) signUp,
+    required TResult Function(_SignUpOrSignInWithGoogle value)
+        signUpOrSignInWithGoogle,
+    required TResult Function(_SignUpOrSignInWithFacebook value)
+        signUpOrSignInWithFacebook,
     required TResult Function(_SignIn value) signIn,
     required TResult Function(_SignOut value) signOut,
     required TResult Function(_NameChanged value) nameChanged,
@@ -783,6 +1181,10 @@ class _$_EmailChanged implements _EmailChanged {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SignUp value)? signUp,
+    TResult? Function(_SignUpOrSignInWithGoogle value)?
+        signUpOrSignInWithGoogle,
+    TResult? Function(_SignUpOrSignInWithFacebook value)?
+        signUpOrSignInWithFacebook,
     TResult? Function(_SignIn value)? signIn,
     TResult? Function(_SignOut value)? signOut,
     TResult? Function(_NameChanged value)? nameChanged,
@@ -797,6 +1199,9 @@ class _$_EmailChanged implements _EmailChanged {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SignUp value)? signUp,
+    TResult Function(_SignUpOrSignInWithGoogle value)? signUpOrSignInWithGoogle,
+    TResult Function(_SignUpOrSignInWithFacebook value)?
+        signUpOrSignInWithFacebook,
     TResult Function(_SignIn value)? signIn,
     TResult Function(_SignOut value)? signOut,
     TResult Function(_NameChanged value)? nameChanged,
@@ -888,6 +1293,8 @@ class _$_PasswordChanged implements _PasswordChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() signUp,
+    required TResult Function() signUpOrSignInWithGoogle,
+    required TResult Function() signUpOrSignInWithFacebook,
     required TResult Function() signIn,
     required TResult Function() signOut,
     required TResult Function(String nameStr) nameChanged,
@@ -902,6 +1309,8 @@ class _$_PasswordChanged implements _PasswordChanged {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? signUp,
+    TResult? Function()? signUpOrSignInWithGoogle,
+    TResult? Function()? signUpOrSignInWithFacebook,
     TResult? Function()? signIn,
     TResult? Function()? signOut,
     TResult? Function(String nameStr)? nameChanged,
@@ -916,6 +1325,8 @@ class _$_PasswordChanged implements _PasswordChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? signUp,
+    TResult Function()? signUpOrSignInWithGoogle,
+    TResult Function()? signUpOrSignInWithFacebook,
     TResult Function()? signIn,
     TResult Function()? signOut,
     TResult Function(String nameStr)? nameChanged,
@@ -934,6 +1345,10 @@ class _$_PasswordChanged implements _PasswordChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_SignUp value) signUp,
+    required TResult Function(_SignUpOrSignInWithGoogle value)
+        signUpOrSignInWithGoogle,
+    required TResult Function(_SignUpOrSignInWithFacebook value)
+        signUpOrSignInWithFacebook,
     required TResult Function(_SignIn value) signIn,
     required TResult Function(_SignOut value) signOut,
     required TResult Function(_NameChanged value) nameChanged,
@@ -948,6 +1363,10 @@ class _$_PasswordChanged implements _PasswordChanged {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SignUp value)? signUp,
+    TResult? Function(_SignUpOrSignInWithGoogle value)?
+        signUpOrSignInWithGoogle,
+    TResult? Function(_SignUpOrSignInWithFacebook value)?
+        signUpOrSignInWithFacebook,
     TResult? Function(_SignIn value)? signIn,
     TResult? Function(_SignOut value)? signOut,
     TResult? Function(_NameChanged value)? nameChanged,
@@ -962,6 +1381,9 @@ class _$_PasswordChanged implements _PasswordChanged {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SignUp value)? signUp,
+    TResult Function(_SignUpOrSignInWithGoogle value)? signUpOrSignInWithGoogle,
+    TResult Function(_SignUpOrSignInWithFacebook value)?
+        signUpOrSignInWithFacebook,
     TResult Function(_SignIn value)? signIn,
     TResult Function(_SignOut value)? signOut,
     TResult Function(_NameChanged value)? nameChanged,
@@ -1053,6 +1475,8 @@ class _$_ResetPassword implements _ResetPassword {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() signUp,
+    required TResult Function() signUpOrSignInWithGoogle,
+    required TResult Function() signUpOrSignInWithFacebook,
     required TResult Function() signIn,
     required TResult Function() signOut,
     required TResult Function(String nameStr) nameChanged,
@@ -1067,6 +1491,8 @@ class _$_ResetPassword implements _ResetPassword {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? signUp,
+    TResult? Function()? signUpOrSignInWithGoogle,
+    TResult? Function()? signUpOrSignInWithFacebook,
     TResult? Function()? signIn,
     TResult? Function()? signOut,
     TResult? Function(String nameStr)? nameChanged,
@@ -1081,6 +1507,8 @@ class _$_ResetPassword implements _ResetPassword {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? signUp,
+    TResult Function()? signUpOrSignInWithGoogle,
+    TResult Function()? signUpOrSignInWithFacebook,
     TResult Function()? signIn,
     TResult Function()? signOut,
     TResult Function(String nameStr)? nameChanged,
@@ -1099,6 +1527,10 @@ class _$_ResetPassword implements _ResetPassword {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_SignUp value) signUp,
+    required TResult Function(_SignUpOrSignInWithGoogle value)
+        signUpOrSignInWithGoogle,
+    required TResult Function(_SignUpOrSignInWithFacebook value)
+        signUpOrSignInWithFacebook,
     required TResult Function(_SignIn value) signIn,
     required TResult Function(_SignOut value) signOut,
     required TResult Function(_NameChanged value) nameChanged,
@@ -1113,6 +1545,10 @@ class _$_ResetPassword implements _ResetPassword {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SignUp value)? signUp,
+    TResult? Function(_SignUpOrSignInWithGoogle value)?
+        signUpOrSignInWithGoogle,
+    TResult? Function(_SignUpOrSignInWithFacebook value)?
+        signUpOrSignInWithFacebook,
     TResult? Function(_SignIn value)? signIn,
     TResult? Function(_SignOut value)? signOut,
     TResult? Function(_NameChanged value)? nameChanged,
@@ -1127,6 +1563,9 @@ class _$_ResetPassword implements _ResetPassword {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SignUp value)? signUp,
+    TResult Function(_SignUpOrSignInWithGoogle value)? signUpOrSignInWithGoogle,
+    TResult Function(_SignUpOrSignInWithFacebook value)?
+        signUpOrSignInWithFacebook,
     TResult Function(_SignIn value)? signIn,
     TResult Function(_SignOut value)? signOut,
     TResult Function(_NameChanged value)? nameChanged,
