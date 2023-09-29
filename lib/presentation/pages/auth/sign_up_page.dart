@@ -252,7 +252,10 @@ class SignUpPageScaffold extends StatelessWidget {
                                     fontWeight: FontWeight.w500,
                                   ),
                                   onPressed: () {
-                                    // TODO : implement later
+                                    context.read<AuthBloc>().add(
+                                          const AuthEvent
+                                              .signUpOrSignInWithGoogle(),
+                                        );
                                   },
                                 ),
                               ),

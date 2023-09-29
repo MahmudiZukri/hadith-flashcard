@@ -11,6 +11,7 @@ class AppUserModel with _$AppUserModel {
     required String id,
     required String? email,
     required String name,
+    required String? photoUrl,
   }) = _AppUserModel;
 
   factory AppUserModel.fromJson(Map<String, dynamic> json) =>
@@ -22,5 +23,10 @@ extension AppUserModelX on AppUserModel {
         id: UniqueString.fromUniqueString(id),
         email: email != null ? EmailAddress(email!) : EmailAddress.empty(),
         name: PersonName(name),
+        photoUrl: photoUrl == null
+            ? null
+            : UrlAddress(
+                photoUrl!,
+              ),
       );
 }

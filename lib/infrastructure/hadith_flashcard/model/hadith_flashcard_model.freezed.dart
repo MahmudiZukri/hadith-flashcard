@@ -113,11 +113,11 @@ class _$HadithFlashcardModelCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_HadithFlashcardModelCopyWith<$Res>
+abstract class _$$HadithFlashcardModelImplCopyWith<$Res>
     implements $HadithFlashcardModelCopyWith<$Res> {
-  factory _$$_HadithFlashcardModelCopyWith(_$_HadithFlashcardModel value,
-          $Res Function(_$_HadithFlashcardModel) then) =
-      __$$_HadithFlashcardModelCopyWithImpl<$Res>;
+  factory _$$HadithFlashcardModelImplCopyWith(_$HadithFlashcardModelImpl value,
+          $Res Function(_$HadithFlashcardModelImpl) then) =
+      __$$HadithFlashcardModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -132,11 +132,11 @@ abstract class _$$_HadithFlashcardModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_HadithFlashcardModelCopyWithImpl<$Res>
-    extends _$HadithFlashcardModelCopyWithImpl<$Res, _$_HadithFlashcardModel>
-    implements _$$_HadithFlashcardModelCopyWith<$Res> {
-  __$$_HadithFlashcardModelCopyWithImpl(_$_HadithFlashcardModel _value,
-      $Res Function(_$_HadithFlashcardModel) _then)
+class __$$HadithFlashcardModelImplCopyWithImpl<$Res>
+    extends _$HadithFlashcardModelCopyWithImpl<$Res, _$HadithFlashcardModelImpl>
+    implements _$$HadithFlashcardModelImplCopyWith<$Res> {
+  __$$HadithFlashcardModelImplCopyWithImpl(_$HadithFlashcardModelImpl _value,
+      $Res Function(_$HadithFlashcardModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -151,7 +151,7 @@ class __$$_HadithFlashcardModelCopyWithImpl<$Res>
     Object? easeFactor = null,
     Object? reviewedDate = null,
   }) {
-    return _then(_$_HadithFlashcardModel(
+    return _then(_$HadithFlashcardModelImpl(
       hadithNarratorName: null == hadithNarratorName
           ? _value.hadithNarratorName
           : hadithNarratorName // ignore: cast_nullable_to_non_nullable
@@ -190,8 +190,8 @@ class __$$_HadithFlashcardModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_HadithFlashcardModel implements _HadithFlashcardModel {
-  const _$_HadithFlashcardModel(
+class _$HadithFlashcardModelImpl implements _HadithFlashcardModel {
+  const _$HadithFlashcardModelImpl(
       {required this.hadithNarratorName,
       required this.hadithNumber,
       required this.arab,
@@ -201,8 +201,8 @@ class _$_HadithFlashcardModel implements _HadithFlashcardModel {
       required this.easeFactor,
       required this.reviewedDate});
 
-  factory _$_HadithFlashcardModel.fromJson(Map<String, dynamic> json) =>
-      _$$_HadithFlashcardModelFromJson(json);
+  factory _$HadithFlashcardModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$HadithFlashcardModelImplFromJson(json);
 
   @override
   final String hadithNarratorName;
@@ -230,7 +230,7 @@ class _$_HadithFlashcardModel implements _HadithFlashcardModel {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_HadithFlashcardModel &&
+            other is _$HadithFlashcardModelImpl &&
             (identical(other.hadithNarratorName, hadithNarratorName) ||
                 other.hadithNarratorName == hadithNarratorName) &&
             (identical(other.hadithNumber, hadithNumber) ||
@@ -256,13 +256,14 @@ class _$_HadithFlashcardModel implements _HadithFlashcardModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_HadithFlashcardModelCopyWith<_$_HadithFlashcardModel> get copyWith =>
-      __$$_HadithFlashcardModelCopyWithImpl<_$_HadithFlashcardModel>(
-          this, _$identity);
+  _$$HadithFlashcardModelImplCopyWith<_$HadithFlashcardModelImpl>
+      get copyWith =>
+          __$$HadithFlashcardModelImplCopyWithImpl<_$HadithFlashcardModelImpl>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_HadithFlashcardModelToJson(
+    return _$$HadithFlashcardModelImplToJson(
       this,
     );
   }
@@ -277,10 +278,10 @@ abstract class _HadithFlashcardModel implements HadithFlashcardModel {
       required final int interval,
       required final int repetition,
       required final double easeFactor,
-      required final DateTime reviewedDate}) = _$_HadithFlashcardModel;
+      required final DateTime reviewedDate}) = _$HadithFlashcardModelImpl;
 
   factory _HadithFlashcardModel.fromJson(Map<String, dynamic> json) =
-      _$_HadithFlashcardModel.fromJson;
+      _$HadithFlashcardModelImpl.fromJson;
 
   @override
   String get hadithNarratorName;
@@ -300,6 +301,6 @@ abstract class _HadithFlashcardModel implements HadithFlashcardModel {
   DateTime get reviewedDate;
   @override
   @JsonKey(ignore: true)
-  _$$_HadithFlashcardModelCopyWith<_$_HadithFlashcardModel> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$HadithFlashcardModelImplCopyWith<_$HadithFlashcardModelImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

@@ -111,20 +111,20 @@ class _$CommonFailuresCopyWithImpl<$Res, $Val extends CommonFailures>
 }
 
 /// @nodoc
-abstract class _$$_HandledByFirebaseCopyWith<$Res> {
-  factory _$$_HandledByFirebaseCopyWith(_$_HandledByFirebase value,
-          $Res Function(_$_HandledByFirebase) then) =
-      __$$_HandledByFirebaseCopyWithImpl<$Res>;
+abstract class _$$HandledByFirebaseImplCopyWith<$Res> {
+  factory _$$HandledByFirebaseImplCopyWith(_$HandledByFirebaseImpl value,
+          $Res Function(_$HandledByFirebaseImpl) then) =
+      __$$HandledByFirebaseImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String message});
 }
 
 /// @nodoc
-class __$$_HandledByFirebaseCopyWithImpl<$Res>
-    extends _$CommonFailuresCopyWithImpl<$Res, _$_HandledByFirebase>
-    implements _$$_HandledByFirebaseCopyWith<$Res> {
-  __$$_HandledByFirebaseCopyWithImpl(
-      _$_HandledByFirebase _value, $Res Function(_$_HandledByFirebase) _then)
+class __$$HandledByFirebaseImplCopyWithImpl<$Res>
+    extends _$CommonFailuresCopyWithImpl<$Res, _$HandledByFirebaseImpl>
+    implements _$$HandledByFirebaseImplCopyWith<$Res> {
+  __$$HandledByFirebaseImplCopyWithImpl(_$HandledByFirebaseImpl _value,
+      $Res Function(_$HandledByFirebaseImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -132,7 +132,7 @@ class __$$_HandledByFirebaseCopyWithImpl<$Res>
   $Res call({
     Object? message = null,
   }) {
-    return _then(_$_HandledByFirebase(
+    return _then(_$HandledByFirebaseImpl(
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -143,8 +143,8 @@ class __$$_HandledByFirebaseCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_HandledByFirebase implements _HandledByFirebase {
-  const _$_HandledByFirebase({required this.message});
+class _$HandledByFirebaseImpl implements _HandledByFirebase {
+  const _$HandledByFirebaseImpl({required this.message});
 
   @override
   final String message;
@@ -158,7 +158,7 @@ class _$_HandledByFirebase implements _HandledByFirebase {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_HandledByFirebase &&
+            other is _$HandledByFirebaseImpl &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -168,8 +168,8 @@ class _$_HandledByFirebase implements _HandledByFirebase {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_HandledByFirebaseCopyWith<_$_HandledByFirebase> get copyWith =>
-      __$$_HandledByFirebaseCopyWithImpl<_$_HandledByFirebase>(
+  _$$HandledByFirebaseImplCopyWith<_$HandledByFirebaseImpl> get copyWith =>
+      __$$HandledByFirebaseImplCopyWithImpl<_$HandledByFirebaseImpl>(
           this, _$identity);
 
   @override
@@ -273,29 +273,29 @@ class _$_HandledByFirebase implements _HandledByFirebase {
 
 abstract class _HandledByFirebase implements CommonFailures {
   const factory _HandledByFirebase({required final String message}) =
-      _$_HandledByFirebase;
+      _$HandledByFirebaseImpl;
 
   String get message;
   @JsonKey(ignore: true)
-  _$$_HandledByFirebaseCopyWith<_$_HandledByFirebase> get copyWith =>
+  _$$HandledByFirebaseImplCopyWith<_$HandledByFirebaseImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_PlatformExceptionCopyWith<$Res> {
-  factory _$$_PlatformExceptionCopyWith(_$_PlatformException value,
-          $Res Function(_$_PlatformException) then) =
-      __$$_PlatformExceptionCopyWithImpl<$Res>;
+abstract class _$$PlatformExceptionImplCopyWith<$Res> {
+  factory _$$PlatformExceptionImplCopyWith(_$PlatformExceptionImpl value,
+          $Res Function(_$PlatformExceptionImpl) then) =
+      __$$PlatformExceptionImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String message});
 }
 
 /// @nodoc
-class __$$_PlatformExceptionCopyWithImpl<$Res>
-    extends _$CommonFailuresCopyWithImpl<$Res, _$_PlatformException>
-    implements _$$_PlatformExceptionCopyWith<$Res> {
-  __$$_PlatformExceptionCopyWithImpl(
-      _$_PlatformException _value, $Res Function(_$_PlatformException) _then)
+class __$$PlatformExceptionImplCopyWithImpl<$Res>
+    extends _$CommonFailuresCopyWithImpl<$Res, _$PlatformExceptionImpl>
+    implements _$$PlatformExceptionImplCopyWith<$Res> {
+  __$$PlatformExceptionImplCopyWithImpl(_$PlatformExceptionImpl _value,
+      $Res Function(_$PlatformExceptionImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -303,7 +303,7 @@ class __$$_PlatformExceptionCopyWithImpl<$Res>
   $Res call({
     Object? message = null,
   }) {
-    return _then(_$_PlatformException(
+    return _then(_$PlatformExceptionImpl(
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -314,8 +314,8 @@ class __$$_PlatformExceptionCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_PlatformException implements _PlatformException {
-  const _$_PlatformException({required this.message});
+class _$PlatformExceptionImpl implements _PlatformException {
+  const _$PlatformExceptionImpl({required this.message});
 
   @override
   final String message;
@@ -329,7 +329,7 @@ class _$_PlatformException implements _PlatformException {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PlatformException &&
+            other is _$PlatformExceptionImpl &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -339,8 +339,8 @@ class _$_PlatformException implements _PlatformException {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PlatformExceptionCopyWith<_$_PlatformException> get copyWith =>
-      __$$_PlatformExceptionCopyWithImpl<_$_PlatformException>(
+  _$$PlatformExceptionImplCopyWith<_$PlatformExceptionImpl> get copyWith =>
+      __$$PlatformExceptionImplCopyWithImpl<_$PlatformExceptionImpl>(
           this, _$identity);
 
   @override
@@ -444,32 +444,34 @@ class _$_PlatformException implements _PlatformException {
 
 abstract class _PlatformException implements CommonFailures {
   const factory _PlatformException({required final String message}) =
-      _$_PlatformException;
+      _$PlatformExceptionImpl;
 
   String get message;
   @JsonKey(ignore: true)
-  _$$_PlatformExceptionCopyWith<_$_PlatformException> get copyWith =>
+  _$$PlatformExceptionImplCopyWith<_$PlatformExceptionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_EmptyCopyWith<$Res> {
-  factory _$$_EmptyCopyWith(_$_Empty value, $Res Function(_$_Empty) then) =
-      __$$_EmptyCopyWithImpl<$Res>;
+abstract class _$$EmptyImplCopyWith<$Res> {
+  factory _$$EmptyImplCopyWith(
+          _$EmptyImpl value, $Res Function(_$EmptyImpl) then) =
+      __$$EmptyImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_EmptyCopyWithImpl<$Res>
-    extends _$CommonFailuresCopyWithImpl<$Res, _$_Empty>
-    implements _$$_EmptyCopyWith<$Res> {
-  __$$_EmptyCopyWithImpl(_$_Empty _value, $Res Function(_$_Empty) _then)
+class __$$EmptyImplCopyWithImpl<$Res>
+    extends _$CommonFailuresCopyWithImpl<$Res, _$EmptyImpl>
+    implements _$$EmptyImplCopyWith<$Res> {
+  __$$EmptyImplCopyWithImpl(
+      _$EmptyImpl _value, $Res Function(_$EmptyImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Empty implements _Empty {
-  const _$_Empty();
+class _$EmptyImpl implements _Empty {
+  const _$EmptyImpl();
 
   @override
   String toString() {
@@ -479,7 +481,7 @@ class _$_Empty implements _Empty {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Empty);
+        (other.runtimeType == runtimeType && other is _$EmptyImpl);
   }
 
   @override
@@ -585,29 +587,29 @@ class _$_Empty implements _Empty {
 }
 
 abstract class _Empty implements CommonFailures {
-  const factory _Empty() = _$_Empty;
+  const factory _Empty() = _$EmptyImpl;
 }
 
 /// @nodoc
-abstract class _$$_NoInternetCopyWith<$Res> {
-  factory _$$_NoInternetCopyWith(
-          _$_NoInternet value, $Res Function(_$_NoInternet) then) =
-      __$$_NoInternetCopyWithImpl<$Res>;
+abstract class _$$NoInternetImplCopyWith<$Res> {
+  factory _$$NoInternetImplCopyWith(
+          _$NoInternetImpl value, $Res Function(_$NoInternetImpl) then) =
+      __$$NoInternetImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_NoInternetCopyWithImpl<$Res>
-    extends _$CommonFailuresCopyWithImpl<$Res, _$_NoInternet>
-    implements _$$_NoInternetCopyWith<$Res> {
-  __$$_NoInternetCopyWithImpl(
-      _$_NoInternet _value, $Res Function(_$_NoInternet) _then)
+class __$$NoInternetImplCopyWithImpl<$Res>
+    extends _$CommonFailuresCopyWithImpl<$Res, _$NoInternetImpl>
+    implements _$$NoInternetImplCopyWith<$Res> {
+  __$$NoInternetImplCopyWithImpl(
+      _$NoInternetImpl _value, $Res Function(_$NoInternetImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_NoInternet implements _NoInternet {
-  const _$_NoInternet();
+class _$NoInternetImpl implements _NoInternet {
+  const _$NoInternetImpl();
 
   @override
   String toString() {
@@ -617,7 +619,7 @@ class _$_NoInternet implements _NoInternet {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_NoInternet);
+        (other.runtimeType == runtimeType && other is _$NoInternetImpl);
   }
 
   @override
@@ -723,24 +725,24 @@ class _$_NoInternet implements _NoInternet {
 }
 
 abstract class _NoInternet implements CommonFailures {
-  const factory _NoInternet() = _$_NoInternet;
+  const factory _NoInternet() = _$NoInternetImpl;
 }
 
 /// @nodoc
-abstract class _$$_ServerErrorCopyWith<$Res> {
-  factory _$$_ServerErrorCopyWith(
-          _$_ServerError value, $Res Function(_$_ServerError) then) =
-      __$$_ServerErrorCopyWithImpl<$Res>;
+abstract class _$$ServerErrorImplCopyWith<$Res> {
+  factory _$$ServerErrorImplCopyWith(
+          _$ServerErrorImpl value, $Res Function(_$ServerErrorImpl) then) =
+      __$$ServerErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String? message});
 }
 
 /// @nodoc
-class __$$_ServerErrorCopyWithImpl<$Res>
-    extends _$CommonFailuresCopyWithImpl<$Res, _$_ServerError>
-    implements _$$_ServerErrorCopyWith<$Res> {
-  __$$_ServerErrorCopyWithImpl(
-      _$_ServerError _value, $Res Function(_$_ServerError) _then)
+class __$$ServerErrorImplCopyWithImpl<$Res>
+    extends _$CommonFailuresCopyWithImpl<$Res, _$ServerErrorImpl>
+    implements _$$ServerErrorImplCopyWith<$Res> {
+  __$$ServerErrorImplCopyWithImpl(
+      _$ServerErrorImpl _value, $Res Function(_$ServerErrorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -748,7 +750,7 @@ class __$$_ServerErrorCopyWithImpl<$Res>
   $Res call({
     Object? message = freezed,
   }) {
-    return _then(_$_ServerError(
+    return _then(_$ServerErrorImpl(
       message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -759,8 +761,8 @@ class __$$_ServerErrorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ServerError implements _ServerError {
-  const _$_ServerError({required this.message});
+class _$ServerErrorImpl implements _ServerError {
+  const _$ServerErrorImpl({required this.message});
 
   @override
   final String? message;
@@ -774,7 +776,7 @@ class _$_ServerError implements _ServerError {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ServerError &&
+            other is _$ServerErrorImpl &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -784,8 +786,8 @@ class _$_ServerError implements _ServerError {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ServerErrorCopyWith<_$_ServerError> get copyWith =>
-      __$$_ServerErrorCopyWithImpl<_$_ServerError>(this, _$identity);
+  _$$ServerErrorImplCopyWith<_$ServerErrorImpl> get copyWith =>
+      __$$ServerErrorImplCopyWithImpl<_$ServerErrorImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -887,33 +889,35 @@ class _$_ServerError implements _ServerError {
 }
 
 abstract class _ServerError implements CommonFailures {
-  const factory _ServerError({required final String? message}) = _$_ServerError;
+  const factory _ServerError({required final String? message}) =
+      _$ServerErrorImpl;
 
   String? get message;
   @JsonKey(ignore: true)
-  _$$_ServerErrorCopyWith<_$_ServerError> get copyWith =>
+  _$$ServerErrorImplCopyWith<_$ServerErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_TimeoutCopyWith<$Res> {
-  factory _$$_TimeoutCopyWith(
-          _$_Timeout value, $Res Function(_$_Timeout) then) =
-      __$$_TimeoutCopyWithImpl<$Res>;
+abstract class _$$TimeoutImplCopyWith<$Res> {
+  factory _$$TimeoutImplCopyWith(
+          _$TimeoutImpl value, $Res Function(_$TimeoutImpl) then) =
+      __$$TimeoutImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_TimeoutCopyWithImpl<$Res>
-    extends _$CommonFailuresCopyWithImpl<$Res, _$_Timeout>
-    implements _$$_TimeoutCopyWith<$Res> {
-  __$$_TimeoutCopyWithImpl(_$_Timeout _value, $Res Function(_$_Timeout) _then)
+class __$$TimeoutImplCopyWithImpl<$Res>
+    extends _$CommonFailuresCopyWithImpl<$Res, _$TimeoutImpl>
+    implements _$$TimeoutImplCopyWith<$Res> {
+  __$$TimeoutImplCopyWithImpl(
+      _$TimeoutImpl _value, $Res Function(_$TimeoutImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Timeout implements _Timeout {
-  const _$_Timeout();
+class _$TimeoutImpl implements _Timeout {
+  const _$TimeoutImpl();
 
   @override
   String toString() {
@@ -923,7 +927,7 @@ class _$_Timeout implements _Timeout {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Timeout);
+        (other.runtimeType == runtimeType && other is _$TimeoutImpl);
   }
 
   @override
@@ -1029,24 +1033,24 @@ class _$_Timeout implements _Timeout {
 }
 
 abstract class _Timeout implements CommonFailures {
-  const factory _Timeout() = _$_Timeout;
+  const factory _Timeout() = _$TimeoutImpl;
 }
 
 /// @nodoc
-abstract class _$$_ParseErrorCopyWith<$Res> {
-  factory _$$_ParseErrorCopyWith(
-          _$_ParseError value, $Res Function(_$_ParseError) then) =
-      __$$_ParseErrorCopyWithImpl<$Res>;
+abstract class _$$ParseErrorImplCopyWith<$Res> {
+  factory _$$ParseErrorImplCopyWith(
+          _$ParseErrorImpl value, $Res Function(_$ParseErrorImpl) then) =
+      __$$ParseErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String message});
 }
 
 /// @nodoc
-class __$$_ParseErrorCopyWithImpl<$Res>
-    extends _$CommonFailuresCopyWithImpl<$Res, _$_ParseError>
-    implements _$$_ParseErrorCopyWith<$Res> {
-  __$$_ParseErrorCopyWithImpl(
-      _$_ParseError _value, $Res Function(_$_ParseError) _then)
+class __$$ParseErrorImplCopyWithImpl<$Res>
+    extends _$CommonFailuresCopyWithImpl<$Res, _$ParseErrorImpl>
+    implements _$$ParseErrorImplCopyWith<$Res> {
+  __$$ParseErrorImplCopyWithImpl(
+      _$ParseErrorImpl _value, $Res Function(_$ParseErrorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1054,7 +1058,7 @@ class __$$_ParseErrorCopyWithImpl<$Res>
   $Res call({
     Object? message = null,
   }) {
-    return _then(_$_ParseError(
+    return _then(_$ParseErrorImpl(
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -1065,8 +1069,8 @@ class __$$_ParseErrorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ParseError implements _ParseError {
-  const _$_ParseError({required this.message});
+class _$ParseErrorImpl implements _ParseError {
+  const _$ParseErrorImpl({required this.message});
 
   @override
   final String message;
@@ -1080,7 +1084,7 @@ class _$_ParseError implements _ParseError {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ParseError &&
+            other is _$ParseErrorImpl &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -1090,8 +1094,8 @@ class _$_ParseError implements _ParseError {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ParseErrorCopyWith<_$_ParseError> get copyWith =>
-      __$$_ParseErrorCopyWithImpl<_$_ParseError>(this, _$identity);
+  _$$ParseErrorImplCopyWith<_$ParseErrorImpl> get copyWith =>
+      __$$ParseErrorImplCopyWithImpl<_$ParseErrorImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1193,27 +1197,29 @@ class _$_ParseError implements _ParseError {
 }
 
 abstract class _ParseError implements CommonFailures {
-  const factory _ParseError({required final String message}) = _$_ParseError;
+  const factory _ParseError({required final String message}) = _$ParseErrorImpl;
 
   String get message;
   @JsonKey(ignore: true)
-  _$$_ParseErrorCopyWith<_$_ParseError> get copyWith =>
+  _$$ParseErrorImplCopyWith<_$ParseErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_OtherCopyWith<$Res> {
-  factory _$$_OtherCopyWith(_$_Other value, $Res Function(_$_Other) then) =
-      __$$_OtherCopyWithImpl<$Res>;
+abstract class _$$OtherImplCopyWith<$Res> {
+  factory _$$OtherImplCopyWith(
+          _$OtherImpl value, $Res Function(_$OtherImpl) then) =
+      __$$OtherImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String? message});
 }
 
 /// @nodoc
-class __$$_OtherCopyWithImpl<$Res>
-    extends _$CommonFailuresCopyWithImpl<$Res, _$_Other>
-    implements _$$_OtherCopyWith<$Res> {
-  __$$_OtherCopyWithImpl(_$_Other _value, $Res Function(_$_Other) _then)
+class __$$OtherImplCopyWithImpl<$Res>
+    extends _$CommonFailuresCopyWithImpl<$Res, _$OtherImpl>
+    implements _$$OtherImplCopyWith<$Res> {
+  __$$OtherImplCopyWithImpl(
+      _$OtherImpl _value, $Res Function(_$OtherImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1221,7 +1227,7 @@ class __$$_OtherCopyWithImpl<$Res>
   $Res call({
     Object? message = freezed,
   }) {
-    return _then(_$_Other(
+    return _then(_$OtherImpl(
       message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -1232,8 +1238,8 @@ class __$$_OtherCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Other implements _Other {
-  const _$_Other({required this.message});
+class _$OtherImpl implements _Other {
+  const _$OtherImpl({required this.message});
 
   @override
   final String? message;
@@ -1247,7 +1253,7 @@ class _$_Other implements _Other {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Other &&
+            other is _$OtherImpl &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -1257,8 +1263,8 @@ class _$_Other implements _Other {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_OtherCopyWith<_$_Other> get copyWith =>
-      __$$_OtherCopyWithImpl<_$_Other>(this, _$identity);
+  _$$OtherImplCopyWith<_$OtherImpl> get copyWith =>
+      __$$OtherImplCopyWithImpl<_$OtherImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1360,10 +1366,10 @@ class _$_Other implements _Other {
 }
 
 abstract class _Other implements CommonFailures {
-  const factory _Other({required final String? message}) = _$_Other;
+  const factory _Other({required final String? message}) = _$OtherImpl;
 
   String? get message;
   @JsonKey(ignore: true)
-  _$$_OtherCopyWith<_$_Other> get copyWith =>
+  _$$OtherImplCopyWith<_$OtherImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

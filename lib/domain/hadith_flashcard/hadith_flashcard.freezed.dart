@@ -107,11 +107,11 @@ class _$HadithFlashcardCopyWithImpl<$Res, $Val extends HadithFlashcard>
 }
 
 /// @nodoc
-abstract class _$$_HadithNarratorCopyWith<$Res>
+abstract class _$$HadithNarratorImplCopyWith<$Res>
     implements $HadithFlashcardCopyWith<$Res> {
-  factory _$$_HadithNarratorCopyWith(
-          _$_HadithNarrator value, $Res Function(_$_HadithNarrator) then) =
-      __$$_HadithNarratorCopyWithImpl<$Res>;
+  factory _$$HadithNarratorImplCopyWith(_$HadithNarratorImpl value,
+          $Res Function(_$HadithNarratorImpl) then) =
+      __$$HadithNarratorImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -126,11 +126,11 @@ abstract class _$$_HadithNarratorCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_HadithNarratorCopyWithImpl<$Res>
-    extends _$HadithFlashcardCopyWithImpl<$Res, _$_HadithNarrator>
-    implements _$$_HadithNarratorCopyWith<$Res> {
-  __$$_HadithNarratorCopyWithImpl(
-      _$_HadithNarrator _value, $Res Function(_$_HadithNarrator) _then)
+class __$$HadithNarratorImplCopyWithImpl<$Res>
+    extends _$HadithFlashcardCopyWithImpl<$Res, _$HadithNarratorImpl>
+    implements _$$HadithNarratorImplCopyWith<$Res> {
+  __$$HadithNarratorImplCopyWithImpl(
+      _$HadithNarratorImpl _value, $Res Function(_$HadithNarratorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -145,7 +145,7 @@ class __$$_HadithNarratorCopyWithImpl<$Res>
     Object? repetition = null,
     Object? easeFactor = null,
   }) {
-    return _then(_$_HadithNarrator(
+    return _then(_$HadithNarratorImpl(
       hadithNarratorName: null == hadithNarratorName
           ? _value.hadithNarratorName
           : hadithNarratorName // ignore: cast_nullable_to_non_nullable
@@ -184,8 +184,8 @@ class __$$_HadithNarratorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_HadithNarrator implements _HadithNarrator {
-  const _$_HadithNarrator(
+class _$HadithNarratorImpl implements _HadithNarrator {
+  const _$HadithNarratorImpl(
       {required this.hadithNarratorName,
       required this.hadithNumber,
       required this.arab,
@@ -221,7 +221,7 @@ class _$_HadithNarrator implements _HadithNarrator {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_HadithNarrator &&
+            other is _$HadithNarratorImpl &&
             (identical(other.hadithNarratorName, hadithNarratorName) ||
                 other.hadithNarratorName == hadithNarratorName) &&
             (identical(other.hadithNumber, hadithNumber) ||
@@ -246,8 +246,9 @@ class _$_HadithNarrator implements _HadithNarrator {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_HadithNarratorCopyWith<_$_HadithNarrator> get copyWith =>
-      __$$_HadithNarratorCopyWithImpl<_$_HadithNarrator>(this, _$identity);
+  _$$HadithNarratorImplCopyWith<_$HadithNarratorImpl> get copyWith =>
+      __$$HadithNarratorImplCopyWithImpl<_$HadithNarratorImpl>(
+          this, _$identity);
 }
 
 abstract class _HadithNarrator implements HadithFlashcard {
@@ -259,7 +260,7 @@ abstract class _HadithNarrator implements HadithFlashcard {
       required final DateTime reviewedDate,
       required final int interval,
       required final int repetition,
-      required final double easeFactor}) = _$_HadithNarrator;
+      required final double easeFactor}) = _$HadithNarratorImpl;
 
   @override
   PersonName get hadithNarratorName;
@@ -279,6 +280,6 @@ abstract class _HadithNarrator implements HadithFlashcard {
   double get easeFactor;
   @override
   @JsonKey(ignore: true)
-  _$$_HadithNarratorCopyWith<_$_HadithNarrator> get copyWith =>
+  _$$HadithNarratorImplCopyWith<_$HadithNarratorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

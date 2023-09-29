@@ -9,6 +9,7 @@ class UserServices {
       {
         'email': user.email,
         'name': user.name,
+        'photoUrl': user.photoUrl,
       },
     );
   }
@@ -21,6 +22,7 @@ class UserServices {
       id: userID,
       email: snapshot.data()?['email'],
       name: snapshot.data()?['name'],
+      photoUrl: snapshot.data()?['photoUrl'],
     );
   }
 }

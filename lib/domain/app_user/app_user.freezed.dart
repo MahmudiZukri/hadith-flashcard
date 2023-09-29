@@ -19,6 +19,7 @@ mixin _$AppUser {
   UniqueString get id => throw _privateConstructorUsedError;
   EmailAddress get email => throw _privateConstructorUsedError;
   PersonName get name => throw _privateConstructorUsedError;
+  UrlAddress? get photoUrl => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AppUserCopyWith<AppUser> get copyWith => throw _privateConstructorUsedError;
@@ -29,7 +30,11 @@ abstract class $AppUserCopyWith<$Res> {
   factory $AppUserCopyWith(AppUser value, $Res Function(AppUser) then) =
       _$AppUserCopyWithImpl<$Res, AppUser>;
   @useResult
-  $Res call({UniqueString id, EmailAddress email, PersonName name});
+  $Res call(
+      {UniqueString id,
+      EmailAddress email,
+      PersonName name,
+      UrlAddress? photoUrl});
 }
 
 /// @nodoc
@@ -48,6 +53,7 @@ class _$AppUserCopyWithImpl<$Res, $Val extends AppUser>
     Object? id = null,
     Object? email = null,
     Object? name = null,
+    Object? photoUrl = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -62,25 +68,34 @@ class _$AppUserCopyWithImpl<$Res, $Val extends AppUser>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as PersonName,
+      photoUrl: freezed == photoUrl
+          ? _value.photoUrl
+          : photoUrl // ignore: cast_nullable_to_non_nullable
+              as UrlAddress?,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$_AppUserCopyWith<$Res> implements $AppUserCopyWith<$Res> {
-  factory _$$_AppUserCopyWith(
-          _$_AppUser value, $Res Function(_$_AppUser) then) =
-      __$$_AppUserCopyWithImpl<$Res>;
+abstract class _$$AppUserImplCopyWith<$Res> implements $AppUserCopyWith<$Res> {
+  factory _$$AppUserImplCopyWith(
+          _$AppUserImpl value, $Res Function(_$AppUserImpl) then) =
+      __$$AppUserImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({UniqueString id, EmailAddress email, PersonName name});
+  $Res call(
+      {UniqueString id,
+      EmailAddress email,
+      PersonName name,
+      UrlAddress? photoUrl});
 }
 
 /// @nodoc
-class __$$_AppUserCopyWithImpl<$Res>
-    extends _$AppUserCopyWithImpl<$Res, _$_AppUser>
-    implements _$$_AppUserCopyWith<$Res> {
-  __$$_AppUserCopyWithImpl(_$_AppUser _value, $Res Function(_$_AppUser) _then)
+class __$$AppUserImplCopyWithImpl<$Res>
+    extends _$AppUserCopyWithImpl<$Res, _$AppUserImpl>
+    implements _$$AppUserImplCopyWith<$Res> {
+  __$$AppUserImplCopyWithImpl(
+      _$AppUserImpl _value, $Res Function(_$AppUserImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -89,8 +104,9 @@ class __$$_AppUserCopyWithImpl<$Res>
     Object? id = null,
     Object? email = null,
     Object? name = null,
+    Object? photoUrl = freezed,
   }) {
-    return _then(_$_AppUser(
+    return _then(_$AppUserImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -103,14 +119,22 @@ class __$$_AppUserCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as PersonName,
+      photoUrl: freezed == photoUrl
+          ? _value.photoUrl
+          : photoUrl // ignore: cast_nullable_to_non_nullable
+              as UrlAddress?,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_AppUser implements _AppUser {
-  const _$_AppUser({required this.id, required this.email, required this.name});
+class _$AppUserImpl implements _AppUser {
+  const _$AppUserImpl(
+      {required this.id,
+      required this.email,
+      required this.name,
+      required this.photoUrl});
 
   @override
   final UniqueString id;
@@ -118,37 +142,42 @@ class _$_AppUser implements _AppUser {
   final EmailAddress email;
   @override
   final PersonName name;
+  @override
+  final UrlAddress? photoUrl;
 
   @override
   String toString() {
-    return 'AppUser(id: $id, email: $email, name: $name)';
+    return 'AppUser(id: $id, email: $email, name: $name, photoUrl: $photoUrl)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AppUser &&
+            other is _$AppUserImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.email, email) || other.email == email) &&
-            (identical(other.name, name) || other.name == name));
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.photoUrl, photoUrl) ||
+                other.photoUrl == photoUrl));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, email, name);
+  int get hashCode => Object.hash(runtimeType, id, email, name, photoUrl);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AppUserCopyWith<_$_AppUser> get copyWith =>
-      __$$_AppUserCopyWithImpl<_$_AppUser>(this, _$identity);
+  _$$AppUserImplCopyWith<_$AppUserImpl> get copyWith =>
+      __$$AppUserImplCopyWithImpl<_$AppUserImpl>(this, _$identity);
 }
 
 abstract class _AppUser implements AppUser {
   const factory _AppUser(
       {required final UniqueString id,
       required final EmailAddress email,
-      required final PersonName name}) = _$_AppUser;
+      required final PersonName name,
+      required final UrlAddress? photoUrl}) = _$AppUserImpl;
 
   @override
   UniqueString get id;
@@ -157,7 +186,9 @@ abstract class _AppUser implements AppUser {
   @override
   PersonName get name;
   @override
+  UrlAddress? get photoUrl;
+  @override
   @JsonKey(ignore: true)
-  _$$_AppUserCopyWith<_$_AppUser> get copyWith =>
+  _$$AppUserImplCopyWith<_$AppUserImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

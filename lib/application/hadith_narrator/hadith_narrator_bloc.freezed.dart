@@ -82,25 +82,25 @@ class _$HadithNarratorEventCopyWithImpl<$Res, $Val extends HadithNarratorEvent>
 }
 
 /// @nodoc
-abstract class _$$_GetHadithNarratorsCopyWith<$Res> {
-  factory _$$_GetHadithNarratorsCopyWith(_$_GetHadithNarrators value,
-          $Res Function(_$_GetHadithNarrators) then) =
-      __$$_GetHadithNarratorsCopyWithImpl<$Res>;
+abstract class _$$GetHadithNarratorsImplCopyWith<$Res> {
+  factory _$$GetHadithNarratorsImplCopyWith(_$GetHadithNarratorsImpl value,
+          $Res Function(_$GetHadithNarratorsImpl) then) =
+      __$$GetHadithNarratorsImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_GetHadithNarratorsCopyWithImpl<$Res>
-    extends _$HadithNarratorEventCopyWithImpl<$Res, _$_GetHadithNarrators>
-    implements _$$_GetHadithNarratorsCopyWith<$Res> {
-  __$$_GetHadithNarratorsCopyWithImpl(
-      _$_GetHadithNarrators _value, $Res Function(_$_GetHadithNarrators) _then)
+class __$$GetHadithNarratorsImplCopyWithImpl<$Res>
+    extends _$HadithNarratorEventCopyWithImpl<$Res, _$GetHadithNarratorsImpl>
+    implements _$$GetHadithNarratorsImplCopyWith<$Res> {
+  __$$GetHadithNarratorsImplCopyWithImpl(_$GetHadithNarratorsImpl _value,
+      $Res Function(_$GetHadithNarratorsImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_GetHadithNarrators implements _GetHadithNarrators {
-  const _$_GetHadithNarrators();
+class _$GetHadithNarratorsImpl implements _GetHadithNarrators {
+  const _$GetHadithNarratorsImpl();
 
   @override
   String toString() {
@@ -110,7 +110,7 @@ class _$_GetHadithNarrators implements _GetHadithNarrators {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_GetHadithNarrators);
+        (other.runtimeType == runtimeType && other is _$GetHadithNarratorsImpl);
   }
 
   @override
@@ -187,25 +187,28 @@ class _$_GetHadithNarrators implements _GetHadithNarrators {
 }
 
 abstract class _GetHadithNarrators implements HadithNarratorEvent {
-  const factory _GetHadithNarrators() = _$_GetHadithNarrators;
+  const factory _GetHadithNarrators() = _$GetHadithNarratorsImpl;
 }
 
 /// @nodoc
-abstract class _$$_GetHadithNarratorByNameCopyWith<$Res> {
-  factory _$$_GetHadithNarratorByNameCopyWith(_$_GetHadithNarratorByName value,
-          $Res Function(_$_GetHadithNarratorByName) then) =
-      __$$_GetHadithNarratorByNameCopyWithImpl<$Res>;
+abstract class _$$GetHadithNarratorByNameImplCopyWith<$Res> {
+  factory _$$GetHadithNarratorByNameImplCopyWith(
+          _$GetHadithNarratorByNameImpl value,
+          $Res Function(_$GetHadithNarratorByNameImpl) then) =
+      __$$GetHadithNarratorByNameImplCopyWithImpl<$Res>;
   @useResult
   $Res call(
       {UniqueString narratorName, PositiveNumber? page, PositiveNumber? limit});
 }
 
 /// @nodoc
-class __$$_GetHadithNarratorByNameCopyWithImpl<$Res>
-    extends _$HadithNarratorEventCopyWithImpl<$Res, _$_GetHadithNarratorByName>
-    implements _$$_GetHadithNarratorByNameCopyWith<$Res> {
-  __$$_GetHadithNarratorByNameCopyWithImpl(_$_GetHadithNarratorByName _value,
-      $Res Function(_$_GetHadithNarratorByName) _then)
+class __$$GetHadithNarratorByNameImplCopyWithImpl<$Res>
+    extends _$HadithNarratorEventCopyWithImpl<$Res,
+        _$GetHadithNarratorByNameImpl>
+    implements _$$GetHadithNarratorByNameImplCopyWith<$Res> {
+  __$$GetHadithNarratorByNameImplCopyWithImpl(
+      _$GetHadithNarratorByNameImpl _value,
+      $Res Function(_$GetHadithNarratorByNameImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -215,7 +218,7 @@ class __$$_GetHadithNarratorByNameCopyWithImpl<$Res>
     Object? page = freezed,
     Object? limit = freezed,
   }) {
-    return _then(_$_GetHadithNarratorByName(
+    return _then(_$GetHadithNarratorByNameImpl(
       narratorName: null == narratorName
           ? _value.narratorName
           : narratorName // ignore: cast_nullable_to_non_nullable
@@ -234,8 +237,8 @@ class __$$_GetHadithNarratorByNameCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_GetHadithNarratorByName implements _GetHadithNarratorByName {
-  const _$_GetHadithNarratorByName(
+class _$GetHadithNarratorByNameImpl implements _GetHadithNarratorByName {
+  const _$GetHadithNarratorByNameImpl(
       {required this.narratorName, this.page, this.limit});
 
   @override
@@ -254,7 +257,7 @@ class _$_GetHadithNarratorByName implements _GetHadithNarratorByName {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_GetHadithNarratorByName &&
+            other is _$GetHadithNarratorByNameImpl &&
             (identical(other.narratorName, narratorName) ||
                 other.narratorName == narratorName) &&
             (identical(other.page, page) || other.page == page) &&
@@ -267,10 +270,9 @@ class _$_GetHadithNarratorByName implements _GetHadithNarratorByName {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GetHadithNarratorByNameCopyWith<_$_GetHadithNarratorByName>
-      get copyWith =>
-          __$$_GetHadithNarratorByNameCopyWithImpl<_$_GetHadithNarratorByName>(
-              this, _$identity);
+  _$$GetHadithNarratorByNameImplCopyWith<_$GetHadithNarratorByNameImpl>
+      get copyWith => __$$GetHadithNarratorByNameImplCopyWithImpl<
+          _$GetHadithNarratorByNameImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -346,13 +348,13 @@ abstract class _GetHadithNarratorByName implements HadithNarratorEvent {
   const factory _GetHadithNarratorByName(
       {required final UniqueString narratorName,
       final PositiveNumber? page,
-      final PositiveNumber? limit}) = _$_GetHadithNarratorByName;
+      final PositiveNumber? limit}) = _$GetHadithNarratorByNameImpl;
 
   UniqueString get narratorName;
   PositiveNumber? get page;
   PositiveNumber? get limit;
   @JsonKey(ignore: true)
-  _$$_GetHadithNarratorByNameCopyWith<_$_GetHadithNarratorByName>
+  _$$GetHadithNarratorByNameImplCopyWith<_$GetHadithNarratorByNameImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -413,11 +415,11 @@ class _$HadithNarratorStateCopyWithImpl<$Res, $Val extends HadithNarratorState>
 }
 
 /// @nodoc
-abstract class _$$_HadithNarratorStateCopyWith<$Res>
+abstract class _$$HadithNarratorStateImplCopyWith<$Res>
     implements $HadithNarratorStateCopyWith<$Res> {
-  factory _$$_HadithNarratorStateCopyWith(_$_HadithNarratorState value,
-          $Res Function(_$_HadithNarratorState) then) =
-      __$$_HadithNarratorStateCopyWithImpl<$Res>;
+  factory _$$HadithNarratorStateImplCopyWith(_$HadithNarratorStateImpl value,
+          $Res Function(_$HadithNarratorStateImpl) then) =
+      __$$HadithNarratorStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -428,11 +430,11 @@ abstract class _$$_HadithNarratorStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_HadithNarratorStateCopyWithImpl<$Res>
-    extends _$HadithNarratorStateCopyWithImpl<$Res, _$_HadithNarratorState>
-    implements _$$_HadithNarratorStateCopyWith<$Res> {
-  __$$_HadithNarratorStateCopyWithImpl(_$_HadithNarratorState _value,
-      $Res Function(_$_HadithNarratorState) _then)
+class __$$HadithNarratorStateImplCopyWithImpl<$Res>
+    extends _$HadithNarratorStateCopyWithImpl<$Res, _$HadithNarratorStateImpl>
+    implements _$$HadithNarratorStateImplCopyWith<$Res> {
+  __$$HadithNarratorStateImplCopyWithImpl(_$HadithNarratorStateImpl _value,
+      $Res Function(_$HadithNarratorStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -441,7 +443,7 @@ class __$$_HadithNarratorStateCopyWithImpl<$Res>
     Object? optionFailureOrHadithNarrators = null,
     Object? optionFailureOrHadithNarratorByName = null,
   }) {
-    return _then(_$_HadithNarratorState(
+    return _then(_$HadithNarratorStateImpl(
       optionFailureOrHadithNarrators: null == optionFailureOrHadithNarrators
           ? _value.optionFailureOrHadithNarrators
           : optionFailureOrHadithNarrators // ignore: cast_nullable_to_non_nullable
@@ -457,8 +459,8 @@ class __$$_HadithNarratorStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_HadithNarratorState implements _HadithNarratorState {
-  const _$_HadithNarratorState(
+class _$HadithNarratorStateImpl implements _HadithNarratorState {
+  const _$HadithNarratorStateImpl(
       {required this.optionFailureOrHadithNarrators,
       required this.optionFailureOrHadithNarratorByName});
 
@@ -478,7 +480,7 @@ class _$_HadithNarratorState implements _HadithNarratorState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_HadithNarratorState &&
+            other is _$HadithNarratorStateImpl &&
             (identical(other.optionFailureOrHadithNarrators,
                     optionFailureOrHadithNarrators) ||
                 other.optionFailureOrHadithNarrators ==
@@ -496,8 +498,8 @@ class _$_HadithNarratorState implements _HadithNarratorState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_HadithNarratorStateCopyWith<_$_HadithNarratorState> get copyWith =>
-      __$$_HadithNarratorStateCopyWithImpl<_$_HadithNarratorState>(
+  _$$HadithNarratorStateImplCopyWith<_$HadithNarratorStateImpl> get copyWith =>
+      __$$HadithNarratorStateImplCopyWithImpl<_$HadithNarratorStateImpl>(
           this, _$identity);
 }
 
@@ -506,7 +508,7 @@ abstract class _HadithNarratorState implements HadithNarratorState {
       {required final Option<Either<CommonFailures, IList<HadithNarrator>>>
           optionFailureOrHadithNarrators,
       required final Option<Either<CommonFailures, HadithNarrator>>
-          optionFailureOrHadithNarratorByName}) = _$_HadithNarratorState;
+          optionFailureOrHadithNarratorByName}) = _$HadithNarratorStateImpl;
 
   @override
   Option<Either<CommonFailures, IList<HadithNarrator>>>
@@ -516,6 +518,6 @@ abstract class _HadithNarratorState implements HadithNarratorState {
       get optionFailureOrHadithNarratorByName;
   @override
   @JsonKey(ignore: true)
-  _$$_HadithNarratorStateCopyWith<_$_HadithNarratorState> get copyWith =>
+  _$$HadithNarratorStateImplCopyWith<_$HadithNarratorStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -165,18 +165,20 @@ class _$StringFailureCopyWithImpl<$Res, $Val extends StringFailure>
 }
 
 /// @nodoc
-abstract class _$$EmptyCopyWith<$Res> {
-  factory _$$EmptyCopyWith(_$Empty value, $Res Function(_$Empty) then) =
-      __$$EmptyCopyWithImpl<$Res>;
+abstract class _$$EmptyImplCopyWith<$Res> {
+  factory _$$EmptyImplCopyWith(
+          _$EmptyImpl value, $Res Function(_$EmptyImpl) then) =
+      __$$EmptyImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String? failedValue});
 }
 
 /// @nodoc
-class __$$EmptyCopyWithImpl<$Res>
-    extends _$StringFailureCopyWithImpl<$Res, _$Empty>
-    implements _$$EmptyCopyWith<$Res> {
-  __$$EmptyCopyWithImpl(_$Empty _value, $Res Function(_$Empty) _then)
+class __$$EmptyImplCopyWithImpl<$Res>
+    extends _$StringFailureCopyWithImpl<$Res, _$EmptyImpl>
+    implements _$$EmptyImplCopyWith<$Res> {
+  __$$EmptyImplCopyWithImpl(
+      _$EmptyImpl _value, $Res Function(_$EmptyImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -184,7 +186,7 @@ class __$$EmptyCopyWithImpl<$Res>
   $Res call({
     Object? failedValue = freezed,
   }) {
-    return _then(_$Empty(
+    return _then(_$EmptyImpl(
       failedValue: freezed == failedValue
           ? _value.failedValue
           : failedValue // ignore: cast_nullable_to_non_nullable
@@ -195,8 +197,8 @@ class __$$EmptyCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$Empty implements Empty {
-  const _$Empty({required this.failedValue});
+class _$EmptyImpl implements Empty {
+  const _$EmptyImpl({required this.failedValue});
 
   @override
   final String? failedValue;
@@ -210,7 +212,7 @@ class _$Empty implements Empty {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$Empty &&
+            other is _$EmptyImpl &&
             (identical(other.failedValue, failedValue) ||
                 other.failedValue == failedValue));
   }
@@ -221,8 +223,8 @@ class _$Empty implements Empty {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$EmptyCopyWith<_$Empty> get copyWith =>
-      __$$EmptyCopyWithImpl<_$Empty>(this, _$identity);
+  _$$EmptyImplCopyWith<_$EmptyImpl> get copyWith =>
+      __$$EmptyImplCopyWithImpl<_$EmptyImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -377,29 +379,30 @@ class _$Empty implements Empty {
 }
 
 abstract class Empty implements StringFailure {
-  const factory Empty({required final String? failedValue}) = _$Empty;
+  const factory Empty({required final String? failedValue}) = _$EmptyImpl;
 
   @override
   String? get failedValue;
   @JsonKey(ignore: true)
-  _$$EmptyCopyWith<_$Empty> get copyWith => throw _privateConstructorUsedError;
+  _$$EmptyImplCopyWith<_$EmptyImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$HasWhitespaceCopyWith<$Res> {
-  factory _$$HasWhitespaceCopyWith(
-          _$HasWhitespace value, $Res Function(_$HasWhitespace) then) =
-      __$$HasWhitespaceCopyWithImpl<$Res>;
+abstract class _$$HasWhitespaceImplCopyWith<$Res> {
+  factory _$$HasWhitespaceImplCopyWith(
+          _$HasWhitespaceImpl value, $Res Function(_$HasWhitespaceImpl) then) =
+      __$$HasWhitespaceImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String? failedValue});
 }
 
 /// @nodoc
-class __$$HasWhitespaceCopyWithImpl<$Res>
-    extends _$StringFailureCopyWithImpl<$Res, _$HasWhitespace>
-    implements _$$HasWhitespaceCopyWith<$Res> {
-  __$$HasWhitespaceCopyWithImpl(
-      _$HasWhitespace _value, $Res Function(_$HasWhitespace) _then)
+class __$$HasWhitespaceImplCopyWithImpl<$Res>
+    extends _$StringFailureCopyWithImpl<$Res, _$HasWhitespaceImpl>
+    implements _$$HasWhitespaceImplCopyWith<$Res> {
+  __$$HasWhitespaceImplCopyWithImpl(
+      _$HasWhitespaceImpl _value, $Res Function(_$HasWhitespaceImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -407,7 +410,7 @@ class __$$HasWhitespaceCopyWithImpl<$Res>
   $Res call({
     Object? failedValue = freezed,
   }) {
-    return _then(_$HasWhitespace(
+    return _then(_$HasWhitespaceImpl(
       failedValue: freezed == failedValue
           ? _value.failedValue
           : failedValue // ignore: cast_nullable_to_non_nullable
@@ -418,8 +421,8 @@ class __$$HasWhitespaceCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$HasWhitespace implements HasWhitespace {
-  const _$HasWhitespace({required this.failedValue});
+class _$HasWhitespaceImpl implements HasWhitespace {
+  const _$HasWhitespaceImpl({required this.failedValue});
 
   @override
   final String? failedValue;
@@ -433,7 +436,7 @@ class _$HasWhitespace implements HasWhitespace {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$HasWhitespace &&
+            other is _$HasWhitespaceImpl &&
             (identical(other.failedValue, failedValue) ||
                 other.failedValue == failedValue));
   }
@@ -444,8 +447,8 @@ class _$HasWhitespace implements HasWhitespace {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$HasWhitespaceCopyWith<_$HasWhitespace> get copyWith =>
-      __$$HasWhitespaceCopyWithImpl<_$HasWhitespace>(this, _$identity);
+  _$$HasWhitespaceImplCopyWith<_$HasWhitespaceImpl> get copyWith =>
+      __$$HasWhitespaceImplCopyWithImpl<_$HasWhitespaceImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -601,30 +604,30 @@ class _$HasWhitespace implements HasWhitespace {
 
 abstract class HasWhitespace implements StringFailure {
   const factory HasWhitespace({required final String? failedValue}) =
-      _$HasWhitespace;
+      _$HasWhitespaceImpl;
 
   @override
   String? get failedValue;
   @JsonKey(ignore: true)
-  _$$HasWhitespaceCopyWith<_$HasWhitespace> get copyWith =>
+  _$$HasWhitespaceImplCopyWith<_$HasWhitespaceImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$IsNotAlphanumericCopyWith<$Res> {
-  factory _$$IsNotAlphanumericCopyWith(
-          _$IsNotAlphanumeric value, $Res Function(_$IsNotAlphanumeric) then) =
-      __$$IsNotAlphanumericCopyWithImpl<$Res>;
+abstract class _$$IsNotAlphanumericImplCopyWith<$Res> {
+  factory _$$IsNotAlphanumericImplCopyWith(_$IsNotAlphanumericImpl value,
+          $Res Function(_$IsNotAlphanumericImpl) then) =
+      __$$IsNotAlphanumericImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String? failedValue});
 }
 
 /// @nodoc
-class __$$IsNotAlphanumericCopyWithImpl<$Res>
-    extends _$StringFailureCopyWithImpl<$Res, _$IsNotAlphanumeric>
-    implements _$$IsNotAlphanumericCopyWith<$Res> {
-  __$$IsNotAlphanumericCopyWithImpl(
-      _$IsNotAlphanumeric _value, $Res Function(_$IsNotAlphanumeric) _then)
+class __$$IsNotAlphanumericImplCopyWithImpl<$Res>
+    extends _$StringFailureCopyWithImpl<$Res, _$IsNotAlphanumericImpl>
+    implements _$$IsNotAlphanumericImplCopyWith<$Res> {
+  __$$IsNotAlphanumericImplCopyWithImpl(_$IsNotAlphanumericImpl _value,
+      $Res Function(_$IsNotAlphanumericImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -632,7 +635,7 @@ class __$$IsNotAlphanumericCopyWithImpl<$Res>
   $Res call({
     Object? failedValue = freezed,
   }) {
-    return _then(_$IsNotAlphanumeric(
+    return _then(_$IsNotAlphanumericImpl(
       failedValue: freezed == failedValue
           ? _value.failedValue
           : failedValue // ignore: cast_nullable_to_non_nullable
@@ -643,8 +646,8 @@ class __$$IsNotAlphanumericCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$IsNotAlphanumeric implements IsNotAlphanumeric {
-  const _$IsNotAlphanumeric({required this.failedValue});
+class _$IsNotAlphanumericImpl implements IsNotAlphanumeric {
+  const _$IsNotAlphanumericImpl({required this.failedValue});
 
   @override
   final String? failedValue;
@@ -658,7 +661,7 @@ class _$IsNotAlphanumeric implements IsNotAlphanumeric {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$IsNotAlphanumeric &&
+            other is _$IsNotAlphanumericImpl &&
             (identical(other.failedValue, failedValue) ||
                 other.failedValue == failedValue));
   }
@@ -669,8 +672,9 @@ class _$IsNotAlphanumeric implements IsNotAlphanumeric {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$IsNotAlphanumericCopyWith<_$IsNotAlphanumeric> get copyWith =>
-      __$$IsNotAlphanumericCopyWithImpl<_$IsNotAlphanumeric>(this, _$identity);
+  _$$IsNotAlphanumericImplCopyWith<_$IsNotAlphanumericImpl> get copyWith =>
+      __$$IsNotAlphanumericImplCopyWithImpl<_$IsNotAlphanumericImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -826,30 +830,30 @@ class _$IsNotAlphanumeric implements IsNotAlphanumeric {
 
 abstract class IsNotAlphanumeric implements StringFailure {
   const factory IsNotAlphanumeric({required final String? failedValue}) =
-      _$IsNotAlphanumeric;
+      _$IsNotAlphanumericImpl;
 
   @override
   String? get failedValue;
   @JsonKey(ignore: true)
-  _$$IsNotAlphanumericCopyWith<_$IsNotAlphanumeric> get copyWith =>
+  _$$IsNotAlphanumericImplCopyWith<_$IsNotAlphanumericImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ExceedingLengthCopyWith<$Res> {
-  factory _$$ExceedingLengthCopyWith(
-          _$ExceedingLength value, $Res Function(_$ExceedingLength) then) =
-      __$$ExceedingLengthCopyWithImpl<$Res>;
+abstract class _$$ExceedingLengthImplCopyWith<$Res> {
+  factory _$$ExceedingLengthImplCopyWith(_$ExceedingLengthImpl value,
+          $Res Function(_$ExceedingLengthImpl) then) =
+      __$$ExceedingLengthImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String? failedValue, int max});
 }
 
 /// @nodoc
-class __$$ExceedingLengthCopyWithImpl<$Res>
-    extends _$StringFailureCopyWithImpl<$Res, _$ExceedingLength>
-    implements _$$ExceedingLengthCopyWith<$Res> {
-  __$$ExceedingLengthCopyWithImpl(
-      _$ExceedingLength _value, $Res Function(_$ExceedingLength) _then)
+class __$$ExceedingLengthImplCopyWithImpl<$Res>
+    extends _$StringFailureCopyWithImpl<$Res, _$ExceedingLengthImpl>
+    implements _$$ExceedingLengthImplCopyWith<$Res> {
+  __$$ExceedingLengthImplCopyWithImpl(
+      _$ExceedingLengthImpl _value, $Res Function(_$ExceedingLengthImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -858,7 +862,7 @@ class __$$ExceedingLengthCopyWithImpl<$Res>
     Object? failedValue = freezed,
     Object? max = null,
   }) {
-    return _then(_$ExceedingLength(
+    return _then(_$ExceedingLengthImpl(
       failedValue: freezed == failedValue
           ? _value.failedValue
           : failedValue // ignore: cast_nullable_to_non_nullable
@@ -873,8 +877,8 @@ class __$$ExceedingLengthCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ExceedingLength implements ExceedingLength {
-  const _$ExceedingLength({required this.failedValue, required this.max});
+class _$ExceedingLengthImpl implements ExceedingLength {
+  const _$ExceedingLengthImpl({required this.failedValue, required this.max});
 
   @override
   final String? failedValue;
@@ -890,7 +894,7 @@ class _$ExceedingLength implements ExceedingLength {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ExceedingLength &&
+            other is _$ExceedingLengthImpl &&
             (identical(other.failedValue, failedValue) ||
                 other.failedValue == failedValue) &&
             (identical(other.max, max) || other.max == max));
@@ -902,8 +906,9 @@ class _$ExceedingLength implements ExceedingLength {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ExceedingLengthCopyWith<_$ExceedingLength> get copyWith =>
-      __$$ExceedingLengthCopyWithImpl<_$ExceedingLength>(this, _$identity);
+  _$$ExceedingLengthImplCopyWith<_$ExceedingLengthImpl> get copyWith =>
+      __$$ExceedingLengthImplCopyWithImpl<_$ExceedingLengthImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1060,30 +1065,31 @@ class _$ExceedingLength implements ExceedingLength {
 abstract class ExceedingLength implements StringFailure {
   const factory ExceedingLength(
       {required final String? failedValue,
-      required final int max}) = _$ExceedingLength;
+      required final int max}) = _$ExceedingLengthImpl;
 
   @override
   String? get failedValue;
   int get max;
   @JsonKey(ignore: true)
-  _$$ExceedingLengthCopyWith<_$ExceedingLength> get copyWith =>
+  _$$ExceedingLengthImplCopyWith<_$ExceedingLengthImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$TooShortCopyWith<$Res> {
-  factory _$$TooShortCopyWith(
-          _$TooShort value, $Res Function(_$TooShort) then) =
-      __$$TooShortCopyWithImpl<$Res>;
+abstract class _$$TooShortImplCopyWith<$Res> {
+  factory _$$TooShortImplCopyWith(
+          _$TooShortImpl value, $Res Function(_$TooShortImpl) then) =
+      __$$TooShortImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String? failedValue, int min});
 }
 
 /// @nodoc
-class __$$TooShortCopyWithImpl<$Res>
-    extends _$StringFailureCopyWithImpl<$Res, _$TooShort>
-    implements _$$TooShortCopyWith<$Res> {
-  __$$TooShortCopyWithImpl(_$TooShort _value, $Res Function(_$TooShort) _then)
+class __$$TooShortImplCopyWithImpl<$Res>
+    extends _$StringFailureCopyWithImpl<$Res, _$TooShortImpl>
+    implements _$$TooShortImplCopyWith<$Res> {
+  __$$TooShortImplCopyWithImpl(
+      _$TooShortImpl _value, $Res Function(_$TooShortImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1092,7 +1098,7 @@ class __$$TooShortCopyWithImpl<$Res>
     Object? failedValue = freezed,
     Object? min = null,
   }) {
-    return _then(_$TooShort(
+    return _then(_$TooShortImpl(
       failedValue: freezed == failedValue
           ? _value.failedValue
           : failedValue // ignore: cast_nullable_to_non_nullable
@@ -1107,8 +1113,8 @@ class __$$TooShortCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$TooShort implements TooShort {
-  const _$TooShort({required this.failedValue, required this.min});
+class _$TooShortImpl implements TooShort {
+  const _$TooShortImpl({required this.failedValue, required this.min});
 
   @override
   final String? failedValue;
@@ -1124,7 +1130,7 @@ class _$TooShort implements TooShort {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TooShort &&
+            other is _$TooShortImpl &&
             (identical(other.failedValue, failedValue) ||
                 other.failedValue == failedValue) &&
             (identical(other.min, min) || other.min == min));
@@ -1136,8 +1142,8 @@ class _$TooShort implements TooShort {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$TooShortCopyWith<_$TooShort> get copyWith =>
-      __$$TooShortCopyWithImpl<_$TooShort>(this, _$identity);
+  _$$TooShortImplCopyWith<_$TooShortImpl> get copyWith =>
+      __$$TooShortImplCopyWithImpl<_$TooShortImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1294,31 +1300,31 @@ class _$TooShort implements TooShort {
 abstract class TooShort implements StringFailure {
   const factory TooShort(
       {required final String? failedValue,
-      required final int min}) = _$TooShort;
+      required final int min}) = _$TooShortImpl;
 
   @override
   String? get failedValue;
   int get min;
   @JsonKey(ignore: true)
-  _$$TooShortCopyWith<_$TooShort> get copyWith =>
+  _$$TooShortImplCopyWith<_$TooShortImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$WrongLengthCopyWith<$Res> {
-  factory _$$WrongLengthCopyWith(
-          _$WrongLength value, $Res Function(_$WrongLength) then) =
-      __$$WrongLengthCopyWithImpl<$Res>;
+abstract class _$$WrongLengthImplCopyWith<$Res> {
+  factory _$$WrongLengthImplCopyWith(
+          _$WrongLengthImpl value, $Res Function(_$WrongLengthImpl) then) =
+      __$$WrongLengthImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String? failedValue, int length});
 }
 
 /// @nodoc
-class __$$WrongLengthCopyWithImpl<$Res>
-    extends _$StringFailureCopyWithImpl<$Res, _$WrongLength>
-    implements _$$WrongLengthCopyWith<$Res> {
-  __$$WrongLengthCopyWithImpl(
-      _$WrongLength _value, $Res Function(_$WrongLength) _then)
+class __$$WrongLengthImplCopyWithImpl<$Res>
+    extends _$StringFailureCopyWithImpl<$Res, _$WrongLengthImpl>
+    implements _$$WrongLengthImplCopyWith<$Res> {
+  __$$WrongLengthImplCopyWithImpl(
+      _$WrongLengthImpl _value, $Res Function(_$WrongLengthImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1327,7 +1333,7 @@ class __$$WrongLengthCopyWithImpl<$Res>
     Object? failedValue = freezed,
     Object? length = null,
   }) {
-    return _then(_$WrongLength(
+    return _then(_$WrongLengthImpl(
       failedValue: freezed == failedValue
           ? _value.failedValue
           : failedValue // ignore: cast_nullable_to_non_nullable
@@ -1342,8 +1348,8 @@ class __$$WrongLengthCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$WrongLength implements WrongLength {
-  const _$WrongLength({required this.failedValue, required this.length});
+class _$WrongLengthImpl implements WrongLength {
+  const _$WrongLengthImpl({required this.failedValue, required this.length});
 
   @override
   final String? failedValue;
@@ -1359,7 +1365,7 @@ class _$WrongLength implements WrongLength {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$WrongLength &&
+            other is _$WrongLengthImpl &&
             (identical(other.failedValue, failedValue) ||
                 other.failedValue == failedValue) &&
             (identical(other.length, length) || other.length == length));
@@ -1371,8 +1377,8 @@ class _$WrongLength implements WrongLength {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$WrongLengthCopyWith<_$WrongLength> get copyWith =>
-      __$$WrongLengthCopyWithImpl<_$WrongLength>(this, _$identity);
+  _$$WrongLengthImplCopyWith<_$WrongLengthImpl> get copyWith =>
+      __$$WrongLengthImplCopyWithImpl<_$WrongLengthImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1529,31 +1535,31 @@ class _$WrongLength implements WrongLength {
 abstract class WrongLength implements StringFailure {
   const factory WrongLength(
       {required final String? failedValue,
-      required final int length}) = _$WrongLength;
+      required final int length}) = _$WrongLengthImpl;
 
   @override
   String? get failedValue;
   int get length;
   @JsonKey(ignore: true)
-  _$$WrongLengthCopyWith<_$WrongLength> get copyWith =>
+  _$$WrongLengthImplCopyWith<_$WrongLengthImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$MultilineCopyWith<$Res> {
-  factory _$$MultilineCopyWith(
-          _$Multiline value, $Res Function(_$Multiline) then) =
-      __$$MultilineCopyWithImpl<$Res>;
+abstract class _$$MultilineImplCopyWith<$Res> {
+  factory _$$MultilineImplCopyWith(
+          _$MultilineImpl value, $Res Function(_$MultilineImpl) then) =
+      __$$MultilineImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String? failedValue});
 }
 
 /// @nodoc
-class __$$MultilineCopyWithImpl<$Res>
-    extends _$StringFailureCopyWithImpl<$Res, _$Multiline>
-    implements _$$MultilineCopyWith<$Res> {
-  __$$MultilineCopyWithImpl(
-      _$Multiline _value, $Res Function(_$Multiline) _then)
+class __$$MultilineImplCopyWithImpl<$Res>
+    extends _$StringFailureCopyWithImpl<$Res, _$MultilineImpl>
+    implements _$$MultilineImplCopyWith<$Res> {
+  __$$MultilineImplCopyWithImpl(
+      _$MultilineImpl _value, $Res Function(_$MultilineImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1561,7 +1567,7 @@ class __$$MultilineCopyWithImpl<$Res>
   $Res call({
     Object? failedValue = freezed,
   }) {
-    return _then(_$Multiline(
+    return _then(_$MultilineImpl(
       failedValue: freezed == failedValue
           ? _value.failedValue
           : failedValue // ignore: cast_nullable_to_non_nullable
@@ -1572,8 +1578,8 @@ class __$$MultilineCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$Multiline implements Multiline {
-  const _$Multiline({required this.failedValue});
+class _$MultilineImpl implements Multiline {
+  const _$MultilineImpl({required this.failedValue});
 
   @override
   final String? failedValue;
@@ -1587,7 +1593,7 @@ class _$Multiline implements Multiline {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$Multiline &&
+            other is _$MultilineImpl &&
             (identical(other.failedValue, failedValue) ||
                 other.failedValue == failedValue));
   }
@@ -1598,8 +1604,8 @@ class _$Multiline implements Multiline {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$MultilineCopyWith<_$Multiline> get copyWith =>
-      __$$MultilineCopyWithImpl<_$Multiline>(this, _$identity);
+  _$$MultilineImplCopyWith<_$MultilineImpl> get copyWith =>
+      __$$MultilineImplCopyWithImpl<_$MultilineImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1754,30 +1760,31 @@ class _$Multiline implements Multiline {
 }
 
 abstract class Multiline implements StringFailure {
-  const factory Multiline({required final String? failedValue}) = _$Multiline;
+  const factory Multiline({required final String? failedValue}) =
+      _$MultilineImpl;
 
   @override
   String? get failedValue;
   @JsonKey(ignore: true)
-  _$$MultilineCopyWith<_$Multiline> get copyWith =>
+  _$$MultilineImplCopyWith<_$MultilineImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ConfirmationNotMatchCopyWith<$Res> {
-  factory _$$ConfirmationNotMatchCopyWith(_$ConfirmationNotMatch value,
-          $Res Function(_$ConfirmationNotMatch) then) =
-      __$$ConfirmationNotMatchCopyWithImpl<$Res>;
+abstract class _$$ConfirmationNotMatchImplCopyWith<$Res> {
+  factory _$$ConfirmationNotMatchImplCopyWith(_$ConfirmationNotMatchImpl value,
+          $Res Function(_$ConfirmationNotMatchImpl) then) =
+      __$$ConfirmationNotMatchImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String? failedValue, String? failedConfirmationValue});
 }
 
 /// @nodoc
-class __$$ConfirmationNotMatchCopyWithImpl<$Res>
-    extends _$StringFailureCopyWithImpl<$Res, _$ConfirmationNotMatch>
-    implements _$$ConfirmationNotMatchCopyWith<$Res> {
-  __$$ConfirmationNotMatchCopyWithImpl(_$ConfirmationNotMatch _value,
-      $Res Function(_$ConfirmationNotMatch) _then)
+class __$$ConfirmationNotMatchImplCopyWithImpl<$Res>
+    extends _$StringFailureCopyWithImpl<$Res, _$ConfirmationNotMatchImpl>
+    implements _$$ConfirmationNotMatchImplCopyWith<$Res> {
+  __$$ConfirmationNotMatchImplCopyWithImpl(_$ConfirmationNotMatchImpl _value,
+      $Res Function(_$ConfirmationNotMatchImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1786,7 +1793,7 @@ class __$$ConfirmationNotMatchCopyWithImpl<$Res>
     Object? failedValue = freezed,
     Object? failedConfirmationValue = freezed,
   }) {
-    return _then(_$ConfirmationNotMatch(
+    return _then(_$ConfirmationNotMatchImpl(
       failedValue: freezed == failedValue
           ? _value.failedValue
           : failedValue // ignore: cast_nullable_to_non_nullable
@@ -1801,8 +1808,8 @@ class __$$ConfirmationNotMatchCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ConfirmationNotMatch implements ConfirmationNotMatch {
-  const _$ConfirmationNotMatch(
+class _$ConfirmationNotMatchImpl implements ConfirmationNotMatch {
+  const _$ConfirmationNotMatchImpl(
       {required this.failedValue, required this.failedConfirmationValue});
 
   @override
@@ -1819,7 +1826,7 @@ class _$ConfirmationNotMatch implements ConfirmationNotMatch {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ConfirmationNotMatch &&
+            other is _$ConfirmationNotMatchImpl &&
             (identical(other.failedValue, failedValue) ||
                 other.failedValue == failedValue) &&
             (identical(
@@ -1834,9 +1841,10 @@ class _$ConfirmationNotMatch implements ConfirmationNotMatch {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ConfirmationNotMatchCopyWith<_$ConfirmationNotMatch> get copyWith =>
-      __$$ConfirmationNotMatchCopyWithImpl<_$ConfirmationNotMatch>(
-          this, _$identity);
+  _$$ConfirmationNotMatchImplCopyWith<_$ConfirmationNotMatchImpl>
+      get copyWith =>
+          __$$ConfirmationNotMatchImplCopyWithImpl<_$ConfirmationNotMatchImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1992,32 +2000,33 @@ class _$ConfirmationNotMatch implements ConfirmationNotMatch {
 
 abstract class ConfirmationNotMatch implements StringFailure {
   const factory ConfirmationNotMatch(
-      {required final String? failedValue,
-      required final String? failedConfirmationValue}) = _$ConfirmationNotMatch;
+          {required final String? failedValue,
+          required final String? failedConfirmationValue}) =
+      _$ConfirmationNotMatchImpl;
 
   @override
   String? get failedValue;
   String? get failedConfirmationValue;
   @JsonKey(ignore: true)
-  _$$ConfirmationNotMatchCopyWith<_$ConfirmationNotMatch> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ConfirmationNotMatchImplCopyWith<_$ConfirmationNotMatchImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$InvalidPhoneCopyWith<$Res> {
-  factory _$$InvalidPhoneCopyWith(
-          _$InvalidPhone value, $Res Function(_$InvalidPhone) then) =
-      __$$InvalidPhoneCopyWithImpl<$Res>;
+abstract class _$$InvalidPhoneImplCopyWith<$Res> {
+  factory _$$InvalidPhoneImplCopyWith(
+          _$InvalidPhoneImpl value, $Res Function(_$InvalidPhoneImpl) then) =
+      __$$InvalidPhoneImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String? failedValue});
 }
 
 /// @nodoc
-class __$$InvalidPhoneCopyWithImpl<$Res>
-    extends _$StringFailureCopyWithImpl<$Res, _$InvalidPhone>
-    implements _$$InvalidPhoneCopyWith<$Res> {
-  __$$InvalidPhoneCopyWithImpl(
-      _$InvalidPhone _value, $Res Function(_$InvalidPhone) _then)
+class __$$InvalidPhoneImplCopyWithImpl<$Res>
+    extends _$StringFailureCopyWithImpl<$Res, _$InvalidPhoneImpl>
+    implements _$$InvalidPhoneImplCopyWith<$Res> {
+  __$$InvalidPhoneImplCopyWithImpl(
+      _$InvalidPhoneImpl _value, $Res Function(_$InvalidPhoneImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2025,7 +2034,7 @@ class __$$InvalidPhoneCopyWithImpl<$Res>
   $Res call({
     Object? failedValue = freezed,
   }) {
-    return _then(_$InvalidPhone(
+    return _then(_$InvalidPhoneImpl(
       failedValue: freezed == failedValue
           ? _value.failedValue
           : failedValue // ignore: cast_nullable_to_non_nullable
@@ -2036,8 +2045,8 @@ class __$$InvalidPhoneCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$InvalidPhone implements InvalidPhone {
-  const _$InvalidPhone({required this.failedValue});
+class _$InvalidPhoneImpl implements InvalidPhone {
+  const _$InvalidPhoneImpl({required this.failedValue});
 
   @override
   final String? failedValue;
@@ -2051,7 +2060,7 @@ class _$InvalidPhone implements InvalidPhone {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$InvalidPhone &&
+            other is _$InvalidPhoneImpl &&
             (identical(other.failedValue, failedValue) ||
                 other.failedValue == failedValue));
   }
@@ -2062,8 +2071,8 @@ class _$InvalidPhone implements InvalidPhone {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$InvalidPhoneCopyWith<_$InvalidPhone> get copyWith =>
-      __$$InvalidPhoneCopyWithImpl<_$InvalidPhone>(this, _$identity);
+  _$$InvalidPhoneImplCopyWith<_$InvalidPhoneImpl> get copyWith =>
+      __$$InvalidPhoneImplCopyWithImpl<_$InvalidPhoneImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2219,30 +2228,30 @@ class _$InvalidPhone implements InvalidPhone {
 
 abstract class InvalidPhone implements StringFailure {
   const factory InvalidPhone({required final String? failedValue}) =
-      _$InvalidPhone;
+      _$InvalidPhoneImpl;
 
   @override
   String? get failedValue;
   @JsonKey(ignore: true)
-  _$$InvalidPhoneCopyWith<_$InvalidPhone> get copyWith =>
+  _$$InvalidPhoneImplCopyWith<_$InvalidPhoneImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$InvalidEmailCopyWith<$Res> {
-  factory _$$InvalidEmailCopyWith(
-          _$InvalidEmail value, $Res Function(_$InvalidEmail) then) =
-      __$$InvalidEmailCopyWithImpl<$Res>;
+abstract class _$$InvalidEmailImplCopyWith<$Res> {
+  factory _$$InvalidEmailImplCopyWith(
+          _$InvalidEmailImpl value, $Res Function(_$InvalidEmailImpl) then) =
+      __$$InvalidEmailImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String? failedValue});
 }
 
 /// @nodoc
-class __$$InvalidEmailCopyWithImpl<$Res>
-    extends _$StringFailureCopyWithImpl<$Res, _$InvalidEmail>
-    implements _$$InvalidEmailCopyWith<$Res> {
-  __$$InvalidEmailCopyWithImpl(
-      _$InvalidEmail _value, $Res Function(_$InvalidEmail) _then)
+class __$$InvalidEmailImplCopyWithImpl<$Res>
+    extends _$StringFailureCopyWithImpl<$Res, _$InvalidEmailImpl>
+    implements _$$InvalidEmailImplCopyWith<$Res> {
+  __$$InvalidEmailImplCopyWithImpl(
+      _$InvalidEmailImpl _value, $Res Function(_$InvalidEmailImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2250,7 +2259,7 @@ class __$$InvalidEmailCopyWithImpl<$Res>
   $Res call({
     Object? failedValue = freezed,
   }) {
-    return _then(_$InvalidEmail(
+    return _then(_$InvalidEmailImpl(
       failedValue: freezed == failedValue
           ? _value.failedValue
           : failedValue // ignore: cast_nullable_to_non_nullable
@@ -2261,8 +2270,8 @@ class __$$InvalidEmailCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$InvalidEmail implements InvalidEmail {
-  const _$InvalidEmail({required this.failedValue});
+class _$InvalidEmailImpl implements InvalidEmail {
+  const _$InvalidEmailImpl({required this.failedValue});
 
   @override
   final String? failedValue;
@@ -2276,7 +2285,7 @@ class _$InvalidEmail implements InvalidEmail {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$InvalidEmail &&
+            other is _$InvalidEmailImpl &&
             (identical(other.failedValue, failedValue) ||
                 other.failedValue == failedValue));
   }
@@ -2287,8 +2296,8 @@ class _$InvalidEmail implements InvalidEmail {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$InvalidEmailCopyWith<_$InvalidEmail> get copyWith =>
-      __$$InvalidEmailCopyWithImpl<_$InvalidEmail>(this, _$identity);
+  _$$InvalidEmailImplCopyWith<_$InvalidEmailImpl> get copyWith =>
+      __$$InvalidEmailImplCopyWithImpl<_$InvalidEmailImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2444,30 +2453,30 @@ class _$InvalidEmail implements InvalidEmail {
 
 abstract class InvalidEmail implements StringFailure {
   const factory InvalidEmail({required final String? failedValue}) =
-      _$InvalidEmail;
+      _$InvalidEmailImpl;
 
   @override
   String? get failedValue;
   @JsonKey(ignore: true)
-  _$$InvalidEmailCopyWith<_$InvalidEmail> get copyWith =>
+  _$$InvalidEmailImplCopyWith<_$InvalidEmailImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$InvalidUrlCopyWith<$Res> {
-  factory _$$InvalidUrlCopyWith(
-          _$InvalidUrl value, $Res Function(_$InvalidUrl) then) =
-      __$$InvalidUrlCopyWithImpl<$Res>;
+abstract class _$$InvalidUrlImplCopyWith<$Res> {
+  factory _$$InvalidUrlImplCopyWith(
+          _$InvalidUrlImpl value, $Res Function(_$InvalidUrlImpl) then) =
+      __$$InvalidUrlImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String? failedValue});
 }
 
 /// @nodoc
-class __$$InvalidUrlCopyWithImpl<$Res>
-    extends _$StringFailureCopyWithImpl<$Res, _$InvalidUrl>
-    implements _$$InvalidUrlCopyWith<$Res> {
-  __$$InvalidUrlCopyWithImpl(
-      _$InvalidUrl _value, $Res Function(_$InvalidUrl) _then)
+class __$$InvalidUrlImplCopyWithImpl<$Res>
+    extends _$StringFailureCopyWithImpl<$Res, _$InvalidUrlImpl>
+    implements _$$InvalidUrlImplCopyWith<$Res> {
+  __$$InvalidUrlImplCopyWithImpl(
+      _$InvalidUrlImpl _value, $Res Function(_$InvalidUrlImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2475,7 +2484,7 @@ class __$$InvalidUrlCopyWithImpl<$Res>
   $Res call({
     Object? failedValue = freezed,
   }) {
-    return _then(_$InvalidUrl(
+    return _then(_$InvalidUrlImpl(
       failedValue: freezed == failedValue
           ? _value.failedValue
           : failedValue // ignore: cast_nullable_to_non_nullable
@@ -2486,8 +2495,8 @@ class __$$InvalidUrlCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$InvalidUrl implements InvalidUrl {
-  const _$InvalidUrl({required this.failedValue});
+class _$InvalidUrlImpl implements InvalidUrl {
+  const _$InvalidUrlImpl({required this.failedValue});
 
   @override
   final String? failedValue;
@@ -2501,7 +2510,7 @@ class _$InvalidUrl implements InvalidUrl {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$InvalidUrl &&
+            other is _$InvalidUrlImpl &&
             (identical(other.failedValue, failedValue) ||
                 other.failedValue == failedValue));
   }
@@ -2512,8 +2521,8 @@ class _$InvalidUrl implements InvalidUrl {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$InvalidUrlCopyWith<_$InvalidUrl> get copyWith =>
-      __$$InvalidUrlCopyWithImpl<_$InvalidUrl>(this, _$identity);
+  _$$InvalidUrlImplCopyWith<_$InvalidUrlImpl> get copyWith =>
+      __$$InvalidUrlImplCopyWithImpl<_$InvalidUrlImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2668,30 +2677,31 @@ class _$InvalidUrl implements InvalidUrl {
 }
 
 abstract class InvalidUrl implements StringFailure {
-  const factory InvalidUrl({required final String? failedValue}) = _$InvalidUrl;
+  const factory InvalidUrl({required final String? failedValue}) =
+      _$InvalidUrlImpl;
 
   @override
   String? get failedValue;
   @JsonKey(ignore: true)
-  _$$InvalidUrlCopyWith<_$InvalidUrl> get copyWith =>
+  _$$InvalidUrlImplCopyWith<_$InvalidUrlImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$InvalidDateTimeCopyWith<$Res> {
-  factory _$$InvalidDateTimeCopyWith(
-          _$InvalidDateTime value, $Res Function(_$InvalidDateTime) then) =
-      __$$InvalidDateTimeCopyWithImpl<$Res>;
+abstract class _$$InvalidDateTimeImplCopyWith<$Res> {
+  factory _$$InvalidDateTimeImplCopyWith(_$InvalidDateTimeImpl value,
+          $Res Function(_$InvalidDateTimeImpl) then) =
+      __$$InvalidDateTimeImplCopyWithImpl<$Res>;
   @useResult
   $Res call({DateTime failedValue, String pattern});
 }
 
 /// @nodoc
-class __$$InvalidDateTimeCopyWithImpl<$Res>
-    extends _$StringFailureCopyWithImpl<$Res, _$InvalidDateTime>
-    implements _$$InvalidDateTimeCopyWith<$Res> {
-  __$$InvalidDateTimeCopyWithImpl(
-      _$InvalidDateTime _value, $Res Function(_$InvalidDateTime) _then)
+class __$$InvalidDateTimeImplCopyWithImpl<$Res>
+    extends _$StringFailureCopyWithImpl<$Res, _$InvalidDateTimeImpl>
+    implements _$$InvalidDateTimeImplCopyWith<$Res> {
+  __$$InvalidDateTimeImplCopyWithImpl(
+      _$InvalidDateTimeImpl _value, $Res Function(_$InvalidDateTimeImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2700,7 +2710,7 @@ class __$$InvalidDateTimeCopyWithImpl<$Res>
     Object? failedValue = null,
     Object? pattern = null,
   }) {
-    return _then(_$InvalidDateTime(
+    return _then(_$InvalidDateTimeImpl(
       failedValue: null == failedValue
           ? _value.failedValue
           : failedValue // ignore: cast_nullable_to_non_nullable
@@ -2715,8 +2725,9 @@ class __$$InvalidDateTimeCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$InvalidDateTime implements InvalidDateTime {
-  const _$InvalidDateTime({required this.failedValue, required this.pattern});
+class _$InvalidDateTimeImpl implements InvalidDateTime {
+  const _$InvalidDateTimeImpl(
+      {required this.failedValue, required this.pattern});
 
   @override
   final DateTime failedValue;
@@ -2732,7 +2743,7 @@ class _$InvalidDateTime implements InvalidDateTime {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$InvalidDateTime &&
+            other is _$InvalidDateTimeImpl &&
             (identical(other.failedValue, failedValue) ||
                 other.failedValue == failedValue) &&
             (identical(other.pattern, pattern) || other.pattern == pattern));
@@ -2744,8 +2755,9 @@ class _$InvalidDateTime implements InvalidDateTime {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$InvalidDateTimeCopyWith<_$InvalidDateTime> get copyWith =>
-      __$$InvalidDateTimeCopyWithImpl<_$InvalidDateTime>(this, _$identity);
+  _$$InvalidDateTimeImplCopyWith<_$InvalidDateTimeImpl> get copyWith =>
+      __$$InvalidDateTimeImplCopyWithImpl<_$InvalidDateTimeImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2902,31 +2914,31 @@ class _$InvalidDateTime implements InvalidDateTime {
 abstract class InvalidDateTime implements StringFailure {
   const factory InvalidDateTime(
       {required final DateTime failedValue,
-      required final String pattern}) = _$InvalidDateTime;
+      required final String pattern}) = _$InvalidDateTimeImpl;
 
   @override
   DateTime get failedValue;
   String get pattern;
   @JsonKey(ignore: true)
-  _$$InvalidDateTimeCopyWith<_$InvalidDateTime> get copyWith =>
+  _$$InvalidDateTimeImplCopyWith<_$InvalidDateTimeImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$InvalidPersonNameCopyWith<$Res> {
-  factory _$$InvalidPersonNameCopyWith(
-          _$InvalidPersonName value, $Res Function(_$InvalidPersonName) then) =
-      __$$InvalidPersonNameCopyWithImpl<$Res>;
+abstract class _$$InvalidPersonNameImplCopyWith<$Res> {
+  factory _$$InvalidPersonNameImplCopyWith(_$InvalidPersonNameImpl value,
+          $Res Function(_$InvalidPersonNameImpl) then) =
+      __$$InvalidPersonNameImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String? failedValue});
 }
 
 /// @nodoc
-class __$$InvalidPersonNameCopyWithImpl<$Res>
-    extends _$StringFailureCopyWithImpl<$Res, _$InvalidPersonName>
-    implements _$$InvalidPersonNameCopyWith<$Res> {
-  __$$InvalidPersonNameCopyWithImpl(
-      _$InvalidPersonName _value, $Res Function(_$InvalidPersonName) _then)
+class __$$InvalidPersonNameImplCopyWithImpl<$Res>
+    extends _$StringFailureCopyWithImpl<$Res, _$InvalidPersonNameImpl>
+    implements _$$InvalidPersonNameImplCopyWith<$Res> {
+  __$$InvalidPersonNameImplCopyWithImpl(_$InvalidPersonNameImpl _value,
+      $Res Function(_$InvalidPersonNameImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2934,7 +2946,7 @@ class __$$InvalidPersonNameCopyWithImpl<$Res>
   $Res call({
     Object? failedValue = freezed,
   }) {
-    return _then(_$InvalidPersonName(
+    return _then(_$InvalidPersonNameImpl(
       failedValue: freezed == failedValue
           ? _value.failedValue
           : failedValue // ignore: cast_nullable_to_non_nullable
@@ -2945,8 +2957,8 @@ class __$$InvalidPersonNameCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$InvalidPersonName implements InvalidPersonName {
-  const _$InvalidPersonName({required this.failedValue});
+class _$InvalidPersonNameImpl implements InvalidPersonName {
+  const _$InvalidPersonNameImpl({required this.failedValue});
 
   @override
   final String? failedValue;
@@ -2960,7 +2972,7 @@ class _$InvalidPersonName implements InvalidPersonName {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$InvalidPersonName &&
+            other is _$InvalidPersonNameImpl &&
             (identical(other.failedValue, failedValue) ||
                 other.failedValue == failedValue));
   }
@@ -2971,8 +2983,9 @@ class _$InvalidPersonName implements InvalidPersonName {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$InvalidPersonNameCopyWith<_$InvalidPersonName> get copyWith =>
-      __$$InvalidPersonNameCopyWithImpl<_$InvalidPersonName>(this, _$identity);
+  _$$InvalidPersonNameImplCopyWith<_$InvalidPersonNameImpl> get copyWith =>
+      __$$InvalidPersonNameImplCopyWithImpl<_$InvalidPersonNameImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -3128,30 +3141,30 @@ class _$InvalidPersonName implements InvalidPersonName {
 
 abstract class InvalidPersonName implements StringFailure {
   const factory InvalidPersonName({required final String? failedValue}) =
-      _$InvalidPersonName;
+      _$InvalidPersonNameImpl;
 
   @override
   String? get failedValue;
   @JsonKey(ignore: true)
-  _$$InvalidPersonNameCopyWith<_$InvalidPersonName> get copyWith =>
+  _$$InvalidPersonNameImplCopyWith<_$InvalidPersonNameImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ShortTokenCopyWith<$Res> {
-  factory _$$ShortTokenCopyWith(
-          _$ShortToken value, $Res Function(_$ShortToken) then) =
-      __$$ShortTokenCopyWithImpl<$Res>;
+abstract class _$$ShortTokenImplCopyWith<$Res> {
+  factory _$$ShortTokenImplCopyWith(
+          _$ShortTokenImpl value, $Res Function(_$ShortTokenImpl) then) =
+      __$$ShortTokenImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String? failedValue});
 }
 
 /// @nodoc
-class __$$ShortTokenCopyWithImpl<$Res>
-    extends _$StringFailureCopyWithImpl<$Res, _$ShortToken>
-    implements _$$ShortTokenCopyWith<$Res> {
-  __$$ShortTokenCopyWithImpl(
-      _$ShortToken _value, $Res Function(_$ShortToken) _then)
+class __$$ShortTokenImplCopyWithImpl<$Res>
+    extends _$StringFailureCopyWithImpl<$Res, _$ShortTokenImpl>
+    implements _$$ShortTokenImplCopyWith<$Res> {
+  __$$ShortTokenImplCopyWithImpl(
+      _$ShortTokenImpl _value, $Res Function(_$ShortTokenImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -3159,7 +3172,7 @@ class __$$ShortTokenCopyWithImpl<$Res>
   $Res call({
     Object? failedValue = freezed,
   }) {
-    return _then(_$ShortToken(
+    return _then(_$ShortTokenImpl(
       failedValue: freezed == failedValue
           ? _value.failedValue
           : failedValue // ignore: cast_nullable_to_non_nullable
@@ -3170,8 +3183,8 @@ class __$$ShortTokenCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ShortToken implements ShortToken {
-  const _$ShortToken({required this.failedValue});
+class _$ShortTokenImpl implements ShortToken {
+  const _$ShortTokenImpl({required this.failedValue});
 
   @override
   final String? failedValue;
@@ -3185,7 +3198,7 @@ class _$ShortToken implements ShortToken {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ShortToken &&
+            other is _$ShortTokenImpl &&
             (identical(other.failedValue, failedValue) ||
                 other.failedValue == failedValue));
   }
@@ -3196,8 +3209,8 @@ class _$ShortToken implements ShortToken {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ShortTokenCopyWith<_$ShortToken> get copyWith =>
-      __$$ShortTokenCopyWithImpl<_$ShortToken>(this, _$identity);
+  _$$ShortTokenImplCopyWith<_$ShortTokenImpl> get copyWith =>
+      __$$ShortTokenImplCopyWithImpl<_$ShortTokenImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -3352,30 +3365,31 @@ class _$ShortToken implements ShortToken {
 }
 
 abstract class ShortToken implements StringFailure {
-  const factory ShortToken({required final String? failedValue}) = _$ShortToken;
+  const factory ShortToken({required final String? failedValue}) =
+      _$ShortTokenImpl;
 
   @override
   String? get failedValue;
   @JsonKey(ignore: true)
-  _$$ShortTokenCopyWith<_$ShortToken> get copyWith =>
+  _$$ShortTokenImplCopyWith<_$ShortTokenImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$InvalidTimeCopyWith<$Res> {
-  factory _$$InvalidTimeCopyWith(
-          _$InvalidTime value, $Res Function(_$InvalidTime) then) =
-      __$$InvalidTimeCopyWithImpl<$Res>;
+abstract class _$$InvalidTimeImplCopyWith<$Res> {
+  factory _$$InvalidTimeImplCopyWith(
+          _$InvalidTimeImpl value, $Res Function(_$InvalidTimeImpl) then) =
+      __$$InvalidTimeImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String? failedValue});
 }
 
 /// @nodoc
-class __$$InvalidTimeCopyWithImpl<$Res>
-    extends _$StringFailureCopyWithImpl<$Res, _$InvalidTime>
-    implements _$$InvalidTimeCopyWith<$Res> {
-  __$$InvalidTimeCopyWithImpl(
-      _$InvalidTime _value, $Res Function(_$InvalidTime) _then)
+class __$$InvalidTimeImplCopyWithImpl<$Res>
+    extends _$StringFailureCopyWithImpl<$Res, _$InvalidTimeImpl>
+    implements _$$InvalidTimeImplCopyWith<$Res> {
+  __$$InvalidTimeImplCopyWithImpl(
+      _$InvalidTimeImpl _value, $Res Function(_$InvalidTimeImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -3383,7 +3397,7 @@ class __$$InvalidTimeCopyWithImpl<$Res>
   $Res call({
     Object? failedValue = freezed,
   }) {
-    return _then(_$InvalidTime(
+    return _then(_$InvalidTimeImpl(
       failedValue: freezed == failedValue
           ? _value.failedValue
           : failedValue // ignore: cast_nullable_to_non_nullable
@@ -3394,8 +3408,8 @@ class __$$InvalidTimeCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$InvalidTime implements InvalidTime {
-  const _$InvalidTime({required this.failedValue});
+class _$InvalidTimeImpl implements InvalidTime {
+  const _$InvalidTimeImpl({required this.failedValue});
 
   @override
   final String? failedValue;
@@ -3409,7 +3423,7 @@ class _$InvalidTime implements InvalidTime {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$InvalidTime &&
+            other is _$InvalidTimeImpl &&
             (identical(other.failedValue, failedValue) ||
                 other.failedValue == failedValue));
   }
@@ -3420,8 +3434,8 @@ class _$InvalidTime implements InvalidTime {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$InvalidTimeCopyWith<_$InvalidTime> get copyWith =>
-      __$$InvalidTimeCopyWithImpl<_$InvalidTime>(this, _$identity);
+  _$$InvalidTimeImplCopyWith<_$InvalidTimeImpl> get copyWith =>
+      __$$InvalidTimeImplCopyWithImpl<_$InvalidTimeImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -3577,30 +3591,30 @@ class _$InvalidTime implements InvalidTime {
 
 abstract class InvalidTime implements StringFailure {
   const factory InvalidTime({required final String? failedValue}) =
-      _$InvalidTime;
+      _$InvalidTimeImpl;
 
   @override
   String? get failedValue;
   @JsonKey(ignore: true)
-  _$$InvalidTimeCopyWith<_$InvalidTime> get copyWith =>
+  _$$InvalidTimeImplCopyWith<_$InvalidTimeImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$InvalidDateCopyWith<$Res> {
-  factory _$$InvalidDateCopyWith(
-          _$InvalidDate value, $Res Function(_$InvalidDate) then) =
-      __$$InvalidDateCopyWithImpl<$Res>;
+abstract class _$$InvalidDateImplCopyWith<$Res> {
+  factory _$$InvalidDateImplCopyWith(
+          _$InvalidDateImpl value, $Res Function(_$InvalidDateImpl) then) =
+      __$$InvalidDateImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String? failedValue});
 }
 
 /// @nodoc
-class __$$InvalidDateCopyWithImpl<$Res>
-    extends _$StringFailureCopyWithImpl<$Res, _$InvalidDate>
-    implements _$$InvalidDateCopyWith<$Res> {
-  __$$InvalidDateCopyWithImpl(
-      _$InvalidDate _value, $Res Function(_$InvalidDate) _then)
+class __$$InvalidDateImplCopyWithImpl<$Res>
+    extends _$StringFailureCopyWithImpl<$Res, _$InvalidDateImpl>
+    implements _$$InvalidDateImplCopyWith<$Res> {
+  __$$InvalidDateImplCopyWithImpl(
+      _$InvalidDateImpl _value, $Res Function(_$InvalidDateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -3608,7 +3622,7 @@ class __$$InvalidDateCopyWithImpl<$Res>
   $Res call({
     Object? failedValue = freezed,
   }) {
-    return _then(_$InvalidDate(
+    return _then(_$InvalidDateImpl(
       failedValue: freezed == failedValue
           ? _value.failedValue
           : failedValue // ignore: cast_nullable_to_non_nullable
@@ -3619,8 +3633,8 @@ class __$$InvalidDateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$InvalidDate implements InvalidDate {
-  const _$InvalidDate({required this.failedValue});
+class _$InvalidDateImpl implements InvalidDate {
+  const _$InvalidDateImpl({required this.failedValue});
 
   @override
   final String? failedValue;
@@ -3634,7 +3648,7 @@ class _$InvalidDate implements InvalidDate {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$InvalidDate &&
+            other is _$InvalidDateImpl &&
             (identical(other.failedValue, failedValue) ||
                 other.failedValue == failedValue));
   }
@@ -3645,8 +3659,8 @@ class _$InvalidDate implements InvalidDate {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$InvalidDateCopyWith<_$InvalidDate> get copyWith =>
-      __$$InvalidDateCopyWithImpl<_$InvalidDate>(this, _$identity);
+  _$$InvalidDateImplCopyWith<_$InvalidDateImpl> get copyWith =>
+      __$$InvalidDateImplCopyWithImpl<_$InvalidDateImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -3802,11 +3816,11 @@ class _$InvalidDate implements InvalidDate {
 
 abstract class InvalidDate implements StringFailure {
   const factory InvalidDate({required final String? failedValue}) =
-      _$InvalidDate;
+      _$InvalidDateImpl;
 
   @override
   String? get failedValue;
   @JsonKey(ignore: true)
-  _$$InvalidDateCopyWith<_$InvalidDate> get copyWith =>
+  _$$InvalidDateImplCopyWith<_$InvalidDateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

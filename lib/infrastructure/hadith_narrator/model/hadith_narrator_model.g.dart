@@ -6,9 +6,9 @@ part of 'hadith_narrator_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_HadithNarratorModel _$$_HadithNarratorModelFromJson(
+_$HadithNarratorModelImpl _$$HadithNarratorModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$_HadithNarratorModel(
+    _$HadithNarratorModelImpl(
       name: json['name'] as String,
       slug: json['slug'] as String,
       total: json['total'] as int,
@@ -22,8 +22,8 @@ _$_HadithNarratorModel _$$_HadithNarratorModelFromJson(
               (value) => ItemModel.fromJson(value as Map<String, dynamic>)),
     );
 
-Map<String, dynamic> _$$_HadithNarratorModelToJson(
-        _$_HadithNarratorModel instance) =>
+Map<String, dynamic> _$$HadithNarratorModelImplToJson(
+        _$HadithNarratorModelImpl instance) =>
     <String, dynamic>{
       'name': instance.name,
       'slug': instance.slug,
@@ -34,8 +34,9 @@ Map<String, dynamic> _$$_HadithNarratorModelToJson(
       ),
     };
 
-_$_PaginationModel _$$_PaginationModelFromJson(Map<String, dynamic> json) =>
-    _$_PaginationModel(
+_$PaginationModelImpl _$$PaginationModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$PaginationModelImpl(
       totalItems: json['totalItems'] as int,
       currentPage: json['currentPage'] as int,
       pageSize: json['pageSize'] as int,
@@ -47,7 +48,8 @@ _$_PaginationModel _$$_PaginationModelFromJson(Map<String, dynamic> json) =>
       pages: IList<int>.fromJson(json['pages'], (value) => value as int),
     );
 
-Map<String, dynamic> _$$_PaginationModelToJson(_$_PaginationModel instance) =>
+Map<String, dynamic> _$$PaginationModelImplToJson(
+        _$PaginationModelImpl instance) =>
     <String, dynamic>{
       'totalItems': instance.totalItems,
       'currentPage': instance.currentPage,
@@ -62,13 +64,14 @@ Map<String, dynamic> _$$_PaginationModelToJson(_$_PaginationModel instance) =>
       ),
     };
 
-_$_ItemModel _$$_ItemModelFromJson(Map<String, dynamic> json) => _$_ItemModel(
+_$ItemModelImpl _$$ItemModelImplFromJson(Map<String, dynamic> json) =>
+    _$ItemModelImpl(
       number: json['number'] as int,
       arab: json['arab'] as String,
       id: json['id'] as String,
     );
 
-Map<String, dynamic> _$$_ItemModelToJson(_$_ItemModel instance) =>
+Map<String, dynamic> _$$ItemModelImplToJson(_$ItemModelImpl instance) =>
     <String, dynamic>{
       'number': instance.number,
       'arab': instance.arab,

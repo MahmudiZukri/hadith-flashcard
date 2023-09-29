@@ -147,12 +147,21 @@ class UserInfomation extends StatelessWidget {
             children: [
               CircleAvatar(
                 minRadius: 32,
+                maxRadius: 32,
                 backgroundColor: greyColor.withOpacity(0.6),
-                child: SvgPicture.asset(
-                  AssetUrl.profileIcon,
-                  height: 28,
-                  color: whiteColor,
-                ),
+                child:
+                    userState.user != null && userState.user?.photoUrl != null
+                        ? ClipOval(
+                            child: Image.network(
+                              userState.user!.photoUrl!.getOrCrash(),
+                              fit: BoxFit.cover,
+                            ),
+                          )
+                        : SvgPicture.asset(
+                            AssetUrl.profileIcon,
+                            height: 28,
+                            color: whiteColor,
+                          ),
               ),
               const SizedBox(width: 18.0),
               Column(

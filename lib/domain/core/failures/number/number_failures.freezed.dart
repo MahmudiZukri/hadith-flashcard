@@ -108,19 +108,22 @@ class _$NumberFailureCopyWithImpl<$Res, $Val extends NumberFailure>
 }
 
 /// @nodoc
-abstract class _$$EmptyCopyWith<$Res> implements $NumberFailureCopyWith<$Res> {
-  factory _$$EmptyCopyWith(_$Empty value, $Res Function(_$Empty) then) =
-      __$$EmptyCopyWithImpl<$Res>;
+abstract class _$$EmptyImplCopyWith<$Res>
+    implements $NumberFailureCopyWith<$Res> {
+  factory _$$EmptyImplCopyWith(
+          _$EmptyImpl value, $Res Function(_$EmptyImpl) then) =
+      __$$EmptyImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({num? failedValue});
 }
 
 /// @nodoc
-class __$$EmptyCopyWithImpl<$Res>
-    extends _$NumberFailureCopyWithImpl<$Res, _$Empty>
-    implements _$$EmptyCopyWith<$Res> {
-  __$$EmptyCopyWithImpl(_$Empty _value, $Res Function(_$Empty) _then)
+class __$$EmptyImplCopyWithImpl<$Res>
+    extends _$NumberFailureCopyWithImpl<$Res, _$EmptyImpl>
+    implements _$$EmptyImplCopyWith<$Res> {
+  __$$EmptyImplCopyWithImpl(
+      _$EmptyImpl _value, $Res Function(_$EmptyImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -128,7 +131,7 @@ class __$$EmptyCopyWithImpl<$Res>
   $Res call({
     Object? failedValue = freezed,
   }) {
-    return _then(_$Empty(
+    return _then(_$EmptyImpl(
       failedValue: freezed == failedValue
           ? _value.failedValue
           : failedValue // ignore: cast_nullable_to_non_nullable
@@ -139,8 +142,8 @@ class __$$EmptyCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$Empty implements Empty {
-  const _$Empty({required this.failedValue});
+class _$EmptyImpl implements Empty {
+  const _$EmptyImpl({required this.failedValue});
 
   @override
   final num? failedValue;
@@ -154,7 +157,7 @@ class _$Empty implements Empty {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$Empty &&
+            other is _$EmptyImpl &&
             (identical(other.failedValue, failedValue) ||
                 other.failedValue == failedValue));
   }
@@ -165,8 +168,8 @@ class _$Empty implements Empty {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$EmptyCopyWith<_$Empty> get copyWith =>
-      __$$EmptyCopyWithImpl<_$Empty>(this, _$identity);
+  _$$EmptyImplCopyWith<_$EmptyImpl> get copyWith =>
+      __$$EmptyImplCopyWithImpl<_$EmptyImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -245,32 +248,35 @@ class _$Empty implements Empty {
 }
 
 abstract class Empty implements NumberFailure {
-  const factory Empty({required final num? failedValue}) = _$Empty;
+  const factory Empty({required final num? failedValue}) = _$EmptyImpl;
 
   @override
   num? get failedValue;
   @override
   @JsonKey(ignore: true)
-  _$$EmptyCopyWith<_$Empty> get copyWith => throw _privateConstructorUsedError;
+  _$$EmptyImplCopyWith<_$EmptyImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$NumberBelowLowestRangeCopyWith<$Res>
+abstract class _$$NumberBelowLowestRangeImplCopyWith<$Res>
     implements $NumberFailureCopyWith<$Res> {
-  factory _$$NumberBelowLowestRangeCopyWith(_$NumberBelowLowestRange value,
-          $Res Function(_$NumberBelowLowestRange) then) =
-      __$$NumberBelowLowestRangeCopyWithImpl<$Res>;
+  factory _$$NumberBelowLowestRangeImplCopyWith(
+          _$NumberBelowLowestRangeImpl value,
+          $Res Function(_$NumberBelowLowestRangeImpl) then) =
+      __$$NumberBelowLowestRangeImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({num? failedValue, num lowestRange});
 }
 
 /// @nodoc
-class __$$NumberBelowLowestRangeCopyWithImpl<$Res>
-    extends _$NumberFailureCopyWithImpl<$Res, _$NumberBelowLowestRange>
-    implements _$$NumberBelowLowestRangeCopyWith<$Res> {
-  __$$NumberBelowLowestRangeCopyWithImpl(_$NumberBelowLowestRange _value,
-      $Res Function(_$NumberBelowLowestRange) _then)
+class __$$NumberBelowLowestRangeImplCopyWithImpl<$Res>
+    extends _$NumberFailureCopyWithImpl<$Res, _$NumberBelowLowestRangeImpl>
+    implements _$$NumberBelowLowestRangeImplCopyWith<$Res> {
+  __$$NumberBelowLowestRangeImplCopyWithImpl(
+      _$NumberBelowLowestRangeImpl _value,
+      $Res Function(_$NumberBelowLowestRangeImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -279,7 +285,7 @@ class __$$NumberBelowLowestRangeCopyWithImpl<$Res>
     Object? failedValue = freezed,
     Object? lowestRange = null,
   }) {
-    return _then(_$NumberBelowLowestRange(
+    return _then(_$NumberBelowLowestRangeImpl(
       failedValue: freezed == failedValue
           ? _value.failedValue
           : failedValue // ignore: cast_nullable_to_non_nullable
@@ -294,8 +300,8 @@ class __$$NumberBelowLowestRangeCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$NumberBelowLowestRange implements NumberBelowLowestRange {
-  const _$NumberBelowLowestRange(
+class _$NumberBelowLowestRangeImpl implements NumberBelowLowestRange {
+  const _$NumberBelowLowestRangeImpl(
       {required this.failedValue, required this.lowestRange});
 
   @override
@@ -312,7 +318,7 @@ class _$NumberBelowLowestRange implements NumberBelowLowestRange {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$NumberBelowLowestRange &&
+            other is _$NumberBelowLowestRangeImpl &&
             (identical(other.failedValue, failedValue) ||
                 other.failedValue == failedValue) &&
             (identical(other.lowestRange, lowestRange) ||
@@ -325,9 +331,9 @@ class _$NumberBelowLowestRange implements NumberBelowLowestRange {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$NumberBelowLowestRangeCopyWith<_$NumberBelowLowestRange> get copyWith =>
-      __$$NumberBelowLowestRangeCopyWithImpl<_$NumberBelowLowestRange>(
-          this, _$identity);
+  _$$NumberBelowLowestRangeImplCopyWith<_$NumberBelowLowestRangeImpl>
+      get copyWith => __$$NumberBelowLowestRangeImplCopyWithImpl<
+          _$NumberBelowLowestRangeImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -408,34 +414,36 @@ class _$NumberBelowLowestRange implements NumberBelowLowestRange {
 abstract class NumberBelowLowestRange implements NumberFailure {
   const factory NumberBelowLowestRange(
       {required final num? failedValue,
-      required final num lowestRange}) = _$NumberBelowLowestRange;
+      required final num lowestRange}) = _$NumberBelowLowestRangeImpl;
 
   @override
   num? get failedValue;
   num get lowestRange;
   @override
   @JsonKey(ignore: true)
-  _$$NumberBelowLowestRangeCopyWith<_$NumberBelowLowestRange> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$NumberBelowLowestRangeImplCopyWith<_$NumberBelowLowestRangeImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$NumberExceedHighestRangeCopyWith<$Res>
+abstract class _$$NumberExceedHighestRangeImplCopyWith<$Res>
     implements $NumberFailureCopyWith<$Res> {
-  factory _$$NumberExceedHighestRangeCopyWith(_$NumberExceedHighestRange value,
-          $Res Function(_$NumberExceedHighestRange) then) =
-      __$$NumberExceedHighestRangeCopyWithImpl<$Res>;
+  factory _$$NumberExceedHighestRangeImplCopyWith(
+          _$NumberExceedHighestRangeImpl value,
+          $Res Function(_$NumberExceedHighestRangeImpl) then) =
+      __$$NumberExceedHighestRangeImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({num? failedValue, num highestRange});
 }
 
 /// @nodoc
-class __$$NumberExceedHighestRangeCopyWithImpl<$Res>
-    extends _$NumberFailureCopyWithImpl<$Res, _$NumberExceedHighestRange>
-    implements _$$NumberExceedHighestRangeCopyWith<$Res> {
-  __$$NumberExceedHighestRangeCopyWithImpl(_$NumberExceedHighestRange _value,
-      $Res Function(_$NumberExceedHighestRange) _then)
+class __$$NumberExceedHighestRangeImplCopyWithImpl<$Res>
+    extends _$NumberFailureCopyWithImpl<$Res, _$NumberExceedHighestRangeImpl>
+    implements _$$NumberExceedHighestRangeImplCopyWith<$Res> {
+  __$$NumberExceedHighestRangeImplCopyWithImpl(
+      _$NumberExceedHighestRangeImpl _value,
+      $Res Function(_$NumberExceedHighestRangeImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -444,7 +452,7 @@ class __$$NumberExceedHighestRangeCopyWithImpl<$Res>
     Object? failedValue = freezed,
     Object? highestRange = null,
   }) {
-    return _then(_$NumberExceedHighestRange(
+    return _then(_$NumberExceedHighestRangeImpl(
       failedValue: freezed == failedValue
           ? _value.failedValue
           : failedValue // ignore: cast_nullable_to_non_nullable
@@ -459,8 +467,8 @@ class __$$NumberExceedHighestRangeCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$NumberExceedHighestRange implements NumberExceedHighestRange {
-  const _$NumberExceedHighestRange(
+class _$NumberExceedHighestRangeImpl implements NumberExceedHighestRange {
+  const _$NumberExceedHighestRangeImpl(
       {required this.failedValue, required this.highestRange});
 
   @override
@@ -477,7 +485,7 @@ class _$NumberExceedHighestRange implements NumberExceedHighestRange {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$NumberExceedHighestRange &&
+            other is _$NumberExceedHighestRangeImpl &&
             (identical(other.failedValue, failedValue) ||
                 other.failedValue == failedValue) &&
             (identical(other.highestRange, highestRange) ||
@@ -490,10 +498,9 @@ class _$NumberExceedHighestRange implements NumberExceedHighestRange {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$NumberExceedHighestRangeCopyWith<_$NumberExceedHighestRange>
-      get copyWith =>
-          __$$NumberExceedHighestRangeCopyWithImpl<_$NumberExceedHighestRange>(
-              this, _$identity);
+  _$$NumberExceedHighestRangeImplCopyWith<_$NumberExceedHighestRangeImpl>
+      get copyWith => __$$NumberExceedHighestRangeImplCopyWithImpl<
+          _$NumberExceedHighestRangeImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -574,13 +581,13 @@ class _$NumberExceedHighestRange implements NumberExceedHighestRange {
 abstract class NumberExceedHighestRange implements NumberFailure {
   const factory NumberExceedHighestRange(
       {required final num? failedValue,
-      required final num highestRange}) = _$NumberExceedHighestRange;
+      required final num highestRange}) = _$NumberExceedHighestRangeImpl;
 
   @override
   num? get failedValue;
   num get highestRange;
   @override
   @JsonKey(ignore: true)
-  _$$NumberExceedHighestRangeCopyWith<_$NumberExceedHighestRange>
+  _$$NumberExceedHighestRangeImplCopyWith<_$NumberExceedHighestRangeImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

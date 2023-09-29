@@ -45,7 +45,7 @@ import 'package:logger/logger.dart' as _i11;
 const String _prod = 'prod';
 
 extension GetItInjectableX on _i1.GetIt {
-  // initializes the registration of main-scope dependencies inside of GetIt
+// initializes the registration of main-scope dependencies inside of GetIt
   Future<_i1.GetIt> init({
     String? environment,
     _i2.EnvironmentFilter? environmentFilter,

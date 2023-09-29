@@ -89,22 +89,22 @@ class _$SettingEventCopyWithImpl<$Res, $Val extends SettingEvent>
 }
 
 /// @nodoc
-abstract class _$$_ChangeLanguageCopyWith<$Res>
+abstract class _$$ChangeLanguageImplCopyWith<$Res>
     implements $SettingEventCopyWith<$Res> {
-  factory _$$_ChangeLanguageCopyWith(
-          _$_ChangeLanguage value, $Res Function(_$_ChangeLanguage) then) =
-      __$$_ChangeLanguageCopyWithImpl<$Res>;
+  factory _$$ChangeLanguageImplCopyWith(_$ChangeLanguageImpl value,
+          $Res Function(_$ChangeLanguageImpl) then) =
+      __$$ChangeLanguageImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({ELanguage selectedLang});
 }
 
 /// @nodoc
-class __$$_ChangeLanguageCopyWithImpl<$Res>
-    extends _$SettingEventCopyWithImpl<$Res, _$_ChangeLanguage>
-    implements _$$_ChangeLanguageCopyWith<$Res> {
-  __$$_ChangeLanguageCopyWithImpl(
-      _$_ChangeLanguage _value, $Res Function(_$_ChangeLanguage) _then)
+class __$$ChangeLanguageImplCopyWithImpl<$Res>
+    extends _$SettingEventCopyWithImpl<$Res, _$ChangeLanguageImpl>
+    implements _$$ChangeLanguageImplCopyWith<$Res> {
+  __$$ChangeLanguageImplCopyWithImpl(
+      _$ChangeLanguageImpl _value, $Res Function(_$ChangeLanguageImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -112,7 +112,7 @@ class __$$_ChangeLanguageCopyWithImpl<$Res>
   $Res call({
     Object? selectedLang = null,
   }) {
-    return _then(_$_ChangeLanguage(
+    return _then(_$ChangeLanguageImpl(
       selectedLang: null == selectedLang
           ? _value.selectedLang
           : selectedLang // ignore: cast_nullable_to_non_nullable
@@ -123,8 +123,8 @@ class __$$_ChangeLanguageCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ChangeLanguage implements _ChangeLanguage {
-  const _$_ChangeLanguage({required this.selectedLang});
+class _$ChangeLanguageImpl implements _ChangeLanguage {
+  const _$ChangeLanguageImpl({required this.selectedLang});
 
   @override
   final ELanguage selectedLang;
@@ -138,7 +138,7 @@ class _$_ChangeLanguage implements _ChangeLanguage {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ChangeLanguage &&
+            other is _$ChangeLanguageImpl &&
             (identical(other.selectedLang, selectedLang) ||
                 other.selectedLang == selectedLang));
   }
@@ -149,8 +149,9 @@ class _$_ChangeLanguage implements _ChangeLanguage {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ChangeLanguageCopyWith<_$_ChangeLanguage> get copyWith =>
-      __$$_ChangeLanguageCopyWithImpl<_$_ChangeLanguage>(this, _$identity);
+  _$$ChangeLanguageImplCopyWith<_$ChangeLanguageImpl> get copyWith =>
+      __$$ChangeLanguageImplCopyWithImpl<_$ChangeLanguageImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -211,13 +212,13 @@ class _$_ChangeLanguage implements _ChangeLanguage {
 
 abstract class _ChangeLanguage implements SettingEvent {
   const factory _ChangeLanguage({required final ELanguage selectedLang}) =
-      _$_ChangeLanguage;
+      _$ChangeLanguageImpl;
 
   @override
   ELanguage get selectedLang;
   @override
   @JsonKey(ignore: true)
-  _$$_ChangeLanguageCopyWith<_$_ChangeLanguage> get copyWith =>
+  _$$ChangeLanguageImplCopyWith<_$ChangeLanguageImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -264,22 +265,22 @@ class _$SettingStateCopyWithImpl<$Res, $Val extends SettingState>
 }
 
 /// @nodoc
-abstract class _$$_SettingStateCopyWith<$Res>
+abstract class _$$SettingStateImplCopyWith<$Res>
     implements $SettingStateCopyWith<$Res> {
-  factory _$$_SettingStateCopyWith(
-          _$_SettingState value, $Res Function(_$_SettingState) then) =
-      __$$_SettingStateCopyWithImpl<$Res>;
+  factory _$$SettingStateImplCopyWith(
+          _$SettingStateImpl value, $Res Function(_$SettingStateImpl) then) =
+      __$$SettingStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({ELanguage selectedLang});
 }
 
 /// @nodoc
-class __$$_SettingStateCopyWithImpl<$Res>
-    extends _$SettingStateCopyWithImpl<$Res, _$_SettingState>
-    implements _$$_SettingStateCopyWith<$Res> {
-  __$$_SettingStateCopyWithImpl(
-      _$_SettingState _value, $Res Function(_$_SettingState) _then)
+class __$$SettingStateImplCopyWithImpl<$Res>
+    extends _$SettingStateCopyWithImpl<$Res, _$SettingStateImpl>
+    implements _$$SettingStateImplCopyWith<$Res> {
+  __$$SettingStateImplCopyWithImpl(
+      _$SettingStateImpl _value, $Res Function(_$SettingStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -287,7 +288,7 @@ class __$$_SettingStateCopyWithImpl<$Res>
   $Res call({
     Object? selectedLang = null,
   }) {
-    return _then(_$_SettingState(
+    return _then(_$SettingStateImpl(
       selectedLang: null == selectedLang
           ? _value.selectedLang
           : selectedLang // ignore: cast_nullable_to_non_nullable
@@ -298,8 +299,8 @@ class __$$_SettingStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_SettingState implements _SettingState {
-  const _$_SettingState({required this.selectedLang});
+class _$SettingStateImpl implements _SettingState {
+  const _$SettingStateImpl({required this.selectedLang});
 
   @override
   final ELanguage selectedLang;
@@ -313,7 +314,7 @@ class _$_SettingState implements _SettingState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SettingState &&
+            other is _$SettingStateImpl &&
             (identical(other.selectedLang, selectedLang) ||
                 other.selectedLang == selectedLang));
   }
@@ -324,18 +325,18 @@ class _$_SettingState implements _SettingState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SettingStateCopyWith<_$_SettingState> get copyWith =>
-      __$$_SettingStateCopyWithImpl<_$_SettingState>(this, _$identity);
+  _$$SettingStateImplCopyWith<_$SettingStateImpl> get copyWith =>
+      __$$SettingStateImplCopyWithImpl<_$SettingStateImpl>(this, _$identity);
 }
 
 abstract class _SettingState implements SettingState {
   const factory _SettingState({required final ELanguage selectedLang}) =
-      _$_SettingState;
+      _$SettingStateImpl;
 
   @override
   ELanguage get selectedLang;
   @override
   @JsonKey(ignore: true)
-  _$$_SettingStateCopyWith<_$_SettingState> get copyWith =>
+  _$$SettingStateImplCopyWith<_$SettingStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

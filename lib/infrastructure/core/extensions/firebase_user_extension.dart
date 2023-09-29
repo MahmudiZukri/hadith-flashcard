@@ -8,6 +8,7 @@ extension FirebaseUserExtension on User {
         id: uid,
         email: email,
         name: name!,
+        photoUrl: photoURL,
       );
 
   Future<AppUserModel> fromFirestore() async => await UserServices.getUser(uid);

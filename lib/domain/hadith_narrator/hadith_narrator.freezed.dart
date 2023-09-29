@@ -100,11 +100,11 @@ class _$HadithNarratorCopyWithImpl<$Res, $Val extends HadithNarrator>
 }
 
 /// @nodoc
-abstract class _$$_HadithNarratorCopyWith<$Res>
+abstract class _$$HadithNarratorImplCopyWith<$Res>
     implements $HadithNarratorCopyWith<$Res> {
-  factory _$$_HadithNarratorCopyWith(
-          _$_HadithNarrator value, $Res Function(_$_HadithNarrator) then) =
-      __$$_HadithNarratorCopyWithImpl<$Res>;
+  factory _$$HadithNarratorImplCopyWith(_$HadithNarratorImpl value,
+          $Res Function(_$HadithNarratorImpl) then) =
+      __$$HadithNarratorImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -119,11 +119,11 @@ abstract class _$$_HadithNarratorCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_HadithNarratorCopyWithImpl<$Res>
-    extends _$HadithNarratorCopyWithImpl<$Res, _$_HadithNarrator>
-    implements _$$_HadithNarratorCopyWith<$Res> {
-  __$$_HadithNarratorCopyWithImpl(
-      _$_HadithNarrator _value, $Res Function(_$_HadithNarrator) _then)
+class __$$HadithNarratorImplCopyWithImpl<$Res>
+    extends _$HadithNarratorCopyWithImpl<$Res, _$HadithNarratorImpl>
+    implements _$$HadithNarratorImplCopyWith<$Res> {
+  __$$HadithNarratorImplCopyWithImpl(
+      _$HadithNarratorImpl _value, $Res Function(_$HadithNarratorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -135,7 +135,7 @@ class __$$_HadithNarratorCopyWithImpl<$Res>
     Object? pagination = freezed,
     Object? items = freezed,
   }) {
-    return _then(_$_HadithNarrator(
+    return _then(_$HadithNarratorImpl(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -162,8 +162,8 @@ class __$$_HadithNarratorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_HadithNarrator implements _HadithNarrator {
-  const _$_HadithNarrator(
+class _$HadithNarratorImpl implements _HadithNarrator {
+  const _$HadithNarratorImpl(
       {required this.name,
       required this.slug,
       required this.total,
@@ -190,7 +190,7 @@ class _$_HadithNarrator implements _HadithNarrator {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_HadithNarrator &&
+            other is _$HadithNarratorImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.slug, slug) || other.slug == slug) &&
             (identical(other.total, total) || other.total == total) &&
@@ -206,8 +206,9 @@ class _$_HadithNarrator implements _HadithNarrator {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_HadithNarratorCopyWith<_$_HadithNarrator> get copyWith =>
-      __$$_HadithNarratorCopyWithImpl<_$_HadithNarrator>(this, _$identity);
+  _$$HadithNarratorImplCopyWith<_$HadithNarratorImpl> get copyWith =>
+      __$$HadithNarratorImplCopyWithImpl<_$HadithNarratorImpl>(
+          this, _$identity);
 }
 
 abstract class _HadithNarrator implements HadithNarrator {
@@ -216,7 +217,7 @@ abstract class _HadithNarrator implements HadithNarrator {
       required final UniqueString slug,
       required final PositiveNumber total,
       required final Pagination? pagination,
-      required final IList<Item>? items}) = _$_HadithNarrator;
+      required final IList<Item>? items}) = _$HadithNarratorImpl;
 
   @override
   PersonName get name;
@@ -230,7 +231,7 @@ abstract class _HadithNarrator implements HadithNarrator {
   IList<Item>? get items;
   @override
   @JsonKey(ignore: true)
-  _$$_HadithNarratorCopyWith<_$_HadithNarrator> get copyWith =>
+  _$$HadithNarratorImplCopyWith<_$HadithNarratorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -334,11 +335,11 @@ class _$PaginationCopyWithImpl<$Res, $Val extends Pagination>
 }
 
 /// @nodoc
-abstract class _$$_PaginationCopyWith<$Res>
+abstract class _$$PaginationImplCopyWith<$Res>
     implements $PaginationCopyWith<$Res> {
-  factory _$$_PaginationCopyWith(
-          _$_Pagination value, $Res Function(_$_Pagination) then) =
-      __$$_PaginationCopyWithImpl<$Res>;
+  factory _$$PaginationImplCopyWith(
+          _$PaginationImpl value, $Res Function(_$PaginationImpl) then) =
+      __$$PaginationImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -354,11 +355,11 @@ abstract class _$$_PaginationCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_PaginationCopyWithImpl<$Res>
-    extends _$PaginationCopyWithImpl<$Res, _$_Pagination>
-    implements _$$_PaginationCopyWith<$Res> {
-  __$$_PaginationCopyWithImpl(
-      _$_Pagination _value, $Res Function(_$_Pagination) _then)
+class __$$PaginationImplCopyWithImpl<$Res>
+    extends _$PaginationCopyWithImpl<$Res, _$PaginationImpl>
+    implements _$$PaginationImplCopyWith<$Res> {
+  __$$PaginationImplCopyWithImpl(
+      _$PaginationImpl _value, $Res Function(_$PaginationImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -374,7 +375,7 @@ class __$$_PaginationCopyWithImpl<$Res>
     Object? startIndex = null,
     Object? pages = null,
   }) {
-    return _then(_$_Pagination(
+    return _then(_$PaginationImpl(
       totalItems: null == totalItems
           ? _value.totalItems
           : totalItems // ignore: cast_nullable_to_non_nullable
@@ -417,8 +418,8 @@ class __$$_PaginationCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Pagination implements _Pagination {
-  const _$_Pagination(
+class _$PaginationImpl implements _Pagination {
+  const _$PaginationImpl(
       {required this.totalItems,
       required this.currentPage,
       required this.pageSize,
@@ -457,7 +458,7 @@ class _$_Pagination implements _Pagination {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Pagination &&
+            other is _$PaginationImpl &&
             (identical(other.totalItems, totalItems) ||
                 other.totalItems == totalItems) &&
             (identical(other.currentPage, currentPage) ||
@@ -492,8 +493,8 @@ class _$_Pagination implements _Pagination {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PaginationCopyWith<_$_Pagination> get copyWith =>
-      __$$_PaginationCopyWithImpl<_$_Pagination>(this, _$identity);
+  _$$PaginationImplCopyWith<_$PaginationImpl> get copyWith =>
+      __$$PaginationImplCopyWithImpl<_$PaginationImpl>(this, _$identity);
 }
 
 abstract class _Pagination implements Pagination {
@@ -506,7 +507,7 @@ abstract class _Pagination implements Pagination {
       required final PositiveNumber endPage,
       required final PositiveNumber endIndex,
       required final int startIndex,
-      required final IList<int> pages}) = _$_Pagination;
+      required final IList<int> pages}) = _$PaginationImpl;
 
   @override
   PositiveNumber get totalItems;
@@ -528,7 +529,7 @@ abstract class _Pagination implements Pagination {
   IList<int> get pages;
   @override
   @JsonKey(ignore: true)
-  _$$_PaginationCopyWith<_$_Pagination> get copyWith =>
+  _$$PaginationImplCopyWith<_$PaginationImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -585,18 +586,20 @@ class _$ItemCopyWithImpl<$Res, $Val extends Item>
 }
 
 /// @nodoc
-abstract class _$$_ItemCopyWith<$Res> implements $ItemCopyWith<$Res> {
-  factory _$$_ItemCopyWith(_$_Item value, $Res Function(_$_Item) then) =
-      __$$_ItemCopyWithImpl<$Res>;
+abstract class _$$ItemImplCopyWith<$Res> implements $ItemCopyWith<$Res> {
+  factory _$$ItemImplCopyWith(
+          _$ItemImpl value, $Res Function(_$ItemImpl) then) =
+      __$$ItemImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({PositiveNumber number, UnemptyString arab, UnemptyString id});
 }
 
 /// @nodoc
-class __$$_ItemCopyWithImpl<$Res> extends _$ItemCopyWithImpl<$Res, _$_Item>
-    implements _$$_ItemCopyWith<$Res> {
-  __$$_ItemCopyWithImpl(_$_Item _value, $Res Function(_$_Item) _then)
+class __$$ItemImplCopyWithImpl<$Res>
+    extends _$ItemCopyWithImpl<$Res, _$ItemImpl>
+    implements _$$ItemImplCopyWith<$Res> {
+  __$$ItemImplCopyWithImpl(_$ItemImpl _value, $Res Function(_$ItemImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -606,7 +609,7 @@ class __$$_ItemCopyWithImpl<$Res> extends _$ItemCopyWithImpl<$Res, _$_Item>
     Object? arab = null,
     Object? id = null,
   }) {
-    return _then(_$_Item(
+    return _then(_$ItemImpl(
       number: null == number
           ? _value.number
           : number // ignore: cast_nullable_to_non_nullable
@@ -625,8 +628,9 @@ class __$$_ItemCopyWithImpl<$Res> extends _$ItemCopyWithImpl<$Res, _$_Item>
 
 /// @nodoc
 
-class _$_Item implements _Item {
-  const _$_Item({required this.number, required this.arab, required this.id});
+class _$ItemImpl implements _Item {
+  const _$ItemImpl(
+      {required this.number, required this.arab, required this.id});
 
   @override
   final PositiveNumber number;
@@ -644,7 +648,7 @@ class _$_Item implements _Item {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Item &&
+            other is _$ItemImpl &&
             (identical(other.number, number) || other.number == number) &&
             (identical(other.arab, arab) || other.arab == arab) &&
             (identical(other.id, id) || other.id == id));
@@ -656,15 +660,15 @@ class _$_Item implements _Item {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ItemCopyWith<_$_Item> get copyWith =>
-      __$$_ItemCopyWithImpl<_$_Item>(this, _$identity);
+  _$$ItemImplCopyWith<_$ItemImpl> get copyWith =>
+      __$$ItemImplCopyWithImpl<_$ItemImpl>(this, _$identity);
 }
 
 abstract class _Item implements Item {
   const factory _Item(
       {required final PositiveNumber number,
       required final UnemptyString arab,
-      required final UnemptyString id}) = _$_Item;
+      required final UnemptyString id}) = _$ItemImpl;
 
   @override
   PositiveNumber get number;
@@ -674,5 +678,6 @@ abstract class _Item implements Item {
   UnemptyString get id;
   @override
   @JsonKey(ignore: true)
-  _$$_ItemCopyWith<_$_Item> get copyWith => throw _privateConstructorUsedError;
+  _$$ItemImplCopyWith<_$ItemImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

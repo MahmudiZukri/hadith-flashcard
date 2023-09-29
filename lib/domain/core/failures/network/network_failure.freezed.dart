@@ -87,25 +87,25 @@ class _$NetworkFailureCopyWithImpl<$Res, $Val extends NetworkFailure>
 }
 
 /// @nodoc
-abstract class _$$_NoInternetCopyWith<$Res> {
-  factory _$$_NoInternetCopyWith(
-          _$_NoInternet value, $Res Function(_$_NoInternet) then) =
-      __$$_NoInternetCopyWithImpl<$Res>;
+abstract class _$$NoInternetImplCopyWith<$Res> {
+  factory _$$NoInternetImplCopyWith(
+          _$NoInternetImpl value, $Res Function(_$NoInternetImpl) then) =
+      __$$NoInternetImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_NoInternetCopyWithImpl<$Res>
-    extends _$NetworkFailureCopyWithImpl<$Res, _$_NoInternet>
-    implements _$$_NoInternetCopyWith<$Res> {
-  __$$_NoInternetCopyWithImpl(
-      _$_NoInternet _value, $Res Function(_$_NoInternet) _then)
+class __$$NoInternetImplCopyWithImpl<$Res>
+    extends _$NetworkFailureCopyWithImpl<$Res, _$NoInternetImpl>
+    implements _$$NoInternetImplCopyWith<$Res> {
+  __$$NoInternetImplCopyWithImpl(
+      _$NoInternetImpl _value, $Res Function(_$NoInternetImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_NoInternet implements _NoInternet {
-  const _$_NoInternet();
+class _$NoInternetImpl implements _NoInternet {
+  const _$NoInternetImpl();
 
   @override
   String toString() {
@@ -115,7 +115,7 @@ class _$_NoInternet implements _NoInternet {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_NoInternet);
+        (other.runtimeType == runtimeType && other is _$NoInternetImpl);
   }
 
   @override
@@ -197,24 +197,24 @@ class _$_NoInternet implements _NoInternet {
 }
 
 abstract class _NoInternet implements NetworkFailure {
-  const factory _NoInternet() = _$_NoInternet;
+  const factory _NoInternet() = _$NoInternetImpl;
 }
 
 /// @nodoc
-abstract class _$$_ServerErrorCopyWith<$Res> {
-  factory _$$_ServerErrorCopyWith(
-          _$_ServerError value, $Res Function(_$_ServerError) then) =
-      __$$_ServerErrorCopyWithImpl<$Res>;
+abstract class _$$ServerErrorImplCopyWith<$Res> {
+  factory _$$ServerErrorImplCopyWith(
+          _$ServerErrorImpl value, $Res Function(_$ServerErrorImpl) then) =
+      __$$ServerErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Response<dynamic>? response});
 }
 
 /// @nodoc
-class __$$_ServerErrorCopyWithImpl<$Res>
-    extends _$NetworkFailureCopyWithImpl<$Res, _$_ServerError>
-    implements _$$_ServerErrorCopyWith<$Res> {
-  __$$_ServerErrorCopyWithImpl(
-      _$_ServerError _value, $Res Function(_$_ServerError) _then)
+class __$$ServerErrorImplCopyWithImpl<$Res>
+    extends _$NetworkFailureCopyWithImpl<$Res, _$ServerErrorImpl>
+    implements _$$ServerErrorImplCopyWith<$Res> {
+  __$$ServerErrorImplCopyWithImpl(
+      _$ServerErrorImpl _value, $Res Function(_$ServerErrorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -222,7 +222,7 @@ class __$$_ServerErrorCopyWithImpl<$Res>
   $Res call({
     Object? response = freezed,
   }) {
-    return _then(_$_ServerError(
+    return _then(_$ServerErrorImpl(
       response: freezed == response
           ? _value.response
           : response // ignore: cast_nullable_to_non_nullable
@@ -233,8 +233,8 @@ class __$$_ServerErrorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ServerError implements _ServerError {
-  const _$_ServerError({this.response});
+class _$ServerErrorImpl implements _ServerError {
+  const _$ServerErrorImpl({this.response});
 
   @override
   final Response<dynamic>? response;
@@ -248,7 +248,7 @@ class _$_ServerError implements _ServerError {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ServerError &&
+            other is _$ServerErrorImpl &&
             (identical(other.response, response) ||
                 other.response == response));
   }
@@ -259,8 +259,8 @@ class _$_ServerError implements _ServerError {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ServerErrorCopyWith<_$_ServerError> get copyWith =>
-      __$$_ServerErrorCopyWithImpl<_$_ServerError>(this, _$identity);
+  _$$ServerErrorImplCopyWith<_$ServerErrorImpl> get copyWith =>
+      __$$ServerErrorImplCopyWithImpl<_$ServerErrorImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -339,33 +339,34 @@ class _$_ServerError implements _ServerError {
 
 abstract class _ServerError implements NetworkFailure {
   const factory _ServerError({final Response<dynamic>? response}) =
-      _$_ServerError;
+      _$ServerErrorImpl;
 
   Response<dynamic>? get response;
   @JsonKey(ignore: true)
-  _$$_ServerErrorCopyWith<_$_ServerError> get copyWith =>
+  _$$ServerErrorImplCopyWith<_$ServerErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_TimeoutCopyWith<$Res> {
-  factory _$$_TimeoutCopyWith(
-          _$_Timeout value, $Res Function(_$_Timeout) then) =
-      __$$_TimeoutCopyWithImpl<$Res>;
+abstract class _$$TimeoutImplCopyWith<$Res> {
+  factory _$$TimeoutImplCopyWith(
+          _$TimeoutImpl value, $Res Function(_$TimeoutImpl) then) =
+      __$$TimeoutImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_TimeoutCopyWithImpl<$Res>
-    extends _$NetworkFailureCopyWithImpl<$Res, _$_Timeout>
-    implements _$$_TimeoutCopyWith<$Res> {
-  __$$_TimeoutCopyWithImpl(_$_Timeout _value, $Res Function(_$_Timeout) _then)
+class __$$TimeoutImplCopyWithImpl<$Res>
+    extends _$NetworkFailureCopyWithImpl<$Res, _$TimeoutImpl>
+    implements _$$TimeoutImplCopyWith<$Res> {
+  __$$TimeoutImplCopyWithImpl(
+      _$TimeoutImpl _value, $Res Function(_$TimeoutImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Timeout implements _Timeout {
-  const _$_Timeout();
+class _$TimeoutImpl implements _Timeout {
+  const _$TimeoutImpl();
 
   @override
   String toString() {
@@ -375,7 +376,7 @@ class _$_Timeout implements _Timeout {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Timeout);
+        (other.runtimeType == runtimeType && other is _$TimeoutImpl);
   }
 
   @override
@@ -457,22 +458,24 @@ class _$_Timeout implements _Timeout {
 }
 
 abstract class _Timeout implements NetworkFailure {
-  const factory _Timeout() = _$_Timeout;
+  const factory _Timeout() = _$TimeoutImpl;
 }
 
 /// @nodoc
-abstract class _$$_OtherCopyWith<$Res> {
-  factory _$$_OtherCopyWith(_$_Other value, $Res Function(_$_Other) then) =
-      __$$_OtherCopyWithImpl<$Res>;
+abstract class _$$OtherImplCopyWith<$Res> {
+  factory _$$OtherImplCopyWith(
+          _$OtherImpl value, $Res Function(_$OtherImpl) then) =
+      __$$OtherImplCopyWithImpl<$Res>;
   @useResult
   $Res call({DioError e});
 }
 
 /// @nodoc
-class __$$_OtherCopyWithImpl<$Res>
-    extends _$NetworkFailureCopyWithImpl<$Res, _$_Other>
-    implements _$$_OtherCopyWith<$Res> {
-  __$$_OtherCopyWithImpl(_$_Other _value, $Res Function(_$_Other) _then)
+class __$$OtherImplCopyWithImpl<$Res>
+    extends _$NetworkFailureCopyWithImpl<$Res, _$OtherImpl>
+    implements _$$OtherImplCopyWith<$Res> {
+  __$$OtherImplCopyWithImpl(
+      _$OtherImpl _value, $Res Function(_$OtherImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -480,7 +483,7 @@ class __$$_OtherCopyWithImpl<$Res>
   $Res call({
     Object? e = null,
   }) {
-    return _then(_$_Other(
+    return _then(_$OtherImpl(
       e: null == e
           ? _value.e
           : e // ignore: cast_nullable_to_non_nullable
@@ -491,8 +494,8 @@ class __$$_OtherCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Other implements _Other {
-  const _$_Other({required this.e});
+class _$OtherImpl implements _Other {
+  const _$OtherImpl({required this.e});
 
   @override
   final DioError e;
@@ -506,7 +509,7 @@ class _$_Other implements _Other {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Other &&
+            other is _$OtherImpl &&
             (identical(other.e, e) || other.e == e));
   }
 
@@ -516,8 +519,8 @@ class _$_Other implements _Other {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_OtherCopyWith<_$_Other> get copyWith =>
-      __$$_OtherCopyWithImpl<_$_Other>(this, _$identity);
+  _$$OtherImplCopyWith<_$OtherImpl> get copyWith =>
+      __$$OtherImplCopyWithImpl<_$OtherImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -595,10 +598,10 @@ class _$_Other implements _Other {
 }
 
 abstract class _Other implements NetworkFailure {
-  const factory _Other({required final DioError e}) = _$_Other;
+  const factory _Other({required final DioError e}) = _$OtherImpl;
 
   DioError get e;
   @JsonKey(ignore: true)
-  _$$_OtherCopyWith<_$_Other> get copyWith =>
+  _$$OtherImplCopyWith<_$OtherImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

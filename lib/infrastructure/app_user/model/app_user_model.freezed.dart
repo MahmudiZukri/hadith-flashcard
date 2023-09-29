@@ -23,6 +23,7 @@ mixin _$AppUserModel {
   String get id => throw _privateConstructorUsedError;
   String? get email => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
+  String? get photoUrl => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +37,7 @@ abstract class $AppUserModelCopyWith<$Res> {
           AppUserModel value, $Res Function(AppUserModel) then) =
       _$AppUserModelCopyWithImpl<$Res, AppUserModel>;
   @useResult
-  $Res call({String id, String? email, String name});
+  $Res call({String id, String? email, String name, String? photoUrl});
 }
 
 /// @nodoc
@@ -55,6 +56,7 @@ class _$AppUserModelCopyWithImpl<$Res, $Val extends AppUserModel>
     Object? id = null,
     Object? email = freezed,
     Object? name = null,
+    Object? photoUrl = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -69,27 +71,31 @@ class _$AppUserModelCopyWithImpl<$Res, $Val extends AppUserModel>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      photoUrl: freezed == photoUrl
+          ? _value.photoUrl
+          : photoUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$_AppUserModelCopyWith<$Res>
+abstract class _$$AppUserModelImplCopyWith<$Res>
     implements $AppUserModelCopyWith<$Res> {
-  factory _$$_AppUserModelCopyWith(
-          _$_AppUserModel value, $Res Function(_$_AppUserModel) then) =
-      __$$_AppUserModelCopyWithImpl<$Res>;
+  factory _$$AppUserModelImplCopyWith(
+          _$AppUserModelImpl value, $Res Function(_$AppUserModelImpl) then) =
+      __$$AppUserModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String? email, String name});
+  $Res call({String id, String? email, String name, String? photoUrl});
 }
 
 /// @nodoc
-class __$$_AppUserModelCopyWithImpl<$Res>
-    extends _$AppUserModelCopyWithImpl<$Res, _$_AppUserModel>
-    implements _$$_AppUserModelCopyWith<$Res> {
-  __$$_AppUserModelCopyWithImpl(
-      _$_AppUserModel _value, $Res Function(_$_AppUserModel) _then)
+class __$$AppUserModelImplCopyWithImpl<$Res>
+    extends _$AppUserModelCopyWithImpl<$Res, _$AppUserModelImpl>
+    implements _$$AppUserModelImplCopyWith<$Res> {
+  __$$AppUserModelImplCopyWithImpl(
+      _$AppUserModelImpl _value, $Res Function(_$AppUserModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -98,8 +104,9 @@ class __$$_AppUserModelCopyWithImpl<$Res>
     Object? id = null,
     Object? email = freezed,
     Object? name = null,
+    Object? photoUrl = freezed,
   }) {
-    return _then(_$_AppUserModel(
+    return _then(_$AppUserModelImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -112,18 +119,25 @@ class __$$_AppUserModelCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      photoUrl: freezed == photoUrl
+          ? _value.photoUrl
+          : photoUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$_AppUserModel implements _AppUserModel {
-  const _$_AppUserModel(
-      {required this.id, required this.email, required this.name});
+class _$AppUserModelImpl implements _AppUserModel {
+  const _$AppUserModelImpl(
+      {required this.id,
+      required this.email,
+      required this.name,
+      required this.photoUrl});
 
-  factory _$_AppUserModel.fromJson(Map<String, dynamic> json) =>
-      _$$_AppUserModelFromJson(json);
+  factory _$AppUserModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$AppUserModelImplFromJson(json);
 
   @override
   final String id;
@@ -131,35 +145,39 @@ class _$_AppUserModel implements _AppUserModel {
   final String? email;
   @override
   final String name;
+  @override
+  final String? photoUrl;
 
   @override
   String toString() {
-    return 'AppUserModel(id: $id, email: $email, name: $name)';
+    return 'AppUserModel(id: $id, email: $email, name: $name, photoUrl: $photoUrl)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AppUserModel &&
+            other is _$AppUserModelImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.email, email) || other.email == email) &&
-            (identical(other.name, name) || other.name == name));
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.photoUrl, photoUrl) ||
+                other.photoUrl == photoUrl));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, email, name);
+  int get hashCode => Object.hash(runtimeType, id, email, name, photoUrl);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AppUserModelCopyWith<_$_AppUserModel> get copyWith =>
-      __$$_AppUserModelCopyWithImpl<_$_AppUserModel>(this, _$identity);
+  _$$AppUserModelImplCopyWith<_$AppUserModelImpl> get copyWith =>
+      __$$AppUserModelImplCopyWithImpl<_$AppUserModelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_AppUserModelToJson(
+    return _$$AppUserModelImplToJson(
       this,
     );
   }
@@ -169,10 +187,11 @@ abstract class _AppUserModel implements AppUserModel {
   const factory _AppUserModel(
       {required final String id,
       required final String? email,
-      required final String name}) = _$_AppUserModel;
+      required final String name,
+      required final String? photoUrl}) = _$AppUserModelImpl;
 
   factory _AppUserModel.fromJson(Map<String, dynamic> json) =
-      _$_AppUserModel.fromJson;
+      _$AppUserModelImpl.fromJson;
 
   @override
   String get id;
@@ -181,7 +200,9 @@ abstract class _AppUserModel implements AppUserModel {
   @override
   String get name;
   @override
+  String? get photoUrl;
+  @override
   @JsonKey(ignore: true)
-  _$$_AppUserModelCopyWith<_$_AppUserModel> get copyWith =>
+  _$$AppUserModelImplCopyWith<_$AppUserModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

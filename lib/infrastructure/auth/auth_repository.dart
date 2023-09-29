@@ -105,6 +105,8 @@ class AuthRepository implements IAuthRepository {
         credential,
       );
 
+      // userCredential.user.photoURL
+
       if (userCredential.user != null) {
         // Uid and email automatically passed
         AppUserModel user = userCredential.user!.convertToAppUser(

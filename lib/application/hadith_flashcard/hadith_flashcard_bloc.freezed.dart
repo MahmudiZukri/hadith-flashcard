@@ -89,10 +89,10 @@ class _$HadithFlashcardEventCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_SaveFlashcardCopyWith<$Res> {
-  factory _$$_SaveFlashcardCopyWith(
-          _$_SaveFlashcard value, $Res Function(_$_SaveFlashcard) then) =
-      __$$_SaveFlashcardCopyWithImpl<$Res>;
+abstract class _$$SaveFlashcardImplCopyWith<$Res> {
+  factory _$$SaveFlashcardImplCopyWith(
+          _$SaveFlashcardImpl value, $Res Function(_$SaveFlashcardImpl) then) =
+      __$$SaveFlashcardImplCopyWithImpl<$Res>;
   @useResult
   $Res call({UniqueString userID, HadithFlashcard flashcard, int? quality});
 
@@ -100,11 +100,11 @@ abstract class _$$_SaveFlashcardCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_SaveFlashcardCopyWithImpl<$Res>
-    extends _$HadithFlashcardEventCopyWithImpl<$Res, _$_SaveFlashcard>
-    implements _$$_SaveFlashcardCopyWith<$Res> {
-  __$$_SaveFlashcardCopyWithImpl(
-      _$_SaveFlashcard _value, $Res Function(_$_SaveFlashcard) _then)
+class __$$SaveFlashcardImplCopyWithImpl<$Res>
+    extends _$HadithFlashcardEventCopyWithImpl<$Res, _$SaveFlashcardImpl>
+    implements _$$SaveFlashcardImplCopyWith<$Res> {
+  __$$SaveFlashcardImplCopyWithImpl(
+      _$SaveFlashcardImpl _value, $Res Function(_$SaveFlashcardImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -114,7 +114,7 @@ class __$$_SaveFlashcardCopyWithImpl<$Res>
     Object? flashcard = null,
     Object? quality = freezed,
   }) {
-    return _then(_$_SaveFlashcard(
+    return _then(_$SaveFlashcardImpl(
       userID: null == userID
           ? _value.userID
           : userID // ignore: cast_nullable_to_non_nullable
@@ -141,8 +141,8 @@ class __$$_SaveFlashcardCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_SaveFlashcard implements _SaveFlashcard {
-  const _$_SaveFlashcard(
+class _$SaveFlashcardImpl implements _SaveFlashcard {
+  const _$SaveFlashcardImpl(
       {required this.userID, required this.flashcard, this.quality});
 
   @override
@@ -161,7 +161,7 @@ class _$_SaveFlashcard implements _SaveFlashcard {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SaveFlashcard &&
+            other is _$SaveFlashcardImpl &&
             (identical(other.userID, userID) || other.userID == userID) &&
             (identical(other.flashcard, flashcard) ||
                 other.flashcard == flashcard) &&
@@ -174,8 +174,8 @@ class _$_SaveFlashcard implements _SaveFlashcard {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SaveFlashcardCopyWith<_$_SaveFlashcard> get copyWith =>
-      __$$_SaveFlashcardCopyWithImpl<_$_SaveFlashcard>(this, _$identity);
+  _$$SaveFlashcardImplCopyWith<_$SaveFlashcardImpl> get copyWith =>
+      __$$SaveFlashcardImplCopyWithImpl<_$SaveFlashcardImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -257,31 +257,31 @@ abstract class _SaveFlashcard implements HadithFlashcardEvent {
   const factory _SaveFlashcard(
       {required final UniqueString userID,
       required final HadithFlashcard flashcard,
-      final int? quality}) = _$_SaveFlashcard;
+      final int? quality}) = _$SaveFlashcardImpl;
 
   UniqueString get userID;
   HadithFlashcard get flashcard;
   int? get quality;
   @JsonKey(ignore: true)
-  _$$_SaveFlashcardCopyWith<_$_SaveFlashcard> get copyWith =>
+  _$$SaveFlashcardImplCopyWith<_$SaveFlashcardImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_GetFlashcardCopyWith<$Res> {
-  factory _$$_GetFlashcardCopyWith(
-          _$_GetFlashcard value, $Res Function(_$_GetFlashcard) then) =
-      __$$_GetFlashcardCopyWithImpl<$Res>;
+abstract class _$$GetFlashcardImplCopyWith<$Res> {
+  factory _$$GetFlashcardImplCopyWith(
+          _$GetFlashcardImpl value, $Res Function(_$GetFlashcardImpl) then) =
+      __$$GetFlashcardImplCopyWithImpl<$Res>;
   @useResult
   $Res call({UniqueString userID});
 }
 
 /// @nodoc
-class __$$_GetFlashcardCopyWithImpl<$Res>
-    extends _$HadithFlashcardEventCopyWithImpl<$Res, _$_GetFlashcard>
-    implements _$$_GetFlashcardCopyWith<$Res> {
-  __$$_GetFlashcardCopyWithImpl(
-      _$_GetFlashcard _value, $Res Function(_$_GetFlashcard) _then)
+class __$$GetFlashcardImplCopyWithImpl<$Res>
+    extends _$HadithFlashcardEventCopyWithImpl<$Res, _$GetFlashcardImpl>
+    implements _$$GetFlashcardImplCopyWith<$Res> {
+  __$$GetFlashcardImplCopyWithImpl(
+      _$GetFlashcardImpl _value, $Res Function(_$GetFlashcardImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -289,7 +289,7 @@ class __$$_GetFlashcardCopyWithImpl<$Res>
   $Res call({
     Object? userID = null,
   }) {
-    return _then(_$_GetFlashcard(
+    return _then(_$GetFlashcardImpl(
       userID: null == userID
           ? _value.userID
           : userID // ignore: cast_nullable_to_non_nullable
@@ -300,8 +300,8 @@ class __$$_GetFlashcardCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_GetFlashcard implements _GetFlashcard {
-  const _$_GetFlashcard({required this.userID});
+class _$GetFlashcardImpl implements _GetFlashcard {
+  const _$GetFlashcardImpl({required this.userID});
 
   @override
   final UniqueString userID;
@@ -315,7 +315,7 @@ class _$_GetFlashcard implements _GetFlashcard {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_GetFlashcard &&
+            other is _$GetFlashcardImpl &&
             (identical(other.userID, userID) || other.userID == userID));
   }
 
@@ -325,8 +325,8 @@ class _$_GetFlashcard implements _GetFlashcard {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GetFlashcardCopyWith<_$_GetFlashcard> get copyWith =>
-      __$$_GetFlashcardCopyWithImpl<_$_GetFlashcard>(this, _$identity);
+  _$$GetFlashcardImplCopyWith<_$GetFlashcardImpl> get copyWith =>
+      __$$GetFlashcardImplCopyWithImpl<_$GetFlashcardImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -406,34 +406,37 @@ class _$_GetFlashcard implements _GetFlashcard {
 
 abstract class _GetFlashcard implements HadithFlashcardEvent {
   const factory _GetFlashcard({required final UniqueString userID}) =
-      _$_GetFlashcard;
+      _$GetFlashcardImpl;
 
   UniqueString get userID;
   @JsonKey(ignore: true)
-  _$$_GetFlashcardCopyWith<_$_GetFlashcard> get copyWith =>
+  _$$GetFlashcardImplCopyWith<_$GetFlashcardImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_ResetFlashcardSnackBarCopyWith<$Res> {
-  factory _$$_ResetFlashcardSnackBarCopyWith(_$_ResetFlashcardSnackBar value,
-          $Res Function(_$_ResetFlashcardSnackBar) then) =
-      __$$_ResetFlashcardSnackBarCopyWithImpl<$Res>;
+abstract class _$$ResetFlashcardSnackBarImplCopyWith<$Res> {
+  factory _$$ResetFlashcardSnackBarImplCopyWith(
+          _$ResetFlashcardSnackBarImpl value,
+          $Res Function(_$ResetFlashcardSnackBarImpl) then) =
+      __$$ResetFlashcardSnackBarImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_ResetFlashcardSnackBarCopyWithImpl<$Res>
-    extends _$HadithFlashcardEventCopyWithImpl<$Res, _$_ResetFlashcardSnackBar>
-    implements _$$_ResetFlashcardSnackBarCopyWith<$Res> {
-  __$$_ResetFlashcardSnackBarCopyWithImpl(_$_ResetFlashcardSnackBar _value,
-      $Res Function(_$_ResetFlashcardSnackBar) _then)
+class __$$ResetFlashcardSnackBarImplCopyWithImpl<$Res>
+    extends _$HadithFlashcardEventCopyWithImpl<$Res,
+        _$ResetFlashcardSnackBarImpl>
+    implements _$$ResetFlashcardSnackBarImplCopyWith<$Res> {
+  __$$ResetFlashcardSnackBarImplCopyWithImpl(
+      _$ResetFlashcardSnackBarImpl _value,
+      $Res Function(_$ResetFlashcardSnackBarImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_ResetFlashcardSnackBar implements _ResetFlashcardSnackBar {
-  const _$_ResetFlashcardSnackBar();
+class _$ResetFlashcardSnackBarImpl implements _ResetFlashcardSnackBar {
+  const _$ResetFlashcardSnackBarImpl();
 
   @override
   String toString() {
@@ -444,7 +447,7 @@ class _$_ResetFlashcardSnackBar implements _ResetFlashcardSnackBar {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ResetFlashcardSnackBar);
+            other is _$ResetFlashcardSnackBarImpl);
   }
 
   @override
@@ -527,7 +530,7 @@ class _$_ResetFlashcardSnackBar implements _ResetFlashcardSnackBar {
 }
 
 abstract class _ResetFlashcardSnackBar implements HadithFlashcardEvent {
-  const factory _ResetFlashcardSnackBar() = _$_ResetFlashcardSnackBar;
+  const factory _ResetFlashcardSnackBar() = _$ResetFlashcardSnackBarImpl;
 }
 
 /// @nodoc
@@ -599,11 +602,11 @@ class _$HadithFlashcardStateCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_HadithFlashcardStateCopyWith<$Res>
+abstract class _$$HadithFlashcardStateImplCopyWith<$Res>
     implements $HadithFlashcardStateCopyWith<$Res> {
-  factory _$$_HadithFlashcardStateCopyWith(_$_HadithFlashcardState value,
-          $Res Function(_$_HadithFlashcardState) then) =
-      __$$_HadithFlashcardStateCopyWithImpl<$Res>;
+  factory _$$HadithFlashcardStateImplCopyWith(_$HadithFlashcardStateImpl value,
+          $Res Function(_$HadithFlashcardStateImpl) then) =
+      __$$HadithFlashcardStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -615,11 +618,11 @@ abstract class _$$_HadithFlashcardStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_HadithFlashcardStateCopyWithImpl<$Res>
-    extends _$HadithFlashcardStateCopyWithImpl<$Res, _$_HadithFlashcardState>
-    implements _$$_HadithFlashcardStateCopyWith<$Res> {
-  __$$_HadithFlashcardStateCopyWithImpl(_$_HadithFlashcardState _value,
-      $Res Function(_$_HadithFlashcardState) _then)
+class __$$HadithFlashcardStateImplCopyWithImpl<$Res>
+    extends _$HadithFlashcardStateCopyWithImpl<$Res, _$HadithFlashcardStateImpl>
+    implements _$$HadithFlashcardStateImplCopyWith<$Res> {
+  __$$HadithFlashcardStateImplCopyWithImpl(_$HadithFlashcardStateImpl _value,
+      $Res Function(_$HadithFlashcardStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -630,7 +633,7 @@ class __$$_HadithFlashcardStateCopyWithImpl<$Res>
     Object? optionFailureOrSaveFlashcard = null,
     Object? optionFailureOrGetFlashcard = null,
   }) {
-    return _then(_$_HadithFlashcardState(
+    return _then(_$HadithFlashcardStateImpl(
       flashcardToReviewLength: null == flashcardToReviewLength
           ? _value.flashcardToReviewLength
           : flashcardToReviewLength // ignore: cast_nullable_to_non_nullable
@@ -653,8 +656,8 @@ class __$$_HadithFlashcardStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_HadithFlashcardState implements _HadithFlashcardState {
-  const _$_HadithFlashcardState(
+class _$HadithFlashcardStateImpl implements _HadithFlashcardState {
+  const _$HadithFlashcardStateImpl(
       {required this.flashcardToReviewLength,
       required this.flashcards,
       required this.optionFailureOrSaveFlashcard,
@@ -679,7 +682,7 @@ class _$_HadithFlashcardState implements _HadithFlashcardState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_HadithFlashcardState &&
+            other is _$HadithFlashcardStateImpl &&
             (identical(
                     other.flashcardToReviewLength, flashcardToReviewLength) ||
                 other.flashcardToReviewLength == flashcardToReviewLength) &&
@@ -706,9 +709,10 @@ class _$_HadithFlashcardState implements _HadithFlashcardState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_HadithFlashcardStateCopyWith<_$_HadithFlashcardState> get copyWith =>
-      __$$_HadithFlashcardStateCopyWithImpl<_$_HadithFlashcardState>(
-          this, _$identity);
+  _$$HadithFlashcardStateImplCopyWith<_$HadithFlashcardStateImpl>
+      get copyWith =>
+          __$$HadithFlashcardStateImplCopyWithImpl<_$HadithFlashcardStateImpl>(
+              this, _$identity);
 }
 
 abstract class _HadithFlashcardState implements HadithFlashcardState {
@@ -718,7 +722,7 @@ abstract class _HadithFlashcardState implements HadithFlashcardState {
       required final Option<Either<CommonFailures, Unit>>
           optionFailureOrSaveFlashcard,
       required final Option<Either<CommonFailures, IList<HadithFlashcard>>>
-          optionFailureOrGetFlashcard}) = _$_HadithFlashcardState;
+          optionFailureOrGetFlashcard}) = _$HadithFlashcardStateImpl;
 
   @override
   int get flashcardToReviewLength;
@@ -731,6 +735,6 @@ abstract class _HadithFlashcardState implements HadithFlashcardState {
       get optionFailureOrGetFlashcard;
   @override
   @JsonKey(ignore: true)
-  _$$_HadithFlashcardStateCopyWith<_$_HadithFlashcardState> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$HadithFlashcardStateImplCopyWith<_$HadithFlashcardStateImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

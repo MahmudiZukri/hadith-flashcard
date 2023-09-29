@@ -82,29 +82,29 @@ class _$PasswordTextFieldEventCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_SignUpTextFieldObscureChangedCopyWith<$Res> {
-  factory _$$_SignUpTextFieldObscureChangedCopyWith(
-          _$_SignUpTextFieldObscureChanged value,
-          $Res Function(_$_SignUpTextFieldObscureChanged) then) =
-      __$$_SignUpTextFieldObscureChangedCopyWithImpl<$Res>;
+abstract class _$$SignUpTextFieldObscureChangedImplCopyWith<$Res> {
+  factory _$$SignUpTextFieldObscureChangedImplCopyWith(
+          _$SignUpTextFieldObscureChangedImpl value,
+          $Res Function(_$SignUpTextFieldObscureChangedImpl) then) =
+      __$$SignUpTextFieldObscureChangedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_SignUpTextFieldObscureChangedCopyWithImpl<$Res>
+class __$$SignUpTextFieldObscureChangedImplCopyWithImpl<$Res>
     extends _$PasswordTextFieldEventCopyWithImpl<$Res,
-        _$_SignUpTextFieldObscureChanged>
-    implements _$$_SignUpTextFieldObscureChangedCopyWith<$Res> {
-  __$$_SignUpTextFieldObscureChangedCopyWithImpl(
-      _$_SignUpTextFieldObscureChanged _value,
-      $Res Function(_$_SignUpTextFieldObscureChanged) _then)
+        _$SignUpTextFieldObscureChangedImpl>
+    implements _$$SignUpTextFieldObscureChangedImplCopyWith<$Res> {
+  __$$SignUpTextFieldObscureChangedImplCopyWithImpl(
+      _$SignUpTextFieldObscureChangedImpl _value,
+      $Res Function(_$SignUpTextFieldObscureChangedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_SignUpTextFieldObscureChanged
+class _$SignUpTextFieldObscureChangedImpl
     implements _SignUpTextFieldObscureChanged {
-  const _$_SignUpTextFieldObscureChanged();
+  const _$SignUpTextFieldObscureChangedImpl();
 
   @override
   String toString() {
@@ -115,7 +115,7 @@ class _$_SignUpTextFieldObscureChanged
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SignUpTextFieldObscureChanged);
+            other is _$SignUpTextFieldObscureChangedImpl);
   }
 
   @override
@@ -193,33 +193,33 @@ class _$_SignUpTextFieldObscureChanged
 abstract class _SignUpTextFieldObscureChanged
     implements PasswordTextFieldEvent {
   const factory _SignUpTextFieldObscureChanged() =
-      _$_SignUpTextFieldObscureChanged;
+      _$SignUpTextFieldObscureChangedImpl;
 }
 
 /// @nodoc
-abstract class _$$_SignInTextFieldObscureChangedCopyWith<$Res> {
-  factory _$$_SignInTextFieldObscureChangedCopyWith(
-          _$_SignInTextFieldObscureChanged value,
-          $Res Function(_$_SignInTextFieldObscureChanged) then) =
-      __$$_SignInTextFieldObscureChangedCopyWithImpl<$Res>;
+abstract class _$$SignInTextFieldObscureChangedImplCopyWith<$Res> {
+  factory _$$SignInTextFieldObscureChangedImplCopyWith(
+          _$SignInTextFieldObscureChangedImpl value,
+          $Res Function(_$SignInTextFieldObscureChangedImpl) then) =
+      __$$SignInTextFieldObscureChangedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_SignInTextFieldObscureChangedCopyWithImpl<$Res>
+class __$$SignInTextFieldObscureChangedImplCopyWithImpl<$Res>
     extends _$PasswordTextFieldEventCopyWithImpl<$Res,
-        _$_SignInTextFieldObscureChanged>
-    implements _$$_SignInTextFieldObscureChangedCopyWith<$Res> {
-  __$$_SignInTextFieldObscureChangedCopyWithImpl(
-      _$_SignInTextFieldObscureChanged _value,
-      $Res Function(_$_SignInTextFieldObscureChanged) _then)
+        _$SignInTextFieldObscureChangedImpl>
+    implements _$$SignInTextFieldObscureChangedImplCopyWith<$Res> {
+  __$$SignInTextFieldObscureChangedImplCopyWithImpl(
+      _$SignInTextFieldObscureChangedImpl _value,
+      $Res Function(_$SignInTextFieldObscureChangedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_SignInTextFieldObscureChanged
+class _$SignInTextFieldObscureChangedImpl
     implements _SignInTextFieldObscureChanged {
-  const _$_SignInTextFieldObscureChanged();
+  const _$SignInTextFieldObscureChangedImpl();
 
   @override
   String toString() {
@@ -230,7 +230,7 @@ class _$_SignInTextFieldObscureChanged
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SignInTextFieldObscureChanged);
+            other is _$SignInTextFieldObscureChangedImpl);
   }
 
   @override
@@ -308,7 +308,7 @@ class _$_SignInTextFieldObscureChanged
 abstract class _SignInTextFieldObscureChanged
     implements PasswordTextFieldEvent {
   const factory _SignInTextFieldObscureChanged() =
-      _$_SignInTextFieldObscureChanged;
+      _$SignInTextFieldObscureChangedImpl;
 }
 
 /// @nodoc
@@ -361,23 +361,25 @@ class _$PasswordTextFieldStateCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_PasswordTextfieldStateCopyWith<$Res>
+abstract class _$$PasswordTextfieldStateImplCopyWith<$Res>
     implements $PasswordTextFieldStateCopyWith<$Res> {
-  factory _$$_PasswordTextfieldStateCopyWith(_$_PasswordTextfieldState value,
-          $Res Function(_$_PasswordTextfieldState) then) =
-      __$$_PasswordTextfieldStateCopyWithImpl<$Res>;
+  factory _$$PasswordTextfieldStateImplCopyWith(
+          _$PasswordTextfieldStateImpl value,
+          $Res Function(_$PasswordTextfieldStateImpl) then) =
+      __$$PasswordTextfieldStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool isSignUpTextFieldObscure, bool isSignInTextFieldObscure});
 }
 
 /// @nodoc
-class __$$_PasswordTextfieldStateCopyWithImpl<$Res>
+class __$$PasswordTextfieldStateImplCopyWithImpl<$Res>
     extends _$PasswordTextFieldStateCopyWithImpl<$Res,
-        _$_PasswordTextfieldState>
-    implements _$$_PasswordTextfieldStateCopyWith<$Res> {
-  __$$_PasswordTextfieldStateCopyWithImpl(_$_PasswordTextfieldState _value,
-      $Res Function(_$_PasswordTextfieldState) _then)
+        _$PasswordTextfieldStateImpl>
+    implements _$$PasswordTextfieldStateImplCopyWith<$Res> {
+  __$$PasswordTextfieldStateImplCopyWithImpl(
+      _$PasswordTextfieldStateImpl _value,
+      $Res Function(_$PasswordTextfieldStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -386,7 +388,7 @@ class __$$_PasswordTextfieldStateCopyWithImpl<$Res>
     Object? isSignUpTextFieldObscure = null,
     Object? isSignInTextFieldObscure = null,
   }) {
-    return _then(_$_PasswordTextfieldState(
+    return _then(_$PasswordTextfieldStateImpl(
       isSignUpTextFieldObscure: null == isSignUpTextFieldObscure
           ? _value.isSignUpTextFieldObscure
           : isSignUpTextFieldObscure // ignore: cast_nullable_to_non_nullable
@@ -401,8 +403,8 @@ class __$$_PasswordTextfieldStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_PasswordTextfieldState implements _PasswordTextfieldState {
-  const _$_PasswordTextfieldState(
+class _$PasswordTextfieldStateImpl implements _PasswordTextfieldState {
+  const _$PasswordTextfieldStateImpl(
       {required this.isSignUpTextFieldObscure,
       required this.isSignInTextFieldObscure});
 
@@ -420,7 +422,7 @@ class _$_PasswordTextfieldState implements _PasswordTextfieldState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PasswordTextfieldState &&
+            other is _$PasswordTextfieldStateImpl &&
             (identical(
                     other.isSignUpTextFieldObscure, isSignUpTextFieldObscure) ||
                 other.isSignUpTextFieldObscure == isSignUpTextFieldObscure) &&
@@ -436,16 +438,16 @@ class _$_PasswordTextfieldState implements _PasswordTextfieldState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PasswordTextfieldStateCopyWith<_$_PasswordTextfieldState> get copyWith =>
-      __$$_PasswordTextfieldStateCopyWithImpl<_$_PasswordTextfieldState>(
-          this, _$identity);
+  _$$PasswordTextfieldStateImplCopyWith<_$PasswordTextfieldStateImpl>
+      get copyWith => __$$PasswordTextfieldStateImplCopyWithImpl<
+          _$PasswordTextfieldStateImpl>(this, _$identity);
 }
 
 abstract class _PasswordTextfieldState implements PasswordTextFieldState {
   const factory _PasswordTextfieldState(
           {required final bool isSignUpTextFieldObscure,
           required final bool isSignInTextFieldObscure}) =
-      _$_PasswordTextfieldState;
+      _$PasswordTextfieldStateImpl;
 
   @override
   bool get isSignUpTextFieldObscure;
@@ -453,6 +455,6 @@ abstract class _PasswordTextfieldState implements PasswordTextFieldState {
   bool get isSignInTextFieldObscure;
   @override
   @JsonKey(ignore: true)
-  _$$_PasswordTextfieldStateCopyWith<_$_PasswordTextfieldState> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$PasswordTextfieldStateImplCopyWith<_$PasswordTextfieldStateImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

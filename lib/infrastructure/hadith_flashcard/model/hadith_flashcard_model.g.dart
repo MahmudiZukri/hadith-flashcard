@@ -6,9 +6,9 @@ part of 'hadith_flashcard_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_HadithFlashcardModel _$$_HadithFlashcardModelFromJson(
+_$HadithFlashcardModelImpl _$$HadithFlashcardModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$_HadithFlashcardModel(
+    _$HadithFlashcardModelImpl(
       hadithNarratorName: json['hadithNarratorName'] as String,
       hadithNumber: json['hadithNumber'] as int,
       arab: json['arab'] as String,
@@ -19,8 +19,8 @@ _$_HadithFlashcardModel _$$_HadithFlashcardModelFromJson(
       reviewedDate: DateTime.parse(json['reviewedDate'] as String),
     );
 
-Map<String, dynamic> _$$_HadithFlashcardModelToJson(
-        _$_HadithFlashcardModel instance) =>
+Map<String, dynamic> _$$HadithFlashcardModelImplToJson(
+        _$HadithFlashcardModelImpl instance) =>
     <String, dynamic>{
       'hadithNarratorName': instance.hadithNarratorName,
       'hadithNumber': instance.hadithNumber,

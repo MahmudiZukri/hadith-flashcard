@@ -105,11 +105,11 @@ class _$HadithNarratorModelCopyWithImpl<$Res, $Val extends HadithNarratorModel>
 }
 
 /// @nodoc
-abstract class _$$_HadithNarratorModelCopyWith<$Res>
+abstract class _$$HadithNarratorModelImplCopyWith<$Res>
     implements $HadithNarratorModelCopyWith<$Res> {
-  factory _$$_HadithNarratorModelCopyWith(_$_HadithNarratorModel value,
-          $Res Function(_$_HadithNarratorModel) then) =
-      __$$_HadithNarratorModelCopyWithImpl<$Res>;
+  factory _$$HadithNarratorModelImplCopyWith(_$HadithNarratorModelImpl value,
+          $Res Function(_$HadithNarratorModelImpl) then) =
+      __$$HadithNarratorModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -124,11 +124,11 @@ abstract class _$$_HadithNarratorModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_HadithNarratorModelCopyWithImpl<$Res>
-    extends _$HadithNarratorModelCopyWithImpl<$Res, _$_HadithNarratorModel>
-    implements _$$_HadithNarratorModelCopyWith<$Res> {
-  __$$_HadithNarratorModelCopyWithImpl(_$_HadithNarratorModel _value,
-      $Res Function(_$_HadithNarratorModel) _then)
+class __$$HadithNarratorModelImplCopyWithImpl<$Res>
+    extends _$HadithNarratorModelCopyWithImpl<$Res, _$HadithNarratorModelImpl>
+    implements _$$HadithNarratorModelImplCopyWith<$Res> {
+  __$$HadithNarratorModelImplCopyWithImpl(_$HadithNarratorModelImpl _value,
+      $Res Function(_$HadithNarratorModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -140,7 +140,7 @@ class __$$_HadithNarratorModelCopyWithImpl<$Res>
     Object? pagination = freezed,
     Object? items = freezed,
   }) {
-    return _then(_$_HadithNarratorModel(
+    return _then(_$HadithNarratorModelImpl(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -167,16 +167,16 @@ class __$$_HadithNarratorModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_HadithNarratorModel implements _HadithNarratorModel {
-  const _$_HadithNarratorModel(
+class _$HadithNarratorModelImpl implements _HadithNarratorModel {
+  const _$HadithNarratorModelImpl(
       {required this.name,
       required this.slug,
       required this.total,
       required this.pagination,
       required this.items});
 
-  factory _$_HadithNarratorModel.fromJson(Map<String, dynamic> json) =>
-      _$$_HadithNarratorModelFromJson(json);
+  factory _$HadithNarratorModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$HadithNarratorModelImplFromJson(json);
 
   @override
   final String name;
@@ -198,7 +198,7 @@ class _$_HadithNarratorModel implements _HadithNarratorModel {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_HadithNarratorModel &&
+            other is _$HadithNarratorModelImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.slug, slug) || other.slug == slug) &&
             (identical(other.total, total) || other.total == total) &&
@@ -215,13 +215,13 @@ class _$_HadithNarratorModel implements _HadithNarratorModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_HadithNarratorModelCopyWith<_$_HadithNarratorModel> get copyWith =>
-      __$$_HadithNarratorModelCopyWithImpl<_$_HadithNarratorModel>(
+  _$$HadithNarratorModelImplCopyWith<_$HadithNarratorModelImpl> get copyWith =>
+      __$$HadithNarratorModelImplCopyWithImpl<_$HadithNarratorModelImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_HadithNarratorModelToJson(
+    return _$$HadithNarratorModelImplToJson(
       this,
     );
   }
@@ -233,10 +233,10 @@ abstract class _HadithNarratorModel implements HadithNarratorModel {
       required final String slug,
       required final int total,
       required final PaginationModel? pagination,
-      required final IList<ItemModel>? items}) = _$_HadithNarratorModel;
+      required final IList<ItemModel>? items}) = _$HadithNarratorModelImpl;
 
   factory _HadithNarratorModel.fromJson(Map<String, dynamic> json) =
-      _$_HadithNarratorModel.fromJson;
+      _$HadithNarratorModelImpl.fromJson;
 
   @override
   String get name;
@@ -250,7 +250,7 @@ abstract class _HadithNarratorModel implements HadithNarratorModel {
   IList<ItemModel>? get items;
   @override
   @JsonKey(ignore: true)
-  _$$_HadithNarratorModelCopyWith<_$_HadithNarratorModel> get copyWith =>
+  _$$HadithNarratorModelImplCopyWith<_$HadithNarratorModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -359,11 +359,11 @@ class _$PaginationModelCopyWithImpl<$Res, $Val extends PaginationModel>
 }
 
 /// @nodoc
-abstract class _$$_PaginationModelCopyWith<$Res>
+abstract class _$$PaginationModelImplCopyWith<$Res>
     implements $PaginationModelCopyWith<$Res> {
-  factory _$$_PaginationModelCopyWith(
-          _$_PaginationModel value, $Res Function(_$_PaginationModel) then) =
-      __$$_PaginationModelCopyWithImpl<$Res>;
+  factory _$$PaginationModelImplCopyWith(_$PaginationModelImpl value,
+          $Res Function(_$PaginationModelImpl) then) =
+      __$$PaginationModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -379,11 +379,11 @@ abstract class _$$_PaginationModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_PaginationModelCopyWithImpl<$Res>
-    extends _$PaginationModelCopyWithImpl<$Res, _$_PaginationModel>
-    implements _$$_PaginationModelCopyWith<$Res> {
-  __$$_PaginationModelCopyWithImpl(
-      _$_PaginationModel _value, $Res Function(_$_PaginationModel) _then)
+class __$$PaginationModelImplCopyWithImpl<$Res>
+    extends _$PaginationModelCopyWithImpl<$Res, _$PaginationModelImpl>
+    implements _$$PaginationModelImplCopyWith<$Res> {
+  __$$PaginationModelImplCopyWithImpl(
+      _$PaginationModelImpl _value, $Res Function(_$PaginationModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -399,7 +399,7 @@ class __$$_PaginationModelCopyWithImpl<$Res>
     Object? startIndex = null,
     Object? pages = null,
   }) {
-    return _then(_$_PaginationModel(
+    return _then(_$PaginationModelImpl(
       totalItems: null == totalItems
           ? _value.totalItems
           : totalItems // ignore: cast_nullable_to_non_nullable
@@ -442,8 +442,8 @@ class __$$_PaginationModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_PaginationModel implements _PaginationModel {
-  const _$_PaginationModel(
+class _$PaginationModelImpl implements _PaginationModel {
+  const _$PaginationModelImpl(
       {required this.totalItems,
       required this.currentPage,
       required this.pageSize,
@@ -454,8 +454,8 @@ class _$_PaginationModel implements _PaginationModel {
       required this.startIndex,
       required this.pages});
 
-  factory _$_PaginationModel.fromJson(Map<String, dynamic> json) =>
-      _$$_PaginationModelFromJson(json);
+  factory _$PaginationModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PaginationModelImplFromJson(json);
 
   @override
   final int totalItems;
@@ -485,7 +485,7 @@ class _$_PaginationModel implements _PaginationModel {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PaginationModel &&
+            other is _$PaginationModelImpl &&
             (identical(other.totalItems, totalItems) ||
                 other.totalItems == totalItems) &&
             (identical(other.currentPage, currentPage) ||
@@ -521,12 +521,13 @@ class _$_PaginationModel implements _PaginationModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PaginationModelCopyWith<_$_PaginationModel> get copyWith =>
-      __$$_PaginationModelCopyWithImpl<_$_PaginationModel>(this, _$identity);
+  _$$PaginationModelImplCopyWith<_$PaginationModelImpl> get copyWith =>
+      __$$PaginationModelImplCopyWithImpl<_$PaginationModelImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PaginationModelToJson(
+    return _$$PaginationModelImplToJson(
       this,
     );
   }
@@ -542,10 +543,10 @@ abstract class _PaginationModel implements PaginationModel {
       required final int endPage,
       required final int endIndex,
       required final int startIndex,
-      required final IList<int> pages}) = _$_PaginationModel;
+      required final IList<int> pages}) = _$PaginationModelImpl;
 
   factory _PaginationModel.fromJson(Map<String, dynamic> json) =
-      _$_PaginationModel.fromJson;
+      _$PaginationModelImpl.fromJson;
 
   @override
   int get totalItems;
@@ -567,7 +568,7 @@ abstract class _PaginationModel implements PaginationModel {
   IList<int> get pages;
   @override
   @JsonKey(ignore: true)
-  _$$_PaginationModelCopyWith<_$_PaginationModel> get copyWith =>
+  _$$PaginationModelImplCopyWith<_$PaginationModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -630,21 +631,22 @@ class _$ItemModelCopyWithImpl<$Res, $Val extends ItemModel>
 }
 
 /// @nodoc
-abstract class _$$_ItemModelCopyWith<$Res> implements $ItemModelCopyWith<$Res> {
-  factory _$$_ItemModelCopyWith(
-          _$_ItemModel value, $Res Function(_$_ItemModel) then) =
-      __$$_ItemModelCopyWithImpl<$Res>;
+abstract class _$$ItemModelImplCopyWith<$Res>
+    implements $ItemModelCopyWith<$Res> {
+  factory _$$ItemModelImplCopyWith(
+          _$ItemModelImpl value, $Res Function(_$ItemModelImpl) then) =
+      __$$ItemModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int number, String arab, String id});
 }
 
 /// @nodoc
-class __$$_ItemModelCopyWithImpl<$Res>
-    extends _$ItemModelCopyWithImpl<$Res, _$_ItemModel>
-    implements _$$_ItemModelCopyWith<$Res> {
-  __$$_ItemModelCopyWithImpl(
-      _$_ItemModel _value, $Res Function(_$_ItemModel) _then)
+class __$$ItemModelImplCopyWithImpl<$Res>
+    extends _$ItemModelCopyWithImpl<$Res, _$ItemModelImpl>
+    implements _$$ItemModelImplCopyWith<$Res> {
+  __$$ItemModelImplCopyWithImpl(
+      _$ItemModelImpl _value, $Res Function(_$ItemModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -654,7 +656,7 @@ class __$$_ItemModelCopyWithImpl<$Res>
     Object? arab = null,
     Object? id = null,
   }) {
-    return _then(_$_ItemModel(
+    return _then(_$ItemModelImpl(
       number: null == number
           ? _value.number
           : number // ignore: cast_nullable_to_non_nullable
@@ -673,12 +675,12 @@ class __$$_ItemModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ItemModel implements _ItemModel {
-  const _$_ItemModel(
+class _$ItemModelImpl implements _ItemModel {
+  const _$ItemModelImpl(
       {required this.number, required this.arab, required this.id});
 
-  factory _$_ItemModel.fromJson(Map<String, dynamic> json) =>
-      _$$_ItemModelFromJson(json);
+  factory _$ItemModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ItemModelImplFromJson(json);
 
   @override
   final int number;
@@ -696,7 +698,7 @@ class _$_ItemModel implements _ItemModel {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ItemModel &&
+            other is _$ItemModelImpl &&
             (identical(other.number, number) || other.number == number) &&
             (identical(other.arab, arab) || other.arab == arab) &&
             (identical(other.id, id) || other.id == id));
@@ -709,12 +711,12 @@ class _$_ItemModel implements _ItemModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ItemModelCopyWith<_$_ItemModel> get copyWith =>
-      __$$_ItemModelCopyWithImpl<_$_ItemModel>(this, _$identity);
+  _$$ItemModelImplCopyWith<_$ItemModelImpl> get copyWith =>
+      __$$ItemModelImplCopyWithImpl<_$ItemModelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ItemModelToJson(
+    return _$$ItemModelImplToJson(
       this,
     );
   }
@@ -724,10 +726,10 @@ abstract class _ItemModel implements ItemModel {
   const factory _ItemModel(
       {required final int number,
       required final String arab,
-      required final String id}) = _$_ItemModel;
+      required final String id}) = _$ItemModelImpl;
 
   factory _ItemModel.fromJson(Map<String, dynamic> json) =
-      _$_ItemModel.fromJson;
+      _$ItemModelImpl.fromJson;
 
   @override
   int get number;
@@ -737,6 +739,6 @@ abstract class _ItemModel implements ItemModel {
   String get id;
   @override
   @JsonKey(ignore: true)
-  _$$_ItemModelCopyWith<_$_ItemModel> get copyWith =>
+  _$$ItemModelImplCopyWith<_$ItemModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
