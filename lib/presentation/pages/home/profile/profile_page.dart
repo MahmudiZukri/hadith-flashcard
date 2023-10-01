@@ -72,6 +72,7 @@ class ProfilePage extends StatelessWidget {
                           SizedBox(height: 6.0),
                           // About app
                           AboutApp(),
+                          // consider makes rating feature, analitycs
                           // think about the content here, maybe like how many hadith
                           // that already mastered or something else
                         ],

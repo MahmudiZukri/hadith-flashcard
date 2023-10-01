@@ -7,8 +7,15 @@ class SignUpPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<AuthBloc>(
-      create: (context) => getIt<AuthBloc>(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<AuthBloc>(
+          create: (context) => getIt<AuthBloc>(),
+        ),
+        BlocProvider<PasswordTextFieldBloc>(
+          create: (context) => getIt<PasswordTextFieldBloc>(),
+        ),
+      ],
       child: const SignUpPageScaffold(),
     );
   }
@@ -156,16 +163,31 @@ class SignUpPageScaffold extends StatelessWidget {
                                 EmailAddress(val!).getFoldValidator(),
                           ),
                           const SizedBox(height: 16.0),
-                          CustomTextFormFieldWidget(
-                            labelText: 'password'.tr(),
-                            hintText: 'enterYourPassword'.tr(),
-                            onChanged: (val) => context.read<AuthBloc>().add(
-                                  AuthEvent.passwordChanged(
-                                    passwordStr: val,
-                                  ),
-                                ),
-                            validator: (val) =>
-                                Password(val!).getFoldValidator(),
+                          BlocSelector<PasswordTextFieldBloc,
+                              PasswordTextFieldState, bool>(
+                            selector: (state) => state.isSignUpTextFieldObscure,
+                            builder: (context, isSignUpTextFieldObscure) {
+                              return CustomTextFormFieldWidget(
+                                labelText: 'password'.tr(),
+                                hintText: 'enterYourPassword'.tr(),
+                                onChanged: (val) =>
+                                    context.read<AuthBloc>().add(
+                                          AuthEvent.passwordChanged(
+                                            passwordStr: val,
+                                          ),
+                                        ),
+                                validator: (val) =>
+                                    Password(val!).getFoldValidator(),
+                                isPasswordTextField: true,
+                                isEyeOpen: isSignUpTextFieldObscure,
+                                eyeOnTap: () {
+                                  context.read<PasswordTextFieldBloc>().add(
+                                        const PasswordTextFieldEvent
+                                            .signUpTextFieldObsecureChanged(),
+                                      );
+                                },
+                              );
+                            },
                           ),
                           const SizedBox(height: 16.0),
                           const Spacer(),
@@ -220,7 +242,7 @@ class SignUpPageScaffold extends StatelessWidget {
                           const SizedBox(height: 16.0),
                           Row(
                             children: [
-                              // TODO : comment for now
+                              // TODO : comment sign up via facebook for now
                               // Expanded(
                               //   child: CustomElevatedButtonWidget(
                               //     text: 'Facebook',

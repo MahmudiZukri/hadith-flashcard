@@ -28,8 +28,8 @@ class CustomTextFormFieldWidget extends StatelessWidget {
       style: blackTextFont,
       obscureText: isPasswordTextField
           ? isEyeOpen!
-              ? false
-              : true
+              ? true
+              : false
           : false,
       onChanged: onChanged,
       validator: validator,
@@ -42,9 +42,9 @@ class CustomTextFormFieldWidget extends StatelessWidget {
         fillColor: fillColor,
         suffix: isPasswordTextField
             ? GestureDetector(
-                onTap: eyeOnTap!(),
+                onTap: eyeOnTap!,
                 child: Icon(
-                  isEyeOpen! ? MdiIcons.eyeOff : MdiIcons.eye,
+                  isEyeOpen! ? MdiIcons.eye : MdiIcons.eyeOff,
                 ),
               )
             : const SizedBox(),

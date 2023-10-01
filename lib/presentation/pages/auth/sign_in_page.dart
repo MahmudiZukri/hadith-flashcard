@@ -169,11 +169,10 @@ class SignInPageScaffold extends StatelessWidget {
                                 isPasswordTextField: true,
                                 isEyeOpen: isSignInTextFieldObscure,
                                 eyeOnTap: () {
-                                  //TODO: do later
-                                  // context.read<PasswordTextFieldBloc>().add(
-                                  //       const PasswordTextFieldEvent
-                                  //           .signInTextFieldObsecureChanged(),
-                                  //     );
+                                  context.read<PasswordTextFieldBloc>().add(
+                                        const PasswordTextFieldEvent
+                                            .signInTextFieldObsecureChanged(),
+                                      );
                                 },
                               );
                             },
@@ -246,7 +245,7 @@ class SignInPageScaffold extends StatelessWidget {
                           const SizedBox(height: 16.0),
                           Row(
                             children: [
-                              // TODO : comment for now
+                              // TODO : comment sign in via facebook for now
                               // Expanded(
                               //   child: CustomElevatedButtonWidget(
                               //     text: 'Facebook',
