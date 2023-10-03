@@ -26,5 +26,10 @@
     "language": "Bahasa",
     "aboutApp" : "Tentang Aplikasi",
     "chooseLanguage": "Pilih bahasa :",
-    "signOut" : "Keluar"
+    "signOut" : "Keluar",
+    "thisCannotBeEmpty" : "Tidak boleh kosong",
+    "invalidEmailFormat": "Format email salah",
+    "lengthTooShort":"Terlalu pendek",
+    "nameCannotBeFilledWithNumbers": "Nama tidak bisa diisi dengan angka"
+   
 }

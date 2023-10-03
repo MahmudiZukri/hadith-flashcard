@@ -26,5 +26,9 @@
     "language": "Language",
     "aboutApp" : "About app",
     "chooseLanguage": "Choose language :",
-    "signOut" : "Sign Out"
+    "signOut" : "Sign Out",
+    "thisCannotBeEmpty" : "This cannot be empty",
+    "invalidEmailFormat": "Invalid email format",
+    "lengthTooShort":"Length is too short",
+    "nameCannotBeFilledWithNumbers": "Name cannot be filled with numbers"
 }
