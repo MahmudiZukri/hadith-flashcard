@@ -20,7 +20,11 @@ class ReviewPage extends StatelessWidget {
       padding: const EdgeInsets.symmetric(
         horizontal: defaultMargin,
       ),
-      child: BlocBuilder<HadithFlashcardBloc, HadithFlashcardState>(
+      child: BlocConsumer<HadithFlashcardBloc, HadithFlashcardState>(
+        listenWhen: (previous, current) =>
+            current.numofReviewedFlashcard ==
+            current.flashcardToReviewTodayLength,
+        listener: (context, hadithFlashcardState) {},
         builder: (context, hadithFlashcardState) {
           return hadithFlashcardState.optionFailureOrGetFlashcard.match(
             () => const CustomCircularProgressIndicatorWidget(),
@@ -86,7 +90,10 @@ class ReviewPage extends StatelessWidget {
                       ],
                     ),
                     Text(
-                      hadithFlashcardState.flashcardToReviewLength.toString(),
+                      hadithFlashcardState.numofReviewedFlashcard.toString() +
+                          '/' +
+                          hadithFlashcardState.flashcardToReviewTodayLength
+                              .toString(),
                     ),
                     flashcardIsEmpty
                         ? CustomContainer(
@@ -126,21 +133,30 @@ class ReviewPage extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Lottie.asset(
-                                      AssetUrl.emptyFlashcardLottie,
-                                      height: screenWidth(context) / 2.4,
+                                      hadithFlashcardState
+                                              .isShowCongratsAnimation
+                                          ? AssetUrl.congratsLottie
+                                          : AssetUrl.emptyFlashcardLottie,
+                                      height: hadithFlashcardState
+                                              .isShowCongratsAnimation
+                                          ? screenWidth(context) / 1.6
+                                          : screenWidth(context) / 2.4,
                                     ),
                                     const SizedBox(height: 40),
                                     Text(
-                                      "youDon'tHaveFlashcardsToReview",
+                                      hadithFlashcardState
+                                              .isShowCongratsAnimation
+                                          ? "congratsYouHaveCompletedToday'sFlashcard"
+                                          : "youDon'tHaveFlashcardsToReview",
                                       textAlign: TextAlign.center,
                                       style: blackTextFont.copyWith(
                                         fontSize: 15,
                                       ),
-                                    ),
+                                    ).tr(),
                                     TextButton(
                                       onPressed: gotoNarratorPageOnPressed,
                                       child: Text(
-                                        'addMoreFlashcards',
+                                        'addMoreFlashcards'.tr(),
                                         style: primaryTextFont.copyWith(
                                           fontSize: 15,
                                           decoration: TextDecoration.underline,

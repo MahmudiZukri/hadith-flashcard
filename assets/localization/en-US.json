@@ -30,5 +30,6 @@
     "thisCannotBeEmpty" : "This cannot be empty",
     "invalidEmailFormat": "Invalid email format",
     "lengthTooShort":"Length is too short",
-    "nameCannotBeFilledWithNumbers": "Name cannot be filled with numbers"
+    "nameCannotBeFilledWithNumbers": "Name cannot be filled with numbers",
+    "congratsYouHaveCompletedToday'sFlashcard": "Congrats! You have completed today's flashcard"
 }

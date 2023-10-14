@@ -3,7 +3,8 @@ part of 'hadith_flashcard_bloc.dart';
 @freezed
 class HadithFlashcardState with _$HadithFlashcardState {
   const factory HadithFlashcardState({
-    required int flashcardToReviewLength,
+    required int numofReviewedFlashcard,
+    required int? flashcardToReviewTodayLength,
     required IList<HadithFlashcard> flashcards,
     required Option<Either<CommonFailures, Unit>> optionFailureOrSaveFlashcard,
     required Option<Either<CommonFailures, IList<HadithFlashcard>>>
@@ -11,7 +12,8 @@ class HadithFlashcardState with _$HadithFlashcardState {
   }) = _HadithFlashcardState;
 
   factory HadithFlashcardState.initial() => HadithFlashcardState(
-        flashcardToReviewLength: 0,
+        numofReviewedFlashcard: 0,
+        flashcardToReviewTodayLength: null,
         flashcards: <HadithFlashcard>[].lock,
         optionFailureOrSaveFlashcard: none(),
         optionFailureOrGetFlashcard: none(),
@@ -37,4 +39,9 @@ extension HadithFlashcardStateX on HadithFlashcardState {
           },
         ),
       );
+
+  bool get isShowCongratsAnimation =>
+      numofReviewedFlashcard == flashcardToReviewTodayLength &&
+      flashcardToReviewTodayLength != 0 &&
+      numofReviewedFlashcard != 0;
 }

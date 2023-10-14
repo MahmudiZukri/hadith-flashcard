@@ -30,6 +30,6 @@
     "thisCannotBeEmpty" : "Tidak boleh kosong",
     "invalidEmailFormat": "Format email salah",
     "lengthTooShort":"Terlalu pendek",
-    "nameCannotBeFilledWithNumbers": "Nama tidak bisa diisi dengan angka"
-   
+    "nameCannotBeFilledWithNumbers": "Nama tidak bisa diisi dengan angka",
+    "congratsYouHaveCompletedToday'sFlashcard" :"Selamat! Kamu telah menyelesaikan kartu hari ini"
 }

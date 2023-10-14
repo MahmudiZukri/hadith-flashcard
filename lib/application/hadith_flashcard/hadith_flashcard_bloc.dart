@@ -68,9 +68,13 @@ class HadithFlashcardBloc
                 optionFailureOrSaveFlashcard: optionOf(
                   failureOrResponse,
                 ),
-                flashcardToReviewLength: failureOrResponse.isRight()
-                    ? state.flashcardToReviewLength + 1
-                    : state.flashcardToReviewLength,
+                flashcardToReviewTodayLength:
+                    failureOrResponse.isRight() && e.quality == null
+                        ? null
+                        : state.flashcardToReviewTodayLength,
+                numofReviewedFlashcard: e.quality != null
+                    ? state.numofReviewedFlashcard + 1
+                    : state.numofReviewedFlashcard,
               ),
             );
           },
@@ -88,11 +92,14 @@ class HadithFlashcardBloc
               ),
             );
 
-            emit(
-              state.copyWith(
-                flashcardToReviewLength: state.getFlashcardsToReview.length,
-              ),
-            );
+            if (state.flashcardToReviewTodayLength == null) {
+              emit(
+                state.copyWith(
+                  flashcardToReviewTodayLength:
+                      state.getFlashcardsToReview.length,
+                ),
+              );
+            }
           },
         );
       },

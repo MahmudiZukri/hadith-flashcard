@@ -535,7 +535,8 @@ abstract class _ResetFlashcardSnackBar implements HadithFlashcardEvent {
 
 /// @nodoc
 mixin _$HadithFlashcardState {
-  int get flashcardToReviewLength => throw _privateConstructorUsedError;
+  int get numofReviewedFlashcard => throw _privateConstructorUsedError;
+  int? get flashcardToReviewTodayLength => throw _privateConstructorUsedError;
   IList<HadithFlashcard> get flashcards => throw _privateConstructorUsedError;
   Option<Either<CommonFailures, Unit>> get optionFailureOrSaveFlashcard =>
       throw _privateConstructorUsedError;
@@ -554,7 +555,8 @@ abstract class $HadithFlashcardStateCopyWith<$Res> {
       _$HadithFlashcardStateCopyWithImpl<$Res, HadithFlashcardState>;
   @useResult
   $Res call(
-      {int flashcardToReviewLength,
+      {int numofReviewedFlashcard,
+      int? flashcardToReviewTodayLength,
       IList<HadithFlashcard> flashcards,
       Option<Either<CommonFailures, Unit>> optionFailureOrSaveFlashcard,
       Option<Either<CommonFailures, IList<HadithFlashcard>>>
@@ -575,16 +577,21 @@ class _$HadithFlashcardStateCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? flashcardToReviewLength = null,
+    Object? numofReviewedFlashcard = null,
+    Object? flashcardToReviewTodayLength = freezed,
     Object? flashcards = null,
     Object? optionFailureOrSaveFlashcard = null,
     Object? optionFailureOrGetFlashcard = null,
   }) {
     return _then(_value.copyWith(
-      flashcardToReviewLength: null == flashcardToReviewLength
-          ? _value.flashcardToReviewLength
-          : flashcardToReviewLength // ignore: cast_nullable_to_non_nullable
+      numofReviewedFlashcard: null == numofReviewedFlashcard
+          ? _value.numofReviewedFlashcard
+          : numofReviewedFlashcard // ignore: cast_nullable_to_non_nullable
               as int,
+      flashcardToReviewTodayLength: freezed == flashcardToReviewTodayLength
+          ? _value.flashcardToReviewTodayLength
+          : flashcardToReviewTodayLength // ignore: cast_nullable_to_non_nullable
+              as int?,
       flashcards: null == flashcards
           ? _value.flashcards
           : flashcards // ignore: cast_nullable_to_non_nullable
@@ -610,7 +617,8 @@ abstract class _$$HadithFlashcardStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int flashcardToReviewLength,
+      {int numofReviewedFlashcard,
+      int? flashcardToReviewTodayLength,
       IList<HadithFlashcard> flashcards,
       Option<Either<CommonFailures, Unit>> optionFailureOrSaveFlashcard,
       Option<Either<CommonFailures, IList<HadithFlashcard>>>
@@ -628,16 +636,21 @@ class __$$HadithFlashcardStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? flashcardToReviewLength = null,
+    Object? numofReviewedFlashcard = null,
+    Object? flashcardToReviewTodayLength = freezed,
     Object? flashcards = null,
     Object? optionFailureOrSaveFlashcard = null,
     Object? optionFailureOrGetFlashcard = null,
   }) {
     return _then(_$HadithFlashcardStateImpl(
-      flashcardToReviewLength: null == flashcardToReviewLength
-          ? _value.flashcardToReviewLength
-          : flashcardToReviewLength // ignore: cast_nullable_to_non_nullable
+      numofReviewedFlashcard: null == numofReviewedFlashcard
+          ? _value.numofReviewedFlashcard
+          : numofReviewedFlashcard // ignore: cast_nullable_to_non_nullable
               as int,
+      flashcardToReviewTodayLength: freezed == flashcardToReviewTodayLength
+          ? _value.flashcardToReviewTodayLength
+          : flashcardToReviewTodayLength // ignore: cast_nullable_to_non_nullable
+              as int?,
       flashcards: null == flashcards
           ? _value.flashcards
           : flashcards // ignore: cast_nullable_to_non_nullable
@@ -658,13 +671,16 @@ class __$$HadithFlashcardStateImplCopyWithImpl<$Res>
 
 class _$HadithFlashcardStateImpl implements _HadithFlashcardState {
   const _$HadithFlashcardStateImpl(
-      {required this.flashcardToReviewLength,
+      {required this.numofReviewedFlashcard,
+      required this.flashcardToReviewTodayLength,
       required this.flashcards,
       required this.optionFailureOrSaveFlashcard,
       required this.optionFailureOrGetFlashcard});
 
   @override
-  final int flashcardToReviewLength;
+  final int numofReviewedFlashcard;
+  @override
+  final int? flashcardToReviewTodayLength;
   @override
   final IList<HadithFlashcard> flashcards;
   @override
@@ -675,7 +691,7 @@ class _$HadithFlashcardStateImpl implements _HadithFlashcardState {
 
   @override
   String toString() {
-    return 'HadithFlashcardState(flashcardToReviewLength: $flashcardToReviewLength, flashcards: $flashcards, optionFailureOrSaveFlashcard: $optionFailureOrSaveFlashcard, optionFailureOrGetFlashcard: $optionFailureOrGetFlashcard)';
+    return 'HadithFlashcardState(numofReviewedFlashcard: $numofReviewedFlashcard, flashcardToReviewTodayLength: $flashcardToReviewTodayLength, flashcards: $flashcards, optionFailureOrSaveFlashcard: $optionFailureOrSaveFlashcard, optionFailureOrGetFlashcard: $optionFailureOrGetFlashcard)';
   }
 
   @override
@@ -683,9 +699,12 @@ class _$HadithFlashcardStateImpl implements _HadithFlashcardState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$HadithFlashcardStateImpl &&
-            (identical(
-                    other.flashcardToReviewLength, flashcardToReviewLength) ||
-                other.flashcardToReviewLength == flashcardToReviewLength) &&
+            (identical(other.numofReviewedFlashcard, numofReviewedFlashcard) ||
+                other.numofReviewedFlashcard == numofReviewedFlashcard) &&
+            (identical(other.flashcardToReviewTodayLength,
+                    flashcardToReviewTodayLength) ||
+                other.flashcardToReviewTodayLength ==
+                    flashcardToReviewTodayLength) &&
             const DeepCollectionEquality()
                 .equals(other.flashcards, flashcards) &&
             (identical(other.optionFailureOrSaveFlashcard,
@@ -701,7 +720,8 @@ class _$HadithFlashcardStateImpl implements _HadithFlashcardState {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      flashcardToReviewLength,
+      numofReviewedFlashcard,
+      flashcardToReviewTodayLength,
       const DeepCollectionEquality().hash(flashcards),
       optionFailureOrSaveFlashcard,
       optionFailureOrGetFlashcard);
@@ -717,7 +737,8 @@ class _$HadithFlashcardStateImpl implements _HadithFlashcardState {
 
 abstract class _HadithFlashcardState implements HadithFlashcardState {
   const factory _HadithFlashcardState(
-      {required final int flashcardToReviewLength,
+      {required final int numofReviewedFlashcard,
+      required final int? flashcardToReviewTodayLength,
       required final IList<HadithFlashcard> flashcards,
       required final Option<Either<CommonFailures, Unit>>
           optionFailureOrSaveFlashcard,
@@ -725,7 +746,9 @@ abstract class _HadithFlashcardState implements HadithFlashcardState {
           optionFailureOrGetFlashcard}) = _$HadithFlashcardStateImpl;
 
   @override
-  int get flashcardToReviewLength;
+  int get numofReviewedFlashcard;
+  @override
+  int? get flashcardToReviewTodayLength;
   @override
   IList<HadithFlashcard> get flashcards;
   @override
