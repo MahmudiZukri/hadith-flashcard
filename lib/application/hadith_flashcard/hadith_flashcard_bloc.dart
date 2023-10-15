@@ -70,7 +70,7 @@ class HadithFlashcardBloc
                 ),
                 flashcardToReviewTodayLength:
                     failureOrResponse.isRight() && e.quality == null
-                        ? null
+                        ? 0
                         : state.flashcardToReviewTodayLength,
                 numofReviewedFlashcard: e.quality != null
                     ? state.numofReviewedFlashcard + 1
@@ -92,7 +92,7 @@ class HadithFlashcardBloc
               ),
             );
 
-            if (state.flashcardToReviewTodayLength == null) {
+            if (state.flashcardToReviewTodayLength == 0) {
               emit(
                 state.copyWith(
                   flashcardToReviewTodayLength:

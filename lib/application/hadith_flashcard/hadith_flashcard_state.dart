@@ -4,7 +4,7 @@ part of 'hadith_flashcard_bloc.dart';
 class HadithFlashcardState with _$HadithFlashcardState {
   const factory HadithFlashcardState({
     required int numofReviewedFlashcard,
-    required int? flashcardToReviewTodayLength,
+    required int flashcardToReviewTodayLength,
     required IList<HadithFlashcard> flashcards,
     required Option<Either<CommonFailures, Unit>> optionFailureOrSaveFlashcard,
     required Option<Either<CommonFailures, IList<HadithFlashcard>>>
@@ -13,7 +13,7 @@ class HadithFlashcardState with _$HadithFlashcardState {
 
   factory HadithFlashcardState.initial() => HadithFlashcardState(
         numofReviewedFlashcard: 0,
-        flashcardToReviewTodayLength: null,
+        flashcardToReviewTodayLength: 0,
         flashcards: <HadithFlashcard>[].lock,
         optionFailureOrSaveFlashcard: none(),
         optionFailureOrGetFlashcard: none(),

@@ -536,7 +536,7 @@ abstract class _ResetFlashcardSnackBar implements HadithFlashcardEvent {
 /// @nodoc
 mixin _$HadithFlashcardState {
   int get numofReviewedFlashcard => throw _privateConstructorUsedError;
-  int? get flashcardToReviewTodayLength => throw _privateConstructorUsedError;
+  int get flashcardToReviewTodayLength => throw _privateConstructorUsedError;
   IList<HadithFlashcard> get flashcards => throw _privateConstructorUsedError;
   Option<Either<CommonFailures, Unit>> get optionFailureOrSaveFlashcard =>
       throw _privateConstructorUsedError;
@@ -556,7 +556,7 @@ abstract class $HadithFlashcardStateCopyWith<$Res> {
   @useResult
   $Res call(
       {int numofReviewedFlashcard,
-      int? flashcardToReviewTodayLength,
+      int flashcardToReviewTodayLength,
       IList<HadithFlashcard> flashcards,
       Option<Either<CommonFailures, Unit>> optionFailureOrSaveFlashcard,
       Option<Either<CommonFailures, IList<HadithFlashcard>>>
@@ -578,7 +578,7 @@ class _$HadithFlashcardStateCopyWithImpl<$Res,
   @override
   $Res call({
     Object? numofReviewedFlashcard = null,
-    Object? flashcardToReviewTodayLength = freezed,
+    Object? flashcardToReviewTodayLength = null,
     Object? flashcards = null,
     Object? optionFailureOrSaveFlashcard = null,
     Object? optionFailureOrGetFlashcard = null,
@@ -588,10 +588,10 @@ class _$HadithFlashcardStateCopyWithImpl<$Res,
           ? _value.numofReviewedFlashcard
           : numofReviewedFlashcard // ignore: cast_nullable_to_non_nullable
               as int,
-      flashcardToReviewTodayLength: freezed == flashcardToReviewTodayLength
+      flashcardToReviewTodayLength: null == flashcardToReviewTodayLength
           ? _value.flashcardToReviewTodayLength
           : flashcardToReviewTodayLength // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       flashcards: null == flashcards
           ? _value.flashcards
           : flashcards // ignore: cast_nullable_to_non_nullable
@@ -618,7 +618,7 @@ abstract class _$$HadithFlashcardStateImplCopyWith<$Res>
   @useResult
   $Res call(
       {int numofReviewedFlashcard,
-      int? flashcardToReviewTodayLength,
+      int flashcardToReviewTodayLength,
       IList<HadithFlashcard> flashcards,
       Option<Either<CommonFailures, Unit>> optionFailureOrSaveFlashcard,
       Option<Either<CommonFailures, IList<HadithFlashcard>>>
@@ -637,7 +637,7 @@ class __$$HadithFlashcardStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? numofReviewedFlashcard = null,
-    Object? flashcardToReviewTodayLength = freezed,
+    Object? flashcardToReviewTodayLength = null,
     Object? flashcards = null,
     Object? optionFailureOrSaveFlashcard = null,
     Object? optionFailureOrGetFlashcard = null,
@@ -647,10 +647,10 @@ class __$$HadithFlashcardStateImplCopyWithImpl<$Res>
           ? _value.numofReviewedFlashcard
           : numofReviewedFlashcard // ignore: cast_nullable_to_non_nullable
               as int,
-      flashcardToReviewTodayLength: freezed == flashcardToReviewTodayLength
+      flashcardToReviewTodayLength: null == flashcardToReviewTodayLength
           ? _value.flashcardToReviewTodayLength
           : flashcardToReviewTodayLength // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       flashcards: null == flashcards
           ? _value.flashcards
           : flashcards // ignore: cast_nullable_to_non_nullable
@@ -680,7 +680,7 @@ class _$HadithFlashcardStateImpl implements _HadithFlashcardState {
   @override
   final int numofReviewedFlashcard;
   @override
-  final int? flashcardToReviewTodayLength;
+  final int flashcardToReviewTodayLength;
   @override
   final IList<HadithFlashcard> flashcards;
   @override
@@ -738,7 +738,7 @@ class _$HadithFlashcardStateImpl implements _HadithFlashcardState {
 abstract class _HadithFlashcardState implements HadithFlashcardState {
   const factory _HadithFlashcardState(
       {required final int numofReviewedFlashcard,
-      required final int? flashcardToReviewTodayLength,
+      required final int flashcardToReviewTodayLength,
       required final IList<HadithFlashcard> flashcards,
       required final Option<Either<CommonFailures, Unit>>
           optionFailureOrSaveFlashcard,
@@ -748,7 +748,7 @@ abstract class _HadithFlashcardState implements HadithFlashcardState {
   @override
   int get numofReviewedFlashcard;
   @override
-  int? get flashcardToReviewTodayLength;
+  int get flashcardToReviewTodayLength;
   @override
   IList<HadithFlashcard> get flashcards;
   @override

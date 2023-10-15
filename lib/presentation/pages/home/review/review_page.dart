@@ -41,59 +41,66 @@ class ReviewPage extends StatelessWidget {
                 return Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    //TODO: fix bar later
-                    Stack(
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        Container(
-                          height: 20.0,
-                          width: double.infinity,
-                          padding: const EdgeInsets.fromLTRB(
-                            8,
-                            4,
-                            8,
-                            12,
-                          ),
-                          decoration: BoxDecoration(
-                            color: blackColor.withOpacity(
-                              0.3,
-                            ),
-                            borderRadius: mediumBorderRadius(),
-                          ),
-                        ),
-                        AnimatedContainer(
-                          height: 20.0,
-                          width: double.infinity /
-                              hadithFlashcardState.getFlashcardsToReview.length,
-                          duration: const Duration(
-                            milliseconds: 1000,
-                          ),
-                          padding: const EdgeInsets.fromLTRB(
-                            8,
-                            4,
-                            8,
-                            12,
-                          ),
-                          decoration: BoxDecoration(
-                            color: secondaryColor,
-                            borderRadius: mediumBorderRadius(),
-                          ),
-                          child: Container(
-                            height: 8.0,
-                            decoration: BoxDecoration(
-                              color: whiteColor.withOpacity(
-                                0.5,
+                        Stack(
+                          children: [
+                            Container(
+                              height: 20.0,
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                color: blackColor.withOpacity(
+                                  0.3,
+                                ),
+                                borderRadius: mediumBorderRadius(),
                               ),
-                              borderRadius: mediumBorderRadius(),
                             ),
-                          ),
+                            hadithFlashcardState.flashcardToReviewTodayLength ==
+                                    0
+                                ? const SizedBox()
+                                : AnimatedContainer(
+                                    height: 20.0,
+                                    width: (screenWidth(context) -
+                                            defaultMargin * 2) /
+                                        hadithFlashcardState
+                                            .flashcardToReviewTodayLength *
+                                        hadithFlashcardState
+                                            .numofReviewedFlashcard,
+                                    duration: const Duration(
+                                      milliseconds: 1000,
+                                    ),
+                                    padding: const EdgeInsets.fromLTRB(
+                                      8,
+                                      4,
+                                      8,
+                                      12,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      color: secondaryColor,
+                                      borderRadius: mediumBorderRadius(),
+                                    ),
+                                    child: Container(
+                                      height: 8.0,
+                                      decoration: BoxDecoration(
+                                        color: whiteColor.withOpacity(
+                                          0.5,
+                                        ),
+                                        borderRadius: mediumBorderRadius(),
+                                      ),
+                                    ),
+                                  ),
+                          ],
+                        ),
+                        const SizedBox(height: 10.0),
+                        Text(
+                          '${hadithFlashcardState.numofReviewedFlashcard} / ${hadithFlashcardState.flashcardToReviewTodayLength}',
+                          style: const TextStyle(
+                              fontSize: 18.0,
+                              color: whiteColor,
+                              fontWeight: FontWeight.bold),
                         ),
                       ],
-                    ),
-                    Text(
-                      hadithFlashcardState.numofReviewedFlashcard.toString() +
-                          '/' +
-                          hadithFlashcardState.flashcardToReviewTodayLength
-                              .toString(),
                     ),
                     flashcardIsEmpty
                         ? CustomContainer(
