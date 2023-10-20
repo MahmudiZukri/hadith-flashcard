@@ -64,14 +64,141 @@ class ProfilePage extends StatelessWidget {
                       // Divider
                       const CustomDivider(),
                       const SizedBox(height: 24.0),
-                      const Column(
+                      Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           // Choose language
-                          ChooseLanguage(),
-                          SizedBox(height: 6.0),
+                          CustomListTile(
+                            title: 'language',
+                            contentPadding: EdgeInsets.zero,
+                            onTap: () {
+                              CustomModalBottomSheet(context).show(
+                                horizontalPadding: 4,
+                                widget: Container(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: defaultMargin,
+                                  ),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      Text(
+                                        'chooseLanguage',
+                                        style: blackTextFont.copyWith(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 16,
+                                        ),
+                                      ).tr(),
+                                      const SizedBox(height: 16.0),
+                                      ...List.generate(
+                                        ELanguage.values.length,
+                                        (index) {
+                                          const languages = ELanguage.values;
+                                          return Column(
+                                            children: [
+                                              CustomDivider(
+                                                color:
+                                                    greyColor.withOpacity(0.3),
+                                              ),
+                                              const SizedBox(
+                                                height: 10.0,
+                                              ),
+                                              GestureDetector(
+                                                behavior:
+                                                    HitTestBehavior.translucent,
+                                                onTap: () {
+                                                  context.setLocale(
+                                                    languages[index]
+                                                        .locale
+                                                        .toLocale(),
+                                                  );
+
+                                                  Navigator.pop(context);
+                                                },
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                  children: [
+                                                    Image.asset(
+                                                      languages[index].imageUrl,
+                                                      height: 30.0,
+                                                    ),
+                                                    const SizedBox(
+                                                      width: 10.0,
+                                                    ),
+                                                    Text(
+                                                      languages[index].name,
+                                                      style: blackTextFont
+                                                          .copyWith(
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        fontSize: 14,
+                                                      ),
+                                                    ),
+                                                    const Spacer(),
+                                                    languages[index].locale ==
+                                                            context.locale
+                                                                .toString()
+                                                        ? const Icon(
+                                                            Icons.check,
+                                                            color: Colors.green,
+                                                          )
+                                                        : const SizedBox()
+                                                  ],
+                                                ),
+                                              ),
+                                              const SizedBox(
+                                                height: 10.0,
+                                              ),
+                                            ],
+                                          );
+                                        },
+                                      ),
+                                      const SizedBox(height: 28.0),
+                                    ],
+                                  ),
+                                ),
+                              );
+                            },
+                            trailing: Container(
+                              // padding: const EdgeInsets.all(6.0),
+                              decoration: BoxDecoration(
+                                border: Border.all(color: greyColor),
+                                shape: BoxShape.circle,
+                              ),
+                              child: Image.asset(
+                                ELanguage.values
+                                    .firstWhere(
+                                      (element) =>
+                                          element.locale ==
+                                          context.locale.toString(),
+                                    )
+                                    .imageUrl,
+                                height: 30.0,
+                              ),
+                            ),
+                          ),
+
                           // About app
-                          AboutApp(),
+                          CustomListTile(
+                            title: 'aboutApp',
+                            contentPadding: EdgeInsets.zero,
+                            onTap: () {},
+                          ),
+
+                          CustomListTile(
+                            title: 'Help / Bantuan',
+                            contentPadding: EdgeInsets.zero,
+                            onTap: () {},
+                          ),
+
+                          CustomListTile(
+                            title: 'Another',
+                            contentPadding: EdgeInsets.zero,
+                            onTap: () {},
+                          ),
+
                           // consider makes rating feature, analitycs
                           // think about the content here, maybe like how many hadith
                           // that already mastered or something else
@@ -197,133 +324,6 @@ class UserInfomation extends StatelessWidget {
           //     color: primaryColor,
           //   ),
           // )
-        ],
-      ),
-    );
-  }
-}
-
-class AboutApp extends StatelessWidget {
-  const AboutApp({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        // TODO: implement later
-      },
-      child: Text(
-        context.tr('aboutApp'),
-      ),
-    );
-  }
-}
-
-class ChooseLanguage extends StatelessWidget {
-  const ChooseLanguage({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      behavior: HitTestBehavior.translucent,
-      onTap: () {
-        CustomModalBottomSheet(context).show(
-          horizontalPadding: 4,
-          widget: Container(
-            padding: const EdgeInsets.symmetric(
-              horizontal: defaultMargin,
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  'chooseLanguage',
-                  style: blackTextFont.copyWith(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
-                  ),
-                ).tr(),
-                const SizedBox(height: 16.0),
-                ...List.generate(
-                  ELanguage.values.length,
-                  (index) {
-                    const languages = ELanguage.values;
-                    return Column(
-                      children: [
-                        CustomDivider(
-                          color: greyColor.withOpacity(0.3),
-                        ),
-                        const SizedBox(
-                          height: 10.0,
-                        ),
-                        GestureDetector(
-                          behavior: HitTestBehavior.translucent,
-                          onTap: () {
-                            context.setLocale(
-                              languages[index].locale.toLocale(),
-                            );
-
-                            Navigator.pop(context);
-                          },
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Image.asset(
-                                languages[index].imageUrl,
-                                height: 30.0,
-                              ),
-                              const SizedBox(
-                                width: 10.0,
-                              ),
-                              Text(
-                                languages[index].name,
-                                style: blackTextFont.copyWith(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 14,
-                                ),
-                              ),
-                              const Spacer(),
-                              languages[index].locale ==
-                                      context.locale.toString()
-                                  ? const Icon(
-                                      Icons.check,
-                                      color: Colors.green,
-                                    )
-                                  : const SizedBox()
-                            ],
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 10.0,
-                        ),
-                      ],
-                    );
-                  },
-                ),
-                const SizedBox(height: 28.0),
-              ],
-            ),
-          ),
-        );
-      },
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          const Text('language').tr(),
-          Image.asset(
-            ELanguage.values
-                .firstWhere(
-                  (element) => element.locale == context.locale.toString(),
-                )
-                .imageUrl,
-            height: 30.0,
-          ),
         ],
       ),
     );

@@ -122,17 +122,13 @@ class NarratorPage extends StatelessWidget {
                     child: ListView(
                       children: List.generate(
                         hadithNarrators.length,
-                        (index) => ListTile(
+                        (index) => CustomListTile(
                           dense: true,
-                          title: Text(
-                            hadithNarrators[index].name.getOrCrash(),
-                          ),
-                          subtitle: Text(
-                            hadithNarrators[index]
-                                .total
-                                .getOrCrash()
-                                .toString(),
-                          ),
+                          title: hadithNarrators[index].name.getOrCrash(),
+                          subtitle: hadithNarrators[index]
+                              .total
+                              .getOrCrash()
+                              .toString(),
                           onTap: () {
                             context.read<PageBloc>().add(
                                   GotoHadithPage(

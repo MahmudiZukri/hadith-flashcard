@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:flip_card/flip_card_controller.dart';
 import 'package:flutter/material.dart';
@@ -24,3 +25,4 @@ part 'custom_container.dart';
 part 'custom_divider.dart';
 part 'custom_bottom_navigation.dart';
 part 'custom_review_button.dart';
+part 'custom_list_tile.dart';
