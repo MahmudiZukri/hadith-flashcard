@@ -20,11 +20,7 @@ class ReviewPage extends StatelessWidget {
       padding: const EdgeInsets.symmetric(
         horizontal: defaultMargin,
       ),
-      child: BlocConsumer<HadithFlashcardBloc, HadithFlashcardState>(
-        listenWhen: (previous, current) =>
-            current.numofReviewedFlashcard ==
-            current.flashcardToReviewTodayLength,
-        listener: (context, hadithFlashcardState) {},
+      child: BlocBuilder<HadithFlashcardBloc, HadithFlashcardState>(
         builder: (context, hadithFlashcardState) {
           return hadithFlashcardState.optionFailureOrGetFlashcard.match(
             () => const CustomCircularProgressIndicatorWidget(),
@@ -44,53 +40,8 @@ class ReviewPage extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        Stack(
-                          children: [
-                            Container(
-                              height: 20.0,
-                              width: double.infinity,
-                              decoration: BoxDecoration(
-                                color: blackColor.withOpacity(
-                                  0.3,
-                                ),
-                                borderRadius: mediumBorderRadius(),
-                              ),
-                            ),
-                            hadithFlashcardState.flashcardToReviewTodayLength ==
-                                    0
-                                ? const SizedBox()
-                                : AnimatedContainer(
-                                    height: 20.0,
-                                    width: (screenWidth(context) -
-                                            defaultMargin * 2) /
-                                        hadithFlashcardState
-                                            .flashcardToReviewTodayLength *
-                                        hadithFlashcardState
-                                            .numofReviewedFlashcard,
-                                    duration: const Duration(
-                                      milliseconds: 1000,
-                                    ),
-                                    padding: const EdgeInsets.fromLTRB(
-                                      8,
-                                      4,
-                                      8,
-                                      12,
-                                    ),
-                                    decoration: BoxDecoration(
-                                      color: secondaryColor,
-                                      borderRadius: mediumBorderRadius(),
-                                    ),
-                                    child: Container(
-                                      height: 8.0,
-                                      decoration: BoxDecoration(
-                                        color: whiteColor.withOpacity(
-                                          0.5,
-                                        ),
-                                        borderRadius: mediumBorderRadius(),
-                                      ),
-                                    ),
-                                  ),
-                          ],
+                        ReviewedFlashcardBar(
+                          hadithFlashcardState: hadithFlashcardState,
                         ),
                         const SizedBox(height: 10.0),
                         Text(
@@ -224,6 +175,63 @@ class ReviewPage extends StatelessWidget {
           );
         },
       ),
+    );
+  }
+}
+
+class ReviewedFlashcardBar extends StatelessWidget {
+  const ReviewedFlashcardBar({
+    required this.hadithFlashcardState,
+    super.key,
+  });
+
+  final HadithFlashcardState hadithFlashcardState;
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        Container(
+          height: 20.0,
+          width: double.infinity,
+          decoration: BoxDecoration(
+            color: blackColor.withOpacity(
+              0.3,
+            ),
+            borderRadius: mediumBorderRadius(),
+          ),
+        ),
+        hadithFlashcardState.flashcardToReviewTodayLength == 0
+            ? const SizedBox()
+            : AnimatedContainer(
+                height: 20.0,
+                width: (screenWidth(context) - defaultMargin * 2) /
+                    hadithFlashcardState.flashcardToReviewTodayLength *
+                    hadithFlashcardState.numofReviewedFlashcard,
+                duration: const Duration(
+                  milliseconds: 1000,
+                ),
+                padding: const EdgeInsets.fromLTRB(
+                  8,
+                  4,
+                  8,
+                  12,
+                ),
+                decoration: BoxDecoration(
+                  color: secondaryColor,
+                  borderRadius: mediumBorderRadius(),
+                ),
+                child: Container(
+                  height: 8.0,
+                  decoration: BoxDecoration(
+                    color: whiteColor.withOpacity(
+                      0.5,
+                    ),
+                    borderRadius: mediumBorderRadius(),
+                  ),
+                ),
+              ),
+      ],
     );
   }
 }
