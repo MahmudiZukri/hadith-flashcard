@@ -4,6 +4,7 @@ import 'package:flip_card/flip_card_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:focus_detector/focus_detector.dart';
 import 'package:hadith_flashcard/application/auth/auth_bloc.dart';
 import 'package:hadith_flashcard/application/forgot_password/forgot_password_bloc.dart';
 import 'package:hadith_flashcard/application/hadith_flashcard/hadith_flashcard_bloc.dart';

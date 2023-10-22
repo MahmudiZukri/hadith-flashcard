@@ -61,6 +61,7 @@ dependencies:
   flip_card: ^0.7.0
   lottie: ^2.6.0
   google_sign_in: ^6.1.5
+  focus_detector: ^2.0.1
 
 dev_dependencies:
   flutter_test:

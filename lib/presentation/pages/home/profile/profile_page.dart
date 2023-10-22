@@ -301,7 +301,8 @@ class UserInfomation extends StatelessWidget {
                         context.tr('youAreInGuestMode'),
                     maxLines: 3,
                     style: blackTextFont.copyWith(
-                      fontWeight: FontWeight.bold,
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                   const SizedBox(height: 3.0),

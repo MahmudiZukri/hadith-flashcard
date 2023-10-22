@@ -21,6 +21,11 @@ class HadithFlashcardState with _$HadithFlashcardState {
 }
 
 extension HadithFlashcardStateX on HadithFlashcardState {
+  bool get getFlashcardIsLoading => optionFailureOrGetFlashcard.match(
+        () => true,
+        (t) => false,
+      );
+
   IList<HadithFlashcard> get getFlashcardsToReview =>
       optionFailureOrGetFlashcard.match(
         () => <HadithFlashcard>[].lock,
@@ -44,4 +49,19 @@ extension HadithFlashcardStateX on HadithFlashcardState {
       numofReviewedFlashcard == flashcardToReviewTodayLength &&
       flashcardToReviewTodayLength != 0 &&
       numofReviewedFlashcard != 0;
+
+  IList<String> get getLengthOfSavedFlashcardByNarratorName =>
+      optionFailureOrGetFlashcard.match(
+        () => <String>[].lock,
+        (either) => either.fold(
+          (l) => <String>[].lock,
+          (flashcards) {
+            return flashcards
+                .map(
+                  (element) => element.hadithNarratorName.getOrEmpty(),
+                )
+                .toIList();
+          },
+        ),
+      );
 }

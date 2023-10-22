@@ -15,6 +15,7 @@
     "signUp" : "Sign Up",
     "alreadyHaveAnAccount": "Already have an account?",
     "hadithNarrators" : "Hadith Narrators",
+    "hadith": "hadith",
     "addCard" : "Add Card",
     "review" : "Review",
     "profile": "Profile",
@@ -29,7 +30,7 @@
     "signOut" : "Sign Out",
     "thisCannotBeEmpty" : "This cannot be empty",
     "invalidEmailFormat": "Invalid email format",
-    "lengthTooShort":"Length is too short",
+    "lengthTooShort": "Length is too short",
     "nameCannotBeFilledWithNumbers": "Name cannot be filled with numbers",
     "congratsYouHaveCompletedToday'sFlashcard": "Congrats! You have completed today's flashcard"
 }

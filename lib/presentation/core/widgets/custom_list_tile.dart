@@ -4,6 +4,7 @@ class CustomListTile extends StatelessWidget {
   const CustomListTile({
     required this.title,
     required this.onTap,
+    this.titleFontSize = 16,
     this.subtitle,
     this.dense,
     this.trailing,
@@ -13,6 +14,7 @@ class CustomListTile extends StatelessWidget {
 
   final String title;
   final Function() onTap;
+  final double titleFontSize;
   final String? subtitle;
   final bool? dense;
   final Widget? trailing;
@@ -21,7 +23,12 @@ class CustomListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text(title).tr(),
+      title: Text(
+        title,
+        style: TextStyle(
+          fontSize: titleFontSize,
+        ),
+      ).tr(),
       subtitle: subtitle == null ? null : Text(subtitle!),
       contentPadding: contentPadding,
       onTap: onTap,
