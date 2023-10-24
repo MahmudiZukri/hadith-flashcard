@@ -15,29 +15,8 @@ class NarratorPage extends StatelessWidget {
         return BlocBuilder<HadithNarratorBloc, HadithNarratorState>(
           builder: (context, hadithNarratorState) {
             return hadithNarratorState.optionFailureOrHadithNarrators.match(
-              () => Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: defaultMargin,
-                ),
-                child: ListView(
-                  children: [
-                    const SizedBox(height: 14.0),
-                    ...List.generate(
-                      10,
-                      (index) => const Padding(
-                        padding: EdgeInsets.only(
-                          top: 34,
-                        ),
-                        child: CustomShimmerWidget(
-                          height: 48.0,
-                          width: double.infinity,
-                          borderRadius: 14,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              // Hadith narrator shimmer
+              () => const HadithNarratorShimmer(),
               (either) => either.fold(
                 (l) => Text(
                   l.message,
@@ -52,6 +31,7 @@ class NarratorPage extends StatelessWidget {
                       child: Column(
                         children: [
                           const SizedBox(height: 14.0),
+                          // Title
                           Text(
                             'hadithNarrators',
                             style: whiteTextFont.copyWith(
@@ -61,44 +41,15 @@ class NarratorPage extends StatelessWidget {
                             ),
                           ).tr(),
                           const SizedBox(height: 24.0),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              CustomDropdownButtonWidget(
-                                borderColor: whiteColor,
-                                backgroundColor: whiteColor.withOpacity(0.5),
-                                value: hadithNarrators.first.name.getOrCrash(),
-                                items: hadithNarrators
-                                    .map(
-                                      (element) => DropdownMenuItem(
-                                        value: element.name.getOrCrash(),
-                                        child: Text(
-                                          element.name.getOrCrash(),
-                                        ),
-                                      ),
-                                    )
-                                    .toList(),
-                                borderRadius: mediumBorderRadius(),
-                                onChanged: (val) {},
-                              ),
-                              //TODO: implement later
-                              CustomSearchWidget(
-                                height: 45,
-                                borderColor: whiteColor,
-                                iconColor: whiteColor,
-                                fontColor: blackColor,
-                                borderRadius: mediumBorderRadius(),
-                                width: screenWidth(context) / 2.2,
-                                backgroundColor: whiteColor.withOpacity(0.5),
-                                hintFontSize: 14.0,
-                              ),
-                            ],
+                          // Narrator filter and search section
+                          NarratorFilterAndSearchRow(
+                            hadithNarrators: hadithNarrators,
                           ),
                           const SizedBox(height: 30.0),
                         ],
                       ),
                     ),
+                    // Main container
                     Expanded(
                       child: Container(
                         margin: const EdgeInsets.symmetric(
@@ -210,6 +161,86 @@ class NarratorPage extends StatelessWidget {
           },
         );
       },
+    );
+  }
+}
+
+class HadithNarratorShimmer extends StatelessWidget {
+  const HadithNarratorShimmer({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        horizontal: defaultMargin,
+      ),
+      child: ListView(
+        children: [
+          const SizedBox(height: 14.0),
+          ...List.generate(
+            10,
+            (index) => const Padding(
+              padding: EdgeInsets.only(
+                top: 34,
+              ),
+              child: CustomShimmerWidget(
+                height: 48.0,
+                width: double.infinity,
+                borderRadius: 14,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class NarratorFilterAndSearchRow extends StatelessWidget {
+  const NarratorFilterAndSearchRow({
+    required this.hadithNarrators,
+    super.key,
+  });
+
+  final IList<HadithNarrator> hadithNarrators;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        CustomDropdownButtonWidget(
+          borderColor: whiteColor,
+          backgroundColor: whiteColor.withOpacity(0.5),
+          value: hadithNarrators.first.name.getOrCrash(),
+          items: hadithNarrators
+              .map(
+                (element) => DropdownMenuItem(
+                  value: element.name.getOrCrash(),
+                  child: Text(
+                    element.name.getOrCrash(),
+                  ),
+                ),
+              )
+              .toList(),
+          borderRadius: mediumBorderRadius(),
+          onChanged: (val) {},
+        ),
+        //TODO: implement later
+        CustomSearchWidget(
+          height: 45,
+          borderColor: whiteColor,
+          iconColor: whiteColor,
+          fontColor: blackColor,
+          borderRadius: mediumBorderRadius(),
+          width: screenWidth(context) / 2.2,
+          backgroundColor: whiteColor.withOpacity(0.5),
+          hintFontSize: 14.0,
+        ),
+      ],
     );
   }
 }

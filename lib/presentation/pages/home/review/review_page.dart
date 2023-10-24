@@ -38,136 +38,40 @@ class ReviewPage extends StatelessWidget {
                 return Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        ReviewedFlashcardBar(
-                          hadithFlashcardState: hadithFlashcardState,
-                        ),
-                        const SizedBox(height: 10.0),
-                        Text(
-                          '${hadithFlashcardState.numofReviewedFlashcard} / ${hadithFlashcardState.flashcardToReviewTodayLength}',
-                          style: const TextStyle(
-                              fontSize: 18.0,
-                              color: whiteColor,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ],
+                    // Reviewed flashcard bar
+                    ReviewedFlashcardBarColumn(
+                      hadithFlashcardState: hadithFlashcardState,
                     ),
                     flashcardIsEmpty
-                        ? CustomContainer(
-                            color: whiteColor,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Lottie.asset(
-                                  AssetUrl.emptyFlashcardLottie,
-                                  height: screenWidth(context) / 2.4,
-                                ),
-                                const SizedBox(height: 40),
-                                Text(
-                                  "youDon'tHaveAnyFlashcard",
-                                  textAlign: TextAlign.center,
-                                  style: blackTextFont.copyWith(
-                                    fontSize: 15,
-                                  ),
-                                ).tr(),
-                                TextButton(
-                                  onPressed: gotoNarratorPageOnPressed,
-                                  child: Text(
-                                    'addYourFlashcard',
-                                    style: primaryTextFont.copyWith(
-                                      fontSize: 15,
-                                      decoration: TextDecoration.underline,
-                                    ),
-                                  ).tr(),
-                                ),
-                              ],
-                            ),
-                          )
+                        // Empty flashcard
+                        ? EmptyFlashcardContainer(
+                            gotoNarratorPageOnPressed:
+                                gotoNarratorPageOnPressed)
                         : flashcardToReviewIsEmpty
-                            ? CustomContainer(
-                                color: whiteColor,
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Lottie.asset(
-                                      hadithFlashcardState
-                                              .isShowCongratsAnimation
-                                          ? AssetUrl.congratsLottie
-                                          : AssetUrl.emptyFlashcardLottie,
-                                      height: hadithFlashcardState
-                                              .isShowCongratsAnimation
-                                          ? screenWidth(context) / 1.6
-                                          : screenWidth(context) / 2.4,
-                                    ),
-                                    const SizedBox(height: 40),
-                                    Text(
-                                      hadithFlashcardState
-                                              .isShowCongratsAnimation
-                                          ? "congratsYouHaveCompletedToday'sFlashcard"
-                                          : "youDon'tHaveFlashcardsToReview",
-                                      textAlign: TextAlign.center,
-                                      style: blackTextFont.copyWith(
-                                        fontSize: 15,
-                                      ),
-                                    ).tr(),
-                                    TextButton(
-                                      onPressed: gotoNarratorPageOnPressed,
-                                      child: Text(
-                                        'addMoreFlashcards'.tr(),
-                                        style: primaryTextFont.copyWith(
-                                          fontSize: 15,
-                                          decoration: TextDecoration.underline,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
+                            // Flashcard to review is empty
+                            ? FlashcardToReviewIsEmptyContainer(
+                                hadithFlashcardState: hadithFlashcardState,
+                                gotoNarratorPageOnPressed:
+                                    gotoNarratorPageOnPressed,
                               )
-                            : Stack(
-                                children: [
-                                  CustomFlipCard(
-                                    card: hadithFlashcardState
-                                        .getFlashcardsToReview.first,
-                                    controller: cardController,
-                                    selectedLanguage:
-                                        ELanguage.values.firstWhere(
-                                      (element) =>
-                                          element.locale ==
-                                          context.locale.toString(),
-                                    ),
-                                  ),
-                                ],
+                            // Flip card
+                            : CustomFlipCard(
+                                card: hadithFlashcardState
+                                    .getFlashcardsToReview.first,
+                                controller: cardController,
+                                selectedLanguage: ELanguage.values.firstWhere(
+                                  (element) =>
+                                      element.locale ==
+                                      context.locale.toString(),
+                                ),
                               ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: List.generate(
-                        6,
-                        (index) => CustomReviewButton(
-                          userID: userID.getOrCrash(),
-                          quality: index,
-                          disabled:
-                              flashcardIsEmpty || flashcardToReviewIsEmpty,
-                          cardController: cardController,
-                          onTap: () {
-                            context.read<HadithFlashcardBloc>()
-                              ..add(
-                                HadithFlashcardEvent.saveFlashcard(
-                                  userID: userID,
-                                  flashcard: hadithFlashcardState
-                                      .getFlashcardsToReview.first,
-                                  quality: index,
-                                ),
-                              )
-                              ..add(
-                                HadithFlashcardEvent.getFlashcard(
-                                  userID: userID,
-                                ),
-                              );
-                          },
-                        ),
-                      ),
+                    // Qualities button
+                    QualitiesButtonRow(
+                      userID: userID,
+                      hadithFlashcardState: hadithFlashcardState,
+                      flashcardIsEmpty: flashcardIsEmpty,
+                      flashcardToReviewIsEmpty: flashcardToReviewIsEmpty,
+                      cardController: cardController,
                     ),
                   ],
                 );
@@ -175,6 +79,175 @@ class ReviewPage extends StatelessWidget {
             ),
           );
         },
+      ),
+    );
+  }
+}
+
+class ReviewedFlashcardBarColumn extends StatelessWidget {
+  const ReviewedFlashcardBarColumn({
+    required this.hadithFlashcardState,
+    super.key,
+  });
+
+  final HadithFlashcardState hadithFlashcardState;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: [
+        ReviewedFlashcardBar(
+          hadithFlashcardState: hadithFlashcardState,
+        ),
+        const SizedBox(height: 10.0),
+        Text(
+          '${hadithFlashcardState.numofReviewedFlashcard} / ${hadithFlashcardState.flashcardToReviewTodayLength}',
+          style: const TextStyle(
+              fontSize: 18.0, color: whiteColor, fontWeight: FontWeight.bold),
+        ),
+      ],
+    );
+  }
+}
+
+class QualitiesButtonRow extends StatelessWidget {
+  const QualitiesButtonRow({
+    required this.hadithFlashcardState,
+    required this.userID,
+    required this.flashcardIsEmpty,
+    required this.flashcardToReviewIsEmpty,
+    required this.cardController,
+    super.key,
+  });
+
+  final HadithFlashcardState hadithFlashcardState;
+  final UniqueString userID;
+  final bool flashcardIsEmpty;
+  final bool flashcardToReviewIsEmpty;
+  final FlipCardController cardController;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: List.generate(
+        6,
+        (index) => CustomReviewButton(
+          userID: userID.getOrCrash(),
+          quality: index,
+          disabled: flashcardIsEmpty || flashcardToReviewIsEmpty,
+          cardController: cardController,
+          onTap: () {
+            context.read<HadithFlashcardBloc>()
+              ..add(
+                HadithFlashcardEvent.saveFlashcard(
+                  userID: userID,
+                  flashcard: hadithFlashcardState.getFlashcardsToReview.first,
+                  quality: index,
+                ),
+              )
+              ..add(
+                HadithFlashcardEvent.getFlashcard(
+                  userID: userID,
+                ),
+              );
+          },
+        ),
+      ),
+    );
+  }
+}
+
+class FlashcardToReviewIsEmptyContainer extends StatelessWidget {
+  const FlashcardToReviewIsEmptyContainer({
+    required this.hadithFlashcardState,
+    required this.gotoNarratorPageOnPressed,
+    super.key,
+  });
+
+  final HadithFlashcardState hadithFlashcardState;
+  final Function() gotoNarratorPageOnPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomContainer(
+      color: whiteColor,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Lottie.asset(
+            hadithFlashcardState.isShowCongratsAnimation
+                ? AssetUrl.congratsLottie
+                : AssetUrl.emptyFlashcardLottie,
+            height: hadithFlashcardState.isShowCongratsAnimation
+                ? screenWidth(context) / 1.6
+                : screenWidth(context) / 2.4,
+          ),
+          const SizedBox(height: 40),
+          Text(
+            hadithFlashcardState.isShowCongratsAnimation
+                ? "congratsYouHaveCompletedToday'sFlashcard"
+                : "youDon'tHaveFlashcardsToReview",
+            textAlign: TextAlign.center,
+            style: blackTextFont.copyWith(
+              fontSize: 15,
+            ),
+          ).tr(),
+          TextButton(
+            onPressed: gotoNarratorPageOnPressed,
+            child: Text(
+              'addMoreFlashcards'.tr(),
+              style: primaryTextFont.copyWith(
+                fontSize: 15,
+                decoration: TextDecoration.underline,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class EmptyFlashcardContainer extends StatelessWidget {
+  const EmptyFlashcardContainer({
+    required this.gotoNarratorPageOnPressed,
+    super.key,
+  });
+
+  final Function() gotoNarratorPageOnPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomContainer(
+      color: whiteColor,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Lottie.asset(
+            AssetUrl.emptyFlashcardLottie,
+            height: screenWidth(context) / 2.4,
+          ),
+          const SizedBox(height: 40),
+          Text(
+            "youDon'tHaveAnyFlashcard",
+            textAlign: TextAlign.center,
+            style: blackTextFont.copyWith(
+              fontSize: 15,
+            ),
+          ).tr(),
+          TextButton(
+            onPressed: gotoNarratorPageOnPressed,
+            child: Text(
+              'addYourFlashcard',
+              style: primaryTextFont.copyWith(
+                fontSize: 15,
+                decoration: TextDecoration.underline,
+              ),
+            ).tr(),
+          ),
+        ],
       ),
     );
   }
