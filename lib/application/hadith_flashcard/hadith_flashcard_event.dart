@@ -12,4 +12,7 @@ class HadithFlashcardEvent with _$HadithFlashcardEvent {
   }) = _GetFlashcard;
   const factory HadithFlashcardEvent.resetFlashcardSnackBar() =
       _ResetFlashcardSnackBar;
+  const factory HadithFlashcardEvent.resetFlashcardClarification({
+    required bool isShowClarification,
+  }) = _ResetFlashcardClarification;
 }

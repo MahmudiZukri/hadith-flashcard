@@ -23,7 +23,12 @@ class HadithPage extends StatelessWidget {
             ),
         ),
         BlocProvider<HadithFlashcardBloc>(
-          create: (context) => getIt<HadithFlashcardBloc>(),
+          create: (context) => getIt<HadithFlashcardBloc>()
+            ..add(
+              HadithFlashcardEvent.getFlashcard(
+                userID: userID,
+              ),
+            ),
         )
       ],
       child: HadithPageScaffold(
@@ -76,7 +81,7 @@ class HadithPageScaffold extends StatelessWidget {
       ),
       body: BlocBuilder<HadithNarratorBloc, HadithNarratorState>(
         builder: (context, hadithNarratorState) {
-          return BlocListener<HadithFlashcardBloc, HadithFlashcardState>(
+          return BlocConsumer<HadithFlashcardBloc, HadithFlashcardState>(
             listener: (context, hadithFlashcardState) {
               hadithFlashcardState.optionFailureOrSaveFlashcard.match(
                 () => null,
@@ -145,14 +150,18 @@ class HadithPageScaffold extends StatelessWidget {
                       snackBar,
                     );
 
-                    context.read<HadithFlashcardBloc>().add(
-                          const HadithFlashcardEvent.resetFlashcardSnackBar(),
-                        );
+                    context.read<HadithFlashcardBloc>()
+                      ..add(
+                        HadithFlashcardEvent.getFlashcard(userID: userID),
+                      )
+                      ..add(
+                        const HadithFlashcardEvent.resetFlashcardSnackBar(),
+                      );
                   },
                 ),
               );
             },
-            child: Padding(
+            builder: (context, hadithFlashcardState) => Padding(
               padding: const EdgeInsets.symmetric(
                 horizontal: defaultMargin / 2,
               ),
@@ -206,7 +215,27 @@ class HadithPageScaffold extends StatelessWidget {
                                   ),
                                   decoration: BoxDecoration(
                                     shape: BoxShape.circle,
-                                    border: Border.all(color: greyColor),
+                                    border: hadithFlashcardState.getFlashcards
+                                            .where(
+                                              (element) =>
+                                                  element.hadithNarratorName ==
+                                                  hadithNarrator.name,
+                                            )
+                                            .map(
+                                              (e) => e.hadithNumber.getOrZero(),
+                                            )
+                                            .contains(
+                                              hadithNarrator
+                                                  .items?[index].number
+                                                  .getOrCrash(),
+                                            )
+                                        ? Border.all(
+                                            color: primaryColor,
+                                            width: 3,
+                                          )
+                                        : Border.all(
+                                            color: greyColor,
+                                          ),
                                   ),
                                   child: Text(
                                     CommonUtils.replaceFarsiNumber(
@@ -221,85 +250,257 @@ class HadithPageScaffold extends StatelessWidget {
                                   child: GestureDetector(
                                     onTap: () {
                                       CustomModalBottomSheet(context).show(
+                                        isDismissible: false,
                                         widget: BlocProvider<
                                             HadithFlashcardBloc>.value(
                                           value: BlocProvider.of<
                                               HadithFlashcardBloc>(
                                             context,
                                           ),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.min,
-                                            children: [
-                                              Text(
-                                                'Hadith ${hadithNarrator.name.getOrFailureText()} Number ${hadithNarrator.items![index].number.getOrCrash().toString()}',
-                                                style: primaryTextFont.copyWith(
-                                                  fontSize: 17.0,
-                                                  fontWeight: FontWeight.w600,
-                                                ),
-                                              ),
-                                              const SizedBox(height: 8.0),
-                                              ListTile(
-                                                leading: SvgPicture.asset(
-                                                  AssetUrl.addIcon,
-                                                  height: 26.0,
-                                                  color: primaryColor,
-                                                ),
-                                                onTap: () {
-                                                  context
-                                                      .read<
-                                                          HadithFlashcardBloc>()
-                                                      .add(
-                                                        HadithFlashcardEvent
-                                                            .saveFlashcard(
-                                                          userID: userID,
-                                                          flashcard:
-                                                              HadithFlashcard(
-                                                            hadithNarratorName:
+                                          child: BlocBuilder<
+                                              HadithFlashcardBloc,
+                                              HadithFlashcardState>(
+                                            builder: (context, state) {
+                                              return Column(
+                                                mainAxisSize: MainAxisSize.min,
+                                                children: [
+                                                  Text(
+                                                    '${'Hadith'.tr()} ${hadithNarrator.name.getOrFailureText()} ${'Number'.tr()}  ${hadithNarrator.items![index].number.getOrCrash().toString()}',
+                                                    style: primaryTextFont
+                                                        .copyWith(
+                                                      fontSize: 17.0,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                    ),
+                                                  ),
+                                                  const SizedBox(height: 8.0),
+                                                  ListTile(
+                                                    leading: SvgPicture.asset(
+                                                      AssetUrl.addIcon,
+                                                      height: 26.0,
+                                                      color: primaryColor,
+                                                    ),
+                                                    onTap: () {
+                                                      if (hadithFlashcardState
+                                                          .getFlashcards
+                                                          .where(
+                                                            (element) =>
+                                                                element
+                                                                    .hadithNarratorName ==
                                                                 hadithNarrator
                                                                     .name,
-                                                            hadithNumber:
-                                                                hadithNarrator
-                                                                    .items![
-                                                                        index]
-                                                                    .number,
-                                                            arab: hadithNarrator
-                                                                .items![index]
-                                                                .arab,
-                                                            translation:
-                                                                hadithNarrator
-                                                                    .items![
-                                                                        index]
-                                                                    .id,
-                                                            interval: 0,
-                                                            repetition: 0,
-                                                            easeFactor: 0,
-                                                            reviewedDate:
-                                                                DateTime.now(),
-                                                          ),
-                                                        ),
-                                                      );
+                                                          )
+                                                          .map(
+                                                            (e) => e
+                                                                .hadithNumber
+                                                                .getOrZero(),
+                                                          )
+                                                          .contains(
+                                                            hadithNarrator
+                                                                .items?[index]
+                                                                .number
+                                                                .getOrCrash(),
+                                                          )) {
+                                                        context
+                                                            .read<
+                                                                HadithFlashcardBloc>()
+                                                            .add(
+                                                              const HadithFlashcardEvent
+                                                                  .resetFlashcardClarification(
+                                                                isShowClarification:
+                                                                    true,
+                                                              ),
+                                                            );
+                                                      } else {
+                                                        context
+                                                            .read<
+                                                                HadithFlashcardBloc>()
+                                                            .add(
+                                                              HadithFlashcardEvent
+                                                                  .saveFlashcard(
+                                                                userID: userID,
+                                                                flashcard:
+                                                                    HadithFlashcard(
+                                                                  hadithNarratorName:
+                                                                      hadithNarrator
+                                                                          .name,
+                                                                  hadithNumber:
+                                                                      hadithNarrator
+                                                                          .items![
+                                                                              index]
+                                                                          .number,
+                                                                  arab: hadithNarrator
+                                                                      .items![
+                                                                          index]
+                                                                      .arab,
+                                                                  translation:
+                                                                      hadithNarrator
+                                                                          .items![
+                                                                              index]
+                                                                          .id,
+                                                                  interval: 0,
+                                                                  repetition: 0,
+                                                                  easeFactor: 0,
+                                                                  reviewedDate:
+                                                                      DateTime
+                                                                          .now(),
+                                                                ),
+                                                              ),
+                                                            );
 
-                                                  Navigator.pop(context);
-                                                },
-                                                title: const Text(
-                                                  'Add to flashcard',
-                                                ),
-                                              ),
-                                              ListTile(
-                                                leading: SvgPicture.asset(
-                                                  AssetUrl.closeIcon,
-                                                  height: 26.0,
-                                                  color: primaryColor,
-                                                ),
-                                                onTap: () {
-                                                  Navigator.pop(context);
-                                                },
-                                                title: const Text(
-                                                  'Close',
-                                                ),
-                                              ),
-                                              const SizedBox(height: 18.0),
-                                            ],
+                                                        Navigator.pop(context);
+
+                                                        context
+                                                            .read<
+                                                                HadithFlashcardBloc>()
+                                                            .add(
+                                                              const HadithFlashcardEvent
+                                                                  .resetFlashcardClarification(
+                                                                isShowClarification:
+                                                                    false,
+                                                              ),
+                                                            );
+                                                      }
+                                                    },
+                                                    title: Align(
+                                                      alignment:
+                                                          Alignment.centerLeft,
+                                                      child: AnimatedSwitcher(
+                                                        switchInCurve:
+                                                            Curves.easeIn,
+                                                        duration:
+                                                            const Duration(
+                                                          milliseconds: 500,
+                                                        ),
+                                                        child: state
+                                                                .isShowResetFlashcardClarification
+                                                            ? Row(
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .spaceBetween,
+                                                                children: [
+                                                                  Expanded(
+                                                                    child:
+                                                                        const Text(
+                                                                      'areYouSureWantToResetYourFlashcardProgress',
+                                                                    ).tr(),
+                                                                  ),
+                                                                  Row(
+                                                                    children: [
+                                                                      const SizedBox(
+                                                                        width:
+                                                                            20.0,
+                                                                      ),
+                                                                      GestureDetector(
+                                                                        onTap:
+                                                                            () {
+                                                                          context
+                                                                              .read<HadithFlashcardBloc>()
+                                                                              .add(
+                                                                                HadithFlashcardEvent.saveFlashcard(
+                                                                                  userID: userID,
+                                                                                  flashcard: HadithFlashcard(
+                                                                                    hadithNarratorName: hadithNarrator.name,
+                                                                                    hadithNumber: hadithNarrator.items![index].number,
+                                                                                    arab: hadithNarrator.items![index].arab,
+                                                                                    translation: hadithNarrator.items![index].id,
+                                                                                    interval: 0,
+                                                                                    repetition: 0,
+                                                                                    easeFactor: 0,
+                                                                                    reviewedDate: DateTime.now(),
+                                                                                  ),
+                                                                                ),
+                                                                              );
+
+                                                                          Navigator.pop(
+                                                                              context);
+
+                                                                          context
+                                                                              .read<HadithFlashcardBloc>()
+                                                                              .add(
+                                                                                const HadithFlashcardEvent.resetFlashcardClarification(
+                                                                                  isShowClarification: false,
+                                                                                ),
+                                                                              );
+                                                                        },
+                                                                        child:
+                                                                            Text(
+                                                                          'yes',
+                                                                          style:
+                                                                              primaryTextFont.copyWith(
+                                                                            fontWeight:
+                                                                                FontWeight.w700,
+                                                                          ),
+                                                                        ).tr(),
+                                                                      ),
+                                                                      const SizedBox(
+                                                                        width:
+                                                                            20.0,
+                                                                      ),
+                                                                      GestureDetector(
+                                                                        onTap:
+                                                                            () {
+                                                                          Navigator
+                                                                              .pop(
+                                                                            context,
+                                                                          );
+
+                                                                          context
+                                                                              .read<HadithFlashcardBloc>()
+                                                                              .add(
+                                                                                const HadithFlashcardEvent.resetFlashcardClarification(
+                                                                                  isShowClarification: false,
+                                                                                ),
+                                                                              );
+                                                                        },
+                                                                        child:
+                                                                            Text(
+                                                                          'no',
+                                                                          style:
+                                                                              redTextFont.copyWith(
+                                                                            fontWeight:
+                                                                                FontWeight.w700,
+                                                                          ),
+                                                                        ).tr(),
+                                                                      ),
+                                                                    ],
+                                                                  )
+                                                                ],
+                                                              )
+                                                            : const Text(
+                                                                'addToFlashcard',
+                                                              ).tr(),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  ListTile(
+                                                    leading: SvgPicture.asset(
+                                                      AssetUrl.closeIcon,
+                                                      height: 26.0,
+                                                      color: primaryColor,
+                                                    ),
+                                                    onTap: () {
+                                                      Navigator.pop(context);
+
+                                                      context
+                                                          .read<
+                                                              HadithFlashcardBloc>()
+                                                          .add(
+                                                            const HadithFlashcardEvent
+                                                                .resetFlashcardClarification(
+                                                              isShowClarification:
+                                                                  false,
+                                                            ),
+                                                          );
+                                                    },
+                                                    title: const Text(
+                                                      'close',
+                                                    ).tr(),
+                                                  ),
+                                                  const SizedBox(height: 18.0),
+                                                ],
+                                              );
+                                            },
                                           ),
                                         ),
                                       );

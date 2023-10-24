@@ -23,6 +23,8 @@ mixin _$HadithFlashcardEvent {
         saveFlashcard,
     required TResult Function(UniqueString userID) getFlashcard,
     required TResult Function() resetFlashcardSnackBar,
+    required TResult Function(bool isShowClarification)
+        resetFlashcardClarification,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,6 +34,7 @@ mixin _$HadithFlashcardEvent {
         saveFlashcard,
     TResult? Function(UniqueString userID)? getFlashcard,
     TResult? Function()? resetFlashcardSnackBar,
+    TResult? Function(bool isShowClarification)? resetFlashcardClarification,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,6 +44,7 @@ mixin _$HadithFlashcardEvent {
         saveFlashcard,
     TResult Function(UniqueString userID)? getFlashcard,
     TResult Function()? resetFlashcardSnackBar,
+    TResult Function(bool isShowClarification)? resetFlashcardClarification,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -50,6 +54,8 @@ mixin _$HadithFlashcardEvent {
     required TResult Function(_GetFlashcard value) getFlashcard,
     required TResult Function(_ResetFlashcardSnackBar value)
         resetFlashcardSnackBar,
+    required TResult Function(_ResetFlashcardClarification value)
+        resetFlashcardClarification,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +63,8 @@ mixin _$HadithFlashcardEvent {
     TResult? Function(_SaveFlashcard value)? saveFlashcard,
     TResult? Function(_GetFlashcard value)? getFlashcard,
     TResult? Function(_ResetFlashcardSnackBar value)? resetFlashcardSnackBar,
+    TResult? Function(_ResetFlashcardClarification value)?
+        resetFlashcardClarification,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -64,6 +72,8 @@ mixin _$HadithFlashcardEvent {
     TResult Function(_SaveFlashcard value)? saveFlashcard,
     TResult Function(_GetFlashcard value)? getFlashcard,
     TResult Function(_ResetFlashcardSnackBar value)? resetFlashcardSnackBar,
+    TResult Function(_ResetFlashcardClarification value)?
+        resetFlashcardClarification,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -185,6 +195,8 @@ class _$SaveFlashcardImpl implements _SaveFlashcard {
         saveFlashcard,
     required TResult Function(UniqueString userID) getFlashcard,
     required TResult Function() resetFlashcardSnackBar,
+    required TResult Function(bool isShowClarification)
+        resetFlashcardClarification,
   }) {
     return saveFlashcard(userID, flashcard, quality);
   }
@@ -197,6 +209,7 @@ class _$SaveFlashcardImpl implements _SaveFlashcard {
         saveFlashcard,
     TResult? Function(UniqueString userID)? getFlashcard,
     TResult? Function()? resetFlashcardSnackBar,
+    TResult? Function(bool isShowClarification)? resetFlashcardClarification,
   }) {
     return saveFlashcard?.call(userID, flashcard, quality);
   }
@@ -209,6 +222,7 @@ class _$SaveFlashcardImpl implements _SaveFlashcard {
         saveFlashcard,
     TResult Function(UniqueString userID)? getFlashcard,
     TResult Function()? resetFlashcardSnackBar,
+    TResult Function(bool isShowClarification)? resetFlashcardClarification,
     required TResult orElse(),
   }) {
     if (saveFlashcard != null) {
@@ -224,6 +238,8 @@ class _$SaveFlashcardImpl implements _SaveFlashcard {
     required TResult Function(_GetFlashcard value) getFlashcard,
     required TResult Function(_ResetFlashcardSnackBar value)
         resetFlashcardSnackBar,
+    required TResult Function(_ResetFlashcardClarification value)
+        resetFlashcardClarification,
   }) {
     return saveFlashcard(this);
   }
@@ -234,6 +250,8 @@ class _$SaveFlashcardImpl implements _SaveFlashcard {
     TResult? Function(_SaveFlashcard value)? saveFlashcard,
     TResult? Function(_GetFlashcard value)? getFlashcard,
     TResult? Function(_ResetFlashcardSnackBar value)? resetFlashcardSnackBar,
+    TResult? Function(_ResetFlashcardClarification value)?
+        resetFlashcardClarification,
   }) {
     return saveFlashcard?.call(this);
   }
@@ -244,6 +262,8 @@ class _$SaveFlashcardImpl implements _SaveFlashcard {
     TResult Function(_SaveFlashcard value)? saveFlashcard,
     TResult Function(_GetFlashcard value)? getFlashcard,
     TResult Function(_ResetFlashcardSnackBar value)? resetFlashcardSnackBar,
+    TResult Function(_ResetFlashcardClarification value)?
+        resetFlashcardClarification,
     required TResult orElse(),
   }) {
     if (saveFlashcard != null) {
@@ -336,6 +356,8 @@ class _$GetFlashcardImpl implements _GetFlashcard {
         saveFlashcard,
     required TResult Function(UniqueString userID) getFlashcard,
     required TResult Function() resetFlashcardSnackBar,
+    required TResult Function(bool isShowClarification)
+        resetFlashcardClarification,
   }) {
     return getFlashcard(userID);
   }
@@ -348,6 +370,7 @@ class _$GetFlashcardImpl implements _GetFlashcard {
         saveFlashcard,
     TResult? Function(UniqueString userID)? getFlashcard,
     TResult? Function()? resetFlashcardSnackBar,
+    TResult? Function(bool isShowClarification)? resetFlashcardClarification,
   }) {
     return getFlashcard?.call(userID);
   }
@@ -360,6 +383,7 @@ class _$GetFlashcardImpl implements _GetFlashcard {
         saveFlashcard,
     TResult Function(UniqueString userID)? getFlashcard,
     TResult Function()? resetFlashcardSnackBar,
+    TResult Function(bool isShowClarification)? resetFlashcardClarification,
     required TResult orElse(),
   }) {
     if (getFlashcard != null) {
@@ -375,6 +399,8 @@ class _$GetFlashcardImpl implements _GetFlashcard {
     required TResult Function(_GetFlashcard value) getFlashcard,
     required TResult Function(_ResetFlashcardSnackBar value)
         resetFlashcardSnackBar,
+    required TResult Function(_ResetFlashcardClarification value)
+        resetFlashcardClarification,
   }) {
     return getFlashcard(this);
   }
@@ -385,6 +411,8 @@ class _$GetFlashcardImpl implements _GetFlashcard {
     TResult? Function(_SaveFlashcard value)? saveFlashcard,
     TResult? Function(_GetFlashcard value)? getFlashcard,
     TResult? Function(_ResetFlashcardSnackBar value)? resetFlashcardSnackBar,
+    TResult? Function(_ResetFlashcardClarification value)?
+        resetFlashcardClarification,
   }) {
     return getFlashcard?.call(this);
   }
@@ -395,6 +423,8 @@ class _$GetFlashcardImpl implements _GetFlashcard {
     TResult Function(_SaveFlashcard value)? saveFlashcard,
     TResult Function(_GetFlashcard value)? getFlashcard,
     TResult Function(_ResetFlashcardSnackBar value)? resetFlashcardSnackBar,
+    TResult Function(_ResetFlashcardClarification value)?
+        resetFlashcardClarification,
     required TResult orElse(),
   }) {
     if (getFlashcard != null) {
@@ -461,6 +491,8 @@ class _$ResetFlashcardSnackBarImpl implements _ResetFlashcardSnackBar {
         saveFlashcard,
     required TResult Function(UniqueString userID) getFlashcard,
     required TResult Function() resetFlashcardSnackBar,
+    required TResult Function(bool isShowClarification)
+        resetFlashcardClarification,
   }) {
     return resetFlashcardSnackBar();
   }
@@ -473,6 +505,7 @@ class _$ResetFlashcardSnackBarImpl implements _ResetFlashcardSnackBar {
         saveFlashcard,
     TResult? Function(UniqueString userID)? getFlashcard,
     TResult? Function()? resetFlashcardSnackBar,
+    TResult? Function(bool isShowClarification)? resetFlashcardClarification,
   }) {
     return resetFlashcardSnackBar?.call();
   }
@@ -485,6 +518,7 @@ class _$ResetFlashcardSnackBarImpl implements _ResetFlashcardSnackBar {
         saveFlashcard,
     TResult Function(UniqueString userID)? getFlashcard,
     TResult Function()? resetFlashcardSnackBar,
+    TResult Function(bool isShowClarification)? resetFlashcardClarification,
     required TResult orElse(),
   }) {
     if (resetFlashcardSnackBar != null) {
@@ -500,6 +534,8 @@ class _$ResetFlashcardSnackBarImpl implements _ResetFlashcardSnackBar {
     required TResult Function(_GetFlashcard value) getFlashcard,
     required TResult Function(_ResetFlashcardSnackBar value)
         resetFlashcardSnackBar,
+    required TResult Function(_ResetFlashcardClarification value)
+        resetFlashcardClarification,
   }) {
     return resetFlashcardSnackBar(this);
   }
@@ -510,6 +546,8 @@ class _$ResetFlashcardSnackBarImpl implements _ResetFlashcardSnackBar {
     TResult? Function(_SaveFlashcard value)? saveFlashcard,
     TResult? Function(_GetFlashcard value)? getFlashcard,
     TResult? Function(_ResetFlashcardSnackBar value)? resetFlashcardSnackBar,
+    TResult? Function(_ResetFlashcardClarification value)?
+        resetFlashcardClarification,
   }) {
     return resetFlashcardSnackBar?.call(this);
   }
@@ -520,6 +558,8 @@ class _$ResetFlashcardSnackBarImpl implements _ResetFlashcardSnackBar {
     TResult Function(_SaveFlashcard value)? saveFlashcard,
     TResult Function(_GetFlashcard value)? getFlashcard,
     TResult Function(_ResetFlashcardSnackBar value)? resetFlashcardSnackBar,
+    TResult Function(_ResetFlashcardClarification value)?
+        resetFlashcardClarification,
     required TResult orElse(),
   }) {
     if (resetFlashcardSnackBar != null) {
@@ -534,9 +574,175 @@ abstract class _ResetFlashcardSnackBar implements HadithFlashcardEvent {
 }
 
 /// @nodoc
+abstract class _$$ResetFlashcardClarificationImplCopyWith<$Res> {
+  factory _$$ResetFlashcardClarificationImplCopyWith(
+          _$ResetFlashcardClarificationImpl value,
+          $Res Function(_$ResetFlashcardClarificationImpl) then) =
+      __$$ResetFlashcardClarificationImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({bool isShowClarification});
+}
+
+/// @nodoc
+class __$$ResetFlashcardClarificationImplCopyWithImpl<$Res>
+    extends _$HadithFlashcardEventCopyWithImpl<$Res,
+        _$ResetFlashcardClarificationImpl>
+    implements _$$ResetFlashcardClarificationImplCopyWith<$Res> {
+  __$$ResetFlashcardClarificationImplCopyWithImpl(
+      _$ResetFlashcardClarificationImpl _value,
+      $Res Function(_$ResetFlashcardClarificationImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? isShowClarification = null,
+  }) {
+    return _then(_$ResetFlashcardClarificationImpl(
+      isShowClarification: null == isShowClarification
+          ? _value.isShowClarification
+          : isShowClarification // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ResetFlashcardClarificationImpl
+    implements _ResetFlashcardClarification {
+  const _$ResetFlashcardClarificationImpl({required this.isShowClarification});
+
+  @override
+  final bool isShowClarification;
+
+  @override
+  String toString() {
+    return 'HadithFlashcardEvent.resetFlashcardClarification(isShowClarification: $isShowClarification)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ResetFlashcardClarificationImpl &&
+            (identical(other.isShowClarification, isShowClarification) ||
+                other.isShowClarification == isShowClarification));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, isShowClarification);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ResetFlashcardClarificationImplCopyWith<_$ResetFlashcardClarificationImpl>
+      get copyWith => __$$ResetFlashcardClarificationImplCopyWithImpl<
+          _$ResetFlashcardClarificationImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            UniqueString userID, HadithFlashcard flashcard, int? quality)
+        saveFlashcard,
+    required TResult Function(UniqueString userID) getFlashcard,
+    required TResult Function() resetFlashcardSnackBar,
+    required TResult Function(bool isShowClarification)
+        resetFlashcardClarification,
+  }) {
+    return resetFlashcardClarification(isShowClarification);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+            UniqueString userID, HadithFlashcard flashcard, int? quality)?
+        saveFlashcard,
+    TResult? Function(UniqueString userID)? getFlashcard,
+    TResult? Function()? resetFlashcardSnackBar,
+    TResult? Function(bool isShowClarification)? resetFlashcardClarification,
+  }) {
+    return resetFlashcardClarification?.call(isShowClarification);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            UniqueString userID, HadithFlashcard flashcard, int? quality)?
+        saveFlashcard,
+    TResult Function(UniqueString userID)? getFlashcard,
+    TResult Function()? resetFlashcardSnackBar,
+    TResult Function(bool isShowClarification)? resetFlashcardClarification,
+    required TResult orElse(),
+  }) {
+    if (resetFlashcardClarification != null) {
+      return resetFlashcardClarification(isShowClarification);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SaveFlashcard value) saveFlashcard,
+    required TResult Function(_GetFlashcard value) getFlashcard,
+    required TResult Function(_ResetFlashcardSnackBar value)
+        resetFlashcardSnackBar,
+    required TResult Function(_ResetFlashcardClarification value)
+        resetFlashcardClarification,
+  }) {
+    return resetFlashcardClarification(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SaveFlashcard value)? saveFlashcard,
+    TResult? Function(_GetFlashcard value)? getFlashcard,
+    TResult? Function(_ResetFlashcardSnackBar value)? resetFlashcardSnackBar,
+    TResult? Function(_ResetFlashcardClarification value)?
+        resetFlashcardClarification,
+  }) {
+    return resetFlashcardClarification?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SaveFlashcard value)? saveFlashcard,
+    TResult Function(_GetFlashcard value)? getFlashcard,
+    TResult Function(_ResetFlashcardSnackBar value)? resetFlashcardSnackBar,
+    TResult Function(_ResetFlashcardClarification value)?
+        resetFlashcardClarification,
+    required TResult orElse(),
+  }) {
+    if (resetFlashcardClarification != null) {
+      return resetFlashcardClarification(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ResetFlashcardClarification implements HadithFlashcardEvent {
+  const factory _ResetFlashcardClarification(
+          {required final bool isShowClarification}) =
+      _$ResetFlashcardClarificationImpl;
+
+  bool get isShowClarification;
+  @JsonKey(ignore: true)
+  _$$ResetFlashcardClarificationImplCopyWith<_$ResetFlashcardClarificationImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$HadithFlashcardState {
   int get numofReviewedFlashcard => throw _privateConstructorUsedError;
   int get flashcardToReviewTodayLength => throw _privateConstructorUsedError;
+  bool get isShowResetFlashcardClarification =>
+      throw _privateConstructorUsedError;
   IList<HadithFlashcard> get flashcards => throw _privateConstructorUsedError;
   Option<Either<CommonFailures, Unit>> get optionFailureOrSaveFlashcard =>
       throw _privateConstructorUsedError;
@@ -557,6 +763,7 @@ abstract class $HadithFlashcardStateCopyWith<$Res> {
   $Res call(
       {int numofReviewedFlashcard,
       int flashcardToReviewTodayLength,
+      bool isShowResetFlashcardClarification,
       IList<HadithFlashcard> flashcards,
       Option<Either<CommonFailures, Unit>> optionFailureOrSaveFlashcard,
       Option<Either<CommonFailures, IList<HadithFlashcard>>>
@@ -579,6 +786,7 @@ class _$HadithFlashcardStateCopyWithImpl<$Res,
   $Res call({
     Object? numofReviewedFlashcard = null,
     Object? flashcardToReviewTodayLength = null,
+    Object? isShowResetFlashcardClarification = null,
     Object? flashcards = null,
     Object? optionFailureOrSaveFlashcard = null,
     Object? optionFailureOrGetFlashcard = null,
@@ -592,6 +800,11 @@ class _$HadithFlashcardStateCopyWithImpl<$Res,
           ? _value.flashcardToReviewTodayLength
           : flashcardToReviewTodayLength // ignore: cast_nullable_to_non_nullable
               as int,
+      isShowResetFlashcardClarification: null ==
+              isShowResetFlashcardClarification
+          ? _value.isShowResetFlashcardClarification
+          : isShowResetFlashcardClarification // ignore: cast_nullable_to_non_nullable
+              as bool,
       flashcards: null == flashcards
           ? _value.flashcards
           : flashcards // ignore: cast_nullable_to_non_nullable
@@ -619,6 +832,7 @@ abstract class _$$HadithFlashcardStateImplCopyWith<$Res>
   $Res call(
       {int numofReviewedFlashcard,
       int flashcardToReviewTodayLength,
+      bool isShowResetFlashcardClarification,
       IList<HadithFlashcard> flashcards,
       Option<Either<CommonFailures, Unit>> optionFailureOrSaveFlashcard,
       Option<Either<CommonFailures, IList<HadithFlashcard>>>
@@ -638,6 +852,7 @@ class __$$HadithFlashcardStateImplCopyWithImpl<$Res>
   $Res call({
     Object? numofReviewedFlashcard = null,
     Object? flashcardToReviewTodayLength = null,
+    Object? isShowResetFlashcardClarification = null,
     Object? flashcards = null,
     Object? optionFailureOrSaveFlashcard = null,
     Object? optionFailureOrGetFlashcard = null,
@@ -651,6 +866,11 @@ class __$$HadithFlashcardStateImplCopyWithImpl<$Res>
           ? _value.flashcardToReviewTodayLength
           : flashcardToReviewTodayLength // ignore: cast_nullable_to_non_nullable
               as int,
+      isShowResetFlashcardClarification: null ==
+              isShowResetFlashcardClarification
+          ? _value.isShowResetFlashcardClarification
+          : isShowResetFlashcardClarification // ignore: cast_nullable_to_non_nullable
+              as bool,
       flashcards: null == flashcards
           ? _value.flashcards
           : flashcards // ignore: cast_nullable_to_non_nullable
@@ -673,6 +893,7 @@ class _$HadithFlashcardStateImpl implements _HadithFlashcardState {
   const _$HadithFlashcardStateImpl(
       {required this.numofReviewedFlashcard,
       required this.flashcardToReviewTodayLength,
+      required this.isShowResetFlashcardClarification,
       required this.flashcards,
       required this.optionFailureOrSaveFlashcard,
       required this.optionFailureOrGetFlashcard});
@@ -681,6 +902,8 @@ class _$HadithFlashcardStateImpl implements _HadithFlashcardState {
   final int numofReviewedFlashcard;
   @override
   final int flashcardToReviewTodayLength;
+  @override
+  final bool isShowResetFlashcardClarification;
   @override
   final IList<HadithFlashcard> flashcards;
   @override
@@ -691,7 +914,7 @@ class _$HadithFlashcardStateImpl implements _HadithFlashcardState {
 
   @override
   String toString() {
-    return 'HadithFlashcardState(numofReviewedFlashcard: $numofReviewedFlashcard, flashcardToReviewTodayLength: $flashcardToReviewTodayLength, flashcards: $flashcards, optionFailureOrSaveFlashcard: $optionFailureOrSaveFlashcard, optionFailureOrGetFlashcard: $optionFailureOrGetFlashcard)';
+    return 'HadithFlashcardState(numofReviewedFlashcard: $numofReviewedFlashcard, flashcardToReviewTodayLength: $flashcardToReviewTodayLength, isShowResetFlashcardClarification: $isShowResetFlashcardClarification, flashcards: $flashcards, optionFailureOrSaveFlashcard: $optionFailureOrSaveFlashcard, optionFailureOrGetFlashcard: $optionFailureOrGetFlashcard)';
   }
 
   @override
@@ -705,6 +928,10 @@ class _$HadithFlashcardStateImpl implements _HadithFlashcardState {
                     flashcardToReviewTodayLength) ||
                 other.flashcardToReviewTodayLength ==
                     flashcardToReviewTodayLength) &&
+            (identical(other.isShowResetFlashcardClarification,
+                    isShowResetFlashcardClarification) ||
+                other.isShowResetFlashcardClarification ==
+                    isShowResetFlashcardClarification) &&
             const DeepCollectionEquality()
                 .equals(other.flashcards, flashcards) &&
             (identical(other.optionFailureOrSaveFlashcard,
@@ -722,6 +949,7 @@ class _$HadithFlashcardStateImpl implements _HadithFlashcardState {
       runtimeType,
       numofReviewedFlashcard,
       flashcardToReviewTodayLength,
+      isShowResetFlashcardClarification,
       const DeepCollectionEquality().hash(flashcards),
       optionFailureOrSaveFlashcard,
       optionFailureOrGetFlashcard);
@@ -739,6 +967,7 @@ abstract class _HadithFlashcardState implements HadithFlashcardState {
   const factory _HadithFlashcardState(
       {required final int numofReviewedFlashcard,
       required final int flashcardToReviewTodayLength,
+      required final bool isShowResetFlashcardClarification,
       required final IList<HadithFlashcard> flashcards,
       required final Option<Either<CommonFailures, Unit>>
           optionFailureOrSaveFlashcard,
@@ -749,6 +978,8 @@ abstract class _HadithFlashcardState implements HadithFlashcardState {
   int get numofReviewedFlashcard;
   @override
   int get flashcardToReviewTodayLength;
+  @override
+  bool get isShowResetFlashcardClarification;
   @override
   IList<HadithFlashcard> get flashcards;
   @override

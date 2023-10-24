@@ -1,15 +1,19 @@
 part of 'widgets.dart';
 
 class CustomModalBottomSheet {
-  CustomModalBottomSheet(this.context);
+  CustomModalBottomSheet(
+    this.context,
+  );
 
   final BuildContext context;
 
   Future<dynamic> show<T>({
     required Widget widget,
+    bool isDismissible = true,
     double horizontalPadding = 8,
   }) {
     return showModalBottomSheet(
+      isDismissible: isDismissible,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(
           16.0,

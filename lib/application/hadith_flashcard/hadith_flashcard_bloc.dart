@@ -33,6 +33,13 @@ class HadithFlashcardBloc
               ),
             );
           },
+          resetFlashcardClarification: (e) {
+            emit(
+              state.copyWith(
+                isShowResetFlashcardClarification: e.isShowClarification,
+              ),
+            );
+          },
           saveFlashcard: (e) async {
             Sm2Response? smResponse;
             HadithFlashcardModel cardModel;
