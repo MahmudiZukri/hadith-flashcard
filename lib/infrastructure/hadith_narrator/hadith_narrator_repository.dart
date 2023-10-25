@@ -57,7 +57,7 @@ class HadithNarratorRepository implements IHadithNarratorRepository {
   }
 
   @override
-  Future<Either<CommonFailures, HadithNarrator>> getHadithNarratorByName({
+  Future<Either<CommonFailures, HadithNarrator>> getHadithByNarratorName({
     required String narratorName,
     int? page,
     int? limit,

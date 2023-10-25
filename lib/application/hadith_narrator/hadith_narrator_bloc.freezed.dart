@@ -19,45 +19,45 @@ mixin _$HadithNarratorEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getHadithNarrators,
-    required TResult Function(UniqueString narratorName, PositiveNumber? page,
-            PositiveNumber? limit)
-        getHadithNarratorByName,
+    required TResult Function(
+            UniqueString narratorName, bool? isNextPage, PositiveNumber? limit)
+        getHadithByNarratorName,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getHadithNarrators,
-    TResult? Function(UniqueString narratorName, PositiveNumber? page,
-            PositiveNumber? limit)?
-        getHadithNarratorByName,
+    TResult? Function(
+            UniqueString narratorName, bool? isNextPage, PositiveNumber? limit)?
+        getHadithByNarratorName,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getHadithNarrators,
-    TResult Function(UniqueString narratorName, PositiveNumber? page,
-            PositiveNumber? limit)?
-        getHadithNarratorByName,
+    TResult Function(
+            UniqueString narratorName, bool? isNextPage, PositiveNumber? limit)?
+        getHadithByNarratorName,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetHadithNarrators value) getHadithNarrators,
-    required TResult Function(_GetHadithNarratorByName value)
-        getHadithNarratorByName,
+    required TResult Function(_GetHadithByNarratorName value)
+        getHadithByNarratorName,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetHadithNarrators value)? getHadithNarrators,
-    TResult? Function(_GetHadithNarratorByName value)? getHadithNarratorByName,
+    TResult? Function(_GetHadithByNarratorName value)? getHadithByNarratorName,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetHadithNarrators value)? getHadithNarrators,
-    TResult Function(_GetHadithNarratorByName value)? getHadithNarratorByName,
+    TResult Function(_GetHadithByNarratorName value)? getHadithByNarratorName,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -120,9 +120,9 @@ class _$GetHadithNarratorsImpl implements _GetHadithNarrators {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getHadithNarrators,
-    required TResult Function(UniqueString narratorName, PositiveNumber? page,
-            PositiveNumber? limit)
-        getHadithNarratorByName,
+    required TResult Function(
+            UniqueString narratorName, bool? isNextPage, PositiveNumber? limit)
+        getHadithByNarratorName,
   }) {
     return getHadithNarrators();
   }
@@ -131,9 +131,9 @@ class _$GetHadithNarratorsImpl implements _GetHadithNarrators {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getHadithNarrators,
-    TResult? Function(UniqueString narratorName, PositiveNumber? page,
-            PositiveNumber? limit)?
-        getHadithNarratorByName,
+    TResult? Function(
+            UniqueString narratorName, bool? isNextPage, PositiveNumber? limit)?
+        getHadithByNarratorName,
   }) {
     return getHadithNarrators?.call();
   }
@@ -142,9 +142,9 @@ class _$GetHadithNarratorsImpl implements _GetHadithNarrators {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getHadithNarrators,
-    TResult Function(UniqueString narratorName, PositiveNumber? page,
-            PositiveNumber? limit)?
-        getHadithNarratorByName,
+    TResult Function(
+            UniqueString narratorName, bool? isNextPage, PositiveNumber? limit)?
+        getHadithByNarratorName,
     required TResult orElse(),
   }) {
     if (getHadithNarrators != null) {
@@ -157,8 +157,8 @@ class _$GetHadithNarratorsImpl implements _GetHadithNarrators {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetHadithNarrators value) getHadithNarrators,
-    required TResult Function(_GetHadithNarratorByName value)
-        getHadithNarratorByName,
+    required TResult Function(_GetHadithByNarratorName value)
+        getHadithByNarratorName,
   }) {
     return getHadithNarrators(this);
   }
@@ -167,7 +167,7 @@ class _$GetHadithNarratorsImpl implements _GetHadithNarrators {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetHadithNarrators value)? getHadithNarrators,
-    TResult? Function(_GetHadithNarratorByName value)? getHadithNarratorByName,
+    TResult? Function(_GetHadithByNarratorName value)? getHadithByNarratorName,
   }) {
     return getHadithNarrators?.call(this);
   }
@@ -176,7 +176,7 @@ class _$GetHadithNarratorsImpl implements _GetHadithNarrators {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetHadithNarrators value)? getHadithNarrators,
-    TResult Function(_GetHadithNarratorByName value)? getHadithNarratorByName,
+    TResult Function(_GetHadithByNarratorName value)? getHadithByNarratorName,
     required TResult orElse(),
   }) {
     if (getHadithNarrators != null) {
@@ -191,42 +191,42 @@ abstract class _GetHadithNarrators implements HadithNarratorEvent {
 }
 
 /// @nodoc
-abstract class _$$GetHadithNarratorByNameImplCopyWith<$Res> {
-  factory _$$GetHadithNarratorByNameImplCopyWith(
-          _$GetHadithNarratorByNameImpl value,
-          $Res Function(_$GetHadithNarratorByNameImpl) then) =
-      __$$GetHadithNarratorByNameImplCopyWithImpl<$Res>;
+abstract class _$$GetHadithByNarratorNameImplCopyWith<$Res> {
+  factory _$$GetHadithByNarratorNameImplCopyWith(
+          _$GetHadithByNarratorNameImpl value,
+          $Res Function(_$GetHadithByNarratorNameImpl) then) =
+      __$$GetHadithByNarratorNameImplCopyWithImpl<$Res>;
   @useResult
   $Res call(
-      {UniqueString narratorName, PositiveNumber? page, PositiveNumber? limit});
+      {UniqueString narratorName, bool? isNextPage, PositiveNumber? limit});
 }
 
 /// @nodoc
-class __$$GetHadithNarratorByNameImplCopyWithImpl<$Res>
+class __$$GetHadithByNarratorNameImplCopyWithImpl<$Res>
     extends _$HadithNarratorEventCopyWithImpl<$Res,
-        _$GetHadithNarratorByNameImpl>
-    implements _$$GetHadithNarratorByNameImplCopyWith<$Res> {
-  __$$GetHadithNarratorByNameImplCopyWithImpl(
-      _$GetHadithNarratorByNameImpl _value,
-      $Res Function(_$GetHadithNarratorByNameImpl) _then)
+        _$GetHadithByNarratorNameImpl>
+    implements _$$GetHadithByNarratorNameImplCopyWith<$Res> {
+  __$$GetHadithByNarratorNameImplCopyWithImpl(
+      _$GetHadithByNarratorNameImpl _value,
+      $Res Function(_$GetHadithByNarratorNameImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? narratorName = null,
-    Object? page = freezed,
+    Object? isNextPage = freezed,
     Object? limit = freezed,
   }) {
-    return _then(_$GetHadithNarratorByNameImpl(
+    return _then(_$GetHadithByNarratorNameImpl(
       narratorName: null == narratorName
           ? _value.narratorName
           : narratorName // ignore: cast_nullable_to_non_nullable
               as UniqueString,
-      page: freezed == page
-          ? _value.page
-          : page // ignore: cast_nullable_to_non_nullable
-              as PositiveNumber?,
+      isNextPage: freezed == isNextPage
+          ? _value.isNextPage
+          : isNextPage // ignore: cast_nullable_to_non_nullable
+              as bool?,
       limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
@@ -237,76 +237,77 @@ class __$$GetHadithNarratorByNameImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$GetHadithNarratorByNameImpl implements _GetHadithNarratorByName {
-  const _$GetHadithNarratorByNameImpl(
-      {required this.narratorName, this.page, this.limit});
+class _$GetHadithByNarratorNameImpl implements _GetHadithByNarratorName {
+  const _$GetHadithByNarratorNameImpl(
+      {required this.narratorName, this.isNextPage, this.limit});
 
   @override
   final UniqueString narratorName;
   @override
-  final PositiveNumber? page;
+  final bool? isNextPage;
   @override
   final PositiveNumber? limit;
 
   @override
   String toString() {
-    return 'HadithNarratorEvent.getHadithNarratorByName(narratorName: $narratorName, page: $page, limit: $limit)';
+    return 'HadithNarratorEvent.getHadithByNarratorName(narratorName: $narratorName, isNextPage: $isNextPage, limit: $limit)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GetHadithNarratorByNameImpl &&
+            other is _$GetHadithByNarratorNameImpl &&
             (identical(other.narratorName, narratorName) ||
                 other.narratorName == narratorName) &&
-            (identical(other.page, page) || other.page == page) &&
+            (identical(other.isNextPage, isNextPage) ||
+                other.isNextPage == isNextPage) &&
             (identical(other.limit, limit) || other.limit == limit));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, narratorName, page, limit);
+  int get hashCode => Object.hash(runtimeType, narratorName, isNextPage, limit);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$GetHadithNarratorByNameImplCopyWith<_$GetHadithNarratorByNameImpl>
-      get copyWith => __$$GetHadithNarratorByNameImplCopyWithImpl<
-          _$GetHadithNarratorByNameImpl>(this, _$identity);
+  _$$GetHadithByNarratorNameImplCopyWith<_$GetHadithByNarratorNameImpl>
+      get copyWith => __$$GetHadithByNarratorNameImplCopyWithImpl<
+          _$GetHadithByNarratorNameImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getHadithNarrators,
-    required TResult Function(UniqueString narratorName, PositiveNumber? page,
-            PositiveNumber? limit)
-        getHadithNarratorByName,
+    required TResult Function(
+            UniqueString narratorName, bool? isNextPage, PositiveNumber? limit)
+        getHadithByNarratorName,
   }) {
-    return getHadithNarratorByName(narratorName, page, limit);
+    return getHadithByNarratorName(narratorName, isNextPage, limit);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getHadithNarrators,
-    TResult? Function(UniqueString narratorName, PositiveNumber? page,
-            PositiveNumber? limit)?
-        getHadithNarratorByName,
+    TResult? Function(
+            UniqueString narratorName, bool? isNextPage, PositiveNumber? limit)?
+        getHadithByNarratorName,
   }) {
-    return getHadithNarratorByName?.call(narratorName, page, limit);
+    return getHadithByNarratorName?.call(narratorName, isNextPage, limit);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getHadithNarrators,
-    TResult Function(UniqueString narratorName, PositiveNumber? page,
-            PositiveNumber? limit)?
-        getHadithNarratorByName,
+    TResult Function(
+            UniqueString narratorName, bool? isNextPage, PositiveNumber? limit)?
+        getHadithByNarratorName,
     required TResult orElse(),
   }) {
-    if (getHadithNarratorByName != null) {
-      return getHadithNarratorByName(narratorName, page, limit);
+    if (getHadithByNarratorName != null) {
+      return getHadithByNarratorName(narratorName, isNextPage, limit);
     }
     return orElse();
   }
@@ -315,51 +316,52 @@ class _$GetHadithNarratorByNameImpl implements _GetHadithNarratorByName {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetHadithNarrators value) getHadithNarrators,
-    required TResult Function(_GetHadithNarratorByName value)
-        getHadithNarratorByName,
+    required TResult Function(_GetHadithByNarratorName value)
+        getHadithByNarratorName,
   }) {
-    return getHadithNarratorByName(this);
+    return getHadithByNarratorName(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetHadithNarrators value)? getHadithNarrators,
-    TResult? Function(_GetHadithNarratorByName value)? getHadithNarratorByName,
+    TResult? Function(_GetHadithByNarratorName value)? getHadithByNarratorName,
   }) {
-    return getHadithNarratorByName?.call(this);
+    return getHadithByNarratorName?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetHadithNarrators value)? getHadithNarrators,
-    TResult Function(_GetHadithNarratorByName value)? getHadithNarratorByName,
+    TResult Function(_GetHadithByNarratorName value)? getHadithByNarratorName,
     required TResult orElse(),
   }) {
-    if (getHadithNarratorByName != null) {
-      return getHadithNarratorByName(this);
+    if (getHadithByNarratorName != null) {
+      return getHadithByNarratorName(this);
     }
     return orElse();
   }
 }
 
-abstract class _GetHadithNarratorByName implements HadithNarratorEvent {
-  const factory _GetHadithNarratorByName(
+abstract class _GetHadithByNarratorName implements HadithNarratorEvent {
+  const factory _GetHadithByNarratorName(
       {required final UniqueString narratorName,
-      final PositiveNumber? page,
-      final PositiveNumber? limit}) = _$GetHadithNarratorByNameImpl;
+      final bool? isNextPage,
+      final PositiveNumber? limit}) = _$GetHadithByNarratorNameImpl;
 
   UniqueString get narratorName;
-  PositiveNumber? get page;
+  bool? get isNextPage;
   PositiveNumber? get limit;
   @JsonKey(ignore: true)
-  _$$GetHadithNarratorByNameImplCopyWith<_$GetHadithNarratorByNameImpl>
+  _$$GetHadithByNarratorNameImplCopyWith<_$GetHadithByNarratorNameImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 mixin _$HadithNarratorState {
+  IList<Item> get hadiths => throw _privateConstructorUsedError;
   Option<Either<CommonFailures, IList<HadithNarrator>>>
       get optionFailureOrHadithNarrators => throw _privateConstructorUsedError;
   Option<Either<CommonFailures, HadithNarrator>>
@@ -378,7 +380,8 @@ abstract class $HadithNarratorStateCopyWith<$Res> {
       _$HadithNarratorStateCopyWithImpl<$Res, HadithNarratorState>;
   @useResult
   $Res call(
-      {Option<Either<CommonFailures, IList<HadithNarrator>>>
+      {IList<Item> hadiths,
+      Option<Either<CommonFailures, IList<HadithNarrator>>>
           optionFailureOrHadithNarrators,
       Option<Either<CommonFailures, HadithNarrator>>
           optionFailureOrHadithNarratorByName});
@@ -397,10 +400,15 @@ class _$HadithNarratorStateCopyWithImpl<$Res, $Val extends HadithNarratorState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? hadiths = null,
     Object? optionFailureOrHadithNarrators = null,
     Object? optionFailureOrHadithNarratorByName = null,
   }) {
     return _then(_value.copyWith(
+      hadiths: null == hadiths
+          ? _value.hadiths
+          : hadiths // ignore: cast_nullable_to_non_nullable
+              as IList<Item>,
       optionFailureOrHadithNarrators: null == optionFailureOrHadithNarrators
           ? _value.optionFailureOrHadithNarrators
           : optionFailureOrHadithNarrators // ignore: cast_nullable_to_non_nullable
@@ -423,7 +431,8 @@ abstract class _$$HadithNarratorStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {Option<Either<CommonFailures, IList<HadithNarrator>>>
+      {IList<Item> hadiths,
+      Option<Either<CommonFailures, IList<HadithNarrator>>>
           optionFailureOrHadithNarrators,
       Option<Either<CommonFailures, HadithNarrator>>
           optionFailureOrHadithNarratorByName});
@@ -440,10 +449,15 @@ class __$$HadithNarratorStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? hadiths = null,
     Object? optionFailureOrHadithNarrators = null,
     Object? optionFailureOrHadithNarratorByName = null,
   }) {
     return _then(_$HadithNarratorStateImpl(
+      hadiths: null == hadiths
+          ? _value.hadiths
+          : hadiths // ignore: cast_nullable_to_non_nullable
+              as IList<Item>,
       optionFailureOrHadithNarrators: null == optionFailureOrHadithNarrators
           ? _value.optionFailureOrHadithNarrators
           : optionFailureOrHadithNarrators // ignore: cast_nullable_to_non_nullable
@@ -461,9 +475,12 @@ class __$$HadithNarratorStateImplCopyWithImpl<$Res>
 
 class _$HadithNarratorStateImpl implements _HadithNarratorState {
   const _$HadithNarratorStateImpl(
-      {required this.optionFailureOrHadithNarrators,
+      {required this.hadiths,
+      required this.optionFailureOrHadithNarrators,
       required this.optionFailureOrHadithNarratorByName});
 
+  @override
+  final IList<Item> hadiths;
   @override
   final Option<Either<CommonFailures, IList<HadithNarrator>>>
       optionFailureOrHadithNarrators;
@@ -473,7 +490,7 @@ class _$HadithNarratorStateImpl implements _HadithNarratorState {
 
   @override
   String toString() {
-    return 'HadithNarratorState(optionFailureOrHadithNarrators: $optionFailureOrHadithNarrators, optionFailureOrHadithNarratorByName: $optionFailureOrHadithNarratorByName)';
+    return 'HadithNarratorState(hadiths: $hadiths, optionFailureOrHadithNarrators: $optionFailureOrHadithNarrators, optionFailureOrHadithNarratorByName: $optionFailureOrHadithNarratorByName)';
   }
 
   @override
@@ -481,6 +498,7 @@ class _$HadithNarratorStateImpl implements _HadithNarratorState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$HadithNarratorStateImpl &&
+            const DeepCollectionEquality().equals(other.hadiths, hadiths) &&
             (identical(other.optionFailureOrHadithNarrators,
                     optionFailureOrHadithNarrators) ||
                 other.optionFailureOrHadithNarrators ==
@@ -492,7 +510,10 @@ class _$HadithNarratorStateImpl implements _HadithNarratorState {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, optionFailureOrHadithNarrators,
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(hadiths),
+      optionFailureOrHadithNarrators,
       optionFailureOrHadithNarratorByName);
 
   @JsonKey(ignore: true)
@@ -505,11 +526,14 @@ class _$HadithNarratorStateImpl implements _HadithNarratorState {
 
 abstract class _HadithNarratorState implements HadithNarratorState {
   const factory _HadithNarratorState(
-      {required final Option<Either<CommonFailures, IList<HadithNarrator>>>
+      {required final IList<Item> hadiths,
+      required final Option<Either<CommonFailures, IList<HadithNarrator>>>
           optionFailureOrHadithNarrators,
       required final Option<Either<CommonFailures, HadithNarrator>>
           optionFailureOrHadithNarratorByName}) = _$HadithNarratorStateImpl;
 
+  @override
+  IList<Item> get hadiths;
   @override
   Option<Either<CommonFailures, IList<HadithNarrator>>>
       get optionFailureOrHadithNarrators;

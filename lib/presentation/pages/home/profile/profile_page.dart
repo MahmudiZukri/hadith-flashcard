@@ -67,8 +67,18 @@ class ProfilePage extends StatelessWidget {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          // My flashcards
+                          CustomListTile(
+                            title: 'My flashcards',
+                            dense: true,
+                            contentPadding: EdgeInsets.zero,
+                            onTap: () {
+                              //goto my flashards
+                            },
+                          ),
                           // Choose language
                           const ChooseLanguageListTile(),
+
                           // About app
                           const AboutAppListTile(),
 

@@ -19,7 +19,9 @@ class HadithNarratorBloc
 
   HadithNarratorBloc(
     this.hadithNarratorRepository,
-  ) : super(HadithNarratorState.initial()) {
+  ) : super(
+          HadithNarratorState.initial(),
+        ) {
     on<HadithNarratorEvent>(
       (event, emit) async {
         await event.map(
@@ -35,16 +37,32 @@ class HadithNarratorBloc
               ),
             );
           },
-          getHadithNarratorByName: (e) async {
+          getHadithByNarratorName: (e) async {
             final failureOrResponse =
-                await hadithNarratorRepository.getHadithNarratorByName(
+                await hadithNarratorRepository.getHadithByNarratorName(
               narratorName: e.narratorName.getOrCrash(),
-              page: e.page?.getOrNull()?.toInt() ?? 1,
-              limit: e.limit?.getOrNull()?.toInt() ?? 20,
+              limit: e.limit?.getOrNull()?.toInt() ?? 25,
+              page: state.optionFailureOrHadithNarratorByName.fold(
+                () => 1,
+                (either) => either.foldRight(
+                  1,
+                  (acc, b) => e.isNextPage != null &&
+                          e.isNextPage == true &&
+                          b.pagination != null &&
+                          b.pagination!.currentPage.getOrZero() <
+                              b.pagination!.endPage.getOrZero()
+                      ? b.pagination!.currentPage.getOrZero().toInt() + 1
+                      : 1,
+                ),
+              ),
             );
 
             emit(
               state.copyWith(
+                hadiths: failureOrResponse.foldRight(
+                  <Item>[].lock,
+                  (acc, b) => state.hadiths + b.items!,
+                ),
                 optionFailureOrHadithNarratorByName: optionOf(
                   failureOrResponse,
                 ),

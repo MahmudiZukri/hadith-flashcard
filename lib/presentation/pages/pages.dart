@@ -25,6 +25,7 @@ import 'package:hadith_flashcard/presentation/core/asset_url.dart';
 import 'package:hadith_flashcard/presentation/core/widgets/widgets.dart';
 import 'package:lottie/lottie.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 part 'wrapper.dart';
 part 'auth/sign_up_page.dart';
