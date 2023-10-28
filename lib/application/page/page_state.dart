@@ -36,3 +36,11 @@ class OnHadithPage extends PageState {
     required this.hadithNarrator,
   });
 }
+
+class OnMyFlashcardPage extends PageState {
+  final UniqueString userID;
+
+  const OnMyFlashcardPage({
+    required this.userID,
+  });
+}

@@ -69,11 +69,15 @@ class ProfilePage extends StatelessWidget {
                         children: [
                           // My flashcards
                           CustomListTile(
-                            title: 'My flashcards',
+                            title: 'My flashcard',
                             dense: true,
                             contentPadding: EdgeInsets.zero,
                             onTap: () {
-                              //goto my flashards
+                              context.read<PageBloc>().add(
+                                    GotoMyFlashcardPage(
+                                      userID: userID,
+                                    ),
+                                  );
                             },
                           ),
                           // Choose language

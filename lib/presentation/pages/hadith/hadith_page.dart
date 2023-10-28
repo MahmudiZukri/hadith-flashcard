@@ -51,7 +51,7 @@ class HadithPageScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final RefreshController _refreshController = RefreshController();
+    final RefreshController refreshController = RefreshController();
 
     return Scaffold(
       appBar: CustomAppBarWidget(
@@ -89,8 +89,8 @@ class HadithPageScaffold extends StatelessWidget {
           hadithNarratorState.optionFailureOrHadithNarratorByName.match(
             () => null,
             (either) => either.fold(
-              (l) => _refreshController.loadFailed(),
-              (r) => _refreshController.loadComplete(),
+              (l) => refreshController.loadFailed(),
+              (r) => refreshController.loadComplete(),
             ),
           );
         },
@@ -180,7 +180,7 @@ class HadithPageScaffold extends StatelessWidget {
                 horizontal: defaultMargin / 2,
               ),
               child: SmartRefresher(
-                controller: _refreshController,
+                controller: refreshController,
                 onLoading: () {
                   context.read<HadithNarratorBloc>().add(
                         HadithNarratorEvent.getHadithByNarratorName(

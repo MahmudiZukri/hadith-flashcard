@@ -46,5 +46,12 @@ class PageBloc extends Bloc<PageEvent, PageState> {
         ),
       ),
     );
+    on<GotoMyFlashcardPage>(
+      (event, emit) => emit(
+        OnMyFlashcardPage(
+          userID: event.userID,
+        ),
+      ),
+    );
   }
 }

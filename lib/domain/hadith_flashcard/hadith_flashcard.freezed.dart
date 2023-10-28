@@ -107,11 +107,11 @@ class _$HadithFlashcardCopyWithImpl<$Res, $Val extends HadithFlashcard>
 }
 
 /// @nodoc
-abstract class _$$HadithNarratorImplCopyWith<$Res>
+abstract class _$$HadithFlashcardImplCopyWith<$Res>
     implements $HadithFlashcardCopyWith<$Res> {
-  factory _$$HadithNarratorImplCopyWith(_$HadithNarratorImpl value,
-          $Res Function(_$HadithNarratorImpl) then) =
-      __$$HadithNarratorImplCopyWithImpl<$Res>;
+  factory _$$HadithFlashcardImplCopyWith(_$HadithFlashcardImpl value,
+          $Res Function(_$HadithFlashcardImpl) then) =
+      __$$HadithFlashcardImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -126,11 +126,11 @@ abstract class _$$HadithNarratorImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$HadithNarratorImplCopyWithImpl<$Res>
-    extends _$HadithFlashcardCopyWithImpl<$Res, _$HadithNarratorImpl>
-    implements _$$HadithNarratorImplCopyWith<$Res> {
-  __$$HadithNarratorImplCopyWithImpl(
-      _$HadithNarratorImpl _value, $Res Function(_$HadithNarratorImpl) _then)
+class __$$HadithFlashcardImplCopyWithImpl<$Res>
+    extends _$HadithFlashcardCopyWithImpl<$Res, _$HadithFlashcardImpl>
+    implements _$$HadithFlashcardImplCopyWith<$Res> {
+  __$$HadithFlashcardImplCopyWithImpl(
+      _$HadithFlashcardImpl _value, $Res Function(_$HadithFlashcardImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -145,7 +145,7 @@ class __$$HadithNarratorImplCopyWithImpl<$Res>
     Object? repetition = null,
     Object? easeFactor = null,
   }) {
-    return _then(_$HadithNarratorImpl(
+    return _then(_$HadithFlashcardImpl(
       hadithNarratorName: null == hadithNarratorName
           ? _value.hadithNarratorName
           : hadithNarratorName // ignore: cast_nullable_to_non_nullable
@@ -184,8 +184,8 @@ class __$$HadithNarratorImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$HadithNarratorImpl implements _HadithNarrator {
-  const _$HadithNarratorImpl(
+class _$HadithFlashcardImpl implements _HadithFlashcard {
+  const _$HadithFlashcardImpl(
       {required this.hadithNarratorName,
       required this.hadithNumber,
       required this.arab,
@@ -221,7 +221,7 @@ class _$HadithNarratorImpl implements _HadithNarrator {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$HadithNarratorImpl &&
+            other is _$HadithFlashcardImpl &&
             (identical(other.hadithNarratorName, hadithNarratorName) ||
                 other.hadithNarratorName == hadithNarratorName) &&
             (identical(other.hadithNumber, hadithNumber) ||
@@ -246,13 +246,13 @@ class _$HadithNarratorImpl implements _HadithNarrator {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$HadithNarratorImplCopyWith<_$HadithNarratorImpl> get copyWith =>
-      __$$HadithNarratorImplCopyWithImpl<_$HadithNarratorImpl>(
+  _$$HadithFlashcardImplCopyWith<_$HadithFlashcardImpl> get copyWith =>
+      __$$HadithFlashcardImplCopyWithImpl<_$HadithFlashcardImpl>(
           this, _$identity);
 }
 
-abstract class _HadithNarrator implements HadithFlashcard {
-  const factory _HadithNarrator(
+abstract class _HadithFlashcard implements HadithFlashcard {
+  const factory _HadithFlashcard(
       {required final PersonName hadithNarratorName,
       required final PositiveNumber hadithNumber,
       required final UnemptyString arab,
@@ -260,7 +260,7 @@ abstract class _HadithNarrator implements HadithFlashcard {
       required final DateTime reviewedDate,
       required final int interval,
       required final int repetition,
-      required final double easeFactor}) = _$HadithNarratorImpl;
+      required final double easeFactor}) = _$HadithFlashcardImpl;
 
   @override
   PersonName get hadithNarratorName;
@@ -280,6 +280,6 @@ abstract class _HadithNarrator implements HadithFlashcard {
   double get easeFactor;
   @override
   @JsonKey(ignore: true)
-  _$$HadithNarratorImplCopyWith<_$HadithNarratorImpl> get copyWith =>
+  _$$HadithFlashcardImplCopyWith<_$HadithFlashcardImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

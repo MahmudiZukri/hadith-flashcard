@@ -35,3 +35,11 @@ class GotoHadithPage extends PageEvent {
     required this.hadithNarrator,
   });
 }
+
+class GotoMyFlashcardPage extends PageEvent {
+  final UniqueString userID;
+
+  const GotoMyFlashcardPage({
+    required this.userID,
+  });
+}

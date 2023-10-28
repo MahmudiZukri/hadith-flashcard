@@ -14,5 +14,5 @@ class HadithFlashcard with _$HadithFlashcard {
     required int interval,
     required int repetition,
     required double easeFactor,
-  }) = _HadithNarrator;
+  }) = _HadithFlashcard;
 }

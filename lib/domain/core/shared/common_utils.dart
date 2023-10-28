@@ -78,6 +78,21 @@ class CommonUtils {
     return result != ConnectivityResult.none;
   }
 
+  static List<HadithFlashcard> removeDuplicatesNarrator(
+      IList<HadithFlashcard> flashcards) {
+    Set<PersonName> uniqueNarratorNames = <PersonName>{};
+    List<HadithFlashcard> filteredList = [];
+
+    for (var flashcard in flashcards) {
+      if (!uniqueNarratorNames.contains(flashcard.hadithNarratorName)) {
+        uniqueNarratorNames.add(flashcard.hadithNarratorName);
+        filteredList.add(flashcard);
+      }
+    }
+
+    return filteredList;
+  }
+
   //comment for now
 
   //   static final RegExp _emailRegExp = RegExp(
