@@ -4,11 +4,13 @@ class HadithPage extends StatelessWidget {
   const HadithPage({
     required this.userID,
     required this.hadithNarrator,
+    this.isGotoMyFlashcard = false,
     super.key,
   });
 
   final UniqueString userID;
   final HadithNarrator hadithNarrator;
+  final bool isGotoMyFlashcard;
 
   @override
   Widget build(BuildContext context) {
@@ -181,6 +183,7 @@ class HadithPageScaffold extends StatelessWidget {
               ),
               child: SmartRefresher(
                 controller: refreshController,
+                enablePullDown: false,
                 onLoading: () {
                   context.read<HadithNarratorBloc>().add(
                         HadithNarratorEvent.getHadithByNarratorName(

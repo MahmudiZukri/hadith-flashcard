@@ -37,10 +37,20 @@ class OnHadithPage extends PageState {
   });
 }
 
-class OnMyFlashcardPage extends PageState {
+class OnMyFlashcardNarratorPage extends PageState {
   final UniqueString userID;
 
-  const OnMyFlashcardPage({
+  const OnMyFlashcardNarratorPage({
     required this.userID,
+  });
+}
+
+class OnMyFlashcardHadithPage extends PageState {
+  final UniqueString userID;
+  final IList<HadithFlashcard> flashcards;
+
+  const OnMyFlashcardHadithPage({
+    required this.userID,
+    required this.flashcards,
   });
 }

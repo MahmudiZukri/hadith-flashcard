@@ -74,7 +74,7 @@ class ProfilePage extends StatelessWidget {
                             contentPadding: EdgeInsets.zero,
                             onTap: () {
                               context.read<PageBloc>().add(
-                                    GotoMyFlashcardPage(
+                                    GotoMyFlashcardNarratorPage(
                                       userID: userID,
                                     ),
                                   );

@@ -72,9 +72,14 @@ Widget pageTransition({required PageState pageState}) {
       userID: pageState.userID,
       hadithNarrator: pageState.hadithNarrator,
     );
-  } else if (pageState is OnMyFlashcardPage) {
-    return MyFlashcardPage(
+  } else if (pageState is OnMyFlashcardNarratorPage) {
+    return MyFlashcardNarratorPage(
       userID: pageState.userID,
+    );
+  } else if (pageState is OnMyFlashcardHadithPage) {
+    return MyFlashcardHadithPage(
+      userID: pageState.userID,
+      flashcards: pageState.flashcards,
     );
   } else {
     return const SignInPage();

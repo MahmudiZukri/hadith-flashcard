@@ -37,4 +37,5 @@ part 'home/profile/profile_page.dart';
 part 'forgot_password/forgot_password_page.dart';
 part 'forgot_password/check_email/check_email_page.dart';
 part 'hadith/hadith_page.dart';
-part 'my_flashcard/my_flashcard_page.dart';
+part 'my_flashcard/narrator/my_flashcard_narrator_page.dart';
+part 'my_flashcard/hadith/my_flashcard_hadith_page.dart';

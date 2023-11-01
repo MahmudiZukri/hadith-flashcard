@@ -1,7 +1,7 @@
-part of '../pages.dart';
+part of '../../pages.dart';
 
-class MyFlashcardPage extends StatelessWidget {
-  const MyFlashcardPage({
+class MyFlashcardNarratorPage extends StatelessWidget {
+  const MyFlashcardNarratorPage({
     required this.userID,
     super.key,
   });
@@ -17,15 +17,15 @@ class MyFlashcardPage extends StatelessWidget {
             userID: userID,
           ),
         ),
-      child: MyFlashcardPageScaffold(
+      child: MyFlashcardNarratorPageScaffold(
         userID: userID,
       ),
     );
   }
 }
 
-class MyFlashcardPageScaffold extends StatelessWidget {
-  const MyFlashcardPageScaffold({
+class MyFlashcardNarratorPageScaffold extends StatelessWidget {
+  const MyFlashcardNarratorPageScaffold({
     required this.userID,
     super.key,
   });
@@ -36,9 +36,10 @@ class MyFlashcardPageScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<HadithFlashcardBloc, HadithFlashcardState>(
       builder: (context, hadithFlashcardState) {
-        final filteredFlashcard = CommonUtils.removeDuplicatesNarrator(
+        final IList<HadithFlashcard> filteredFlashcard =
+            CommonUtils.removeDuplicatesNarrator(
           hadithFlashcardState.getFlashcards,
-        );
+        ).toIList();
 
         return Scaffold(
           appBar: CustomAppBarWidget(
@@ -81,15 +82,28 @@ class MyFlashcardPageScaffold extends StatelessWidget {
                   title:
                       filteredFlashcard[index].hadithNarratorName.getOrEmpty(),
                   titleFontSize: 14,
-                  // subtitle:
-                  //     '${hadithNarrators[index].total.getOrCrash()} ${'hadith'.tr()}',
                   onTap: () {
-                    // context.read<PageBloc>().add(
-                    //       GotoHadithPage(
-                    //         userID: userID,
-                    //         hadithNarrator: hadithNarrators[index],
-                    //       ),
-                    //     );
+                    //goto hadith flashcard
+                    context.read<PageBloc>().add(
+                          GotoMyFlashcardHadithPage(
+                            userID: userID,
+                            flashcards: hadithFlashcardState.getFlashcards
+                                .where(
+                                  (element) =>
+                                      element.hadithNarratorName ==
+                                      filteredFlashcard[index]
+                                          .hadithNarratorName,
+                                )
+                                .toIList()
+                                .sort(
+                                  (a, b) => a.hadithNumber
+                                      .getOrZero()
+                                      .compareObjectTo(
+                                        b.hadithNumber.getOrZero(),
+                                      ),
+                                ),
+                          ),
+                        );
                   },
                   trailing: hadithFlashcardState.getFlashcardIsLoading ||
                           !hadithFlashcardState
@@ -120,12 +134,14 @@ class MyFlashcardPageScaffold extends StatelessWidget {
                                 CommonUtils.currencyFormat(
                                   hadithFlashcardState
                                       .getLengthOfSavedFlashcardByNarratorName
-                                      .map((element) => element ==
-                                              filteredFlashcard[index]
-                                                  .hadithNarratorName
-                                                  .getOrEmpty()
-                                          ? 1
-                                          : 0)
+                                      .map(
+                                        (element) => element ==
+                                                filteredFlashcard[index]
+                                                    .hadithNarratorName
+                                                    .getOrEmpty()
+                                            ? 1
+                                            : 0,
+                                      )
                                       .reduce(
                                         (value, element) => value + element,
                                       ),

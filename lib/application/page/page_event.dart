@@ -36,10 +36,20 @@ class GotoHadithPage extends PageEvent {
   });
 }
 
-class GotoMyFlashcardPage extends PageEvent {
+class GotoMyFlashcardNarratorPage extends PageEvent {
   final UniqueString userID;
 
-  const GotoMyFlashcardPage({
+  const GotoMyFlashcardNarratorPage({
     required this.userID,
+  });
+}
+
+class GotoMyFlashcardHadithPage extends PageEvent {
+  final UniqueString userID;
+  final IList<HadithFlashcard> flashcards;
+
+  const GotoMyFlashcardHadithPage({
+    required this.userID,
+    required this.flashcards,
   });
 }
