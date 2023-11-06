@@ -37,7 +37,7 @@ class CustomFlipCard extends StatelessWidget {
               physics: const BouncingScrollPhysics(),
               child: Text(
                 card.arab.getOrFailureText(),
-                style: blackTextFont.copyWith(
+                style: arabicTextFont.copyWith(
                   fontSize: 24,
                 ),
                 textAlign: TextAlign.center,

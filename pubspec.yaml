@@ -97,6 +97,7 @@ flutter:
     - assets/lottie/
     - assets/localization/
     - assets/flag/
+    - assets/others/
 
   #   - images/a_dot_ham.jpeg
 
@@ -111,12 +112,10 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
+  fonts:
+    - family: Al-Qalam-Quran-Majeed
+      fonts:
+        - asset: assets/font/Al-Qalam-Quran-Majeed.ttf
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf

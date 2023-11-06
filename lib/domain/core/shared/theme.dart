@@ -52,14 +52,9 @@ TextStyle blackTextFont = const TextStyle(
   color: blackColor,
 );
 
-// TextStyle arabicTextFont = const TextStyle(
-//   color: blackColor,
-//   fontSize: 22.0,
-// );
-
-// TODO: make sure later
-TextStyle arabicTextFont = GoogleFonts.aBeeZee(
-  fontSize: 22.0,
+TextStyle arabicTextFont = const TextStyle(
+  fontFamily: 'Al-Qalam-Quran-Majeed',
+  fontSize: 22,
 );
 
 TextStyle primaryTextFont = const TextStyle(

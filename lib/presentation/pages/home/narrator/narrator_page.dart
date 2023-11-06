@@ -80,8 +80,10 @@ class NarratorPage extends StatelessWidget {
                                 dense: true,
                                 title: hadithNarrators[index].name.getOrCrash(),
                                 titleFontSize: 14,
-                                subtitle:
-                                    '${hadithNarrators[index].total.getOrCrash()} ${'hadith'.tr()}',
+                                subtitle: '${CommonUtils.currencyFormat(
+                                  hadithNarrators[index].total.getOrCrash(),
+                                  showSymbol: false,
+                                )} ${'hadith'.tr()}',
                                 onTap: () {
                                   context.read<PageBloc>().add(
                                         GotoHadithPage(

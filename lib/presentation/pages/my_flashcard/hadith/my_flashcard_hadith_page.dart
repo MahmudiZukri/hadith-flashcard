@@ -45,11 +45,10 @@ class MyFlashcardHadithPage extends StatelessWidget {
         ),
         child: ListView(
           children: [
-            const SizedBox(height: 20.0),
-            Text(
-              'بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْم',
-              textAlign: TextAlign.center,
-              style: arabicTextFont,
+            const SizedBox(height: 22.0),
+            SvgPicture.asset(
+              AssetUrl.bismillahCalligraphy,
+              height: 52.0,
             ),
             const SizedBox(height: 20.0),
             Container(
@@ -93,6 +92,7 @@ class MyFlashcardHadithPage extends StatelessWidget {
                         child: GestureDetector(
                           onTap: () {
                             // hadith on tap
+                            // delete
                           },
                           child: Column(
                             children: [
