@@ -137,21 +137,29 @@ class QualitiesButtonRow extends StatelessWidget {
           userID: userID.getOrCrash(),
           quality: index,
           disabled: flashcardIsEmpty || flashcardToReviewIsEmpty,
-          cardController: cardController,
           onTap: () {
-            context.read<HadithFlashcardBloc>()
-              ..add(
-                HadithFlashcardEvent.saveFlashcard(
-                  userID: userID,
-                  flashcard: hadithFlashcardState.getFlashcardsToReview.first,
-                  quality: index,
-                ),
-              )
-              ..add(
-                HadithFlashcardEvent.getFlashcard(
-                  userID: userID,
-                ),
-              );
+            context.read<HadithFlashcardBloc>().add(
+                  HadithFlashcardEvent.saveFlashcard(
+                    userID: userID,
+                    flashcard: hadithFlashcardState.getFlashcardsToReview.first,
+                    quality: index,
+                  ),
+                );
+
+            if (cardController.state!.isFront == false) {
+              cardController.toggleCard();
+            }
+
+            Timer(
+              const Duration(milliseconds: 250),
+              () {
+                context.read<HadithFlashcardBloc>().add(
+                      HadithFlashcardEvent.getFlashcard(
+                        userID: userID,
+                      ),
+                    );
+              },
+            );
           },
         ),
       ),
