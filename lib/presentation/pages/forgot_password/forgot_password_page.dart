@@ -42,9 +42,9 @@ class ForgotPasswordPageScaffold extends StatelessWidget {
                     Icon(MdiIcons.arrowLeft, size: 26.0),
                     const SizedBox(width: 6.0),
                     Text(
-                      'Back',
+                      'back',
                       style: blackTextFont.copyWith(fontSize: 16.0),
-                    ),
+                    ).tr(),
                   ],
                 ),
               ),

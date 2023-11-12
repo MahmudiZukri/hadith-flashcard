@@ -67,37 +67,35 @@ class ProfilePage extends StatelessWidget {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          // My flashcards
-                          CustomListTile(
-                            title: 'My flashcard',
-                            dense: true,
-                            contentPadding: EdgeInsets.zero,
-                            onTap: () {
-                              context.read<PageBloc>().add(
-                                    GotoMyFlashcardNarratorPage(
-                                      userID: userID,
-                                    ),
-                                  );
-                            },
+                          // My flashcard
+                          MyFlashcardSection(
+                            userID: userID,
+                            title: 'myFlashcard'.tr(),
                           ),
+
                           // Choose language
-                          const ChooseLanguageListTile(),
+                          const ChooseLanguageSection(),
+
+                          // Rate us
+                          RateUsSection(
+                            title: 'rateUs'.tr(),
+                            onTap: () {},
+                          ),
+
+                          // Help
+                          HelpSection(
+                            userID: userID,
+                            title: 'help'.tr(),
+                          ),
 
                           // About app
-                          const AboutAppListTile(),
-
-                          CustomListTile(
-                            title: 'Help / Bantuan',
-                            dense: true,
-                            contentPadding: EdgeInsets.zero,
-                            onTap: () {},
+                          AboutAppSection(
+                            title: 'aboutApp'.tr(),
                           ),
 
-                          CustomListTile(
-                            title: 'Another',
-                            dense: true,
-                            contentPadding: EdgeInsets.zero,
-                            onTap: () {},
+                          // Privacy policy
+                          AboutAppSection(
+                            title: 'privacyPolicy'.tr(),
                           ),
 
                           // consider makes rating feature, analitycs
@@ -121,15 +119,93 @@ class ProfilePage extends StatelessWidget {
   }
 }
 
-class AboutAppListTile extends StatelessWidget {
-  const AboutAppListTile({
+class RateUsSection extends StatelessWidget {
+  const RateUsSection({
     super.key,
+    required this.title,
+    required this.onTap,
   });
+
+  final String title;
+  final Function() onTap;
 
   @override
   Widget build(BuildContext context) {
     return CustomListTile(
-      title: 'aboutApp',
+      title: title,
+      dense: true,
+      contentPadding: EdgeInsets.zero,
+      onTap: onTap,
+    );
+  }
+}
+
+class HelpSection extends StatelessWidget {
+  const HelpSection({
+    super.key,
+    required this.userID,
+    required this.title,
+  });
+
+  final UniqueString userID;
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomListTile(
+      title: title,
+      dense: true,
+      contentPadding: EdgeInsets.zero,
+      onTap: () {
+        context.read<PageBloc>().add(
+              GotoHelpPage(
+                userID: userID,
+              ),
+            );
+      },
+    );
+  }
+}
+
+class MyFlashcardSection extends StatelessWidget {
+  const MyFlashcardSection({
+    super.key,
+    required this.userID,
+    required this.title,
+  });
+
+  final UniqueString userID;
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomListTile(
+      title: title.tr(),
+      dense: true,
+      contentPadding: EdgeInsets.zero,
+      onTap: () {
+        context.read<PageBloc>().add(
+              GotoMyFlashcardNarratorPage(
+                userID: userID,
+              ),
+            );
+      },
+    );
+  }
+}
+
+class AboutAppSection extends StatelessWidget {
+  const AboutAppSection({
+    required this.title,
+    super.key,
+  });
+
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomListTile(
+      title: title,
       dense: true,
       contentPadding: EdgeInsets.zero,
       onTap: () {},
@@ -137,8 +213,8 @@ class AboutAppListTile extends StatelessWidget {
   }
 }
 
-class ChooseLanguageListTile extends StatelessWidget {
-  const ChooseLanguageListTile({
+class ChooseLanguageSection extends StatelessWidget {
+  const ChooseLanguageSection({
     super.key,
   });
 

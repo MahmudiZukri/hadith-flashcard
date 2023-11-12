@@ -26,8 +26,13 @@
     "youDon'tHaveFlashcardsToReview" : "You don't have flashcards to review :(",
     "addMoreFlashcards" : "Add More Flashcards",
     "youAreInGuestMode" : "You are in guest mode",
+    "back" : "Back",
+    "myFlashcard" : "My flashcard",
     "language" : "Language",
+    "rateUs" : "Rate us",
+    "help" : "Help",
     "aboutApp" : "About app",
+    "privacyPolicy" : "Privacy policy",
     "chooseLanguage" : "Choose language :",
     "signOut" : "Sign Out",
     "thisCannotBeEmpty" : "This cannot be empty",
@@ -39,5 +44,12 @@
     "close" : "Close",
     "areYouSureWantToResetYourFlashcardProgress" : "This flashcard has already been added, if it is added again the flashcard process will be reset. Are you sure?",
     "yes" : "Yes",
-    "no" : "No"
+    "no" : "No",
+    "helpSection" : "As you encounter a question on the flashcard, try to recite the hadith based on the question. After finishing reciting to the best of your ability, tap the card to flip the question into the answer. Then, subjectively rate how well you remember the hadith on a scale of 0 to 5. Subsequently, press the quality button that aligns with your perceived memory level. The following is an explanation about the quality button :",
+    "quality0" : "Complete blackout",
+    "quality1" : "Incorrect response, the correct one remembered",
+    "quality2" : "Incorrect response, where the correct one seemed easy to recall",
+    "quality3" : "Correct response, recalled with serious difficulty",
+    "quality4" : "Correct response, after a hesitation",
+    "quality5" : "Perfect response"
 }

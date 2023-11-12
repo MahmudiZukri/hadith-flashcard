@@ -54,3 +54,11 @@ class OnMyFlashcardHadithPage extends PageState {
     required this.flashcards,
   });
 }
+
+class OnHelpPage extends PageState {
+  final UniqueString userID;
+
+  const OnHelpPage({
+    required this.userID,
+  });
+}

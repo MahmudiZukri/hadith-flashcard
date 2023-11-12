@@ -35,9 +35,9 @@ class CustomAppBarWidget extends StatelessWidget
             Icon(MdiIcons.arrowLeft, size: 16.0),
             const SizedBox(width: 8.0),
             Text(
-              'Back',
+              'back',
               style: whiteTextFont.copyWith(fontSize: 14.0),
-            ),
+            ).tr(),
           ],
         ),
       ),

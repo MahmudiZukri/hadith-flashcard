@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:flip_card/flip_card_controller.dart';
@@ -39,3 +41,4 @@ part 'forgot_password/check_email/check_email_page.dart';
 part 'hadith/hadith_page.dart';
 part 'my_flashcard/narrator/my_flashcard_narrator_page.dart';
 part 'my_flashcard/hadith/my_flashcard_hadith_page.dart';
+part 'help/help_page.dart';

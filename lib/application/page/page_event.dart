@@ -53,3 +53,11 @@ class GotoMyFlashcardHadithPage extends PageEvent {
     required this.flashcards,
   });
 }
+
+class GotoHelpPage extends PageEvent {
+  final UniqueString userID;
+
+  const GotoHelpPage({
+    required this.userID,
+  });
+}

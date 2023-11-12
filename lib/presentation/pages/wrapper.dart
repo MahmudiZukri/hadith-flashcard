@@ -81,6 +81,10 @@ Widget pageTransition({required PageState pageState}) {
       userID: pageState.userID,
       flashcards: pageState.flashcards,
     );
+  } else if (pageState is OnHelpPage) {
+    return HelpPage(
+      userID: pageState.userID,
+    );
   } else {
     return const SignInPage();
   }

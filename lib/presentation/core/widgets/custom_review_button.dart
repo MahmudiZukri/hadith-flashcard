@@ -3,7 +3,6 @@ part of 'widgets.dart';
 class CustomReviewButton extends StatelessWidget {
   const CustomReviewButton({
     required this.userID,
-    required this.cardController,
     required this.quality,
     required this.onTap,
     this.disabled = true,
@@ -11,7 +10,6 @@ class CustomReviewButton extends StatelessWidget {
   });
 
   final String userID;
-  final FlipCardController cardController;
   final int quality;
   final Function() onTap;
   final bool disabled;

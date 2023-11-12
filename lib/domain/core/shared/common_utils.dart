@@ -93,6 +93,40 @@ class CommonUtils {
     return filteredList;
   }
 
+  static openCustomDialog({
+    required BuildContext context,
+    required Widget title,
+    required Widget content,
+    List<Widget>? actions,
+  }) {
+    showGeneralDialog(
+      barrierColor: Colors.black.withOpacity(0.5),
+      transitionBuilder: (context, a1, a2, widget) {
+        return Transform.scale(
+          scale: a1.value,
+          child: Opacity(
+            opacity: a1.value,
+            child: AlertDialog(
+              shape: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(
+                  16.0,
+                ),
+              ),
+              title: title,
+              content: content,
+              actions: actions,
+            ),
+          ),
+        );
+      },
+      transitionDuration: const Duration(milliseconds: 200),
+      barrierDismissible: true,
+      barrierLabel: '',
+      context: context,
+      pageBuilder: (context, animation1, animation2) => const SizedBox(),
+    );
+  }
+
   //comment for now
 
   //   static final RegExp _emailRegExp = RegExp(

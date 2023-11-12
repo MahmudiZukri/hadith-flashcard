@@ -2,7 +2,6 @@ part of '../../pages.dart';
 
 class MyFlashcardHadithPage extends StatelessWidget {
   const MyFlashcardHadithPage({
-    // TODO : userID is for deleting flashcard I guess, make sure
     required this.userID,
     required this.flashcards,
     super.key,

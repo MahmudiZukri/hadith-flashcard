@@ -63,5 +63,12 @@ class PageBloc extends Bloc<PageEvent, PageState> {
         ),
       ),
     );
+    on<GotoHelpPage>(
+      (event, emit) => emit(
+        OnHelpPage(
+          userID: event.userID,
+        ),
+      ),
+    );
   }
 }
