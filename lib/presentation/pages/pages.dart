@@ -42,3 +42,4 @@ part 'hadith/hadith_page.dart';
 part 'my_flashcard/narrator/my_flashcard_narrator_page.dart';
 part 'my_flashcard/hadith/my_flashcard_hadith_page.dart';
 part 'help/help_page.dart';
+part 'privacy_policy/privacy_policy_page.dart';

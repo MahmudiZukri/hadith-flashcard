@@ -17,11 +17,13 @@ class PageBloc extends Bloc<PageEvent, PageState> {
         OnSignUpPage(),
       ),
     );
+
     on<GotoSignInPage>(
       (event, emit) => emit(
         OnSignInPage(),
       ),
     );
+
     on<GotoHomePage>(
       (event, emit) => emit(
         OnHomePage(
@@ -30,16 +32,19 @@ class PageBloc extends Bloc<PageEvent, PageState> {
         ),
       ),
     );
+
     on<GotoForgotPasswordPage>(
       (event, emit) => emit(
         OnForgotPasswordPage(),
       ),
     );
+
     on<GotoCheckEmailPage>(
       (event, emit) => emit(
         OnCheckEmailPage(),
       ),
     );
+
     on<GotoHadithPage>(
       (event, emit) => emit(
         OnHadithPage(
@@ -48,6 +53,7 @@ class PageBloc extends Bloc<PageEvent, PageState> {
         ),
       ),
     );
+
     on<GotoMyFlashcardNarratorPage>(
       (event, emit) => emit(
         OnMyFlashcardNarratorPage(
@@ -55,6 +61,7 @@ class PageBloc extends Bloc<PageEvent, PageState> {
         ),
       ),
     );
+
     on<GotoMyFlashcardHadithPage>(
       (event, emit) => emit(
         OnMyFlashcardHadithPage(
@@ -63,9 +70,18 @@ class PageBloc extends Bloc<PageEvent, PageState> {
         ),
       ),
     );
+
     on<GotoHelpPage>(
       (event, emit) => emit(
         OnHelpPage(
+          userID: event.userID,
+        ),
+      ),
+    );
+
+    on<GotoPrivacyPolicyPage>(
+      (event, emit) => emit(
+        OnPrivacyPolicyPage(
           userID: event.userID,
         ),
       ),

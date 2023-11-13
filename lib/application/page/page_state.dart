@@ -62,3 +62,11 @@ class OnHelpPage extends PageState {
     required this.userID,
   });
 }
+
+class OnPrivacyPolicyPage extends PageState {
+  final UniqueString userID;
+
+  const OnPrivacyPolicyPage({
+    required this.userID,
+  });
+}

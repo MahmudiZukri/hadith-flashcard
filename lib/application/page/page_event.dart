@@ -55,9 +55,19 @@ class GotoMyFlashcardHadithPage extends PageEvent {
 }
 
 class GotoHelpPage extends PageEvent {
+  // delete after change router
   final UniqueString userID;
 
   const GotoHelpPage({
+    required this.userID,
+  });
+}
+
+class GotoPrivacyPolicyPage extends PageEvent {
+  // delete after change router
+  final UniqueString userID;
+
+  const GotoPrivacyPolicyPage({
     required this.userID,
   });
 }

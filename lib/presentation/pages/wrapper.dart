@@ -85,6 +85,10 @@ Widget pageTransition({required PageState pageState}) {
     return HelpPage(
       userID: pageState.userID,
     );
+  } else if (pageState is OnPrivacyPolicyPage) {
+    return PrivacyPolicyPage(
+      userID: pageState.userID,
+    );
   } else {
     return const SignInPage();
   }

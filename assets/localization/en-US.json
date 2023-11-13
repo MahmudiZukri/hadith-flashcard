@@ -51,5 +51,12 @@
     "quality2" : "Incorrect response, where the correct one seemed easy to recall",
     "quality3" : "Correct response, recalled with serious difficulty",
     "quality4" : "Correct response, after a hesitation",
-    "quality5" : "Perfect response"
+    "quality5" : "Perfect response",
+    "privacyPolicyText" : "When you use our Hadith Flashcard app, you trust us with your information. Because we are deeply committed to your privacy, this Privacy Policy is intended to help you understand what data we collect and why we need it. This is important; we hope you take the time to read it carefully. We will explain it as clearly as possible.",
+    "privacyPolicyTitle1" : "Collecting Device Information :",
+    "privacyPolicyTitle2" : "Collecting Email :",
+    "privacyPolicyTitle3" : "Security Information :",
+    "privacyPolicyText1" : "The Hadith Flashcard app uses Google Firebase Analytics (a product owned by Google) to collect information such as device model, operating system version, and which features are frequently accessed in the app. We use this information to understand user experience and improve the app in future updates. It's important to note that nearly all apps on Google Play Store use Google Firebase Analytics.",
+    "privacyPolicyText2" : "The Hadith Flashcard app uses Google Firebase Authentication for \"Sign-In\" in our app, allowing us to identify your Last Read and Bookmark data by automatically saving it to our server. Therefore, your email address will be indirectly stored in our Firebase dashboard and server. It's important to know that Firebase is a Google product, and Google does not allow developers (including us) to know your password in any way. So, you don't need to worry about losing your email account due to \"Sign-In\" in our app. We only collect your email address to facilitate the identification of your Flashcard, and we will not share your email address with anyone for any purpose.",
+    "privacyPolicyText3" : "We have implemented administrative and technical security measures believed to be very advanced to protect your data and privacy."
 }

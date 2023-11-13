@@ -90,12 +90,20 @@ class ProfilePage extends StatelessWidget {
 
                           // About app
                           AboutAppSection(
+                            userID: userID,
                             title: 'aboutApp'.tr(),
                           ),
 
                           // Privacy policy
-                          AboutAppSection(
+                          PrivacyPolicySection(
+                            userID: userID,
                             title: 'privacyPolicy'.tr(),
+                          ),
+
+                          // Share app
+                          AboutAppSection(
+                            userID: userID,
+                            title: 'shareApplication'.tr(),
                           ),
 
                           // consider makes rating feature, analitycs
@@ -196,10 +204,12 @@ class MyFlashcardSection extends StatelessWidget {
 
 class AboutAppSection extends StatelessWidget {
   const AboutAppSection({
-    required this.title,
     super.key,
+    required this.userID,
+    required this.title,
   });
 
+  final UniqueString userID;
   final String title;
 
   @override
@@ -209,6 +219,33 @@ class AboutAppSection extends StatelessWidget {
       dense: true,
       contentPadding: EdgeInsets.zero,
       onTap: () {},
+    );
+  }
+}
+
+class PrivacyPolicySection extends StatelessWidget {
+  const PrivacyPolicySection({
+    super.key,
+    required this.userID,
+    required this.title,
+  });
+
+  final UniqueString userID;
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomListTile(
+      title: title,
+      dense: true,
+      contentPadding: EdgeInsets.zero,
+      onTap: () {
+        context.read<PageBloc>().add(
+              GotoPrivacyPolicyPage(
+                userID: userID,
+              ),
+            );
+      },
     );
   }
 }
