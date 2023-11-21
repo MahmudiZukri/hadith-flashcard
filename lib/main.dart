@@ -9,17 +9,17 @@ import 'package:hadith_flashcard/application/page/page_bloc.dart';
 import 'package:hadith_flashcard/application/user/user_bloc.dart';
 import 'package:hadith_flashcard/domain/auth/interfaces/i_auth_repository.dart';
 import 'package:hadith_flashcard/domain/core/objects/objects.dart';
-import 'package:hadith_flashcard/firebase_options.dart';
 import 'package:hadith_flashcard/injection.dart';
 import 'package:hadith_flashcard/presentation/pages/pages.dart';
+import 'package:hadith_flashcard/simple_bloc_observer.dart';
 import 'package:injectable/injectable.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  configureInjection(
-    Environment.prod,
-  );
+  configureInjection(Environment.prod);
+  await EasyLocalization.ensureInitialized();
+  Bloc.observer = getIt<SimpleBlocObserver>();
   await Firebase.initializeApp(
       // TODO: find out later
       // options: const FirebaseOptions(
@@ -30,7 +30,7 @@ void main() async {
       // ),
       // options: DefaultFirebaseOptions.currentPlatform,
       );
-  await EasyLocalization.ensureInitialized();
+
   runApp(
     EasyLocalization(
       supportedLocales: const [
