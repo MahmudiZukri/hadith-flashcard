@@ -33,6 +33,7 @@
     "help" : "Bantuan",
     "aboutApp" : "Tentang aplikasi",
     "privacyPolicy" : "Kebijakan privasi",
+    "shareApp" : "Bagikan aplikasi",
     "chooseLanguage" : "Pilih bahasa :",
     "signOut" : "Keluar",
     "thisCannotBeEmpty" : "Tidak boleh kosong",
@@ -42,6 +43,8 @@
     "congratsYouHaveCompletedToday'sFlashcard" : "Selamat! Kamu telah menyelesaikan kartu hari ini",
     "addToFlashcard" : "Tambahkan menjadi flashcard",
     "close" : "Tutup",
+    "delete" : "Hapus",
+    "areYouSureWannaDelete" : "Apakah Anda ingin menghapus",
     "areYouSureWantToResetYourFlashcardProgress" : "Flashcard ini telah ditambahkan, jika kamu menambahkan ulang proses flashcard akan direset. Apakah kamu yakin?",
     "yes" : "Ya",
     "no" : "Tidak",
@@ -58,6 +61,6 @@
     "privacyPolicyTitle3" : "Informasi Keamanan :",
     "privacyPolicyText1" : "Aplikasi Hadith Flashcard ini menggunakan Google Firebase Analytics (salah satu produk milik Google) untuk mengumpulkan informasi seperti model perangkat, versi sistem operasi, dan fitur apa saja yang sering dibuka pada aplikasi ini. Informasi ini kami gunakan untuk memahami pengalaman pengguna di aplikasi ini, sehingga aplikasi ini dapat menjadi lebih baik pada pembaruan berikutnya. Penting untuk diketahui, hampir seluruh aplikasi yang ada di Google Play Store menggunakan Google Firebase Analytics.",
     "privacyPolicyText2" : "Aplikasi Hadith Flashcard ini menggunakan Google Firebase Authentication untuk \"Sign-In\" di aplikasi kami, sehingga kami dapat mengidentifikasi data Terakhir Baca dan Bookmark milik Anda saat menggunakan fitur otomatis menyimpan data tersebut ke Server kami. Jadi, secara tidak langsung, alamat Email Anda akan tersimpan di dashboard Firebase dan Server kami. Penting untuk diketahui, Firebase adalah salah satu produk milik Google, dan Google tidak akan mengizinkan seluruh pengembang (termasuk kami) untuk mengetahui kata sandi (password) Anda dengan cara apa pun. Jadi, Anda tidak perlu khawatir akan kehilangan akun Email Anda karena \"Sign-In\" di aplikasi kami. Kami hanya mengumpulkan alamat Email untuk mempermudah identifikasi Flashcard milik Anda, dan kami tidak akan membagikan alamat Email Anda kepada siapa pun untuk tujuan apa pun.",
-    "privacyPolicyText3" : "Kami telah menerapkan langkah-langkah keamanan administratif dan teknis yang dianggap sangat canggih untuk melindungi data dan privasi Anda."
-  
+    "privacyPolicyText3" : "Kami telah menerapkan langkah-langkah keamanan administratif dan teknis yang dianggap sangat canggih untuk melindungi data dan privasi Anda.",
+    "youDon'tHaveNarratorflashcards" : "Anda tidak memiliki flashcard perawi {narrator}"
 }

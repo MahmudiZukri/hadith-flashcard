@@ -9,6 +9,10 @@ abstract class IHadithFlashcardRepository {
     required String userID,
     required HadithFlashcardModel flashcard,
   });
+  Future<Either<CommonFailures, Unit>> deleteFlashcard({
+    required String userID,
+    required String flashcardID,
+  });
   Future<Either<CommonFailures, IList<HadithFlashcard>>> getFlashcard({
     required String userID,
   });

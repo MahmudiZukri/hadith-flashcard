@@ -21,10 +21,15 @@ mixin _$HadithFlashcardEvent {
     required TResult Function(
             UniqueString userID, HadithFlashcard flashcard, int? quality)
         saveFlashcard,
+    required TResult Function(UniqueString userID, UnemptyString flashcardID)
+        deleteFlashcard,
     required TResult Function(UniqueString userID) getFlashcard,
     required TResult Function() resetFlashcardSnackBar,
     required TResult Function(bool isShowClarification)
         resetFlashcardClarification,
+    required TResult Function(IList<HadithFlashcard> flashcards)
+        addToMyFlashcard,
+    required TResult Function(HadithFlashcard flashcard) deleteFromMyFlashcard,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,9 +37,13 @@ mixin _$HadithFlashcardEvent {
     TResult? Function(
             UniqueString userID, HadithFlashcard flashcard, int? quality)?
         saveFlashcard,
+    TResult? Function(UniqueString userID, UnemptyString flashcardID)?
+        deleteFlashcard,
     TResult? Function(UniqueString userID)? getFlashcard,
     TResult? Function()? resetFlashcardSnackBar,
     TResult? Function(bool isShowClarification)? resetFlashcardClarification,
+    TResult? Function(IList<HadithFlashcard> flashcards)? addToMyFlashcard,
+    TResult? Function(HadithFlashcard flashcard)? deleteFromMyFlashcard,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -42,38 +51,52 @@ mixin _$HadithFlashcardEvent {
     TResult Function(
             UniqueString userID, HadithFlashcard flashcard, int? quality)?
         saveFlashcard,
+    TResult Function(UniqueString userID, UnemptyString flashcardID)?
+        deleteFlashcard,
     TResult Function(UniqueString userID)? getFlashcard,
     TResult Function()? resetFlashcardSnackBar,
     TResult Function(bool isShowClarification)? resetFlashcardClarification,
+    TResult Function(IList<HadithFlashcard> flashcards)? addToMyFlashcard,
+    TResult Function(HadithFlashcard flashcard)? deleteFromMyFlashcard,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_SaveFlashcard value) saveFlashcard,
+    required TResult Function(_DeleteFlashcard value) deleteFlashcard,
     required TResult Function(_GetFlashcard value) getFlashcard,
     required TResult Function(_ResetFlashcardSnackBar value)
         resetFlashcardSnackBar,
     required TResult Function(_ResetFlashcardClarification value)
         resetFlashcardClarification,
+    required TResult Function(_AddToMyFlashcard value) addToMyFlashcard,
+    required TResult Function(_DeleteFromMyFlashcard value)
+        deleteFromMyFlashcard,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SaveFlashcard value)? saveFlashcard,
+    TResult? Function(_DeleteFlashcard value)? deleteFlashcard,
     TResult? Function(_GetFlashcard value)? getFlashcard,
     TResult? Function(_ResetFlashcardSnackBar value)? resetFlashcardSnackBar,
     TResult? Function(_ResetFlashcardClarification value)?
         resetFlashcardClarification,
+    TResult? Function(_AddToMyFlashcard value)? addToMyFlashcard,
+    TResult? Function(_DeleteFromMyFlashcard value)? deleteFromMyFlashcard,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SaveFlashcard value)? saveFlashcard,
+    TResult Function(_DeleteFlashcard value)? deleteFlashcard,
     TResult Function(_GetFlashcard value)? getFlashcard,
     TResult Function(_ResetFlashcardSnackBar value)? resetFlashcardSnackBar,
     TResult Function(_ResetFlashcardClarification value)?
         resetFlashcardClarification,
+    TResult Function(_AddToMyFlashcard value)? addToMyFlashcard,
+    TResult Function(_DeleteFromMyFlashcard value)? deleteFromMyFlashcard,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -193,10 +216,15 @@ class _$SaveFlashcardImpl implements _SaveFlashcard {
     required TResult Function(
             UniqueString userID, HadithFlashcard flashcard, int? quality)
         saveFlashcard,
+    required TResult Function(UniqueString userID, UnemptyString flashcardID)
+        deleteFlashcard,
     required TResult Function(UniqueString userID) getFlashcard,
     required TResult Function() resetFlashcardSnackBar,
     required TResult Function(bool isShowClarification)
         resetFlashcardClarification,
+    required TResult Function(IList<HadithFlashcard> flashcards)
+        addToMyFlashcard,
+    required TResult Function(HadithFlashcard flashcard) deleteFromMyFlashcard,
   }) {
     return saveFlashcard(userID, flashcard, quality);
   }
@@ -207,9 +235,13 @@ class _$SaveFlashcardImpl implements _SaveFlashcard {
     TResult? Function(
             UniqueString userID, HadithFlashcard flashcard, int? quality)?
         saveFlashcard,
+    TResult? Function(UniqueString userID, UnemptyString flashcardID)?
+        deleteFlashcard,
     TResult? Function(UniqueString userID)? getFlashcard,
     TResult? Function()? resetFlashcardSnackBar,
     TResult? Function(bool isShowClarification)? resetFlashcardClarification,
+    TResult? Function(IList<HadithFlashcard> flashcards)? addToMyFlashcard,
+    TResult? Function(HadithFlashcard flashcard)? deleteFromMyFlashcard,
   }) {
     return saveFlashcard?.call(userID, flashcard, quality);
   }
@@ -220,9 +252,13 @@ class _$SaveFlashcardImpl implements _SaveFlashcard {
     TResult Function(
             UniqueString userID, HadithFlashcard flashcard, int? quality)?
         saveFlashcard,
+    TResult Function(UniqueString userID, UnemptyString flashcardID)?
+        deleteFlashcard,
     TResult Function(UniqueString userID)? getFlashcard,
     TResult Function()? resetFlashcardSnackBar,
     TResult Function(bool isShowClarification)? resetFlashcardClarification,
+    TResult Function(IList<HadithFlashcard> flashcards)? addToMyFlashcard,
+    TResult Function(HadithFlashcard flashcard)? deleteFromMyFlashcard,
     required TResult orElse(),
   }) {
     if (saveFlashcard != null) {
@@ -235,11 +271,15 @@ class _$SaveFlashcardImpl implements _SaveFlashcard {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_SaveFlashcard value) saveFlashcard,
+    required TResult Function(_DeleteFlashcard value) deleteFlashcard,
     required TResult Function(_GetFlashcard value) getFlashcard,
     required TResult Function(_ResetFlashcardSnackBar value)
         resetFlashcardSnackBar,
     required TResult Function(_ResetFlashcardClarification value)
         resetFlashcardClarification,
+    required TResult Function(_AddToMyFlashcard value) addToMyFlashcard,
+    required TResult Function(_DeleteFromMyFlashcard value)
+        deleteFromMyFlashcard,
   }) {
     return saveFlashcard(this);
   }
@@ -248,10 +288,13 @@ class _$SaveFlashcardImpl implements _SaveFlashcard {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SaveFlashcard value)? saveFlashcard,
+    TResult? Function(_DeleteFlashcard value)? deleteFlashcard,
     TResult? Function(_GetFlashcard value)? getFlashcard,
     TResult? Function(_ResetFlashcardSnackBar value)? resetFlashcardSnackBar,
     TResult? Function(_ResetFlashcardClarification value)?
         resetFlashcardClarification,
+    TResult? Function(_AddToMyFlashcard value)? addToMyFlashcard,
+    TResult? Function(_DeleteFromMyFlashcard value)? deleteFromMyFlashcard,
   }) {
     return saveFlashcard?.call(this);
   }
@@ -260,10 +303,13 @@ class _$SaveFlashcardImpl implements _SaveFlashcard {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SaveFlashcard value)? saveFlashcard,
+    TResult Function(_DeleteFlashcard value)? deleteFlashcard,
     TResult Function(_GetFlashcard value)? getFlashcard,
     TResult Function(_ResetFlashcardSnackBar value)? resetFlashcardSnackBar,
     TResult Function(_ResetFlashcardClarification value)?
         resetFlashcardClarification,
+    TResult Function(_AddToMyFlashcard value)? addToMyFlashcard,
+    TResult Function(_DeleteFromMyFlashcard value)? deleteFromMyFlashcard,
     required TResult orElse(),
   }) {
     if (saveFlashcard != null) {
@@ -284,6 +330,199 @@ abstract class _SaveFlashcard implements HadithFlashcardEvent {
   int? get quality;
   @JsonKey(ignore: true)
   _$$SaveFlashcardImplCopyWith<_$SaveFlashcardImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DeleteFlashcardImplCopyWith<$Res> {
+  factory _$$DeleteFlashcardImplCopyWith(_$DeleteFlashcardImpl value,
+          $Res Function(_$DeleteFlashcardImpl) then) =
+      __$$DeleteFlashcardImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({UniqueString userID, UnemptyString flashcardID});
+}
+
+/// @nodoc
+class __$$DeleteFlashcardImplCopyWithImpl<$Res>
+    extends _$HadithFlashcardEventCopyWithImpl<$Res, _$DeleteFlashcardImpl>
+    implements _$$DeleteFlashcardImplCopyWith<$Res> {
+  __$$DeleteFlashcardImplCopyWithImpl(
+      _$DeleteFlashcardImpl _value, $Res Function(_$DeleteFlashcardImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? userID = null,
+    Object? flashcardID = null,
+  }) {
+    return _then(_$DeleteFlashcardImpl(
+      userID: null == userID
+          ? _value.userID
+          : userID // ignore: cast_nullable_to_non_nullable
+              as UniqueString,
+      flashcardID: null == flashcardID
+          ? _value.flashcardID
+          : flashcardID // ignore: cast_nullable_to_non_nullable
+              as UnemptyString,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DeleteFlashcardImpl implements _DeleteFlashcard {
+  const _$DeleteFlashcardImpl(
+      {required this.userID, required this.flashcardID});
+
+  @override
+  final UniqueString userID;
+  @override
+  final UnemptyString flashcardID;
+
+  @override
+  String toString() {
+    return 'HadithFlashcardEvent.deleteFlashcard(userID: $userID, flashcardID: $flashcardID)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeleteFlashcardImpl &&
+            (identical(other.userID, userID) || other.userID == userID) &&
+            (identical(other.flashcardID, flashcardID) ||
+                other.flashcardID == flashcardID));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, userID, flashcardID);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeleteFlashcardImplCopyWith<_$DeleteFlashcardImpl> get copyWith =>
+      __$$DeleteFlashcardImplCopyWithImpl<_$DeleteFlashcardImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            UniqueString userID, HadithFlashcard flashcard, int? quality)
+        saveFlashcard,
+    required TResult Function(UniqueString userID, UnemptyString flashcardID)
+        deleteFlashcard,
+    required TResult Function(UniqueString userID) getFlashcard,
+    required TResult Function() resetFlashcardSnackBar,
+    required TResult Function(bool isShowClarification)
+        resetFlashcardClarification,
+    required TResult Function(IList<HadithFlashcard> flashcards)
+        addToMyFlashcard,
+    required TResult Function(HadithFlashcard flashcard) deleteFromMyFlashcard,
+  }) {
+    return deleteFlashcard(userID, flashcardID);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+            UniqueString userID, HadithFlashcard flashcard, int? quality)?
+        saveFlashcard,
+    TResult? Function(UniqueString userID, UnemptyString flashcardID)?
+        deleteFlashcard,
+    TResult? Function(UniqueString userID)? getFlashcard,
+    TResult? Function()? resetFlashcardSnackBar,
+    TResult? Function(bool isShowClarification)? resetFlashcardClarification,
+    TResult? Function(IList<HadithFlashcard> flashcards)? addToMyFlashcard,
+    TResult? Function(HadithFlashcard flashcard)? deleteFromMyFlashcard,
+  }) {
+    return deleteFlashcard?.call(userID, flashcardID);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            UniqueString userID, HadithFlashcard flashcard, int? quality)?
+        saveFlashcard,
+    TResult Function(UniqueString userID, UnemptyString flashcardID)?
+        deleteFlashcard,
+    TResult Function(UniqueString userID)? getFlashcard,
+    TResult Function()? resetFlashcardSnackBar,
+    TResult Function(bool isShowClarification)? resetFlashcardClarification,
+    TResult Function(IList<HadithFlashcard> flashcards)? addToMyFlashcard,
+    TResult Function(HadithFlashcard flashcard)? deleteFromMyFlashcard,
+    required TResult orElse(),
+  }) {
+    if (deleteFlashcard != null) {
+      return deleteFlashcard(userID, flashcardID);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SaveFlashcard value) saveFlashcard,
+    required TResult Function(_DeleteFlashcard value) deleteFlashcard,
+    required TResult Function(_GetFlashcard value) getFlashcard,
+    required TResult Function(_ResetFlashcardSnackBar value)
+        resetFlashcardSnackBar,
+    required TResult Function(_ResetFlashcardClarification value)
+        resetFlashcardClarification,
+    required TResult Function(_AddToMyFlashcard value) addToMyFlashcard,
+    required TResult Function(_DeleteFromMyFlashcard value)
+        deleteFromMyFlashcard,
+  }) {
+    return deleteFlashcard(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SaveFlashcard value)? saveFlashcard,
+    TResult? Function(_DeleteFlashcard value)? deleteFlashcard,
+    TResult? Function(_GetFlashcard value)? getFlashcard,
+    TResult? Function(_ResetFlashcardSnackBar value)? resetFlashcardSnackBar,
+    TResult? Function(_ResetFlashcardClarification value)?
+        resetFlashcardClarification,
+    TResult? Function(_AddToMyFlashcard value)? addToMyFlashcard,
+    TResult? Function(_DeleteFromMyFlashcard value)? deleteFromMyFlashcard,
+  }) {
+    return deleteFlashcard?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SaveFlashcard value)? saveFlashcard,
+    TResult Function(_DeleteFlashcard value)? deleteFlashcard,
+    TResult Function(_GetFlashcard value)? getFlashcard,
+    TResult Function(_ResetFlashcardSnackBar value)? resetFlashcardSnackBar,
+    TResult Function(_ResetFlashcardClarification value)?
+        resetFlashcardClarification,
+    TResult Function(_AddToMyFlashcard value)? addToMyFlashcard,
+    TResult Function(_DeleteFromMyFlashcard value)? deleteFromMyFlashcard,
+    required TResult orElse(),
+  }) {
+    if (deleteFlashcard != null) {
+      return deleteFlashcard(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DeleteFlashcard implements HadithFlashcardEvent {
+  const factory _DeleteFlashcard(
+      {required final UniqueString userID,
+      required final UnemptyString flashcardID}) = _$DeleteFlashcardImpl;
+
+  UniqueString get userID;
+  UnemptyString get flashcardID;
+  @JsonKey(ignore: true)
+  _$$DeleteFlashcardImplCopyWith<_$DeleteFlashcardImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -354,10 +593,15 @@ class _$GetFlashcardImpl implements _GetFlashcard {
     required TResult Function(
             UniqueString userID, HadithFlashcard flashcard, int? quality)
         saveFlashcard,
+    required TResult Function(UniqueString userID, UnemptyString flashcardID)
+        deleteFlashcard,
     required TResult Function(UniqueString userID) getFlashcard,
     required TResult Function() resetFlashcardSnackBar,
     required TResult Function(bool isShowClarification)
         resetFlashcardClarification,
+    required TResult Function(IList<HadithFlashcard> flashcards)
+        addToMyFlashcard,
+    required TResult Function(HadithFlashcard flashcard) deleteFromMyFlashcard,
   }) {
     return getFlashcard(userID);
   }
@@ -368,9 +612,13 @@ class _$GetFlashcardImpl implements _GetFlashcard {
     TResult? Function(
             UniqueString userID, HadithFlashcard flashcard, int? quality)?
         saveFlashcard,
+    TResult? Function(UniqueString userID, UnemptyString flashcardID)?
+        deleteFlashcard,
     TResult? Function(UniqueString userID)? getFlashcard,
     TResult? Function()? resetFlashcardSnackBar,
     TResult? Function(bool isShowClarification)? resetFlashcardClarification,
+    TResult? Function(IList<HadithFlashcard> flashcards)? addToMyFlashcard,
+    TResult? Function(HadithFlashcard flashcard)? deleteFromMyFlashcard,
   }) {
     return getFlashcard?.call(userID);
   }
@@ -381,9 +629,13 @@ class _$GetFlashcardImpl implements _GetFlashcard {
     TResult Function(
             UniqueString userID, HadithFlashcard flashcard, int? quality)?
         saveFlashcard,
+    TResult Function(UniqueString userID, UnemptyString flashcardID)?
+        deleteFlashcard,
     TResult Function(UniqueString userID)? getFlashcard,
     TResult Function()? resetFlashcardSnackBar,
     TResult Function(bool isShowClarification)? resetFlashcardClarification,
+    TResult Function(IList<HadithFlashcard> flashcards)? addToMyFlashcard,
+    TResult Function(HadithFlashcard flashcard)? deleteFromMyFlashcard,
     required TResult orElse(),
   }) {
     if (getFlashcard != null) {
@@ -396,11 +648,15 @@ class _$GetFlashcardImpl implements _GetFlashcard {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_SaveFlashcard value) saveFlashcard,
+    required TResult Function(_DeleteFlashcard value) deleteFlashcard,
     required TResult Function(_GetFlashcard value) getFlashcard,
     required TResult Function(_ResetFlashcardSnackBar value)
         resetFlashcardSnackBar,
     required TResult Function(_ResetFlashcardClarification value)
         resetFlashcardClarification,
+    required TResult Function(_AddToMyFlashcard value) addToMyFlashcard,
+    required TResult Function(_DeleteFromMyFlashcard value)
+        deleteFromMyFlashcard,
   }) {
     return getFlashcard(this);
   }
@@ -409,10 +665,13 @@ class _$GetFlashcardImpl implements _GetFlashcard {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SaveFlashcard value)? saveFlashcard,
+    TResult? Function(_DeleteFlashcard value)? deleteFlashcard,
     TResult? Function(_GetFlashcard value)? getFlashcard,
     TResult? Function(_ResetFlashcardSnackBar value)? resetFlashcardSnackBar,
     TResult? Function(_ResetFlashcardClarification value)?
         resetFlashcardClarification,
+    TResult? Function(_AddToMyFlashcard value)? addToMyFlashcard,
+    TResult? Function(_DeleteFromMyFlashcard value)? deleteFromMyFlashcard,
   }) {
     return getFlashcard?.call(this);
   }
@@ -421,10 +680,13 @@ class _$GetFlashcardImpl implements _GetFlashcard {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SaveFlashcard value)? saveFlashcard,
+    TResult Function(_DeleteFlashcard value)? deleteFlashcard,
     TResult Function(_GetFlashcard value)? getFlashcard,
     TResult Function(_ResetFlashcardSnackBar value)? resetFlashcardSnackBar,
     TResult Function(_ResetFlashcardClarification value)?
         resetFlashcardClarification,
+    TResult Function(_AddToMyFlashcard value)? addToMyFlashcard,
+    TResult Function(_DeleteFromMyFlashcard value)? deleteFromMyFlashcard,
     required TResult orElse(),
   }) {
     if (getFlashcard != null) {
@@ -489,10 +751,15 @@ class _$ResetFlashcardSnackBarImpl implements _ResetFlashcardSnackBar {
     required TResult Function(
             UniqueString userID, HadithFlashcard flashcard, int? quality)
         saveFlashcard,
+    required TResult Function(UniqueString userID, UnemptyString flashcardID)
+        deleteFlashcard,
     required TResult Function(UniqueString userID) getFlashcard,
     required TResult Function() resetFlashcardSnackBar,
     required TResult Function(bool isShowClarification)
         resetFlashcardClarification,
+    required TResult Function(IList<HadithFlashcard> flashcards)
+        addToMyFlashcard,
+    required TResult Function(HadithFlashcard flashcard) deleteFromMyFlashcard,
   }) {
     return resetFlashcardSnackBar();
   }
@@ -503,9 +770,13 @@ class _$ResetFlashcardSnackBarImpl implements _ResetFlashcardSnackBar {
     TResult? Function(
             UniqueString userID, HadithFlashcard flashcard, int? quality)?
         saveFlashcard,
+    TResult? Function(UniqueString userID, UnemptyString flashcardID)?
+        deleteFlashcard,
     TResult? Function(UniqueString userID)? getFlashcard,
     TResult? Function()? resetFlashcardSnackBar,
     TResult? Function(bool isShowClarification)? resetFlashcardClarification,
+    TResult? Function(IList<HadithFlashcard> flashcards)? addToMyFlashcard,
+    TResult? Function(HadithFlashcard flashcard)? deleteFromMyFlashcard,
   }) {
     return resetFlashcardSnackBar?.call();
   }
@@ -516,9 +787,13 @@ class _$ResetFlashcardSnackBarImpl implements _ResetFlashcardSnackBar {
     TResult Function(
             UniqueString userID, HadithFlashcard flashcard, int? quality)?
         saveFlashcard,
+    TResult Function(UniqueString userID, UnemptyString flashcardID)?
+        deleteFlashcard,
     TResult Function(UniqueString userID)? getFlashcard,
     TResult Function()? resetFlashcardSnackBar,
     TResult Function(bool isShowClarification)? resetFlashcardClarification,
+    TResult Function(IList<HadithFlashcard> flashcards)? addToMyFlashcard,
+    TResult Function(HadithFlashcard flashcard)? deleteFromMyFlashcard,
     required TResult orElse(),
   }) {
     if (resetFlashcardSnackBar != null) {
@@ -531,11 +806,15 @@ class _$ResetFlashcardSnackBarImpl implements _ResetFlashcardSnackBar {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_SaveFlashcard value) saveFlashcard,
+    required TResult Function(_DeleteFlashcard value) deleteFlashcard,
     required TResult Function(_GetFlashcard value) getFlashcard,
     required TResult Function(_ResetFlashcardSnackBar value)
         resetFlashcardSnackBar,
     required TResult Function(_ResetFlashcardClarification value)
         resetFlashcardClarification,
+    required TResult Function(_AddToMyFlashcard value) addToMyFlashcard,
+    required TResult Function(_DeleteFromMyFlashcard value)
+        deleteFromMyFlashcard,
   }) {
     return resetFlashcardSnackBar(this);
   }
@@ -544,10 +823,13 @@ class _$ResetFlashcardSnackBarImpl implements _ResetFlashcardSnackBar {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SaveFlashcard value)? saveFlashcard,
+    TResult? Function(_DeleteFlashcard value)? deleteFlashcard,
     TResult? Function(_GetFlashcard value)? getFlashcard,
     TResult? Function(_ResetFlashcardSnackBar value)? resetFlashcardSnackBar,
     TResult? Function(_ResetFlashcardClarification value)?
         resetFlashcardClarification,
+    TResult? Function(_AddToMyFlashcard value)? addToMyFlashcard,
+    TResult? Function(_DeleteFromMyFlashcard value)? deleteFromMyFlashcard,
   }) {
     return resetFlashcardSnackBar?.call(this);
   }
@@ -556,10 +838,13 @@ class _$ResetFlashcardSnackBarImpl implements _ResetFlashcardSnackBar {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SaveFlashcard value)? saveFlashcard,
+    TResult Function(_DeleteFlashcard value)? deleteFlashcard,
     TResult Function(_GetFlashcard value)? getFlashcard,
     TResult Function(_ResetFlashcardSnackBar value)? resetFlashcardSnackBar,
     TResult Function(_ResetFlashcardClarification value)?
         resetFlashcardClarification,
+    TResult Function(_AddToMyFlashcard value)? addToMyFlashcard,
+    TResult Function(_DeleteFromMyFlashcard value)? deleteFromMyFlashcard,
     required TResult orElse(),
   }) {
     if (resetFlashcardSnackBar != null) {
@@ -646,10 +931,15 @@ class _$ResetFlashcardClarificationImpl
     required TResult Function(
             UniqueString userID, HadithFlashcard flashcard, int? quality)
         saveFlashcard,
+    required TResult Function(UniqueString userID, UnemptyString flashcardID)
+        deleteFlashcard,
     required TResult Function(UniqueString userID) getFlashcard,
     required TResult Function() resetFlashcardSnackBar,
     required TResult Function(bool isShowClarification)
         resetFlashcardClarification,
+    required TResult Function(IList<HadithFlashcard> flashcards)
+        addToMyFlashcard,
+    required TResult Function(HadithFlashcard flashcard) deleteFromMyFlashcard,
   }) {
     return resetFlashcardClarification(isShowClarification);
   }
@@ -660,9 +950,13 @@ class _$ResetFlashcardClarificationImpl
     TResult? Function(
             UniqueString userID, HadithFlashcard flashcard, int? quality)?
         saveFlashcard,
+    TResult? Function(UniqueString userID, UnemptyString flashcardID)?
+        deleteFlashcard,
     TResult? Function(UniqueString userID)? getFlashcard,
     TResult? Function()? resetFlashcardSnackBar,
     TResult? Function(bool isShowClarification)? resetFlashcardClarification,
+    TResult? Function(IList<HadithFlashcard> flashcards)? addToMyFlashcard,
+    TResult? Function(HadithFlashcard flashcard)? deleteFromMyFlashcard,
   }) {
     return resetFlashcardClarification?.call(isShowClarification);
   }
@@ -673,9 +967,13 @@ class _$ResetFlashcardClarificationImpl
     TResult Function(
             UniqueString userID, HadithFlashcard flashcard, int? quality)?
         saveFlashcard,
+    TResult Function(UniqueString userID, UnemptyString flashcardID)?
+        deleteFlashcard,
     TResult Function(UniqueString userID)? getFlashcard,
     TResult Function()? resetFlashcardSnackBar,
     TResult Function(bool isShowClarification)? resetFlashcardClarification,
+    TResult Function(IList<HadithFlashcard> flashcards)? addToMyFlashcard,
+    TResult Function(HadithFlashcard flashcard)? deleteFromMyFlashcard,
     required TResult orElse(),
   }) {
     if (resetFlashcardClarification != null) {
@@ -688,11 +986,15 @@ class _$ResetFlashcardClarificationImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_SaveFlashcard value) saveFlashcard,
+    required TResult Function(_DeleteFlashcard value) deleteFlashcard,
     required TResult Function(_GetFlashcard value) getFlashcard,
     required TResult Function(_ResetFlashcardSnackBar value)
         resetFlashcardSnackBar,
     required TResult Function(_ResetFlashcardClarification value)
         resetFlashcardClarification,
+    required TResult Function(_AddToMyFlashcard value) addToMyFlashcard,
+    required TResult Function(_DeleteFromMyFlashcard value)
+        deleteFromMyFlashcard,
   }) {
     return resetFlashcardClarification(this);
   }
@@ -701,10 +1003,13 @@ class _$ResetFlashcardClarificationImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SaveFlashcard value)? saveFlashcard,
+    TResult? Function(_DeleteFlashcard value)? deleteFlashcard,
     TResult? Function(_GetFlashcard value)? getFlashcard,
     TResult? Function(_ResetFlashcardSnackBar value)? resetFlashcardSnackBar,
     TResult? Function(_ResetFlashcardClarification value)?
         resetFlashcardClarification,
+    TResult? Function(_AddToMyFlashcard value)? addToMyFlashcard,
+    TResult? Function(_DeleteFromMyFlashcard value)? deleteFromMyFlashcard,
   }) {
     return resetFlashcardClarification?.call(this);
   }
@@ -713,10 +1018,13 @@ class _$ResetFlashcardClarificationImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SaveFlashcard value)? saveFlashcard,
+    TResult Function(_DeleteFlashcard value)? deleteFlashcard,
     TResult Function(_GetFlashcard value)? getFlashcard,
     TResult Function(_ResetFlashcardSnackBar value)? resetFlashcardSnackBar,
     TResult Function(_ResetFlashcardClarification value)?
         resetFlashcardClarification,
+    TResult Function(_AddToMyFlashcard value)? addToMyFlashcard,
+    TResult Function(_DeleteFromMyFlashcard value)? deleteFromMyFlashcard,
     required TResult orElse(),
   }) {
     if (resetFlashcardClarification != null) {
@@ -738,13 +1046,395 @@ abstract class _ResetFlashcardClarification implements HadithFlashcardEvent {
 }
 
 /// @nodoc
+abstract class _$$AddToMyFlashcardImplCopyWith<$Res> {
+  factory _$$AddToMyFlashcardImplCopyWith(_$AddToMyFlashcardImpl value,
+          $Res Function(_$AddToMyFlashcardImpl) then) =
+      __$$AddToMyFlashcardImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({IList<HadithFlashcard> flashcards});
+}
+
+/// @nodoc
+class __$$AddToMyFlashcardImplCopyWithImpl<$Res>
+    extends _$HadithFlashcardEventCopyWithImpl<$Res, _$AddToMyFlashcardImpl>
+    implements _$$AddToMyFlashcardImplCopyWith<$Res> {
+  __$$AddToMyFlashcardImplCopyWithImpl(_$AddToMyFlashcardImpl _value,
+      $Res Function(_$AddToMyFlashcardImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? flashcards = null,
+  }) {
+    return _then(_$AddToMyFlashcardImpl(
+      flashcards: null == flashcards
+          ? _value.flashcards
+          : flashcards // ignore: cast_nullable_to_non_nullable
+              as IList<HadithFlashcard>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AddToMyFlashcardImpl implements _AddToMyFlashcard {
+  const _$AddToMyFlashcardImpl({required this.flashcards});
+
+  @override
+  final IList<HadithFlashcard> flashcards;
+
+  @override
+  String toString() {
+    return 'HadithFlashcardEvent.addToMyFlashcard(flashcards: $flashcards)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddToMyFlashcardImpl &&
+            const DeepCollectionEquality()
+                .equals(other.flashcards, flashcards));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(flashcards));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddToMyFlashcardImplCopyWith<_$AddToMyFlashcardImpl> get copyWith =>
+      __$$AddToMyFlashcardImplCopyWithImpl<_$AddToMyFlashcardImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            UniqueString userID, HadithFlashcard flashcard, int? quality)
+        saveFlashcard,
+    required TResult Function(UniqueString userID, UnemptyString flashcardID)
+        deleteFlashcard,
+    required TResult Function(UniqueString userID) getFlashcard,
+    required TResult Function() resetFlashcardSnackBar,
+    required TResult Function(bool isShowClarification)
+        resetFlashcardClarification,
+    required TResult Function(IList<HadithFlashcard> flashcards)
+        addToMyFlashcard,
+    required TResult Function(HadithFlashcard flashcard) deleteFromMyFlashcard,
+  }) {
+    return addToMyFlashcard(flashcards);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+            UniqueString userID, HadithFlashcard flashcard, int? quality)?
+        saveFlashcard,
+    TResult? Function(UniqueString userID, UnemptyString flashcardID)?
+        deleteFlashcard,
+    TResult? Function(UniqueString userID)? getFlashcard,
+    TResult? Function()? resetFlashcardSnackBar,
+    TResult? Function(bool isShowClarification)? resetFlashcardClarification,
+    TResult? Function(IList<HadithFlashcard> flashcards)? addToMyFlashcard,
+    TResult? Function(HadithFlashcard flashcard)? deleteFromMyFlashcard,
+  }) {
+    return addToMyFlashcard?.call(flashcards);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            UniqueString userID, HadithFlashcard flashcard, int? quality)?
+        saveFlashcard,
+    TResult Function(UniqueString userID, UnemptyString flashcardID)?
+        deleteFlashcard,
+    TResult Function(UniqueString userID)? getFlashcard,
+    TResult Function()? resetFlashcardSnackBar,
+    TResult Function(bool isShowClarification)? resetFlashcardClarification,
+    TResult Function(IList<HadithFlashcard> flashcards)? addToMyFlashcard,
+    TResult Function(HadithFlashcard flashcard)? deleteFromMyFlashcard,
+    required TResult orElse(),
+  }) {
+    if (addToMyFlashcard != null) {
+      return addToMyFlashcard(flashcards);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SaveFlashcard value) saveFlashcard,
+    required TResult Function(_DeleteFlashcard value) deleteFlashcard,
+    required TResult Function(_GetFlashcard value) getFlashcard,
+    required TResult Function(_ResetFlashcardSnackBar value)
+        resetFlashcardSnackBar,
+    required TResult Function(_ResetFlashcardClarification value)
+        resetFlashcardClarification,
+    required TResult Function(_AddToMyFlashcard value) addToMyFlashcard,
+    required TResult Function(_DeleteFromMyFlashcard value)
+        deleteFromMyFlashcard,
+  }) {
+    return addToMyFlashcard(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SaveFlashcard value)? saveFlashcard,
+    TResult? Function(_DeleteFlashcard value)? deleteFlashcard,
+    TResult? Function(_GetFlashcard value)? getFlashcard,
+    TResult? Function(_ResetFlashcardSnackBar value)? resetFlashcardSnackBar,
+    TResult? Function(_ResetFlashcardClarification value)?
+        resetFlashcardClarification,
+    TResult? Function(_AddToMyFlashcard value)? addToMyFlashcard,
+    TResult? Function(_DeleteFromMyFlashcard value)? deleteFromMyFlashcard,
+  }) {
+    return addToMyFlashcard?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SaveFlashcard value)? saveFlashcard,
+    TResult Function(_DeleteFlashcard value)? deleteFlashcard,
+    TResult Function(_GetFlashcard value)? getFlashcard,
+    TResult Function(_ResetFlashcardSnackBar value)? resetFlashcardSnackBar,
+    TResult Function(_ResetFlashcardClarification value)?
+        resetFlashcardClarification,
+    TResult Function(_AddToMyFlashcard value)? addToMyFlashcard,
+    TResult Function(_DeleteFromMyFlashcard value)? deleteFromMyFlashcard,
+    required TResult orElse(),
+  }) {
+    if (addToMyFlashcard != null) {
+      return addToMyFlashcard(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AddToMyFlashcard implements HadithFlashcardEvent {
+  const factory _AddToMyFlashcard(
+          {required final IList<HadithFlashcard> flashcards}) =
+      _$AddToMyFlashcardImpl;
+
+  IList<HadithFlashcard> get flashcards;
+  @JsonKey(ignore: true)
+  _$$AddToMyFlashcardImplCopyWith<_$AddToMyFlashcardImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DeleteFromMyFlashcardImplCopyWith<$Res> {
+  factory _$$DeleteFromMyFlashcardImplCopyWith(
+          _$DeleteFromMyFlashcardImpl value,
+          $Res Function(_$DeleteFromMyFlashcardImpl) then) =
+      __$$DeleteFromMyFlashcardImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({HadithFlashcard flashcard});
+
+  $HadithFlashcardCopyWith<$Res> get flashcard;
+}
+
+/// @nodoc
+class __$$DeleteFromMyFlashcardImplCopyWithImpl<$Res>
+    extends _$HadithFlashcardEventCopyWithImpl<$Res,
+        _$DeleteFromMyFlashcardImpl>
+    implements _$$DeleteFromMyFlashcardImplCopyWith<$Res> {
+  __$$DeleteFromMyFlashcardImplCopyWithImpl(_$DeleteFromMyFlashcardImpl _value,
+      $Res Function(_$DeleteFromMyFlashcardImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? flashcard = null,
+  }) {
+    return _then(_$DeleteFromMyFlashcardImpl(
+      flashcard: null == flashcard
+          ? _value.flashcard
+          : flashcard // ignore: cast_nullable_to_non_nullable
+              as HadithFlashcard,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $HadithFlashcardCopyWith<$Res> get flashcard {
+    return $HadithFlashcardCopyWith<$Res>(_value.flashcard, (value) {
+      return _then(_value.copyWith(flashcard: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$DeleteFromMyFlashcardImpl implements _DeleteFromMyFlashcard {
+  const _$DeleteFromMyFlashcardImpl({required this.flashcard});
+
+  @override
+  final HadithFlashcard flashcard;
+
+  @override
+  String toString() {
+    return 'HadithFlashcardEvent.deleteFromMyFlashcard(flashcard: $flashcard)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeleteFromMyFlashcardImpl &&
+            (identical(other.flashcard, flashcard) ||
+                other.flashcard == flashcard));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, flashcard);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeleteFromMyFlashcardImplCopyWith<_$DeleteFromMyFlashcardImpl>
+      get copyWith => __$$DeleteFromMyFlashcardImplCopyWithImpl<
+          _$DeleteFromMyFlashcardImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            UniqueString userID, HadithFlashcard flashcard, int? quality)
+        saveFlashcard,
+    required TResult Function(UniqueString userID, UnemptyString flashcardID)
+        deleteFlashcard,
+    required TResult Function(UniqueString userID) getFlashcard,
+    required TResult Function() resetFlashcardSnackBar,
+    required TResult Function(bool isShowClarification)
+        resetFlashcardClarification,
+    required TResult Function(IList<HadithFlashcard> flashcards)
+        addToMyFlashcard,
+    required TResult Function(HadithFlashcard flashcard) deleteFromMyFlashcard,
+  }) {
+    return deleteFromMyFlashcard(flashcard);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+            UniqueString userID, HadithFlashcard flashcard, int? quality)?
+        saveFlashcard,
+    TResult? Function(UniqueString userID, UnemptyString flashcardID)?
+        deleteFlashcard,
+    TResult? Function(UniqueString userID)? getFlashcard,
+    TResult? Function()? resetFlashcardSnackBar,
+    TResult? Function(bool isShowClarification)? resetFlashcardClarification,
+    TResult? Function(IList<HadithFlashcard> flashcards)? addToMyFlashcard,
+    TResult? Function(HadithFlashcard flashcard)? deleteFromMyFlashcard,
+  }) {
+    return deleteFromMyFlashcard?.call(flashcard);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            UniqueString userID, HadithFlashcard flashcard, int? quality)?
+        saveFlashcard,
+    TResult Function(UniqueString userID, UnemptyString flashcardID)?
+        deleteFlashcard,
+    TResult Function(UniqueString userID)? getFlashcard,
+    TResult Function()? resetFlashcardSnackBar,
+    TResult Function(bool isShowClarification)? resetFlashcardClarification,
+    TResult Function(IList<HadithFlashcard> flashcards)? addToMyFlashcard,
+    TResult Function(HadithFlashcard flashcard)? deleteFromMyFlashcard,
+    required TResult orElse(),
+  }) {
+    if (deleteFromMyFlashcard != null) {
+      return deleteFromMyFlashcard(flashcard);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SaveFlashcard value) saveFlashcard,
+    required TResult Function(_DeleteFlashcard value) deleteFlashcard,
+    required TResult Function(_GetFlashcard value) getFlashcard,
+    required TResult Function(_ResetFlashcardSnackBar value)
+        resetFlashcardSnackBar,
+    required TResult Function(_ResetFlashcardClarification value)
+        resetFlashcardClarification,
+    required TResult Function(_AddToMyFlashcard value) addToMyFlashcard,
+    required TResult Function(_DeleteFromMyFlashcard value)
+        deleteFromMyFlashcard,
+  }) {
+    return deleteFromMyFlashcard(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SaveFlashcard value)? saveFlashcard,
+    TResult? Function(_DeleteFlashcard value)? deleteFlashcard,
+    TResult? Function(_GetFlashcard value)? getFlashcard,
+    TResult? Function(_ResetFlashcardSnackBar value)? resetFlashcardSnackBar,
+    TResult? Function(_ResetFlashcardClarification value)?
+        resetFlashcardClarification,
+    TResult? Function(_AddToMyFlashcard value)? addToMyFlashcard,
+    TResult? Function(_DeleteFromMyFlashcard value)? deleteFromMyFlashcard,
+  }) {
+    return deleteFromMyFlashcard?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SaveFlashcard value)? saveFlashcard,
+    TResult Function(_DeleteFlashcard value)? deleteFlashcard,
+    TResult Function(_GetFlashcard value)? getFlashcard,
+    TResult Function(_ResetFlashcardSnackBar value)? resetFlashcardSnackBar,
+    TResult Function(_ResetFlashcardClarification value)?
+        resetFlashcardClarification,
+    TResult Function(_AddToMyFlashcard value)? addToMyFlashcard,
+    TResult Function(_DeleteFromMyFlashcard value)? deleteFromMyFlashcard,
+    required TResult orElse(),
+  }) {
+    if (deleteFromMyFlashcard != null) {
+      return deleteFromMyFlashcard(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DeleteFromMyFlashcard implements HadithFlashcardEvent {
+  const factory _DeleteFromMyFlashcard(
+      {required final HadithFlashcard flashcard}) = _$DeleteFromMyFlashcardImpl;
+
+  HadithFlashcard get flashcard;
+  @JsonKey(ignore: true)
+  _$$DeleteFromMyFlashcardImplCopyWith<_$DeleteFromMyFlashcardImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$HadithFlashcardState {
   int get numofReviewedFlashcard => throw _privateConstructorUsedError;
   int get flashcardToReviewTodayLength => throw _privateConstructorUsedError;
   bool get isShowResetFlashcardClarification =>
       throw _privateConstructorUsedError;
   IList<HadithFlashcard> get flashcards => throw _privateConstructorUsedError;
+  IList<HadithFlashcard> get myHadithFlashcards =>
+      throw _privateConstructorUsedError;
   Option<Either<CommonFailures, Unit>> get optionFailureOrSaveFlashcard =>
+      throw _privateConstructorUsedError;
+  Option<Either<CommonFailures, Unit>> get optionFailureOrDeleteFlashcard =>
       throw _privateConstructorUsedError;
   Option<Either<CommonFailures, IList<HadithFlashcard>>>
       get optionFailureOrGetFlashcard => throw _privateConstructorUsedError;
@@ -765,7 +1455,9 @@ abstract class $HadithFlashcardStateCopyWith<$Res> {
       int flashcardToReviewTodayLength,
       bool isShowResetFlashcardClarification,
       IList<HadithFlashcard> flashcards,
+      IList<HadithFlashcard> myHadithFlashcards,
       Option<Either<CommonFailures, Unit>> optionFailureOrSaveFlashcard,
+      Option<Either<CommonFailures, Unit>> optionFailureOrDeleteFlashcard,
       Option<Either<CommonFailures, IList<HadithFlashcard>>>
           optionFailureOrGetFlashcard});
 }
@@ -788,7 +1480,9 @@ class _$HadithFlashcardStateCopyWithImpl<$Res,
     Object? flashcardToReviewTodayLength = null,
     Object? isShowResetFlashcardClarification = null,
     Object? flashcards = null,
+    Object? myHadithFlashcards = null,
     Object? optionFailureOrSaveFlashcard = null,
+    Object? optionFailureOrDeleteFlashcard = null,
     Object? optionFailureOrGetFlashcard = null,
   }) {
     return _then(_value.copyWith(
@@ -809,9 +1503,17 @@ class _$HadithFlashcardStateCopyWithImpl<$Res,
           ? _value.flashcards
           : flashcards // ignore: cast_nullable_to_non_nullable
               as IList<HadithFlashcard>,
+      myHadithFlashcards: null == myHadithFlashcards
+          ? _value.myHadithFlashcards
+          : myHadithFlashcards // ignore: cast_nullable_to_non_nullable
+              as IList<HadithFlashcard>,
       optionFailureOrSaveFlashcard: null == optionFailureOrSaveFlashcard
           ? _value.optionFailureOrSaveFlashcard
           : optionFailureOrSaveFlashcard // ignore: cast_nullable_to_non_nullable
+              as Option<Either<CommonFailures, Unit>>,
+      optionFailureOrDeleteFlashcard: null == optionFailureOrDeleteFlashcard
+          ? _value.optionFailureOrDeleteFlashcard
+          : optionFailureOrDeleteFlashcard // ignore: cast_nullable_to_non_nullable
               as Option<Either<CommonFailures, Unit>>,
       optionFailureOrGetFlashcard: null == optionFailureOrGetFlashcard
           ? _value.optionFailureOrGetFlashcard
@@ -834,7 +1536,9 @@ abstract class _$$HadithFlashcardStateImplCopyWith<$Res>
       int flashcardToReviewTodayLength,
       bool isShowResetFlashcardClarification,
       IList<HadithFlashcard> flashcards,
+      IList<HadithFlashcard> myHadithFlashcards,
       Option<Either<CommonFailures, Unit>> optionFailureOrSaveFlashcard,
+      Option<Either<CommonFailures, Unit>> optionFailureOrDeleteFlashcard,
       Option<Either<CommonFailures, IList<HadithFlashcard>>>
           optionFailureOrGetFlashcard});
 }
@@ -854,7 +1558,9 @@ class __$$HadithFlashcardStateImplCopyWithImpl<$Res>
     Object? flashcardToReviewTodayLength = null,
     Object? isShowResetFlashcardClarification = null,
     Object? flashcards = null,
+    Object? myHadithFlashcards = null,
     Object? optionFailureOrSaveFlashcard = null,
+    Object? optionFailureOrDeleteFlashcard = null,
     Object? optionFailureOrGetFlashcard = null,
   }) {
     return _then(_$HadithFlashcardStateImpl(
@@ -875,9 +1581,17 @@ class __$$HadithFlashcardStateImplCopyWithImpl<$Res>
           ? _value.flashcards
           : flashcards // ignore: cast_nullable_to_non_nullable
               as IList<HadithFlashcard>,
+      myHadithFlashcards: null == myHadithFlashcards
+          ? _value.myHadithFlashcards
+          : myHadithFlashcards // ignore: cast_nullable_to_non_nullable
+              as IList<HadithFlashcard>,
       optionFailureOrSaveFlashcard: null == optionFailureOrSaveFlashcard
           ? _value.optionFailureOrSaveFlashcard
           : optionFailureOrSaveFlashcard // ignore: cast_nullable_to_non_nullable
+              as Option<Either<CommonFailures, Unit>>,
+      optionFailureOrDeleteFlashcard: null == optionFailureOrDeleteFlashcard
+          ? _value.optionFailureOrDeleteFlashcard
+          : optionFailureOrDeleteFlashcard // ignore: cast_nullable_to_non_nullable
               as Option<Either<CommonFailures, Unit>>,
       optionFailureOrGetFlashcard: null == optionFailureOrGetFlashcard
           ? _value.optionFailureOrGetFlashcard
@@ -895,7 +1609,9 @@ class _$HadithFlashcardStateImpl implements _HadithFlashcardState {
       required this.flashcardToReviewTodayLength,
       required this.isShowResetFlashcardClarification,
       required this.flashcards,
+      required this.myHadithFlashcards,
       required this.optionFailureOrSaveFlashcard,
+      required this.optionFailureOrDeleteFlashcard,
       required this.optionFailureOrGetFlashcard});
 
   @override
@@ -907,14 +1623,18 @@ class _$HadithFlashcardStateImpl implements _HadithFlashcardState {
   @override
   final IList<HadithFlashcard> flashcards;
   @override
+  final IList<HadithFlashcard> myHadithFlashcards;
+  @override
   final Option<Either<CommonFailures, Unit>> optionFailureOrSaveFlashcard;
+  @override
+  final Option<Either<CommonFailures, Unit>> optionFailureOrDeleteFlashcard;
   @override
   final Option<Either<CommonFailures, IList<HadithFlashcard>>>
       optionFailureOrGetFlashcard;
 
   @override
   String toString() {
-    return 'HadithFlashcardState(numofReviewedFlashcard: $numofReviewedFlashcard, flashcardToReviewTodayLength: $flashcardToReviewTodayLength, isShowResetFlashcardClarification: $isShowResetFlashcardClarification, flashcards: $flashcards, optionFailureOrSaveFlashcard: $optionFailureOrSaveFlashcard, optionFailureOrGetFlashcard: $optionFailureOrGetFlashcard)';
+    return 'HadithFlashcardState(numofReviewedFlashcard: $numofReviewedFlashcard, flashcardToReviewTodayLength: $flashcardToReviewTodayLength, isShowResetFlashcardClarification: $isShowResetFlashcardClarification, flashcards: $flashcards, myHadithFlashcards: $myHadithFlashcards, optionFailureOrSaveFlashcard: $optionFailureOrSaveFlashcard, optionFailureOrDeleteFlashcard: $optionFailureOrDeleteFlashcard, optionFailureOrGetFlashcard: $optionFailureOrGetFlashcard)';
   }
 
   @override
@@ -934,10 +1654,16 @@ class _$HadithFlashcardStateImpl implements _HadithFlashcardState {
                     isShowResetFlashcardClarification) &&
             const DeepCollectionEquality()
                 .equals(other.flashcards, flashcards) &&
+            const DeepCollectionEquality()
+                .equals(other.myHadithFlashcards, myHadithFlashcards) &&
             (identical(other.optionFailureOrSaveFlashcard,
                     optionFailureOrSaveFlashcard) ||
                 other.optionFailureOrSaveFlashcard ==
                     optionFailureOrSaveFlashcard) &&
+            (identical(other.optionFailureOrDeleteFlashcard,
+                    optionFailureOrDeleteFlashcard) ||
+                other.optionFailureOrDeleteFlashcard ==
+                    optionFailureOrDeleteFlashcard) &&
             (identical(other.optionFailureOrGetFlashcard,
                     optionFailureOrGetFlashcard) ||
                 other.optionFailureOrGetFlashcard ==
@@ -951,7 +1677,9 @@ class _$HadithFlashcardStateImpl implements _HadithFlashcardState {
       flashcardToReviewTodayLength,
       isShowResetFlashcardClarification,
       const DeepCollectionEquality().hash(flashcards),
+      const DeepCollectionEquality().hash(myHadithFlashcards),
       optionFailureOrSaveFlashcard,
+      optionFailureOrDeleteFlashcard,
       optionFailureOrGetFlashcard);
 
   @JsonKey(ignore: true)
@@ -969,8 +1697,11 @@ abstract class _HadithFlashcardState implements HadithFlashcardState {
       required final int flashcardToReviewTodayLength,
       required final bool isShowResetFlashcardClarification,
       required final IList<HadithFlashcard> flashcards,
+      required final IList<HadithFlashcard> myHadithFlashcards,
       required final Option<Either<CommonFailures, Unit>>
           optionFailureOrSaveFlashcard,
+      required final Option<Either<CommonFailures, Unit>>
+          optionFailureOrDeleteFlashcard,
       required final Option<Either<CommonFailures, IList<HadithFlashcard>>>
           optionFailureOrGetFlashcard}) = _$HadithFlashcardStateImpl;
 
@@ -983,7 +1714,11 @@ abstract class _HadithFlashcardState implements HadithFlashcardState {
   @override
   IList<HadithFlashcard> get flashcards;
   @override
+  IList<HadithFlashcard> get myHadithFlashcards;
+  @override
   Option<Either<CommonFailures, Unit>> get optionFailureOrSaveFlashcard;
+  @override
+  Option<Either<CommonFailures, Unit>> get optionFailureOrDeleteFlashcard;
   @override
   Option<Either<CommonFailures, IList<HadithFlashcard>>>
       get optionFailureOrGetFlashcard;

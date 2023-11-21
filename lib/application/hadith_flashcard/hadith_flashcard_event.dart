@@ -7,6 +7,10 @@ class HadithFlashcardEvent with _$HadithFlashcardEvent {
     required HadithFlashcard flashcard,
     int? quality,
   }) = _SaveFlashcard;
+  const factory HadithFlashcardEvent.deleteFlashcard({
+    required UniqueString userID,
+    required UnemptyString flashcardID,
+  }) = _DeleteFlashcard;
   const factory HadithFlashcardEvent.getFlashcard({
     required UniqueString userID,
   }) = _GetFlashcard;
@@ -15,4 +19,10 @@ class HadithFlashcardEvent with _$HadithFlashcardEvent {
   const factory HadithFlashcardEvent.resetFlashcardClarification({
     required bool isShowClarification,
   }) = _ResetFlashcardClarification;
+  const factory HadithFlashcardEvent.addToMyFlashcard({
+    required IList<HadithFlashcard> flashcards,
+  }) = _AddToMyFlashcard;
+  const factory HadithFlashcardEvent.deleteFromMyFlashcard({
+    required HadithFlashcard flashcard,
+  }) = _DeleteFromMyFlashcard;
 }

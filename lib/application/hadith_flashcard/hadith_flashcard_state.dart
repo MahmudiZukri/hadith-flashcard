@@ -7,7 +7,10 @@ class HadithFlashcardState with _$HadithFlashcardState {
     required int flashcardToReviewTodayLength,
     required bool isShowResetFlashcardClarification,
     required IList<HadithFlashcard> flashcards,
+    required IList<HadithFlashcard> myHadithFlashcards,
     required Option<Either<CommonFailures, Unit>> optionFailureOrSaveFlashcard,
+    required Option<Either<CommonFailures, Unit>>
+        optionFailureOrDeleteFlashcard,
     required Option<Either<CommonFailures, IList<HadithFlashcard>>>
         optionFailureOrGetFlashcard,
   }) = _HadithFlashcardState;
@@ -17,7 +20,9 @@ class HadithFlashcardState with _$HadithFlashcardState {
         flashcardToReviewTodayLength: 0,
         isShowResetFlashcardClarification: false,
         flashcards: <HadithFlashcard>[].lock,
+        myHadithFlashcards: <HadithFlashcard>[].lock,
         optionFailureOrSaveFlashcard: none(),
+        optionFailureOrDeleteFlashcard: none(),
         optionFailureOrGetFlashcard: none(),
       );
 }

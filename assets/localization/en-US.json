@@ -21,7 +21,7 @@
     "addCard" : "Add Card",
     "review" : "Review",
     "profile" : "Profile",
-    "youDon'tHaveAnyFlashcard" : "You don't have any flashcard",
+    "youDon'tHaveAnyFlashcard" : "You don't have any flashcards",
     "addYourFlashcard" : "Add Your Flashcard",
     "youDon'tHaveFlashcardsToReview" : "You don't have flashcards to review :(",
     "addMoreFlashcards" : "Add More Flashcards",
@@ -33,6 +33,7 @@
     "help" : "Help",
     "aboutApp" : "About app",
     "privacyPolicy" : "Privacy policy",
+    "shareApp" : "Share app",
     "chooseLanguage" : "Choose language :",
     "signOut" : "Sign Out",
     "thisCannotBeEmpty" : "This cannot be empty",
@@ -42,6 +43,8 @@
     "congratsYouHaveCompletedToday'sFlashcard" : "Congrats! You have completed today's flashcard",
     "addToFlashcard" : "Add to flashcard",
     "close" : "Close",
+    "delete" : "Delete",
+    "areYouSureWannaDelete" : "Are you sure want to delete",
     "areYouSureWantToResetYourFlashcardProgress" : "This flashcard has already been added, if it is added again the flashcard process will be reset. Are you sure?",
     "yes" : "Yes",
     "no" : "No",
@@ -58,5 +61,7 @@
     "privacyPolicyTitle3" : "Security Information :",
     "privacyPolicyText1" : "The Hadith Flashcard app uses Google Firebase Analytics (a product owned by Google) to collect information such as device model, operating system version, and which features are frequently accessed in the app. We use this information to understand user experience and improve the app in future updates. It's important to note that nearly all apps on Google Play Store use Google Firebase Analytics.",
     "privacyPolicyText2" : "The Hadith Flashcard app uses Google Firebase Authentication for \"Sign-In\" in our app, allowing us to identify your Last Read and Bookmark data by automatically saving it to our server. Therefore, your email address will be indirectly stored in our Firebase dashboard and server. It's important to know that Firebase is a Google product, and Google does not allow developers (including us) to know your password in any way. So, you don't need to worry about losing your email account due to \"Sign-In\" in our app. We only collect your email address to facilitate the identification of your Flashcard, and we will not share your email address with anyone for any purpose.",
-    "privacyPolicyText3" : "We have implemented administrative and technical security measures believed to be very advanced to protect your data and privacy."
+    "privacyPolicyText3" : "We have implemented administrative and technical security measures believed to be very advanced to protect your data and privacy.",
+    "youDon'tHaveNarratorflashcards" : "You don't have narrator {narrator} flashcards"
+
 }

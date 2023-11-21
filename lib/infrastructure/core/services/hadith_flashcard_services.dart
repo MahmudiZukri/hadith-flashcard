@@ -32,6 +32,19 @@ class HadithFlashcardServices {
     );
   }
 
+  static Future<void> deleteFlashcard({
+    required String userID,
+    required String flashcardID,
+  }) async {
+    await _hadithFlashcardCollection.doc(flashcardID).delete().onError(
+      (error, stackTrace) {
+        debugPrint(
+          'stacktrace : ($stackTrace) ||  error: ($error)',
+        );
+      },
+    );
+  }
+
   static Future<List<HadithFlashcardModel>> getFlashcard({
     required String userID,
   }) async {

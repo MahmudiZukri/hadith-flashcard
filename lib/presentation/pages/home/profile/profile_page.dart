@@ -88,22 +88,22 @@ class ProfilePage extends StatelessWidget {
                             title: 'help'.tr(),
                           ),
 
-                          // About app
-                          AboutAppSection(
-                            userID: userID,
-                            title: 'aboutApp'.tr(),
-                          ),
-
                           // Privacy policy
                           PrivacyPolicySection(
                             userID: userID,
                             title: 'privacyPolicy'.tr(),
                           ),
 
+                          // About app
+                          AboutAppSection(
+                            userID: userID,
+                            title: 'aboutApp'.tr(),
+                          ),
+
                           // Share app
                           AboutAppSection(
                             userID: userID,
-                            title: 'shareApplication'.tr(),
+                            title: 'shareApp'.tr(),
                           ),
 
                           // consider makes rating feature, analitycs

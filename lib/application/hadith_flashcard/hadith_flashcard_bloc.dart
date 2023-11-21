@@ -40,6 +40,22 @@ class HadithFlashcardBloc
               ),
             );
           },
+          addToMyFlashcard: (e) {
+            emit(
+              state.copyWith(
+                myHadithFlashcards: e.flashcards,
+              ),
+            );
+          },
+          deleteFromMyFlashcard: (e) {
+            emit(
+              state.copyWith(
+                myHadithFlashcards: state.myHadithFlashcards.remove(
+                  e.flashcard,
+                ),
+              ),
+            );
+          },
           saveFlashcard: (e) async {
             Sm2Response? smResponse;
             HadithFlashcardModel cardModel;
@@ -82,6 +98,21 @@ class HadithFlashcardBloc
                 numofReviewedFlashcard: e.quality != null
                     ? state.numofReviewedFlashcard + 1
                     : state.numofReviewedFlashcard,
+              ),
+            );
+          },
+          deleteFlashcard: (e) async {
+            final failureOrResponse =
+                await hadithFlashcardRepository.deleteFlashcard(
+              userID: e.userID.getOrCrash(),
+              flashcardID: e.flashcardID.getOrCrash(),
+            );
+
+            emit(
+              state.copyWith(
+                optionFailureOrDeleteFlashcard: optionOf(
+                  failureOrResponse,
+                ),
               ),
             );
           },

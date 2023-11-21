@@ -304,7 +304,7 @@ class HadithPageScaffold extends StatelessWidget {
                                                       '${'Hadith'.tr()} ${hadithNarrator.name.getOrFailureText()} ${'Number'.tr()}  ${hadithNarratorState.hadiths[index].number.getOrCrash().toString()}',
                                                       style: primaryTextFont
                                                           .copyWith(
-                                                        fontSize: 17.0,
+                                                        fontSize: 16.0,
                                                         fontWeight:
                                                             FontWeight.w600,
                                                       ),
@@ -422,6 +422,11 @@ class HadithPageScaffold extends StatelessWidget {
                                                                       child:
                                                                           const Text(
                                                                         'areYouSureWantToResetYourFlashcardProgress',
+                                                                        style:
+                                                                            TextStyle(
+                                                                          fontSize:
+                                                                              14.0,
+                                                                        ),
                                                                       ).tr(),
                                                                     ),
                                                                     Row(
@@ -498,6 +503,11 @@ class HadithPageScaffold extends StatelessWidget {
                                                                 )
                                                               : const Text(
                                                                   'addToFlashcard',
+                                                                  style:
+                                                                      TextStyle(
+                                                                    fontSize:
+                                                                        14.0,
+                                                                  ),
                                                                 ).tr(),
                                                         ),
                                                       ),
@@ -506,7 +516,7 @@ class HadithPageScaffold extends StatelessWidget {
                                                       leading: SvgPicture.asset(
                                                         AssetUrl.closeIcon,
                                                         height: 26.0,
-                                                        color: primaryColor,
+                                                        color: redColor,
                                                       ),
                                                       onTap: () {
                                                         Navigator.pop(context);
@@ -524,10 +534,14 @@ class HadithPageScaffold extends StatelessWidget {
                                                       },
                                                       title: const Text(
                                                         'close',
+                                                        style: TextStyle(
+                                                          fontSize: 14.0,
+                                                        ),
                                                       ).tr(),
                                                     ),
                                                     const SizedBox(
-                                                        height: 18.0),
+                                                      height: 18.0,
+                                                    ),
                                                   ],
                                                 );
                                               },
