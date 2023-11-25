@@ -11,6 +11,8 @@ class CustomElevatedButtonWidget extends StatelessWidget {
     this.width,
     this.icon,
     this.isActive = true,
+    this.isWithBorder = false,
+    this.isWithElevation = false,
   }) : super(key: key);
 
   final String text;
@@ -21,6 +23,8 @@ class CustomElevatedButtonWidget extends StatelessWidget {
   final double? width;
   final Widget? icon;
   final bool isActive;
+  final bool isWithBorder;
+  final bool isWithElevation;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +33,11 @@ class CustomElevatedButtonWidget extends StatelessWidget {
       width: width ?? double.infinity,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
+          elevation: isWithElevation ? null : 0.0,
           shape: RoundedRectangleBorder(
+            side: isWithBorder
+                ? const BorderSide(color: whiteColor)
+                : BorderSide.none,
             borderRadius: largeBorderRadius(),
           ),
           backgroundColor: isActive ? backgroundColor : greyColor,

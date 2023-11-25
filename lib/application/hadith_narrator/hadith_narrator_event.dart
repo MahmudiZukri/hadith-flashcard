@@ -8,4 +8,11 @@ class HadithNarratorEvent with _$HadithNarratorEvent {
     bool? isNextPage,
     PositiveNumber? limit,
   }) = _GetHadithByNarratorName;
+  const factory HadithNarratorEvent.narratorFilterChanged({
+    required UniqueString narratorName,
+  }) = _NarratorFilterChanged;
+  const factory HadithNarratorEvent.hadithNumberSearch({
+    required UnemptyString numberText,
+  }) = _HadithNumberSearch;
+  const factory HadithNarratorEvent.searchHadith() = _SearchHadith;
 }

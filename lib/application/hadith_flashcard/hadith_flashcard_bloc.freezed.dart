@@ -1425,6 +1425,7 @@ abstract class _DeleteFromMyFlashcard implements HadithFlashcardEvent {
 
 /// @nodoc
 mixin _$HadithFlashcardState {
+  UnemptyString? get searchFlashcardText => throw _privateConstructorUsedError;
   int get numofReviewedFlashcard => throw _privateConstructorUsedError;
   int get flashcardToReviewTodayLength => throw _privateConstructorUsedError;
   bool get isShowResetFlashcardClarification =>
@@ -1451,7 +1452,8 @@ abstract class $HadithFlashcardStateCopyWith<$Res> {
       _$HadithFlashcardStateCopyWithImpl<$Res, HadithFlashcardState>;
   @useResult
   $Res call(
-      {int numofReviewedFlashcard,
+      {UnemptyString? searchFlashcardText,
+      int numofReviewedFlashcard,
       int flashcardToReviewTodayLength,
       bool isShowResetFlashcardClarification,
       IList<HadithFlashcard> flashcards,
@@ -1476,6 +1478,7 @@ class _$HadithFlashcardStateCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? searchFlashcardText = freezed,
     Object? numofReviewedFlashcard = null,
     Object? flashcardToReviewTodayLength = null,
     Object? isShowResetFlashcardClarification = null,
@@ -1486,6 +1489,10 @@ class _$HadithFlashcardStateCopyWithImpl<$Res,
     Object? optionFailureOrGetFlashcard = null,
   }) {
     return _then(_value.copyWith(
+      searchFlashcardText: freezed == searchFlashcardText
+          ? _value.searchFlashcardText
+          : searchFlashcardText // ignore: cast_nullable_to_non_nullable
+              as UnemptyString?,
       numofReviewedFlashcard: null == numofReviewedFlashcard
           ? _value.numofReviewedFlashcard
           : numofReviewedFlashcard // ignore: cast_nullable_to_non_nullable
@@ -1532,7 +1539,8 @@ abstract class _$$HadithFlashcardStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int numofReviewedFlashcard,
+      {UnemptyString? searchFlashcardText,
+      int numofReviewedFlashcard,
       int flashcardToReviewTodayLength,
       bool isShowResetFlashcardClarification,
       IList<HadithFlashcard> flashcards,
@@ -1554,6 +1562,7 @@ class __$$HadithFlashcardStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? searchFlashcardText = freezed,
     Object? numofReviewedFlashcard = null,
     Object? flashcardToReviewTodayLength = null,
     Object? isShowResetFlashcardClarification = null,
@@ -1564,6 +1573,10 @@ class __$$HadithFlashcardStateImplCopyWithImpl<$Res>
     Object? optionFailureOrGetFlashcard = null,
   }) {
     return _then(_$HadithFlashcardStateImpl(
+      searchFlashcardText: freezed == searchFlashcardText
+          ? _value.searchFlashcardText
+          : searchFlashcardText // ignore: cast_nullable_to_non_nullable
+              as UnemptyString?,
       numofReviewedFlashcard: null == numofReviewedFlashcard
           ? _value.numofReviewedFlashcard
           : numofReviewedFlashcard // ignore: cast_nullable_to_non_nullable
@@ -1605,7 +1618,8 @@ class __$$HadithFlashcardStateImplCopyWithImpl<$Res>
 
 class _$HadithFlashcardStateImpl implements _HadithFlashcardState {
   const _$HadithFlashcardStateImpl(
-      {required this.numofReviewedFlashcard,
+      {required this.searchFlashcardText,
+      required this.numofReviewedFlashcard,
       required this.flashcardToReviewTodayLength,
       required this.isShowResetFlashcardClarification,
       required this.flashcards,
@@ -1614,6 +1628,8 @@ class _$HadithFlashcardStateImpl implements _HadithFlashcardState {
       required this.optionFailureOrDeleteFlashcard,
       required this.optionFailureOrGetFlashcard});
 
+  @override
+  final UnemptyString? searchFlashcardText;
   @override
   final int numofReviewedFlashcard;
   @override
@@ -1634,7 +1650,7 @@ class _$HadithFlashcardStateImpl implements _HadithFlashcardState {
 
   @override
   String toString() {
-    return 'HadithFlashcardState(numofReviewedFlashcard: $numofReviewedFlashcard, flashcardToReviewTodayLength: $flashcardToReviewTodayLength, isShowResetFlashcardClarification: $isShowResetFlashcardClarification, flashcards: $flashcards, myHadithFlashcards: $myHadithFlashcards, optionFailureOrSaveFlashcard: $optionFailureOrSaveFlashcard, optionFailureOrDeleteFlashcard: $optionFailureOrDeleteFlashcard, optionFailureOrGetFlashcard: $optionFailureOrGetFlashcard)';
+    return 'HadithFlashcardState(searchFlashcardText: $searchFlashcardText, numofReviewedFlashcard: $numofReviewedFlashcard, flashcardToReviewTodayLength: $flashcardToReviewTodayLength, isShowResetFlashcardClarification: $isShowResetFlashcardClarification, flashcards: $flashcards, myHadithFlashcards: $myHadithFlashcards, optionFailureOrSaveFlashcard: $optionFailureOrSaveFlashcard, optionFailureOrDeleteFlashcard: $optionFailureOrDeleteFlashcard, optionFailureOrGetFlashcard: $optionFailureOrGetFlashcard)';
   }
 
   @override
@@ -1642,6 +1658,8 @@ class _$HadithFlashcardStateImpl implements _HadithFlashcardState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$HadithFlashcardStateImpl &&
+            (identical(other.searchFlashcardText, searchFlashcardText) ||
+                other.searchFlashcardText == searchFlashcardText) &&
             (identical(other.numofReviewedFlashcard, numofReviewedFlashcard) ||
                 other.numofReviewedFlashcard == numofReviewedFlashcard) &&
             (identical(other.flashcardToReviewTodayLength,
@@ -1673,6 +1691,7 @@ class _$HadithFlashcardStateImpl implements _HadithFlashcardState {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      searchFlashcardText,
       numofReviewedFlashcard,
       flashcardToReviewTodayLength,
       isShowResetFlashcardClarification,
@@ -1693,7 +1712,8 @@ class _$HadithFlashcardStateImpl implements _HadithFlashcardState {
 
 abstract class _HadithFlashcardState implements HadithFlashcardState {
   const factory _HadithFlashcardState(
-      {required final int numofReviewedFlashcard,
+      {required final UnemptyString? searchFlashcardText,
+      required final int numofReviewedFlashcard,
       required final int flashcardToReviewTodayLength,
       required final bool isShowResetFlashcardClarification,
       required final IList<HadithFlashcard> flashcards,
@@ -1705,6 +1725,8 @@ abstract class _HadithFlashcardState implements HadithFlashcardState {
       required final Option<Either<CommonFailures, IList<HadithFlashcard>>>
           optionFailureOrGetFlashcard}) = _$HadithFlashcardStateImpl;
 
+  @override
+  UnemptyString? get searchFlashcardText;
   @override
   int get numofReviewedFlashcard;
   @override

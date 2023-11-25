@@ -49,11 +49,12 @@ class CustomSearchWidget extends StatelessWidget {
         width: width,
         padding: const EdgeInsets.only(right: 14.0),
         decoration: BoxDecoration(
-            color: backgroundColor,
-            border: Border.all(
-              color: borderColor,
-            ),
-            borderRadius: borderRadius),
+          color: backgroundColor,
+          border: Border.all(
+            color: borderColor,
+          ),
+          borderRadius: borderRadius,
+        ),
         child: TextField(
           textAlign: TextAlign.left,
           style: TextStyle(

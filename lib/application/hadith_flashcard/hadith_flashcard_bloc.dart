@@ -22,7 +22,9 @@ class HadithFlashcardBloc
 
   HadithFlashcardBloc(
     this.hadithFlashcardRepository,
-  ) : super(HadithFlashcardState.initial()) {
+  ) : super(
+          HadithFlashcardState.initial(),
+        ) {
     on<HadithFlashcardEvent>(
       (event, emit) async {
         await event.map(

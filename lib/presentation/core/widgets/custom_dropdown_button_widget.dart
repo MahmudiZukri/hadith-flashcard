@@ -3,27 +3,30 @@ part of 'widgets.dart';
 class CustomDropdownButtonWidget extends StatelessWidget {
   const CustomDropdownButtonWidget({
     required this.value,
-    this.fontSize = 14.0,
     required this.items,
     required this.borderRadius,
     required this.onChanged,
     required this.borderColor,
     required this.backgroundColor,
+    this.fontSize = 14.0,
+    this.width,
     super.key,
   });
 
   final String? value;
-  final double fontSize;
   final List<DropdownMenuItem<String>>? items;
   final BorderRadiusGeometry? borderRadius;
   final Function(String?)? onChanged;
   final Color borderColor;
   final Color? backgroundColor;
+  final double fontSize;
+  final double? width;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 45,
+      width: width,
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       decoration: BoxDecoration(
         border: Border.all(

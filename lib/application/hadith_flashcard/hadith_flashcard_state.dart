@@ -3,6 +3,7 @@ part of 'hadith_flashcard_bloc.dart';
 @freezed
 class HadithFlashcardState with _$HadithFlashcardState {
   const factory HadithFlashcardState({
+    required UnemptyString? searchFlashcardText,
     required int numofReviewedFlashcard,
     required int flashcardToReviewTodayLength,
     required bool isShowResetFlashcardClarification,
@@ -16,6 +17,7 @@ class HadithFlashcardState with _$HadithFlashcardState {
   }) = _HadithFlashcardState;
 
   factory HadithFlashcardState.initial() => HadithFlashcardState(
+        searchFlashcardText: null,
         numofReviewedFlashcard: 0,
         flashcardToReviewTodayLength: 0,
         isShowResetFlashcardClarification: false,

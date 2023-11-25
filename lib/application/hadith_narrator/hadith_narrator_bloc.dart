@@ -37,6 +37,23 @@ class HadithNarratorBloc
               ),
             );
           },
+          narratorFilterChanged: (e) {
+            emit(
+              state.copyWith(
+                selectedNarratorName: e.narratorName,
+              ),
+            );
+          },
+          hadithNumberSearch: (e) {
+            emit(
+              state.copyWith(
+                hadithNumberSearch: e.numberText,
+              ),
+            );
+          },
+          searchHadith: (e) {
+            // search hadith
+          },
           getHadithByNarratorName: (e) async {
             final failureOrResponse =
                 await hadithNarratorRepository.getHadithByNarratorName(

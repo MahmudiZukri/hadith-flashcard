@@ -43,6 +43,10 @@ class NarratorPage extends StatelessWidget {
                           const SizedBox(height: 24.0),
                           // Narrator filter and search section
                           NarratorFilterAndSearchRow(
+                            selectedNarratorName: hadithNarratorState
+                                    .selectedNarratorName
+                                    .getOrNull() ??
+                                hadithNarrators.first.name.getOrCrash(),
                             hadithNarrators: hadithNarrators,
                           ),
                           const SizedBox(height: 30.0),
@@ -202,46 +206,83 @@ class HadithNarratorShimmer extends StatelessWidget {
 
 class NarratorFilterAndSearchRow extends StatelessWidget {
   const NarratorFilterAndSearchRow({
+    required this.selectedNarratorName,
     required this.hadithNarrators,
     super.key,
   });
 
+  final String selectedNarratorName;
   final IList<HadithNarrator> hadithNarrators;
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      crossAxisAlignment: CrossAxisAlignment.center,
+    return Column(
       children: [
-        CustomDropdownButtonWidget(
-          borderColor: whiteColor,
-          backgroundColor: whiteColor.withOpacity(0.5),
-          value: hadithNarrators.first.name.getOrCrash(),
-          items: hadithNarrators
-              .map(
-                (element) => DropdownMenuItem(
-                  value: element.name.getOrCrash(),
-                  child: Text(
-                    element.name.getOrCrash(),
-                  ),
-                ),
-              )
-              .toList(),
-          borderRadius: mediumBorderRadius(),
-          onChanged: (val) {},
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            CustomDropdownButtonWidget(
+              borderColor: whiteColor,
+              width: (screenWidth(context) - 2 * defaultMargin - 20) / 2,
+              backgroundColor: whiteColor.withOpacity(0.5),
+              value: selectedNarratorName,
+              items: hadithNarrators
+                  .map(
+                    (element) => DropdownMenuItem(
+                      value: element.name.getOrCrash(),
+                      child: Text(
+                        element.name.getOrCrash(),
+                      ),
+                    ),
+                  )
+                  .toList(),
+              borderRadius: mediumBorderRadius(),
+              onChanged: (val) {
+                if (val != null) {
+                  context.read<HadithNarratorBloc>().add(
+                        HadithNarratorEvent.narratorFilterChanged(
+                          narratorName: UniqueString.fromUniqueString(
+                            val,
+                          ),
+                        ),
+                      );
+                }
+              },
+            ),
+            const SizedBox(width: 20.0),
+            //TODO: implement later
+            CustomSearchWidget(
+              height: 45,
+              hintText: 'Hadith number',
+              borderColor: whiteColor,
+              iconColor: whiteColor,
+              fontColor: blackColor,
+              borderRadius: mediumBorderRadius(),
+              width: (screenWidth(context) - 2 * defaultMargin - 20) / 2,
+              backgroundColor: whiteColor.withOpacity(0.5),
+              hintFontSize: 14.0,
+              hintColor: blackColor.withOpacity(0.5),
+              onChanged: (val) {
+                context.read<HadithNarratorBloc>().add(
+                      HadithNarratorEvent.hadithNumberSearch(
+                        numberText: UnemptyString(
+                          val,
+                        ),
+                      ),
+                    );
+              },
+            ),
+          ],
         ),
-        //TODO: implement later
-        CustomSearchWidget(
-          height: 45,
-          borderColor: whiteColor,
-          iconColor: whiteColor,
-          fontColor: blackColor,
-          borderRadius: mediumBorderRadius(),
-          width: screenWidth(context) / 2.2,
+        const SizedBox(height: 20.0),
+        CustomElevatedButtonWidget(
+          text: 'Search',
+          isWithBorder: true,
           backgroundColor: whiteColor.withOpacity(0.5),
-          hintFontSize: 14.0,
-        ),
+          textStyle: blackTextFont,
+          onPressed: () {},
+        )
       ],
     );
   }
