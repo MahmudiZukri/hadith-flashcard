@@ -20,32 +20,36 @@ mixin _$HadithNarratorEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() getHadithNarrators,
     required TResult Function(
-            UniqueString narratorName, bool? isNextPage, PositiveNumber? limit)
-        getHadithByNarratorName,
-    required TResult Function(UniqueString narratorName) narratorFilterChanged,
-    required TResult Function(UnemptyString numberText) hadithNumberSearch,
+            UniqueString narratorName,
+            PositiveNumber? hadithNumber,
+            bool? isNextPage,
+            PositiveNumber? limit)
+        getHadithsByNarratorName,
+    required TResult Function(HadithNarrator selectedNarrator)
+        narratorFilterChanged,
+    required TResult Function(PositiveNumber? number) hadithNumberSearch,
     required TResult Function() searchHadith,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getHadithNarrators,
-    TResult? Function(
-            UniqueString narratorName, bool? isNextPage, PositiveNumber? limit)?
-        getHadithByNarratorName,
-    TResult? Function(UniqueString narratorName)? narratorFilterChanged,
-    TResult? Function(UnemptyString numberText)? hadithNumberSearch,
+    TResult? Function(UniqueString narratorName, PositiveNumber? hadithNumber,
+            bool? isNextPage, PositiveNumber? limit)?
+        getHadithsByNarratorName,
+    TResult? Function(HadithNarrator selectedNarrator)? narratorFilterChanged,
+    TResult? Function(PositiveNumber? number)? hadithNumberSearch,
     TResult? Function()? searchHadith,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getHadithNarrators,
-    TResult Function(
-            UniqueString narratorName, bool? isNextPage, PositiveNumber? limit)?
-        getHadithByNarratorName,
-    TResult Function(UniqueString narratorName)? narratorFilterChanged,
-    TResult Function(UnemptyString numberText)? hadithNumberSearch,
+    TResult Function(UniqueString narratorName, PositiveNumber? hadithNumber,
+            bool? isNextPage, PositiveNumber? limit)?
+        getHadithsByNarratorName,
+    TResult Function(HadithNarrator selectedNarrator)? narratorFilterChanged,
+    TResult Function(PositiveNumber? number)? hadithNumberSearch,
     TResult Function()? searchHadith,
     required TResult orElse(),
   }) =>
@@ -54,7 +58,7 @@ mixin _$HadithNarratorEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_GetHadithNarrators value) getHadithNarrators,
     required TResult Function(_GetHadithByNarratorName value)
-        getHadithByNarratorName,
+        getHadithsByNarratorName,
     required TResult Function(_NarratorFilterChanged value)
         narratorFilterChanged,
     required TResult Function(_HadithNumberSearch value) hadithNumberSearch,
@@ -64,7 +68,7 @@ mixin _$HadithNarratorEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetHadithNarrators value)? getHadithNarrators,
-    TResult? Function(_GetHadithByNarratorName value)? getHadithByNarratorName,
+    TResult? Function(_GetHadithByNarratorName value)? getHadithsByNarratorName,
     TResult? Function(_NarratorFilterChanged value)? narratorFilterChanged,
     TResult? Function(_HadithNumberSearch value)? hadithNumberSearch,
     TResult? Function(_SearchHadith value)? searchHadith,
@@ -73,7 +77,7 @@ mixin _$HadithNarratorEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetHadithNarrators value)? getHadithNarrators,
-    TResult Function(_GetHadithByNarratorName value)? getHadithByNarratorName,
+    TResult Function(_GetHadithByNarratorName value)? getHadithsByNarratorName,
     TResult Function(_NarratorFilterChanged value)? narratorFilterChanged,
     TResult Function(_HadithNumberSearch value)? hadithNumberSearch,
     TResult Function(_SearchHadith value)? searchHadith,
@@ -140,10 +144,14 @@ class _$GetHadithNarratorsImpl implements _GetHadithNarrators {
   TResult when<TResult extends Object?>({
     required TResult Function() getHadithNarrators,
     required TResult Function(
-            UniqueString narratorName, bool? isNextPage, PositiveNumber? limit)
-        getHadithByNarratorName,
-    required TResult Function(UniqueString narratorName) narratorFilterChanged,
-    required TResult Function(UnemptyString numberText) hadithNumberSearch,
+            UniqueString narratorName,
+            PositiveNumber? hadithNumber,
+            bool? isNextPage,
+            PositiveNumber? limit)
+        getHadithsByNarratorName,
+    required TResult Function(HadithNarrator selectedNarrator)
+        narratorFilterChanged,
+    required TResult Function(PositiveNumber? number) hadithNumberSearch,
     required TResult Function() searchHadith,
   }) {
     return getHadithNarrators();
@@ -153,11 +161,11 @@ class _$GetHadithNarratorsImpl implements _GetHadithNarrators {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getHadithNarrators,
-    TResult? Function(
-            UniqueString narratorName, bool? isNextPage, PositiveNumber? limit)?
-        getHadithByNarratorName,
-    TResult? Function(UniqueString narratorName)? narratorFilterChanged,
-    TResult? Function(UnemptyString numberText)? hadithNumberSearch,
+    TResult? Function(UniqueString narratorName, PositiveNumber? hadithNumber,
+            bool? isNextPage, PositiveNumber? limit)?
+        getHadithsByNarratorName,
+    TResult? Function(HadithNarrator selectedNarrator)? narratorFilterChanged,
+    TResult? Function(PositiveNumber? number)? hadithNumberSearch,
     TResult? Function()? searchHadith,
   }) {
     return getHadithNarrators?.call();
@@ -167,11 +175,11 @@ class _$GetHadithNarratorsImpl implements _GetHadithNarrators {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getHadithNarrators,
-    TResult Function(
-            UniqueString narratorName, bool? isNextPage, PositiveNumber? limit)?
-        getHadithByNarratorName,
-    TResult Function(UniqueString narratorName)? narratorFilterChanged,
-    TResult Function(UnemptyString numberText)? hadithNumberSearch,
+    TResult Function(UniqueString narratorName, PositiveNumber? hadithNumber,
+            bool? isNextPage, PositiveNumber? limit)?
+        getHadithsByNarratorName,
+    TResult Function(HadithNarrator selectedNarrator)? narratorFilterChanged,
+    TResult Function(PositiveNumber? number)? hadithNumberSearch,
     TResult Function()? searchHadith,
     required TResult orElse(),
   }) {
@@ -186,7 +194,7 @@ class _$GetHadithNarratorsImpl implements _GetHadithNarrators {
   TResult map<TResult extends Object?>({
     required TResult Function(_GetHadithNarrators value) getHadithNarrators,
     required TResult Function(_GetHadithByNarratorName value)
-        getHadithByNarratorName,
+        getHadithsByNarratorName,
     required TResult Function(_NarratorFilterChanged value)
         narratorFilterChanged,
     required TResult Function(_HadithNumberSearch value) hadithNumberSearch,
@@ -199,7 +207,7 @@ class _$GetHadithNarratorsImpl implements _GetHadithNarrators {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetHadithNarrators value)? getHadithNarrators,
-    TResult? Function(_GetHadithByNarratorName value)? getHadithByNarratorName,
+    TResult? Function(_GetHadithByNarratorName value)? getHadithsByNarratorName,
     TResult? Function(_NarratorFilterChanged value)? narratorFilterChanged,
     TResult? Function(_HadithNumberSearch value)? hadithNumberSearch,
     TResult? Function(_SearchHadith value)? searchHadith,
@@ -211,7 +219,7 @@ class _$GetHadithNarratorsImpl implements _GetHadithNarrators {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetHadithNarrators value)? getHadithNarrators,
-    TResult Function(_GetHadithByNarratorName value)? getHadithByNarratorName,
+    TResult Function(_GetHadithByNarratorName value)? getHadithsByNarratorName,
     TResult Function(_NarratorFilterChanged value)? narratorFilterChanged,
     TResult Function(_HadithNumberSearch value)? hadithNumberSearch,
     TResult Function(_SearchHadith value)? searchHadith,
@@ -236,7 +244,10 @@ abstract class _$$GetHadithByNarratorNameImplCopyWith<$Res> {
       __$$GetHadithByNarratorNameImplCopyWithImpl<$Res>;
   @useResult
   $Res call(
-      {UniqueString narratorName, bool? isNextPage, PositiveNumber? limit});
+      {UniqueString narratorName,
+      PositiveNumber? hadithNumber,
+      bool? isNextPage,
+      PositiveNumber? limit});
 }
 
 /// @nodoc
@@ -253,6 +264,7 @@ class __$$GetHadithByNarratorNameImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? narratorName = null,
+    Object? hadithNumber = freezed,
     Object? isNextPage = freezed,
     Object? limit = freezed,
   }) {
@@ -261,6 +273,10 @@ class __$$GetHadithByNarratorNameImplCopyWithImpl<$Res>
           ? _value.narratorName
           : narratorName // ignore: cast_nullable_to_non_nullable
               as UniqueString,
+      hadithNumber: freezed == hadithNumber
+          ? _value.hadithNumber
+          : hadithNumber // ignore: cast_nullable_to_non_nullable
+              as PositiveNumber?,
       isNextPage: freezed == isNextPage
           ? _value.isNextPage
           : isNextPage // ignore: cast_nullable_to_non_nullable
@@ -277,10 +293,15 @@ class __$$GetHadithByNarratorNameImplCopyWithImpl<$Res>
 
 class _$GetHadithByNarratorNameImpl implements _GetHadithByNarratorName {
   const _$GetHadithByNarratorNameImpl(
-      {required this.narratorName, this.isNextPage, this.limit});
+      {required this.narratorName,
+      this.hadithNumber,
+      this.isNextPage,
+      this.limit});
 
   @override
   final UniqueString narratorName;
+  @override
+  final PositiveNumber? hadithNumber;
   @override
   final bool? isNextPage;
   @override
@@ -288,7 +309,7 @@ class _$GetHadithByNarratorNameImpl implements _GetHadithByNarratorName {
 
   @override
   String toString() {
-    return 'HadithNarratorEvent.getHadithByNarratorName(narratorName: $narratorName, isNextPage: $isNextPage, limit: $limit)';
+    return 'HadithNarratorEvent.getHadithsByNarratorName(narratorName: $narratorName, hadithNumber: $hadithNumber, isNextPage: $isNextPage, limit: $limit)';
   }
 
   @override
@@ -298,13 +319,16 @@ class _$GetHadithByNarratorNameImpl implements _GetHadithByNarratorName {
             other is _$GetHadithByNarratorNameImpl &&
             (identical(other.narratorName, narratorName) ||
                 other.narratorName == narratorName) &&
+            (identical(other.hadithNumber, hadithNumber) ||
+                other.hadithNumber == hadithNumber) &&
             (identical(other.isNextPage, isNextPage) ||
                 other.isNextPage == isNextPage) &&
             (identical(other.limit, limit) || other.limit == limit));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, narratorName, isNextPage, limit);
+  int get hashCode =>
+      Object.hash(runtimeType, narratorName, hadithNumber, isNextPage, limit);
 
   @JsonKey(ignore: true)
   @override
@@ -318,43 +342,50 @@ class _$GetHadithByNarratorNameImpl implements _GetHadithByNarratorName {
   TResult when<TResult extends Object?>({
     required TResult Function() getHadithNarrators,
     required TResult Function(
-            UniqueString narratorName, bool? isNextPage, PositiveNumber? limit)
-        getHadithByNarratorName,
-    required TResult Function(UniqueString narratorName) narratorFilterChanged,
-    required TResult Function(UnemptyString numberText) hadithNumberSearch,
+            UniqueString narratorName,
+            PositiveNumber? hadithNumber,
+            bool? isNextPage,
+            PositiveNumber? limit)
+        getHadithsByNarratorName,
+    required TResult Function(HadithNarrator selectedNarrator)
+        narratorFilterChanged,
+    required TResult Function(PositiveNumber? number) hadithNumberSearch,
     required TResult Function() searchHadith,
   }) {
-    return getHadithByNarratorName(narratorName, isNextPage, limit);
+    return getHadithsByNarratorName(
+        narratorName, hadithNumber, isNextPage, limit);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getHadithNarrators,
-    TResult? Function(
-            UniqueString narratorName, bool? isNextPage, PositiveNumber? limit)?
-        getHadithByNarratorName,
-    TResult? Function(UniqueString narratorName)? narratorFilterChanged,
-    TResult? Function(UnemptyString numberText)? hadithNumberSearch,
+    TResult? Function(UniqueString narratorName, PositiveNumber? hadithNumber,
+            bool? isNextPage, PositiveNumber? limit)?
+        getHadithsByNarratorName,
+    TResult? Function(HadithNarrator selectedNarrator)? narratorFilterChanged,
+    TResult? Function(PositiveNumber? number)? hadithNumberSearch,
     TResult? Function()? searchHadith,
   }) {
-    return getHadithByNarratorName?.call(narratorName, isNextPage, limit);
+    return getHadithsByNarratorName?.call(
+        narratorName, hadithNumber, isNextPage, limit);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getHadithNarrators,
-    TResult Function(
-            UniqueString narratorName, bool? isNextPage, PositiveNumber? limit)?
-        getHadithByNarratorName,
-    TResult Function(UniqueString narratorName)? narratorFilterChanged,
-    TResult Function(UnemptyString numberText)? hadithNumberSearch,
+    TResult Function(UniqueString narratorName, PositiveNumber? hadithNumber,
+            bool? isNextPage, PositiveNumber? limit)?
+        getHadithsByNarratorName,
+    TResult Function(HadithNarrator selectedNarrator)? narratorFilterChanged,
+    TResult Function(PositiveNumber? number)? hadithNumberSearch,
     TResult Function()? searchHadith,
     required TResult orElse(),
   }) {
-    if (getHadithByNarratorName != null) {
-      return getHadithByNarratorName(narratorName, isNextPage, limit);
+    if (getHadithsByNarratorName != null) {
+      return getHadithsByNarratorName(
+          narratorName, hadithNumber, isNextPage, limit);
     }
     return orElse();
   }
@@ -364,39 +395,39 @@ class _$GetHadithByNarratorNameImpl implements _GetHadithByNarratorName {
   TResult map<TResult extends Object?>({
     required TResult Function(_GetHadithNarrators value) getHadithNarrators,
     required TResult Function(_GetHadithByNarratorName value)
-        getHadithByNarratorName,
+        getHadithsByNarratorName,
     required TResult Function(_NarratorFilterChanged value)
         narratorFilterChanged,
     required TResult Function(_HadithNumberSearch value) hadithNumberSearch,
     required TResult Function(_SearchHadith value) searchHadith,
   }) {
-    return getHadithByNarratorName(this);
+    return getHadithsByNarratorName(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetHadithNarrators value)? getHadithNarrators,
-    TResult? Function(_GetHadithByNarratorName value)? getHadithByNarratorName,
+    TResult? Function(_GetHadithByNarratorName value)? getHadithsByNarratorName,
     TResult? Function(_NarratorFilterChanged value)? narratorFilterChanged,
     TResult? Function(_HadithNumberSearch value)? hadithNumberSearch,
     TResult? Function(_SearchHadith value)? searchHadith,
   }) {
-    return getHadithByNarratorName?.call(this);
+    return getHadithsByNarratorName?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetHadithNarrators value)? getHadithNarrators,
-    TResult Function(_GetHadithByNarratorName value)? getHadithByNarratorName,
+    TResult Function(_GetHadithByNarratorName value)? getHadithsByNarratorName,
     TResult Function(_NarratorFilterChanged value)? narratorFilterChanged,
     TResult Function(_HadithNumberSearch value)? hadithNumberSearch,
     TResult Function(_SearchHadith value)? searchHadith,
     required TResult orElse(),
   }) {
-    if (getHadithByNarratorName != null) {
-      return getHadithByNarratorName(this);
+    if (getHadithsByNarratorName != null) {
+      return getHadithsByNarratorName(this);
     }
     return orElse();
   }
@@ -405,10 +436,12 @@ class _$GetHadithByNarratorNameImpl implements _GetHadithByNarratorName {
 abstract class _GetHadithByNarratorName implements HadithNarratorEvent {
   const factory _GetHadithByNarratorName(
       {required final UniqueString narratorName,
+      final PositiveNumber? hadithNumber,
       final bool? isNextPage,
       final PositiveNumber? limit}) = _$GetHadithByNarratorNameImpl;
 
   UniqueString get narratorName;
+  PositiveNumber? get hadithNumber;
   bool? get isNextPage;
   PositiveNumber? get limit;
   @JsonKey(ignore: true)
@@ -423,7 +456,9 @@ abstract class _$$NarratorFilterChangedImplCopyWith<$Res> {
           $Res Function(_$NarratorFilterChangedImpl) then) =
       __$$NarratorFilterChangedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({UniqueString narratorName});
+  $Res call({HadithNarrator selectedNarrator});
+
+  $HadithNarratorCopyWith<$Res> get selectedNarrator;
 }
 
 /// @nodoc
@@ -437,28 +472,36 @@ class __$$NarratorFilterChangedImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? narratorName = null,
+    Object? selectedNarrator = null,
   }) {
     return _then(_$NarratorFilterChangedImpl(
-      narratorName: null == narratorName
-          ? _value.narratorName
-          : narratorName // ignore: cast_nullable_to_non_nullable
-              as UniqueString,
+      selectedNarrator: null == selectedNarrator
+          ? _value.selectedNarrator
+          : selectedNarrator // ignore: cast_nullable_to_non_nullable
+              as HadithNarrator,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $HadithNarratorCopyWith<$Res> get selectedNarrator {
+    return $HadithNarratorCopyWith<$Res>(_value.selectedNarrator, (value) {
+      return _then(_value.copyWith(selectedNarrator: value));
+    });
   }
 }
 
 /// @nodoc
 
 class _$NarratorFilterChangedImpl implements _NarratorFilterChanged {
-  const _$NarratorFilterChangedImpl({required this.narratorName});
+  const _$NarratorFilterChangedImpl({required this.selectedNarrator});
 
   @override
-  final UniqueString narratorName;
+  final HadithNarrator selectedNarrator;
 
   @override
   String toString() {
-    return 'HadithNarratorEvent.narratorFilterChanged(narratorName: $narratorName)';
+    return 'HadithNarratorEvent.narratorFilterChanged(selectedNarrator: $selectedNarrator)';
   }
 
   @override
@@ -466,12 +509,12 @@ class _$NarratorFilterChangedImpl implements _NarratorFilterChanged {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$NarratorFilterChangedImpl &&
-            (identical(other.narratorName, narratorName) ||
-                other.narratorName == narratorName));
+            (identical(other.selectedNarrator, selectedNarrator) ||
+                other.selectedNarrator == selectedNarrator));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, narratorName);
+  int get hashCode => Object.hash(runtimeType, selectedNarrator);
 
   @JsonKey(ignore: true)
   @override
@@ -485,43 +528,47 @@ class _$NarratorFilterChangedImpl implements _NarratorFilterChanged {
   TResult when<TResult extends Object?>({
     required TResult Function() getHadithNarrators,
     required TResult Function(
-            UniqueString narratorName, bool? isNextPage, PositiveNumber? limit)
-        getHadithByNarratorName,
-    required TResult Function(UniqueString narratorName) narratorFilterChanged,
-    required TResult Function(UnemptyString numberText) hadithNumberSearch,
+            UniqueString narratorName,
+            PositiveNumber? hadithNumber,
+            bool? isNextPage,
+            PositiveNumber? limit)
+        getHadithsByNarratorName,
+    required TResult Function(HadithNarrator selectedNarrator)
+        narratorFilterChanged,
+    required TResult Function(PositiveNumber? number) hadithNumberSearch,
     required TResult Function() searchHadith,
   }) {
-    return narratorFilterChanged(narratorName);
+    return narratorFilterChanged(selectedNarrator);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getHadithNarrators,
-    TResult? Function(
-            UniqueString narratorName, bool? isNextPage, PositiveNumber? limit)?
-        getHadithByNarratorName,
-    TResult? Function(UniqueString narratorName)? narratorFilterChanged,
-    TResult? Function(UnemptyString numberText)? hadithNumberSearch,
+    TResult? Function(UniqueString narratorName, PositiveNumber? hadithNumber,
+            bool? isNextPage, PositiveNumber? limit)?
+        getHadithsByNarratorName,
+    TResult? Function(HadithNarrator selectedNarrator)? narratorFilterChanged,
+    TResult? Function(PositiveNumber? number)? hadithNumberSearch,
     TResult? Function()? searchHadith,
   }) {
-    return narratorFilterChanged?.call(narratorName);
+    return narratorFilterChanged?.call(selectedNarrator);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getHadithNarrators,
-    TResult Function(
-            UniqueString narratorName, bool? isNextPage, PositiveNumber? limit)?
-        getHadithByNarratorName,
-    TResult Function(UniqueString narratorName)? narratorFilterChanged,
-    TResult Function(UnemptyString numberText)? hadithNumberSearch,
+    TResult Function(UniqueString narratorName, PositiveNumber? hadithNumber,
+            bool? isNextPage, PositiveNumber? limit)?
+        getHadithsByNarratorName,
+    TResult Function(HadithNarrator selectedNarrator)? narratorFilterChanged,
+    TResult Function(PositiveNumber? number)? hadithNumberSearch,
     TResult Function()? searchHadith,
     required TResult orElse(),
   }) {
     if (narratorFilterChanged != null) {
-      return narratorFilterChanged(narratorName);
+      return narratorFilterChanged(selectedNarrator);
     }
     return orElse();
   }
@@ -531,7 +578,7 @@ class _$NarratorFilterChangedImpl implements _NarratorFilterChanged {
   TResult map<TResult extends Object?>({
     required TResult Function(_GetHadithNarrators value) getHadithNarrators,
     required TResult Function(_GetHadithByNarratorName value)
-        getHadithByNarratorName,
+        getHadithsByNarratorName,
     required TResult Function(_NarratorFilterChanged value)
         narratorFilterChanged,
     required TResult Function(_HadithNumberSearch value) hadithNumberSearch,
@@ -544,7 +591,7 @@ class _$NarratorFilterChangedImpl implements _NarratorFilterChanged {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetHadithNarrators value)? getHadithNarrators,
-    TResult? Function(_GetHadithByNarratorName value)? getHadithByNarratorName,
+    TResult? Function(_GetHadithByNarratorName value)? getHadithsByNarratorName,
     TResult? Function(_NarratorFilterChanged value)? narratorFilterChanged,
     TResult? Function(_HadithNumberSearch value)? hadithNumberSearch,
     TResult? Function(_SearchHadith value)? searchHadith,
@@ -556,7 +603,7 @@ class _$NarratorFilterChangedImpl implements _NarratorFilterChanged {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetHadithNarrators value)? getHadithNarrators,
-    TResult Function(_GetHadithByNarratorName value)? getHadithByNarratorName,
+    TResult Function(_GetHadithByNarratorName value)? getHadithsByNarratorName,
     TResult Function(_NarratorFilterChanged value)? narratorFilterChanged,
     TResult Function(_HadithNumberSearch value)? hadithNumberSearch,
     TResult Function(_SearchHadith value)? searchHadith,
@@ -571,9 +618,10 @@ class _$NarratorFilterChangedImpl implements _NarratorFilterChanged {
 
 abstract class _NarratorFilterChanged implements HadithNarratorEvent {
   const factory _NarratorFilterChanged(
-      {required final UniqueString narratorName}) = _$NarratorFilterChangedImpl;
+          {required final HadithNarrator selectedNarrator}) =
+      _$NarratorFilterChangedImpl;
 
-  UniqueString get narratorName;
+  HadithNarrator get selectedNarrator;
   @JsonKey(ignore: true)
   _$$NarratorFilterChangedImplCopyWith<_$NarratorFilterChangedImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -585,7 +633,7 @@ abstract class _$$HadithNumberSearchImplCopyWith<$Res> {
           $Res Function(_$HadithNumberSearchImpl) then) =
       __$$HadithNumberSearchImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({UnemptyString numberText});
+  $Res call({PositiveNumber? number});
 }
 
 /// @nodoc
@@ -599,13 +647,13 @@ class __$$HadithNumberSearchImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? numberText = null,
+    Object? number = freezed,
   }) {
     return _then(_$HadithNumberSearchImpl(
-      numberText: null == numberText
-          ? _value.numberText
-          : numberText // ignore: cast_nullable_to_non_nullable
-              as UnemptyString,
+      number: freezed == number
+          ? _value.number
+          : number // ignore: cast_nullable_to_non_nullable
+              as PositiveNumber?,
     ));
   }
 }
@@ -613,14 +661,14 @@ class __$$HadithNumberSearchImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$HadithNumberSearchImpl implements _HadithNumberSearch {
-  const _$HadithNumberSearchImpl({required this.numberText});
+  const _$HadithNumberSearchImpl({required this.number});
 
   @override
-  final UnemptyString numberText;
+  final PositiveNumber? number;
 
   @override
   String toString() {
-    return 'HadithNarratorEvent.hadithNumberSearch(numberText: $numberText)';
+    return 'HadithNarratorEvent.hadithNumberSearch(number: $number)';
   }
 
   @override
@@ -628,12 +676,11 @@ class _$HadithNumberSearchImpl implements _HadithNumberSearch {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$HadithNumberSearchImpl &&
-            (identical(other.numberText, numberText) ||
-                other.numberText == numberText));
+            (identical(other.number, number) || other.number == number));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, numberText);
+  int get hashCode => Object.hash(runtimeType, number);
 
   @JsonKey(ignore: true)
   @override
@@ -647,43 +694,47 @@ class _$HadithNumberSearchImpl implements _HadithNumberSearch {
   TResult when<TResult extends Object?>({
     required TResult Function() getHadithNarrators,
     required TResult Function(
-            UniqueString narratorName, bool? isNextPage, PositiveNumber? limit)
-        getHadithByNarratorName,
-    required TResult Function(UniqueString narratorName) narratorFilterChanged,
-    required TResult Function(UnemptyString numberText) hadithNumberSearch,
+            UniqueString narratorName,
+            PositiveNumber? hadithNumber,
+            bool? isNextPage,
+            PositiveNumber? limit)
+        getHadithsByNarratorName,
+    required TResult Function(HadithNarrator selectedNarrator)
+        narratorFilterChanged,
+    required TResult Function(PositiveNumber? number) hadithNumberSearch,
     required TResult Function() searchHadith,
   }) {
-    return hadithNumberSearch(numberText);
+    return hadithNumberSearch(number);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getHadithNarrators,
-    TResult? Function(
-            UniqueString narratorName, bool? isNextPage, PositiveNumber? limit)?
-        getHadithByNarratorName,
-    TResult? Function(UniqueString narratorName)? narratorFilterChanged,
-    TResult? Function(UnemptyString numberText)? hadithNumberSearch,
+    TResult? Function(UniqueString narratorName, PositiveNumber? hadithNumber,
+            bool? isNextPage, PositiveNumber? limit)?
+        getHadithsByNarratorName,
+    TResult? Function(HadithNarrator selectedNarrator)? narratorFilterChanged,
+    TResult? Function(PositiveNumber? number)? hadithNumberSearch,
     TResult? Function()? searchHadith,
   }) {
-    return hadithNumberSearch?.call(numberText);
+    return hadithNumberSearch?.call(number);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getHadithNarrators,
-    TResult Function(
-            UniqueString narratorName, bool? isNextPage, PositiveNumber? limit)?
-        getHadithByNarratorName,
-    TResult Function(UniqueString narratorName)? narratorFilterChanged,
-    TResult Function(UnemptyString numberText)? hadithNumberSearch,
+    TResult Function(UniqueString narratorName, PositiveNumber? hadithNumber,
+            bool? isNextPage, PositiveNumber? limit)?
+        getHadithsByNarratorName,
+    TResult Function(HadithNarrator selectedNarrator)? narratorFilterChanged,
+    TResult Function(PositiveNumber? number)? hadithNumberSearch,
     TResult Function()? searchHadith,
     required TResult orElse(),
   }) {
     if (hadithNumberSearch != null) {
-      return hadithNumberSearch(numberText);
+      return hadithNumberSearch(number);
     }
     return orElse();
   }
@@ -693,7 +744,7 @@ class _$HadithNumberSearchImpl implements _HadithNumberSearch {
   TResult map<TResult extends Object?>({
     required TResult Function(_GetHadithNarrators value) getHadithNarrators,
     required TResult Function(_GetHadithByNarratorName value)
-        getHadithByNarratorName,
+        getHadithsByNarratorName,
     required TResult Function(_NarratorFilterChanged value)
         narratorFilterChanged,
     required TResult Function(_HadithNumberSearch value) hadithNumberSearch,
@@ -706,7 +757,7 @@ class _$HadithNumberSearchImpl implements _HadithNumberSearch {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetHadithNarrators value)? getHadithNarrators,
-    TResult? Function(_GetHadithByNarratorName value)? getHadithByNarratorName,
+    TResult? Function(_GetHadithByNarratorName value)? getHadithsByNarratorName,
     TResult? Function(_NarratorFilterChanged value)? narratorFilterChanged,
     TResult? Function(_HadithNumberSearch value)? hadithNumberSearch,
     TResult? Function(_SearchHadith value)? searchHadith,
@@ -718,7 +769,7 @@ class _$HadithNumberSearchImpl implements _HadithNumberSearch {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetHadithNarrators value)? getHadithNarrators,
-    TResult Function(_GetHadithByNarratorName value)? getHadithByNarratorName,
+    TResult Function(_GetHadithByNarratorName value)? getHadithsByNarratorName,
     TResult Function(_NarratorFilterChanged value)? narratorFilterChanged,
     TResult Function(_HadithNumberSearch value)? hadithNumberSearch,
     TResult Function(_SearchHadith value)? searchHadith,
@@ -732,10 +783,10 @@ class _$HadithNumberSearchImpl implements _HadithNumberSearch {
 }
 
 abstract class _HadithNumberSearch implements HadithNarratorEvent {
-  const factory _HadithNumberSearch({required final UnemptyString numberText}) =
+  const factory _HadithNumberSearch({required final PositiveNumber? number}) =
       _$HadithNumberSearchImpl;
 
-  UnemptyString get numberText;
+  PositiveNumber? get number;
   @JsonKey(ignore: true)
   _$$HadithNumberSearchImplCopyWith<_$HadithNumberSearchImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -781,10 +832,14 @@ class _$SearchHadithImpl implements _SearchHadith {
   TResult when<TResult extends Object?>({
     required TResult Function() getHadithNarrators,
     required TResult Function(
-            UniqueString narratorName, bool? isNextPage, PositiveNumber? limit)
-        getHadithByNarratorName,
-    required TResult Function(UniqueString narratorName) narratorFilterChanged,
-    required TResult Function(UnemptyString numberText) hadithNumberSearch,
+            UniqueString narratorName,
+            PositiveNumber? hadithNumber,
+            bool? isNextPage,
+            PositiveNumber? limit)
+        getHadithsByNarratorName,
+    required TResult Function(HadithNarrator selectedNarrator)
+        narratorFilterChanged,
+    required TResult Function(PositiveNumber? number) hadithNumberSearch,
     required TResult Function() searchHadith,
   }) {
     return searchHadith();
@@ -794,11 +849,11 @@ class _$SearchHadithImpl implements _SearchHadith {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getHadithNarrators,
-    TResult? Function(
-            UniqueString narratorName, bool? isNextPage, PositiveNumber? limit)?
-        getHadithByNarratorName,
-    TResult? Function(UniqueString narratorName)? narratorFilterChanged,
-    TResult? Function(UnemptyString numberText)? hadithNumberSearch,
+    TResult? Function(UniqueString narratorName, PositiveNumber? hadithNumber,
+            bool? isNextPage, PositiveNumber? limit)?
+        getHadithsByNarratorName,
+    TResult? Function(HadithNarrator selectedNarrator)? narratorFilterChanged,
+    TResult? Function(PositiveNumber? number)? hadithNumberSearch,
     TResult? Function()? searchHadith,
   }) {
     return searchHadith?.call();
@@ -808,11 +863,11 @@ class _$SearchHadithImpl implements _SearchHadith {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getHadithNarrators,
-    TResult Function(
-            UniqueString narratorName, bool? isNextPage, PositiveNumber? limit)?
-        getHadithByNarratorName,
-    TResult Function(UniqueString narratorName)? narratorFilterChanged,
-    TResult Function(UnemptyString numberText)? hadithNumberSearch,
+    TResult Function(UniqueString narratorName, PositiveNumber? hadithNumber,
+            bool? isNextPage, PositiveNumber? limit)?
+        getHadithsByNarratorName,
+    TResult Function(HadithNarrator selectedNarrator)? narratorFilterChanged,
+    TResult Function(PositiveNumber? number)? hadithNumberSearch,
     TResult Function()? searchHadith,
     required TResult orElse(),
   }) {
@@ -827,7 +882,7 @@ class _$SearchHadithImpl implements _SearchHadith {
   TResult map<TResult extends Object?>({
     required TResult Function(_GetHadithNarrators value) getHadithNarrators,
     required TResult Function(_GetHadithByNarratorName value)
-        getHadithByNarratorName,
+        getHadithsByNarratorName,
     required TResult Function(_NarratorFilterChanged value)
         narratorFilterChanged,
     required TResult Function(_HadithNumberSearch value) hadithNumberSearch,
@@ -840,7 +895,7 @@ class _$SearchHadithImpl implements _SearchHadith {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetHadithNarrators value)? getHadithNarrators,
-    TResult? Function(_GetHadithByNarratorName value)? getHadithByNarratorName,
+    TResult? Function(_GetHadithByNarratorName value)? getHadithsByNarratorName,
     TResult? Function(_NarratorFilterChanged value)? narratorFilterChanged,
     TResult? Function(_HadithNumberSearch value)? hadithNumberSearch,
     TResult? Function(_SearchHadith value)? searchHadith,
@@ -852,7 +907,7 @@ class _$SearchHadithImpl implements _SearchHadith {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetHadithNarrators value)? getHadithNarrators,
-    TResult Function(_GetHadithByNarratorName value)? getHadithByNarratorName,
+    TResult Function(_GetHadithByNarratorName value)? getHadithsByNarratorName,
     TResult Function(_NarratorFilterChanged value)? narratorFilterChanged,
     TResult Function(_HadithNumberSearch value)? hadithNumberSearch,
     TResult Function(_SearchHadith value)? searchHadith,
@@ -872,15 +927,13 @@ abstract class _SearchHadith implements HadithNarratorEvent {
 /// @nodoc
 mixin _$HadithNarratorState {
   IList<Item> get hadiths => throw _privateConstructorUsedError;
-  UniqueString get selectedNarratorName => throw _privateConstructorUsedError;
-  UnemptyString get hadithNumberSearch => throw _privateConstructorUsedError;
+  bool get isSearching => throw _privateConstructorUsedError;
+  HadithNarrator? get selectedNarrator => throw _privateConstructorUsedError;
+  PositiveNumber? get hadithNumber => throw _privateConstructorUsedError;
   Option<Either<CommonFailures, IList<HadithNarrator>>>
       get optionFailureOrHadithNarrators => throw _privateConstructorUsedError;
   Option<Either<CommonFailures, HadithNarrator>>
       get optionFailureOrHadithNarratorByName =>
-          throw _privateConstructorUsedError;
-  Option<Either<CommonFailures, HadithNarrator>>
-      get optionFailureOrSearchHadithSuccess =>
           throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -896,14 +949,15 @@ abstract class $HadithNarratorStateCopyWith<$Res> {
   @useResult
   $Res call(
       {IList<Item> hadiths,
-      UniqueString selectedNarratorName,
-      UnemptyString hadithNumberSearch,
+      bool isSearching,
+      HadithNarrator? selectedNarrator,
+      PositiveNumber? hadithNumber,
       Option<Either<CommonFailures, IList<HadithNarrator>>>
           optionFailureOrHadithNarrators,
       Option<Either<CommonFailures, HadithNarrator>>
-          optionFailureOrHadithNarratorByName,
-      Option<Either<CommonFailures, HadithNarrator>>
-          optionFailureOrSearchHadithSuccess});
+          optionFailureOrHadithNarratorByName});
+
+  $HadithNarratorCopyWith<$Res>? get selectedNarrator;
 }
 
 /// @nodoc
@@ -920,25 +974,29 @@ class _$HadithNarratorStateCopyWithImpl<$Res, $Val extends HadithNarratorState>
   @override
   $Res call({
     Object? hadiths = null,
-    Object? selectedNarratorName = null,
-    Object? hadithNumberSearch = null,
+    Object? isSearching = null,
+    Object? selectedNarrator = freezed,
+    Object? hadithNumber = freezed,
     Object? optionFailureOrHadithNarrators = null,
     Object? optionFailureOrHadithNarratorByName = null,
-    Object? optionFailureOrSearchHadithSuccess = null,
   }) {
     return _then(_value.copyWith(
       hadiths: null == hadiths
           ? _value.hadiths
           : hadiths // ignore: cast_nullable_to_non_nullable
               as IList<Item>,
-      selectedNarratorName: null == selectedNarratorName
-          ? _value.selectedNarratorName
-          : selectedNarratorName // ignore: cast_nullable_to_non_nullable
-              as UniqueString,
-      hadithNumberSearch: null == hadithNumberSearch
-          ? _value.hadithNumberSearch
-          : hadithNumberSearch // ignore: cast_nullable_to_non_nullable
-              as UnemptyString,
+      isSearching: null == isSearching
+          ? _value.isSearching
+          : isSearching // ignore: cast_nullable_to_non_nullable
+              as bool,
+      selectedNarrator: freezed == selectedNarrator
+          ? _value.selectedNarrator
+          : selectedNarrator // ignore: cast_nullable_to_non_nullable
+              as HadithNarrator?,
+      hadithNumber: freezed == hadithNumber
+          ? _value.hadithNumber
+          : hadithNumber // ignore: cast_nullable_to_non_nullable
+              as PositiveNumber?,
       optionFailureOrHadithNarrators: null == optionFailureOrHadithNarrators
           ? _value.optionFailureOrHadithNarrators
           : optionFailureOrHadithNarrators // ignore: cast_nullable_to_non_nullable
@@ -948,12 +1006,19 @@ class _$HadithNarratorStateCopyWithImpl<$Res, $Val extends HadithNarratorState>
           ? _value.optionFailureOrHadithNarratorByName
           : optionFailureOrHadithNarratorByName // ignore: cast_nullable_to_non_nullable
               as Option<Either<CommonFailures, HadithNarrator>>,
-      optionFailureOrSearchHadithSuccess: null ==
-              optionFailureOrSearchHadithSuccess
-          ? _value.optionFailureOrSearchHadithSuccess
-          : optionFailureOrSearchHadithSuccess // ignore: cast_nullable_to_non_nullable
-              as Option<Either<CommonFailures, HadithNarrator>>,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $HadithNarratorCopyWith<$Res>? get selectedNarrator {
+    if (_value.selectedNarrator == null) {
+      return null;
+    }
+
+    return $HadithNarratorCopyWith<$Res>(_value.selectedNarrator!, (value) {
+      return _then(_value.copyWith(selectedNarrator: value) as $Val);
+    });
   }
 }
 
@@ -967,14 +1032,16 @@ abstract class _$$HadithNarratorStateImplCopyWith<$Res>
   @useResult
   $Res call(
       {IList<Item> hadiths,
-      UniqueString selectedNarratorName,
-      UnemptyString hadithNumberSearch,
+      bool isSearching,
+      HadithNarrator? selectedNarrator,
+      PositiveNumber? hadithNumber,
       Option<Either<CommonFailures, IList<HadithNarrator>>>
           optionFailureOrHadithNarrators,
       Option<Either<CommonFailures, HadithNarrator>>
-          optionFailureOrHadithNarratorByName,
-      Option<Either<CommonFailures, HadithNarrator>>
-          optionFailureOrSearchHadithSuccess});
+          optionFailureOrHadithNarratorByName});
+
+  @override
+  $HadithNarratorCopyWith<$Res>? get selectedNarrator;
 }
 
 /// @nodoc
@@ -989,25 +1056,29 @@ class __$$HadithNarratorStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? hadiths = null,
-    Object? selectedNarratorName = null,
-    Object? hadithNumberSearch = null,
+    Object? isSearching = null,
+    Object? selectedNarrator = freezed,
+    Object? hadithNumber = freezed,
     Object? optionFailureOrHadithNarrators = null,
     Object? optionFailureOrHadithNarratorByName = null,
-    Object? optionFailureOrSearchHadithSuccess = null,
   }) {
     return _then(_$HadithNarratorStateImpl(
       hadiths: null == hadiths
           ? _value.hadiths
           : hadiths // ignore: cast_nullable_to_non_nullable
               as IList<Item>,
-      selectedNarratorName: null == selectedNarratorName
-          ? _value.selectedNarratorName
-          : selectedNarratorName // ignore: cast_nullable_to_non_nullable
-              as UniqueString,
-      hadithNumberSearch: null == hadithNumberSearch
-          ? _value.hadithNumberSearch
-          : hadithNumberSearch // ignore: cast_nullable_to_non_nullable
-              as UnemptyString,
+      isSearching: null == isSearching
+          ? _value.isSearching
+          : isSearching // ignore: cast_nullable_to_non_nullable
+              as bool,
+      selectedNarrator: freezed == selectedNarrator
+          ? _value.selectedNarrator
+          : selectedNarrator // ignore: cast_nullable_to_non_nullable
+              as HadithNarrator?,
+      hadithNumber: freezed == hadithNumber
+          ? _value.hadithNumber
+          : hadithNumber // ignore: cast_nullable_to_non_nullable
+              as PositiveNumber?,
       optionFailureOrHadithNarrators: null == optionFailureOrHadithNarrators
           ? _value.optionFailureOrHadithNarrators
           : optionFailureOrHadithNarrators // ignore: cast_nullable_to_non_nullable
@@ -1016,11 +1087,6 @@ class __$$HadithNarratorStateImplCopyWithImpl<$Res>
               optionFailureOrHadithNarratorByName
           ? _value.optionFailureOrHadithNarratorByName
           : optionFailureOrHadithNarratorByName // ignore: cast_nullable_to_non_nullable
-              as Option<Either<CommonFailures, HadithNarrator>>,
-      optionFailureOrSearchHadithSuccess: null ==
-              optionFailureOrSearchHadithSuccess
-          ? _value.optionFailureOrSearchHadithSuccess
-          : optionFailureOrSearchHadithSuccess // ignore: cast_nullable_to_non_nullable
               as Option<Either<CommonFailures, HadithNarrator>>,
     ));
   }
@@ -1031,31 +1097,30 @@ class __$$HadithNarratorStateImplCopyWithImpl<$Res>
 class _$HadithNarratorStateImpl implements _HadithNarratorState {
   const _$HadithNarratorStateImpl(
       {required this.hadiths,
-      required this.selectedNarratorName,
-      required this.hadithNumberSearch,
+      required this.isSearching,
+      required this.selectedNarrator,
+      required this.hadithNumber,
       required this.optionFailureOrHadithNarrators,
-      required this.optionFailureOrHadithNarratorByName,
-      required this.optionFailureOrSearchHadithSuccess});
+      required this.optionFailureOrHadithNarratorByName});
 
   @override
   final IList<Item> hadiths;
   @override
-  final UniqueString selectedNarratorName;
+  final bool isSearching;
   @override
-  final UnemptyString hadithNumberSearch;
+  final HadithNarrator? selectedNarrator;
+  @override
+  final PositiveNumber? hadithNumber;
   @override
   final Option<Either<CommonFailures, IList<HadithNarrator>>>
       optionFailureOrHadithNarrators;
   @override
   final Option<Either<CommonFailures, HadithNarrator>>
       optionFailureOrHadithNarratorByName;
-  @override
-  final Option<Either<CommonFailures, HadithNarrator>>
-      optionFailureOrSearchHadithSuccess;
 
   @override
   String toString() {
-    return 'HadithNarratorState(hadiths: $hadiths, selectedNarratorName: $selectedNarratorName, hadithNumberSearch: $hadithNumberSearch, optionFailureOrHadithNarrators: $optionFailureOrHadithNarrators, optionFailureOrHadithNarratorByName: $optionFailureOrHadithNarratorByName, optionFailureOrSearchHadithSuccess: $optionFailureOrSearchHadithSuccess)';
+    return 'HadithNarratorState(hadiths: $hadiths, isSearching: $isSearching, selectedNarrator: $selectedNarrator, hadithNumber: $hadithNumber, optionFailureOrHadithNarrators: $optionFailureOrHadithNarrators, optionFailureOrHadithNarratorByName: $optionFailureOrHadithNarratorByName)';
   }
 
   @override
@@ -1064,10 +1129,12 @@ class _$HadithNarratorStateImpl implements _HadithNarratorState {
         (other.runtimeType == runtimeType &&
             other is _$HadithNarratorStateImpl &&
             const DeepCollectionEquality().equals(other.hadiths, hadiths) &&
-            (identical(other.selectedNarratorName, selectedNarratorName) ||
-                other.selectedNarratorName == selectedNarratorName) &&
-            (identical(other.hadithNumberSearch, hadithNumberSearch) ||
-                other.hadithNumberSearch == hadithNumberSearch) &&
+            (identical(other.isSearching, isSearching) ||
+                other.isSearching == isSearching) &&
+            (identical(other.selectedNarrator, selectedNarrator) ||
+                other.selectedNarrator == selectedNarrator) &&
+            (identical(other.hadithNumber, hadithNumber) ||
+                other.hadithNumber == hadithNumber) &&
             (identical(other.optionFailureOrHadithNarrators,
                     optionFailureOrHadithNarrators) ||
                 other.optionFailureOrHadithNarrators ==
@@ -1075,22 +1142,18 @@ class _$HadithNarratorStateImpl implements _HadithNarratorState {
             (identical(other.optionFailureOrHadithNarratorByName,
                     optionFailureOrHadithNarratorByName) ||
                 other.optionFailureOrHadithNarratorByName ==
-                    optionFailureOrHadithNarratorByName) &&
-            (identical(other.optionFailureOrSearchHadithSuccess,
-                    optionFailureOrSearchHadithSuccess) ||
-                other.optionFailureOrSearchHadithSuccess ==
-                    optionFailureOrSearchHadithSuccess));
+                    optionFailureOrHadithNarratorByName));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(hadiths),
-      selectedNarratorName,
-      hadithNumberSearch,
+      isSearching,
+      selectedNarrator,
+      hadithNumber,
       optionFailureOrHadithNarrators,
-      optionFailureOrHadithNarratorByName,
-      optionFailureOrSearchHadithSuccess);
+      optionFailureOrHadithNarratorByName);
 
   @JsonKey(ignore: true)
   @override
@@ -1103,30 +1166,28 @@ class _$HadithNarratorStateImpl implements _HadithNarratorState {
 abstract class _HadithNarratorState implements HadithNarratorState {
   const factory _HadithNarratorState(
       {required final IList<Item> hadiths,
-      required final UniqueString selectedNarratorName,
-      required final UnemptyString hadithNumberSearch,
+      required final bool isSearching,
+      required final HadithNarrator? selectedNarrator,
+      required final PositiveNumber? hadithNumber,
       required final Option<Either<CommonFailures, IList<HadithNarrator>>>
           optionFailureOrHadithNarrators,
       required final Option<Either<CommonFailures, HadithNarrator>>
-          optionFailureOrHadithNarratorByName,
-      required final Option<Either<CommonFailures, HadithNarrator>>
-          optionFailureOrSearchHadithSuccess}) = _$HadithNarratorStateImpl;
+          optionFailureOrHadithNarratorByName}) = _$HadithNarratorStateImpl;
 
   @override
   IList<Item> get hadiths;
   @override
-  UniqueString get selectedNarratorName;
+  bool get isSearching;
   @override
-  UnemptyString get hadithNumberSearch;
+  HadithNarrator? get selectedNarrator;
+  @override
+  PositiveNumber? get hadithNumber;
   @override
   Option<Either<CommonFailures, IList<HadithNarrator>>>
       get optionFailureOrHadithNarrators;
   @override
   Option<Either<CommonFailures, HadithNarrator>>
       get optionFailureOrHadithNarratorByName;
-  @override
-  Option<Either<CommonFailures, HadithNarrator>>
-      get optionFailureOrSearchHadithSuccess;
   @override
   @JsonKey(ignore: true)
   _$$HadithNarratorStateImplCopyWith<_$HadithNarratorStateImpl> get copyWith =>

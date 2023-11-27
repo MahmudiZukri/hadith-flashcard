@@ -200,8 +200,9 @@ class SignUpPageScaffold extends StatelessWidget {
                                       : 1,
                                   child: CustomElevatedButtonWidget(
                                     text: 'signUp'.tr(),
-                                    isActive: state.email != EmailAddress('') &&
-                                        state.password != Password(''),
+                                    isEnabled:
+                                        state.email != EmailAddress('') &&
+                                            state.password != Password(''),
                                     backgroundColor: primaryColor,
                                     textStyle: whiteTextFont.copyWith(
                                       fontSize: 16.0,

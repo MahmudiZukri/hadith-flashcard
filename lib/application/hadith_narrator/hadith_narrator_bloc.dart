@@ -40,38 +40,66 @@ class HadithNarratorBloc
           narratorFilterChanged: (e) {
             emit(
               state.copyWith(
-                selectedNarratorName: e.narratorName,
+                selectedNarrator: e.selectedNarrator,
               ),
             );
           },
           hadithNumberSearch: (e) {
             emit(
               state.copyWith(
-                hadithNumberSearch: e.numberText,
+                hadithNumber: e.number,
               ),
             );
           },
-          searchHadith: (e) {
-            // search hadith
+          searchHadith: (e) async {
+            emit(
+              state.copyWith(
+                isSearching: true,
+              ),
+            );
+
+            if (state.selectedNarrator != null && state.hadithNumber != null) {
+              final failureOrResponse =
+                  await hadithNarratorRepository.getHadithsByNarratorName(
+                page: state.hadithNumber!.getOrCrash().toInt(),
+                narratorName: state.selectedNarrator!.slug.getOrCrash(),
+                limit: 1,
+              );
+
+              emit(
+                state.copyWith(
+                  optionFailureOrHadithNarratorByName: optionOf(
+                    failureOrResponse,
+                  ),
+                ),
+              );
+              emit(
+                state.copyWith(
+                  isSearching: false,
+                ),
+              );
+            }
           },
-          getHadithByNarratorName: (e) async {
+          getHadithsByNarratorName: (e) async {
             final failureOrResponse =
-                await hadithNarratorRepository.getHadithByNarratorName(
+                await hadithNarratorRepository.getHadithsByNarratorName(
               narratorName: e.narratorName.getOrCrash(),
               limit: e.limit?.getOrNull()?.toInt() ?? 25,
-              page: state.optionFailureOrHadithNarratorByName.fold(
-                () => 1,
-                (either) => either.foldRight(
-                  1,
-                  (acc, b) => e.isNextPage != null &&
-                          e.isNextPage == true &&
-                          b.pagination != null &&
-                          b.pagination!.currentPage.getOrZero() <
-                              b.pagination!.endPage.getOrZero()
-                      ? b.pagination!.currentPage.getOrZero().toInt() + 1
-                      : 1,
-                ),
-              ),
+              page: e.hadithNumber != null
+                  ? e.hadithNumber!.getOrCrash().toInt()
+                  : state.optionFailureOrHadithNarratorByName.fold(
+                      () => 1,
+                      (either) => either.foldRight(
+                        1,
+                        (acc, b) => e.isNextPage != null &&
+                                e.isNextPage == true &&
+                                b.pagination != null &&
+                                b.pagination!.currentPage.getOrZero() <
+                                    b.pagination!.endPage.getOrZero()
+                            ? b.pagination!.currentPage.getOrZero().toInt() + 1
+                            : 1,
+                      ),
+                    ),
             );
 
             emit(

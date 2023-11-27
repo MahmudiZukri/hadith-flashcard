@@ -5,7 +5,7 @@ import 'package:hadith_flashcard/domain/hadith_narrator/hadith_narrator.dart';
 
 abstract class IHadithNarratorRepository {
   Future<Either<CommonFailures, IList<HadithNarrator>>> getAllHadithNarrators();
-  Future<Either<CommonFailures, HadithNarrator>> getHadithByNarratorName({
+  Future<Either<CommonFailures, HadithNarrator>> getHadithsByNarratorName({
     required String narratorName,
     required int page,
     required int limit,

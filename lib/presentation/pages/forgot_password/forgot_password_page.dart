@@ -127,7 +127,7 @@ class ForgotPasswordPageScaffold extends StatelessWidget {
                                   ? const CustomCircularProgressIndicatorWidget()
                                   : CustomElevatedButtonWidget(
                                       text: 'Reset',
-                                      isActive: emailState != EmailAddress(''),
+                                      isEnabled: emailState != EmailAddress(''),
                                       backgroundColor: primaryColor,
                                       textStyle: whiteTextFont.copyWith(
                                         fontSize: 16.0,

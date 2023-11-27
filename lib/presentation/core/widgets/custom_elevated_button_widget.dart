@@ -10,9 +10,10 @@ class CustomElevatedButtonWidget extends StatelessWidget {
     this.height = 46,
     this.width,
     this.icon,
-    this.isActive = true,
+    this.isEnabled = true,
     this.isWithBorder = false,
     this.isWithElevation = false,
+    this.isLoading = false,
   }) : super(key: key);
 
   final String text;
@@ -22,9 +23,10 @@ class CustomElevatedButtonWidget extends StatelessWidget {
   final double height;
   final double? width;
   final Widget? icon;
-  final bool isActive;
+  final bool isEnabled;
   final bool isWithBorder;
   final bool isWithElevation;
+  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
@@ -40,20 +42,28 @@ class CustomElevatedButtonWidget extends StatelessWidget {
                 : BorderSide.none,
             borderRadius: largeBorderRadius(),
           ),
-          backgroundColor: isActive ? backgroundColor : greyColor,
+          backgroundColor: isEnabled ? backgroundColor : greyColor,
         ),
-        onPressed: isActive ? onPressed : () {},
+        onPressed: isEnabled ? onPressed : () {},
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             icon ?? const SizedBox(),
             SizedBox(width: icon != null ? 10.0 : 0),
-            Text(
-              text,
-              style: textStyle.copyWith(
-                color: isActive ? textStyle.color : whiteColor,
-              ),
-            ),
+            isLoading
+                ? const SizedBox(
+                    height: 24.0,
+                    width: 24.0,
+                    child: CircularProgressIndicator(
+                      color: primaryColor,
+                    ),
+                  )
+                : Text(
+                    text,
+                    style: textStyle.copyWith(
+                      color: isEnabled ? textStyle.color : whiteColor,
+                    ),
+                  ),
           ],
         ),
       ),

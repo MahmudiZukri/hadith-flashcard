@@ -71,6 +71,7 @@ Widget pageTransition({required PageState pageState}) {
     return HadithPage(
       userID: pageState.userID,
       hadithNarrator: pageState.hadithNarrator,
+      hadithNumber: pageState.hadithNumber,
     );
   } else if (pageState is OnMyFlashcardNarratorPage) {
     return MyFlashcardNarratorPage(

@@ -29,10 +29,12 @@ class GotoCheckEmailPage extends PageEvent {}
 class GotoHadithPage extends PageEvent {
   final UniqueString userID;
   final HadithNarrator hadithNarrator;
+  final PositiveNumber? hadithNumber;
 
   const GotoHadithPage({
     required this.userID,
     required this.hadithNarrator,
+    this.hadithNumber,
   });
 }
 

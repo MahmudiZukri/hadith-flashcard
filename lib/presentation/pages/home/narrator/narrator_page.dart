@@ -12,7 +12,44 @@ class NarratorPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<HadithFlashcardBloc, HadithFlashcardState>(
       builder: (context, hadithFlashcardState) {
-        return BlocBuilder<HadithNarratorBloc, HadithNarratorState>(
+        return BlocConsumer<HadithNarratorBloc, HadithNarratorState>(
+          listenWhen: (previous, current) =>
+              previous.optionFailureOrHadithNarratorByName !=
+                  current.optionFailureOrHadithNarratorByName ||
+              current.isSearching == true,
+          listener: (context, hadithNarratorState) {
+            hadithNarratorState.optionFailureOrHadithNarratorByName.match(
+              () => null,
+              (either) => either.fold(
+                (l) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      backgroundColor: redColor,
+                      duration: const Duration(
+                        seconds: 2,
+                      ),
+                      content: Text(
+                        l.maybeMap(
+                          handledByFirebase: (s) => s.message,
+                          orElse: () =>
+                              '${'somethingWentWrong'.tr()} (${l.message}).',
+                        ),
+                      ),
+                    ),
+                  );
+                },
+                (hadithNarrator) {
+                  context.read<PageBloc>().add(
+                        GotoHadithPage(
+                          userID: userID,
+                          hadithNarrator: hadithNarrator,
+                          hadithNumber: hadithNarratorState.hadithNumber,
+                        ),
+                      );
+                },
+              ),
+            );
+          },
           builder: (context, hadithNarratorState) {
             return hadithNarratorState.optionFailureOrHadithNarrators.match(
               // Hadith narrator shimmer
@@ -22,39 +59,44 @@ class NarratorPage extends StatelessWidget {
                   l.message,
                 ),
                 (hadithNarrators) => Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Container(
-                      margin: const EdgeInsets.symmetric(
-                        horizontal: defaultMargin,
-                      ),
-                      child: Column(
-                        children: [
-                          const SizedBox(height: 14.0),
-                          // Title
-                          Text(
-                            'hadithNarrators',
-                            style: whiteTextFont.copyWith(
-                              fontSize: 20.0,
-                              letterSpacing: 3,
-                              fontWeight: FontWeight.bold,
+                    Flexible(
+                      flex: 3,
+                      child: Container(
+                        margin: const EdgeInsets.symmetric(
+                          horizontal: defaultMargin,
+                        ),
+                        child: Column(
+                          children: [
+                            const SizedBox(height: 14.0),
+                            // Title
+                            Text(
+                              'hadithNarrators',
+                              style: whiteTextFont.copyWith(
+                                fontSize: 20.0,
+                                letterSpacing: 3,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ).tr(),
+                            const SizedBox(height: 24.0),
+                            // Narrator filter and search section
+                            NarratorFilterAndSearchRow(
+                              hadithNarrators: hadithNarrators,
+                              selectedNarratorName:
+                                  hadithNarratorState.selectedNarrator,
+                              isSearching: hadithNarratorState.isSearching,
+                              isEnabled: hadithNarratorState.selectedNarrator !=
+                                      null &&
+                                  hadithNarratorState.hadithNumber != null,
                             ),
-                          ).tr(),
-                          const SizedBox(height: 24.0),
-                          // Narrator filter and search section
-                          NarratorFilterAndSearchRow(
-                            selectedNarratorName: hadithNarratorState
-                                    .selectedNarratorName
-                                    .getOrNull() ??
-                                hadithNarrators.first.name.getOrCrash(),
-                            hadithNarrators: hadithNarrators,
-                          ),
-                          const SizedBox(height: 30.0),
-                        ],
+                            const SizedBox(height: 30.0),
+                          ],
+                        ),
                       ),
                     ),
                     // Main container
                     Expanded(
+                      flex: 8,
                       child: Container(
                         margin: const EdgeInsets.symmetric(
                           horizontal: 20,
@@ -208,11 +250,15 @@ class NarratorFilterAndSearchRow extends StatelessWidget {
   const NarratorFilterAndSearchRow({
     required this.selectedNarratorName,
     required this.hadithNarrators,
+    required this.isSearching,
+    required this.isEnabled,
     super.key,
   });
 
-  final String selectedNarratorName;
+  final HadithNarrator? selectedNarratorName;
   final IList<HadithNarrator> hadithNarrators;
+  final bool isSearching;
+  final bool isEnabled;
 
   @override
   Widget build(BuildContext context) {
@@ -222,15 +268,23 @@ class NarratorFilterAndSearchRow extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            CustomDropdownButtonWidget(
+            CustomDropdownButtonWidget<HadithNarrator>(
               borderColor: whiteColor,
-              width: (screenWidth(context) - 2 * defaultMargin - 20) / 2,
+              // width: (screenWidth(context) - 2 * defaultMargin - 20) / 2,
               backgroundColor: whiteColor.withOpacity(0.5),
               value: selectedNarratorName,
+              hint: Text(
+                'chooseNarrator',
+                style: blackTextFont.copyWith(
+                  color: blackColor.withOpacity(
+                    0.5,
+                  ),
+                ),
+              ).tr(),
               items: hadithNarrators
                   .map(
-                    (element) => DropdownMenuItem(
-                      value: element.name.getOrCrash(),
+                    (element) => DropdownMenuItem<HadithNarrator>(
+                      value: element,
                       child: Text(
                         element.name.getOrCrash(),
                       ),
@@ -242,16 +296,13 @@ class NarratorFilterAndSearchRow extends StatelessWidget {
                 if (val != null) {
                   context.read<HadithNarratorBloc>().add(
                         HadithNarratorEvent.narratorFilterChanged(
-                          narratorName: UniqueString.fromUniqueString(
-                            val,
-                          ),
+                          selectedNarrator: val,
                         ),
                       );
                 }
               },
             ),
             const SizedBox(width: 20.0),
-            //TODO: implement later
             CustomSearchWidget(
               height: 45,
               hintText: 'Hadith number',
@@ -259,16 +310,20 @@ class NarratorFilterAndSearchRow extends StatelessWidget {
               iconColor: whiteColor,
               fontColor: blackColor,
               borderRadius: mediumBorderRadius(),
-              width: (screenWidth(context) - 2 * defaultMargin - 20) / 2,
+              // width: (screenWidth(context) - 2 * defaultMargin - 20) / 2,
               backgroundColor: whiteColor.withOpacity(0.5),
               hintFontSize: 14.0,
               hintColor: blackColor.withOpacity(0.5),
               onChanged: (val) {
                 context.read<HadithNarratorBloc>().add(
                       HadithNarratorEvent.hadithNumberSearch(
-                        numberText: UnemptyString(
-                          val,
-                        ),
+                        number: val == ''
+                            ? null
+                            : PositiveNumber(
+                                int.parse(
+                                  val,
+                                ),
+                              ),
                       ),
                     );
               },
@@ -278,10 +333,17 @@ class NarratorFilterAndSearchRow extends StatelessWidget {
         const SizedBox(height: 20.0),
         CustomElevatedButtonWidget(
           text: 'Search',
+          isEnabled: isEnabled,
           isWithBorder: true,
+          isLoading: isSearching,
           backgroundColor: whiteColor.withOpacity(0.5),
           textStyle: blackTextFont,
-          onPressed: () {},
+          onPressed: () {
+            // Search hadith
+            context.read<HadithNarratorBloc>().add(
+                  const HadithNarratorEvent.searchHadith(),
+                );
+          },
         )
       ],
     );

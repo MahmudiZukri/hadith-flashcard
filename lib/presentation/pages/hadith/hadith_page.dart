@@ -4,13 +4,13 @@ class HadithPage extends StatelessWidget {
   const HadithPage({
     required this.userID,
     required this.hadithNarrator,
-    this.isGotoMyFlashcard = false,
+    required this.hadithNumber,
     super.key,
   });
 
   final UniqueString userID;
   final HadithNarrator hadithNarrator;
-  final bool isGotoMyFlashcard;
+  final PositiveNumber? hadithNumber;
 
   @override
   Widget build(BuildContext context) {
@@ -19,8 +19,10 @@ class HadithPage extends StatelessWidget {
         BlocProvider<HadithNarratorBloc>(
           create: (context) => getIt<HadithNarratorBloc>()
             ..add(
-              HadithNarratorEvent.getHadithByNarratorName(
+              HadithNarratorEvent.getHadithsByNarratorName(
                 narratorName: hadithNarrator.slug,
+                hadithNumber: hadithNumber,
+                limit: hadithNumber != null ? PositiveNumber(1) : null,
               ),
             ),
         ),
@@ -104,7 +106,7 @@ class HadithPageScaffold extends StatelessWidget {
                 (either) => either.fold(
                   (l) {
                     final snackBar = SnackBar(
-                      backgroundColor: Colors.red,
+                      backgroundColor: redColor,
                       duration: const Duration(
                         milliseconds: 1700,
                       ),
@@ -125,7 +127,7 @@ class HadithPageScaffold extends StatelessWidget {
                     final snackBar = SnackBar(
                       backgroundColor: primaryColor,
                       duration: const Duration(
-                        milliseconds: 1700,
+                        seconds: 2,
                       ),
                       content: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -186,7 +188,7 @@ class HadithPageScaffold extends StatelessWidget {
                 enablePullDown: false,
                 onLoading: () {
                   context.read<HadithNarratorBloc>().add(
-                        HadithNarratorEvent.getHadithByNarratorName(
+                        HadithNarratorEvent.getHadithsByNarratorName(
                           narratorName: hadithNarrator.slug,
                           isNextPage: true,
                         ),

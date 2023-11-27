@@ -1,6 +1,6 @@
 part of 'widgets.dart';
 
-class CustomDropdownButtonWidget extends StatelessWidget {
+class CustomDropdownButtonWidget<T> extends StatelessWidget {
   const CustomDropdownButtonWidget({
     required this.value,
     required this.items,
@@ -10,17 +10,19 @@ class CustomDropdownButtonWidget extends StatelessWidget {
     required this.backgroundColor,
     this.fontSize = 14.0,
     this.width,
+    this.hint,
     super.key,
   });
 
-  final String? value;
-  final List<DropdownMenuItem<String>>? items;
+  final T? value;
+  final List<DropdownMenuItem<T>>? items;
   final BorderRadiusGeometry? borderRadius;
-  final Function(String?)? onChanged;
+  final Function(T?)? onChanged;
   final Color borderColor;
   final Color? backgroundColor;
   final double fontSize;
   final double? width;
+  final Widget? hint;
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +38,8 @@ class CustomDropdownButtonWidget extends StatelessWidget {
         borderRadius: borderRadius,
       ),
       child: Center(
-        child: DropdownButton<String>(
+        child: DropdownButton<T>(
+          hint: hint,
           borderRadius: BorderRadius.circular(18.0),
           value: value,
           icon: const Padding(

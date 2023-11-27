@@ -57,6 +57,7 @@ class CustomSearchWidget extends StatelessWidget {
         ),
         child: TextField(
           textAlign: TextAlign.left,
+          keyboardType: TextInputType.number,
           style: TextStyle(
             fontSize: fontSize,
             color: fontColor,

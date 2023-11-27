@@ -43,9 +43,8 @@ class HadithNarratorRepository implements IHadithNarratorRepository {
                 .toIList(),
           );
         } catch (e, stackTrace) {
-          debugPrint(
-            stackTrace.toString(),
-          );
+          debugPrint('1------- $stackTrace -------1');
+
           return left(
             CommonFailures.parseError(
               message: e.toString(),
@@ -57,18 +56,18 @@ class HadithNarratorRepository implements IHadithNarratorRepository {
   }
 
   @override
-  Future<Either<CommonFailures, HadithNarrator>> getHadithByNarratorName({
+  Future<Either<CommonFailures, HadithNarrator>> getHadithsByNarratorName({
     required String narratorName,
-    int? page,
-    int? limit,
+    required int page,
+    required int limit,
   }) async {
     final response = await _networkService.getHttp(
       path: Urls.getHadithsByNarrator(
         narratorName,
       ),
       queryParameter: {
-        'page': page ?? 1,
-        'limit': limit ?? 20,
+        'page': page,
+        'limit': limit,
       },
     );
 
@@ -84,9 +83,8 @@ class HadithNarratorRepository implements IHadithNarratorRepository {
             hadithNarrator.toDomain(),
           );
         } catch (e, stackTrace) {
-          debugPrint(
-            stackTrace.toString(),
-          );
+          debugPrint('1------- $stackTrace -------1');
+
           return left(
             CommonFailures.parseError(
               message: e.toString(),

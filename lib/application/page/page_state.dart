@@ -30,10 +30,12 @@ class OnCheckEmailPage extends PageState {}
 class OnHadithPage extends PageState {
   final UniqueString userID;
   final HadithNarrator hadithNarrator;
+  final PositiveNumber? hadithNumber;
 
   const OnHadithPage({
     required this.userID,
     required this.hadithNarrator,
+    this.hadithNumber,
   });
 }
 

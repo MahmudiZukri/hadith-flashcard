@@ -50,6 +50,7 @@ class PageBloc extends Bloc<PageEvent, PageState> {
         OnHadithPage(
           userID: event.userID,
           hadithNarrator: event.hadithNarrator,
+          hadithNumber: event.hadithNumber,
         ),
       ),
     );
