@@ -85,21 +85,28 @@ class HadithNarratorBloc
                 await hadithNarratorRepository.getHadithsByNarratorName(
               narratorName: e.narratorName.getOrCrash(),
               limit: e.limit?.getOrNull()?.toInt() ?? 25,
-              page: e.hadithNumber != null
-                  ? e.hadithNumber!.getOrCrash().toInt()
-                  : state.optionFailureOrHadithNarratorByName.fold(
-                      () => 1,
-                      (either) => either.foldRight(
-                        1,
-                        (acc, b) => e.isNextPage != null &&
-                                e.isNextPage == true &&
-                                b.pagination != null &&
-                                b.pagination!.currentPage.getOrZero() <
-                                    b.pagination!.endPage.getOrZero()
-                            ? b.pagination!.currentPage.getOrZero().toInt() + 1
-                            : 1,
-                      ),
-                    ),
+              page:
+                  // when user is searching hadith
+                  e.hadithNumber != null
+                      ? e.hadithNumber!.getOrCrash().toInt()
+                      : state.optionFailureOrHadithNarratorByName.fold(
+                          () => 1,
+                          (either) => either.foldRight(
+                            1,
+                            (acc, b) {
+                              return e.isNextPage != null &&
+                                      e.isNextPage == true &&
+                                      b.pagination != null &&
+                                      b.pagination!.currentPage.getOrZero() <
+                                          b.pagination!.endPage.getOrZero()
+                                  ? b.pagination!.currentPage
+                                          .getOrZero()
+                                          .toInt() +
+                                      1
+                                  : 1;
+                            },
+                          ),
+                        ),
             );
 
             emit(

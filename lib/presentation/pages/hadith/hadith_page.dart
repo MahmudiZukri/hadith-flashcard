@@ -38,6 +38,7 @@ class HadithPage extends StatelessWidget {
       child: HadithPageScaffold(
         userID: userID,
         hadithNarrator: hadithNarrator,
+        hadithNumber: hadithNumber,
       ),
     );
   }
@@ -47,11 +48,13 @@ class HadithPageScaffold extends StatelessWidget {
   const HadithPageScaffold({
     required this.userID,
     required this.hadithNarrator,
+    required this.hadithNumber,
     super.key,
   });
 
   final UniqueString userID;
   final HadithNarrator hadithNarrator;
+  final PositiveNumber? hadithNumber;
 
   @override
   Widget build(BuildContext context) {
@@ -170,7 +173,9 @@ class HadithPageScaffold extends StatelessWidget {
 
                     context.read<HadithFlashcardBloc>()
                       ..add(
-                        HadithFlashcardEvent.getFlashcard(userID: userID),
+                        HadithFlashcardEvent.getFlashcard(
+                          userID: userID,
+                        ),
                       )
                       ..add(
                         const HadithFlashcardEvent.resetFlashcardSnackBar(),
@@ -186,19 +191,25 @@ class HadithPageScaffold extends StatelessWidget {
               child: SmartRefresher(
                 controller: refreshController,
                 enablePullDown: false,
-                onLoading: () {
-                  context.read<HadithNarratorBloc>().add(
-                        HadithNarratorEvent.getHadithsByNarratorName(
-                          narratorName: hadithNarrator.slug,
-                          isNextPage: true,
-                        ),
-                      );
-                },
-                enablePullUp: hadithNarratorState.getPagination == null
+                onLoading: hadithNumber != null
+                    ? () {}
+                    : () {
+                        context.read<HadithNarratorBloc>().add(
+                              HadithNarratorEvent.getHadithsByNarratorName(
+                                narratorName: hadithNarrator.slug,
+                                hadithNumber: hadithNumber,
+                                isNextPage: true,
+                              ),
+                            );
+                      },
+                enablePullUp: hadithNumber != null
                     ? false
-                    : hadithNarratorState.getPagination!.currentPage
-                            .getOrZero() <
-                        hadithNarratorState.getPagination!.endPage.getOrZero(),
+                    : hadithNarratorState.getPagination == null
+                        ? false
+                        : hadithNarratorState.getPagination!.currentPage
+                                .getOrZero() <
+                            hadithNarratorState.getPagination!.endPage
+                                .getOrZero(),
                 child: ListView(
                   children: [
                     const SizedBox(height: 22.0),

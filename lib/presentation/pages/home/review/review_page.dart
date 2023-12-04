@@ -23,8 +23,8 @@ class ReviewPage extends StatelessWidget {
       child: BlocBuilder<HadithFlashcardBloc, HadithFlashcardState>(
         builder: (context, hadithFlashcardState) {
           return hadithFlashcardState.optionFailureOrGetFlashcard.match(
-            // () => const CustomCircularProgressIndicatorWidget(),
-            () => const SizedBox(),
+            () => const CustomCircularProgressIndicatorWidget(),
+            // () => const SizedBox(),
             (either) => either.fold(
               (l) => Text(
                 l.message,

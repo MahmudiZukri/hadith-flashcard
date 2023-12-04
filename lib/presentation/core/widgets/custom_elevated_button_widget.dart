@@ -10,6 +10,9 @@ class CustomElevatedButtonWidget extends StatelessWidget {
     this.height = 46,
     this.width,
     this.icon,
+    this.disabledBackgroundColor,
+    this.disabledTextColor,
+    this.disabledBorderColor,
     this.isEnabled = true,
     this.isWithBorder = false,
     this.isWithElevation = false,
@@ -23,6 +26,9 @@ class CustomElevatedButtonWidget extends StatelessWidget {
   final double height;
   final double? width;
   final Widget? icon;
+  final Color? disabledBackgroundColor;
+  final Color? disabledBorderColor;
+  final Color? disabledTextColor;
   final bool isEnabled;
   final bool isWithBorder;
   final bool isWithElevation;
@@ -38,11 +44,17 @@ class CustomElevatedButtonWidget extends StatelessWidget {
           elevation: isWithElevation ? null : 0.0,
           shape: RoundedRectangleBorder(
             side: isWithBorder
-                ? const BorderSide(color: whiteColor)
+                ? BorderSide(
+                    color: disabledBorderColor != null && isEnabled == false
+                        ? disabledBorderColor!
+                        : whiteColor,
+                  )
                 : BorderSide.none,
             borderRadius: largeBorderRadius(),
           ),
-          backgroundColor: isEnabled ? backgroundColor : greyColor,
+          backgroundColor: isEnabled
+              ? backgroundColor
+              : disabledBackgroundColor ?? greyColor,
         ),
         onPressed: isEnabled ? onPressed : () {},
         child: Row(
@@ -61,7 +73,9 @@ class CustomElevatedButtonWidget extends StatelessWidget {
                 : Text(
                     text,
                     style: textStyle.copyWith(
-                      color: isEnabled ? textStyle.color : whiteColor,
+                      color: isEnabled
+                          ? textStyle.color
+                          : disabledTextColor ?? whiteColor,
                     ),
                   ),
           ],

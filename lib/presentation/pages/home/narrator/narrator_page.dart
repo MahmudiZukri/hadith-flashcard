@@ -337,7 +337,10 @@ class NarratorFilterAndSearchRow extends StatelessWidget {
           isWithBorder: true,
           isLoading: isSearching,
           backgroundColor: whiteColor.withOpacity(0.5),
+          disabledBackgroundColor: greyColor.withOpacity(0.5),
           textStyle: blackTextFont,
+          disabledTextColor: whiteColor.withOpacity(0.5),
+          disabledBorderColor: whiteColor.withOpacity(0.5),
           onPressed: () {
             // Search hadith
             context.read<HadithNarratorBloc>().add(
