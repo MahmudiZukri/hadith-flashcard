@@ -79,7 +79,9 @@ class ProfilePage extends StatelessWidget {
                           // Rate us
                           RateUsSection(
                             title: 'rateUs'.tr(),
-                            onTap: () {},
+                            onTap: () {
+                              //rate
+                            },
                           ),
 
                           // Help
