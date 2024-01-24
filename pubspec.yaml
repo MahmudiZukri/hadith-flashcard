@@ -63,6 +63,7 @@ dependencies:
   google_sign_in: ^6.1.5
   focus_detector: ^2.0.1
   pull_to_refresh: ^2.0.0
+  get: ^4.6.5
 
 dev_dependencies:
   flutter_test:

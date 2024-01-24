@@ -182,9 +182,9 @@ class SignInPageScaffold extends StatelessWidget {
                             alignment: Alignment.centerRight,
                             child: GestureDetector(
                               onTap: () {
-                                context.read<PageBloc>().add(
-                                      GotoForgotPasswordPage(),
-                                    );
+                                Get.to(
+                                  () => const ForgotPasswordPage(),
+                                );
                               },
                               child: Text(
                                 'forgotPassword',
@@ -302,9 +302,11 @@ class SignInPageScaffold extends StatelessWidget {
                                   vertical: 10,
                                 ),
                                 child: GestureDetector(
-                                  onTap: () => context.read<PageBloc>().add(
-                                        GotoSignUpPage(),
-                                      ),
+                                  onTap: () {
+                                    Get.to(
+                                      () => const SignUpPage(),
+                                    );
+                                  },
                                   child: Text(
                                     'register',
                                     style: primaryTextFont.copyWith(

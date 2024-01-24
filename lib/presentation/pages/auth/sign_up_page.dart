@@ -299,9 +299,11 @@ class SignUpPageScaffold extends StatelessWidget {
                                   vertical: 10,
                                 ),
                                 child: GestureDetector(
-                                  onTap: () => context.read<PageBloc>().add(
-                                        GotoSignInPage(),
-                                      ),
+                                  onTap: () {
+                                    Get.to(
+                                      () => const SignInPage(),
+                                    );
+                                  },
                                   child: Text(
                                     'signIn',
                                     style: primaryTextFont.copyWith(

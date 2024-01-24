@@ -16,13 +16,14 @@ class HelpPage extends StatelessWidget {
         title: 'help'.tr(),
         actions: [
           GestureDetector(
-            onTap: () => context.read<PageBloc>().add(
-                  GotoHomePage(
-                    // delete after change router
-                    userID: userID,
-                    pageIndex: 1,
-                  ),
+            onTap: () {
+              Get.to(
+                () => HomePage(
+                  userID: userID,
+                  pageIndex: 1,
                 ),
+              );
+            },
             child: Icon(
               MdiIcons.cardsOutline,
             ),
@@ -30,13 +31,7 @@ class HelpPage extends StatelessWidget {
           const SizedBox(width: 12.0),
         ],
         leadingOnTap: () {
-          context.read<PageBloc>().add(
-                GotoHomePage(
-                  // delete after change router
-                  userID: userID,
-                  pageIndex: 2,
-                ),
-              );
+          Get.back();
         },
       ),
       body: Padding(

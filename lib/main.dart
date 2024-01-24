@@ -3,9 +3,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/route_manager.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hadith_flashcard/application/auth/auth_bloc.dart';
-import 'package:hadith_flashcard/application/page/page_bloc.dart';
 import 'package:hadith_flashcard/application/user/user_bloc.dart';
 import 'package:hadith_flashcard/domain/auth/interfaces/i_auth_repository.dart';
 import 'package:hadith_flashcard/domain/core/objects/objects.dart';
@@ -60,9 +61,6 @@ class MyApp extends StatelessWidget {
         BlocProvider<UserBloc>(
           create: (context) => getIt<UserBloc>(),
         ),
-        BlocProvider<PageBloc>(
-          create: (context) => getIt<PageBloc>(),
-        ),
       ],
       child: StreamBuilder(
         stream: IAuthRepository.userStream,
@@ -70,7 +68,7 @@ class MyApp extends StatelessWidget {
         builder: (context, AsyncSnapshot<User?> snapshot) {
           User? user = snapshot.data;
 
-          return MaterialApp(
+          return GetMaterialApp(
             debugShowCheckedModeBanner: false,
             localizationsDelegates: context.localizationDelegates,
             supportedLocales: context.supportedLocales,
@@ -79,10 +77,12 @@ class MyApp extends StatelessWidget {
             theme: ThemeData(
               textTheme: GoogleFonts.poppinsTextTheme(),
             ),
-            home: Wrapper(
-              userID:
-                  user != null ? UniqueString.fromUniqueString(user.uid) : null,
-            ),
+            home: user == null
+                ? const SignInPage()
+                : HomePage(
+                    userID: UniqueString.fromUniqueString(user.uid),
+                    pageIndex: 1,
+                  ),
           );
         },
       ),

@@ -1,6 +1,5 @@
 part of 'shared.dart';
 
-PageEvent? prevPageEvent;
 const double defaultMargin = 24;
 Duration defaultDuration() => const Duration(milliseconds: 200);
 double screenWidth(context) => MediaQuery.of(context).size.width;

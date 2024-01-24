@@ -4,7 +4,7 @@ class HadithPage extends StatelessWidget {
   const HadithPage({
     required this.userID,
     required this.hadithNarrator,
-    required this.hadithNumber,
+    this.hadithNumber,
     super.key,
   });
 
@@ -66,12 +66,14 @@ class HadithPageScaffold extends StatelessWidget {
         desc: '${hadithNarrator.total.getOrCrash()} hadiths',
         actions: [
           GestureDetector(
-            onTap: () => context.read<PageBloc>().add(
-                  GotoHomePage(
-                    userID: userID,
-                    pageIndex: 1,
-                  ),
+            onTap: () {
+              Get.to(
+                () => HomePage(
+                  userID: userID,
+                  pageIndex: 1,
                 ),
+              );
+            },
             child: Icon(
               MdiIcons.cardsOutline,
             ),
@@ -79,13 +81,7 @@ class HadithPageScaffold extends StatelessWidget {
           const SizedBox(width: 12.0),
         ],
         leadingOnTap: () {
-          // TODO: find out how to change the animation if we go to previous page like this event ( not really important )
-          context.read<PageBloc>().add(
-                GotoHomePage(
-                  userID: userID,
-                  pageIndex: 0,
-                ),
-              );
+          Get.back();
         },
       ),
       body: BlocConsumer<HadithNarratorBloc, HadithNarratorState>(
@@ -152,12 +148,12 @@ class HadithPageScaffold extends StatelessWidget {
                               ScaffoldMessenger.of(context)
                                   .hideCurrentSnackBar();
 
-                              context.read<PageBloc>().add(
-                                    GotoHomePage(
-                                      userID: userID,
-                                      pageIndex: 1,
-                                    ),
-                                  );
+                              Get.to(
+                                () => HomePage(
+                                  userID: userID,
+                                  pageIndex: 1,
+                                ),
+                              );
                             },
                             child: const Text(
                               'Review card',

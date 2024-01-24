@@ -167,11 +167,11 @@ class HelpSection extends StatelessWidget {
       dense: true,
       contentPadding: EdgeInsets.zero,
       onTap: () {
-        context.read<PageBloc>().add(
-              GotoHelpPage(
-                userID: userID,
-              ),
-            );
+        Get.to(
+          () => HelpPage(
+            userID: userID,
+          ),
+        );
       },
     );
   }
@@ -194,11 +194,11 @@ class MyFlashcardSection extends StatelessWidget {
       dense: true,
       contentPadding: EdgeInsets.zero,
       onTap: () {
-        context.read<PageBloc>().add(
-              GotoMyFlashcardNarratorPage(
-                userID: userID,
-              ),
-            );
+        Get.to(
+          () => MyFlashcardNarratorPage(
+            userID: userID,
+          ),
+        );
       },
     );
   }
@@ -242,11 +242,11 @@ class PrivacyPolicySection extends StatelessWidget {
       dense: true,
       contentPadding: EdgeInsets.zero,
       onTap: () {
-        context.read<PageBloc>().add(
-              GotoPrivacyPolicyPage(
-                userID: userID,
-              ),
-            );
+        Get.to(
+          () => PrivacyPolicyPage(
+            userID: userID,
+          ),
+        );
       },
     );
   }

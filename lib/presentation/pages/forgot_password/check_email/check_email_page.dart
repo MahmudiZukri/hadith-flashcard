@@ -27,9 +27,13 @@ class CheckEmailPage extends StatelessWidget {
                       "Didn't receive the email? Check your spam filter, or"),
                   GestureDetector(
                     onTap: () {
-                      context.read<PageBloc>().add(
-                            GotoForgotPasswordPage(),
-                          );
+                      // context.read<PageBloc>().add(
+                      //       GotoForgotPasswordPage(),
+                      //     );
+
+                      Get.to(
+                        () => const SignInPage(),
+                      );
                     },
                     child: Text(
                       'try another email address',

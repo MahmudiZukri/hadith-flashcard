@@ -48,12 +48,14 @@ class MyFlashcardNarratorPageScaffold extends StatelessWidget {
                 '${hadithFlashcardState.getFlashcards.length} ${'hadith'.tr()}',
             actions: [
               GestureDetector(
-                onTap: () => context.read<PageBloc>().add(
-                      GotoHomePage(
-                        userID: userID,
-                        pageIndex: 1,
-                      ),
+                onTap: () {
+                  Get.to(
+                    () => HomePage(
+                      userID: userID,
+                      pageIndex: 1,
                     ),
+                  );
+                },
                 child: Icon(
                   MdiIcons.cardsOutline,
                 ),
@@ -61,13 +63,7 @@ class MyFlashcardNarratorPageScaffold extends StatelessWidget {
               const SizedBox(width: 12.0),
             ],
             leadingOnTap: () {
-              // TODO: find out how to change the animation if we go to previous page like this event ( not really important )
-              context.read<PageBloc>().add(
-                    GotoHomePage(
-                      userID: userID,
-                      pageIndex: 2,
-                    ),
-                  );
+              Get.back();
             },
           ),
           body: Padding(
@@ -95,26 +91,27 @@ class MyFlashcardNarratorPageScaffold extends StatelessWidget {
                         titleFontSize: 14,
                         onTap: () {
                           //goto hadith flashcard
-                          context.read<PageBloc>().add(
-                                GotoMyFlashcardHadithPage(
-                                  userID: userID,
-                                  flashcards: hadithFlashcardState.getFlashcards
-                                      .where(
-                                        (element) =>
-                                            element.hadithNarratorName ==
-                                            filteredFlashcard[index]
-                                                .hadithNarratorName,
-                                      )
-                                      .toIList()
-                                      .sort(
-                                        (a, b) => a.hadithNumber
-                                            .getOrZero()
-                                            .compareObjectTo(
-                                              b.hadithNumber.getOrZero(),
-                                            ),
-                                      ),
-                                ),
-                              );
+
+                          Get.to(
+                            () => MyFlashcardHadithPage(
+                              userID: userID,
+                              flashcards: hadithFlashcardState.getFlashcards
+                                  .where(
+                                    (element) =>
+                                        element.hadithNarratorName ==
+                                        filteredFlashcard[index]
+                                            .hadithNarratorName,
+                                  )
+                                  .toIList()
+                                  .sort(
+                                    (a, b) => a.hadithNumber
+                                        .getOrZero()
+                                        .compareObjectTo(
+                                          b.hadithNumber.getOrZero(),
+                                        ),
+                                  ),
+                            ),
+                          );
                         },
                         trailing: hadithFlashcardState.getFlashcardIsLoading ||
                                 !hadithFlashcardState

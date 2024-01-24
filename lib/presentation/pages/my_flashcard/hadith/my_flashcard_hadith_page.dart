@@ -44,11 +44,17 @@ class MyFlashcardHadithPageScaffold extends StatelessWidget {
           previous.myHadithFlashcards != current.myHadithFlashcards,
       listener: (context, flashcardState) {
         if (flashcardState.myHadithFlashcards.isEmpty) {
-          context.read<PageBloc>().add(
-                GotoMyFlashcardNarratorPage(
-                  userID: userID,
-                ),
-              );
+          // context.read<PageBloc>().add(
+          //       GotoMyFlashcardNarratorPage(
+          //         userID: userID,
+          //       ),
+          //     );
+
+          Get.to(
+            () => MyFlashcardNarratorPage(
+              userID: userID,
+            ),
+          );
         }
       },
       builder: (context, flashcardState) {
@@ -58,12 +64,14 @@ class MyFlashcardHadithPageScaffold extends StatelessWidget {
             desc: '${flashcardState.myHadithFlashcards.length} hadiths',
             actions: [
               GestureDetector(
-                onTap: () => context.read<PageBloc>().add(
-                      GotoHomePage(
-                        userID: userID,
-                        pageIndex: 1,
-                      ),
+                onTap: () {
+                  Get.to(
+                    () => HomePage(
+                      userID: userID,
+                      pageIndex: 1,
                     ),
+                  );
+                },
                 child: Icon(
                   MdiIcons.cardsOutline,
                 ),
@@ -71,11 +79,7 @@ class MyFlashcardHadithPageScaffold extends StatelessWidget {
               const SizedBox(width: 12.0),
             ],
             leadingOnTap: () {
-              context.read<PageBloc>().add(
-                    GotoMyFlashcardNarratorPage(
-                      userID: userID,
-                    ),
-                  );
+              Get.back();
             },
           ),
           body: Padding(

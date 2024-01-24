@@ -39,13 +39,13 @@ class NarratorPage extends StatelessWidget {
                   );
                 },
                 (hadithNarrator) {
-                  context.read<PageBloc>().add(
-                        GotoHadithPage(
-                          userID: userID,
-                          hadithNarrator: hadithNarrator,
-                          hadithNumber: hadithNarratorState.hadithNumber,
-                        ),
-                      );
+                  Get.to(
+                    () => HadithPage(
+                      userID: userID,
+                      hadithNarrator: hadithNarrator,
+                      hadithNumber: hadithNarratorState.hadithNumber,
+                    ),
+                  );
                 },
               ),
             );
@@ -134,13 +134,12 @@ class NarratorPage extends StatelessWidget {
                                   showSymbol: false,
                                 )} ${'hadith'.tr()}',
                                 onTap: () {
-                                  context.read<PageBloc>().add(
-                                        GotoHadithPage(
-                                          userID: userID,
-                                          hadithNarrator:
-                                              hadithNarrators[index],
-                                        ),
-                                      );
+                                  Get.to(
+                                    () => HadithPage(
+                                      userID: userID,
+                                      hadithNarrator: hadithNarrators[index],
+                                    ),
+                                  );
                                 },
                                 trailing: hadithFlashcardState
                                             .getFlashcardIsLoading ||

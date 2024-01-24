@@ -18,7 +18,6 @@ import 'package:hadith_flashcard/application/hadith_flashcard/hadith_flashcard_b
     as _i19;
 import 'package:hadith_flashcard/application/hadith_narrator/hadith_narrator_bloc.dart'
     as _i21;
-import 'package:hadith_flashcard/application/page/page_bloc.dart' as _i12;
 import 'package:hadith_flashcard/application/page_view/page_view_bloc.dart'
     as _i13;
 import 'package:hadith_flashcard/application/password_textfield/password_textfield_bloc.dart'
@@ -73,7 +72,6 @@ extension GetItInjectableX on _i1.GetIt {
       preResolve: true,
     );
     gh.lazySingleton<_i11.Logger>(() => registerModule.logger);
-    gh.factory<_i12.PageBloc>(() => _i12.PageBloc());
     gh.factory<_i13.PageViewBloc>(() => _i13.PageViewBloc());
     gh.factory<_i14.PasswordTextFieldBloc>(() => _i14.PasswordTextFieldBloc());
     gh.factory<_i15.SettingBloc>(() => _i15.SettingBloc());

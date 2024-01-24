@@ -33,9 +33,15 @@ class ForgotPasswordPageScaffold extends StatelessWidget {
           children: [
             SafeArea(
               child: GestureDetector(
-                onTap: () => context.read<PageBloc>().add(
-                      GotoSignInPage(),
-                    ),
+                onTap: () {
+                  // context.read<PageBloc>().add(
+                  //     GotoSignInPage(),
+                  //   );
+
+                  Get.to(
+                    () => const SignInPage(),
+                  );
+                },
                 child: Row(
                   children: [
                     const SizedBox(width: defaultMargin),
@@ -72,7 +78,13 @@ class ForgotPasswordPageScaffold extends StatelessWidget {
                       );
                     },
                     (_) {
-                      context.read<PageBloc>().add(GotoCheckEmailPage());
+                      Get.to(
+                        () => const CheckEmailPage(),
+                      );
+
+                      Get.to(
+                        () => const SignInPage(),
+                      );
                     },
                   ),
                 );
