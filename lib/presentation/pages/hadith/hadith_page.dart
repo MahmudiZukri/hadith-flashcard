@@ -310,7 +310,7 @@ class HadithPageScaffold extends StatelessWidget {
                                                       MainAxisSize.min,
                                                   children: [
                                                     Text(
-                                                      '${'Hadith'.tr()} ${hadithNarrator.name.getOrFailureText()} ${'Number'.tr()}  ${hadithNarratorState.hadiths[index].number.getOrCrash().toString()}',
+                                                      '${'Hadith'.tr} ${hadithNarrator.name.getOrFailureText()} ${'Number'.tr}  ${hadithNarratorState.hadiths[index].number.getOrCrash().toString()}',
                                                       style: primaryTextFont
                                                           .copyWith(
                                                         fontSize: 16.0,
@@ -429,14 +429,15 @@ class HadithPageScaffold extends StatelessWidget {
                                                                   children: [
                                                                     Expanded(
                                                                       child:
-                                                                          const Text(
-                                                                        'areYouSureWantToResetYourFlashcardProgress',
+                                                                          Text(
+                                                                        'areYouSureWantToResetYourFlashcardProgress'
+                                                                            .tr,
                                                                         style:
-                                                                            TextStyle(
+                                                                            const TextStyle(
                                                                           fontSize:
                                                                               14.0,
                                                                         ),
-                                                                      ).tr(),
+                                                                      ),
                                                                     ),
                                                                     Row(
                                                                       children: [
@@ -473,12 +474,12 @@ class HadithPageScaffold extends StatelessWidget {
                                                                           },
                                                                           child:
                                                                               Text(
-                                                                            'yes',
+                                                                            'yes'.tr,
                                                                             style:
                                                                                 primaryTextFont.copyWith(
                                                                               fontWeight: FontWeight.w700,
                                                                             ),
-                                                                          ).tr(),
+                                                                          ),
                                                                         ),
                                                                         const SizedBox(
                                                                           width:
@@ -499,25 +500,26 @@ class HadithPageScaffold extends StatelessWidget {
                                                                           },
                                                                           child:
                                                                               Text(
-                                                                            'no',
+                                                                            'no'.tr,
                                                                             style:
                                                                                 redTextFont.copyWith(
                                                                               fontWeight: FontWeight.w700,
                                                                             ),
-                                                                          ).tr(),
+                                                                          ),
                                                                         ),
                                                                       ],
                                                                     )
                                                                   ],
                                                                 )
-                                                              : const Text(
-                                                                  'addToFlashcard',
+                                                              : Text(
+                                                                  'addToFlashcard'
+                                                                      .tr,
                                                                   style:
-                                                                      TextStyle(
+                                                                      const TextStyle(
                                                                     fontSize:
                                                                         14.0,
                                                                   ),
-                                                                ).tr(),
+                                                                ),
                                                         ),
                                                       ),
                                                     ),
@@ -541,12 +543,12 @@ class HadithPageScaffold extends StatelessWidget {
                                                               ),
                                                             );
                                                       },
-                                                      title: const Text(
-                                                        'close',
-                                                        style: TextStyle(
+                                                      title: Text(
+                                                        'close'.tr,
+                                                        style: const TextStyle(
                                                           fontSize: 14.0,
                                                         ),
-                                                      ).tr(),
+                                                      ),
                                                     ),
                                                     const SizedBox(
                                                       height: 18.0,

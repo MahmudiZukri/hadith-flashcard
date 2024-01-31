@@ -33,20 +33,20 @@ class CustomFlipCard extends StatelessWidget {
                   CommonUtils.openCustomDialog(
                     context: context,
                     title: Text(
-                      'help',
+                      'help'.tr,
                       style:
                           blackTextFont.copyWith(fontWeight: FontWeight.w500),
                       textAlign: TextAlign.center,
-                    ).tr(),
+                    ),
                     content: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Text(
-                          'helpSection',
+                          'helpSection'.tr,
                           style: greyTextFont.copyWith(
                             fontSize: 13.0,
                           ),
-                        ).tr(),
+                        ),
                         const SizedBox(height: 16.0),
                         SizedBox(
                           width: double.infinity,
@@ -67,12 +67,12 @@ class CustomFlipCard extends StatelessWidget {
                                         fontSize: 13.0,
                                       )),
                                   Text(
-                                    'quality0',
+                                    'quality0'.tr,
                                     style: greyTextFont.copyWith(
                                       fontSize: 13.0,
                                     ),
                                     maxLines: 2,
-                                  ).tr()
+                                  )
                                 ],
                               ),
                               TableRow(
@@ -86,12 +86,12 @@ class CustomFlipCard extends StatelessWidget {
                                         fontSize: 13.0,
                                       )),
                                   Text(
-                                    'quality1',
+                                    'quality1'.tr,
                                     style: greyTextFont.copyWith(
                                       fontSize: 13.0,
                                     ),
                                     maxLines: 2,
-                                  ).tr()
+                                  )
                                 ],
                               ),
                               TableRow(
@@ -105,12 +105,12 @@ class CustomFlipCard extends StatelessWidget {
                                         fontSize: 13.0,
                                       )),
                                   Text(
-                                    'quality2',
+                                    'quality2'.tr,
                                     style: greyTextFont.copyWith(
                                       fontSize: 13.0,
                                     ),
                                     maxLines: 2,
-                                  ).tr()
+                                  )
                                 ],
                               ),
                               TableRow(
@@ -124,12 +124,12 @@ class CustomFlipCard extends StatelessWidget {
                                         fontSize: 13.0,
                                       )),
                                   Text(
-                                    'quality3',
+                                    'quality3'.tr,
                                     style: greyTextFont.copyWith(
                                       fontSize: 13.0,
                                     ),
                                     maxLines: 2,
-                                  ).tr()
+                                  )
                                 ],
                               ),
                               TableRow(
@@ -143,12 +143,12 @@ class CustomFlipCard extends StatelessWidget {
                                         fontSize: 13.0,
                                       )),
                                   Text(
-                                    'quality4',
+                                    'quality4'.tr,
                                     style: greyTextFont.copyWith(
                                       fontSize: 13.0,
                                     ),
                                     maxLines: 2,
-                                  ).tr()
+                                  )
                                 ],
                               ),
                               TableRow(
@@ -162,20 +162,21 @@ class CustomFlipCard extends StatelessWidget {
                                         fontSize: 13.0,
                                       )),
                                   Text(
-                                    'quality5',
+                                    'quality5'.tr,
                                     style: greyTextFont.copyWith(
                                       fontSize: 13.0,
                                     ),
                                     maxLines: 2,
-                                  ).tr()
+                                  )
                                 ],
                               ),
                             ],
                           ),
                         ),
                         const SizedBox(height: 30.0),
+                        // Close button
                         CustomElevatedButtonWidget(
-                          text: 'close'.tr(),
+                          text: 'close'.tr,
                           backgroundColor: primaryColor,
                           textStyle: whiteTextFont.copyWith(
                             fontSize: 14.0,

@@ -44,12 +44,6 @@ class MyFlashcardHadithPageScaffold extends StatelessWidget {
           previous.myHadithFlashcards != current.myHadithFlashcards,
       listener: (context, flashcardState) {
         if (flashcardState.myHadithFlashcards.isEmpty) {
-          // context.read<PageBloc>().add(
-          //       GotoMyFlashcardNarratorPage(
-          //         userID: userID,
-          //       ),
-          //     );
-
           Get.to(
             () => MyFlashcardNarratorPage(
               userID: userID,
@@ -103,14 +97,12 @@ class MyFlashcardHadithPageScaffold extends StatelessWidget {
                 flashcardState.myHadithFlashcards == <HadithFlashcard>[].lock
                     ? Padding(
                         padding: const EdgeInsets.only(top: 30.0),
-                        child: const Text(
-                          "youDon'tHaveNarratorflashcards",
-                          textAlign: TextAlign.center,
-                        ).tr(
-                          namedArgs: {
-                            'narrator':
+                        child: Text(
+                          "youDon'tHaveNarratorflashcards".trParams({
+                            "narrator":
                                 flashcards.first.hadithNarratorName.getOrCrash()
-                          },
+                          }),
+                          textAlign: TextAlign.center,
                         ),
                       )
                     : Column(
@@ -168,7 +160,7 @@ class MyFlashcardHadithPageScaffold extends StatelessWidget {
                                                         MainAxisSize.min,
                                                     children: [
                                                       Text(
-                                                        '${'areYouSureWannaDelete'.tr()} ${'Hadith'.tr()} ${flashcardState.myHadithFlashcards[index].hadithNarratorName.getOrFailureText()} ${'Number'.tr()}  ${flashcardState.myHadithFlashcards[index].hadithNumber.getOrCrash().toString()} ?',
+                                                        '${'areYouSureWannaDelete'.tr} ${'Hadith'.tr} ${flashcardState.myHadithFlashcards[index].hadithNarratorName.getOrFailureText()} ${'Number'.tr}  ${flashcardState.myHadithFlashcards[index].hadithNumber.getOrCrash().toString()} ?',
                                                         textAlign:
                                                             TextAlign.center,
                                                         style: primaryTextFont
@@ -249,12 +241,13 @@ class MyFlashcardHadithPageScaffold extends StatelessWidget {
                                                                 const Duration(
                                                               milliseconds: 500,
                                                             ),
-                                                            child: const Text(
-                                                              'delete',
-                                                              style: TextStyle(
+                                                            child: Text(
+                                                              'delete'.tr,
+                                                              style:
+                                                                  const TextStyle(
                                                                 fontSize: 14.0,
                                                               ),
-                                                            ).tr(),
+                                                            ),
                                                           ),
                                                         ),
                                                       ),
@@ -280,12 +273,13 @@ class MyFlashcardHadithPageScaffold extends StatelessWidget {
                                                                 ),
                                                               );
                                                         },
-                                                        title: const Text(
-                                                          'close',
-                                                          style: TextStyle(
+                                                        title: Text(
+                                                          'close'.tr,
+                                                          style:
+                                                              const TextStyle(
                                                             fontSize: 14.0,
                                                           ),
-                                                        ).tr(),
+                                                        ),
                                                       ),
                                                       const SizedBox(
                                                           height: 18.0),

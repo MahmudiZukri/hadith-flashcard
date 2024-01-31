@@ -12,7 +12,7 @@ class PrivacyPolicyPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBarWidget(
-        title: 'privacyPolicy'.tr(),
+        title: 'privacyPolicy'.tr,
         actions: [
           GestureDetector(
             onTap: () {
@@ -41,48 +41,48 @@ class PrivacyPolicyPage extends StatelessWidget {
           children: [
             const SizedBox(height: 22.0),
             Text(
-              'privacyPolicyText',
+              'privacyPolicyText'.tr,
               style: blackTextFont.copyWith(height: 1.6),
-            ).tr(),
+            ),
             const SizedBox(height: 20.0),
             Text(
-              'privacyPolicyTitle1',
+              'privacyPolicyTitle1'.tr,
               style: blackTextFont.copyWith(
                 height: 1.6,
                 fontWeight: FontWeight.w600,
               ),
-            ).tr(),
+            ),
             const SizedBox(height: 8.0),
             Text(
-              'privacyPolicyText1',
+              'privacyPolicyText1'.tr,
               style: blackTextFont.copyWith(height: 1.6),
-            ).tr(),
+            ),
             const SizedBox(height: 20.0),
             Text(
-              'privacyPolicyTitle2',
+              'privacyPolicyTitle2'.tr,
               style: blackTextFont.copyWith(
                 height: 1.6,
                 fontWeight: FontWeight.w600,
               ),
-            ).tr(),
+            ),
             const SizedBox(height: 8.0),
             Text(
-              'privacyPolicyText2',
+              'privacyPolicyText2'.tr,
               style: blackTextFont.copyWith(height: 1.6),
-            ).tr(),
+            ),
             const SizedBox(height: 20.0),
             Text(
-              'privacyPolicyTitle3',
+              'privacyPolicyTitle3'.tr,
               style: blackTextFont.copyWith(
                 height: 1.6,
                 fontWeight: FontWeight.w600,
               ),
-            ).tr(),
+            ),
             const SizedBox(height: 8.0),
             Text(
-              'privacyPolicyText3',
+              'privacyPolicyText3'.tr,
               style: blackTextFont.copyWith(height: 1.6),
-            ).tr(),
+            ),
           ],
         ),
       ),

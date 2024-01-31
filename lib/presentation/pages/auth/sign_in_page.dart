@@ -111,7 +111,7 @@ class SignInPageScaffold extends StatelessWidget {
                                   f.maybeMap(
                                     handledByFirebase: (s) => s.message,
                                     orElse: () =>
-                                        '${'somethingWentWrong'.tr()} (${f.message}).',
+                                        '${'somethingWentWrong'.tr} (${f.message}).',
                                   ),
                                 ),
                               ),
@@ -131,17 +131,17 @@ class SignInPageScaffold extends StatelessWidget {
                           SizedBox(height: screenHeight(context) / 16),
                           keyboardSize(context) == 0
                               ? Text(
-                                  'welcome',
+                                  'welcome'.tr,
                                   style: blackTextFont.copyWith(
                                     fontSize: 24,
                                     fontWeight: FontWeight.bold,
                                   ),
-                                ).tr()
+                                )
                               : const SizedBox(),
                           const SizedBox(height: 30.0),
                           CustomTextFormFieldWidget(
                             labelText: 'Email',
-                            hintText: 'enterYourEmail'.tr(),
+                            hintText: 'enterYourEmail'.tr,
                             onChanged: (val) => context.read<AuthBloc>().add(
                                   AuthEvent.emailChanged(
                                     emailStr: val,
@@ -156,8 +156,8 @@ class SignInPageScaffold extends StatelessWidget {
                             selector: (state) => state.isSignInTextFieldObscure,
                             builder: (context, isSignInTextFieldObscure) {
                               return CustomTextFormFieldWidget(
-                                labelText: 'password'.tr(),
-                                hintText: 'enterYourPassword'.tr(),
+                                labelText: 'password'.tr,
+                                hintText: 'enterYourPassword'.tr,
                                 onChanged: (val) =>
                                     context.read<AuthBloc>().add(
                                           AuthEvent.passwordChanged(
@@ -187,9 +187,9 @@ class SignInPageScaffold extends StatelessWidget {
                                 );
                               },
                               child: Text(
-                                'forgotPassword',
+                                'forgotPassword'.tr,
                                 style: greyTextFont.copyWith(fontSize: 12.0),
-                              ).tr(),
+                              ),
                             ),
                           ),
                           const SizedBox(height: 16.0),
@@ -202,7 +202,7 @@ class SignInPageScaffold extends StatelessWidget {
                                       ? 0.5
                                       : 1,
                                   child: CustomElevatedButtonWidget(
-                                    text: 'signIn'.tr(),
+                                    text: 'signIn'.tr,
                                     isEnabled:
                                         state.email != EmailAddress('') &&
                                             state.password != Password(''),
@@ -231,7 +231,7 @@ class SignInPageScaffold extends StatelessWidget {
                                   horizontal: 8.0,
                                 ),
                                 child: Text(
-                                  'or'.tr(),
+                                  'or'.tr,
                                   style: greyTextFont.copyWith(fontSize: 12),
                                 ),
                               ),
@@ -291,11 +291,11 @@ class SignInPageScaffold extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                "don'tHaveAnAccountYet",
+                                "don'tHaveAnAccountYet".tr,
                                 style: secondaryTextFont.copyWith(
                                   fontSize: 12.0,
                                 ),
-                              ).tr(),
+                              ),
                               Padding(
                                 padding: const EdgeInsets.symmetric(
                                   horizontal: 4,
@@ -308,12 +308,12 @@ class SignInPageScaffold extends StatelessWidget {
                                     );
                                   },
                                   child: Text(
-                                    'register',
+                                    'register'.tr,
                                     style: primaryTextFont.copyWith(
                                       fontSize: 12.0,
                                       decoration: TextDecoration.underline,
                                     ),
-                                  ).tr(),
+                                  ),
                                 ),
                               ),
                             ],

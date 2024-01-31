@@ -1,4 +1,3 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -11,6 +10,7 @@ import 'package:hadith_flashcard/application/user/user_bloc.dart';
 import 'package:hadith_flashcard/domain/auth/interfaces/i_auth_repository.dart';
 import 'package:hadith_flashcard/domain/core/objects/objects.dart';
 import 'package:hadith_flashcard/injection.dart';
+import 'package:hadith_flashcard/localization/localization.dart';
 import 'package:hadith_flashcard/presentation/pages/pages.dart';
 import 'package:hadith_flashcard/simple_bloc_observer.dart';
 import 'package:injectable/injectable.dart';
@@ -19,8 +19,6 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   configureInjection(Environment.prod);
-  await EasyLocalization.ensureInitialized();
-  Bloc.observer = getIt<SimpleBlocObserver>();
   await Firebase.initializeApp(
       // TODO: find out later
       // options: const FirebaseOptions(
@@ -31,18 +29,10 @@ void main() async {
       // ),
       // options: DefaultFirebaseOptions.currentPlatform,
       );
+  Bloc.observer = getIt<SimpleBlocObserver>();
 
   runApp(
-    EasyLocalization(
-      supportedLocales: const [
-        Locale('id'),
-        Locale('en', 'US'),
-      ],
-      path: 'assets/localization',
-      // TODO : make sure default locale later
-      startLocale: const Locale('id'),
-      child: const MyApp(),
-    ),
+    const MyApp(),
   );
 }
 
@@ -70,9 +60,8 @@ class MyApp extends StatelessWidget {
 
           return GetMaterialApp(
             debugShowCheckedModeBanner: false,
-            localizationsDelegates: context.localizationDelegates,
-            supportedLocales: context.supportedLocales,
-            locale: context.locale,
+            translations: Localization(),
+            locale: const Locale('id'),
             title: 'Hadith Flashcard',
             theme: ThemeData(
               textTheme: GoogleFonts.poppinsTextTheme(),

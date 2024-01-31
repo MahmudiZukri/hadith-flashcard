@@ -111,7 +111,7 @@ class SignUpPageScaffold extends StatelessWidget {
                                   f.maybeMap(
                                     handledByFirebase: (s) => s.message,
                                     orElse: () =>
-                                        '${'somethingWentWrong'.tr()}($f).',
+                                        '${'somethingWentWrong'.tr}($f).',
                                   ),
                                 ),
                               ),
@@ -131,17 +131,17 @@ class SignUpPageScaffold extends StatelessWidget {
                           SizedBox(height: screenHeight(context) / 16),
                           keyboardSize(context) == 0
                               ? Text(
-                                  'createAnAccount',
+                                  'createAnAccount'.tr,
                                   style: blackTextFont.copyWith(
                                     fontSize: 24,
                                     fontWeight: FontWeight.bold,
                                   ),
-                                ).tr()
+                                )
                               : const SizedBox(),
                           const SizedBox(height: 30.0),
                           CustomTextFormFieldWidget(
-                            labelText: 'name'.tr(),
-                            hintText: 'enterYourName'.tr(),
+                            labelText: 'name'.tr,
+                            hintText: 'enterYourName'.tr,
                             onChanged: (val) => context.read<AuthBloc>().add(
                                   AuthEvent.nameChanged(
                                     nameStr: val,
@@ -153,7 +153,7 @@ class SignUpPageScaffold extends StatelessWidget {
                           const SizedBox(height: 16.0),
                           CustomTextFormFieldWidget(
                             labelText: 'Email',
-                            hintText: 'enterYourEmail'.tr(),
+                            hintText: 'enterYourEmail'.tr,
                             onChanged: (val) => context.read<AuthBloc>().add(
                                   AuthEvent.emailChanged(
                                     emailStr: val,
@@ -168,8 +168,8 @@ class SignUpPageScaffold extends StatelessWidget {
                             selector: (state) => state.isSignUpTextFieldObscure,
                             builder: (context, isSignUpTextFieldObscure) {
                               return CustomTextFormFieldWidget(
-                                labelText: 'password'.tr(),
-                                hintText: 'enterYourPassword'.tr(),
+                                labelText: 'password'.tr,
+                                hintText: 'enterYourPassword'.tr,
                                 onChanged: (val) =>
                                     context.read<AuthBloc>().add(
                                           AuthEvent.passwordChanged(
@@ -199,7 +199,7 @@ class SignUpPageScaffold extends StatelessWidget {
                                       ? 0.5
                                       : 1,
                                   child: CustomElevatedButtonWidget(
-                                    text: 'signUp'.tr(),
+                                    text: 'signUp'.tr,
                                     isEnabled:
                                         state.email != EmailAddress('') &&
                                             state.password != Password(''),
@@ -228,9 +228,9 @@ class SignUpPageScaffold extends StatelessWidget {
                                   horizontal: 8.0,
                                 ),
                                 child: Text(
-                                  'or',
+                                  'or'.tr,
                                   style: greyTextFont.copyWith(fontSize: 12),
-                                ).tr(),
+                                ),
                               ),
                               Expanded(
                                 child: Container(
@@ -288,11 +288,11 @@ class SignUpPageScaffold extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                'alreadyHaveAnAccount',
+                                'alreadyHaveAnAccount'.tr,
                                 style: secondaryTextFont.copyWith(
                                   fontSize: 12.0,
                                 ),
-                              ).tr(),
+                              ),
                               Padding(
                                 padding: const EdgeInsets.symmetric(
                                   horizontal: 4,
@@ -305,12 +305,12 @@ class SignUpPageScaffold extends StatelessWidget {
                                     );
                                   },
                                   child: Text(
-                                    'signIn',
+                                    'signIn'.tr,
                                     style: primaryTextFont.copyWith(
                                       fontSize: 12.0,
                                       decoration: TextDecoration.underline,
                                     ),
-                                  ).tr(),
+                                  ),
                                 ),
                               ),
                             ],

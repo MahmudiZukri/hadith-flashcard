@@ -24,11 +24,11 @@ class CustomListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       title: Text(
-        title,
+        title.tr,
         style: TextStyle(
           fontSize: titleFontSize,
         ),
-      ).tr(),
+      ),
       subtitle: subtitle == null ? null : Text(subtitle!),
       contentPadding: contentPadding,
       onTap: onTap,

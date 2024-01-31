@@ -34,13 +34,7 @@ class ForgotPasswordPageScaffold extends StatelessWidget {
             SafeArea(
               child: GestureDetector(
                 onTap: () {
-                  // context.read<PageBloc>().add(
-                  //     GotoSignInPage(),
-                  //   );
-
-                  Get.to(
-                    () => const SignInPage(),
-                  );
+                  Get.back();
                 },
                 child: Row(
                   children: [
@@ -48,14 +42,14 @@ class ForgotPasswordPageScaffold extends StatelessWidget {
                     Icon(MdiIcons.arrowLeft, size: 26.0),
                     const SizedBox(width: 6.0),
                     Text(
-                      'back',
-                      style: blackTextFont.copyWith(fontSize: 16.0),
-                    ).tr(),
+                      'back'.tr,
+                      style: blackTextFont.copyWith(fontSize: 14.0),
+                    ),
                   ],
                 ),
               ),
             ),
-            BlocListener<AuthBloc, AuthState>(
+            BlocConsumer<AuthBloc, AuthState>(
               listenWhen: (previous, current) =>
                   previous.showSnackbar != current.showSnackbar,
               listener: (context, state) {
@@ -71,7 +65,7 @@ class ForgotPasswordPageScaffold extends StatelessWidget {
                           content: Text(
                             f.maybeMap(
                               handledByFirebase: (s) => s.message,
-                              orElse: () => 'Something went wrong ($f).',
+                              orElse: () => '${'somethingWentWrong'.tr} ($f).',
                             ),
                           ),
                         ),
@@ -81,85 +75,90 @@ class ForgotPasswordPageScaffold extends StatelessWidget {
                       Get.to(
                         () => const CheckEmailPage(),
                       );
-
-                      Get.to(
-                        () => const SignInPage(),
-                      );
                     },
                   ),
                 );
               },
-              child: Expanded(
+              builder: (context, authState) => Expanded(
                 child: Container(
                   height: 100,
                   padding: const EdgeInsets.symmetric(
                     horizontal: defaultMargin,
                   ),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Reset Password',
-                        style: blackTextFont.copyWith(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
+                  child: Form(
+                    autovalidateMode: authState.showErrorMessages
+                        ? AutovalidateMode.always
+                        : AutovalidateMode.disabled,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'resetPassword'.tr,
+                          style: blackTextFont.copyWith(
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                      ),
-                      const SizedBox(height: 20.0),
-                      Text(
-                        'Please provide us with the email address associated with your account. Once we verify your email, we will send you detailed instructions on how to reset your password securely.',
-                        style: greyTextFont,
-                      ),
-                      const SizedBox(height: 20.0),
-                      const Text('Email address'),
-                      const SizedBox(height: 10.0),
-                      CustomTextFormFieldWidget(
-                        onChanged: (val) {
-                          context.read<ForgotPasswordBloc>().add(
-                                ForgotPasswordEvent.emailChanged(
-                                  emailStr: val,
-                                ),
-                              );
-                        },
-                      ),
-                      const SizedBox(height: 16.0),
-                      const Spacer(),
-                      BlocSelector<AuthBloc, AuthState, bool>(
-                        selector: (state) => state.onLoading,
-                        builder: (context, onLoadingState) => BlocSelector<
-                            ForgotPasswordBloc,
-                            ForgotPasswordState,
-                            EmailAddress>(
-                          selector: (state) => state.email,
-                          builder: (context, emailState) {
-                            return Opacity(
-                              opacity: emailState == EmailAddress('') ? 0.5 : 1,
-                              child: onLoadingState
-                                  ? const CustomCircularProgressIndicatorWidget()
-                                  : CustomElevatedButtonWidget(
-                                      text: 'Reset',
-                                      isEnabled: emailState != EmailAddress(''),
-                                      backgroundColor: primaryColor,
-                                      textStyle: whiteTextFont.copyWith(
-                                        fontSize: 16.0,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                      onPressed: () {
-                                        context.read<AuthBloc>().add(
-                                              AuthEvent.resetPassword(
-                                                emailStr:
-                                                    emailState.getOrEmpty(),
-                                              ),
-                                            );
-                                      },
-                                    ),
-                            );
+                        const SizedBox(height: 20.0),
+                        Text(
+                          'provideEmail'.tr,
+                          style: greyTextFont,
+                        ),
+                        const SizedBox(height: 20.0),
+                        Text('yourEmail'.tr),
+                        const SizedBox(height: 10.0),
+                        CustomTextFormFieldWidget(
+                          onChanged: (val) {
+                            context.read<ForgotPasswordBloc>().add(
+                                  ForgotPasswordEvent.emailChanged(
+                                    emailStr: val,
+                                  ),
+                                );
                           },
+                          validator: (val) =>
+                              EmailAddress(val!).getFoldValidator(),
                         ),
-                      ),
-                      SizedBox(height: screenHeight(context) / 20),
-                    ],
+                        const SizedBox(height: 16.0),
+                        const Spacer(),
+                        BlocSelector<AuthBloc, AuthState, bool>(
+                          selector: (state) => state.onLoading,
+                          builder: (context, onLoadingState) => BlocSelector<
+                              ForgotPasswordBloc,
+                              ForgotPasswordState,
+                              EmailAddress>(
+                            selector: (state) => state.email,
+                            builder: (context, emailState) {
+                              return Opacity(
+                                opacity:
+                                    emailState == EmailAddress('') ? 0.5 : 1,
+                                child: onLoadingState
+                                    ? const CustomCircularProgressIndicatorWidget()
+                                    : CustomElevatedButtonWidget(
+                                        text: 'reset'.tr,
+                                        isEnabled:
+                                            emailState != EmailAddress(''),
+                                        backgroundColor: primaryColor,
+                                        textStyle: whiteTextFont.copyWith(
+                                          fontSize: 16.0,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                        onPressed: () {
+                                          context.read<AuthBloc>().add(
+                                                AuthEvent.resetPassword(
+                                                  emailStr:
+                                                      emailState.getOrEmpty(),
+                                                ),
+                                              );
+                                        },
+                                      ),
+                              );
+                            },
+                          ),
+                        ),
+                        SizedBox(height: screenHeight(context) / 20),
+                      ],
+                    ),
                   ),
                 ),
               ),

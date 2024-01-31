@@ -1,13 +1,12 @@
 import 'dart:async';
 
-import 'package:easy_localization/easy_localization.dart';
 import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:flip_card/flip_card_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:focus_detector/focus_detector.dart';
-import 'package:get/route_manager.dart';
+import 'package:get/get.dart';
 import 'package:hadith_flashcard/application/auth/auth_bloc.dart';
 import 'package:hadith_flashcard/application/forgot_password/forgot_password_bloc.dart';
 import 'package:hadith_flashcard/application/hadith_flashcard/hadith_flashcard_bloc.dart';

@@ -86,11 +86,11 @@ abstract class StringObject {
       value.fold(
         //use maybe map for now
         (l) => l.maybeMap(
-          empty: (_) => exceptEmpty ? null : 'thisCannotBeEmpty'.tr(),
-          invalidEmail: (_) => 'invalidEmailFormat'.tr(),
-          lengthTooShort: (_) => 'lengthIsTooShort'.tr(),
-          invalidPersonName: (_) => 'nameCannotBeFilledWithNumbers'.tr(),
-          orElse: () => 'String Failure OR ELSE',
+          empty: (_) => exceptEmpty ? null : 'thisCannotBeEmpty'.tr,
+          invalidEmail: (_) => 'invalidEmailFormat'.tr,
+          lengthTooShort: (_) => 'lengthIsTooShort'.tr,
+          invalidPersonName: (_) => 'nameCannotBeFilledWithNumbers'.tr,
+          orElse: () => 'stringFailure'.tr,
         ),
         (_) => null,
       );

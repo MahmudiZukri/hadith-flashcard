@@ -14,31 +14,31 @@ class CheckEmailPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Check Your Email',
+                'checkYourEmail'.tr,
                 style: blackTextFont.copyWith(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                 ),
+
+                // TODO : add illustration here later
               ),
               Wrap(
                 alignment: WrapAlignment.center,
                 children: [
-                  const Text(
-                      "Didn't receive the email? Check your spam filter, or"),
+                  Text(
+                    "didn'tReceiveEmail".tr,
+                  ),
+                  const SizedBox(width: 4.0),
                   GestureDetector(
                     onTap: () {
-                      // context.read<PageBloc>().add(
-                      //       GotoForgotPasswordPage(),
-                      //     );
-
-                      Get.to(
-                        () => const SignInPage(),
-                      );
+                      Get.back();
                     },
                     child: Text(
-                      'try another email address',
-                      style:
-                          primaryTextFont.copyWith(fontWeight: FontWeight.bold),
+                      'tryAnotherEmail'.tr,
+                      style: primaryTextFont.copyWith(
+                        fontWeight: FontWeight.bold,
+                        decoration: TextDecoration.underline,
+                      ),
                     ),
                   ),
                 ],

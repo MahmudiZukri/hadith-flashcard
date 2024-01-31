@@ -43,9 +43,8 @@ class MyFlashcardNarratorPageScaffold extends StatelessWidget {
 
         return Scaffold(
           appBar: CustomAppBarWidget(
-            title: 'My Flashcard',
-            desc:
-                '${hadithFlashcardState.getFlashcards.length} ${'hadith'.tr()}',
+            title: 'MyFlashcard'.tr,
+            desc: '${hadithFlashcardState.getFlashcards.length} ${'hadith'.tr}',
             actions: [
               GestureDetector(
                 onTap: () {
@@ -76,9 +75,9 @@ class MyFlashcardNarratorPageScaffold extends StatelessWidget {
                     child: Padding(
                       padding:
                           EdgeInsets.only(bottom: screenHeight(context) / 8),
-                      child: const Text(
-                        "youDon'tHaveAnyFlashcard",
-                      ).tr(),
+                      child: Text(
+                        "youDon'tHaveAnyFlashcard".tr,
+                      ),
                     ),
                   )
                 : ListView.builder(

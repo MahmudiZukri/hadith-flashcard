@@ -32,7 +32,7 @@ class NarratorPage extends StatelessWidget {
                         l.maybeMap(
                           handledByFirebase: (s) => s.message,
                           orElse: () =>
-                              '${'somethingWentWrong'.tr()} (${l.message}).',
+                              '${'somethingWentWrong'.tr} (${l.message}).',
                         ),
                       ),
                     ),
@@ -72,13 +72,13 @@ class NarratorPage extends StatelessWidget {
                               const Flexible(child: SizedBox(height: 14.0)),
                               // Title
                               Text(
-                                'hadithNarrators',
+                                'hadithNarrators'.tr,
                                 style: whiteTextFont.copyWith(
                                   fontSize: 20.0,
                                   letterSpacing: 3,
                                   fontWeight: FontWeight.bold,
                                 ),
-                              ).tr(),
+                              ),
                               const Flexible(child: SizedBox(height: 24.0)),
                               // Narrator filter and search section
                               NarratorFilterAndSearchRow(
@@ -132,7 +132,7 @@ class NarratorPage extends StatelessWidget {
                                 subtitle: '${CommonUtils.currencyFormat(
                                   hadithNarrators[index].total.getOrCrash(),
                                   showSymbol: false,
-                                )} ${'hadith'.tr()}',
+                                )} ${'hadith'.tr}',
                                 onTap: () {
                                   Get.to(
                                     () => HadithPage(
@@ -276,13 +276,13 @@ class NarratorFilterAndSearchRow extends StatelessWidget {
               backgroundColor: whiteColor.withOpacity(0.5),
               value: selectedNarratorName,
               hint: Text(
-                'chooseNarrator',
+                'chooseNarrator'.tr,
                 style: blackTextFont.copyWith(
                   color: blackColor.withOpacity(
                     0.5,
                   ),
                 ),
-              ).tr(),
+              ),
               items: hadithNarrators
                   .map(
                     (element) => DropdownMenuItem<HadithNarrator>(
@@ -307,7 +307,7 @@ class NarratorFilterAndSearchRow extends StatelessWidget {
             const SizedBox(width: 20.0),
             CustomSearchWidget(
               height: 45,
-              hintText: 'Hadith number',
+              hintText: 'hadithNumber'.tr,
               borderColor: whiteColor,
               iconColor: whiteColor,
               fontColor: blackColor,

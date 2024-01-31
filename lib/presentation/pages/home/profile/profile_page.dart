@@ -23,13 +23,13 @@ class ProfilePage extends StatelessWidget {
                 children: [
                   const SizedBox(height: 14.0),
                   Text(
-                    'profile',
+                    'profile'.tr,
                     style: whiteTextFont.copyWith(
                       fontSize: 20.0,
                       letterSpacing: 3,
                       fontWeight: FontWeight.bold,
                     ),
-                  ).tr(),
+                  ),
                   const SizedBox(height: 24.0),
                 ],
               ),
@@ -67,18 +67,21 @@ class ProfilePage extends StatelessWidget {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          // temp
                           // My flashcard
                           MyFlashcardSection(
                             userID: userID,
-                            title: 'myFlashcard'.tr(),
+                            title: 'myFlashcard',
                           ),
 
                           // Choose language
-                          const ChooseLanguageSection(),
+                          const ChooseLanguageSection(
+                            title: 'language',
+                          ),
 
                           // Rate us
                           RateUsSection(
-                            title: 'rateUs'.tr(),
+                            title: 'rateUs',
                             onTap: () {
                               //rate
                             },
@@ -87,25 +90,25 @@ class ProfilePage extends StatelessWidget {
                           // Help
                           HelpSection(
                             userID: userID,
-                            title: 'help'.tr(),
+                            title: 'help',
                           ),
 
                           // Privacy policy
                           PrivacyPolicySection(
                             userID: userID,
-                            title: 'privacyPolicy'.tr(),
+                            title: 'privacyPolicy',
                           ),
 
                           // About app
                           AboutAppSection(
                             userID: userID,
-                            title: 'aboutApp'.tr(),
+                            title: 'aboutApp',
                           ),
 
                           // Share app
                           AboutAppSection(
                             userID: userID,
-                            title: 'shareApp'.tr(),
+                            title: 'shareApp',
                           ),
 
                           // consider makes rating feature, analitycs
@@ -190,7 +193,7 @@ class MyFlashcardSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomListTile(
-      title: title.tr(),
+      title: title,
       dense: true,
       contentPadding: EdgeInsets.zero,
       onTap: () {
@@ -255,12 +258,15 @@ class PrivacyPolicySection extends StatelessWidget {
 class ChooseLanguageSection extends StatelessWidget {
   const ChooseLanguageSection({
     super.key,
+    required this.title,
   });
+
+  final String title;
 
   @override
   Widget build(BuildContext context) {
     return CustomListTile(
-      title: 'language',
+      title: title,
       contentPadding: EdgeInsets.zero,
       onTap: () {
         CustomModalBottomSheet(context).show(
@@ -274,12 +280,12 @@ class ChooseLanguageSection extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  'chooseLanguage',
+                  'chooseLanguage'.tr,
                   style: blackTextFont.copyWith(
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
                   ),
-                ).tr(),
+                ),
                 const SizedBox(height: 16.0),
                 ...List.generate(
                   ELanguage.values.length,
@@ -296,8 +302,10 @@ class ChooseLanguageSection extends StatelessWidget {
                         GestureDetector(
                           behavior: HitTestBehavior.translucent,
                           onTap: () {
-                            context.setLocale(
-                              languages[index].locale.toLocale(),
+                            Get.updateLocale(
+                              Locale(
+                                languages[index].locale,
+                              ),
                             );
 
                             Navigator.pop(context);
@@ -320,8 +328,7 @@ class ChooseLanguageSection extends StatelessWidget {
                                 ),
                               ),
                               const Spacer(),
-                              languages[index].locale ==
-                                      context.locale.toString()
+                              languages[index].locale == Get.locale.toString()
                                   ? const Icon(
                                       Icons.check,
                                       color: Colors.green,
@@ -344,7 +351,6 @@ class ChooseLanguageSection extends StatelessWidget {
         );
       },
       trailing: Container(
-        // padding: const EdgeInsets.all(6.0),
         decoration: BoxDecoration(
           border: Border.all(color: greyColor),
           shape: BoxShape.circle,
@@ -352,7 +358,7 @@ class ChooseLanguageSection extends StatelessWidget {
         child: Image.asset(
           ELanguage.values
               .firstWhere(
-                (element) => element.locale == context.locale.toString(),
+                (element) => element.locale == Get.locale.toString(),
               )
               .imageUrl,
           height: 30.0,
@@ -387,7 +393,7 @@ class SignOut extends StatelessWidget {
                 );
           },
           child: Text(
-            context.tr('signOut'),
+            'signOut'.tr,
             style: redTextFont.copyWith(
               fontWeight: FontWeight.w600,
             ),
@@ -439,8 +445,7 @@ class UserInfomation extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    userState.user?.name.getOrNull() ??
-                        context.tr('youAreInGuestMode'),
+                    userState.user?.name.getOrNull() ?? 'youAreInGuestMode'.tr,
                     maxLines: 3,
                     style: blackTextFont.copyWith(
                       fontSize: 18.0,

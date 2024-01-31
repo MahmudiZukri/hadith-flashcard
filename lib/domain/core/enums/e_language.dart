@@ -15,7 +15,7 @@ extension ELanguageX on ELanguage {
 
   static const locales = {
     ELanguage.indonesia: 'id',
-    ELanguage.english: 'en_US',
+    ELanguage.english: 'en',
   };
 
   static const imageUrls = {

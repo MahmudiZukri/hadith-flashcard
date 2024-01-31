@@ -13,7 +13,7 @@ class HelpPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBarWidget(
-        title: 'help'.tr(),
+        title: 'help'.tr,
         actions: [
           GestureDetector(
             onTap: () {
@@ -42,9 +42,9 @@ class HelpPage extends StatelessWidget {
           children: [
             const SizedBox(height: 22.0),
             Text(
-              'helpSection',
+              'helpSection'.tr,
               style: blackTextFont.copyWith(height: 1.6),
-            ).tr(),
+            ),
             const SizedBox(height: 24.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -89,10 +89,10 @@ class HelpPage extends StatelessWidget {
                         style: blackTextFont,
                       ),
                       Text(
-                        'quality0',
+                        'quality0'.tr,
                         style: blackTextFont,
                         maxLines: 2,
-                      ).tr()
+                      )
                     ],
                   ),
                   TableRow(
@@ -106,10 +106,10 @@ class HelpPage extends StatelessWidget {
                         style: blackTextFont,
                       ),
                       Text(
-                        'quality1',
+                        'quality1'.tr,
                         style: blackTextFont,
                         maxLines: 2,
-                      ).tr()
+                      )
                     ],
                   ),
                   TableRow(
@@ -123,10 +123,10 @@ class HelpPage extends StatelessWidget {
                         style: blackTextFont,
                       ),
                       Text(
-                        'quality2',
+                        'quality2'.tr,
                         style: blackTextFont,
                         maxLines: 2,
-                      ).tr()
+                      )
                     ],
                   ),
                   TableRow(
@@ -140,10 +140,10 @@ class HelpPage extends StatelessWidget {
                         style: blackTextFont,
                       ),
                       Text(
-                        'quality3',
+                        'quality3'.tr,
                         style: blackTextFont,
                         maxLines: 2,
-                      ).tr()
+                      )
                     ],
                   ),
                   TableRow(
@@ -157,10 +157,10 @@ class HelpPage extends StatelessWidget {
                         style: blackTextFont,
                       ),
                       Text(
-                        'quality4',
+                        'quality4'.tr,
                         style: blackTextFont,
                         maxLines: 2,
-                      ).tr()
+                      )
                     ],
                   ),
                   TableRow(
@@ -174,10 +174,10 @@ class HelpPage extends StatelessWidget {
                         style: blackTextFont,
                       ),
                       Text(
-                        'quality5',
+                        'quality5'.tr,
                         style: blackTextFont,
                         maxLines: 2,
-                      ).tr()
+                      )
                     ],
                   ),
                 ],

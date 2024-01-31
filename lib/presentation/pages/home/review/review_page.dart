@@ -60,10 +60,9 @@ class ReviewPage extends StatelessWidget {
                                     .getFlashcardsToReview.first,
                                 controller: cardController,
                                 selectedLanguage: ELanguage.values.firstWhere(
-                                  (element) =>
-                                      element.locale ==
-                                      context.locale.toString(),
-                                ),
+                                    (element) =>
+                                        element.locale ==
+                                        Get.locale.toString()),
                               ),
                     // Qualities button
                     QualitiesButtonRow(
@@ -195,17 +194,17 @@ class FlashcardToReviewIsEmptyContainer extends StatelessWidget {
           const SizedBox(height: 40),
           Text(
             hadithFlashcardState.isShowCongratsAnimation
-                ? "congratsYouHaveCompletedToday'sFlashcard"
-                : "youDon'tHaveFlashcardsToReview",
+                ? "congratsYouHaveCompletedToday'sFlashcard".tr
+                : "youDon'tHaveFlashcardsToReview".tr,
             textAlign: TextAlign.center,
             style: blackTextFont.copyWith(
               fontSize: 15,
             ),
-          ).tr(),
+          ),
           TextButton(
             onPressed: gotoNarratorPageOnPressed,
             child: Text(
-              'addMoreFlashcards'.tr(),
+              'addMoreFlashcards'.tr,
               style: primaryTextFont.copyWith(
                 fontSize: 15,
                 decoration: TextDecoration.underline,
@@ -239,21 +238,21 @@ class EmptyFlashcardContainer extends StatelessWidget {
           ),
           const SizedBox(height: 40),
           Text(
-            "youDon'tHaveAnyFlashcard",
+            "youDon'tHaveAnyFlashcard".tr,
             textAlign: TextAlign.center,
             style: blackTextFont.copyWith(
               fontSize: 15,
             ),
-          ).tr(),
+          ),
           TextButton(
             onPressed: gotoNarratorPageOnPressed,
             child: Text(
-              'addYourFlashcard',
+              'addYourFlashcard'.tr,
               style: primaryTextFont.copyWith(
                 fontSize: 15,
                 decoration: TextDecoration.underline,
               ),
-            ).tr(),
+            ),
           ),
         ],
       ),
