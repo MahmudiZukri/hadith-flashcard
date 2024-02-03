@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:fast_immutable_collections/fast_immutable_collections.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flip_card/flip_card_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -14,6 +15,7 @@ import 'package:hadith_flashcard/application/hadith_narrator/hadith_narrator_blo
 import 'package:hadith_flashcard/application/page_view/page_view_bloc.dart';
 import 'package:hadith_flashcard/application/password_textfield/password_textfield_bloc.dart';
 import 'package:hadith_flashcard/application/user/user_bloc.dart';
+import 'package:hadith_flashcard/domain/auth/interfaces/i_auth_repository.dart';
 import 'package:hadith_flashcard/domain/core/enums/enums.dart';
 import 'package:hadith_flashcard/domain/core/failures/common_failures/common_failures.dart';
 import 'package:hadith_flashcard/domain/core/objects/objects.dart';

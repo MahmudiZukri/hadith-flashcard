@@ -9,14 +9,26 @@ class SignUpPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<AuthBloc>(
-          create: (context) => getIt<AuthBloc>(),
-        ),
         BlocProvider<PasswordTextFieldBloc>(
           create: (context) => getIt<PasswordTextFieldBloc>(),
         ),
       ],
-      child: const SignUpPageScaffold(),
+      child: StreamBuilder(
+        stream: IAuthRepository.userStream,
+        initialData: FirebaseAuth.instance.currentUser,
+        builder: (context, snapshot) {
+          final user = snapshot.data;
+
+          if (user != null) {
+            return HomePage(
+              userID: UniqueString.fromUniqueString(user.uid),
+              pageIndex: 1,
+            );
+          }
+
+          return const SignUpPageScaffold();
+        },
+      ),
     );
   }
 }
