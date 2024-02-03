@@ -16,6 +16,7 @@ abstract class AssetUrl {
   static const String emptyFlashcardLottie =
       '$_lottieAsset/empty_flashcards.json';
   static const String congratsLottie = '$_lottieAsset/congrats.json';
+  static const String sendEmailLottie = '$_lottieAsset/send_email.json';
 
   // flag
   static const String indonesiaFlag = '$_flagAsset/indonesia.png';

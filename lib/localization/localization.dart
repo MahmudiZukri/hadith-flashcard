@@ -16,6 +16,8 @@ class Localization extends Translations {
           "yourEmail": "Email Anda :",
           "reset": "Ubah",
           "checkYourEmail": "Periksa Email Anda",
+          "checkYourEmailMessage":
+              "Email untuk mengatur ulang kata sandi telah berhasil dikirimkan ke alamat email Anda. Silakan cek kotak masuk Anda dan ikuti petunjuk di dalamnya untuk melanjutkan proses pengaturan ulang kata sandi. Terima kasih!",
           "didn'tReceiveEmail":
               "Tidak menerima email? Periksa di spam anda, atau",
           "tryAnotherEmail": "coba email lain",
@@ -104,6 +106,8 @@ class Localization extends Translations {
           "yourEmail": "Your Email :",
           "reset": "Reset",
           "checkYourEmail": "Check Your Email",
+          "checkYourEmailMessage":
+              "The email to reset your password has been successfully sent to your email address. Please check your inbox and follow the instructions in it to continue the password reset process. Thank You!",
           "didn'tReceiveEmail":
               "Didn't receive the email? Check your spam filter, or",
           "tryAnotherEmail": "try another email address",
