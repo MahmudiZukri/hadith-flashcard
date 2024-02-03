@@ -36,11 +36,6 @@ class MyFlashcardNarratorPageScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<HadithFlashcardBloc, HadithFlashcardState>(
       builder: (context, hadithFlashcardState) {
-        final IList<HadithFlashcard> filteredFlashcard =
-            CommonUtils.removeDuplicatesNarrator(
-          hadithFlashcardState.getFlashcards,
-        ).toIList();
-
         return Scaffold(
           appBar: CustomAppBarWidget(
             title: 'MyFlashcard'.tr,
@@ -65,109 +60,129 @@ class MyFlashcardNarratorPageScaffold extends StatelessWidget {
               Get.back();
             },
           ),
-          body: Padding(
-            padding: const EdgeInsets.symmetric(
-              vertical: 18.0,
-              horizontal: 12.0,
-            ),
-            child: filteredFlashcard == <HadithFlashcard>[].lock
-                ? Center(
-                    child: Padding(
-                      padding:
-                          EdgeInsets.only(bottom: screenHeight(context) / 8),
-                      child: Text(
-                        "youDon'tHaveAnyFlashcard".tr,
-                      ),
-                    ),
-                  )
-                : ListView.builder(
-                    itemCount: filteredFlashcard.length,
-                    itemBuilder: (context, index) {
-                      return CustomListTile(
-                        title: filteredFlashcard[index]
-                            .hadithNarratorName
-                            .getOrEmpty(),
-                        titleFontSize: 14,
-                        onTap: () {
-                          //goto hadith flashcard
+          body: hadithFlashcardState.optionFailureOrGetFlashcard.match(
+            () => const CustomCircularProgressIndicatorWidget(),
+            (either) => either.fold(
+              (l) => Text('${'somethingWentWrrong'.tr} ( ${l.message} )'),
+              (flashcards) {
+                final IList<HadithFlashcard> filteredFlashcard =
+                    CommonUtils.removeDuplicatesNarrator(
+                  flashcards,
+                ).toIList();
 
-                          Get.to(
-                            () => MyFlashcardHadithPage(
-                              userID: userID,
-                              flashcards: hadithFlashcardState.getFlashcards
-                                  .where(
-                                    (element) =>
-                                        element.hadithNarratorName ==
-                                        filteredFlashcard[index]
-                                            .hadithNarratorName,
-                                  )
-                                  .toIList()
-                                  .sort(
-                                    (a, b) => a.hadithNumber
-                                        .getOrZero()
-                                        .compareObjectTo(
-                                          b.hadithNumber.getOrZero(),
-                                        ),
-                                  ),
+                return Padding(
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 18.0,
+                    horizontal: 12.0,
+                  ),
+                  child: filteredFlashcard == <HadithFlashcard>[].lock
+                      ? Center(
+                          child: Padding(
+                            padding: EdgeInsets.only(
+                                bottom: screenHeight(context) / 8),
+                            child: Text(
+                              "youDon'tHaveAnyFlashcard".tr,
                             ),
-                          );
-                        },
-                        trailing: hadithFlashcardState.getFlashcardIsLoading ||
-                                !hadithFlashcardState
-                                    .getLengthOfSavedFlashcardByNarratorName
-                                    .contains(
-                                  filteredFlashcard[index]
-                                      .hadithNarratorName
-                                      .getOrEmpty(),
-                                )
-                            ? const SizedBox()
-                            : FittedBox(
-                                child: Container(
-                                  constraints:
-                                      const BoxConstraints(minWidth: 34.0),
-                                  padding: const EdgeInsets.all(10.0),
-                                  decoration: BoxDecoration(
-                                    color: primaryColor,
-                                    borderRadius: BorderRadius.circular(16.0),
-                                  ),
-                                  child: FocusDetector(
-                                    onVisibilityGained: () {
-                                      context.read<HadithFlashcardBloc>().add(
-                                            HadithFlashcardEvent.getFlashcard(
-                                              userID: userID,
-                                            ),
-                                          );
-                                    },
-                                    child: Text(
-                                      CommonUtils.currencyFormat(
-                                        hadithFlashcardState
-                                            .getLengthOfSavedFlashcardByNarratorName
-                                            .map(
-                                              (element) => element ==
-                                                      filteredFlashcard[index]
-                                                          .hadithNarratorName
-                                                          .getOrEmpty()
-                                                  ? 1
-                                                  : 0,
+                          ),
+                        )
+                      : ListView.builder(
+                          itemCount: filteredFlashcard.length,
+                          itemBuilder: (context, index) {
+                            return CustomListTile(
+                              title: filteredFlashcard[index]
+                                  .hadithNarratorName
+                                  .getOrEmpty(),
+                              titleFontSize: 14,
+                              onTap: () {
+                                //goto hadith flashcard
+
+                                Get.to(
+                                  () => MyFlashcardHadithPage(
+                                    userID: userID,
+                                    flashcards:
+                                        hadithFlashcardState.getFlashcards
+                                            .where(
+                                              (element) =>
+                                                  element.hadithNarratorName ==
+                                                  filteredFlashcard[index]
+                                                      .hadithNarratorName,
                                             )
-                                            .reduce(
-                                              (value, element) =>
-                                                  value + element,
+                                            .toIList()
+                                            .sort(
+                                              (a, b) => a.hadithNumber
+                                                  .getOrZero()
+                                                  .compareObjectTo(
+                                                    b.hadithNumber.getOrZero(),
+                                                  ),
                                             ),
-                                        showSymbol: false,
-                                      ),
-                                      textAlign: TextAlign.center,
-                                      style: whiteTextFont.copyWith(
-                                        fontSize: 13.0,
-                                        fontWeight: FontWeight.w600,
+                                  ),
+                                );
+                              },
+                              trailing: hadithFlashcardState
+                                          .getFlashcardIsLoading ||
+                                      !hadithFlashcardState
+                                          .getLengthOfSavedFlashcardByNarratorName
+                                          .contains(
+                                        filteredFlashcard[index]
+                                            .hadithNarratorName
+                                            .getOrEmpty(),
+                                      )
+                                  ? const SizedBox()
+                                  : FittedBox(
+                                      child: Container(
+                                        constraints: const BoxConstraints(
+                                            minWidth: 34.0),
+                                        padding: const EdgeInsets.all(10.0),
+                                        decoration: BoxDecoration(
+                                          color: primaryColor,
+                                          borderRadius:
+                                              BorderRadius.circular(16.0),
+                                        ),
+                                        child: FocusDetector(
+                                          onVisibilityGained: () {
+                                            context
+                                                .read<HadithFlashcardBloc>()
+                                                .add(
+                                                  HadithFlashcardEvent
+                                                      .getFlashcard(
+                                                    userID: userID,
+                                                  ),
+                                                );
+                                          },
+                                          child: Text(
+                                            CommonUtils.currencyFormat(
+                                              hadithFlashcardState
+                                                  .getLengthOfSavedFlashcardByNarratorName
+                                                  .map(
+                                                    (element) => element ==
+                                                            filteredFlashcard[
+                                                                    index]
+                                                                .hadithNarratorName
+                                                                .getOrEmpty()
+                                                        ? 1
+                                                        : 0,
+                                                  )
+                                                  .reduce(
+                                                    (value, element) =>
+                                                        value + element,
+                                                  ),
+                                              showSymbol: false,
+                                            ),
+                                            textAlign: TextAlign.center,
+                                            style: whiteTextFont.copyWith(
+                                              fontSize: 13.0,
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                          ),
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                ),
-                              ),
-                      );
-                    },
-                  ),
+                            );
+                          },
+                        ),
+                );
+              },
+            ),
           ),
         );
       },
