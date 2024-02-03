@@ -42,7 +42,7 @@ class Localization extends Translations {
           "youDon'tHaveAnyFlashcard": "Kamu tidak punya Flashcard",
           "addYourFlashcard": "Tambahkan Flashcard Anda",
           "youDon'tHaveFlashcardsToReview":
-              "Kamu tidak mempunyai Flashcard untuk direview :(",
+              "Kamu tidak mempunyai Flashcard untuk diulas :(",
           "addMoreFlashcards": "Tambahkan lebih banyak Flashcard",
           "youAreInGuestMode": "Anda dalam mode tamu",
           "back": "Kembali",
@@ -64,6 +64,8 @@ class Localization extends Translations {
           "congratsYouHaveCompletedToday'sFlashcard":
               "Selamat! Kamu telah menyelesaikan kartu hari ini",
           "addToFlashcard": "Tambahkan menjadi flashcard",
+          "flashcardAddedSuccessfully": "Flashcard berhasil ditambahkan !",
+          "reviewCard": "Ulas kartu",
           "close": "Tutup",
           "delete": "Hapus",
           "areYouSureWannaDelete": "Apakah Anda ingin menghapus",
@@ -154,6 +156,8 @@ class Localization extends Translations {
           "congratsYouHaveCompletedToday'sFlashcard":
               "Congrats! You have completed today's flashcard",
           "addToFlashcard": "Add to flashcard",
+          "flashcardAddedSuccessfully": "Flashcard added successfully !",
+          "reviewCard": "Review Card",
           "close": "Close",
           "delete": "Delete",
           "areYouSureWannaDelete": "Are you sure want to delete",

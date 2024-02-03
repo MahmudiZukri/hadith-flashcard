@@ -48,19 +48,19 @@ class CustomBottomNavigation extends StatelessWidget {
         },
         tabs: [
           GButton(
-            text: 'Add Card',
+            text: 'addCard'.tr,
             icon: MdiIcons.plusBoxOutline,
             rippleColor: secondaryColor,
             haptic: true,
           ),
           GButton(
-            text: 'Review',
+            text: 'review'.tr,
             icon: MdiIcons.cardsOutline,
             rippleColor: secondaryColor,
             haptic: true,
           ),
           GButton(
-            text: 'Profile',
+            text: 'profile'.tr,
             icon: MdiIcons.accountBoxOutline,
             rippleColor: secondaryColor,
             haptic: true,

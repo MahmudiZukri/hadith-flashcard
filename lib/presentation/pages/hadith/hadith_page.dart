@@ -110,7 +110,7 @@ class HadithPageScaffold extends StatelessWidget {
                         milliseconds: 1700,
                       ),
                       content: Text(
-                        'Something went wrong (${l.message})',
+                        '${'somethingWentWrong'.tr} (${l.message})',
                       ),
                     );
 
@@ -131,15 +131,15 @@ class HadithPageScaffold extends StatelessWidget {
                       content: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const Row(
+                          Row(
                             children: [
-                              Icon(
+                              const Icon(
                                 Icons.check_circle,
                                 color: whiteColor,
                               ),
-                              SizedBox(width: 12.0),
+                              const SizedBox(width: 12.0),
                               Text(
-                                'Flashcard added successfully !',
+                                'flashcardAddedSuccessfully'.tr,
                               ),
                             ],
                           ),
@@ -155,8 +155,8 @@ class HadithPageScaffold extends StatelessWidget {
                                 ),
                               );
                             },
-                            child: const Text(
-                              'Review card',
+                            child: Text(
+                              'reviewCard'.tr,
                             ),
                           )
                         ],
