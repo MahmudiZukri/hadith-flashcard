@@ -97,7 +97,10 @@ class HadithFlashcardBloc
                     failureOrResponse.isRight() && e.quality == null
                         ? 0
                         : state.flashcardToReviewTodayLength,
-                numofReviewedFlashcard: e.quality != null
+                numofReviewedFlashcard: failureOrResponse.isRight() &&
+                        e.quality != null &&
+                        state.numofReviewedFlashcard <
+                            state.flashcardToReviewTodayLength
                     ? state.numofReviewedFlashcard + 1
                     : state.numofReviewedFlashcard,
               ),

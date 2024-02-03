@@ -62,7 +62,7 @@ class Localization extends Translations {
           "nameCannotBeFilledWithNumbers": "Nama tidak bisa diisi dengan angka",
           "stringFailure": "Kesalahan dalam teks",
           "congratsYouHaveCompletedToday'sFlashcard":
-              "Selamat! Kamu telah menyelesaikan kartu hari ini",
+              "Selamat! Kamu telah menyelesaikan ulasan kartu hari ini",
           "addToFlashcard": "Tambahkan menjadi flashcard",
           "flashcardAddedSuccessfully": "Flashcard berhasil ditambahkan !",
           "reviewCard": "Ulas kartu",
@@ -154,7 +154,7 @@ class Localization extends Translations {
           "nameCannotBeFilledWithNumbers": "Name cannot be filled with numbers",
           "stringFailure": "String failure",
           "congratsYouHaveCompletedToday'sFlashcard":
-              "Congrats! You have completed today's flashcard",
+              "Congrats! You have completed today's flashcard review",
           "addToFlashcard": "Add to flashcard",
           "flashcardAddedSuccessfully": "Flashcard added successfully !",
           "reviewCard": "Review Card",
