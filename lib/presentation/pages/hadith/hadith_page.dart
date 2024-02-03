@@ -577,15 +577,18 @@ class HadithPageScaffold extends StatelessWidget {
                                             ),
                                           ),
                                           const SizedBox(height: 8.0),
-                                          Text(
-                                            hadithNarratorState
-                                                .hadiths[index].id
-                                                .getOrCrash(),
-                                            style: greyTextFont.copyWith(
-                                              fontSize: 12.0,
-                                              height: 1.6,
-                                            ),
-                                          )
+                                          Get.locale.toString() ==
+                                                  ELanguage.indonesia.locale
+                                              ? Text(
+                                                  hadithNarratorState
+                                                      .hadiths[index].id
+                                                      .getOrCrash(),
+                                                  style: greyTextFont.copyWith(
+                                                    fontSize: 12.0,
+                                                    height: 1.6,
+                                                  ),
+                                                )
+                                              : const SizedBox()
                                         ],
                                       ),
                                     ),

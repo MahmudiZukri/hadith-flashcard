@@ -64,6 +64,7 @@ class ReviewPage extends StatelessWidget {
                                         element.locale ==
                                         Get.locale.toString()),
                               ),
+
                     // Qualities button
                     QualitiesButtonRow(
                       userID: userID,
@@ -103,7 +104,10 @@ class ReviewedFlashcardBarColumn extends StatelessWidget {
         Text(
           '${hadithFlashcardState.numofReviewedFlashcard} / ${hadithFlashcardState.flashcardToReviewTodayLength}',
           style: const TextStyle(
-              fontSize: 18.0, color: whiteColor, fontWeight: FontWeight.bold),
+            fontSize: 18.0,
+            color: whiteColor,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ],
     );

@@ -72,7 +72,7 @@ class Localization extends Translations {
           "yes": "Ya",
           "no": "Tidak",
           "helpSection":
-              "Anda akan melihat pertanyaan dari Flashcard, coba lantunkan hadis dari pertanyaan tersebut. Setelah selesai melantunkannya semampu Anda, tekan kartu untuk membalik pertanyaan menjadi jawaban . Kemudian nilai secara subjektif sejauh mana Anda dapat mengingat hadis tersebut dalam skala 0 hingga 5. Selanjutnya, tekan tombol kualitas yang sesuai dengan tingkat ingatan yang Anda rasakan. Berikut keterangan tentang tombol kualitas :",
+              "Anda akan melihat pertanyaan dari Flashcard, coba lantunkan hadis dari pertanyaan tersebut. Setelah selesai melantunkannya semampu Anda, tekan kartu untuk membalik pertanyaan menjadi jawaban. Kemudian nilai secara subjektif sejauh mana Anda dapat mengingat hadis tersebut dalam skala 0 hingga 5. Selanjutnya, tekan tombol kualitas yang sesuai dengan tingkat ingatan yang Anda rasakan. Berikut keterangan tentang tombol kualitas :",
           "quality0": "Sama sekali tidak ingat",
           "quality1": "Menjawab salah, jawaban yang benar masih bisa diingat",
           "quality2": "Menjawab salah, jawaban yang benar mudah untuk diingat",

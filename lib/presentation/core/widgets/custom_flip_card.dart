@@ -212,6 +212,10 @@ class CustomFlipCard extends StatelessWidget {
         ),
       ),
       back: RawScrollbar(
+        thumbVisibility: true,
+        trackVisibility: true,
+        fadeDuration: const Duration(seconds: 3),
+        padding: EdgeInsets.only(top: screenHeight(context) / 24),
         child: CustomContainer(
           color: whiteColor,
           child: Center(

@@ -44,11 +44,7 @@ class MyFlashcardHadithPageScaffold extends StatelessWidget {
           previous.myHadithFlashcards != current.myHadithFlashcards,
       listener: (context, flashcardState) {
         if (flashcardState.myHadithFlashcards.isEmpty) {
-          Get.to(
-            () => MyFlashcardNarratorPage(
-              userID: userID,
-            ),
-          );
+          Get.back();
         }
       },
       builder: (context, flashcardState) {
