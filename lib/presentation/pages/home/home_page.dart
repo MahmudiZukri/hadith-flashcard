@@ -42,10 +42,7 @@ class HomePage extends StatelessWidget {
                 HadithFlashcardEvent.getFlashcard(
                   userID: userID,
                 ),
-              )
-            //TODO: find out how to get total flashcard to review today
-            ),
-        BlocProvider<SettingBloc>(create: (context) => getIt<SettingBloc>()),
+              )),
       ],
       child: HomePageScaffold(
         userID: userID,

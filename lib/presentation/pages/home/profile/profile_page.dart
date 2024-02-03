@@ -36,10 +36,7 @@ class ProfilePage extends StatelessWidget {
               // Main container
               Expanded(
                 child: Container(
-                  padding: const EdgeInsets.fromLTRB(
-                    defaultMargin,
-                    defaultMargin,
-                    defaultMargin,
+                  padding: const EdgeInsets.all(
                     defaultMargin,
                   ),
                   decoration: const BoxDecoration(

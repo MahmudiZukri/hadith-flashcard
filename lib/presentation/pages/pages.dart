@@ -13,7 +13,6 @@ import 'package:hadith_flashcard/application/hadith_flashcard/hadith_flashcard_b
 import 'package:hadith_flashcard/application/hadith_narrator/hadith_narrator_bloc.dart';
 import 'package:hadith_flashcard/application/page_view/page_view_bloc.dart';
 import 'package:hadith_flashcard/application/password_textfield/password_textfield_bloc.dart';
-import 'package:hadith_flashcard/application/setting/setting_bloc.dart';
 import 'package:hadith_flashcard/application/user/user_bloc.dart';
 import 'package:hadith_flashcard/domain/core/enums/enums.dart';
 import 'package:hadith_flashcard/domain/core/failures/common_failures/common_failures.dart';

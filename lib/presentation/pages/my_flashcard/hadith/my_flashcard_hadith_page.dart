@@ -170,8 +170,6 @@ class MyFlashcardHadithPageScaffold extends StatelessWidget {
                                                           height: 8.0),
                                                       ListTile(
                                                         onTap: () {
-                                                          // delete flashcard, kalo sampe nol kyaknya kita back otomatis ga si
-                                                          // kita pikirin dlu dsini mau gmna
                                                           context.read<
                                                               HadithFlashcardBloc>()
                                                             ..add(
@@ -207,8 +205,6 @@ class MyFlashcardHadithPageScaffold extends StatelessWidget {
                                                           Navigator.pop(
                                                             context,
                                                           );
-
-                                                          // TODO : decrease hadith total and if hadith is zero we pop the page
                                                         },
                                                         leading: Container(
                                                           padding:
