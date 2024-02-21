@@ -42,12 +42,12 @@ class PrivacyPolicyPage extends StatelessWidget {
             const SizedBox(height: 22.0),
             Text(
               'privacyPolicyText'.tr,
-              style: blackTextFont.copyWith(height: 1.6),
+              style: adaptiveTextFont.copyWith(height: 1.6),
             ),
             const SizedBox(height: 20.0),
             Text(
               'privacyPolicyTitle1'.tr,
-              style: blackTextFont.copyWith(
+              style: adaptiveTextFont.copyWith(
                 height: 1.6,
                 fontWeight: FontWeight.w600,
               ),
@@ -55,12 +55,12 @@ class PrivacyPolicyPage extends StatelessWidget {
             const SizedBox(height: 8.0),
             Text(
               'privacyPolicyText1'.tr,
-              style: blackTextFont.copyWith(height: 1.6),
+              style: adaptiveTextFont.copyWith(height: 1.6),
             ),
             const SizedBox(height: 20.0),
             Text(
               'privacyPolicyTitle2'.tr,
-              style: blackTextFont.copyWith(
+              style: adaptiveTextFont.copyWith(
                 height: 1.6,
                 fontWeight: FontWeight.w600,
               ),
@@ -68,12 +68,12 @@ class PrivacyPolicyPage extends StatelessWidget {
             const SizedBox(height: 8.0),
             Text(
               'privacyPolicyText2'.tr,
-              style: blackTextFont.copyWith(height: 1.6),
+              style: adaptiveTextFont.copyWith(height: 1.6),
             ),
             const SizedBox(height: 20.0),
             Text(
               'privacyPolicyTitle3'.tr,
-              style: blackTextFont.copyWith(
+              style: adaptiveTextFont.copyWith(
                 height: 1.6,
                 fontWeight: FontWeight.w600,
               ),
@@ -81,7 +81,7 @@ class PrivacyPolicyPage extends StatelessWidget {
             const SizedBox(height: 8.0),
             Text(
               'privacyPolicyText3'.tr,
-              style: blackTextFont.copyWith(height: 1.6),
+              style: adaptiveTextFont.copyWith(height: 1.6),
             ),
           ],
         ),

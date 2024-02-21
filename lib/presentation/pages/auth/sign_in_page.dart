@@ -41,7 +41,7 @@ class SignInPageScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: defaultBackgroundColor,
+      backgroundColor: colorScheme(context).background,
       body: Stack(
         children: [
           Container(
@@ -54,8 +54,9 @@ class SignInPageScaffold extends StatelessWidget {
             child: Text(
               'Hadith Flashcard',
               textAlign: TextAlign.center,
-              style: whiteTextFont.copyWith(
+              style: adaptiveTextFont.copyWith(
                 fontSize: 24.0,
+                color: colorScheme(context).inversePrimary,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -69,7 +70,7 @@ class SignInPageScaffold extends StatelessWidget {
                 horizontal: 6.0,
               ),
               decoration: BoxDecoration(
-                color: defaultBackgroundColor.withOpacity(0.5),
+                color: colorScheme(context).background.withOpacity(0.5),
                 borderRadius: const BorderRadius.only(
                   topRight: Radius.circular(34),
                   topLeft: Radius.circular(34),
@@ -99,9 +100,9 @@ class SignInPageScaffold extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(
                     horizontal: defaultMargin,
                   ),
-                  decoration: const BoxDecoration(
-                    color: defaultBackgroundColor,
-                    borderRadius: BorderRadius.only(
+                  decoration: BoxDecoration(
+                    color: colorScheme(context).background,
+                    borderRadius: const BorderRadius.only(
                       topRight: Radius.circular(24),
                       topLeft: Radius.circular(24),
                     ),
@@ -144,8 +145,11 @@ class SignInPageScaffold extends StatelessWidget {
                           keyboardSize(context) == 0
                               ? Text(
                                   'welcome'.tr,
-                                  style: blackTextFont.copyWith(
+                                  style: adaptiveTextFont.copyWith(
                                     fontSize: 24,
+                                    color: colorScheme(context)
+                                        .primary
+                                        .withOpacity(0.5),
                                     fontWeight: FontWeight.bold,
                                   ),
                                 )
@@ -154,6 +158,9 @@ class SignInPageScaffold extends StatelessWidget {
                           CustomTextFormFieldWidget(
                             labelText: 'Email',
                             hintText: 'enterYourEmail'.tr,
+                            fillColor: colorScheme(context)
+                                .background
+                                .withOpacity(0.2),
                             onChanged: (val) => context.read<AuthBloc>().add(
                                   AuthEvent.emailChanged(
                                     emailStr: val,
@@ -170,6 +177,9 @@ class SignInPageScaffold extends StatelessWidget {
                               return CustomTextFormFieldWidget(
                                 labelText: 'password'.tr,
                                 hintText: 'enterYourPassword'.tr,
+                                fillColor: colorScheme(context)
+                                    .background
+                                    .withOpacity(0.2),
                                 onChanged: (val) =>
                                     context.read<AuthBloc>().add(
                                           AuthEvent.passwordChanged(
@@ -219,9 +229,11 @@ class SignInPageScaffold extends StatelessWidget {
                                         state.email != EmailAddress('') &&
                                             state.password != Password(''),
                                     backgroundColor: primaryColor,
-                                    textStyle: whiteTextFont.copyWith(
+                                    textStyle: adaptiveTextFont.copyWith(
                                       fontSize: 16.0,
                                       fontWeight: FontWeight.w600,
+                                      color:
+                                          colorScheme(context).inversePrimary,
                                     ),
                                     onPressed: () =>
                                         context.read<AuthBloc>().add(
@@ -265,10 +277,10 @@ class SignInPageScaffold extends StatelessWidget {
                               //     backgroundColor: facebookColor,
                               //     icon: SvgPicture.asset(
                               //       AssetUrl.facebookIcon,
-                              //       color: whiteColor,
+                              //       color: backgroundColor,
                               //       height: 18,
                               //     ),
-                              //     textStyle: whiteTextFont.copyWith(
+                              //     textStyle: adaptiveTextFont.copyWith(
                               //       fontWeight: FontWeight.w500,
                               //     ),
                               //     onPressed: () {
@@ -283,11 +295,13 @@ class SignInPageScaffold extends StatelessWidget {
                                   backgroundColor: googleColor,
                                   icon: SvgPicture.asset(
                                     AssetUrl.googleIcon,
-                                    color: whiteColor,
+                                    color: colorScheme(context).inversePrimary,
                                     height: 18,
                                   ),
-                                  textStyle: whiteTextFont.copyWith(
-                                    fontWeight: FontWeight.w500,
+                                  textStyle: adaptiveTextFont.copyWith(
+                                    fontSize: 16.0,
+                                    fontWeight: FontWeight.w600,
+                                    color: colorScheme(context).inversePrimary,
                                   ),
                                   onPressed: () {
                                     context.read<AuthBloc>().add(

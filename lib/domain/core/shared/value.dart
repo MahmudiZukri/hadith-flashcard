@@ -8,3 +8,4 @@ double keyboardSize(context) => MediaQuery.of(context).viewInsets.bottom;
 double statusBarHeight(context) => MediaQuery.of(context).viewPadding.top;
 BorderRadius largeBorderRadius() => BorderRadius.circular(45.0);
 BorderRadius mediumBorderRadius() => BorderRadius.circular(20.0);
+ColorScheme colorScheme(context) => Theme.of(context).colorScheme;

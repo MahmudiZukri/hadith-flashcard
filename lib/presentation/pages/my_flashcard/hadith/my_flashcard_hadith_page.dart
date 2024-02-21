@@ -216,10 +216,12 @@ class MyFlashcardHadithPageScaffold extends StatelessWidget {
                                                             shape:
                                                                 BoxShape.circle,
                                                           ),
-                                                          child: const Icon(
+                                                          child: Icon(
                                                             size: 16.0,
                                                             Icons.delete,
-                                                            color: whiteColor,
+                                                            color: colorScheme(
+                                                                    context)
+                                                                .background,
                                                           ),
                                                         ),
                                                         title: Align(

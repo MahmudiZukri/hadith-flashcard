@@ -169,7 +169,7 @@ class MyFlashcardNarratorPageScaffold extends StatelessWidget {
                                               showSymbol: false,
                                             ),
                                             textAlign: TextAlign.center,
-                                            style: whiteTextFont.copyWith(
+                                            style: adaptiveTextFont.copyWith(
                                               fontSize: 13.0,
                                               fontWeight: FontWeight.w600,
                                             ),

@@ -26,10 +26,10 @@ class CustomBottomNavigation extends StatelessWidget {
       ),
       child: GNav(
         selectedIndex: pageSelectedIndex,
-        color: whiteColor,
+        color: colorScheme(context).background,
         backgroundColor: primaryColor,
         activeColor: primaryColor,
-        tabBackgroundColor: whiteColor,
+        tabBackgroundColor: colorScheme(context).background,
         duration: const Duration(
           milliseconds: 300,
         ),

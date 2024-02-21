@@ -9,6 +9,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:focus_detector/focus_detector.dart';
 import 'package:get/get.dart';
 import 'package:hadith_flashcard/application/auth/auth_bloc.dart';
+import 'package:hadith_flashcard/application/bloc/setting_bloc.dart';
 import 'package:hadith_flashcard/application/forgot_password/forgot_password_bloc.dart';
 import 'package:hadith_flashcard/application/hadith_flashcard/hadith_flashcard_bloc.dart';
 import 'package:hadith_flashcard/application/hadith_narrator/hadith_narrator_bloc.dart';

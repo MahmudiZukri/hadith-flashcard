@@ -32,8 +32,9 @@ class CustomReviewButton extends StatelessWidget {
         child: Center(
           child: Text(
             quality.toString(),
-            style: whiteTextFont.copyWith(
+            style: adaptiveTextFont.copyWith(
               fontSize: 14.0,
+              color: colorScheme(context).onSurface,
               fontWeight: FontWeight.w600,
             ),
           ),

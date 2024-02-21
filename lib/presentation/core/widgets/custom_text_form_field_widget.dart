@@ -9,7 +9,7 @@ class CustomTextFormFieldWidget extends StatelessWidget {
     this.isPasswordTextField = false,
     this.eyeOnTap,
     this.isEyeOpen,
-    this.fillColor = defaultBackgroundColor,
+    this.fillColor,
     Key? key,
   }) : super(key: key);
 
@@ -25,7 +25,7 @@ class CustomTextFormFieldWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      style: blackTextFont,
+      style: adaptiveTextFont,
       obscureText: isPasswordTextField
           ? isEyeOpen!
               ? true

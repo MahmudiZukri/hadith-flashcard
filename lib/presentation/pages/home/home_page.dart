@@ -71,7 +71,7 @@ class HomePageScaffold extends StatelessWidget {
     return BlocBuilder<PageViewBloc, PageViewState>(
       builder: (context, pageViewState) {
         return Scaffold(
-          backgroundColor: defaultBackgroundColor,
+          // backgroundColor: backgroundColor,
           bottomNavigationBar: CustomBottomNavigation(
             pageSelectedIndex: pageViewState.pageViewIndex,
             pageController: pageController,

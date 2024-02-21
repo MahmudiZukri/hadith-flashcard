@@ -20,7 +20,7 @@ class CheckEmailPage extends StatelessWidget {
               children: [
                 Text(
                   'checkYourEmail'.tr,
-                  style: blackTextFont.copyWith(
+                  style: adaptiveTextFont.copyWith(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
                   ),

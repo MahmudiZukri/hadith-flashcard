@@ -2,6 +2,22 @@ part of '../../pages.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({
+    super.key,
+    required this.userID,
+  });
+
+  final UniqueString userID;
+
+  @override
+  Widget build(BuildContext context) {
+    return ProfilePageScaffold(
+      userID: userID,
+    );
+  }
+}
+
+class ProfilePageScaffold extends StatelessWidget {
+  const ProfilePageScaffold({
     required this.userID,
     super.key,
   });
@@ -24,9 +40,10 @@ class ProfilePage extends StatelessWidget {
                   const SizedBox(height: 14.0),
                   Text(
                     'profile'.tr,
-                    style: whiteTextFont.copyWith(
+                    style: adaptiveTextFont.copyWith(
                       fontSize: 20.0,
                       letterSpacing: 3,
+                      color: colorScheme(context).onSurface,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -39,9 +56,9 @@ class ProfilePage extends StatelessWidget {
                   padding: const EdgeInsets.all(
                     defaultMargin,
                   ),
-                  decoration: const BoxDecoration(
-                    color: whiteColor,
-                    borderRadius: BorderRadius.only(
+                  decoration: BoxDecoration(
+                    color: colorScheme(context).background,
+                    borderRadius: const BorderRadius.only(
                       topRight: Radius.circular(
                         45,
                       ),
@@ -64,7 +81,6 @@ class ProfilePage extends StatelessWidget {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          // temp
                           // My flashcard
                           MyFlashcardSection(
                             userID: userID,
@@ -74,6 +90,24 @@ class ProfilePage extends StatelessWidget {
                           // Choose language
                           const ChooseLanguageSection(
                             title: 'language',
+                          ),
+
+                          // Dark mode section
+                          BlocSelector<SettingBloc, SettingState, bool>(
+                            selector: (state) => state.isDarkMode,
+                            builder: (context, isDarkMode) => Column(
+                              children: [
+                                DarkModeSection(
+                                  title: 'darkMode',
+                                  value: isDarkMode,
+                                  onChanged: () {
+                                    context.read<SettingBloc>().add(
+                                          const SettingEvent.changeToDarkMode(),
+                                        );
+                                  },
+                                ),
+                              ],
+                            ),
                           ),
 
                           // Rate us
@@ -146,6 +180,34 @@ class RateUsSection extends StatelessWidget {
       dense: true,
       contentPadding: EdgeInsets.zero,
       onTap: onTap,
+    );
+  }
+}
+
+class DarkModeSection extends StatelessWidget {
+  const DarkModeSection({
+    super.key,
+    required this.title,
+    required this.value,
+    required this.onChanged,
+  });
+
+  final String title;
+  final bool value;
+  final Function() onChanged;
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomListTile(
+      title: title,
+      dense: true,
+      contentPadding: EdgeInsets.zero,
+      trailing: Switch.adaptive(
+          value: value,
+          onChanged: (_) {
+            onChanged();
+          }),
+      onTap: onChanged,
     );
   }
 }
@@ -278,7 +340,7 @@ class ChooseLanguageSection extends StatelessWidget {
               children: [
                 Text(
                   'chooseLanguage'.tr,
-                  style: blackTextFont.copyWith(
+                  style: adaptiveTextFont.copyWith(
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
                   ),
@@ -319,7 +381,7 @@ class ChooseLanguageSection extends StatelessWidget {
                               ),
                               Text(
                                 languages[index].name,
-                                style: blackTextFont.copyWith(
+                                style: adaptiveTextFont.copyWith(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 14,
                                 ),
@@ -433,7 +495,7 @@ class UserInfomation extends StatelessWidget {
                         : SvgPicture.asset(
                             AssetUrl.profileIcon,
                             height: 28,
-                            color: whiteColor,
+                            color: colorScheme(context).background,
                           ),
               ),
               const SizedBox(width: 18.0),
@@ -444,7 +506,7 @@ class UserInfomation extends StatelessWidget {
                   Text(
                     userState.user?.name.getOrNull() ?? 'youAreInGuestMode'.tr,
                     maxLines: 3,
-                    style: blackTextFont.copyWith(
+                    style: adaptiveTextFont.copyWith(
                       fontSize: 18.0,
                       fontWeight: FontWeight.w600,
                     ),

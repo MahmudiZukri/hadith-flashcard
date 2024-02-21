@@ -4,11 +4,12 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/route_manager.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:hadith_flashcard/application/auth/auth_bloc.dart';
+import 'package:hadith_flashcard/application/bloc/setting_bloc.dart';
 import 'package:hadith_flashcard/application/user/user_bloc.dart';
 import 'package:hadith_flashcard/domain/auth/interfaces/i_auth_repository.dart';
 import 'package:hadith_flashcard/domain/core/objects/objects.dart';
+import 'package:hadith_flashcard/domain/core/shared/shared.dart';
 import 'package:hadith_flashcard/injection.dart';
 import 'package:hadith_flashcard/localization/localization.dart';
 import 'package:hadith_flashcard/presentation/pages/pages.dart';
@@ -51,6 +52,9 @@ class MyApp extends StatelessWidget {
         BlocProvider<UserBloc>(
           create: (context) => getIt<UserBloc>(),
         ),
+        BlocProvider<SettingBloc>(
+          create: (context) => getIt<SettingBloc>(),
+        ),
       ],
       child: StreamBuilder(
         stream: IAuthRepository.userStream,
@@ -63,9 +67,9 @@ class MyApp extends StatelessWidget {
             translations: Localization(),
             locale: const Locale('id'),
             title: 'Hadith Flashcard',
-            theme: ThemeData(
-              textTheme: GoogleFonts.poppinsTextTheme(),
-            ),
+            theme: CustomTheme.lightTheme,
+            darkTheme: CustomTheme.darkTheme,
+            themeMode: ThemeMode.light,
             home: user == null
                 ? const SignInPage()
                 : HomePage(

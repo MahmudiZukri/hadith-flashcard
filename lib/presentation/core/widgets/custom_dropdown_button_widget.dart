@@ -34,7 +34,7 @@ class CustomDropdownButtonWidget<T> extends StatelessWidget {
         border: Border.all(
           color: borderColor,
         ),
-        color: backgroundColor,
+        color: colorScheme(context).background,
         borderRadius: borderRadius,
       ),
       child: Center(
@@ -42,11 +42,11 @@ class CustomDropdownButtonWidget<T> extends StatelessWidget {
           hint: hint,
           borderRadius: BorderRadius.circular(18.0),
           value: value,
-          icon: const Padding(
-            padding: EdgeInsets.only(left: 8.0),
+          icon: Padding(
+            padding: const EdgeInsets.only(left: 8.0),
             child: Icon(
               Icons.arrow_drop_down,
-              color: whiteColor,
+              color: colorScheme(context).background,
             ),
           ),
           elevation: 16,

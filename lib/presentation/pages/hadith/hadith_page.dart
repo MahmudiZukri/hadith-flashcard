@@ -133,9 +133,9 @@ class HadithPageScaffold extends StatelessWidget {
                         children: [
                           Row(
                             children: [
-                              const Icon(
+                              Icon(
                                 Icons.check_circle,
-                                color: whiteColor,
+                                color: backgroundColor,
                               ),
                               const SizedBox(width: 12.0),
                               Text(
@@ -212,6 +212,7 @@ class HadithPageScaffold extends StatelessWidget {
                     SvgPicture.asset(
                       AssetUrl.bismillahCalligraphy,
                       height: 52.0,
+                      color: colorScheme(context).inversePrimary,
                     ),
                     const SizedBox(height: 20.0),
                     Container(

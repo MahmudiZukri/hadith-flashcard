@@ -103,9 +103,9 @@ class ReviewedFlashcardBarColumn extends StatelessWidget {
         const SizedBox(height: 10.0),
         Text(
           '${hadithFlashcardState.numofReviewedFlashcard} / ${hadithFlashcardState.flashcardToReviewTodayLength}',
-          style: const TextStyle(
+          style: TextStyle(
             fontSize: 18.0,
-            color: whiteColor,
+            color: colorScheme(context).background,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -183,7 +183,7 @@ class FlashcardToReviewIsEmptyContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomContainer(
-      color: whiteColor,
+      color: colorScheme(context).background,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -201,7 +201,7 @@ class FlashcardToReviewIsEmptyContainer extends StatelessWidget {
                 ? "congratsYouHaveCompletedToday'sFlashcard".tr
                 : "youDon'tHaveFlashcardsToReview".tr,
             textAlign: TextAlign.center,
-            style: blackTextFont.copyWith(
+            style: adaptiveTextFont.copyWith(
               fontSize: 15,
             ),
           ),
@@ -232,7 +232,7 @@ class EmptyFlashcardContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomContainer(
-      color: whiteColor,
+      color: colorScheme(context).background,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -244,7 +244,7 @@ class EmptyFlashcardContainer extends StatelessWidget {
           Text(
             "youDon'tHaveAnyFlashcard".tr,
             textAlign: TextAlign.center,
-            style: blackTextFont.copyWith(
+            style: adaptiveTextFont.copyWith(
               fontSize: 15,
             ),
           ),
@@ -309,9 +309,9 @@ class ReviewedFlashcardBar extends StatelessWidget {
                 child: Container(
                   height: 8.0,
                   decoration: BoxDecoration(
-                    color: whiteColor.withOpacity(
-                      0.5,
-                    ),
+                    color: colorScheme(context).background.withOpacity(
+                          0.5,
+                        ),
                     borderRadius: mediumBorderRadius(),
                   ),
                 ),

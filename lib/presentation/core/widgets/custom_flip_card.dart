@@ -18,7 +18,7 @@ class CustomFlipCard extends StatelessWidget {
       controller: controller,
       direction: FlipDirection.HORIZONTAL,
       front: CustomContainer(
-        color: whiteColor,
+        color: colorScheme(context).background,
         child: Stack(
           alignment: Alignment.topRight,
           children: [
@@ -34,8 +34,8 @@ class CustomFlipCard extends StatelessWidget {
                     context: context,
                     title: Text(
                       'help'.tr,
-                      style:
-                          blackTextFont.copyWith(fontWeight: FontWeight.w500),
+                      style: adaptiveTextFont.copyWith(
+                          fontWeight: FontWeight.w500),
                       textAlign: TextAlign.center,
                     ),
                     content: Column(
@@ -178,7 +178,7 @@ class CustomFlipCard extends StatelessWidget {
                         CustomElevatedButtonWidget(
                           text: 'close'.tr,
                           backgroundColor: primaryColor,
-                          textStyle: whiteTextFont.copyWith(
+                          textStyle: adaptiveTextFont.copyWith(
                             fontSize: 14.0,
                             fontWeight: FontWeight.w600,
                           ),
@@ -191,18 +191,18 @@ class CustomFlipCard extends StatelessWidget {
                     ),
                   );
                 },
-                child: const Icon(
+                child: Icon(
                   // Question mark icon
                   Icons.question_mark_rounded,
                   size: 16.0,
-                  color: whiteColor,
+                  color: colorScheme(context).background,
                 ),
               ),
             ),
             Center(
               child: Text(
                 '${selectedLanguage.questionPrefix} ${card.hadithNarratorName.getOrFailureText()} ${card.hadithNumber.getOrZero()} ?',
-                style: blackTextFont.copyWith(
+                style: adaptiveTextFont.copyWith(
                   fontSize: 15,
                 ),
                 textAlign: TextAlign.center,
@@ -217,7 +217,7 @@ class CustomFlipCard extends StatelessWidget {
         fadeDuration: const Duration(seconds: 3),
         padding: EdgeInsets.only(top: screenHeight(context) / 24),
         child: CustomContainer(
-          color: whiteColor,
+          color: colorScheme(context).background,
           child: Center(
             child: SingleChildScrollView(
               physics: const BouncingScrollPhysics(),

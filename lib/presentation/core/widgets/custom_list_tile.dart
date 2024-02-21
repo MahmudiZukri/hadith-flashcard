@@ -29,7 +29,12 @@ class CustomListTile extends StatelessWidget {
           fontSize: titleFontSize,
         ),
       ),
-      subtitle: subtitle == null ? null : Text(subtitle!),
+      subtitle: subtitle == null
+          ? null
+          : Text(
+              subtitle!,
+              style: greyTextFont,
+            ),
       contentPadding: contentPadding,
       onTap: onTap,
       dense: dense,
