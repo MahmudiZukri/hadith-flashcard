@@ -106,6 +106,10 @@ class ForgotPasswordPageScaffold extends StatelessWidget {
                         Text('yourEmail'.tr),
                         const SizedBox(height: 10.0),
                         CustomTextFormFieldWidget(
+                          labelText: 'Email',
+                          hintText: 'enterYourEmail'.tr,
+                          fillColor:
+                              colorScheme(context).background.withOpacity(0.2),
                           onChanged: (val) {
                             context.read<ForgotPasswordBloc>().add(
                                   ForgotPasswordEvent.emailChanged(
@@ -139,6 +143,8 @@ class ForgotPasswordPageScaffold extends StatelessWidget {
                                         textStyle: adaptiveTextFont.copyWith(
                                           fontSize: 16.0,
                                           fontWeight: FontWeight.w600,
+                                          color: colorScheme(context)
+                                              .inversePrimary,
                                         ),
                                         onPressed: () {
                                           context.read<AuthBloc>().add(

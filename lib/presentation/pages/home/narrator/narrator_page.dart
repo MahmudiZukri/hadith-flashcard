@@ -76,7 +76,7 @@ class NarratorPage extends StatelessWidget {
                                 style: adaptiveTextFont.copyWith(
                                   fontSize: 20.0,
                                   letterSpacing: 3,
-                                  color: colorScheme(context).onSurface,
+                                  color: colorScheme(context).inversePrimary,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
