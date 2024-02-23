@@ -40,12 +40,27 @@ class CheckEmailPage extends StatelessWidget {
                         width: screenWidth(context) / 1.3,
                       ),
                     ),
-                    SizedBox(height: screenHeight(context) / 18),
+                    SizedBox(height: screenHeight(context) / 22),
                     Text(
                       'checkYourEmailMessage'.tr,
                       textAlign: TextAlign.center,
                       style: const TextStyle(
                         height: 1.88,
+                      ),
+                    ),
+                    SizedBox(height: screenHeight(context) / 22),
+                    GestureDetector(
+                      onTap: () {
+                        Get.to(
+                          () => const SignInPage(),
+                        );
+                      },
+                      child: Text(
+                        'signInToYourAccount'.tr,
+                        style: primaryTextFont.copyWith(
+                          fontWeight: FontWeight.bold,
+                          decoration: TextDecoration.underline,
+                        ),
                       ),
                     ),
                     SizedBox(height: screenHeight(context) / 12),
