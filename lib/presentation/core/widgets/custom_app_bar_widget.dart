@@ -6,6 +6,7 @@ class CustomAppBarWidget extends StatelessWidget
     required this.title,
     required this.leadingOnTap,
     this.actions,
+    this.contentColor,
     this.desc,
     super.key,
   });
@@ -13,7 +14,7 @@ class CustomAppBarWidget extends StatelessWidget
   final String title;
   final Function() leadingOnTap;
   final List<Widget>? actions;
-
+  final Color? contentColor;
   final String? desc;
 
   @override
@@ -32,11 +33,18 @@ class CustomAppBarWidget extends StatelessWidget
         child: Row(
           children: [
             const SizedBox(width: 12.0),
-            Icon(MdiIcons.arrowLeft, size: 16.0),
+            Icon(
+              MdiIcons.arrowLeft,
+              size: 16.0,
+              color: contentColor ?? colorScheme(context).inversePrimary,
+            ),
             const SizedBox(width: 8.0),
             Text(
               'back'.tr,
-              style: adaptiveTextFont.copyWith(fontSize: 14.0),
+              style: adaptiveTextFont.copyWith(
+                fontSize: 14.0,
+                color: contentColor ?? colorScheme(context).inversePrimary,
+              ),
             )
           ],
         ),
@@ -48,6 +56,7 @@ class CustomAppBarWidget extends StatelessWidget
             title,
             style: adaptiveTextFont.copyWith(
               fontSize: 18.0,
+              color: contentColor ?? colorScheme(context).inversePrimary,
             ),
           ),
           desc == null
@@ -56,6 +65,7 @@ class CustomAppBarWidget extends StatelessWidget
                   desc!,
                   style: adaptiveTextFont.copyWith(
                     fontSize: 10.0,
+                    color: contentColor ?? colorScheme(context).inversePrimary,
                   ),
                 ),
         ],

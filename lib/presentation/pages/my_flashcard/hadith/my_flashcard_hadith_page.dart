@@ -64,6 +64,7 @@ class MyFlashcardHadithPageScaffold extends StatelessWidget {
                 },
                 child: Icon(
                   MdiIcons.cardsOutline,
+                  color: colorScheme(context).inversePrimary,
                 ),
               ),
               const SizedBox(width: 12.0),

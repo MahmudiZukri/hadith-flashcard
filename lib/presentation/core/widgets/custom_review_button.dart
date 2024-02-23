@@ -34,7 +34,7 @@ class CustomReviewButton extends StatelessWidget {
             quality.toString(),
             style: adaptiveTextFont.copyWith(
               fontSize: 14.0,
-              color: colorScheme(context).onSurface,
+              color: colorScheme(context).inversePrimary,
               fontWeight: FontWeight.w600,
             ),
           ),

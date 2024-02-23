@@ -52,6 +52,7 @@ class MyFlashcardNarratorPageScaffold extends StatelessWidget {
                 },
                 child: Icon(
                   MdiIcons.cardsOutline,
+                  color: colorScheme(context).inversePrimary,
                 ),
               ),
               const SizedBox(width: 12.0),
@@ -172,6 +173,8 @@ class MyFlashcardNarratorPageScaffold extends StatelessWidget {
                                             style: adaptiveTextFont.copyWith(
                                               fontSize: 13.0,
                                               fontWeight: FontWeight.w600,
+                                              color: colorScheme(context)
+                                                  .inversePrimary,
                                             ),
                                           ),
                                         ),

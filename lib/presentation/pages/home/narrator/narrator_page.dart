@@ -194,7 +194,7 @@ class NarratorPage extends StatelessWidget {
                                               style: adaptiveTextFont.copyWith(
                                                 fontSize: 13.0,
                                                 color: colorScheme(context)
-                                                    .onSurface,
+                                                    .inversePrimary,
                                                 fontWeight: FontWeight.w600,
                                               ),
                                             ),
@@ -275,16 +275,10 @@ class NarratorFilterAndSearchRow extends StatelessWidget {
           children: [
             CustomDropdownButtonWidget<HadithNarrator>(
               borderColor: colorScheme(context).background,
-              // width: (screenWidth(context) - 2 * defaultMargin - 20) / 2,
               backgroundColor: colorScheme(context).background,
               value: selectedNarratorName,
               hint: Text(
                 'chooseNarrator'.tr,
-                // style: adaptiveTextFont.copyWith(
-                //   color: blackColor.withOpacity(
-                //     0.5,
-                //   ),
-                // ),
               ),
               items: hadithNarrators
                   .map(
@@ -292,6 +286,9 @@ class NarratorFilterAndSearchRow extends StatelessWidget {
                       value: element,
                       child: Text(
                         element.name.getOrCrash(),
+                        style: adaptiveTextFont.copyWith(
+                          color: colorScheme(context).primary,
+                        ),
                       ),
                     ),
                   )
