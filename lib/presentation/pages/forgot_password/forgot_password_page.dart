@@ -7,6 +7,9 @@ class ForgotPasswordPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
+        BlocProvider<AuthBloc>(
+          create: (context) => getIt<AuthBloc>(),
+        ),
         BlocProvider<ForgotPasswordBloc>(
           create: (context) => getIt<ForgotPasswordBloc>(),
         ),
@@ -54,17 +57,11 @@ class ForgotPasswordPageScaffold extends StatelessWidget {
                   () => null,
                   (either) => either.fold(
                     (f) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          duration: const Duration(
-                            seconds: 2,
-                          ),
-                          content: Text(
-                            f.maybeMap(
-                              handledByFirebase: (s) => s.message,
-                              orElse: () => '${'somethingWentWrong'.tr} ($f).',
-                            ),
-                          ),
+                      CommonUtils.customSnackbar(
+                        isSuccess: true,
+                        message: f.maybeMap(
+                          handledByFirebase: (s) => s.message,
+                          orElse: () => '${'somethingWentWrong'.tr} ($f).',
                         ),
                       );
                     },

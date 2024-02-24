@@ -22,20 +22,9 @@ class NarratorPage extends StatelessWidget {
               () => null,
               (either) => either.fold(
                 (l) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      backgroundColor: redColor,
-                      duration: const Duration(
-                        seconds: 2,
-                      ),
-                      content: Text(
-                        l.maybeMap(
-                          handledByFirebase: (s) => s.message,
-                          orElse: () =>
-                              '${'somethingWentWrong'.tr} (${l.message}).',
-                        ),
-                      ),
-                    ),
+                  CommonUtils.customSnackbar(
+                    isSuccess: false,
+                    message: '${'somethingWentWrong'.tr} (${l.message})',
                   );
                 },
                 (hadithNarrator) {

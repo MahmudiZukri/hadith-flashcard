@@ -105,18 +105,9 @@ class HadithPageScaffold extends StatelessWidget {
                 () => null,
                 (either) => either.fold(
                   (l) {
-                    final snackBar = SnackBar(
-                      backgroundColor: redColor,
-                      duration: const Duration(
-                        milliseconds: 1700,
-                      ),
-                      content: Text(
-                        '${'somethingWentWrong'.tr} (${l.message})',
-                      ),
-                    );
-
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      snackBar,
+                    CommonUtils.customSnackbar(
+                      isSuccess: false,
+                      message: '${'somethingWentWrong'.tr} (${l.message})',
                     );
 
                     context.read<HadithFlashcardBloc>().add(
@@ -124,48 +115,20 @@ class HadithPageScaffold extends StatelessWidget {
                         );
                   },
                   (r) {
-                    final snackBar = SnackBar(
-                      backgroundColor: primaryColor,
-                      duration: const Duration(
-                        seconds: 2,
-                      ),
-                      content: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            children: [
-                              Icon(
-                                Icons.check_circle,
-                                color: backgroundColor,
-                              ),
-                              const SizedBox(width: 12.0),
-                              Text(
-                                'flashcardAddedSuccessfully'.tr,
-                              ),
-                            ],
+                    CommonUtils.customSnackbar(
+                      isSuccess: true,
+                      message: 'flashcardAddedSuccessfully'.tr,
+                      actionText: 'reviewCard'.tr,
+                      actionOnTap: () {
+                        Get.closeCurrentSnackbar();
+
+                        Get.to(
+                          () => HomePage(
+                            userID: userID,
+                            pageIndex: 1,
                           ),
-                          GestureDetector(
-                            onTap: () {
-                              ScaffoldMessenger.of(context)
-                                  .hideCurrentSnackBar();
-
-                              Get.to(
-                                () => HomePage(
-                                  userID: userID,
-                                  pageIndex: 1,
-                                ),
-                              );
-                            },
-                            child: Text(
-                              'reviewCard'.tr,
-                            ),
-                          )
-                        ],
-                      ),
-                    );
-
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      snackBar,
+                        );
+                      },
                     );
 
                     context.read<HadithFlashcardBloc>()

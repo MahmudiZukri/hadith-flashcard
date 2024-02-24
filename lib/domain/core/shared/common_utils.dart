@@ -127,6 +127,63 @@ class CommonUtils {
     );
   }
 
+  static SnackbarController customSnackbar({
+    required bool isSuccess,
+    required String message,
+    Function()? actionOnTap,
+    String? actionText,
+  }) {
+    return Get.snackbar(
+      '',
+      '',
+      colorText: whiteColor,
+      shouldIconPulse: true,
+      titleText: const SizedBox(),
+      snackPosition: SnackPosition.BOTTOM,
+      icon: Icon(
+        isSuccess ? Icons.check_circle : Icons.cancel,
+        color: colorScheme(Get.context).inversePrimary,
+      ),
+      messageText: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Flexible(
+            child: Text(
+              message,
+              style: TextStyle(
+                color: colorScheme(Get.context).inversePrimary,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+          ),
+          if (actionOnTap != null && actionText != null)
+            GestureDetector(
+              onTap: actionOnTap,
+              child: Row(
+                children: [
+                  const SizedBox(width: 8.0),
+                  Text(
+                    actionText,
+                    style: TextStyle(
+                      color: colorScheme(Get.context).inversePrimary,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+        ],
+      ),
+      backgroundColor: isSuccess
+          ? primaryColor.withOpacity(
+              0.7,
+            )
+          : redColor.withOpacity(
+              0.7,
+            ),
+    );
+  }
+
   //comment for now
 
   //   static final RegExp _emailRegExp = RegExp(
