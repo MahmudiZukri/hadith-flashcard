@@ -203,10 +203,19 @@ class DarkModeSection extends StatelessWidget {
       dense: true,
       contentPadding: EdgeInsets.zero,
       trailing: Switch.adaptive(
-          value: value,
-          onChanged: (_) {
-            onChanged();
-          }),
+        activeColor: primaryColor,
+        inactiveThumbColor: greyColor,
+        inactiveTrackColor:
+            Platform.isIOS ? greyColor.withOpacity(0.5) : whiteColor,
+        trackOutlineColor: MaterialStateProperty.resolveWith<Color?>(
+            (Set<MaterialState> states) {
+          return Colors.grey; // Use the default color.
+        }),
+        value: value,
+        onChanged: (_) {
+          onChanged();
+        },
+      ),
       onTap: onChanged,
     );
   }

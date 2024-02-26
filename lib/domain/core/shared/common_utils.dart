@@ -140,10 +140,18 @@ class CommonUtils {
       shouldIconPulse: true,
       titleText: const SizedBox(),
       snackPosition: SnackPosition.BOTTOM,
+      margin: const EdgeInsets.only(bottom: 30),
       icon: Icon(
         isSuccess ? Icons.check_circle : Icons.cancel,
         color: colorScheme(Get.context).inversePrimary,
       ),
+      backgroundColor: isSuccess
+          ? primaryColor.withOpacity(
+              0.3,
+            )
+          : redColor.withOpacity(
+              0.3,
+            ),
       messageText: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -174,13 +182,6 @@ class CommonUtils {
             ),
         ],
       ),
-      backgroundColor: isSuccess
-          ? primaryColor.withOpacity(
-              0.7,
-            )
-          : redColor.withOpacity(
-              0.7,
-            ),
     );
   }
 

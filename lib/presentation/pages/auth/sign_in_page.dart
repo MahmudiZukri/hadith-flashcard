@@ -157,7 +157,7 @@ class SignInPageScaffold extends StatelessWidget {
                             hintText: 'enterYourEmail'.tr,
                             fillColor: colorScheme(context)
                                 .background
-                                .withOpacity(0.2),
+                                .withOpacity(0.6),
                             onChanged: (val) => context.read<AuthBloc>().add(
                                   AuthEvent.emailChanged(
                                     emailStr: val,
@@ -176,7 +176,7 @@ class SignInPageScaffold extends StatelessWidget {
                                 hintText: 'enterYourPassword'.tr,
                                 fillColor: colorScheme(context)
                                     .background
-                                    .withOpacity(0.2),
+                                    .withOpacity(0.6),
                                 onChanged: (val) =>
                                     context.read<AuthBloc>().add(
                                           AuthEvent.passwordChanged(

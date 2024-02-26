@@ -31,6 +31,7 @@ class ForgotPasswordPageScaffold extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const SizedBox(height: 24.0),
             SafeArea(
               child: GestureDetector(
                 onTap: () {
@@ -87,6 +88,7 @@ class ForgotPasswordPageScaffold extends StatelessWidget {
                       mainAxisSize: MainAxisSize.max,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        const SizedBox(height: defaultMargin),
                         Text(
                           'resetPassword'.tr,
                           style: adaptiveTextFont.copyWith(
