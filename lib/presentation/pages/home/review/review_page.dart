@@ -23,8 +23,7 @@ class ReviewPage extends StatelessWidget {
       child: BlocBuilder<HadithFlashcardBloc, HadithFlashcardState>(
         builder: (context, hadithFlashcardState) {
           return hadithFlashcardState.optionFailureOrGetFlashcard.match(
-            () => const CustomCircularProgressIndicatorWidget(),
-            // () => const SizedBox(),
+            () => const SizedBox(),
             (either) => either.fold(
               (l) => Text(
                 l.message,
@@ -46,7 +45,8 @@ class ReviewPage extends StatelessWidget {
                         // Empty flashcard
                         ? EmptyFlashcardContainer(
                             gotoNarratorPageOnPressed:
-                                gotoNarratorPageOnPressed)
+                                gotoNarratorPageOnPressed,
+                          )
                         : flashcardToReviewIsEmpty
                             // Flashcard to review is empty
                             ? FlashcardToReviewIsEmptyContainer(
@@ -60,9 +60,9 @@ class ReviewPage extends StatelessWidget {
                                     .getFlashcardsToReview.first,
                                 controller: cardController,
                                 selectedLanguage: ELanguage.values.firstWhere(
-                                    (element) =>
-                                        element.locale ==
-                                        Get.locale.toString()),
+                                  (element) =>
+                                      element.locale == Get.locale.toString(),
+                                ),
                               ),
 
                     // Qualities button

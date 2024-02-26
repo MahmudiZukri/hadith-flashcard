@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hadith_flashcard/domain/core/objects/objects.dart';
 import 'package:hadith_flashcard/domain/hadith_flashcard/hadith_flashcard.dart';
+import 'package:hadith_flashcard/presentation/core/widgets/widgets.dart';
 import 'package:intl/intl.dart';
 
 part 'value.dart';

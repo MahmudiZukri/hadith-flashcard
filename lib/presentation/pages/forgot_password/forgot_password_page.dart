@@ -59,7 +59,7 @@ class ForgotPasswordPageScaffold extends StatelessWidget {
                   (either) => either.fold(
                     (f) {
                       CommonUtils.customSnackbar(
-                        isSuccess: true,
+                        isSuccess: false,
                         message: f.maybeMap(
                           handledByFirebase: (s) => s.message,
                           orElse: () => '${'somethingWentWrong'.tr} ($f).',

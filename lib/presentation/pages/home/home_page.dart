@@ -71,76 +71,80 @@ class HomePageScaffold extends StatelessWidget {
 
     return BlocBuilder<PageViewBloc, PageViewState>(
       builder: (context, pageViewState) {
-        return Scaffold(
-          // backgroundColor: backgroundColor,
-          bottomNavigationBar: CustomBottomNavigation(
-            pageSelectedIndex: pageViewState.pageViewIndex,
-            pageController: pageController,
-          ),
-          body: Stack(
-            children: [
-              Column(
+        return BlocBuilder<UserBloc, UserState>(
+          builder: (context, userState) {
+            return Scaffold(
+              bottomNavigationBar: CustomBottomNavigation(
+                pageSelectedIndex: pageViewState.pageViewIndex,
+                pageController: pageController,
+                isEnableOntap: userState.user != null,
+              ),
+              body: Stack(
                 children: [
-                  Container(
-                    height: statusBarHeight(context),
-                    color: primaryColor,
-                  ),
-                  Container(
-                    height: screenHeight(context) / 3,
-                    decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(
-                          70.0,
-                        ),
-                        bottomRight: Radius.circular(
-                          70.0,
+                  Column(
+                    children: [
+                      Container(
+                        height: statusBarHeight(context),
+                        color: primaryColor,
+                      ),
+                      Container(
+                        height: screenHeight(context) / 3,
+                        decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(
+                              70.0,
+                            ),
+                            bottomRight: Radius.circular(
+                              70.0,
+                            ),
+                          ),
+                          color: primaryColor,
                         ),
                       ),
-                      color: primaryColor,
-                    ),
+                    ],
                   ),
+                  SafeArea(
+                    child: userState.user == null
+                        ? const CustomCircularProgressIndicatorWidget()
+                        : PageView(
+                            controller: pageController,
+                            onPageChanged: (value) {
+                              debugPrint('asddsa');
+
+                              context.read<PageViewBloc>().add(
+                                    PageViewEvent.pageViewChanged(
+                                      pageViewIndex: value,
+                                    ),
+                                  );
+                            },
+                            children: [
+                              // Narrator page
+                              NarratorPage(
+                                userID: userID,
+                              ),
+                              // Review page
+                              ReviewPage(
+                                userID: userID,
+                                gotoNarratorPageOnPressed: () {
+                                  pageController.jumpToPage(0);
+                                  context.read<PageViewBloc>().add(
+                                        const PageViewEvent.pageViewChanged(
+                                          pageViewIndex: 0,
+                                        ),
+                                      );
+                                },
+                              ),
+                              // Profile page
+                              ProfilePage(
+                                userID: userID,
+                              ),
+                            ],
+                          ),
+                  )
                 ],
               ),
-              SafeArea(
-                child: BlocBuilder<UserBloc, UserState>(
-                  builder: (context, userState) => userState.user == null
-                      ? const SizedBox()
-                      : PageView(
-                          controller: pageController,
-                          onPageChanged: (value) {
-                            context.read<PageViewBloc>().add(
-                                  PageViewEvent.pageViewChanged(
-                                    pageViewIndex: value,
-                                  ),
-                                );
-                          },
-                          children: [
-                            // Narrator page
-                            NarratorPage(
-                              userID: userID,
-                            ),
-                            // Review page
-                            ReviewPage(
-                              userID: userID,
-                              gotoNarratorPageOnPressed: () {
-                                pageController.jumpToPage(0);
-                                context.read<PageViewBloc>().add(
-                                      const PageViewEvent.pageViewChanged(
-                                        pageViewIndex: 0,
-                                      ),
-                                    );
-                              },
-                            ),
-                            // Profile page
-                            ProfilePage(
-                              userID: userID,
-                            ),
-                          ],
-                        ),
-                ),
-              )
-            ],
-          ),
+            );
+          },
         );
       },
     );

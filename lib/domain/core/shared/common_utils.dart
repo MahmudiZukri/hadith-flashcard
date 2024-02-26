@@ -143,43 +143,38 @@ class CommonUtils {
       margin: const EdgeInsets.only(bottom: 30),
       icon: Icon(
         isSuccess ? Icons.check_circle : Icons.cancel,
-        color: colorScheme(Get.context).inversePrimary,
+        color: isSuccess ? primaryColor : redColor,
       ),
-      backgroundColor: isSuccess
-          ? primaryColor.withOpacity(
-              0.3,
-            )
-          : redColor.withOpacity(
-              0.3,
-            ),
+      backgroundColor: colorScheme(Get.context).inversePrimary.withOpacity(
+            0.7,
+          ),
       messageText: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Flexible(
             child: Text(
               message,
               style: TextStyle(
-                color: colorScheme(Get.context).inversePrimary,
+                color: isSuccess ? primaryColor : redColor,
                 fontWeight: FontWeight.w700,
               ),
             ),
           ),
           if (actionOnTap != null && actionText != null)
-            GestureDetector(
-              onTap: actionOnTap,
-              child: Row(
-                children: [
-                  const SizedBox(width: 8.0),
-                  Text(
-                    actionText,
-                    style: TextStyle(
-                      color: colorScheme(Get.context).inversePrimary,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
+            Flexible(
+              child: CustomElevatedButtonWidget(
+                text: actionText,
+                backgroundColor: isSuccess
+                    ? primaryColor.withOpacity(0.8)
+                    : redColor.withOpacity(0.8),
+                textStyle: TextStyle(
+                  color: colorScheme(Get.context).inversePrimary,
+                  fontWeight: FontWeight.bold,
+                ),
+                onPressed: actionOnTap,
               ),
-            ),
+            )
         ],
       ),
     );

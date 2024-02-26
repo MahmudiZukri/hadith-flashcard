@@ -4,11 +4,13 @@ class CustomBottomNavigation extends StatelessWidget {
   const CustomBottomNavigation({
     required this.pageSelectedIndex,
     required this.pageController,
+    required this.isEnableOntap,
     super.key,
   });
 
   final int pageSelectedIndex;
   final PageController pageController;
+  final bool isEnableOntap;
 
   @override
   Widget build(BuildContext context) {
@@ -41,11 +43,13 @@ class CustomBottomNavigation extends StatelessWidget {
           horizontal: screenWidth(context) / 20,
           vertical: screenHeight(context) / 62,
         ),
-        onTabChange: (value) {
-          pageController.jumpToPage(
-            value,
-          );
-        },
+        onTabChange: isEnableOntap
+            ? (value) {
+                pageController.jumpToPage(
+                  value,
+                );
+              }
+            : null,
         tabs: [
           GButton(
             text: 'addCard'.tr,
