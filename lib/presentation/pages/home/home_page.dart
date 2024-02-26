@@ -37,12 +37,13 @@ class HomePage extends StatelessWidget {
             ),
         ),
         BlocProvider<HadithFlashcardBloc>(
-            create: (context) => getIt<HadithFlashcardBloc>()
-              ..add(
-                HadithFlashcardEvent.getFlashcard(
-                  userID: userID,
-                ),
-              )),
+          create: (context) => getIt<HadithFlashcardBloc>()
+            ..add(
+              HadithFlashcardEvent.getFlashcard(
+                userID: userID,
+              ),
+            ),
+        ),
       ],
       child: HomePageScaffold(
         userID: userID,

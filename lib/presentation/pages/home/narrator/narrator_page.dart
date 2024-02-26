@@ -44,8 +44,37 @@ class NarratorPage extends StatelessWidget {
               // Hadith narrator shimmer
               () => const HadithNarratorShimmer(),
               (either) => either.fold(
-                (l) => Text(
-                  l.message,
+                (l) =>
+                    // Refresh button
+                    Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 24.0, vertical: 24.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        l.message,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: colorScheme(context).primary,
+                        ),
+                      ),
+                      const SizedBox(height: 24.0),
+                      CustomElevatedButtonWidget(
+                        text: 'refresh'.tr,
+                        backgroundColor: primaryColor,
+                        textStyle: adaptiveTextFont.copyWith(
+                          color: colorScheme(context).inversePrimary,
+                          fontWeight: FontWeight.w600,
+                        ),
+                        onPressed: () {
+                          context.read<HadithNarratorBloc>().add(
+                                const HadithNarratorEvent.getHadithNarrators(),
+                              );
+                        },
+                      ),
+                    ],
+                  ),
                 ),
                 (hadithNarrators) => Column(
                   children: [
@@ -55,34 +84,31 @@ class NarratorPage extends StatelessWidget {
                         margin: const EdgeInsets.symmetric(
                           horizontal: defaultMargin,
                         ),
-                        child: Flexible(
-                          child: Column(
-                            children: [
-                              const Flexible(child: SizedBox(height: 14.0)),
-                              // Title
-                              Text(
-                                'hadithNarrators'.tr,
-                                style: adaptiveTextFont.copyWith(
-                                  fontSize: 20.0,
-                                  letterSpacing: 3,
-                                  color: colorScheme(context).inversePrimary,
-                                  fontWeight: FontWeight.bold,
-                                ),
+                        child: Column(
+                          children: [
+                            const SizedBox(height: 14.0),
+                            // Title
+                            Text(
+                              'hadithNarrators'.tr,
+                              style: adaptiveTextFont.copyWith(
+                                fontSize: 20.0,
+                                letterSpacing: 3,
+                                color: colorScheme(context).inversePrimary,
+                                fontWeight: FontWeight.bold,
                               ),
-                              const Flexible(child: SizedBox(height: 24.0)),
-                              // Narrator filter and search section
-                              NarratorFilterAndSearchRow(
-                                hadithNarrators: hadithNarrators,
-                                selectedNarratorName:
-                                    hadithNarratorState.selectedNarrator,
-                                isSearching: hadithNarratorState.isSearching,
-                                isEnabled: hadithNarratorState
-                                            .selectedNarrator !=
-                                        null &&
-                                    hadithNarratorState.hadithNumber != null,
-                              ),
-                            ],
-                          ),
+                            ),
+                            const Flexible(child: SizedBox(height: 24.0)),
+                            // Narrator filter and search section
+                            NarratorFilterAndSearchRow(
+                              hadithNarrators: hadithNarrators,
+                              selectedNarratorName:
+                                  hadithNarratorState.selectedNarrator,
+                              isSearching: hadithNarratorState.isSearching,
+                              isEnabled: hadithNarratorState.selectedNarrator !=
+                                      null &&
+                                  hadithNarratorState.hadithNumber != null,
+                            ),
+                          ],
                         ),
                       ),
                     ),
