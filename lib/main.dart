@@ -1,72 +1,83 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'firebase_options.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/route_manager.dart';
+import 'package:get/get.dart';
+import 'package:hadith_flashcard/application/auth/auth_bloc.dart';
+import 'package:hadith_flashcard/application/bloc/setting_bloc.dart';
+import 'package:hadith_flashcard/application/user/user_bloc.dart';
+import 'package:hadith_flashcard/domain/auth/interfaces/i_auth_repository.dart';
+import 'package:hadith_flashcard/domain/core/objects/objects.dart';
+import 'package:hadith_flashcard/domain/core/shared/shared.dart';
+import 'package:hadith_flashcard/injection.dart';
+import 'package:hadith_flashcard/localization/localization.dart';
+import 'package:hadith_flashcard/presentation/pages/pages.dart';
+import 'package:hadith_flashcard/simple_bloc_observer.dart';
+import 'package:injectable/injectable.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  configureInjection(Environment.prod);
   await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
+      // TODO: find out later
+      // options: const FirebaseOptions(
+      //   apiKey: 'AIzaSyDY_bUSdCWDf3idRHStG1YfPPo5owesg48',
+      //   appId: '1:988688359058:android:09e23bc6cab1f3fc58d04b',
+      //   messagingSenderId: '988688359058',
+      //   projectId: 'hadith-flashcard',
+      // ),
+      // options: DefaultFirebaseOptions.currentPlatform,
+      );
+  Bloc.observer = getIt<SimpleBlocObserver>();
+
+  runApp(
+    const MyApp(),
   );
-  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<AuthBloc>(
+          create: (context) => getIt<AuthBloc>(),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+        BlocProvider<UserBloc>(
+          create: (context) => getIt<UserBloc>(),
+        ),
+        BlocProvider<SettingBloc>(
+          create: (context) => getIt<SettingBloc>(),
+        ),
+      ],
+      child: StreamBuilder(
+        stream: IAuthRepository.userStream,
+        initialData: FirebaseAuth.instance.currentUser,
+        builder: (context, AsyncSnapshot<User?> snapshot) {
+          User? user = snapshot.data;
+
+          return GetMaterialApp(
+            debugShowCheckedModeBanner: false,
+            translations: Localization(),
+            locale: const Locale('id'),
+            title: 'Hadith Flashcard',
+            theme: CustomTheme.lightTheme,
+            darkTheme: CustomTheme.darkTheme,
+            themeMode: ThemeMode.light,
+            home: user == null
+                ? const SignInPage()
+                : HomePage(
+                    userID: UniqueString.fromUniqueString(user.uid),
+                    pageIndex: 1,
+                  ),
+          );
+        },
       ),
     );
   }
