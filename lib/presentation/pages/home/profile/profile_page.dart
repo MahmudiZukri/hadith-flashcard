@@ -110,13 +110,14 @@ class ProfilePageScaffold extends StatelessWidget {
                             ),
                           ),
 
+                          // Uncomment later
                           // Rate us
-                          RateUsSection(
-                            title: 'rateUs',
-                            onTap: () {
-                              //rate
-                            },
-                          ),
+                          // RateUsSection(
+                          //   title: 'rateUs',
+                          //   onTap: () {
+                          //     //rate
+                          //   },
+                          // ),
 
                           // Help
                           HelpSection(
@@ -130,17 +131,19 @@ class ProfilePageScaffold extends StatelessWidget {
                             title: 'privacyPolicy',
                           ),
 
+                          // Uncomment later
                           // About app
-                          AboutAppSection(
-                            userID: userID,
-                            title: 'aboutApp',
-                          ),
+                          // AboutAppSection(
+                          //   userID: userID,
+                          //   title: 'aboutApp',
+                          // ),
 
+                          // Uncomment later
                           // Share app
-                          AboutAppSection(
-                            userID: userID,
-                            title: 'shareApp',
-                          ),
+                          // AboutAppSection(
+                          //   userID: userID,
+                          //   title: 'shareApp',
+                          // ),
 
                           // consider makes rating feature, analitycs
                           // think about the content here, maybe like how many hadith
