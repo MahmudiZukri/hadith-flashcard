@@ -112,8 +112,9 @@ class NarratorPage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    // Main container
                     const SizedBox(height: 16.0),
+
+                    // Main container
                     Expanded(
                       flex: 8,
                       child: Container(
@@ -221,7 +222,7 @@ class NarratorPage extends StatelessWidget {
                           ],
                         ),
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),

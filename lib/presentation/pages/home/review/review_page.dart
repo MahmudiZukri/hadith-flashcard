@@ -20,63 +20,74 @@ class ReviewPage extends StatelessWidget {
       padding: const EdgeInsets.symmetric(
         horizontal: defaultMargin,
       ),
-      child: BlocBuilder<HadithFlashcardBloc, HadithFlashcardState>(
-        builder: (context, hadithFlashcardState) {
-          return hadithFlashcardState.optionFailureOrGetFlashcard.match(
-            () => const SizedBox(),
-            (either) => either.fold(
-              (l) => Text(
-                l.message,
-              ),
-              (flashcards) {
-                final flashcardIsEmpty = flashcards == <HadithFlashcard>[].lock;
-                final flashcardToReviewIsEmpty =
-                    hadithFlashcardState.getFlashcardsToReview ==
-                        <HadithFlashcard>[].lock;
+      child: BlocBuilder<AdBloc, AdState>(
+        builder: (context, adState) {
+          return BlocBuilder<HadithFlashcardBloc, HadithFlashcardState>(
+            builder: (context, hadithFlashcardState) {
+              return hadithFlashcardState.optionFailureOrGetFlashcard.match(
+                () => const SizedBox(),
+                (either) => either.fold(
+                  (l) => Text(
+                    l.message,
+                  ),
+                  (flashcards) {
+                    final flashcardIsEmpty =
+                        flashcards == <HadithFlashcard>[].lock;
+                    final flashcardToReviewIsEmpty =
+                        hadithFlashcardState.getFlashcardsToReview ==
+                            <HadithFlashcard>[].lock;
 
-                return Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    // Reviewed flashcard bar
-                    ReviewedFlashcardBarColumn(
-                      hadithFlashcardState: hadithFlashcardState,
-                    ),
-                    flashcardIsEmpty
-                        // Empty flashcard
-                        ? EmptyFlashcardContainer(
-                            gotoNarratorPageOnPressed:
-                                gotoNarratorPageOnPressed,
-                          )
-                        : flashcardToReviewIsEmpty
-                            // Flashcard to review is empty
-                            ? FlashcardToReviewIsEmptyContainer(
-                                hadithFlashcardState: hadithFlashcardState,
+                    return Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        // Reviewed flashcard bar
+                        ReviewedFlashcardBarColumn(
+                          hadithFlashcardState: hadithFlashcardState,
+                        ),
+                        flashcardIsEmpty
+                            // Empty flashcard
+                            ? EmptyFlashcardContainer(
                                 gotoNarratorPageOnPressed:
                                     gotoNarratorPageOnPressed,
                               )
-                            // Flip card
-                            : CustomFlipCard(
-                                card: hadithFlashcardState
-                                    .getFlashcardsToReview.first,
-                                controller: cardController,
-                                selectedLanguage: ELanguage.values.firstWhere(
-                                  (element) =>
-                                      element.locale == Get.locale.toString(),
-                                ),
-                              ),
+                            : flashcardToReviewIsEmpty
+                                // Flashcard to review is empty
+                                ? FlashcardToReviewIsEmptyContainer(
+                                    hadithFlashcardState: hadithFlashcardState,
+                                    gotoNarratorPageOnPressed:
+                                        gotoNarratorPageOnPressed,
+                                  )
+                                // Flip card
+                                : CustomFlipCard(
+                                    card: hadithFlashcardState
+                                        .getFlashcardsToReview.first,
+                                    controller: cardController,
+                                    selectedLanguage:
+                                        ELanguage.values.firstWhere(
+                                      (element) =>
+                                          element.locale ==
+                                          Get.locale.toString(),
+                                    ),
+                                  ),
 
-                    // Qualities button
-                    QualitiesButtonRow(
-                      userID: userID,
-                      hadithFlashcardState: hadithFlashcardState,
-                      flashcardIsEmpty: flashcardIsEmpty,
-                      flashcardToReviewIsEmpty: flashcardToReviewIsEmpty,
-                      cardController: cardController,
-                    ),
-                  ],
-                );
-              },
-            ),
+                        // Qualities button
+                        QualitiesButtonRow(
+                          userID: userID,
+                          hadithFlashcardState: hadithFlashcardState,
+                          flashcardIsEmpty: flashcardIsEmpty,
+                          flashcardToReviewIsEmpty: flashcardToReviewIsEmpty,
+                          cardController: cardController,
+                        ),
+                        if (adState.reviewPageBannerAd != null)
+                          CustomAdWidget(
+                            bannerAd: adState.reviewPageBannerAd!,
+                          ),
+                      ],
+                    );
+                  },
+                ),
+              );
+            },
           );
         },
       ),
@@ -209,6 +220,7 @@ class FlashcardToReviewIsEmptyContainer extends StatelessWidget {
             onPressed: gotoNarratorPageOnPressed,
             child: Text(
               'addMoreFlashcards'.tr,
+              textAlign: TextAlign.center,
               style: primaryTextFont.copyWith(
                 fontSize: 15,
                 decoration: TextDecoration.underline,
