@@ -44,6 +44,19 @@ class HomePage extends StatelessWidget {
               ),
             ),
         ),
+        BlocProvider<AdBloc>(
+          create: (context) => getIt<AdBloc>()
+            ..add(
+              const AdEvent.loadAd(
+                adEnum: EAd.reviewPageAd,
+              ),
+            )
+            ..add(
+              const AdEvent.loadAd(
+                adEnum: EAd.profilePageAd,
+              ),
+            ),
+        ),
       ],
       child: HomePageScaffold(
         userID: userID,

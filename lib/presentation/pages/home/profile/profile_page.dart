@@ -26,140 +26,151 @@ class ProfilePageScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<UserBloc, UserState>(
-      builder: (context, userState) {
-        return Container(
-          height: double.infinity,
-          width: double.infinity,
-          padding: const EdgeInsets.symmetric(horizontal: 20.0),
-          child: Column(
-            children: [
-              // Title
-              Column(
+    return BlocBuilder<AdBloc, AdState>(
+      builder: (context, adState) {
+        return BlocBuilder<UserBloc, UserState>(
+          builder: (context, userState) {
+            return Container(
+              height: double.infinity,
+              width: double.infinity,
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: Column(
                 children: [
-                  const SizedBox(height: 14.0),
-                  Text(
-                    'profile'.tr,
-                    style: adaptiveTextFont.copyWith(
-                      fontSize: 20.0,
-                      letterSpacing: 3,
-                      color: colorScheme(context).onSurface,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(height: 24.0),
-                ],
-              ),
-              // Main container
-              Expanded(
-                child: Container(
-                  padding: const EdgeInsets.all(
-                    defaultMargin,
-                  ),
-                  decoration: BoxDecoration(
-                    color: colorScheme(context).background,
-                    borderRadius: const BorderRadius.only(
-                      topRight: Radius.circular(
-                        45,
-                      ),
-                      topLeft: Radius.circular(
-                        45,
-                      ),
-                    ),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  // Title
+                  Column(
                     children: [
-                      // User information
-                      UserInfomation(
-                        userState: userState,
+                      const SizedBox(height: 14.0),
+                      Text(
+                        'profile'.tr,
+                        style: adaptiveTextFont.copyWith(
+                          fontSize: 20.0,
+                          letterSpacing: 3,
+                          color: colorScheme(context).onSurface,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                       const SizedBox(height: 24.0),
-                      // Divider
-                      const CustomDivider(),
-                      const SizedBox(height: 24.0),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          // My flashcard
-                          MyFlashcardSection(
-                            userID: userID,
-                            title: 'myFlashcard',
-                          ),
-
-                          // Choose language
-                          const ChooseLanguageSection(
-                            title: 'language',
-                          ),
-
-                          // Dark mode section
-                          BlocSelector<SettingBloc, SettingState, bool>(
-                            selector: (state) => state.isDarkMode,
-                            builder: (context, isDarkMode) => Column(
-                              children: [
-                                DarkModeSection(
-                                  title: 'darkMode',
-                                  value: isDarkMode,
-                                  onChanged: () {
-                                    context.read<SettingBloc>().add(
-                                          const SettingEvent.changeToDarkMode(),
-                                        );
-                                  },
-                                ),
-                              ],
-                            ),
-                          ),
-
-                          // Uncomment later
-                          // Rate us
-                          // RateUsSection(
-                          //   title: 'rateUs',
-                          //   onTap: () {
-                          //     //rate
-                          //   },
-                          // ),
-
-                          // Help
-                          HelpSection(
-                            userID: userID,
-                            title: 'help',
-                          ),
-
-                          // Privacy policy
-                          PrivacyPolicySection(
-                            userID: userID,
-                            title: 'privacyPolicy',
-                          ),
-
-                          // Uncomment later
-                          // About app
-                          // AboutAppSection(
-                          //   userID: userID,
-                          //   title: 'aboutApp',
-                          // ),
-
-                          // Uncomment later
-                          // Share app
-                          // AboutAppSection(
-                          //   userID: userID,
-                          //   title: 'shareApp',
-                          // ),
-
-                          // consider makes rating feature, analitycs
-                          // think about the content here, maybe like how many hadith
-                          // that already mastered or something else
-                        ],
-                      ),
-                      const Spacer(),
-                      // Sign out
-                      const SignOut(),
-                      const SizedBox(height: 10.0),
                     ],
                   ),
-                ),
+                  // Main container
+                  Expanded(
+                    child: Container(
+                      padding: const EdgeInsets.all(
+                        defaultMargin,
+                      ),
+                      decoration: BoxDecoration(
+                        color: colorScheme(context).background,
+                        borderRadius: const BorderRadius.only(
+                          topRight: Radius.circular(
+                            45,
+                          ),
+                          topLeft: Radius.circular(
+                            45,
+                          ),
+                        ),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          // User information
+                          UserInfomation(
+                            userState: userState,
+                          ),
+                          const SizedBox(height: 24.0),
+                          // Divider
+                          const CustomDivider(),
+                          const SizedBox(height: 24.0),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              // My flashcard
+                              MyFlashcardSection(
+                                userID: userID,
+                                title: 'myFlashcard',
+                              ),
+
+                              // Choose language
+                              const ChooseLanguageSection(
+                                title: 'language',
+                              ),
+
+                              // Dark mode section
+                              BlocSelector<SettingBloc, SettingState, bool>(
+                                selector: (state) => state.isDarkMode,
+                                builder: (context, isDarkMode) => Column(
+                                  children: [
+                                    DarkModeSection(
+                                      title: 'darkMode',
+                                      value: isDarkMode,
+                                      onChanged: () {
+                                        context.read<SettingBloc>().add(
+                                              const SettingEvent
+                                                  .changeToDarkMode(),
+                                            );
+                                      },
+                                    ),
+                                  ],
+                                ),
+                              ),
+
+                              // Uncomment later
+                              // Rate us
+                              // RateUsSection(
+                              //   title: 'rateUs',
+                              //   onTap: () {
+                              //     //rate
+                              //   },
+                              // ),
+
+                              // Help
+                              HelpSection(
+                                userID: userID,
+                                title: 'help',
+                              ),
+
+                              // Privacy policy
+                              PrivacyPolicySection(
+                                userID: userID,
+                                title: 'privacyPolicy',
+                              ),
+
+                              // Uncomment later
+                              // About app
+                              // AboutAppSection(
+                              //   userID: userID,
+                              //   title: 'aboutApp',
+                              // ),
+
+                              // Uncomment later
+                              // Share app
+                              // AboutAppSection(
+                              //   userID: userID,
+                              //   title: 'shareApp',
+                              // ),
+
+                              // consider makes rating feature, analitycs
+                              // think about the content here, maybe like how many hadith
+                              // that already mastered or something else
+                            ],
+                          ),
+                          const Spacer(),
+                          if (adState.profilePageBannerAd != null)
+                            CustomAdWidget(
+                              bannerAd: adState.profilePageBannerAd!,
+                            ),
+
+                          const Spacer(),
+                          // Sign out
+                          const SignOut(),
+                          const SizedBox(height: 10.0),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            ],
-          ),
+            );
+          },
         );
       },
     );

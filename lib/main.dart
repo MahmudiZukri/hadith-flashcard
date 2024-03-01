@@ -4,8 +4,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/route_manager.dart';
 import 'package:get/get.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:hadith_flashcard/application/auth/auth_bloc.dart';
-import 'package:hadith_flashcard/application/bloc/setting_bloc.dart';
+import 'package:hadith_flashcard/application/setting/setting_bloc.dart';
 import 'package:hadith_flashcard/application/user/user_bloc.dart';
 import 'package:hadith_flashcard/domain/auth/interfaces/i_auth_repository.dart';
 import 'package:hadith_flashcard/domain/core/objects/objects.dart';
@@ -19,6 +20,7 @@ import 'package:injectable/injectable.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  await MobileAds.instance.initialize();
   configureInjection(Environment.prod);
   await Firebase.initializeApp(
       // TODO: find out later
