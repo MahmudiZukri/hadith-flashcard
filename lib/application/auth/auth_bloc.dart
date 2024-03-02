@@ -123,7 +123,19 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
               ),
             );
           },
-          signOut: (e) => _authRepository.signOut(),
+          signOut: (e) async {
+            Either<CommonFailures, Unit>? failureOrSuccess;
+
+            failureOrSuccess = await _authRepository.signOut();
+
+            emit(
+              state.copyWith(
+                optionFailureOrSuccess: optionOf(
+                  failureOrSuccess,
+                ),
+              ),
+            );
+          },
           resetPassword: (e) async {
             Either<CommonFailures, Unit>? failureOrSuccess;
 
