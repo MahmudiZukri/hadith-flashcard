@@ -67,6 +67,7 @@ dependencies:
   in_app_review: ^2.0.8
   google_mobile_ads: ^4.0.0
   internet_connection_checker_plus: ^2.0.0
+  get_storage: ^2.1.1
 
 dev_dependencies:
   flutter_test:

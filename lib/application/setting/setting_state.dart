@@ -6,7 +6,7 @@ class SettingState with _$SettingState {
     required bool isDarkMode,
   }) = _SettingState;
 
-  factory SettingState.initial() => const SettingState(
-        isDarkMode: false,
+  factory SettingState.initial() => SettingState(
+        isDarkMode: ThemeHelper().theme.name == 'dark',
       );
 }

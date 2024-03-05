@@ -4,6 +4,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/route_manager.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:hadith_flashcard/application/auth/auth_bloc.dart';
 import 'package:hadith_flashcard/application/setting/setting_bloc.dart';
@@ -19,8 +20,8 @@ import 'package:injectable/injectable.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
   await MobileAds.instance.initialize();
+  await GetStorage.init();
   configureInjection(Environment.prod);
   await Firebase.initializeApp(
       // TODO: find out later
@@ -71,7 +72,7 @@ class MyApp extends StatelessWidget {
             title: 'Hadith Flashcard',
             theme: CustomTheme.lightTheme,
             darkTheme: CustomTheme.darkTheme,
-            themeMode: ThemeMode.light,
+            themeMode: ThemeHelper().theme,
             home: user == null
                 ? const SignInPage()
                 : HomePage(
