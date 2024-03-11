@@ -27,7 +27,6 @@ class ThemeHelper {
 class CustomTheme {
   // light theme
   static final lightTheme = ThemeData.light().copyWith(
-    useMaterial3: true,
     brightness: Brightness.light,
     scaffoldBackgroundColor: lightBackgroundColor,
     textTheme: GoogleFonts.poppinsTextTheme().apply(bodyColor: blackColor),
@@ -40,7 +39,6 @@ class CustomTheme {
 
   // dark theme
   static final darkTheme = ThemeData.dark().copyWith(
-    useMaterial3: true,
     brightness: Brightness.dark,
     scaffoldBackgroundColor: blackBackgroundColor,
     textTheme: GoogleFonts.poppinsTextTheme().apply(bodyColor: whiteColor),

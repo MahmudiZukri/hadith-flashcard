@@ -2,10 +2,10 @@ part of 'widgets.dart';
 
 class CustomContainer extends StatelessWidget {
   const CustomContainer({
-    Key? key,
+    super.key,
     required this.child,
     required this.color,
-  }) : super(key: key);
+  });
 
   final Widget child;
   final Color color;
