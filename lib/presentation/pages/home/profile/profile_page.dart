@@ -64,7 +64,7 @@ class ProfilePageScaffold extends StatelessWidget {
                           style: adaptiveTextFont.copyWith(
                             fontSize: 20.0,
                             letterSpacing: 3,
-                            color: colorScheme().onSurface,
+                            color: colorScheme(context: context).onSurface,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -78,7 +78,7 @@ class ProfilePageScaffold extends StatelessWidget {
                           defaultMargin,
                         ),
                         decoration: BoxDecoration(
-                          color: colorScheme().background,
+                          color: colorScheme(context: context).background,
                           borderRadius: const BorderRadius.only(
                             topRight: Radius.circular(
                               45,
@@ -543,7 +543,7 @@ class UserInfomation extends StatelessWidget {
                             AssetUrl.profileIcon,
                             height: 28,
                             colorFilter: ColorFilter.mode(
-                              colorScheme().background,
+                              colorScheme(context: context).background,
                               BlendMode.srcIn,
                             ),
                           ),
