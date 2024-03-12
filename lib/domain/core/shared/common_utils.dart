@@ -145,7 +145,7 @@ class CommonUtils {
         isSuccess ? Icons.check_circle : Icons.cancel,
         color: isSuccess ? primaryColor : redColor,
       ),
-      backgroundColor: colorScheme(Get.context).inversePrimary.withOpacity(
+      backgroundColor: colorScheme().inversePrimary.withOpacity(
             0.7,
           ),
       messageText: Row(
@@ -169,7 +169,7 @@ class CommonUtils {
                     ? primaryColor.withOpacity(0.8)
                     : redColor.withOpacity(0.8),
                 textStyle: TextStyle(
-                  color: colorScheme(Get.context).inversePrimary,
+                  color: colorScheme().inversePrimary,
                   fontWeight: FontWeight.bold,
                 ),
                 onPressed: actionOnTap,

@@ -23,25 +23,25 @@ class CustomBottomNavigation extends StatelessWidget {
         ),
       ),
       padding: EdgeInsets.symmetric(
-        horizontal: screenWidth(context) / 14,
-        vertical: screenHeight(context) / 50,
+        horizontal: screenWidth() / 14,
+        vertical: screenHeight() / 50,
       ),
       child: GNav(
         selectedIndex: pageSelectedIndex,
-        color: colorScheme(context).background,
+        color: colorScheme().background,
         backgroundColor: primaryColor,
         activeColor: primaryColor,
-        tabBackgroundColor: colorScheme(context).background,
+        tabBackgroundColor: colorScheme().background,
         duration: const Duration(
           milliseconds: 300,
         ),
-        gap: screenWidth(context) / 60,
+        gap: screenWidth() / 60,
         textStyle: const TextStyle(
           color: primaryColor,
         ),
         padding: EdgeInsets.symmetric(
-          horizontal: screenWidth(context) / 20,
-          vertical: screenHeight(context) / 62,
+          horizontal: screenWidth() / 20,
+          vertical: screenHeight() / 62,
         ),
         onTabChange: isEnableOntap
             ? (value) {

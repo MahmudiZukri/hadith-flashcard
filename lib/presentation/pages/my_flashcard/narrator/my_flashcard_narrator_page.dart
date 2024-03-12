@@ -52,7 +52,7 @@ class MyFlashcardNarratorPageScaffold extends StatelessWidget {
                 },
                 child: Icon(
                   MdiIcons.cardsOutline,
-                  color: colorScheme(context).inversePrimary,
+                  color: colorScheme().inversePrimary,
                 ),
               ),
               const SizedBox(width: 12.0),
@@ -79,8 +79,8 @@ class MyFlashcardNarratorPageScaffold extends StatelessWidget {
                   child: filteredFlashcard == <HadithFlashcard>[].lock
                       ? Center(
                           child: Padding(
-                            padding: EdgeInsets.only(
-                                bottom: screenHeight(context) / 8),
+                            padding:
+                                EdgeInsets.only(bottom: screenHeight() / 8),
                             child: Text(
                               "youDon'tHaveAnyFlashcard".tr,
                             ),
@@ -173,8 +173,8 @@ class MyFlashcardNarratorPageScaffold extends StatelessWidget {
                                             style: adaptiveTextFont.copyWith(
                                               fontSize: 13.0,
                                               fontWeight: FontWeight.w600,
-                                              color: colorScheme(context)
-                                                  .inversePrimary,
+                                              color:
+                                                  colorScheme().inversePrimary,
                                             ),
                                           ),
                                         ),

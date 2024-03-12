@@ -97,11 +97,11 @@ class HomePageScaffold extends StatelessWidget {
                   Column(
                     children: [
                       Container(
-                        height: statusBarHeight(context),
+                        height: statusBarHeight(),
                         color: primaryColor,
                       ),
                       Container(
-                        height: screenHeight(context) / 3,
+                        height: screenHeight() / 3,
                         decoration: const BoxDecoration(
                           borderRadius: BorderRadius.only(
                             bottomLeft: Radius.circular(

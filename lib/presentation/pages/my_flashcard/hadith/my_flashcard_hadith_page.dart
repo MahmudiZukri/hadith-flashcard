@@ -64,7 +64,7 @@ class MyFlashcardHadithPageScaffold extends StatelessWidget {
                 },
                 child: Icon(
                   MdiIcons.cardsOutline,
-                  color: colorScheme(context).inversePrimary,
+                  color: colorScheme().inversePrimary,
                 ),
               ),
               const SizedBox(width: 12.0),
@@ -84,7 +84,7 @@ class MyFlashcardHadithPageScaffold extends StatelessWidget {
                   AssetUrl.bismillahCalligraphy,
                   height: 52.0,
                   colorFilter: ColorFilter.mode(
-                    colorScheme(context).primary,
+                    colorScheme().primary,
                     BlendMode.srcIn,
                   ),
                 ),
@@ -224,8 +224,7 @@ class MyFlashcardHadithPageScaffold extends StatelessWidget {
                                                           child: Icon(
                                                             size: 16.0,
                                                             Icons.delete,
-                                                            color: colorScheme(
-                                                                    context)
+                                                            color: colorScheme()
                                                                 .background,
                                                           ),
                                                         ),

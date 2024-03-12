@@ -56,7 +56,7 @@ class NarratorPage extends StatelessWidget {
                         l.message,
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          color: colorScheme(context).primary,
+                          color: colorScheme().primary,
                         ),
                       ),
                       const SizedBox(height: 24.0),
@@ -64,7 +64,7 @@ class NarratorPage extends StatelessWidget {
                         text: 'refresh'.tr,
                         backgroundColor: primaryColor,
                         textStyle: adaptiveTextFont.copyWith(
-                          color: colorScheme(context).inversePrimary,
+                          color: colorScheme().inversePrimary,
                           fontWeight: FontWeight.w600,
                         ),
                         onPressed: () {
@@ -93,7 +93,7 @@ class NarratorPage extends StatelessWidget {
                               style: adaptiveTextFont.copyWith(
                                 fontSize: 20.0,
                                 letterSpacing: 3,
-                                color: colorScheme(context).inversePrimary,
+                                color: colorScheme().inversePrimary,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -128,7 +128,7 @@ class NarratorPage extends StatelessWidget {
                           0,
                         ),
                         decoration: BoxDecoration(
-                          color: colorScheme(context).background,
+                          color: colorScheme().background,
                           borderRadius: const BorderRadius.only(
                             topRight: Radius.circular(
                               45.0,
@@ -209,7 +209,7 @@ class NarratorPage extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: adaptiveTextFont.copyWith(
                                                 fontSize: 13.0,
-                                                color: colorScheme(context)
+                                                color: colorScheme()
                                                     .inversePrimary,
                                                 fontWeight: FontWeight.w600,
                                               ),
@@ -290,8 +290,8 @@ class NarratorFilterAndSearchRow extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             CustomDropdownButtonWidget<HadithNarrator>(
-              borderColor: colorScheme(context).background,
-              backgroundColor: colorScheme(context).background,
+              borderColor: colorScheme().background,
+              backgroundColor: colorScheme().background,
               value: selectedNarratorName,
               hint: Text(
                 'chooseNarrator'.tr,
@@ -303,7 +303,7 @@ class NarratorFilterAndSearchRow extends StatelessWidget {
                       child: Text(
                         element.name.getOrCrash(),
                         style: adaptiveTextFont.copyWith(
-                          color: colorScheme(context).primary,
+                          color: colorScheme().primary,
                         ),
                       ),
                     ),
@@ -324,12 +324,12 @@ class NarratorFilterAndSearchRow extends StatelessWidget {
             CustomSearchWidget(
               height: 45,
               hintText: 'hadithNumber'.tr,
-              borderColor: colorScheme(context).background,
-              iconColor: colorScheme(context).background,
+              borderColor: colorScheme().background,
+              iconColor: colorScheme().background,
               fontColor: blackColor,
               borderRadius: mediumBorderRadius(),
-              // width: (screenWidth(context) - 2 * defaultMargin - 20) / 2,
-              backgroundColor: colorScheme(context).background.withOpacity(0.5),
+              // width: (screenWidth() - 2 * defaultMargin - 20) / 2,
+              backgroundColor: colorScheme().background.withOpacity(0.5),
               hintFontSize: 14.0,
               hintColor: blackColor.withOpacity(0.5),
               onChanged: (val) {
@@ -354,11 +354,11 @@ class NarratorFilterAndSearchRow extends StatelessWidget {
           isEnabled: isEnabled,
           isWithBorder: true,
           isLoading: isSearching,
-          backgroundColor: colorScheme(context).background.withOpacity(0.5),
+          backgroundColor: colorScheme().background.withOpacity(0.5),
           disabledBackgroundColor: greyColor.withOpacity(0.5),
           textStyle: adaptiveTextFont,
-          disabledTextColor: colorScheme(context).background.withOpacity(0.5),
-          disabledBorderColor: colorScheme(context).background.withOpacity(0.5),
+          disabledTextColor: colorScheme().background.withOpacity(0.5),
+          disabledBorderColor: colorScheme().background.withOpacity(0.5),
           onPressed: () {
             // Search hadith
             context.read<HadithNarratorBloc>().add(

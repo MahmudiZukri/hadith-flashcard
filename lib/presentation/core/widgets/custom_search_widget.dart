@@ -49,7 +49,7 @@ class CustomSearchWidget extends StatelessWidget {
         width: width,
         padding: const EdgeInsets.only(right: 14.0),
         decoration: BoxDecoration(
-          color: colorScheme(context).background,
+          color: colorScheme().background,
           border: Border.all(
             color: borderColor,
           ),

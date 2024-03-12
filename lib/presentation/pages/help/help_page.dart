@@ -26,7 +26,7 @@ class HelpPage extends StatelessWidget {
             },
             child: Icon(
               MdiIcons.cardsOutline,
-              color: colorScheme(context).inversePrimary,
+              color: colorScheme().inversePrimary,
             ),
           ),
           const SizedBox(width: 12.0),
@@ -53,7 +53,7 @@ class HelpPage extends StatelessWidget {
                 6,
                 (index) => Container(
                   height: 44,
-                  width: ((screenWidth(context) - defaultMargin * 2) / 6) - 10,
+                  width: ((screenWidth() - defaultMargin * 2) / 6) - 10,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(16.0),
                     color: index > 2 ? primaryColor : redColor,
@@ -64,7 +64,7 @@ class HelpPage extends StatelessWidget {
                       style: adaptiveTextFont.copyWith(
                         fontSize: 14.0,
                         fontWeight: FontWeight.w600,
-                        color: colorScheme(context).inversePrimary,
+                        color: colorScheme().inversePrimary,
                       ),
                     ),
                   ),

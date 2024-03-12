@@ -26,8 +26,8 @@ class ForgotPasswordPageScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SizedBox(
-        height: screenHeight(context),
-        width: screenWidth(context),
+        height: screenHeight(),
+        width: screenWidth(),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -107,8 +107,7 @@ class ForgotPasswordPageScaffold extends StatelessWidget {
                         CustomTextFormFieldWidget(
                           labelText: 'Email',
                           hintText: 'enterYourEmail'.tr,
-                          fillColor:
-                              colorScheme(context).background.withOpacity(0.2),
+                          fillColor: colorScheme().background.withOpacity(0.2),
                           onChanged: (val) {
                             context.read<ForgotPasswordBloc>().add(
                                   ForgotPasswordEvent.emailChanged(
@@ -142,8 +141,7 @@ class ForgotPasswordPageScaffold extends StatelessWidget {
                                         textStyle: adaptiveTextFont.copyWith(
                                           fontSize: 16.0,
                                           fontWeight: FontWeight.w600,
-                                          color: colorScheme(context)
-                                              .inversePrimary,
+                                          color: colorScheme().inversePrimary,
                                         ),
                                         onPressed: () {
                                           context.read<AuthBloc>().add(
@@ -158,7 +156,7 @@ class ForgotPasswordPageScaffold extends StatelessWidget {
                             },
                           ),
                         ),
-                        SizedBox(height: screenHeight(context) / 20),
+                        SizedBox(height: screenHeight() / 20),
                       ],
                     ),
                   ),

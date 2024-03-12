@@ -84,7 +84,7 @@ class HadithPageScaffold extends StatelessWidget {
             },
             child: Icon(
               MdiIcons.cardsOutline,
-              color: colorScheme(context).inversePrimary,
+              color: colorScheme().inversePrimary,
             ),
           ),
           const SizedBox(width: 12.0),
@@ -191,7 +191,7 @@ class HadithPageScaffold extends StatelessWidget {
                                 AssetUrl.bismillahCalligraphy,
                                 height: 52.0,
                                 colorFilter: ColorFilter.mode(
-                                  colorScheme(context).primary,
+                                  colorScheme().primary,
                                   BlendMode.srcIn,
                                 ),
                               ),

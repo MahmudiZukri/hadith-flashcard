@@ -10,13 +10,6 @@ class PrivacyPolicyPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    WebViewController webViewController = WebViewController()
-      ..setJavaScriptMode(JavaScriptMode.unrestricted)
-      ..loadRequest(
-        Uri.parse(
-          'https://mahmudizukri.github.io/hadith-flashcard-privacy-policy/privacy-policy.html',
-        ),
-      );
     return Scaffold(
       appBar: CustomAppBarWidget(
         title: 'privacyPolicy'.tr,
@@ -32,7 +25,7 @@ class PrivacyPolicyPage extends StatelessWidget {
             },
             child: Icon(
               MdiIcons.cardsOutline,
-              color: colorScheme(context).inversePrimary,
+              color: colorScheme().inversePrimary,
             ),
           ),
           const SizedBox(width: 12.0),
@@ -41,8 +34,10 @@ class PrivacyPolicyPage extends StatelessWidget {
           Get.back();
         },
       ),
-      body: WebViewWidget(
-        controller: webViewController,
+      body: CustomWebViewWidget(
+        url: Get.locale.toString() == ELanguage.indonesia.locale
+            ? 'https://mahmudizukri.github.io/hadith-flashcard-privacy-policy/privacy-policy.html?lang=id'
+            : 'https://mahmudizukri.github.io/hadith-flashcard-privacy-policy/privacy-policy.html?lang=en',
       ),
     );
   }
