@@ -292,7 +292,10 @@ class SignUpPageScaffold extends StatelessWidget {
                                   backgroundColor: googleColor,
                                   icon: SvgPicture.asset(
                                     AssetUrl.googleIcon,
-                                    color: colorScheme(context).inversePrimary,
+                                    colorFilter: ColorFilter.mode(
+                                      colorScheme(context).inversePrimary,
+                                      BlendMode.srcIn,
+                                    ),
                                     height: 18,
                                   ),
                                   textStyle: adaptiveTextFont.copyWith(

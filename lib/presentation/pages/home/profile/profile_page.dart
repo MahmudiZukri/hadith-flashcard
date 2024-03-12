@@ -542,7 +542,10 @@ class UserInfomation extends StatelessWidget {
                         : SvgPicture.asset(
                             AssetUrl.profileIcon,
                             height: 28,
-                            color: colorScheme(context).background,
+                            colorFilter: ColorFilter.mode(
+                              colorScheme(context).background,
+                              BlendMode.srcIn,
+                            ),
                           ),
               ),
               const SizedBox(width: 18.0),

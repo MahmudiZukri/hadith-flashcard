@@ -83,7 +83,10 @@ class MyFlashcardHadithPageScaffold extends StatelessWidget {
                 SvgPicture.asset(
                   AssetUrl.bismillahCalligraphy,
                   height: 52.0,
-                  color: colorScheme(context).primary,
+                  colorFilter: ColorFilter.mode(
+                    colorScheme(context).primary,
+                    BlendMode.srcIn,
+                  ),
                 ),
                 const SizedBox(height: 20.0),
                 Container(
@@ -252,7 +255,12 @@ class MyFlashcardHadithPageScaffold extends StatelessWidget {
                                                             SvgPicture.asset(
                                                           AssetUrl.closeIcon,
                                                           height: 26.0,
-                                                          color: primaryColor,
+                                                          colorFilter:
+                                                              const ColorFilter
+                                                                  .mode(
+                                                            primaryColor,
+                                                            BlendMode.srcIn,
+                                                          ),
                                                         ),
                                                         onTap: () {
                                                           Navigator.pop(
