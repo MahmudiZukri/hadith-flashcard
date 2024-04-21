@@ -107,12 +107,19 @@ class CommonUtils {
           child: Opacity(
             opacity: a1.value,
             child: AlertDialog(
+              backgroundColor: colorScheme().inversePrimary,
               shape: OutlineInputBorder(
+                borderSide: const BorderSide(
+                  color: Colors.transparent,
+                ),
                 borderRadius: BorderRadius.circular(
                   16.0,
                 ),
               ),
               title: title,
+              titleTextStyle: adaptiveTextFont.copyWith(
+                fontSize: 20.0,
+              ),
               content: content,
               actions: actions,
             ),

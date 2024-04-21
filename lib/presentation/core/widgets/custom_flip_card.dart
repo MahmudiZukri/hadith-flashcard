@@ -181,6 +181,7 @@ class CustomFlipCard extends StatelessWidget {
                           textStyle: adaptiveTextFont.copyWith(
                             fontSize: 14.0,
                             fontWeight: FontWeight.w600,
+                            color: colorScheme().inversePrimary,
                           ),
                           onPressed: () {
                             Navigator.pop(context);

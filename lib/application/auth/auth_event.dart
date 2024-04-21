@@ -21,4 +21,8 @@ class AuthEvent with _$AuthEvent {
   const factory AuthEvent.resetPassword({
     required String emailStr,
   }) = _ResetPassword;
+  const factory AuthEvent.deactivateAccount({
+    required AppUser user,
+  }) = _DeactivateAccount;
+  const factory AuthEvent.deleteAccount() = _DeleteAccount;
 }

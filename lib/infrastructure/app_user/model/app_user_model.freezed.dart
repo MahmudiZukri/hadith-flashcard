@@ -1,6 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint, non_nullable_equals_parameter
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'app_user_model.dart';
@@ -12,7 +12,7 @@ part of 'app_user_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 AppUserModel _$AppUserModelFromJson(Map<String, dynamic> json) {
   return _AppUserModel.fromJson(json);
@@ -23,6 +23,7 @@ mixin _$AppUserModel {
   String get id => throw _privateConstructorUsedError;
   String? get email => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
+  bool get isActive => throw _privateConstructorUsedError;
   String? get photoUrl => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -37,7 +38,8 @@ abstract class $AppUserModelCopyWith<$Res> {
           AppUserModel value, $Res Function(AppUserModel) then) =
       _$AppUserModelCopyWithImpl<$Res, AppUserModel>;
   @useResult
-  $Res call({String id, String? email, String name, String? photoUrl});
+  $Res call(
+      {String id, String? email, String name, bool isActive, String? photoUrl});
 }
 
 /// @nodoc
@@ -56,6 +58,7 @@ class _$AppUserModelCopyWithImpl<$Res, $Val extends AppUserModel>
     Object? id = null,
     Object? email = freezed,
     Object? name = null,
+    Object? isActive = null,
     Object? photoUrl = freezed,
   }) {
     return _then(_value.copyWith(
@@ -71,6 +74,10 @@ class _$AppUserModelCopyWithImpl<$Res, $Val extends AppUserModel>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      isActive: null == isActive
+          ? _value.isActive
+          : isActive // ignore: cast_nullable_to_non_nullable
+              as bool,
       photoUrl: freezed == photoUrl
           ? _value.photoUrl
           : photoUrl // ignore: cast_nullable_to_non_nullable
@@ -87,7 +94,8 @@ abstract class _$$AppUserModelImplCopyWith<$Res>
       __$$AppUserModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String? email, String name, String? photoUrl});
+  $Res call(
+      {String id, String? email, String name, bool isActive, String? photoUrl});
 }
 
 /// @nodoc
@@ -104,6 +112,7 @@ class __$$AppUserModelImplCopyWithImpl<$Res>
     Object? id = null,
     Object? email = freezed,
     Object? name = null,
+    Object? isActive = null,
     Object? photoUrl = freezed,
   }) {
     return _then(_$AppUserModelImpl(
@@ -119,6 +128,10 @@ class __$$AppUserModelImplCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      isActive: null == isActive
+          ? _value.isActive
+          : isActive // ignore: cast_nullable_to_non_nullable
+              as bool,
       photoUrl: freezed == photoUrl
           ? _value.photoUrl
           : photoUrl // ignore: cast_nullable_to_non_nullable
@@ -134,6 +147,7 @@ class _$AppUserModelImpl implements _AppUserModel {
       {required this.id,
       required this.email,
       required this.name,
+      required this.isActive,
       required this.photoUrl});
 
   factory _$AppUserModelImpl.fromJson(Map<String, dynamic> json) =>
@@ -146,28 +160,33 @@ class _$AppUserModelImpl implements _AppUserModel {
   @override
   final String name;
   @override
+  final bool isActive;
+  @override
   final String? photoUrl;
 
   @override
   String toString() {
-    return 'AppUserModel(id: $id, email: $email, name: $name, photoUrl: $photoUrl)';
+    return 'AppUserModel(id: $id, email: $email, name: $name, isActive: $isActive, photoUrl: $photoUrl)';
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AppUserModelImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.name, name) || other.name == name) &&
+            (identical(other.isActive, isActive) ||
+                other.isActive == isActive) &&
             (identical(other.photoUrl, photoUrl) ||
                 other.photoUrl == photoUrl));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, email, name, photoUrl);
+  int get hashCode =>
+      Object.hash(runtimeType, id, email, name, isActive, photoUrl);
 
   @JsonKey(ignore: true)
   @override
@@ -188,6 +207,7 @@ abstract class _AppUserModel implements AppUserModel {
       {required final String id,
       required final String? email,
       required final String name,
+      required final bool isActive,
       required final String? photoUrl}) = _$AppUserModelImpl;
 
   factory _AppUserModel.fromJson(Map<String, dynamic> json) =
@@ -199,6 +219,8 @@ abstract class _AppUserModel implements AppUserModel {
   String? get email;
   @override
   String get name;
+  @override
+  bool get isActive;
   @override
   String? get photoUrl;
   @override

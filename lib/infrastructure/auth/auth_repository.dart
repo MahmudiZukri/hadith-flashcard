@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fpdart/fpdart.dart';
+import 'package:get/get_utils/get_utils.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:hadith_flashcard/domain/app_user/app_user.dart';
 import 'package:hadith_flashcard/domain/auth/interfaces/i_auth_repository.dart';
@@ -258,6 +259,106 @@ class AuthRepository implements IAuthRepository {
         ),
       );
     } catch (e, stackTrace) {
+      debugPrint('1------- $stackTrace -------1');
+      return left(
+        CommonFailures.handledByFirebase(
+          message: e.toString(),
+        ),
+      );
+    }
+  }
+
+  @override
+  Future<Either<CommonFailures, Unit>> deactivateAccount({
+    required AppUserModel user,
+  }) async {
+    final currentUser = IAuthRepository.auth.currentUser;
+    try {
+      if (currentUser != null) {
+        UserServices.updateUser(
+          user,
+          isDeactivate: true,
+        );
+
+        return (right(
+          unit,
+        ));
+      }
+
+      return left(
+        CommonFailures.other(
+          message: 'userNotFound'.tr,
+        ),
+      );
+    } on PlatformException catch (e, stackTrace) {
+      debugPrint('1------- $stackTrace -------1');
+
+      return left(
+        CommonFailures.platformException(
+          message: e.message.toString(),
+        ),
+      );
+    } on FirebaseAuthException catch (e, stackTrace) {
+      debugPrint('2------- $stackTrace -------2');
+      return left(
+        CommonFailures.handledByFirebase(
+          message: e.message.toString(),
+        ),
+      );
+    } catch (e, stackTrace) {
+      debugPrint('1------- $stackTrace -------1');
+      return left(
+        CommonFailures.handledByFirebase(
+          message: e.toString(),
+        ),
+      );
+    }
+  }
+
+  @override
+  Future<Either<CommonFailures, Unit>> deleteAccount() async {
+    final currentUser = IAuthRepository.auth.currentUser;
+    debugPrint("asdasdasd 1");
+    try {
+      if (currentUser != null) {
+        debugPrint("asdasdasd 2");
+
+        IAuthRepository.auth.currentUser!.delete();
+
+        return (right(
+          unit,
+        ));
+      }
+
+      debugPrint("asdasdasd 3");
+
+      return left(
+        CommonFailures.other(
+          message: 'userNotFound'.tr,
+        ),
+      );
+    } on PlatformException catch (e, stackTrace) {
+      debugPrint("asdasdasd 4");
+
+      debugPrint('1------- $stackTrace -------1');
+
+      return left(
+        CommonFailures.platformException(
+          message: e.message.toString(),
+        ),
+      );
+    } on FirebaseAuthException catch (e, stackTrace) {
+      debugPrint("asdasdasd 5");
+
+      debugPrint('2------- $stackTrace -------2');
+      return left(
+        CommonFailures.handledByFirebase(
+          message: e.message.toString(),
+        ),
+      );
+    } catch (e, stackTrace) {
+      debugPrint("asdasdasd 6");
+
       debugPrint('1------- $stackTrace -------1');
       return left(
         CommonFailures.handledByFirebase(

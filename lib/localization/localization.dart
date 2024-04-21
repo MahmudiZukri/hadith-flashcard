@@ -58,6 +58,10 @@ class Localization extends Translations {
           "privacyPolicy": "Kebijakan privasi",
           "shareApp": "Bagikan aplikasi",
           "chooseLanguage": "Pilih bahasa :",
+          "deleteAccount": "Hapus Akun",
+          "accountSuccessfullyDeleted": "Akun berhasil dihapus",
+          "areYouSureWannaDeleteAccount":
+              "Apakah Anda yakin ingin menghapus akun?",
           "signOut": "Keluar",
           "thisCannotBeEmpty": "Tidak boleh kosong",
           "invalidEmailFormat": "Format email salah",
@@ -96,7 +100,8 @@ class Localization extends Translations {
           "privacyPolicyText3":
               "Kami telah menerapkan langkah-langkah keamanan administratif dan teknis yang dianggap sangat canggih untuk melindungi data dan privasi Anda.",
           "youDon'tHaveNarratorflashcards":
-              "Anda tidak memiliki flashcard perawi @narrator"
+              "Anda tidak memiliki flashcard perawi @narrator",
+          "userNotFound": "User tidak ditemukan"
         },
         "en": {
           "welcome": "Welcome !",
@@ -153,6 +158,10 @@ class Localization extends Translations {
           "privacyPolicy": "Privacy policy",
           "shareApp": "Share app",
           "chooseLanguage": "Choose language :",
+          "deleteAccount": "Delete Account",
+          "accountSuccessfullyDeleted": "Account duccessfully deleted",
+          "areYouSureWannaDeleteAccount":
+              "Are you sure you want to delete your account?",
           "signOut": "Sign Out",
           "thisCannotBeEmpty": "This cannot be empty",
           "invalidEmailFormat": "Invalid email format",
@@ -192,7 +201,8 @@ class Localization extends Translations {
           "privacyPolicyText3":
               "We have implemented administrative and technical security measures believed to be very advanced to protect your data and privacy.",
           "youDon'tHaveNarratorflashcards":
-              "You don't have narrator @narrator flashcards"
+              "You don't have narrator @narrator flashcards",
+          "userNotFound": "User Not Found"
         },
       };
 }

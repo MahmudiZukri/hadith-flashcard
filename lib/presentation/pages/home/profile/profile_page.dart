@@ -31,6 +31,8 @@ class ProfilePageScaffold extends StatelessWidget {
         return BlocBuilder<UserBloc, UserState>(
           builder: (context, userState) {
             return BlocListener<AuthBloc, AuthState>(
+              listenWhen: (previous, current) =>
+                  previous.showSnackbar != current.showSnackbar,
               listener: (context, state) {
                 state.optionFailureOrSuccess.match(
                   () => null,
@@ -48,6 +50,57 @@ class ProfilePageScaffold extends StatelessWidget {
                     (_) {},
                   ),
                 );
+
+                // note : we use this state for deactivating user account rn
+
+                state.optionDeleteFailureOrSuccess.match(
+                  () => null,
+                  (either) => either.fold(
+                    (f) {
+                      CommonUtils.customSnackbar(
+                        isSuccess: false,
+                        message: f.maybeMap(
+                          handledByFirebase: (s) => s.message,
+                          orElse: () =>
+                              '${'somethingWentWrong'.tr} (${f.message}).',
+                        ),
+                      );
+                    },
+                    (_) {
+                      CommonUtils.customSnackbar(
+                        isSuccess: true,
+                        // note : rn deactivating acc message is just the same like deleting acc snackbar
+                        message: 'accountSuccessfullyDeleted'.tr,
+                      );
+                    },
+                  ),
+                );
+
+                // note : we need to comment this rn, cause we need to try soft delete / deactivate first ( this is the hard delete one )
+
+                // state.optionDeleteFailureOrSuccess.match(
+                //   () => null,
+                //   (either) => either.fold(
+                //     (f) {
+                //       CommonUtils.customSnackbar(
+                //         isSuccess: false,
+                //         message: f.maybeMap(
+                //           handledByFirebase: (s) => s.message,
+                //           orElse: () =>
+                //               '${'somethingWentWrong'.tr} (${f.message}).',
+                //         ),
+                //       );
+                //     },
+                //     (_) {
+                //       CommonUtils.customSnackbar(
+                //         isSuccess: true,
+                //         message: 'accountSuccessfullyDeleted'.tr,
+                //       );
+
+                //       // TODO : goto sign in page
+                //     },
+                //   ),
+                // );
               },
               child: Container(
                 height: double.infinity,
@@ -179,6 +232,102 @@ class ProfilePageScaffold extends StatelessWidget {
                               ),
 
                             const Spacer(),
+                            // Delete account
+                            Center(
+                              child: GestureDetector(
+                                onTap: () {
+                                  // Dialog
+                                  CommonUtils.openCustomDialog(
+                                    context: context,
+                                    title: Text(
+                                      'areYouSureWannaDeleteAccount'.tr,
+                                      style: adaptiveTextFont.copyWith(
+                                        fontWeight: FontWeight.w500,
+                                        color: colorScheme().primary,
+                                      ),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                    content: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 24.0,
+                                      ),
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(
+                                          top: 10.0,
+                                        ),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Expanded(
+                                              child: CustomElevatedButtonWidget(
+                                                text: 'no'.tr,
+                                                backgroundColor: redColor,
+                                                textStyle:
+                                                    adaptiveTextFont.copyWith(
+                                                  fontWeight: FontWeight.w600,
+                                                  color: colorScheme()
+                                                      .inversePrimary,
+                                                ),
+                                                onPressed: () {
+                                                  Navigator.pop(context);
+                                                },
+                                              ),
+                                            ),
+                                            const SizedBox(width: 24.0),
+                                            Expanded(
+                                              child: CustomElevatedButtonWidget(
+                                                text: 'yes'.tr,
+                                                backgroundColor: primaryColor,
+                                                textStyle:
+                                                    adaptiveTextFont.copyWith(
+                                                  fontWeight: FontWeight.w600,
+                                                  color: colorScheme()
+                                                      .inversePrimary,
+                                                ),
+                                                onPressed: () {
+                                                  // note : we need to comment this rn, cause we need to try soft delete first ( this is the hard delete one )
+
+                                                  // context.read<AuthBloc>().add(
+                                                  //       const AuthEvent
+                                                  //           .deleteAccount(),
+                                                  //     );
+
+                                                  if (userState.user != null) {
+                                                    context.read<AuthBloc>()
+                                                      ..add(
+                                                        AuthEvent
+                                                            .deactivateAccount(
+                                                          user: userState.user!,
+                                                        ),
+                                                      )
+                                                      ..add(
+                                                        const AuthEvent
+                                                            .signOut(),
+                                                      );
+
+                                                    Navigator.pop(context);
+                                                  }
+                                                },
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                },
+                                child: Text(
+                                  'deleteAccount'.tr,
+                                  style: redTextFont.copyWith(
+                                    fontWeight: FontWeight.w600,
+                                    decoration: TextDecoration.underline,
+                                    decorationColor: redColor,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(height: 20.0),
                             // Sign out
                             const SignOut(),
                             const SizedBox(height: 10.0),

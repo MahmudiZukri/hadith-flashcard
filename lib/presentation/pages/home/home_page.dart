@@ -122,8 +122,6 @@ class HomePageScaffold extends StatelessWidget {
                         : PageView(
                             controller: pageController,
                             onPageChanged: (value) {
-                              debugPrint('asddsa');
-
                               context.read<PageViewBloc>().add(
                                     PageViewEvent.pageViewChanged(
                                       pageViewIndex: value,

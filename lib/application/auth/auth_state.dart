@@ -10,6 +10,7 @@ class AuthState with _$AuthState {
     required bool showErrorMessages,
     required bool showSnackbar,
     required Option<Either<CommonFailures, Unit>> optionFailureOrSuccess,
+    required Option<Either<CommonFailures, Unit>> optionDeleteFailureOrSuccess,
   }) = _AuthState;
 
   factory AuthState.initial() => AuthState(
@@ -20,5 +21,6 @@ class AuthState with _$AuthState {
         showErrorMessages: false,
         showSnackbar: false,
         optionFailureOrSuccess: none(),
+        optionDeleteFailureOrSuccess: none(),
       );
 }
