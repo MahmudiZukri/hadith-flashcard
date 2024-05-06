@@ -78,10 +78,8 @@ class CustomBottomNavigation extends StatelessWidget {
             ),
           ),
           if (!isEnableOntap)
-            Flexible(
-              child: Container(
-                color: Colors.transparent,
-              ),
+            Container(
+              color: Colors.transparent,
             )
         ],
       ),
