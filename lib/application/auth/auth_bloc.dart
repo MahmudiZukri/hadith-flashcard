@@ -165,13 +165,14 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
               ),
             );
           },
-          deactivateAccount: (e) async {
+          activeOrDeactivateAccount: (e) async {
             Either<CommonFailures, Unit>? failureOrSuccess;
 
-            failureOrSuccess = await _authRepository.deactivateAccount(
+            failureOrSuccess = await _authRepository.activeOrDeactivateAccount(
               user: AppUserModel.fromDomain(
                 e.user,
               ),
+              isActivated: e.isActivated,
             );
             emit(
               state.copyWith(

@@ -269,15 +269,16 @@ class AuthRepository implements IAuthRepository {
   }
 
   @override
-  Future<Either<CommonFailures, Unit>> deactivateAccount({
+  Future<Either<CommonFailures, Unit>> activeOrDeactivateAccount({
     required AppUserModel user,
+    required bool isActivated,
   }) async {
     final currentUser = IAuthRepository.auth.currentUser;
     try {
       if (currentUser != null) {
         UserServices.updateUser(
           user,
-          isDeactivate: true,
+          isActivated: isActivated,
         );
 
         return (right(

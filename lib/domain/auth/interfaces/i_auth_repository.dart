@@ -25,8 +25,9 @@ abstract class IAuthRepository {
   Future<Either<CommonFailures, Unit>> resetPassword({
     required String email,
   });
-  Future<Either<CommonFailures, Unit>> deactivateAccount({
+  Future<Either<CommonFailures, Unit>> activeOrDeactivateAccount({
     required AppUserModel user,
+    required bool isActivated,
   });
   Future<Either<CommonFailures, Unit>> deleteAccount();
 }

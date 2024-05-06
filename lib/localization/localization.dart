@@ -101,7 +101,9 @@ class Localization extends Translations {
               "Kami telah menerapkan langkah-langkah keamanan administratif dan teknis yang dianggap sangat canggih untuk melindungi data dan privasi Anda.",
           "youDon'tHaveNarratorflashcards":
               "Anda tidak memiliki flashcard perawi @narrator",
-          "userNotFound": "User tidak ditemukan"
+          "userNotFound": "User tidak ditemukan",
+          "reactiveAccount":
+              "Akun Anda telah dinonaktifkan. Apakah Anda ingin mengaktifkan kembali akun Anda ?"
         },
         "en": {
           "welcome": "Welcome !",
@@ -202,7 +204,9 @@ class Localization extends Translations {
               "We have implemented administrative and technical security measures believed to be very advanced to protect your data and privacy.",
           "youDon'tHaveNarratorflashcards":
               "You don't have narrator @narrator flashcards",
-          "userNotFound": "User Not Found"
+          "userNotFound": "User Not Found",
+          "reactiveAccount":
+              "Your account has been deactivated. Do you want to reactivate your account ?"
         },
       };
 }

@@ -27,7 +27,8 @@ mixin _$AuthEvent {
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function(String emailStr) resetPassword,
-    required TResult Function(AppUser user) deactivateAccount,
+    required TResult Function(AppUser user, bool isActivated)
+        activeOrDeactivateAccount,
     required TResult Function() deleteAccount,
   }) =>
       throw _privateConstructorUsedError;
@@ -42,7 +43,8 @@ mixin _$AuthEvent {
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String passwordStr)? passwordChanged,
     TResult? Function(String emailStr)? resetPassword,
-    TResult? Function(AppUser user)? deactivateAccount,
+    TResult? Function(AppUser user, bool isActivated)?
+        activeOrDeactivateAccount,
     TResult? Function()? deleteAccount,
   }) =>
       throw _privateConstructorUsedError;
@@ -57,7 +59,7 @@ mixin _$AuthEvent {
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function(String emailStr)? resetPassword,
-    TResult Function(AppUser user)? deactivateAccount,
+    TResult Function(AppUser user, bool isActivated)? activeOrDeactivateAccount,
     TResult Function()? deleteAccount,
     required TResult orElse(),
   }) =>
@@ -75,7 +77,8 @@ mixin _$AuthEvent {
     required TResult Function(_EmailChanged value) emailChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_ResetPassword value) resetPassword,
-    required TResult Function(_DeactivateAccount value) deactivateAccount,
+    required TResult Function(_DeactivateAccount value)
+        activeOrDeactivateAccount,
     required TResult Function(_DeleteAccount value) deleteAccount,
   }) =>
       throw _privateConstructorUsedError;
@@ -92,7 +95,7 @@ mixin _$AuthEvent {
     TResult? Function(_EmailChanged value)? emailChanged,
     TResult? Function(_PasswordChanged value)? passwordChanged,
     TResult? Function(_ResetPassword value)? resetPassword,
-    TResult? Function(_DeactivateAccount value)? deactivateAccount,
+    TResult? Function(_DeactivateAccount value)? activeOrDeactivateAccount,
     TResult? Function(_DeleteAccount value)? deleteAccount,
   }) =>
       throw _privateConstructorUsedError;
@@ -108,7 +111,7 @@ mixin _$AuthEvent {
     TResult Function(_EmailChanged value)? emailChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_ResetPassword value)? resetPassword,
-    TResult Function(_DeactivateAccount value)? deactivateAccount,
+    TResult Function(_DeactivateAccount value)? activeOrDeactivateAccount,
     TResult Function(_DeleteAccount value)? deleteAccount,
     required TResult orElse(),
   }) =>
@@ -179,7 +182,8 @@ class _$SignUpImpl implements _SignUp {
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function(String emailStr) resetPassword,
-    required TResult Function(AppUser user) deactivateAccount,
+    required TResult Function(AppUser user, bool isActivated)
+        activeOrDeactivateAccount,
     required TResult Function() deleteAccount,
   }) {
     return signUp();
@@ -197,7 +201,8 @@ class _$SignUpImpl implements _SignUp {
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String passwordStr)? passwordChanged,
     TResult? Function(String emailStr)? resetPassword,
-    TResult? Function(AppUser user)? deactivateAccount,
+    TResult? Function(AppUser user, bool isActivated)?
+        activeOrDeactivateAccount,
     TResult? Function()? deleteAccount,
   }) {
     return signUp?.call();
@@ -215,7 +220,7 @@ class _$SignUpImpl implements _SignUp {
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function(String emailStr)? resetPassword,
-    TResult Function(AppUser user)? deactivateAccount,
+    TResult Function(AppUser user, bool isActivated)? activeOrDeactivateAccount,
     TResult Function()? deleteAccount,
     required TResult orElse(),
   }) {
@@ -239,7 +244,8 @@ class _$SignUpImpl implements _SignUp {
     required TResult Function(_EmailChanged value) emailChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_ResetPassword value) resetPassword,
-    required TResult Function(_DeactivateAccount value) deactivateAccount,
+    required TResult Function(_DeactivateAccount value)
+        activeOrDeactivateAccount,
     required TResult Function(_DeleteAccount value) deleteAccount,
   }) {
     return signUp(this);
@@ -259,7 +265,7 @@ class _$SignUpImpl implements _SignUp {
     TResult? Function(_EmailChanged value)? emailChanged,
     TResult? Function(_PasswordChanged value)? passwordChanged,
     TResult? Function(_ResetPassword value)? resetPassword,
-    TResult? Function(_DeactivateAccount value)? deactivateAccount,
+    TResult? Function(_DeactivateAccount value)? activeOrDeactivateAccount,
     TResult? Function(_DeleteAccount value)? deleteAccount,
   }) {
     return signUp?.call(this);
@@ -278,7 +284,7 @@ class _$SignUpImpl implements _SignUp {
     TResult Function(_EmailChanged value)? emailChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_ResetPassword value)? resetPassword,
-    TResult Function(_DeactivateAccount value)? deactivateAccount,
+    TResult Function(_DeactivateAccount value)? activeOrDeactivateAccount,
     TResult Function(_DeleteAccount value)? deleteAccount,
     required TResult orElse(),
   }) {
@@ -343,7 +349,8 @@ class _$SignUpOrSignInWithGoogleImpl implements _SignUpOrSignInWithGoogle {
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function(String emailStr) resetPassword,
-    required TResult Function(AppUser user) deactivateAccount,
+    required TResult Function(AppUser user, bool isActivated)
+        activeOrDeactivateAccount,
     required TResult Function() deleteAccount,
   }) {
     return signUpOrSignInWithGoogle();
@@ -361,7 +368,8 @@ class _$SignUpOrSignInWithGoogleImpl implements _SignUpOrSignInWithGoogle {
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String passwordStr)? passwordChanged,
     TResult? Function(String emailStr)? resetPassword,
-    TResult? Function(AppUser user)? deactivateAccount,
+    TResult? Function(AppUser user, bool isActivated)?
+        activeOrDeactivateAccount,
     TResult? Function()? deleteAccount,
   }) {
     return signUpOrSignInWithGoogle?.call();
@@ -379,7 +387,7 @@ class _$SignUpOrSignInWithGoogleImpl implements _SignUpOrSignInWithGoogle {
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function(String emailStr)? resetPassword,
-    TResult Function(AppUser user)? deactivateAccount,
+    TResult Function(AppUser user, bool isActivated)? activeOrDeactivateAccount,
     TResult Function()? deleteAccount,
     required TResult orElse(),
   }) {
@@ -403,7 +411,8 @@ class _$SignUpOrSignInWithGoogleImpl implements _SignUpOrSignInWithGoogle {
     required TResult Function(_EmailChanged value) emailChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_ResetPassword value) resetPassword,
-    required TResult Function(_DeactivateAccount value) deactivateAccount,
+    required TResult Function(_DeactivateAccount value)
+        activeOrDeactivateAccount,
     required TResult Function(_DeleteAccount value) deleteAccount,
   }) {
     return signUpOrSignInWithGoogle(this);
@@ -423,7 +432,7 @@ class _$SignUpOrSignInWithGoogleImpl implements _SignUpOrSignInWithGoogle {
     TResult? Function(_EmailChanged value)? emailChanged,
     TResult? Function(_PasswordChanged value)? passwordChanged,
     TResult? Function(_ResetPassword value)? resetPassword,
-    TResult? Function(_DeactivateAccount value)? deactivateAccount,
+    TResult? Function(_DeactivateAccount value)? activeOrDeactivateAccount,
     TResult? Function(_DeleteAccount value)? deleteAccount,
   }) {
     return signUpOrSignInWithGoogle?.call(this);
@@ -442,7 +451,7 @@ class _$SignUpOrSignInWithGoogleImpl implements _SignUpOrSignInWithGoogle {
     TResult Function(_EmailChanged value)? emailChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_ResetPassword value)? resetPassword,
-    TResult Function(_DeactivateAccount value)? deactivateAccount,
+    TResult Function(_DeactivateAccount value)? activeOrDeactivateAccount,
     TResult Function(_DeleteAccount value)? deleteAccount,
     required TResult orElse(),
   }) {
@@ -507,7 +516,8 @@ class _$SignUpOrSignInWithFacebookImpl implements _SignUpOrSignInWithFacebook {
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function(String emailStr) resetPassword,
-    required TResult Function(AppUser user) deactivateAccount,
+    required TResult Function(AppUser user, bool isActivated)
+        activeOrDeactivateAccount,
     required TResult Function() deleteAccount,
   }) {
     return signUpOrSignInWithFacebook();
@@ -525,7 +535,8 @@ class _$SignUpOrSignInWithFacebookImpl implements _SignUpOrSignInWithFacebook {
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String passwordStr)? passwordChanged,
     TResult? Function(String emailStr)? resetPassword,
-    TResult? Function(AppUser user)? deactivateAccount,
+    TResult? Function(AppUser user, bool isActivated)?
+        activeOrDeactivateAccount,
     TResult? Function()? deleteAccount,
   }) {
     return signUpOrSignInWithFacebook?.call();
@@ -543,7 +554,7 @@ class _$SignUpOrSignInWithFacebookImpl implements _SignUpOrSignInWithFacebook {
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function(String emailStr)? resetPassword,
-    TResult Function(AppUser user)? deactivateAccount,
+    TResult Function(AppUser user, bool isActivated)? activeOrDeactivateAccount,
     TResult Function()? deleteAccount,
     required TResult orElse(),
   }) {
@@ -567,7 +578,8 @@ class _$SignUpOrSignInWithFacebookImpl implements _SignUpOrSignInWithFacebook {
     required TResult Function(_EmailChanged value) emailChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_ResetPassword value) resetPassword,
-    required TResult Function(_DeactivateAccount value) deactivateAccount,
+    required TResult Function(_DeactivateAccount value)
+        activeOrDeactivateAccount,
     required TResult Function(_DeleteAccount value) deleteAccount,
   }) {
     return signUpOrSignInWithFacebook(this);
@@ -587,7 +599,7 @@ class _$SignUpOrSignInWithFacebookImpl implements _SignUpOrSignInWithFacebook {
     TResult? Function(_EmailChanged value)? emailChanged,
     TResult? Function(_PasswordChanged value)? passwordChanged,
     TResult? Function(_ResetPassword value)? resetPassword,
-    TResult? Function(_DeactivateAccount value)? deactivateAccount,
+    TResult? Function(_DeactivateAccount value)? activeOrDeactivateAccount,
     TResult? Function(_DeleteAccount value)? deleteAccount,
   }) {
     return signUpOrSignInWithFacebook?.call(this);
@@ -606,7 +618,7 @@ class _$SignUpOrSignInWithFacebookImpl implements _SignUpOrSignInWithFacebook {
     TResult Function(_EmailChanged value)? emailChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_ResetPassword value)? resetPassword,
-    TResult Function(_DeactivateAccount value)? deactivateAccount,
+    TResult Function(_DeactivateAccount value)? activeOrDeactivateAccount,
     TResult Function(_DeleteAccount value)? deleteAccount,
     required TResult orElse(),
   }) {
@@ -669,7 +681,8 @@ class _$SignInImpl implements _SignIn {
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function(String emailStr) resetPassword,
-    required TResult Function(AppUser user) deactivateAccount,
+    required TResult Function(AppUser user, bool isActivated)
+        activeOrDeactivateAccount,
     required TResult Function() deleteAccount,
   }) {
     return signIn();
@@ -687,7 +700,8 @@ class _$SignInImpl implements _SignIn {
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String passwordStr)? passwordChanged,
     TResult? Function(String emailStr)? resetPassword,
-    TResult? Function(AppUser user)? deactivateAccount,
+    TResult? Function(AppUser user, bool isActivated)?
+        activeOrDeactivateAccount,
     TResult? Function()? deleteAccount,
   }) {
     return signIn?.call();
@@ -705,7 +719,7 @@ class _$SignInImpl implements _SignIn {
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function(String emailStr)? resetPassword,
-    TResult Function(AppUser user)? deactivateAccount,
+    TResult Function(AppUser user, bool isActivated)? activeOrDeactivateAccount,
     TResult Function()? deleteAccount,
     required TResult orElse(),
   }) {
@@ -729,7 +743,8 @@ class _$SignInImpl implements _SignIn {
     required TResult Function(_EmailChanged value) emailChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_ResetPassword value) resetPassword,
-    required TResult Function(_DeactivateAccount value) deactivateAccount,
+    required TResult Function(_DeactivateAccount value)
+        activeOrDeactivateAccount,
     required TResult Function(_DeleteAccount value) deleteAccount,
   }) {
     return signIn(this);
@@ -749,7 +764,7 @@ class _$SignInImpl implements _SignIn {
     TResult? Function(_EmailChanged value)? emailChanged,
     TResult? Function(_PasswordChanged value)? passwordChanged,
     TResult? Function(_ResetPassword value)? resetPassword,
-    TResult? Function(_DeactivateAccount value)? deactivateAccount,
+    TResult? Function(_DeactivateAccount value)? activeOrDeactivateAccount,
     TResult? Function(_DeleteAccount value)? deleteAccount,
   }) {
     return signIn?.call(this);
@@ -768,7 +783,7 @@ class _$SignInImpl implements _SignIn {
     TResult Function(_EmailChanged value)? emailChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_ResetPassword value)? resetPassword,
-    TResult Function(_DeactivateAccount value)? deactivateAccount,
+    TResult Function(_DeactivateAccount value)? activeOrDeactivateAccount,
     TResult Function(_DeleteAccount value)? deleteAccount,
     required TResult orElse(),
   }) {
@@ -830,7 +845,8 @@ class _$SignOutImpl implements _SignOut {
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function(String emailStr) resetPassword,
-    required TResult Function(AppUser user) deactivateAccount,
+    required TResult Function(AppUser user, bool isActivated)
+        activeOrDeactivateAccount,
     required TResult Function() deleteAccount,
   }) {
     return signOut();
@@ -848,7 +864,8 @@ class _$SignOutImpl implements _SignOut {
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String passwordStr)? passwordChanged,
     TResult? Function(String emailStr)? resetPassword,
-    TResult? Function(AppUser user)? deactivateAccount,
+    TResult? Function(AppUser user, bool isActivated)?
+        activeOrDeactivateAccount,
     TResult? Function()? deleteAccount,
   }) {
     return signOut?.call();
@@ -866,7 +883,7 @@ class _$SignOutImpl implements _SignOut {
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function(String emailStr)? resetPassword,
-    TResult Function(AppUser user)? deactivateAccount,
+    TResult Function(AppUser user, bool isActivated)? activeOrDeactivateAccount,
     TResult Function()? deleteAccount,
     required TResult orElse(),
   }) {
@@ -890,7 +907,8 @@ class _$SignOutImpl implements _SignOut {
     required TResult Function(_EmailChanged value) emailChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_ResetPassword value) resetPassword,
-    required TResult Function(_DeactivateAccount value) deactivateAccount,
+    required TResult Function(_DeactivateAccount value)
+        activeOrDeactivateAccount,
     required TResult Function(_DeleteAccount value) deleteAccount,
   }) {
     return signOut(this);
@@ -910,7 +928,7 @@ class _$SignOutImpl implements _SignOut {
     TResult? Function(_EmailChanged value)? emailChanged,
     TResult? Function(_PasswordChanged value)? passwordChanged,
     TResult? Function(_ResetPassword value)? resetPassword,
-    TResult? Function(_DeactivateAccount value)? deactivateAccount,
+    TResult? Function(_DeactivateAccount value)? activeOrDeactivateAccount,
     TResult? Function(_DeleteAccount value)? deleteAccount,
   }) {
     return signOut?.call(this);
@@ -929,7 +947,7 @@ class _$SignOutImpl implements _SignOut {
     TResult Function(_EmailChanged value)? emailChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_ResetPassword value)? resetPassword,
-    TResult Function(_DeactivateAccount value)? deactivateAccount,
+    TResult Function(_DeactivateAccount value)? activeOrDeactivateAccount,
     TResult Function(_DeleteAccount value)? deleteAccount,
     required TResult orElse(),
   }) {
@@ -1017,7 +1035,8 @@ class _$NameChangedImpl implements _NameChanged {
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function(String emailStr) resetPassword,
-    required TResult Function(AppUser user) deactivateAccount,
+    required TResult Function(AppUser user, bool isActivated)
+        activeOrDeactivateAccount,
     required TResult Function() deleteAccount,
   }) {
     return nameChanged(nameStr);
@@ -1035,7 +1054,8 @@ class _$NameChangedImpl implements _NameChanged {
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String passwordStr)? passwordChanged,
     TResult? Function(String emailStr)? resetPassword,
-    TResult? Function(AppUser user)? deactivateAccount,
+    TResult? Function(AppUser user, bool isActivated)?
+        activeOrDeactivateAccount,
     TResult? Function()? deleteAccount,
   }) {
     return nameChanged?.call(nameStr);
@@ -1053,7 +1073,7 @@ class _$NameChangedImpl implements _NameChanged {
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function(String emailStr)? resetPassword,
-    TResult Function(AppUser user)? deactivateAccount,
+    TResult Function(AppUser user, bool isActivated)? activeOrDeactivateAccount,
     TResult Function()? deleteAccount,
     required TResult orElse(),
   }) {
@@ -1077,7 +1097,8 @@ class _$NameChangedImpl implements _NameChanged {
     required TResult Function(_EmailChanged value) emailChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_ResetPassword value) resetPassword,
-    required TResult Function(_DeactivateAccount value) deactivateAccount,
+    required TResult Function(_DeactivateAccount value)
+        activeOrDeactivateAccount,
     required TResult Function(_DeleteAccount value) deleteAccount,
   }) {
     return nameChanged(this);
@@ -1097,7 +1118,7 @@ class _$NameChangedImpl implements _NameChanged {
     TResult? Function(_EmailChanged value)? emailChanged,
     TResult? Function(_PasswordChanged value)? passwordChanged,
     TResult? Function(_ResetPassword value)? resetPassword,
-    TResult? Function(_DeactivateAccount value)? deactivateAccount,
+    TResult? Function(_DeactivateAccount value)? activeOrDeactivateAccount,
     TResult? Function(_DeleteAccount value)? deleteAccount,
   }) {
     return nameChanged?.call(this);
@@ -1116,7 +1137,7 @@ class _$NameChangedImpl implements _NameChanged {
     TResult Function(_EmailChanged value)? emailChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_ResetPassword value)? resetPassword,
-    TResult Function(_DeactivateAccount value)? deactivateAccount,
+    TResult Function(_DeactivateAccount value)? activeOrDeactivateAccount,
     TResult Function(_DeleteAccount value)? deleteAccount,
     required TResult orElse(),
   }) {
@@ -1211,7 +1232,8 @@ class _$EmailChangedImpl implements _EmailChanged {
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function(String emailStr) resetPassword,
-    required TResult Function(AppUser user) deactivateAccount,
+    required TResult Function(AppUser user, bool isActivated)
+        activeOrDeactivateAccount,
     required TResult Function() deleteAccount,
   }) {
     return emailChanged(emailStr);
@@ -1229,7 +1251,8 @@ class _$EmailChangedImpl implements _EmailChanged {
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String passwordStr)? passwordChanged,
     TResult? Function(String emailStr)? resetPassword,
-    TResult? Function(AppUser user)? deactivateAccount,
+    TResult? Function(AppUser user, bool isActivated)?
+        activeOrDeactivateAccount,
     TResult? Function()? deleteAccount,
   }) {
     return emailChanged?.call(emailStr);
@@ -1247,7 +1270,7 @@ class _$EmailChangedImpl implements _EmailChanged {
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function(String emailStr)? resetPassword,
-    TResult Function(AppUser user)? deactivateAccount,
+    TResult Function(AppUser user, bool isActivated)? activeOrDeactivateAccount,
     TResult Function()? deleteAccount,
     required TResult orElse(),
   }) {
@@ -1271,7 +1294,8 @@ class _$EmailChangedImpl implements _EmailChanged {
     required TResult Function(_EmailChanged value) emailChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_ResetPassword value) resetPassword,
-    required TResult Function(_DeactivateAccount value) deactivateAccount,
+    required TResult Function(_DeactivateAccount value)
+        activeOrDeactivateAccount,
     required TResult Function(_DeleteAccount value) deleteAccount,
   }) {
     return emailChanged(this);
@@ -1291,7 +1315,7 @@ class _$EmailChangedImpl implements _EmailChanged {
     TResult? Function(_EmailChanged value)? emailChanged,
     TResult? Function(_PasswordChanged value)? passwordChanged,
     TResult? Function(_ResetPassword value)? resetPassword,
-    TResult? Function(_DeactivateAccount value)? deactivateAccount,
+    TResult? Function(_DeactivateAccount value)? activeOrDeactivateAccount,
     TResult? Function(_DeleteAccount value)? deleteAccount,
   }) {
     return emailChanged?.call(this);
@@ -1310,7 +1334,7 @@ class _$EmailChangedImpl implements _EmailChanged {
     TResult Function(_EmailChanged value)? emailChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_ResetPassword value)? resetPassword,
-    TResult Function(_DeactivateAccount value)? deactivateAccount,
+    TResult Function(_DeactivateAccount value)? activeOrDeactivateAccount,
     TResult Function(_DeleteAccount value)? deleteAccount,
     required TResult orElse(),
   }) {
@@ -1406,7 +1430,8 @@ class _$PasswordChangedImpl implements _PasswordChanged {
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function(String emailStr) resetPassword,
-    required TResult Function(AppUser user) deactivateAccount,
+    required TResult Function(AppUser user, bool isActivated)
+        activeOrDeactivateAccount,
     required TResult Function() deleteAccount,
   }) {
     return passwordChanged(passwordStr);
@@ -1424,7 +1449,8 @@ class _$PasswordChangedImpl implements _PasswordChanged {
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String passwordStr)? passwordChanged,
     TResult? Function(String emailStr)? resetPassword,
-    TResult? Function(AppUser user)? deactivateAccount,
+    TResult? Function(AppUser user, bool isActivated)?
+        activeOrDeactivateAccount,
     TResult? Function()? deleteAccount,
   }) {
     return passwordChanged?.call(passwordStr);
@@ -1442,7 +1468,7 @@ class _$PasswordChangedImpl implements _PasswordChanged {
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function(String emailStr)? resetPassword,
-    TResult Function(AppUser user)? deactivateAccount,
+    TResult Function(AppUser user, bool isActivated)? activeOrDeactivateAccount,
     TResult Function()? deleteAccount,
     required TResult orElse(),
   }) {
@@ -1466,7 +1492,8 @@ class _$PasswordChangedImpl implements _PasswordChanged {
     required TResult Function(_EmailChanged value) emailChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_ResetPassword value) resetPassword,
-    required TResult Function(_DeactivateAccount value) deactivateAccount,
+    required TResult Function(_DeactivateAccount value)
+        activeOrDeactivateAccount,
     required TResult Function(_DeleteAccount value) deleteAccount,
   }) {
     return passwordChanged(this);
@@ -1486,7 +1513,7 @@ class _$PasswordChangedImpl implements _PasswordChanged {
     TResult? Function(_EmailChanged value)? emailChanged,
     TResult? Function(_PasswordChanged value)? passwordChanged,
     TResult? Function(_ResetPassword value)? resetPassword,
-    TResult? Function(_DeactivateAccount value)? deactivateAccount,
+    TResult? Function(_DeactivateAccount value)? activeOrDeactivateAccount,
     TResult? Function(_DeleteAccount value)? deleteAccount,
   }) {
     return passwordChanged?.call(this);
@@ -1505,7 +1532,7 @@ class _$PasswordChangedImpl implements _PasswordChanged {
     TResult Function(_EmailChanged value)? emailChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_ResetPassword value)? resetPassword,
-    TResult Function(_DeactivateAccount value)? deactivateAccount,
+    TResult Function(_DeactivateAccount value)? activeOrDeactivateAccount,
     TResult Function(_DeleteAccount value)? deleteAccount,
     required TResult orElse(),
   }) {
@@ -1600,7 +1627,8 @@ class _$ResetPasswordImpl implements _ResetPassword {
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function(String emailStr) resetPassword,
-    required TResult Function(AppUser user) deactivateAccount,
+    required TResult Function(AppUser user, bool isActivated)
+        activeOrDeactivateAccount,
     required TResult Function() deleteAccount,
   }) {
     return resetPassword(emailStr);
@@ -1618,7 +1646,8 @@ class _$ResetPasswordImpl implements _ResetPassword {
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String passwordStr)? passwordChanged,
     TResult? Function(String emailStr)? resetPassword,
-    TResult? Function(AppUser user)? deactivateAccount,
+    TResult? Function(AppUser user, bool isActivated)?
+        activeOrDeactivateAccount,
     TResult? Function()? deleteAccount,
   }) {
     return resetPassword?.call(emailStr);
@@ -1636,7 +1665,7 @@ class _$ResetPasswordImpl implements _ResetPassword {
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function(String emailStr)? resetPassword,
-    TResult Function(AppUser user)? deactivateAccount,
+    TResult Function(AppUser user, bool isActivated)? activeOrDeactivateAccount,
     TResult Function()? deleteAccount,
     required TResult orElse(),
   }) {
@@ -1660,7 +1689,8 @@ class _$ResetPasswordImpl implements _ResetPassword {
     required TResult Function(_EmailChanged value) emailChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_ResetPassword value) resetPassword,
-    required TResult Function(_DeactivateAccount value) deactivateAccount,
+    required TResult Function(_DeactivateAccount value)
+        activeOrDeactivateAccount,
     required TResult Function(_DeleteAccount value) deleteAccount,
   }) {
     return resetPassword(this);
@@ -1680,7 +1710,7 @@ class _$ResetPasswordImpl implements _ResetPassword {
     TResult? Function(_EmailChanged value)? emailChanged,
     TResult? Function(_PasswordChanged value)? passwordChanged,
     TResult? Function(_ResetPassword value)? resetPassword,
-    TResult? Function(_DeactivateAccount value)? deactivateAccount,
+    TResult? Function(_DeactivateAccount value)? activeOrDeactivateAccount,
     TResult? Function(_DeleteAccount value)? deleteAccount,
   }) {
     return resetPassword?.call(this);
@@ -1699,7 +1729,7 @@ class _$ResetPasswordImpl implements _ResetPassword {
     TResult Function(_EmailChanged value)? emailChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_ResetPassword value)? resetPassword,
-    TResult Function(_DeactivateAccount value)? deactivateAccount,
+    TResult Function(_DeactivateAccount value)? activeOrDeactivateAccount,
     TResult Function(_DeleteAccount value)? deleteAccount,
     required TResult orElse(),
   }) {
@@ -1726,7 +1756,7 @@ abstract class _$$DeactivateAccountImplCopyWith<$Res> {
           $Res Function(_$DeactivateAccountImpl) then) =
       __$$DeactivateAccountImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({AppUser user});
+  $Res call({AppUser user, bool isActivated});
 
   $AppUserCopyWith<$Res> get user;
 }
@@ -1743,12 +1773,17 @@ class __$$DeactivateAccountImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? user = null,
+    Object? isActivated = null,
   }) {
     return _then(_$DeactivateAccountImpl(
       user: null == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as AppUser,
+      isActivated: null == isActivated
+          ? _value.isActivated
+          : isActivated // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 
@@ -1764,14 +1799,17 @@ class __$$DeactivateAccountImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$DeactivateAccountImpl implements _DeactivateAccount {
-  const _$DeactivateAccountImpl({required this.user});
+  const _$DeactivateAccountImpl(
+      {required this.user, required this.isActivated});
 
   @override
   final AppUser user;
+  @override
+  final bool isActivated;
 
   @override
   String toString() {
-    return 'AuthEvent.deactivateAccount(user: $user)';
+    return 'AuthEvent.activeOrDeactivateAccount(user: $user, isActivated: $isActivated)';
   }
 
   @override
@@ -1779,11 +1817,13 @@ class _$DeactivateAccountImpl implements _DeactivateAccount {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DeactivateAccountImpl &&
-            (identical(other.user, user) || other.user == user));
+            (identical(other.user, user) || other.user == user) &&
+            (identical(other.isActivated, isActivated) ||
+                other.isActivated == isActivated));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, user);
+  int get hashCode => Object.hash(runtimeType, user, isActivated);
 
   @JsonKey(ignore: true)
   @override
@@ -1804,10 +1844,11 @@ class _$DeactivateAccountImpl implements _DeactivateAccount {
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function(String emailStr) resetPassword,
-    required TResult Function(AppUser user) deactivateAccount,
+    required TResult Function(AppUser user, bool isActivated)
+        activeOrDeactivateAccount,
     required TResult Function() deleteAccount,
   }) {
-    return deactivateAccount(user);
+    return activeOrDeactivateAccount(user, isActivated);
   }
 
   @override
@@ -1822,10 +1863,11 @@ class _$DeactivateAccountImpl implements _DeactivateAccount {
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String passwordStr)? passwordChanged,
     TResult? Function(String emailStr)? resetPassword,
-    TResult? Function(AppUser user)? deactivateAccount,
+    TResult? Function(AppUser user, bool isActivated)?
+        activeOrDeactivateAccount,
     TResult? Function()? deleteAccount,
   }) {
-    return deactivateAccount?.call(user);
+    return activeOrDeactivateAccount?.call(user, isActivated);
   }
 
   @override
@@ -1840,12 +1882,12 @@ class _$DeactivateAccountImpl implements _DeactivateAccount {
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function(String emailStr)? resetPassword,
-    TResult Function(AppUser user)? deactivateAccount,
+    TResult Function(AppUser user, bool isActivated)? activeOrDeactivateAccount,
     TResult Function()? deleteAccount,
     required TResult orElse(),
   }) {
-    if (deactivateAccount != null) {
-      return deactivateAccount(user);
+    if (activeOrDeactivateAccount != null) {
+      return activeOrDeactivateAccount(user, isActivated);
     }
     return orElse();
   }
@@ -1864,10 +1906,11 @@ class _$DeactivateAccountImpl implements _DeactivateAccount {
     required TResult Function(_EmailChanged value) emailChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_ResetPassword value) resetPassword,
-    required TResult Function(_DeactivateAccount value) deactivateAccount,
+    required TResult Function(_DeactivateAccount value)
+        activeOrDeactivateAccount,
     required TResult Function(_DeleteAccount value) deleteAccount,
   }) {
-    return deactivateAccount(this);
+    return activeOrDeactivateAccount(this);
   }
 
   @override
@@ -1884,10 +1927,10 @@ class _$DeactivateAccountImpl implements _DeactivateAccount {
     TResult? Function(_EmailChanged value)? emailChanged,
     TResult? Function(_PasswordChanged value)? passwordChanged,
     TResult? Function(_ResetPassword value)? resetPassword,
-    TResult? Function(_DeactivateAccount value)? deactivateAccount,
+    TResult? Function(_DeactivateAccount value)? activeOrDeactivateAccount,
     TResult? Function(_DeleteAccount value)? deleteAccount,
   }) {
-    return deactivateAccount?.call(this);
+    return activeOrDeactivateAccount?.call(this);
   }
 
   @override
@@ -1903,22 +1946,24 @@ class _$DeactivateAccountImpl implements _DeactivateAccount {
     TResult Function(_EmailChanged value)? emailChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_ResetPassword value)? resetPassword,
-    TResult Function(_DeactivateAccount value)? deactivateAccount,
+    TResult Function(_DeactivateAccount value)? activeOrDeactivateAccount,
     TResult Function(_DeleteAccount value)? deleteAccount,
     required TResult orElse(),
   }) {
-    if (deactivateAccount != null) {
-      return deactivateAccount(this);
+    if (activeOrDeactivateAccount != null) {
+      return activeOrDeactivateAccount(this);
     }
     return orElse();
   }
 }
 
 abstract class _DeactivateAccount implements AuthEvent {
-  const factory _DeactivateAccount({required final AppUser user}) =
-      _$DeactivateAccountImpl;
+  const factory _DeactivateAccount(
+      {required final AppUser user,
+      required final bool isActivated}) = _$DeactivateAccountImpl;
 
   AppUser get user;
+  bool get isActivated;
   @JsonKey(ignore: true)
   _$$DeactivateAccountImplCopyWith<_$DeactivateAccountImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1971,7 +2016,8 @@ class _$DeleteAccountImpl implements _DeleteAccount {
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function(String emailStr) resetPassword,
-    required TResult Function(AppUser user) deactivateAccount,
+    required TResult Function(AppUser user, bool isActivated)
+        activeOrDeactivateAccount,
     required TResult Function() deleteAccount,
   }) {
     return deleteAccount();
@@ -1989,7 +2035,8 @@ class _$DeleteAccountImpl implements _DeleteAccount {
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String passwordStr)? passwordChanged,
     TResult? Function(String emailStr)? resetPassword,
-    TResult? Function(AppUser user)? deactivateAccount,
+    TResult? Function(AppUser user, bool isActivated)?
+        activeOrDeactivateAccount,
     TResult? Function()? deleteAccount,
   }) {
     return deleteAccount?.call();
@@ -2007,7 +2054,7 @@ class _$DeleteAccountImpl implements _DeleteAccount {
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function(String emailStr)? resetPassword,
-    TResult Function(AppUser user)? deactivateAccount,
+    TResult Function(AppUser user, bool isActivated)? activeOrDeactivateAccount,
     TResult Function()? deleteAccount,
     required TResult orElse(),
   }) {
@@ -2031,7 +2078,8 @@ class _$DeleteAccountImpl implements _DeleteAccount {
     required TResult Function(_EmailChanged value) emailChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_ResetPassword value) resetPassword,
-    required TResult Function(_DeactivateAccount value) deactivateAccount,
+    required TResult Function(_DeactivateAccount value)
+        activeOrDeactivateAccount,
     required TResult Function(_DeleteAccount value) deleteAccount,
   }) {
     return deleteAccount(this);
@@ -2051,7 +2099,7 @@ class _$DeleteAccountImpl implements _DeleteAccount {
     TResult? Function(_EmailChanged value)? emailChanged,
     TResult? Function(_PasswordChanged value)? passwordChanged,
     TResult? Function(_ResetPassword value)? resetPassword,
-    TResult? Function(_DeactivateAccount value)? deactivateAccount,
+    TResult? Function(_DeactivateAccount value)? activeOrDeactivateAccount,
     TResult? Function(_DeleteAccount value)? deleteAccount,
   }) {
     return deleteAccount?.call(this);
@@ -2070,7 +2118,7 @@ class _$DeleteAccountImpl implements _DeleteAccount {
     TResult Function(_EmailChanged value)? emailChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_ResetPassword value)? resetPassword,
-    TResult Function(_DeactivateAccount value)? deactivateAccount,
+    TResult Function(_DeactivateAccount value)? activeOrDeactivateAccount,
     TResult Function(_DeleteAccount value)? deleteAccount,
     required TResult orElse(),
   }) {

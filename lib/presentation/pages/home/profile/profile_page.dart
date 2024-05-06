@@ -297,8 +297,9 @@ class ProfilePageScaffold extends StatelessWidget {
                                                     context.read<AuthBloc>()
                                                       ..add(
                                                         AuthEvent
-                                                            .deactivateAccount(
+                                                            .activeOrDeactivateAccount(
                                                           user: userState.user!,
+                                                          isActivated: false,
                                                         ),
                                                       )
                                                       ..add(
