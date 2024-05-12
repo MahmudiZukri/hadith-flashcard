@@ -20,7 +20,7 @@ class CustomReviewButton extends StatelessWidget {
       onTap: disabled ? () {} : onTap,
       child: Container(
         height: 44,
-        width: ((screenWidth(context) - defaultMargin * 2) / 6) - 10,
+        width: ((screenWidth() - defaultMargin * 2) / 6) - 10,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16.0),
           color: disabled
@@ -34,7 +34,7 @@ class CustomReviewButton extends StatelessWidget {
             quality.toString(),
             style: adaptiveTextFont.copyWith(
               fontSize: 14.0,
-              color: colorScheme(context).inversePrimary,
+              color: colorScheme().inversePrimary,
               fontWeight: FontWeight.w600,
             ),
           ),

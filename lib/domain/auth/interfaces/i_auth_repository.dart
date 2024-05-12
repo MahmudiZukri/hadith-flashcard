@@ -3,6 +3,7 @@ import 'package:fpdart/fpdart.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:hadith_flashcard/domain/app_user/app_user.dart';
 import 'package:hadith_flashcard/domain/core/failures/common_failures/common_failures.dart';
+import 'package:hadith_flashcard/infrastructure/app_user/model/app_user_model.dart';
 
 abstract class IAuthRepository {
   static final FirebaseAuth auth = FirebaseAuth.instance;
@@ -14,11 +15,8 @@ abstract class IAuthRepository {
     required String name,
     required String password,
   });
-
   Future<Either<CommonFailures, Unit>> signUpOrSignInWithGoogle();
-
   Future<Either<CommonFailures, AppUser>> signUpOrSignInWithFacebook();
-
   Future<Either<CommonFailures, Unit>> signIn({
     required String email,
     required String password,
@@ -27,4 +25,9 @@ abstract class IAuthRepository {
   Future<Either<CommonFailures, Unit>> resetPassword({
     required String email,
   });
+  Future<Either<CommonFailures, Unit>> activeOrDeactivateAccount({
+    required AppUserModel user,
+    required bool isActivated,
+  });
+  Future<Either<CommonFailures, Unit>> deleteAccount();
 }

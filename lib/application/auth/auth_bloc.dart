@@ -1,9 +1,11 @@
 import 'package:bloc/bloc.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hadith_flashcard/domain/app_user/app_user.dart';
 import 'package:hadith_flashcard/domain/auth/interfaces/i_auth_repository.dart';
 import 'package:hadith_flashcard/domain/core/failures/common_failures/common_failures.dart';
 import 'package:hadith_flashcard/domain/core/objects/objects.dart';
+import 'package:hadith_flashcard/infrastructure/app_user/model/app_user_model.dart';
 import 'package:injectable/injectable.dart';
 
 part 'auth_event.dart';
@@ -123,7 +125,19 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
               ),
             );
           },
-          signOut: (e) => _authRepository.signOut(),
+          signOut: (e) async {
+            Either<CommonFailures, Unit>? failureOrSuccess;
+
+            failureOrSuccess = await _authRepository.signOut();
+
+            emit(
+              state.copyWith(
+                optionFailureOrSuccess: optionOf(
+                  failureOrSuccess,
+                ),
+              ),
+            );
+          },
           resetPassword: (e) async {
             Either<CommonFailures, Unit>? failureOrSuccess;
 
@@ -146,6 +160,36 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
                 showErrorMessages: true,
                 showSnackbar: !state.showSnackbar,
                 optionFailureOrSuccess: optionOf(
+                  failureOrSuccess,
+                ),
+              ),
+            );
+          },
+          activeOrDeactivateAccount: (e) async {
+            Either<CommonFailures, Unit>? failureOrSuccess;
+
+            failureOrSuccess = await _authRepository.activeOrDeactivateAccount(
+              user: AppUserModel.fromDomain(
+                e.user,
+              ),
+              isActivated: e.isActivated,
+            );
+            emit(
+              state.copyWith(
+                showSnackbar: !state.showSnackbar,
+                optionDeleteFailureOrSuccess: optionOf(
+                  failureOrSuccess,
+                ),
+              ),
+            );
+          },
+          deleteAccount: (e) async {
+            Either<CommonFailures, Unit>? failureOrSuccess;
+
+            failureOrSuccess = await _authRepository.deleteAccount();
+            emit(
+              state.copyWith(
+                optionDeleteFailureOrSuccess: optionOf(
                   failureOrSuccess,
                 ),
               ),

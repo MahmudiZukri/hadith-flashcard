@@ -84,7 +84,7 @@ class HadithPageScaffold extends StatelessWidget {
             },
             child: Icon(
               MdiIcons.cardsOutline,
-              color: colorScheme(context).inversePrimary,
+              color: colorScheme().inversePrimary,
             ),
           ),
           const SizedBox(width: 12.0),
@@ -190,7 +190,10 @@ class HadithPageScaffold extends StatelessWidget {
                               SvgPicture.asset(
                                 AssetUrl.bismillahCalligraphy,
                                 height: 52.0,
-                                color: colorScheme(context).primary,
+                                colorFilter: ColorFilter.mode(
+                                  colorScheme().primary,
+                                  BlendMode.srcIn,
+                                ),
                               ),
                               const SizedBox(height: 20.0),
                               Container(
@@ -319,8 +322,13 @@ class HadithPageScaffold extends StatelessWidget {
                                                                   AssetUrl
                                                                       .addIcon,
                                                                   height: 26.0,
-                                                                  color:
-                                                                      primaryColor,
+                                                                  colorFilter:
+                                                                      const ColorFilter
+                                                                          .mode(
+                                                                    primaryColor,
+                                                                    BlendMode
+                                                                        .srcIn,
+                                                                  ),
                                                                 ),
                                                                 onTap: () {
                                                                   if (hadithFlashcardState
@@ -498,8 +506,13 @@ class HadithPageScaffold extends StatelessWidget {
                                                                   AssetUrl
                                                                       .closeIcon,
                                                                   height: 26.0,
-                                                                  color:
-                                                                      redColor,
+                                                                  colorFilter:
+                                                                      const ColorFilter
+                                                                          .mode(
+                                                                    redColor,
+                                                                    BlendMode
+                                                                        .srcIn,
+                                                                  ),
                                                                 ),
                                                                 onTap: () {
                                                                   Navigator.pop(

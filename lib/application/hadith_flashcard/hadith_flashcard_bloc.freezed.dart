@@ -12,7 +12,7 @@ part of 'hadith_flashcard_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$HadithFlashcardEvent {
@@ -191,7 +191,7 @@ class _$SaveFlashcardImpl implements _SaveFlashcard {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SaveFlashcardImpl &&
@@ -386,7 +386,7 @@ class _$DeleteFlashcardImpl implements _DeleteFlashcard {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DeleteFlashcardImpl &&
@@ -571,7 +571,7 @@ class _$GetFlashcardImpl implements _GetFlashcard {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GetFlashcardImpl &&
@@ -736,7 +736,7 @@ class _$ResetFlashcardSnackBarImpl implements _ResetFlashcardSnackBar {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ResetFlashcardSnackBarImpl);
@@ -907,7 +907,7 @@ class _$ResetFlashcardClarificationImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ResetFlashcardClarificationImpl &&
@@ -1090,7 +1090,7 @@ class _$AddToMyFlashcardImpl implements _AddToMyFlashcard {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AddToMyFlashcardImpl &&
@@ -1286,7 +1286,7 @@ class _$DeleteFromMyFlashcardImpl implements _DeleteFromMyFlashcard {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DeleteFromMyFlashcardImpl &&
@@ -1654,7 +1654,7 @@ class _$HadithFlashcardStateImpl implements _HadithFlashcardState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$HadithFlashcardStateImpl &&

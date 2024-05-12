@@ -8,6 +8,7 @@ extension FirebaseUserExtension on User {
         id: uid,
         email: email,
         name: name!,
+        isActive: true,
         photoUrl: photoURL,
       );
 

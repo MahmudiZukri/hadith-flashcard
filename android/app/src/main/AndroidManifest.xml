@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.hadith_flashcard">
+    package="com.hadith.flashcard">
    <application
         android:label="hadith_flashcard"
         android:name="${applicationName}"

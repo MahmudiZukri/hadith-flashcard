@@ -87,76 +87,167 @@ class HomePageScaffold extends StatelessWidget {
         return BlocBuilder<UserBloc, UserState>(
           builder: (context, userState) {
             return Scaffold(
-              bottomNavigationBar: CustomBottomNavigation(
-                pageSelectedIndex: pageViewState.pageViewIndex,
-                pageController: pageController,
-                isEnableOntap: userState.user != null,
-              ),
-              body: Stack(
-                children: [
-                  Column(
-                    children: [
-                      Container(
-                        height: statusBarHeight(context),
-                        color: primaryColor,
-                      ),
-                      Container(
-                        height: screenHeight(context) / 3,
-                        decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(
-                              70.0,
-                            ),
-                            bottomRight: Radius.circular(
-                              70.0,
-                            ),
-                          ),
+                bottomNavigationBar: CustomBottomNavigation(
+                    pageSelectedIndex: pageViewState.pageViewIndex,
+                    pageController: pageController,
+                    isEnableOntap:
+                        // disable when user is null or user is disactive
+                        userState.user != null && userState.user!.isActive),
+                body: Stack(
+                  children: [
+                    Column(
+                      children: [
+                        Container(
+                          height: statusBarHeight(),
                           color: primaryColor,
                         ),
-                      ),
-                    ],
-                  ),
-                  SafeArea(
-                    child: userState.user == null
-                        ? const CustomCircularProgressIndicatorWidget()
-                        : PageView(
-                            controller: pageController,
-                            onPageChanged: (value) {
-                              debugPrint('asddsa');
-
-                              context.read<PageViewBloc>().add(
-                                    PageViewEvent.pageViewChanged(
-                                      pageViewIndex: value,
-                                    ),
-                                  );
-                            },
-                            children: [
-                              // Narrator page
-                              NarratorPage(
-                                userID: userID,
+                        Container(
+                          height:
+                              userState.user != null && userState.user!.isActive
+                                  ? screenHeight() / 3
+                                  : screenHeight() / 6,
+                          decoration: const BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(
+                                70.0,
                               ),
-                              // Review page
-                              ReviewPage(
-                                userID: userID,
-                                gotoNarratorPageOnPressed: () {
-                                  pageController.jumpToPage(0);
-                                  context.read<PageViewBloc>().add(
-                                        const PageViewEvent.pageViewChanged(
-                                          pageViewIndex: 0,
-                                        ),
-                                      );
-                                },
+                              bottomRight: Radius.circular(
+                                70.0,
                               ),
-                              // Profile page
-                              ProfilePage(
-                                userID: userID,
-                              ),
-                            ],
+                            ),
+                            color: primaryColor,
                           ),
-                  )
-                ],
-              ),
-            );
+                        ),
+                      ],
+                    ),
+                    SafeArea(
+                      child: userState.user == null
+                          ? const CustomCircularProgressIndicatorWidget()
+                          : userState.user != null && userState.user!.isActive
+                              ?
+
+                              // If user is active
+                              PageView(
+                                  controller: pageController,
+                                  onPageChanged: (value) {
+                                    context.read<PageViewBloc>().add(
+                                          PageViewEvent.pageViewChanged(
+                                            pageViewIndex: value,
+                                          ),
+                                        );
+                                  },
+                                  children: [
+                                    // Narrator page
+                                    NarratorPage(
+                                      userID: userID,
+                                    ),
+                                    // Review page
+                                    ReviewPage(
+                                      userID: userID,
+                                      gotoNarratorPageOnPressed: () {
+                                        pageController.jumpToPage(0);
+                                        context.read<PageViewBloc>().add(
+                                              const PageViewEvent
+                                                  .pageViewChanged(
+                                                pageViewIndex: 0,
+                                              ),
+                                            );
+                                      },
+                                    ),
+                                    // Profile page
+                                    ProfilePage(
+                                      userID: userID,
+                                    ),
+                                  ],
+                                )
+                              :
+
+                              // If user is disactive
+
+                              Container(
+                                  width: screenWidth(),
+                                  margin: EdgeInsets.only(
+                                    top: screenHeight() / 16,
+                                  ),
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 24.0,
+                                  ),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        'reactiveAccount'.tr,
+                                        textAlign: TextAlign.center,
+                                      ),
+                                      const SizedBox(height: 30.0),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Expanded(
+                                            child: CustomElevatedButtonWidget(
+                                              text: 'no'.tr,
+                                              backgroundColor: redColor,
+                                              textStyle:
+                                                  adaptiveTextFont.copyWith(
+                                                fontWeight: FontWeight.w600,
+                                                color: colorScheme()
+                                                    .inversePrimary,
+                                              ),
+                                              onPressed: () {
+                                                // No button action
+                                                context.read<AuthBloc>().add(
+                                                      const AuthEvent.signOut(),
+                                                    );
+
+                                                Get.offAll(
+                                                  () => const SignInPage(),
+                                                );
+                                              },
+                                            ),
+                                          ),
+                                          const SizedBox(width: 24.0),
+                                          Expanded(
+                                            child: CustomElevatedButtonWidget(
+                                              text: 'yes'.tr,
+                                              backgroundColor: primaryColor,
+                                              textStyle:
+                                                  adaptiveTextFont.copyWith(
+                                                fontWeight: FontWeight.w600,
+                                                color: colorScheme()
+                                                    .inversePrimary,
+                                              ),
+                                              onPressed: () {
+                                                // Yes button action
+
+                                                if (userState.user != null) {
+                                                  context.read<AuthBloc>().add(
+                                                        AuthEvent
+                                                            .activeOrDeactivateAccount(
+                                                          user: userState.user!,
+                                                          isActivated: true,
+                                                        ),
+                                                      );
+
+                                                  context.read<UserBloc>().add(
+                                                        UserEvent.loadUser(
+                                                          userID: userID,
+                                                        ),
+                                                      );
+                                                }
+                                              },
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                    )
+                  ],
+                ));
           },
         );
       },

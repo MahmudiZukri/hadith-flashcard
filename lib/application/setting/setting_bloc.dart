@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:get/get.dart';
+import 'package:hadith_flashcard/domain/core/shared/shared.dart';
 import 'package:injectable/injectable.dart';
 
 part 'setting_event.dart';
@@ -14,10 +13,8 @@ class SettingBloc extends Bloc<SettingEvent, SettingState> {
     on<SettingEvent>(
       (event, emit) {
         event.map(
-          changeToDarkMode: (e) {
-            Get.changeThemeMode(
-              Get.isDarkMode ? ThemeMode.light : ThemeMode.dark,
-            );
+          changeToDarkMode: (_) {
+            ThemeHelper().switchTheme();
 
             emit(
               state.copyWith(

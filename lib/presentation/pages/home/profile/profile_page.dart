@@ -30,144 +30,314 @@ class ProfilePageScaffold extends StatelessWidget {
       builder: (context, adState) {
         return BlocBuilder<UserBloc, UserState>(
           builder: (context, userState) {
-            return Container(
-              height: double.infinity,
-              width: double.infinity,
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child: Column(
-                children: [
-                  // Title
-                  Column(
-                    children: [
-                      const SizedBox(height: 14.0),
-                      Text(
-                        'profile'.tr,
-                        style: adaptiveTextFont.copyWith(
-                          fontSize: 20.0,
-                          letterSpacing: 3,
-                          color: colorScheme(context).onSurface,
-                          fontWeight: FontWeight.bold,
+            return BlocListener<AuthBloc, AuthState>(
+              listenWhen: (previous, current) =>
+                  previous.showSnackbar != current.showSnackbar,
+              listener: (context, state) {
+                state.optionFailureOrSuccess.match(
+                  () => null,
+                  (either) => either.fold(
+                    (f) {
+                      CommonUtils.customSnackbar(
+                        isSuccess: false,
+                        message: f.maybeMap(
+                          handledByFirebase: (s) => s.message,
+                          orElse: () =>
+                              '${'somethingWentWrong'.tr} (${f.message}).',
                         ),
-                      ),
-                      const SizedBox(height: 24.0),
-                    ],
+                      );
+                    },
+                    (_) {},
                   ),
-                  // Main container
-                  Expanded(
-                    child: Container(
-                      padding: const EdgeInsets.all(
-                        defaultMargin,
-                      ),
-                      decoration: BoxDecoration(
-                        color: colorScheme(context).background,
-                        borderRadius: const BorderRadius.only(
-                          topRight: Radius.circular(
-                            45,
-                          ),
-                          topLeft: Radius.circular(
-                            45,
+                );
+
+                // note : we use this state for deactivating user account rn
+
+                state.optionDeleteFailureOrSuccess.match(
+                  () => null,
+                  (either) => either.fold(
+                    (f) {
+                      CommonUtils.customSnackbar(
+                        isSuccess: false,
+                        message: f.maybeMap(
+                          handledByFirebase: (s) => s.message,
+                          orElse: () =>
+                              '${'somethingWentWrong'.tr} (${f.message}).',
+                        ),
+                      );
+                    },
+                    (_) {
+                      CommonUtils.customSnackbar(
+                        isSuccess: true,
+                        // note : rn deactivating acc message is just the same like deleting acc snackbar
+                        message: 'accountSuccessfullyDeleted'.tr,
+                      );
+                    },
+                  ),
+                );
+
+                // note : we need to comment this rn, cause we need to try soft delete / deactivate first ( this is the hard delete one )
+
+                // state.optionDeleteFailureOrSuccess.match(
+                //   () => null,
+                //   (either) => either.fold(
+                //     (f) {
+                //       CommonUtils.customSnackbar(
+                //         isSuccess: false,
+                //         message: f.maybeMap(
+                //           handledByFirebase: (s) => s.message,
+                //           orElse: () =>
+                //               '${'somethingWentWrong'.tr} (${f.message}).',
+                //         ),
+                //       );
+                //     },
+                //     (_) {
+                //       CommonUtils.customSnackbar(
+                //         isSuccess: true,
+                //         message: 'accountSuccessfullyDeleted'.tr,
+                //       );
+
+                //       // TODO : goto sign in page
+                //     },
+                //   ),
+                // );
+              },
+              child: Container(
+                height: double.infinity,
+                width: double.infinity,
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: Column(
+                  children: [
+                    // Title
+                    Column(
+                      children: [
+                        const SizedBox(height: 14.0),
+                        Text(
+                          'profile'.tr,
+                          style: adaptiveTextFont.copyWith(
+                            fontSize: 20.0,
+                            letterSpacing: 3,
+                            color: colorScheme(context: context).onSurface,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          // User information
-                          UserInfomation(
-                            userState: userState,
+                        const SizedBox(height: 24.0),
+                      ],
+                    ),
+                    // Main container
+                    Expanded(
+                      child: Container(
+                        padding: const EdgeInsets.all(
+                          defaultMargin,
+                        ),
+                        decoration: BoxDecoration(
+                          color: colorScheme(context: context).background,
+                          borderRadius: const BorderRadius.only(
+                            topRight: Radius.circular(
+                              45,
+                            ),
+                            topLeft: Radius.circular(
+                              45,
+                            ),
                           ),
-                          const SizedBox(height: 24.0),
-                          // Divider
-                          const CustomDivider(),
-                          const SizedBox(height: 24.0),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              // My flashcard
-                              MyFlashcardSection(
-                                userID: userID,
-                                title: 'myFlashcard',
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            // User information
+                            UserInfomation(
+                              userState: userState,
+                            ),
+                            const SizedBox(height: 24.0),
+                            // Divider
+                            const CustomDivider(),
+                            const SizedBox(height: 24.0),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                // My flashcard
+                                MyFlashcardSection(
+                                  userID: userID,
+                                  title: 'myFlashcard',
+                                ),
+
+                                // Choose language
+                                const ChooseLanguageSection(
+                                  title: 'language',
+                                ),
+
+                                // Dark mode section
+                                BlocSelector<SettingBloc, SettingState, bool>(
+                                  selector: (state) => state.isDarkMode,
+                                  builder: (context, isDarkMode) => Column(
+                                    children: [
+                                      DarkModeSection(
+                                        title: 'darkMode',
+                                        value: isDarkMode,
+                                        onChanged: () {
+                                          context.read<SettingBloc>().add(
+                                                const SettingEvent
+                                                    .changeToDarkMode(),
+                                              );
+                                        },
+                                      ),
+                                    ],
+                                  ),
+                                ),
+
+                                // Uncomment later
+                                // Rate us
+                                // RateUsSection(
+                                //   title: 'rateUs',
+                                //   onTap: () {
+                                //     //rate
+                                //   },
+                                // ),
+
+                                // Help
+                                HelpSection(
+                                  userID: userID,
+                                  title: 'help',
+                                ),
+
+                                // Privacy policy
+                                PrivacyPolicySection(
+                                  userID: userID,
+                                  title: 'privacyPolicy',
+                                ),
+
+                                // Uncomment later
+                                // About app
+                                // AboutAppSection(
+                                //   userID: userID,
+                                //   title: 'aboutApp',
+                                // ),
+
+                                // Uncomment later
+                                // Share app
+                                // AboutAppSection(
+                                //   userID: userID,
+                                //   title: 'shareApp',
+                                // ),
+
+                                // consider makes rating feature, analitycs
+                                // think about the content here, maybe like how many hadith
+                                // that already mastered or something else
+                              ],
+                            ),
+                            const Spacer(),
+                            if (adState.profilePageBannerAd != null)
+                              CustomAdWidget(
+                                bannerAd: adState.profilePageBannerAd!,
                               ),
 
-                              // Choose language
-                              const ChooseLanguageSection(
-                                title: 'language',
-                              ),
-
-                              // Dark mode section
-                              BlocSelector<SettingBloc, SettingState, bool>(
-                                selector: (state) => state.isDarkMode,
-                                builder: (context, isDarkMode) => Column(
-                                  children: [
-                                    DarkModeSection(
-                                      title: 'darkMode',
-                                      value: isDarkMode,
-                                      onChanged: () {
-                                        context.read<SettingBloc>().add(
-                                              const SettingEvent
-                                                  .changeToDarkMode(),
-                                            );
-                                      },
+                            const Spacer(),
+                            // Delete account
+                            Center(
+                              child: GestureDetector(
+                                onTap: () {
+                                  // Dialog
+                                  CommonUtils.openCustomDialog(
+                                    context: context,
+                                    title: Text(
+                                      'areYouSureWannaDeleteAccount'.tr,
+                                      style: adaptiveTextFont.copyWith(
+                                        fontWeight: FontWeight.w500,
+                                        color: colorScheme().primary,
+                                      ),
+                                      textAlign: TextAlign.center,
                                     ),
-                                  ],
+                                    content: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 24.0,
+                                      ),
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(
+                                          top: 10.0,
+                                        ),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Expanded(
+                                              child: CustomElevatedButtonWidget(
+                                                text: 'no'.tr,
+                                                backgroundColor: redColor,
+                                                textStyle:
+                                                    adaptiveTextFont.copyWith(
+                                                  fontWeight: FontWeight.w600,
+                                                  color: colorScheme()
+                                                      .inversePrimary,
+                                                ),
+                                                onPressed: () {
+                                                  Navigator.pop(context);
+                                                },
+                                              ),
+                                            ),
+                                            const SizedBox(width: 24.0),
+                                            Expanded(
+                                              child: CustomElevatedButtonWidget(
+                                                text: 'yes'.tr,
+                                                backgroundColor: primaryColor,
+                                                textStyle:
+                                                    adaptiveTextFont.copyWith(
+                                                  fontWeight: FontWeight.w600,
+                                                  color: colorScheme()
+                                                      .inversePrimary,
+                                                ),
+                                                onPressed: () {
+                                                  // note : we need to comment this rn, cause we need to try soft delete first ( this is the hard delete one )
+
+                                                  // context.read<AuthBloc>().add(
+                                                  //       const AuthEvent
+                                                  //           .deleteAccount(),
+                                                  //     );
+
+                                                  if (userState.user != null) {
+                                                    context.read<AuthBloc>()
+                                                      ..add(
+                                                        AuthEvent
+                                                            .activeOrDeactivateAccount(
+                                                          user: userState.user!,
+                                                          isActivated: false,
+                                                        ),
+                                                      )
+                                                      ..add(
+                                                        const AuthEvent
+                                                            .signOut(),
+                                                      );
+
+                                                    Navigator.pop(context);
+                                                  }
+                                                },
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                },
+                                child: Text(
+                                  'deleteAccount'.tr,
+                                  style: redTextFont.copyWith(
+                                    fontWeight: FontWeight.w600,
+                                    decoration: TextDecoration.underline,
+                                    decorationColor: redColor,
+                                  ),
                                 ),
                               ),
-
-                              // Uncomment later
-                              // Rate us
-                              // RateUsSection(
-                              //   title: 'rateUs',
-                              //   onTap: () {
-                              //     //rate
-                              //   },
-                              // ),
-
-                              // Help
-                              HelpSection(
-                                userID: userID,
-                                title: 'help',
-                              ),
-
-                              // Privacy policy
-                              PrivacyPolicySection(
-                                userID: userID,
-                                title: 'privacyPolicy',
-                              ),
-
-                              // Uncomment later
-                              // About app
-                              // AboutAppSection(
-                              //   userID: userID,
-                              //   title: 'aboutApp',
-                              // ),
-
-                              // Uncomment later
-                              // Share app
-                              // AboutAppSection(
-                              //   userID: userID,
-                              //   title: 'shareApp',
-                              // ),
-
-                              // consider makes rating feature, analitycs
-                              // think about the content here, maybe like how many hadith
-                              // that already mastered or something else
-                            ],
-                          ),
-                          const Spacer(),
-                          if (adState.profilePageBannerAd != null)
-                            CustomAdWidget(
-                              bannerAd: adState.profilePageBannerAd!,
                             ),
-
-                          const Spacer(),
-                          // Sign out
-                          const SignOut(),
-                          const SizedBox(height: 10.0),
-                        ],
+                            const SizedBox(height: 20.0),
+                            // Sign out
+                            const SignOut(),
+                            const SizedBox(height: 10.0),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             );
           },
@@ -473,6 +643,10 @@ class SignOut extends StatelessWidget {
             context.read<AuthBloc>().add(
                   const AuthEvent.signOut(),
                 );
+
+            Get.offAll(
+              () => const SignInPage(),
+            );
           },
           child: Text(
             'signOut'.tr,
@@ -518,7 +692,10 @@ class UserInfomation extends StatelessWidget {
                         : SvgPicture.asset(
                             AssetUrl.profileIcon,
                             height: 28,
-                            color: colorScheme(context).background,
+                            colorFilter: ColorFilter.mode(
+                              colorScheme(context: context).background,
+                              BlendMode.srcIn,
+                            ),
                           ),
               ),
               const SizedBox(width: 18.0),

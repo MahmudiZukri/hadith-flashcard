@@ -25,7 +25,7 @@ class PrivacyPolicyPage extends StatelessWidget {
             },
             child: Icon(
               MdiIcons.cardsOutline,
-              color: colorScheme(context).inversePrimary,
+              color: colorScheme().inversePrimary,
             ),
           ),
           const SizedBox(width: 12.0),
@@ -34,58 +34,10 @@ class PrivacyPolicyPage extends StatelessWidget {
           Get.back();
         },
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: defaultMargin / 1.5,
-        ),
-        child: ListView(
-          children: [
-            const SizedBox(height: 22.0),
-            Text(
-              'privacyPolicyText'.tr,
-              style: adaptiveTextFont.copyWith(height: 1.6),
-            ),
-            const SizedBox(height: 20.0),
-            Text(
-              'privacyPolicyTitle1'.tr,
-              style: adaptiveTextFont.copyWith(
-                height: 1.6,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-            const SizedBox(height: 8.0),
-            Text(
-              'privacyPolicyText1'.tr,
-              style: adaptiveTextFont.copyWith(height: 1.6),
-            ),
-            const SizedBox(height: 20.0),
-            Text(
-              'privacyPolicyTitle2'.tr,
-              style: adaptiveTextFont.copyWith(
-                height: 1.6,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-            const SizedBox(height: 8.0),
-            Text(
-              'privacyPolicyText2'.tr,
-              style: adaptiveTextFont.copyWith(height: 1.6),
-            ),
-            const SizedBox(height: 20.0),
-            Text(
-              'privacyPolicyTitle3'.tr,
-              style: adaptiveTextFont.copyWith(
-                height: 1.6,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-            const SizedBox(height: 8.0),
-            Text(
-              'privacyPolicyText3'.tr,
-              style: adaptiveTextFont.copyWith(height: 1.6),
-            ),
-          ],
-        ),
+      body: CustomWebViewWidget(
+        url: Get.locale.toString() == ELanguage.indonesia.locale
+            ? 'https://mahmudizukri.github.io/hadith-flashcard-privacy-policy/privacy-policy.html?lang=id'
+            : 'https://mahmudizukri.github.io/hadith-flashcard-privacy-policy/privacy-policy.html?lang=en',
       ),
     );
   }

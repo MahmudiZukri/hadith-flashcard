@@ -12,7 +12,7 @@ part of 'string_failures.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$StringFailure {
@@ -209,7 +209,7 @@ class _$EmptyImpl implements Empty {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$EmptyImpl &&
@@ -433,7 +433,7 @@ class _$HasWhitespaceImpl implements HasWhitespace {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$HasWhitespaceImpl &&
@@ -658,7 +658,7 @@ class _$IsNotAlphanumericImpl implements IsNotAlphanumeric {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$IsNotAlphanumericImpl &&
@@ -891,7 +891,7 @@ class _$ExceedingLengthImpl implements ExceedingLength {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ExceedingLengthImpl &&
@@ -1127,7 +1127,7 @@ class _$TooShortImpl implements TooShort {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$TooShortImpl &&
@@ -1362,7 +1362,7 @@ class _$WrongLengthImpl implements WrongLength {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$WrongLengthImpl &&
@@ -1590,7 +1590,7 @@ class _$MultilineImpl implements Multiline {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MultilineImpl &&
@@ -1823,7 +1823,7 @@ class _$ConfirmationNotMatchImpl implements ConfirmationNotMatch {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ConfirmationNotMatchImpl &&
@@ -2057,7 +2057,7 @@ class _$InvalidPhoneImpl implements InvalidPhone {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$InvalidPhoneImpl &&
@@ -2282,7 +2282,7 @@ class _$InvalidEmailImpl implements InvalidEmail {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$InvalidEmailImpl &&
@@ -2507,7 +2507,7 @@ class _$InvalidUrlImpl implements InvalidUrl {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$InvalidUrlImpl &&
@@ -2740,7 +2740,7 @@ class _$InvalidDateTimeImpl implements InvalidDateTime {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$InvalidDateTimeImpl &&
@@ -2969,7 +2969,7 @@ class _$InvalidPersonNameImpl implements InvalidPersonName {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$InvalidPersonNameImpl &&
@@ -3195,7 +3195,7 @@ class _$ShortTokenImpl implements ShortToken {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ShortTokenImpl &&
@@ -3420,7 +3420,7 @@ class _$InvalidTimeImpl implements InvalidTime {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$InvalidTimeImpl &&
@@ -3645,7 +3645,7 @@ class _$InvalidDateImpl implements InvalidDate {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$InvalidDateImpl &&

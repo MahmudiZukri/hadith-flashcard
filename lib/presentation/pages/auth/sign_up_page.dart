@@ -44,7 +44,7 @@ class SignUpPageScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: colorScheme(context).background,
+      backgroundColor: colorScheme().background,
       body: Stack(
         children: [
           Container(
@@ -52,28 +52,28 @@ class SignUpPageScaffold extends StatelessWidget {
             width: double.infinity,
             color: primaryColor,
             padding: EdgeInsets.only(
-              top: screenHeight(context) / 8,
+              top: screenHeight() / 8,
             ),
             child: Text(
               'Hadith Flashcard',
               textAlign: TextAlign.center,
               style: adaptiveTextFont.copyWith(
                 fontSize: 24.0,
-                color: colorScheme(context).inversePrimary,
+                color: colorScheme().inversePrimary,
                 fontWeight: FontWeight.bold,
               ),
             ),
           ),
           Padding(
             padding: EdgeInsets.only(
-              top: screenHeight(context) / 4.4,
+              top: screenHeight() / 4.4,
             ),
             child: Container(
               margin: const EdgeInsets.symmetric(
                 horizontal: 6.0,
               ),
               decoration: BoxDecoration(
-                color: colorScheme(context).background.withOpacity(0.5),
+                color: colorScheme().background.withOpacity(0.5),
                 borderRadius: const BorderRadius.only(
                   topRight: Radius.circular(34),
                   topLeft: Radius.circular(34),
@@ -82,8 +82,8 @@ class SignUpPageScaffold extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: screenHeight(context),
-            width: screenWidth(context),
+            height: screenHeight(),
+            width: screenWidth(),
             child: ListView(
               shrinkWrap: true,
               physics: const ClampingScrollPhysics(),
@@ -91,20 +91,18 @@ class SignUpPageScaffold extends StatelessWidget {
               children: [
                 AnimatedContainer(
                   duration: defaultDuration(),
-                  height: keyboardSize(context) == 0
-                      ? screenHeight(context) / 4
-                      : 0,
+                  height: keyboardSize() == 0 ? screenHeight() / 4 : 0,
                 ),
                 AnimatedContainer(
                   duration: defaultDuration(),
-                  height: keyboardSize(context) == 0
-                      ? screenHeight(context) - screenHeight(context) / 4
-                      : screenHeight(context) - keyboardSize(context),
+                  height: keyboardSize() == 0
+                      ? screenHeight() - screenHeight() / 4
+                      : screenHeight() - keyboardSize(),
                   padding: const EdgeInsets.symmetric(
                     horizontal: defaultMargin,
                   ),
                   decoration: BoxDecoration(
-                    color: colorScheme(context).background,
+                    color: colorScheme().background,
                     borderRadius: const BorderRadius.only(
                       topRight: Radius.circular(24),
                       topLeft: Radius.circular(24),
@@ -138,15 +136,14 @@ class SignUpPageScaffold extends StatelessWidget {
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
-                          SizedBox(height: screenHeight(context) / 16),
-                          keyboardSize(context) == 0
+                          SizedBox(height: screenHeight() / 16),
+                          keyboardSize() == 0
                               ? Text(
                                   'createAnAccount'.tr,
                                   style: adaptiveTextFont.copyWith(
                                     fontSize: 24,
-                                    color: colorScheme(context)
-                                        .primary
-                                        .withOpacity(0.5),
+                                    color:
+                                        colorScheme().primary.withOpacity(0.5),
                                     fontWeight: FontWeight.bold,
                                   ),
                                 )
@@ -155,9 +152,8 @@ class SignUpPageScaffold extends StatelessWidget {
                           CustomTextFormFieldWidget(
                             labelText: 'name'.tr,
                             hintText: 'enterYourName'.tr,
-                            fillColor: colorScheme(context)
-                                .background
-                                .withOpacity(0.6),
+                            fillColor:
+                                colorScheme().background.withOpacity(0.6),
                             onChanged: (val) => context.read<AuthBloc>().add(
                                   AuthEvent.nameChanged(
                                     nameStr: val,
@@ -170,9 +166,8 @@ class SignUpPageScaffold extends StatelessWidget {
                           CustomTextFormFieldWidget(
                             labelText: 'Email',
                             hintText: 'enterYourEmail'.tr,
-                            fillColor: colorScheme(context)
-                                .background
-                                .withOpacity(0.6),
+                            fillColor:
+                                colorScheme().background.withOpacity(0.6),
                             onChanged: (val) => context.read<AuthBloc>().add(
                                   AuthEvent.emailChanged(
                                     emailStr: val,
@@ -189,9 +184,8 @@ class SignUpPageScaffold extends StatelessWidget {
                               return CustomTextFormFieldWidget(
                                 labelText: 'password'.tr,
                                 hintText: 'enterYourPassword'.tr,
-                                fillColor: colorScheme(context)
-                                    .background
-                                    .withOpacity(0.2),
+                                fillColor:
+                                    colorScheme().background.withOpacity(0.2),
                                 onChanged: (val) =>
                                     context.read<AuthBloc>().add(
                                           AuthEvent.passwordChanged(
@@ -229,8 +223,7 @@ class SignUpPageScaffold extends StatelessWidget {
                                     textStyle: adaptiveTextFont.copyWith(
                                       fontSize: 16.0,
                                       fontWeight: FontWeight.w600,
-                                      color:
-                                          colorScheme(context).inversePrimary,
+                                      color: colorScheme().inversePrimary,
                                     ),
                                     onPressed: () =>
                                         context.read<AuthBloc>().add(
@@ -292,13 +285,16 @@ class SignUpPageScaffold extends StatelessWidget {
                                   backgroundColor: googleColor,
                                   icon: SvgPicture.asset(
                                     AssetUrl.googleIcon,
-                                    color: colorScheme(context).inversePrimary,
+                                    colorFilter: ColorFilter.mode(
+                                      colorScheme().inversePrimary,
+                                      BlendMode.srcIn,
+                                    ),
                                     height: 18,
                                   ),
                                   textStyle: adaptiveTextFont.copyWith(
                                     fontSize: 16.0,
                                     fontWeight: FontWeight.w600,
-                                    color: colorScheme(context).inversePrimary,
+                                    color: colorScheme().inversePrimary,
                                   ),
                                   onPressed: () {
                                     context.read<AuthBloc>().add(
@@ -343,7 +339,7 @@ class SignUpPageScaffold extends StatelessWidget {
                           ),
                           AnimatedContainer(
                             duration: defaultDuration(),
-                            height: keyboardSize(context) == 0 ? 40 : 10,
+                            height: keyboardSize() == 0 ? 40 : 10,
                           )
                         ],
                       ),

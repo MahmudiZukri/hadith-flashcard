@@ -2,6 +2,7 @@ part of 'widgets.dart';
 
 class CustomTextFormFieldWidget extends StatelessWidget {
   const CustomTextFormFieldWidget({
+    super.key,
     this.labelText,
     this.hintText,
     this.onChanged,
@@ -10,8 +11,7 @@ class CustomTextFormFieldWidget extends StatelessWidget {
     this.eyeOnTap,
     this.isEyeOpen,
     this.fillColor,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final String? labelText;
   final String? hintText;

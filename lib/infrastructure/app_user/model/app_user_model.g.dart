@@ -11,6 +11,7 @@ _$AppUserModelImpl _$$AppUserModelImplFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String,
       email: json['email'] as String?,
       name: json['name'] as String,
+      isActive: json['isActive'] as bool,
       photoUrl: json['photoUrl'] as String?,
     );
 
@@ -19,5 +20,6 @@ Map<String, dynamic> _$$AppUserModelImplToJson(_$AppUserModelImpl instance) =>
       'id': instance.id,
       'email': instance.email,
       'name': instance.name,
+      'isActive': instance.isActive,
       'photoUrl': instance.photoUrl,
     };

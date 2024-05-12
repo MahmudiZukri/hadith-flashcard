@@ -25,7 +25,7 @@ class CustomAppBarWidget extends StatelessWidget
     return AppBar(
       centerTitle: true,
       backgroundColor: primaryColor,
-      leadingWidth: screenWidth(context) / 4,
+      leadingWidth: screenWidth() / 4,
       actions: actions,
       leading: GestureDetector(
         behavior: HitTestBehavior.translucent,
@@ -36,14 +36,14 @@ class CustomAppBarWidget extends StatelessWidget
             Icon(
               MdiIcons.arrowLeft,
               size: 16.0,
-              color: contentColor ?? colorScheme(context).inversePrimary,
+              color: contentColor ?? colorScheme().inversePrimary,
             ),
             const SizedBox(width: 8.0),
             Text(
               'back'.tr,
               style: adaptiveTextFont.copyWith(
                 fontSize: 14.0,
-                color: contentColor ?? colorScheme(context).inversePrimary,
+                color: contentColor ?? colorScheme().inversePrimary,
               ),
             )
           ],
@@ -56,7 +56,7 @@ class CustomAppBarWidget extends StatelessWidget
             title,
             style: adaptiveTextFont.copyWith(
               fontSize: 18.0,
-              color: contentColor ?? colorScheme(context).inversePrimary,
+              color: contentColor ?? colorScheme().inversePrimary,
             ),
           ),
           desc == null
@@ -65,7 +65,7 @@ class CustomAppBarWidget extends StatelessWidget
                   desc!,
                   style: adaptiveTextFont.copyWith(
                     fontSize: 10.0,
-                    color: contentColor ?? colorScheme(context).inversePrimary,
+                    color: contentColor ?? colorScheme().inversePrimary,
                   ),
                 ),
         ],

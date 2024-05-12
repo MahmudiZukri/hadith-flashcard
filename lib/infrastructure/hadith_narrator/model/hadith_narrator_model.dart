@@ -25,14 +25,12 @@ extension HadithNarratorModelX on HadithNarratorModel {
         name: PersonName(name),
         slug: UniqueString.fromUniqueString(slug),
         total: PositiveNumber(total),
-        pagination: pagination == null ? null : pagination!.toDomain(),
-        items: items == null
-            ? null
-            : items!
-                .map(
-                  (element) => element.toDomain(),
-                )
-                .toIList(),
+        pagination: pagination?.toDomain(),
+        items: items
+            ?.map(
+              (element) => element.toDomain(),
+            )
+            .toIList(),
       );
 }
 

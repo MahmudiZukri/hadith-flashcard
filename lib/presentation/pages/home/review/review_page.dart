@@ -116,7 +116,7 @@ class ReviewedFlashcardBarColumn extends StatelessWidget {
           '${hadithFlashcardState.numofReviewedFlashcard} / ${hadithFlashcardState.flashcardToReviewTodayLength}',
           style: TextStyle(
             fontSize: 18.0,
-            color: colorScheme(context).background,
+            color: colorScheme().background,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -194,7 +194,7 @@ class FlashcardToReviewIsEmptyContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomContainer(
-      color: colorScheme(context).background,
+      color: colorScheme().background,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -203,8 +203,8 @@ class FlashcardToReviewIsEmptyContainer extends StatelessWidget {
                 ? AssetUrl.congratsLottie
                 : AssetUrl.emptyFlashcardLottie,
             height: hadithFlashcardState.isShowCongratsAnimation
-                ? screenWidth(context) / 1.6
-                : screenWidth(context) / 2.4,
+                ? screenWidth() / 1.6
+                : screenWidth() / 2.4,
           ),
           const SizedBox(height: 40),
           Text(
@@ -244,13 +244,13 @@ class EmptyFlashcardContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomContainer(
-      color: colorScheme(context).background,
+      color: colorScheme().background,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Lottie.asset(
             AssetUrl.emptyFlashcardLottie,
-            height: screenWidth(context) / 2.4,
+            height: screenWidth() / 2.4,
           ),
           const SizedBox(height: 40),
           Text(
@@ -302,7 +302,7 @@ class ReviewedFlashcardBar extends StatelessWidget {
             ? const SizedBox()
             : AnimatedContainer(
                 height: 20.0,
-                width: (screenWidth(context) - defaultMargin * 2) /
+                width: (screenWidth() - defaultMargin * 2) /
                     hadithFlashcardState.flashcardToReviewTodayLength *
                     hadithFlashcardState.numofReviewedFlashcard,
                 duration: const Duration(
@@ -321,7 +321,7 @@ class ReviewedFlashcardBar extends StatelessWidget {
                 child: Container(
                   height: 8.0,
                   decoration: BoxDecoration(
-                    color: colorScheme(context).background.withOpacity(
+                    color: colorScheme().background.withOpacity(
                           0.5,
                         ),
                     borderRadius: mediumBorderRadius(),

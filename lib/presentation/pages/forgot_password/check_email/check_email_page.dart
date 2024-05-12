@@ -7,8 +7,8 @@ class CheckEmailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SizedBox(
-        height: screenHeight(context),
-        width: screenWidth(context),
+        height: screenHeight(),
+        width: screenWidth(),
         child: SafeArea(
           child: Padding(
             padding: const EdgeInsets.symmetric(
@@ -28,19 +28,19 @@ class CheckEmailPage extends StatelessWidget {
                 Column(
                   children: [
                     Container(
-                      height: screenWidth(context) / 2.4,
-                      width: screenWidth(context) / 2.4,
+                      height: screenWidth() / 2.4,
+                      width: screenWidth() / 2.4,
                       decoration: BoxDecoration(
                         color: primaryColor.withOpacity(0.7),
                         shape: BoxShape.circle,
                       ),
                       child: Lottie.asset(
                         AssetUrl.sendEmailLottie,
-                        height: screenWidth(context) / 1.3,
-                        width: screenWidth(context) / 1.3,
+                        height: screenWidth() / 1.3,
+                        width: screenWidth() / 1.3,
                       ),
                     ),
-                    SizedBox(height: screenHeight(context) / 22),
+                    SizedBox(height: screenHeight() / 22),
                     Text(
                       'checkYourEmailMessage'.tr,
                       textAlign: TextAlign.center,
@@ -48,7 +48,7 @@ class CheckEmailPage extends StatelessWidget {
                         height: 1.88,
                       ),
                     ),
-                    SizedBox(height: screenHeight(context) / 22),
+                    SizedBox(height: screenHeight() / 22),
                     GestureDetector(
                       onTap: () {
                         Get.to(
@@ -63,7 +63,7 @@ class CheckEmailPage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(height: screenHeight(context) / 12),
+                    SizedBox(height: screenHeight() / 12),
                   ],
                 ),
                 Wrap(

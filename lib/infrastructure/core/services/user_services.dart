@@ -10,6 +10,7 @@ class UserServices {
         'email': user.email,
         'name': user.name,
         'photoUrl': user.photoUrl,
+        'isActive': user.isActive,
       },
     );
   }
@@ -23,6 +24,21 @@ class UserServices {
       email: snapshot.data()?['email'],
       name: snapshot.data()?['name'],
       photoUrl: snapshot.data()?['photoUrl'],
+      isActive: snapshot.data()?['isActive'],
+    );
+  }
+
+  static Future<void> updateUser(
+    AppUserModel user, {
+    bool isActivated = true,
+  }) async {
+    await _userCollection.doc(user.id).set(
+      {
+        'email': user.email,
+        'name': user.name,
+        'photoUrl': user.photoUrl,
+        'isActive': isActivated ? true : user.isActive,
+      },
     );
   }
 }

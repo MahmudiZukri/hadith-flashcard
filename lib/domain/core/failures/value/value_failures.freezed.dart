@@ -12,7 +12,7 @@ part of 'value_failures.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$ValueFailure<T> {
@@ -156,7 +156,7 @@ class _$EmptyImpl<T> implements Empty<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$EmptyImpl<T> &&
@@ -335,7 +335,7 @@ class _$ListTooLongImpl<T> implements ListTooLong<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ListTooLongImpl<T> &&
@@ -512,7 +512,7 @@ class _$InvalidObjectImpl<T> implements InvalidObject<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$InvalidObjectImpl<T> &&
@@ -668,7 +668,7 @@ class _$EmptyObjectImpl<T> implements EmptyObject<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$EmptyObjectImpl<T>);
   }
@@ -833,7 +833,7 @@ class _$ExceedBalanceImpl<T> implements ExceedBalance<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ExceedBalanceImpl<T> &&
@@ -1018,7 +1018,7 @@ class _$InvalidDateTimeImpl<T> implements InvalidDateTime<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$InvalidDateTimeImpl<T> &&
@@ -1194,7 +1194,7 @@ class _$NoteExceedImpl<T> implements NoteExceed<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$NoteExceedImpl<T> &&
@@ -1349,7 +1349,7 @@ class _$FailedImpl<T> implements _Failed<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$FailedImpl<T>);
   }

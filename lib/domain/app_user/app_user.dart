@@ -9,6 +9,7 @@ class AppUser with _$AppUser {
     required UniqueString id,
     required EmailAddress email,
     required PersonName name,
+    required bool isActive,
     required UrlAddress? photoUrl,
   }) = _AppUser;
 }

@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:988688359058:android:09e23bc6cab1f3fc58d04b",
         "android_client_info": {
-          "package_name": "com.example.hadith_flashcard"
+          "package_name": "com.hadith.flashcard"
         }
       },
       "oauth_client": [

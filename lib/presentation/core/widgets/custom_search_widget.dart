@@ -2,7 +2,7 @@ part of 'widgets.dart';
 
 class CustomSearchWidget extends StatelessWidget {
   const CustomSearchWidget({
-    Key? key,
+    super.key,
     this.height = 32.0,
     this.iconSize = 10.0,
     this.fontSize = 14.0,
@@ -20,7 +20,7 @@ class CustomSearchWidget extends StatelessWidget {
     this.suffixIcon,
     this.hintText = 'Search',
     this.contentPadding,
-  }) : super(key: key);
+  });
 
   final double height;
   final double iconSize;
@@ -49,7 +49,7 @@ class CustomSearchWidget extends StatelessWidget {
         width: width,
         padding: const EdgeInsets.only(right: 14.0),
         decoration: BoxDecoration(
-          color: colorScheme(context).background,
+          color: colorScheme().background,
           border: Border.all(
             color: borderColor,
           ),

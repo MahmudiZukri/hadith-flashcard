@@ -18,7 +18,7 @@ class CustomFlipCard extends StatelessWidget {
       controller: controller,
       direction: FlipDirection.HORIZONTAL,
       front: CustomContainer(
-        color: colorScheme(context).background,
+        color: colorScheme().background,
         child: Stack(
           alignment: Alignment.topRight,
           children: [
@@ -181,6 +181,7 @@ class CustomFlipCard extends StatelessWidget {
                           textStyle: adaptiveTextFont.copyWith(
                             fontSize: 14.0,
                             fontWeight: FontWeight.w600,
+                            color: colorScheme().inversePrimary,
                           ),
                           onPressed: () {
                             Navigator.pop(context);
@@ -195,7 +196,7 @@ class CustomFlipCard extends StatelessWidget {
                   // Question mark icon
                   Icons.question_mark_rounded,
                   size: 16.0,
-                  color: colorScheme(context).background,
+                  color: colorScheme().background,
                 ),
               ),
             ),
@@ -215,9 +216,9 @@ class CustomFlipCard extends StatelessWidget {
         thumbVisibility: true,
         trackVisibility: true,
         fadeDuration: const Duration(seconds: 3),
-        padding: EdgeInsets.only(top: screenHeight(context) / 24),
+        padding: EdgeInsets.only(top: screenHeight() / 24),
         child: CustomContainer(
-          color: colorScheme(context).background,
+          color: colorScheme().background,
           child: Center(
             child: SingleChildScrollView(
               physics: const BouncingScrollPhysics(),

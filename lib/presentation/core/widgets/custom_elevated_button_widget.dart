@@ -2,7 +2,7 @@ part of 'widgets.dart';
 
 class CustomElevatedButtonWidget extends StatelessWidget {
   const CustomElevatedButtonWidget({
-    Key? key,
+    super.key,
     required this.text,
     required this.backgroundColor,
     required this.textStyle,
@@ -17,7 +17,7 @@ class CustomElevatedButtonWidget extends StatelessWidget {
     this.isWithBorder = false,
     this.isWithElevation = false,
     this.isLoading = false,
-  }) : super(key: key);
+  });
 
   final String text;
   final Color backgroundColor;
@@ -47,7 +47,7 @@ class CustomElevatedButtonWidget extends StatelessWidget {
                 ? BorderSide(
                     color: disabledBorderColor != null && isEnabled == false
                         ? disabledBorderColor!
-                        : colorScheme(context).background,
+                        : colorScheme().background,
                   )
                 : BorderSide.none,
             borderRadius: largeBorderRadius(),
@@ -75,8 +75,7 @@ class CustomElevatedButtonWidget extends StatelessWidget {
                     style: textStyle.copyWith(
                       color: isEnabled
                           ? textStyle.color
-                          : disabledTextColor ??
-                              colorScheme(context).background,
+                          : disabledTextColor ?? colorScheme().background,
                     ),
                   ),
           ],

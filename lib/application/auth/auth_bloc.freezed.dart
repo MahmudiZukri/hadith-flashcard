@@ -12,7 +12,7 @@ part of 'auth_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$AuthEvent {
@@ -27,6 +27,9 @@ mixin _$AuthEvent {
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function(String emailStr) resetPassword,
+    required TResult Function(AppUser user, bool isActivated)
+        activeOrDeactivateAccount,
+    required TResult Function() deleteAccount,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,6 +43,9 @@ mixin _$AuthEvent {
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String passwordStr)? passwordChanged,
     TResult? Function(String emailStr)? resetPassword,
+    TResult? Function(AppUser user, bool isActivated)?
+        activeOrDeactivateAccount,
+    TResult? Function()? deleteAccount,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -53,6 +59,8 @@ mixin _$AuthEvent {
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function(String emailStr)? resetPassword,
+    TResult Function(AppUser user, bool isActivated)? activeOrDeactivateAccount,
+    TResult Function()? deleteAccount,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -69,6 +77,9 @@ mixin _$AuthEvent {
     required TResult Function(_EmailChanged value) emailChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_ResetPassword value) resetPassword,
+    required TResult Function(_DeactivateAccount value)
+        activeOrDeactivateAccount,
+    required TResult Function(_DeleteAccount value) deleteAccount,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -84,6 +95,8 @@ mixin _$AuthEvent {
     TResult? Function(_EmailChanged value)? emailChanged,
     TResult? Function(_PasswordChanged value)? passwordChanged,
     TResult? Function(_ResetPassword value)? resetPassword,
+    TResult? Function(_DeactivateAccount value)? activeOrDeactivateAccount,
+    TResult? Function(_DeleteAccount value)? deleteAccount,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -98,6 +111,8 @@ mixin _$AuthEvent {
     TResult Function(_EmailChanged value)? emailChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_ResetPassword value)? resetPassword,
+    TResult Function(_DeactivateAccount value)? activeOrDeactivateAccount,
+    TResult Function(_DeleteAccount value)? deleteAccount,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -147,7 +162,7 @@ class _$SignUpImpl implements _SignUp {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$SignUpImpl);
   }
@@ -167,6 +182,9 @@ class _$SignUpImpl implements _SignUp {
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function(String emailStr) resetPassword,
+    required TResult Function(AppUser user, bool isActivated)
+        activeOrDeactivateAccount,
+    required TResult Function() deleteAccount,
   }) {
     return signUp();
   }
@@ -183,6 +201,9 @@ class _$SignUpImpl implements _SignUp {
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String passwordStr)? passwordChanged,
     TResult? Function(String emailStr)? resetPassword,
+    TResult? Function(AppUser user, bool isActivated)?
+        activeOrDeactivateAccount,
+    TResult? Function()? deleteAccount,
   }) {
     return signUp?.call();
   }
@@ -199,6 +220,8 @@ class _$SignUpImpl implements _SignUp {
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function(String emailStr)? resetPassword,
+    TResult Function(AppUser user, bool isActivated)? activeOrDeactivateAccount,
+    TResult Function()? deleteAccount,
     required TResult orElse(),
   }) {
     if (signUp != null) {
@@ -221,6 +244,9 @@ class _$SignUpImpl implements _SignUp {
     required TResult Function(_EmailChanged value) emailChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_ResetPassword value) resetPassword,
+    required TResult Function(_DeactivateAccount value)
+        activeOrDeactivateAccount,
+    required TResult Function(_DeleteAccount value) deleteAccount,
   }) {
     return signUp(this);
   }
@@ -239,6 +265,8 @@ class _$SignUpImpl implements _SignUp {
     TResult? Function(_EmailChanged value)? emailChanged,
     TResult? Function(_PasswordChanged value)? passwordChanged,
     TResult? Function(_ResetPassword value)? resetPassword,
+    TResult? Function(_DeactivateAccount value)? activeOrDeactivateAccount,
+    TResult? Function(_DeleteAccount value)? deleteAccount,
   }) {
     return signUp?.call(this);
   }
@@ -256,6 +284,8 @@ class _$SignUpImpl implements _SignUp {
     TResult Function(_EmailChanged value)? emailChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_ResetPassword value)? resetPassword,
+    TResult Function(_DeactivateAccount value)? activeOrDeactivateAccount,
+    TResult Function(_DeleteAccount value)? deleteAccount,
     required TResult orElse(),
   }) {
     if (signUp != null) {
@@ -298,7 +328,7 @@ class _$SignUpOrSignInWithGoogleImpl implements _SignUpOrSignInWithGoogle {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SignUpOrSignInWithGoogleImpl);
@@ -319,6 +349,9 @@ class _$SignUpOrSignInWithGoogleImpl implements _SignUpOrSignInWithGoogle {
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function(String emailStr) resetPassword,
+    required TResult Function(AppUser user, bool isActivated)
+        activeOrDeactivateAccount,
+    required TResult Function() deleteAccount,
   }) {
     return signUpOrSignInWithGoogle();
   }
@@ -335,6 +368,9 @@ class _$SignUpOrSignInWithGoogleImpl implements _SignUpOrSignInWithGoogle {
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String passwordStr)? passwordChanged,
     TResult? Function(String emailStr)? resetPassword,
+    TResult? Function(AppUser user, bool isActivated)?
+        activeOrDeactivateAccount,
+    TResult? Function()? deleteAccount,
   }) {
     return signUpOrSignInWithGoogle?.call();
   }
@@ -351,6 +387,8 @@ class _$SignUpOrSignInWithGoogleImpl implements _SignUpOrSignInWithGoogle {
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function(String emailStr)? resetPassword,
+    TResult Function(AppUser user, bool isActivated)? activeOrDeactivateAccount,
+    TResult Function()? deleteAccount,
     required TResult orElse(),
   }) {
     if (signUpOrSignInWithGoogle != null) {
@@ -373,6 +411,9 @@ class _$SignUpOrSignInWithGoogleImpl implements _SignUpOrSignInWithGoogle {
     required TResult Function(_EmailChanged value) emailChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_ResetPassword value) resetPassword,
+    required TResult Function(_DeactivateAccount value)
+        activeOrDeactivateAccount,
+    required TResult Function(_DeleteAccount value) deleteAccount,
   }) {
     return signUpOrSignInWithGoogle(this);
   }
@@ -391,6 +432,8 @@ class _$SignUpOrSignInWithGoogleImpl implements _SignUpOrSignInWithGoogle {
     TResult? Function(_EmailChanged value)? emailChanged,
     TResult? Function(_PasswordChanged value)? passwordChanged,
     TResult? Function(_ResetPassword value)? resetPassword,
+    TResult? Function(_DeactivateAccount value)? activeOrDeactivateAccount,
+    TResult? Function(_DeleteAccount value)? deleteAccount,
   }) {
     return signUpOrSignInWithGoogle?.call(this);
   }
@@ -408,6 +451,8 @@ class _$SignUpOrSignInWithGoogleImpl implements _SignUpOrSignInWithGoogle {
     TResult Function(_EmailChanged value)? emailChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_ResetPassword value)? resetPassword,
+    TResult Function(_DeactivateAccount value)? activeOrDeactivateAccount,
+    TResult Function(_DeleteAccount value)? deleteAccount,
     required TResult orElse(),
   }) {
     if (signUpOrSignInWithGoogle != null) {
@@ -450,7 +495,7 @@ class _$SignUpOrSignInWithFacebookImpl implements _SignUpOrSignInWithFacebook {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SignUpOrSignInWithFacebookImpl);
@@ -471,6 +516,9 @@ class _$SignUpOrSignInWithFacebookImpl implements _SignUpOrSignInWithFacebook {
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function(String emailStr) resetPassword,
+    required TResult Function(AppUser user, bool isActivated)
+        activeOrDeactivateAccount,
+    required TResult Function() deleteAccount,
   }) {
     return signUpOrSignInWithFacebook();
   }
@@ -487,6 +535,9 @@ class _$SignUpOrSignInWithFacebookImpl implements _SignUpOrSignInWithFacebook {
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String passwordStr)? passwordChanged,
     TResult? Function(String emailStr)? resetPassword,
+    TResult? Function(AppUser user, bool isActivated)?
+        activeOrDeactivateAccount,
+    TResult? Function()? deleteAccount,
   }) {
     return signUpOrSignInWithFacebook?.call();
   }
@@ -503,6 +554,8 @@ class _$SignUpOrSignInWithFacebookImpl implements _SignUpOrSignInWithFacebook {
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function(String emailStr)? resetPassword,
+    TResult Function(AppUser user, bool isActivated)? activeOrDeactivateAccount,
+    TResult Function()? deleteAccount,
     required TResult orElse(),
   }) {
     if (signUpOrSignInWithFacebook != null) {
@@ -525,6 +578,9 @@ class _$SignUpOrSignInWithFacebookImpl implements _SignUpOrSignInWithFacebook {
     required TResult Function(_EmailChanged value) emailChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_ResetPassword value) resetPassword,
+    required TResult Function(_DeactivateAccount value)
+        activeOrDeactivateAccount,
+    required TResult Function(_DeleteAccount value) deleteAccount,
   }) {
     return signUpOrSignInWithFacebook(this);
   }
@@ -543,6 +599,8 @@ class _$SignUpOrSignInWithFacebookImpl implements _SignUpOrSignInWithFacebook {
     TResult? Function(_EmailChanged value)? emailChanged,
     TResult? Function(_PasswordChanged value)? passwordChanged,
     TResult? Function(_ResetPassword value)? resetPassword,
+    TResult? Function(_DeactivateAccount value)? activeOrDeactivateAccount,
+    TResult? Function(_DeleteAccount value)? deleteAccount,
   }) {
     return signUpOrSignInWithFacebook?.call(this);
   }
@@ -560,6 +618,8 @@ class _$SignUpOrSignInWithFacebookImpl implements _SignUpOrSignInWithFacebook {
     TResult Function(_EmailChanged value)? emailChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_ResetPassword value)? resetPassword,
+    TResult Function(_DeactivateAccount value)? activeOrDeactivateAccount,
+    TResult Function(_DeleteAccount value)? deleteAccount,
     required TResult orElse(),
   }) {
     if (signUpOrSignInWithFacebook != null) {
@@ -601,7 +661,7 @@ class _$SignInImpl implements _SignIn {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$SignInImpl);
   }
@@ -621,6 +681,9 @@ class _$SignInImpl implements _SignIn {
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function(String emailStr) resetPassword,
+    required TResult Function(AppUser user, bool isActivated)
+        activeOrDeactivateAccount,
+    required TResult Function() deleteAccount,
   }) {
     return signIn();
   }
@@ -637,6 +700,9 @@ class _$SignInImpl implements _SignIn {
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String passwordStr)? passwordChanged,
     TResult? Function(String emailStr)? resetPassword,
+    TResult? Function(AppUser user, bool isActivated)?
+        activeOrDeactivateAccount,
+    TResult? Function()? deleteAccount,
   }) {
     return signIn?.call();
   }
@@ -653,6 +719,8 @@ class _$SignInImpl implements _SignIn {
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function(String emailStr)? resetPassword,
+    TResult Function(AppUser user, bool isActivated)? activeOrDeactivateAccount,
+    TResult Function()? deleteAccount,
     required TResult orElse(),
   }) {
     if (signIn != null) {
@@ -675,6 +743,9 @@ class _$SignInImpl implements _SignIn {
     required TResult Function(_EmailChanged value) emailChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_ResetPassword value) resetPassword,
+    required TResult Function(_DeactivateAccount value)
+        activeOrDeactivateAccount,
+    required TResult Function(_DeleteAccount value) deleteAccount,
   }) {
     return signIn(this);
   }
@@ -693,6 +764,8 @@ class _$SignInImpl implements _SignIn {
     TResult? Function(_EmailChanged value)? emailChanged,
     TResult? Function(_PasswordChanged value)? passwordChanged,
     TResult? Function(_ResetPassword value)? resetPassword,
+    TResult? Function(_DeactivateAccount value)? activeOrDeactivateAccount,
+    TResult? Function(_DeleteAccount value)? deleteAccount,
   }) {
     return signIn?.call(this);
   }
@@ -710,6 +783,8 @@ class _$SignInImpl implements _SignIn {
     TResult Function(_EmailChanged value)? emailChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_ResetPassword value)? resetPassword,
+    TResult Function(_DeactivateAccount value)? activeOrDeactivateAccount,
+    TResult Function(_DeleteAccount value)? deleteAccount,
     required TResult orElse(),
   }) {
     if (signIn != null) {
@@ -750,7 +825,7 @@ class _$SignOutImpl implements _SignOut {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$SignOutImpl);
   }
@@ -770,6 +845,9 @@ class _$SignOutImpl implements _SignOut {
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function(String emailStr) resetPassword,
+    required TResult Function(AppUser user, bool isActivated)
+        activeOrDeactivateAccount,
+    required TResult Function() deleteAccount,
   }) {
     return signOut();
   }
@@ -786,6 +864,9 @@ class _$SignOutImpl implements _SignOut {
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String passwordStr)? passwordChanged,
     TResult? Function(String emailStr)? resetPassword,
+    TResult? Function(AppUser user, bool isActivated)?
+        activeOrDeactivateAccount,
+    TResult? Function()? deleteAccount,
   }) {
     return signOut?.call();
   }
@@ -802,6 +883,8 @@ class _$SignOutImpl implements _SignOut {
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function(String emailStr)? resetPassword,
+    TResult Function(AppUser user, bool isActivated)? activeOrDeactivateAccount,
+    TResult Function()? deleteAccount,
     required TResult orElse(),
   }) {
     if (signOut != null) {
@@ -824,6 +907,9 @@ class _$SignOutImpl implements _SignOut {
     required TResult Function(_EmailChanged value) emailChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_ResetPassword value) resetPassword,
+    required TResult Function(_DeactivateAccount value)
+        activeOrDeactivateAccount,
+    required TResult Function(_DeleteAccount value) deleteAccount,
   }) {
     return signOut(this);
   }
@@ -842,6 +928,8 @@ class _$SignOutImpl implements _SignOut {
     TResult? Function(_EmailChanged value)? emailChanged,
     TResult? Function(_PasswordChanged value)? passwordChanged,
     TResult? Function(_ResetPassword value)? resetPassword,
+    TResult? Function(_DeactivateAccount value)? activeOrDeactivateAccount,
+    TResult? Function(_DeleteAccount value)? deleteAccount,
   }) {
     return signOut?.call(this);
   }
@@ -859,6 +947,8 @@ class _$SignOutImpl implements _SignOut {
     TResult Function(_EmailChanged value)? emailChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_ResetPassword value)? resetPassword,
+    TResult Function(_DeactivateAccount value)? activeOrDeactivateAccount,
+    TResult Function(_DeleteAccount value)? deleteAccount,
     required TResult orElse(),
   }) {
     if (signOut != null) {
@@ -917,7 +1007,7 @@ class _$NameChangedImpl implements _NameChanged {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$NameChangedImpl &&
@@ -945,6 +1035,9 @@ class _$NameChangedImpl implements _NameChanged {
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function(String emailStr) resetPassword,
+    required TResult Function(AppUser user, bool isActivated)
+        activeOrDeactivateAccount,
+    required TResult Function() deleteAccount,
   }) {
     return nameChanged(nameStr);
   }
@@ -961,6 +1054,9 @@ class _$NameChangedImpl implements _NameChanged {
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String passwordStr)? passwordChanged,
     TResult? Function(String emailStr)? resetPassword,
+    TResult? Function(AppUser user, bool isActivated)?
+        activeOrDeactivateAccount,
+    TResult? Function()? deleteAccount,
   }) {
     return nameChanged?.call(nameStr);
   }
@@ -977,6 +1073,8 @@ class _$NameChangedImpl implements _NameChanged {
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function(String emailStr)? resetPassword,
+    TResult Function(AppUser user, bool isActivated)? activeOrDeactivateAccount,
+    TResult Function()? deleteAccount,
     required TResult orElse(),
   }) {
     if (nameChanged != null) {
@@ -999,6 +1097,9 @@ class _$NameChangedImpl implements _NameChanged {
     required TResult Function(_EmailChanged value) emailChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_ResetPassword value) resetPassword,
+    required TResult Function(_DeactivateAccount value)
+        activeOrDeactivateAccount,
+    required TResult Function(_DeleteAccount value) deleteAccount,
   }) {
     return nameChanged(this);
   }
@@ -1017,6 +1118,8 @@ class _$NameChangedImpl implements _NameChanged {
     TResult? Function(_EmailChanged value)? emailChanged,
     TResult? Function(_PasswordChanged value)? passwordChanged,
     TResult? Function(_ResetPassword value)? resetPassword,
+    TResult? Function(_DeactivateAccount value)? activeOrDeactivateAccount,
+    TResult? Function(_DeleteAccount value)? deleteAccount,
   }) {
     return nameChanged?.call(this);
   }
@@ -1034,6 +1137,8 @@ class _$NameChangedImpl implements _NameChanged {
     TResult Function(_EmailChanged value)? emailChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_ResetPassword value)? resetPassword,
+    TResult Function(_DeactivateAccount value)? activeOrDeactivateAccount,
+    TResult Function(_DeleteAccount value)? deleteAccount,
     required TResult orElse(),
   }) {
     if (nameChanged != null) {
@@ -1098,7 +1203,7 @@ class _$EmailChangedImpl implements _EmailChanged {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$EmailChangedImpl &&
@@ -1127,6 +1232,9 @@ class _$EmailChangedImpl implements _EmailChanged {
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function(String emailStr) resetPassword,
+    required TResult Function(AppUser user, bool isActivated)
+        activeOrDeactivateAccount,
+    required TResult Function() deleteAccount,
   }) {
     return emailChanged(emailStr);
   }
@@ -1143,6 +1251,9 @@ class _$EmailChangedImpl implements _EmailChanged {
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String passwordStr)? passwordChanged,
     TResult? Function(String emailStr)? resetPassword,
+    TResult? Function(AppUser user, bool isActivated)?
+        activeOrDeactivateAccount,
+    TResult? Function()? deleteAccount,
   }) {
     return emailChanged?.call(emailStr);
   }
@@ -1159,6 +1270,8 @@ class _$EmailChangedImpl implements _EmailChanged {
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function(String emailStr)? resetPassword,
+    TResult Function(AppUser user, bool isActivated)? activeOrDeactivateAccount,
+    TResult Function()? deleteAccount,
     required TResult orElse(),
   }) {
     if (emailChanged != null) {
@@ -1181,6 +1294,9 @@ class _$EmailChangedImpl implements _EmailChanged {
     required TResult Function(_EmailChanged value) emailChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_ResetPassword value) resetPassword,
+    required TResult Function(_DeactivateAccount value)
+        activeOrDeactivateAccount,
+    required TResult Function(_DeleteAccount value) deleteAccount,
   }) {
     return emailChanged(this);
   }
@@ -1199,6 +1315,8 @@ class _$EmailChangedImpl implements _EmailChanged {
     TResult? Function(_EmailChanged value)? emailChanged,
     TResult? Function(_PasswordChanged value)? passwordChanged,
     TResult? Function(_ResetPassword value)? resetPassword,
+    TResult? Function(_DeactivateAccount value)? activeOrDeactivateAccount,
+    TResult? Function(_DeleteAccount value)? deleteAccount,
   }) {
     return emailChanged?.call(this);
   }
@@ -1216,6 +1334,8 @@ class _$EmailChangedImpl implements _EmailChanged {
     TResult Function(_EmailChanged value)? emailChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_ResetPassword value)? resetPassword,
+    TResult Function(_DeactivateAccount value)? activeOrDeactivateAccount,
+    TResult Function(_DeleteAccount value)? deleteAccount,
     required TResult orElse(),
   }) {
     if (emailChanged != null) {
@@ -1280,7 +1400,7 @@ class _$PasswordChangedImpl implements _PasswordChanged {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PasswordChangedImpl &&
@@ -1310,6 +1430,9 @@ class _$PasswordChangedImpl implements _PasswordChanged {
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function(String emailStr) resetPassword,
+    required TResult Function(AppUser user, bool isActivated)
+        activeOrDeactivateAccount,
+    required TResult Function() deleteAccount,
   }) {
     return passwordChanged(passwordStr);
   }
@@ -1326,6 +1449,9 @@ class _$PasswordChangedImpl implements _PasswordChanged {
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String passwordStr)? passwordChanged,
     TResult? Function(String emailStr)? resetPassword,
+    TResult? Function(AppUser user, bool isActivated)?
+        activeOrDeactivateAccount,
+    TResult? Function()? deleteAccount,
   }) {
     return passwordChanged?.call(passwordStr);
   }
@@ -1342,6 +1468,8 @@ class _$PasswordChangedImpl implements _PasswordChanged {
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function(String emailStr)? resetPassword,
+    TResult Function(AppUser user, bool isActivated)? activeOrDeactivateAccount,
+    TResult Function()? deleteAccount,
     required TResult orElse(),
   }) {
     if (passwordChanged != null) {
@@ -1364,6 +1492,9 @@ class _$PasswordChangedImpl implements _PasswordChanged {
     required TResult Function(_EmailChanged value) emailChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_ResetPassword value) resetPassword,
+    required TResult Function(_DeactivateAccount value)
+        activeOrDeactivateAccount,
+    required TResult Function(_DeleteAccount value) deleteAccount,
   }) {
     return passwordChanged(this);
   }
@@ -1382,6 +1513,8 @@ class _$PasswordChangedImpl implements _PasswordChanged {
     TResult? Function(_EmailChanged value)? emailChanged,
     TResult? Function(_PasswordChanged value)? passwordChanged,
     TResult? Function(_ResetPassword value)? resetPassword,
+    TResult? Function(_DeactivateAccount value)? activeOrDeactivateAccount,
+    TResult? Function(_DeleteAccount value)? deleteAccount,
   }) {
     return passwordChanged?.call(this);
   }
@@ -1399,6 +1532,8 @@ class _$PasswordChangedImpl implements _PasswordChanged {
     TResult Function(_EmailChanged value)? emailChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_ResetPassword value)? resetPassword,
+    TResult Function(_DeactivateAccount value)? activeOrDeactivateAccount,
+    TResult Function(_DeleteAccount value)? deleteAccount,
     required TResult orElse(),
   }) {
     if (passwordChanged != null) {
@@ -1463,7 +1598,7 @@ class _$ResetPasswordImpl implements _ResetPassword {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ResetPasswordImpl &&
@@ -1492,6 +1627,9 @@ class _$ResetPasswordImpl implements _ResetPassword {
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function(String emailStr) resetPassword,
+    required TResult Function(AppUser user, bool isActivated)
+        activeOrDeactivateAccount,
+    required TResult Function() deleteAccount,
   }) {
     return resetPassword(emailStr);
   }
@@ -1508,6 +1646,9 @@ class _$ResetPasswordImpl implements _ResetPassword {
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String passwordStr)? passwordChanged,
     TResult? Function(String emailStr)? resetPassword,
+    TResult? Function(AppUser user, bool isActivated)?
+        activeOrDeactivateAccount,
+    TResult? Function()? deleteAccount,
   }) {
     return resetPassword?.call(emailStr);
   }
@@ -1524,6 +1665,8 @@ class _$ResetPasswordImpl implements _ResetPassword {
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function(String emailStr)? resetPassword,
+    TResult Function(AppUser user, bool isActivated)? activeOrDeactivateAccount,
+    TResult Function()? deleteAccount,
     required TResult orElse(),
   }) {
     if (resetPassword != null) {
@@ -1546,6 +1689,9 @@ class _$ResetPasswordImpl implements _ResetPassword {
     required TResult Function(_EmailChanged value) emailChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_ResetPassword value) resetPassword,
+    required TResult Function(_DeactivateAccount value)
+        activeOrDeactivateAccount,
+    required TResult Function(_DeleteAccount value) deleteAccount,
   }) {
     return resetPassword(this);
   }
@@ -1564,6 +1710,8 @@ class _$ResetPasswordImpl implements _ResetPassword {
     TResult? Function(_EmailChanged value)? emailChanged,
     TResult? Function(_PasswordChanged value)? passwordChanged,
     TResult? Function(_ResetPassword value)? resetPassword,
+    TResult? Function(_DeactivateAccount value)? activeOrDeactivateAccount,
+    TResult? Function(_DeleteAccount value)? deleteAccount,
   }) {
     return resetPassword?.call(this);
   }
@@ -1581,6 +1729,8 @@ class _$ResetPasswordImpl implements _ResetPassword {
     TResult Function(_EmailChanged value)? emailChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_ResetPassword value)? resetPassword,
+    TResult Function(_DeactivateAccount value)? activeOrDeactivateAccount,
+    TResult Function(_DeleteAccount value)? deleteAccount,
     required TResult orElse(),
   }) {
     if (resetPassword != null) {
@@ -1601,6 +1751,389 @@ abstract class _ResetPassword implements AuthEvent {
 }
 
 /// @nodoc
+abstract class _$$DeactivateAccountImplCopyWith<$Res> {
+  factory _$$DeactivateAccountImplCopyWith(_$DeactivateAccountImpl value,
+          $Res Function(_$DeactivateAccountImpl) then) =
+      __$$DeactivateAccountImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({AppUser user, bool isActivated});
+
+  $AppUserCopyWith<$Res> get user;
+}
+
+/// @nodoc
+class __$$DeactivateAccountImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$DeactivateAccountImpl>
+    implements _$$DeactivateAccountImplCopyWith<$Res> {
+  __$$DeactivateAccountImplCopyWithImpl(_$DeactivateAccountImpl _value,
+      $Res Function(_$DeactivateAccountImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? user = null,
+    Object? isActivated = null,
+  }) {
+    return _then(_$DeactivateAccountImpl(
+      user: null == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as AppUser,
+      isActivated: null == isActivated
+          ? _value.isActivated
+          : isActivated // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AppUserCopyWith<$Res> get user {
+    return $AppUserCopyWith<$Res>(_value.user, (value) {
+      return _then(_value.copyWith(user: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$DeactivateAccountImpl implements _DeactivateAccount {
+  const _$DeactivateAccountImpl(
+      {required this.user, required this.isActivated});
+
+  @override
+  final AppUser user;
+  @override
+  final bool isActivated;
+
+  @override
+  String toString() {
+    return 'AuthEvent.activeOrDeactivateAccount(user: $user, isActivated: $isActivated)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeactivateAccountImpl &&
+            (identical(other.user, user) || other.user == user) &&
+            (identical(other.isActivated, isActivated) ||
+                other.isActivated == isActivated));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, user, isActivated);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeactivateAccountImplCopyWith<_$DeactivateAccountImpl> get copyWith =>
+      __$$DeactivateAccountImplCopyWithImpl<_$DeactivateAccountImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() signUp,
+    required TResult Function() signUpOrSignInWithGoogle,
+    required TResult Function() signUpOrSignInWithFacebook,
+    required TResult Function() signIn,
+    required TResult Function() signOut,
+    required TResult Function(String nameStr) nameChanged,
+    required TResult Function(String emailStr) emailChanged,
+    required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function(String emailStr) resetPassword,
+    required TResult Function(AppUser user, bool isActivated)
+        activeOrDeactivateAccount,
+    required TResult Function() deleteAccount,
+  }) {
+    return activeOrDeactivateAccount(user, isActivated);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? signUp,
+    TResult? Function()? signUpOrSignInWithGoogle,
+    TResult? Function()? signUpOrSignInWithFacebook,
+    TResult? Function()? signIn,
+    TResult? Function()? signOut,
+    TResult? Function(String nameStr)? nameChanged,
+    TResult? Function(String emailStr)? emailChanged,
+    TResult? Function(String passwordStr)? passwordChanged,
+    TResult? Function(String emailStr)? resetPassword,
+    TResult? Function(AppUser user, bool isActivated)?
+        activeOrDeactivateAccount,
+    TResult? Function()? deleteAccount,
+  }) {
+    return activeOrDeactivateAccount?.call(user, isActivated);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? signUp,
+    TResult Function()? signUpOrSignInWithGoogle,
+    TResult Function()? signUpOrSignInWithFacebook,
+    TResult Function()? signIn,
+    TResult Function()? signOut,
+    TResult Function(String nameStr)? nameChanged,
+    TResult Function(String emailStr)? emailChanged,
+    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function(String emailStr)? resetPassword,
+    TResult Function(AppUser user, bool isActivated)? activeOrDeactivateAccount,
+    TResult Function()? deleteAccount,
+    required TResult orElse(),
+  }) {
+    if (activeOrDeactivateAccount != null) {
+      return activeOrDeactivateAccount(user, isActivated);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SignUp value) signUp,
+    required TResult Function(_SignUpOrSignInWithGoogle value)
+        signUpOrSignInWithGoogle,
+    required TResult Function(_SignUpOrSignInWithFacebook value)
+        signUpOrSignInWithFacebook,
+    required TResult Function(_SignIn value) signIn,
+    required TResult Function(_SignOut value) signOut,
+    required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_EmailChanged value) emailChanged,
+    required TResult Function(_PasswordChanged value) passwordChanged,
+    required TResult Function(_ResetPassword value) resetPassword,
+    required TResult Function(_DeactivateAccount value)
+        activeOrDeactivateAccount,
+    required TResult Function(_DeleteAccount value) deleteAccount,
+  }) {
+    return activeOrDeactivateAccount(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SignUp value)? signUp,
+    TResult? Function(_SignUpOrSignInWithGoogle value)?
+        signUpOrSignInWithGoogle,
+    TResult? Function(_SignUpOrSignInWithFacebook value)?
+        signUpOrSignInWithFacebook,
+    TResult? Function(_SignIn value)? signIn,
+    TResult? Function(_SignOut value)? signOut,
+    TResult? Function(_NameChanged value)? nameChanged,
+    TResult? Function(_EmailChanged value)? emailChanged,
+    TResult? Function(_PasswordChanged value)? passwordChanged,
+    TResult? Function(_ResetPassword value)? resetPassword,
+    TResult? Function(_DeactivateAccount value)? activeOrDeactivateAccount,
+    TResult? Function(_DeleteAccount value)? deleteAccount,
+  }) {
+    return activeOrDeactivateAccount?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SignUp value)? signUp,
+    TResult Function(_SignUpOrSignInWithGoogle value)? signUpOrSignInWithGoogle,
+    TResult Function(_SignUpOrSignInWithFacebook value)?
+        signUpOrSignInWithFacebook,
+    TResult Function(_SignIn value)? signIn,
+    TResult Function(_SignOut value)? signOut,
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_EmailChanged value)? emailChanged,
+    TResult Function(_PasswordChanged value)? passwordChanged,
+    TResult Function(_ResetPassword value)? resetPassword,
+    TResult Function(_DeactivateAccount value)? activeOrDeactivateAccount,
+    TResult Function(_DeleteAccount value)? deleteAccount,
+    required TResult orElse(),
+  }) {
+    if (activeOrDeactivateAccount != null) {
+      return activeOrDeactivateAccount(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DeactivateAccount implements AuthEvent {
+  const factory _DeactivateAccount(
+      {required final AppUser user,
+      required final bool isActivated}) = _$DeactivateAccountImpl;
+
+  AppUser get user;
+  bool get isActivated;
+  @JsonKey(ignore: true)
+  _$$DeactivateAccountImplCopyWith<_$DeactivateAccountImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DeleteAccountImplCopyWith<$Res> {
+  factory _$$DeleteAccountImplCopyWith(
+          _$DeleteAccountImpl value, $Res Function(_$DeleteAccountImpl) then) =
+      __$$DeleteAccountImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$DeleteAccountImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$DeleteAccountImpl>
+    implements _$$DeleteAccountImplCopyWith<$Res> {
+  __$$DeleteAccountImplCopyWithImpl(
+      _$DeleteAccountImpl _value, $Res Function(_$DeleteAccountImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$DeleteAccountImpl implements _DeleteAccount {
+  const _$DeleteAccountImpl();
+
+  @override
+  String toString() {
+    return 'AuthEvent.deleteAccount()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$DeleteAccountImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() signUp,
+    required TResult Function() signUpOrSignInWithGoogle,
+    required TResult Function() signUpOrSignInWithFacebook,
+    required TResult Function() signIn,
+    required TResult Function() signOut,
+    required TResult Function(String nameStr) nameChanged,
+    required TResult Function(String emailStr) emailChanged,
+    required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function(String emailStr) resetPassword,
+    required TResult Function(AppUser user, bool isActivated)
+        activeOrDeactivateAccount,
+    required TResult Function() deleteAccount,
+  }) {
+    return deleteAccount();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? signUp,
+    TResult? Function()? signUpOrSignInWithGoogle,
+    TResult? Function()? signUpOrSignInWithFacebook,
+    TResult? Function()? signIn,
+    TResult? Function()? signOut,
+    TResult? Function(String nameStr)? nameChanged,
+    TResult? Function(String emailStr)? emailChanged,
+    TResult? Function(String passwordStr)? passwordChanged,
+    TResult? Function(String emailStr)? resetPassword,
+    TResult? Function(AppUser user, bool isActivated)?
+        activeOrDeactivateAccount,
+    TResult? Function()? deleteAccount,
+  }) {
+    return deleteAccount?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? signUp,
+    TResult Function()? signUpOrSignInWithGoogle,
+    TResult Function()? signUpOrSignInWithFacebook,
+    TResult Function()? signIn,
+    TResult Function()? signOut,
+    TResult Function(String nameStr)? nameChanged,
+    TResult Function(String emailStr)? emailChanged,
+    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function(String emailStr)? resetPassword,
+    TResult Function(AppUser user, bool isActivated)? activeOrDeactivateAccount,
+    TResult Function()? deleteAccount,
+    required TResult orElse(),
+  }) {
+    if (deleteAccount != null) {
+      return deleteAccount();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SignUp value) signUp,
+    required TResult Function(_SignUpOrSignInWithGoogle value)
+        signUpOrSignInWithGoogle,
+    required TResult Function(_SignUpOrSignInWithFacebook value)
+        signUpOrSignInWithFacebook,
+    required TResult Function(_SignIn value) signIn,
+    required TResult Function(_SignOut value) signOut,
+    required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_EmailChanged value) emailChanged,
+    required TResult Function(_PasswordChanged value) passwordChanged,
+    required TResult Function(_ResetPassword value) resetPassword,
+    required TResult Function(_DeactivateAccount value)
+        activeOrDeactivateAccount,
+    required TResult Function(_DeleteAccount value) deleteAccount,
+  }) {
+    return deleteAccount(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SignUp value)? signUp,
+    TResult? Function(_SignUpOrSignInWithGoogle value)?
+        signUpOrSignInWithGoogle,
+    TResult? Function(_SignUpOrSignInWithFacebook value)?
+        signUpOrSignInWithFacebook,
+    TResult? Function(_SignIn value)? signIn,
+    TResult? Function(_SignOut value)? signOut,
+    TResult? Function(_NameChanged value)? nameChanged,
+    TResult? Function(_EmailChanged value)? emailChanged,
+    TResult? Function(_PasswordChanged value)? passwordChanged,
+    TResult? Function(_ResetPassword value)? resetPassword,
+    TResult? Function(_DeactivateAccount value)? activeOrDeactivateAccount,
+    TResult? Function(_DeleteAccount value)? deleteAccount,
+  }) {
+    return deleteAccount?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SignUp value)? signUp,
+    TResult Function(_SignUpOrSignInWithGoogle value)? signUpOrSignInWithGoogle,
+    TResult Function(_SignUpOrSignInWithFacebook value)?
+        signUpOrSignInWithFacebook,
+    TResult Function(_SignIn value)? signIn,
+    TResult Function(_SignOut value)? signOut,
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_EmailChanged value)? emailChanged,
+    TResult Function(_PasswordChanged value)? passwordChanged,
+    TResult Function(_ResetPassword value)? resetPassword,
+    TResult Function(_DeactivateAccount value)? activeOrDeactivateAccount,
+    TResult Function(_DeleteAccount value)? deleteAccount,
+    required TResult orElse(),
+  }) {
+    if (deleteAccount != null) {
+      return deleteAccount(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DeleteAccount implements AuthEvent {
+  const factory _DeleteAccount() = _$DeleteAccountImpl;
+}
+
+/// @nodoc
 mixin _$AuthState {
   bool get onLoading => throw _privateConstructorUsedError;
   EmailAddress get email => throw _privateConstructorUsedError;
@@ -1609,6 +2142,8 @@ mixin _$AuthState {
   bool get showErrorMessages => throw _privateConstructorUsedError;
   bool get showSnackbar => throw _privateConstructorUsedError;
   Option<Either<CommonFailures, Unit>> get optionFailureOrSuccess =>
+      throw _privateConstructorUsedError;
+  Option<Either<CommonFailures, Unit>> get optionDeleteFailureOrSuccess =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -1628,7 +2163,8 @@ abstract class $AuthStateCopyWith<$Res> {
       Password password,
       bool showErrorMessages,
       bool showSnackbar,
-      Option<Either<CommonFailures, Unit>> optionFailureOrSuccess});
+      Option<Either<CommonFailures, Unit>> optionFailureOrSuccess,
+      Option<Either<CommonFailures, Unit>> optionDeleteFailureOrSuccess});
 }
 
 /// @nodoc
@@ -1651,6 +2187,7 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
     Object? showErrorMessages = null,
     Object? showSnackbar = null,
     Object? optionFailureOrSuccess = null,
+    Object? optionDeleteFailureOrSuccess = null,
   }) {
     return _then(_value.copyWith(
       onLoading: null == onLoading
@@ -1681,6 +2218,10 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
           ? _value.optionFailureOrSuccess
           : optionFailureOrSuccess // ignore: cast_nullable_to_non_nullable
               as Option<Either<CommonFailures, Unit>>,
+      optionDeleteFailureOrSuccess: null == optionDeleteFailureOrSuccess
+          ? _value.optionDeleteFailureOrSuccess
+          : optionDeleteFailureOrSuccess // ignore: cast_nullable_to_non_nullable
+              as Option<Either<CommonFailures, Unit>>,
     ) as $Val);
   }
 }
@@ -1700,7 +2241,8 @@ abstract class _$$AuthStateImplCopyWith<$Res>
       Password password,
       bool showErrorMessages,
       bool showSnackbar,
-      Option<Either<CommonFailures, Unit>> optionFailureOrSuccess});
+      Option<Either<CommonFailures, Unit>> optionFailureOrSuccess,
+      Option<Either<CommonFailures, Unit>> optionDeleteFailureOrSuccess});
 }
 
 /// @nodoc
@@ -1721,6 +2263,7 @@ class __$$AuthStateImplCopyWithImpl<$Res>
     Object? showErrorMessages = null,
     Object? showSnackbar = null,
     Object? optionFailureOrSuccess = null,
+    Object? optionDeleteFailureOrSuccess = null,
   }) {
     return _then(_$AuthStateImpl(
       onLoading: null == onLoading
@@ -1751,6 +2294,10 @@ class __$$AuthStateImplCopyWithImpl<$Res>
           ? _value.optionFailureOrSuccess
           : optionFailureOrSuccess // ignore: cast_nullable_to_non_nullable
               as Option<Either<CommonFailures, Unit>>,
+      optionDeleteFailureOrSuccess: null == optionDeleteFailureOrSuccess
+          ? _value.optionDeleteFailureOrSuccess
+          : optionDeleteFailureOrSuccess // ignore: cast_nullable_to_non_nullable
+              as Option<Either<CommonFailures, Unit>>,
     ));
   }
 }
@@ -1765,7 +2312,8 @@ class _$AuthStateImpl implements _AuthState {
       required this.password,
       required this.showErrorMessages,
       required this.showSnackbar,
-      required this.optionFailureOrSuccess});
+      required this.optionFailureOrSuccess,
+      required this.optionDeleteFailureOrSuccess});
 
   @override
   final bool onLoading;
@@ -1781,14 +2329,16 @@ class _$AuthStateImpl implements _AuthState {
   final bool showSnackbar;
   @override
   final Option<Either<CommonFailures, Unit>> optionFailureOrSuccess;
+  @override
+  final Option<Either<CommonFailures, Unit>> optionDeleteFailureOrSuccess;
 
   @override
   String toString() {
-    return 'AuthState(onLoading: $onLoading, email: $email, name: $name, password: $password, showErrorMessages: $showErrorMessages, showSnackbar: $showSnackbar, optionFailureOrSuccess: $optionFailureOrSuccess)';
+    return 'AuthState(onLoading: $onLoading, email: $email, name: $name, password: $password, showErrorMessages: $showErrorMessages, showSnackbar: $showSnackbar, optionFailureOrSuccess: $optionFailureOrSuccess, optionDeleteFailureOrSuccess: $optionDeleteFailureOrSuccess)';
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AuthStateImpl &&
@@ -1803,12 +2353,24 @@ class _$AuthStateImpl implements _AuthState {
             (identical(other.showSnackbar, showSnackbar) ||
                 other.showSnackbar == showSnackbar) &&
             (identical(other.optionFailureOrSuccess, optionFailureOrSuccess) ||
-                other.optionFailureOrSuccess == optionFailureOrSuccess));
+                other.optionFailureOrSuccess == optionFailureOrSuccess) &&
+            (identical(other.optionDeleteFailureOrSuccess,
+                    optionDeleteFailureOrSuccess) ||
+                other.optionDeleteFailureOrSuccess ==
+                    optionDeleteFailureOrSuccess));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, onLoading, email, name, password,
-      showErrorMessages, showSnackbar, optionFailureOrSuccess);
+  int get hashCode => Object.hash(
+      runtimeType,
+      onLoading,
+      email,
+      name,
+      password,
+      showErrorMessages,
+      showSnackbar,
+      optionFailureOrSuccess,
+      optionDeleteFailureOrSuccess);
 
   @JsonKey(ignore: true)
   @override
@@ -1826,7 +2388,9 @@ abstract class _AuthState implements AuthState {
       required final bool showErrorMessages,
       required final bool showSnackbar,
       required final Option<Either<CommonFailures, Unit>>
-          optionFailureOrSuccess}) = _$AuthStateImpl;
+          optionFailureOrSuccess,
+      required final Option<Either<CommonFailures, Unit>>
+          optionDeleteFailureOrSuccess}) = _$AuthStateImpl;
 
   @override
   bool get onLoading;
@@ -1842,6 +2406,8 @@ abstract class _AuthState implements AuthState {
   bool get showSnackbar;
   @override
   Option<Either<CommonFailures, Unit>> get optionFailureOrSuccess;
+  @override
+  Option<Either<CommonFailures, Unit>> get optionDeleteFailureOrSuccess;
   @override
   @JsonKey(ignore: true)
   _$$AuthStateImplCopyWith<_$AuthStateImpl> get copyWith =>
