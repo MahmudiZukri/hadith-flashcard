@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.hadith.flashcard">
    <application
-        android:label="hadith_flashcard"
+        android:label="Kartu Hafalan Hadis"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
