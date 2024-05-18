@@ -35,7 +35,9 @@ class CustomFlipCard extends StatelessWidget {
                     title: Text(
                       'help'.tr,
                       style: adaptiveTextFont.copyWith(
-                          fontWeight: FontWeight.w500),
+                        fontWeight: FontWeight.w500,
+                        color: colorScheme().primary,
+                      ),
                       textAlign: TextAlign.center,
                     ),
                     content: Column(

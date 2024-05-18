@@ -64,9 +64,11 @@ class CustomSearchWidget extends StatelessWidget {
           cursorColor: cursorColor,
           onChanged: onChanged,
           decoration: InputDecoration(
-            contentPadding: contentPadding,
             isDense: isDense,
             hintText: hintText,
+            suffixIcon: suffixIcon,
+            border: InputBorder.none,
+            contentPadding: contentPadding,
             hintStyle: TextStyle(
               fontSize: hintFontSize,
             ),
@@ -74,8 +76,6 @@ class CustomSearchWidget extends StatelessWidget {
               Icons.search,
               color: iconColor,
             ),
-            suffixIcon: suffixIcon,
-            border: InputBorder.none,
           ),
         ),
       ),

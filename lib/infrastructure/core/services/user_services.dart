@@ -30,14 +30,14 @@ class UserServices {
 
   static Future<void> updateUser(
     AppUserModel user, {
-    bool isActivated = true,
+    bool? isActivated,
   }) async {
     await _userCollection.doc(user.id).set(
       {
         'email': user.email,
         'name': user.name,
         'photoUrl': user.photoUrl,
-        'isActive': isActivated ? true : user.isActive,
+        'isActive': isActivated ?? user.isActive,
       },
     );
   }
