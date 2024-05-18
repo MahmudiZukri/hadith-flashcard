@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:hadith_flashcard/application/auth/auth_bloc.dart';
+import 'package:hadith_flashcard/application/remote_config/remote_config_bloc.dart';
 import 'package:hadith_flashcard/application/setting/setting_bloc.dart';
 import 'package:hadith_flashcard/application/user/user_bloc.dart';
 import 'package:hadith_flashcard/domain/auth/interfaces/i_auth_repository.dart';
@@ -57,6 +58,15 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider<SettingBloc>(
           create: (context) => getIt<SettingBloc>(),
+        ),
+        BlocProvider<RemoteConfigBloc>(
+          create: (context) => getIt<RemoteConfigBloc>()
+            ..add(
+              const RemoteConfigEvent.getUpdateVersionInfo(),
+            )
+            ..add(
+              const RemoteConfigEvent.getAdsStatus(),
+            ),
         ),
       ],
       child: StreamBuilder(

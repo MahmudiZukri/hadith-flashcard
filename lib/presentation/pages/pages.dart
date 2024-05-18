@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:io';
-
 import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flip_card/flip_card_controller.dart';
@@ -11,6 +10,7 @@ import 'package:focus_detector_v2/focus_detector_v2.dart';
 import 'package:get/get.dart';
 import 'package:hadith_flashcard/application/ad/ad_bloc.dart';
 import 'package:hadith_flashcard/application/auth/auth_bloc.dart';
+import 'package:hadith_flashcard/application/remote_config/remote_config_bloc.dart';
 import 'package:hadith_flashcard/application/setting/setting_bloc.dart';
 import 'package:hadith_flashcard/application/forgot_password/forgot_password_bloc.dart';
 import 'package:hadith_flashcard/application/hadith_flashcard/hadith_flashcard_bloc.dart';

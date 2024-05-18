@@ -20,72 +20,81 @@ class ReviewPage extends StatelessWidget {
       padding: const EdgeInsets.symmetric(
         horizontal: defaultMargin,
       ),
-      child: BlocBuilder<AdBloc, AdState>(
-        builder: (context, adState) {
-          return BlocBuilder<HadithFlashcardBloc, HadithFlashcardState>(
-            builder: (context, hadithFlashcardState) {
-              return hadithFlashcardState.optionFailureOrGetFlashcard.match(
-                () => const SizedBox(),
-                (either) => either.fold(
-                  (l) => Text(
-                    l.message,
-                  ),
-                  (flashcards) {
-                    final flashcardIsEmpty =
-                        flashcards == <HadithFlashcard>[].lock;
-                    final flashcardToReviewIsEmpty =
-                        hadithFlashcardState.getFlashcardsToReview ==
-                            <HadithFlashcard>[].lock;
+      child: BlocBuilder<RemoteConfigBloc, RemoteConfigState>(
+        builder: (context, remoteConfigState) {
+          return BlocBuilder<AdBloc, AdState>(
+            builder: (context, adState) {
+              return BlocBuilder<HadithFlashcardBloc, HadithFlashcardState>(
+                builder: (context, hadithFlashcardState) {
+                  return hadithFlashcardState.optionFailureOrGetFlashcard.match(
+                    () => const SizedBox(),
+                    (either) => either.fold(
+                      (l) => Text(
+                        l.message,
+                      ),
+                      (flashcards) {
+                        final flashcardIsEmpty =
+                            flashcards == <HadithFlashcard>[].lock;
+                        final flashcardToReviewIsEmpty =
+                            hadithFlashcardState.getFlashcardsToReview ==
+                                <HadithFlashcard>[].lock;
 
-                    return Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        // Reviewed flashcard bar
-                        ReviewedFlashcardBarColumn(
-                          hadithFlashcardState: hadithFlashcardState,
-                        ),
-                        flashcardIsEmpty
-                            // Empty flashcard
-                            ? EmptyFlashcardContainer(
-                                gotoNarratorPageOnPressed:
-                                    gotoNarratorPageOnPressed,
-                              )
-                            : flashcardToReviewIsEmpty
-                                // Flashcard to review is empty
-                                ? FlashcardToReviewIsEmptyContainer(
-                                    hadithFlashcardState: hadithFlashcardState,
+                        return Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            // Reviewed flashcard bar
+                            ReviewedFlashcardBarColumn(
+                              hadithFlashcardState: hadithFlashcardState,
+                            ),
+                            flashcardIsEmpty
+                                // Empty flashcard
+                                ? EmptyFlashcardContainer(
                                     gotoNarratorPageOnPressed:
                                         gotoNarratorPageOnPressed,
                                   )
-                                // Flip card
-                                : CustomFlipCard(
-                                    card: hadithFlashcardState
-                                        .getFlashcardsToReview.first,
-                                    controller: cardController,
-                                    selectedLanguage:
-                                        ELanguage.values.firstWhere(
-                                      (element) =>
-                                          element.locale ==
-                                          Get.locale.toString(),
-                                    ),
-                                  ),
+                                : flashcardToReviewIsEmpty
+                                    // Flashcard to review is empty
+                                    ? FlashcardToReviewIsEmptyContainer(
+                                        hadithFlashcardState:
+                                            hadithFlashcardState,
+                                        gotoNarratorPageOnPressed:
+                                            gotoNarratorPageOnPressed,
+                                      )
+                                    // Flip card
+                                    : CustomFlipCard(
+                                        card: hadithFlashcardState
+                                            .getFlashcardsToReview.first,
+                                        controller: cardController,
+                                        selectedLanguage:
+                                            ELanguage.values.firstWhere(
+                                          (element) =>
+                                              element.locale ==
+                                              Get.locale.toString(),
+                                        ),
+                                      ),
 
-                        // Qualities button
-                        QualitiesButtonRow(
-                          userID: userID,
-                          hadithFlashcardState: hadithFlashcardState,
-                          flashcardIsEmpty: flashcardIsEmpty,
-                          flashcardToReviewIsEmpty: flashcardToReviewIsEmpty,
-                          cardController: cardController,
-                        ),
-                        if (adState.reviewPageBannerAd != null)
-                          CustomAdWidget(
-                            bannerAd: adState.reviewPageBannerAd!,
-                          ),
-                      ],
-                    );
-                  },
-                ),
+                            // Qualities button
+                            QualitiesButtonRow(
+                              userID: userID,
+                              hadithFlashcardState: hadithFlashcardState,
+                              flashcardIsEmpty: flashcardIsEmpty,
+                              flashcardToReviewIsEmpty:
+                                  flashcardToReviewIsEmpty,
+                              cardController: cardController,
+                            ),
+
+                            // Review page banner ads
+                            if (remoteConfigState.isEnableAds &&
+                                adState.reviewPageBannerAd != null)
+                              CustomAdWidget(
+                                bannerAd: adState.reviewPageBannerAd!,
+                              ),
+                          ],
+                        );
+                      },
+                    ),
+                  );
+                },
               );
             },
           );

@@ -17,10 +17,6 @@ abstract class RegisterModule {
   FirebaseRemoteConfig get firebaseRemoteConfig =>
       FirebaseRemoteConfig.instance;
 
-  // uncomment later when using router
-  // @lazySingleton
-  // AppRouter get appRouter => AppRouter();
-
   @Named(NetworkServiceType.hadithFlashcard)
   @preResolve
   Future<INetworkService> networkHadithFlashcard({

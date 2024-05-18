@@ -59,11 +59,6 @@ class NetworkService implements INetworkService {
     connectivity = Connectivity();
   }
 
-  // @override
-  // void addInterceptors(Iterable<Interceptor> interceptors) {
-  //   _dio.interceptors.addAll(interceptors);
-  // }
-
   @override
   Future<Either<NetworkFailure, dynamic>> getHttp({
     required String path,
@@ -194,7 +189,6 @@ class NetworkService implements INetworkService {
     final connectivityResult = await connectivity.checkConnectivity();
     if (connectivityResult != ConnectivityResult.none) {
       try {
-        // await baseStorage.openBox(StorageConstants.base);
         final Map<String, dynamic> dioHeader = _dio.options.headers;
         final Map<String, dynamic> headers = {
           'content-type': ContentType.json.mimeType,
@@ -251,7 +245,6 @@ class NetworkService implements INetworkService {
     final connectivityResult = await connectivity.checkConnectivity();
     if (connectivityResult != ConnectivityResult.none) {
       try {
-        // await baseStorage.openBox(StorageConstants.base);
         final Map<String, dynamic> dioHeader = _dio.options.headers;
         final Map<String, dynamic> headers = {
           'content-type': ContentType.json.mimeType,
@@ -296,7 +289,6 @@ class NetworkService implements INetworkService {
     final connectivityResult = await connectivity.checkConnectivity();
     if (connectivityResult != ConnectivityResult.none) {
       try {
-        // await baseStorage.openBox(StorageConstants.base);
         final Directory savedDir = Directory(downloadPath);
         final bool hasExisted = await savedDir.exists();
 

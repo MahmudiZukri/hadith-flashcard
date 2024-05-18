@@ -9,9 +9,6 @@ class SignInPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<AuthBloc>(
-          create: (context) => getIt<AuthBloc>(),
-        ),
         BlocProvider<PasswordTextFieldBloc>(
           create: (context) => getIt<PasswordTextFieldBloc>(),
         ),
