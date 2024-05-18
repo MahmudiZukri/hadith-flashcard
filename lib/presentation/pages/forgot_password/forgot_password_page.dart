@@ -44,7 +44,7 @@ class ForgotPasswordPageScaffold extends StatelessWidget {
                     const SizedBox(width: 6.0),
                     Text(
                       'back'.tr,
-                      style: adaptiveTextFont.copyWith(fontSize: 14.0),
+                      style: adaptiveTextFont().copyWith(fontSize: 14.0),
                     ),
                   ],
                 ),
@@ -91,7 +91,7 @@ class ForgotPasswordPageScaffold extends StatelessWidget {
                         const SizedBox(height: defaultMargin),
                         Text(
                           'resetPassword'.tr,
-                          style: adaptiveTextFont.copyWith(
+                          style: adaptiveTextFont().copyWith(
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
                           ),
@@ -99,7 +99,7 @@ class ForgotPasswordPageScaffold extends StatelessWidget {
                         const SizedBox(height: 20.0),
                         Text(
                           'provideEmail'.tr,
-                          style: greyTextFont,
+                          style: adaptiveTextFont(applyOpacity: true),
                         ),
                         const SizedBox(height: 20.0),
                         Text('yourEmail'.tr),
@@ -138,7 +138,7 @@ class ForgotPasswordPageScaffold extends StatelessWidget {
                                         isEnabled:
                                             emailState != EmailAddress(''),
                                         backgroundColor: primaryColor,
-                                        textStyle: adaptiveTextFont.copyWith(
+                                        textStyle: adaptiveTextFont().copyWith(
                                           fontSize: 16.0,
                                           fontWeight: FontWeight.w600,
                                           color: colorScheme().inversePrimary,

@@ -63,7 +63,7 @@ class NarratorPage extends StatelessWidget {
                       CustomElevatedButtonWidget(
                         text: 'refresh'.tr,
                         backgroundColor: primaryColor,
-                        textStyle: adaptiveTextFont.copyWith(
+                        textStyle: adaptiveTextFont().copyWith(
                           color: colorScheme().inversePrimary,
                           fontWeight: FontWeight.w600,
                         ),
@@ -90,7 +90,7 @@ class NarratorPage extends StatelessWidget {
                             // Title
                             Text(
                               'hadithNarrators'.tr,
-                              style: adaptiveTextFont.copyWith(
+                              style: adaptiveTextFont().copyWith(
                                 fontSize: 20.0,
                                 letterSpacing: 3,
                                 color: colorScheme().inversePrimary,
@@ -125,7 +125,7 @@ class NarratorPage extends StatelessWidget {
                           14,
                           14,
                           14,
-                          0,
+                          14,
                         ),
                         decoration: BoxDecoration(
                           color: colorScheme().background,
@@ -207,7 +207,8 @@ class NarratorPage extends StatelessWidget {
                                                 showSymbol: false,
                                               ),
                                               textAlign: TextAlign.center,
-                                              style: adaptiveTextFont.copyWith(
+                                              style:
+                                                  adaptiveTextFont().copyWith(
                                                 fontSize: 13.0,
                                                 color: colorScheme()
                                                     .inversePrimary,
@@ -223,6 +224,9 @@ class NarratorPage extends StatelessWidget {
                         ),
                       ),
                     ),
+
+                    // Space for bottom nav bar
+                    const SizedBox(height: 40)
                   ],
                 ),
               ),
@@ -302,7 +306,7 @@ class NarratorFilterAndSearchRow extends StatelessWidget {
                       value: element,
                       child: Text(
                         element.name.getOrCrash(),
-                        style: adaptiveTextFont.copyWith(
+                        style: adaptiveTextFont().copyWith(
                           color: colorScheme().primary,
                         ),
                       ),
@@ -355,7 +359,7 @@ class NarratorFilterAndSearchRow extends StatelessWidget {
           isLoading: isSearching,
           backgroundColor: colorScheme().background.withOpacity(0.5),
           disabledBackgroundColor: greyColor.withOpacity(0.5),
-          textStyle: adaptiveTextFont,
+          textStyle: adaptiveTextFont(),
           disabledTextColor: colorScheme().background.withOpacity(0.5),
           disabledBorderColor: colorScheme().background.withOpacity(0.5),
           onPressed: () {

@@ -44,7 +44,7 @@ class HelpPage extends StatelessWidget {
             const SizedBox(height: 22.0),
             Text(
               'helpSection'.tr,
-              style: adaptiveTextFont.copyWith(height: 1.6),
+              style: adaptiveTextFont().copyWith(height: 1.6),
             ),
             const SizedBox(height: 24.0),
             Row(
@@ -61,7 +61,7 @@ class HelpPage extends StatelessWidget {
                   child: Center(
                     child: Text(
                       '$index',
-                      style: adaptiveTextFont.copyWith(
+                      style: adaptiveTextFont().copyWith(
                         fontSize: 14.0,
                         fontWeight: FontWeight.w600,
                         color: colorScheme().inversePrimary,
@@ -84,15 +84,15 @@ class HelpPage extends StatelessWidget {
                     children: [
                       Text(
                         '0',
-                        style: adaptiveTextFont.copyWith(height: 1.6),
+                        style: adaptiveTextFont().copyWith(height: 1.6),
                       ),
                       Text(
                         ':',
-                        style: adaptiveTextFont,
+                        style: adaptiveTextFont(),
                       ),
                       Text(
                         'quality0'.tr,
-                        style: adaptiveTextFont,
+                        style: adaptiveTextFont(),
                         maxLines: 2,
                       )
                     ],
@@ -101,15 +101,15 @@ class HelpPage extends StatelessWidget {
                     children: [
                       Text(
                         '1',
-                        style: adaptiveTextFont.copyWith(height: 1.6),
+                        style: adaptiveTextFont().copyWith(height: 1.6),
                       ),
                       Text(
                         ':',
-                        style: adaptiveTextFont,
+                        style: adaptiveTextFont(),
                       ),
                       Text(
                         'quality1'.tr,
-                        style: adaptiveTextFont,
+                        style: adaptiveTextFont(),
                         maxLines: 2,
                       )
                     ],
@@ -118,15 +118,15 @@ class HelpPage extends StatelessWidget {
                     children: [
                       Text(
                         '2',
-                        style: adaptiveTextFont.copyWith(height: 1.6),
+                        style: adaptiveTextFont().copyWith(height: 1.6),
                       ),
                       Text(
                         ':',
-                        style: adaptiveTextFont,
+                        style: adaptiveTextFont(),
                       ),
                       Text(
                         'quality2'.tr,
-                        style: adaptiveTextFont,
+                        style: adaptiveTextFont(),
                         maxLines: 2,
                       )
                     ],
@@ -135,15 +135,15 @@ class HelpPage extends StatelessWidget {
                     children: [
                       Text(
                         '3',
-                        style: adaptiveTextFont.copyWith(height: 1.6),
+                        style: adaptiveTextFont().copyWith(height: 1.6),
                       ),
                       Text(
                         ':',
-                        style: adaptiveTextFont,
+                        style: adaptiveTextFont(),
                       ),
                       Text(
                         'quality3'.tr,
-                        style: adaptiveTextFont,
+                        style: adaptiveTextFont(),
                         maxLines: 2,
                       )
                     ],
@@ -152,15 +152,15 @@ class HelpPage extends StatelessWidget {
                     children: [
                       Text(
                         '4',
-                        style: adaptiveTextFont.copyWith(height: 1.6),
+                        style: adaptiveTextFont().copyWith(height: 1.6),
                       ),
                       Text(
                         ':',
-                        style: adaptiveTextFont,
+                        style: adaptiveTextFont(),
                       ),
                       Text(
                         'quality4'.tr,
-                        style: adaptiveTextFont,
+                        style: adaptiveTextFont(),
                         maxLines: 2,
                       )
                     ],
@@ -169,15 +169,15 @@ class HelpPage extends StatelessWidget {
                     children: [
                       Text(
                         '5',
-                        style: adaptiveTextFont.copyWith(height: 1.6),
+                        style: adaptiveTextFont().copyWith(height: 1.6),
                       ),
                       Text(
                         ':',
-                        style: adaptiveTextFont,
+                        style: adaptiveTextFont(),
                       ),
                       Text(
                         'quality5'.tr,
-                        style: adaptiveTextFont,
+                        style: adaptiveTextFont(),
                         maxLines: 2,
                       )
                     ],

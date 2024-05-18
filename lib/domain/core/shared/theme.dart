@@ -56,8 +56,6 @@ class CustomTheme {
       blackBackgroundColor = const Color(0xFF333333);
 }
 
-// const Color primaryColor = Color(0xFF285430);
-// const Color secondaryColor = Color(0xFF5F8D4E);
 const Color primaryColor = Color(0xFF54B435);
 const Color secondaryColor = Color(0xFF82CD47);
 const Color whiteColor = Colors.white;
@@ -69,8 +67,6 @@ const Color tealBrightColor = Color(0xFF00FFCB);
 const Color redColor = Color(0xFFF96666);
 const Color accentColor = Color(0xFFA4BE7B);
 const Color backgroundColor = Color(0xFFF1F1F8);
-
-// const Color backgroundColor = Colors.white;
 const Color blackColor = Colors.black;
 const Color facebookColor = Color(0xFF4267B2);
 const Color googleColor = Color(0xFFDD4B39);
@@ -101,11 +97,23 @@ Shader textGradient = const LinearGradient(
   ),
 );
 
-TextStyle adaptiveTextFont = const TextStyle();
+TextStyle adaptiveTextFont({
+  bool applyOpacity = false,
+}) {
+  // Base text style using Poppins font
+  TextStyle baseStyle = GoogleFonts.poppins();
 
-TextStyle whiteTextFont = const TextStyle(
-  color: whiteColor,
-);
+  // Apply opacity if the parameter is true
+  if (applyOpacity) {
+    baseStyle = baseStyle.copyWith(
+      color: colorScheme(context: Get.context).primary.withOpacity(
+            0.7,
+          ),
+    );
+  }
+
+  return baseStyle;
+}
 
 TextStyle primaryTextFont = const TextStyle(
   color: primaryColor,
@@ -115,29 +123,11 @@ TextStyle secondaryTextFont = const TextStyle(
   color: secondaryColor,
 );
 
-TextStyle accentTextFont = const TextStyle(
-  color: accentColor,
-);
-
 TextStyle arabicTextFont = const TextStyle(
   fontFamily: 'Al-Qalam-Quran-Majeed',
   fontSize: 22,
 );
 
-TextStyle greyTextFont = const TextStyle(
-  color: greyColor,
-);
-
-// TextStyle whiteTextFont = const TextStyle(
-//   color: backgroundColor,
-// );
-
 TextStyle redTextFont = const TextStyle(
   color: redColor,
-);
-
-TextStyle lightWhiteTextFont = const TextStyle(
-  color: Colors.white70,
-  fontSize: 9,
-  fontWeight: FontWeight.w300,
 );

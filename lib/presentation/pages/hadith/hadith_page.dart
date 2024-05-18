@@ -576,9 +576,10 @@ class HadithPageScaffold extends StatelessWidget {
                                                                         index]
                                                                     .id
                                                                     .getOrCrash(),
-                                                                style:
-                                                                    greyTextFont
-                                                                        .copyWith(
+                                                                style: adaptiveTextFont(
+                                                                        applyOpacity:
+                                                                            true)
+                                                                    .copyWith(
                                                                   fontSize:
                                                                       12.0,
                                                                   height: 1.6,

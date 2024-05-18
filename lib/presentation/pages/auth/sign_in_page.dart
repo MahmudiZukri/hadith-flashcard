@@ -54,7 +54,7 @@ class SignInPageScaffold extends StatelessWidget {
             child: Text(
               'Hadith Flashcard',
               textAlign: TextAlign.center,
-              style: adaptiveTextFont.copyWith(
+              style: adaptiveTextFont().copyWith(
                 fontSize: 24.0,
                 color: colorScheme().inversePrimary,
                 fontWeight: FontWeight.bold,
@@ -137,7 +137,7 @@ class SignInPageScaffold extends StatelessWidget {
                           keyboardSize() == 0
                               ? Text(
                                   'welcome'.tr,
-                                  style: adaptiveTextFont.copyWith(
+                                  style: adaptiveTextFont().copyWith(
                                     fontSize: 24,
                                     color:
                                         colorScheme().primary.withOpacity(0.5),
@@ -199,7 +199,8 @@ class SignInPageScaffold extends StatelessWidget {
                               },
                               child: Text(
                                 'forgotPassword'.tr,
-                                style: greyTextFont.copyWith(fontSize: 12.0),
+                                style: adaptiveTextFont(applyOpacity: true)
+                                    .copyWith(fontSize: 12.0),
                               ),
                             ),
                           ),
@@ -218,7 +219,7 @@ class SignInPageScaffold extends StatelessWidget {
                                         state.email != EmailAddress('') &&
                                             state.password != Password(''),
                                     backgroundColor: primaryColor,
-                                    textStyle: adaptiveTextFont.copyWith(
+                                    textStyle: adaptiveTextFont().copyWith(
                                       fontSize: 16.0,
                                       fontWeight: FontWeight.w600,
                                       color: colorScheme().inversePrimary,
@@ -244,7 +245,8 @@ class SignInPageScaffold extends StatelessWidget {
                                 ),
                                 child: Text(
                                   'or'.tr,
-                                  style: greyTextFont.copyWith(fontSize: 12),
+                                  style: adaptiveTextFont(applyOpacity: true)
+                                      .copyWith(fontSize: 12),
                                 ),
                               ),
                               Expanded(
@@ -268,7 +270,7 @@ class SignInPageScaffold extends StatelessWidget {
                               //       color: backgroundColor,
                               //       height: 18,
                               //     ),
-                              //     textStyle: adaptiveTextFont.copyWith(
+                              //     textStyle: adaptiveTextFont().copyWith(
                               //       fontWeight: FontWeight.w500,
                               //     ),
                               //     onPressed: () {
@@ -289,7 +291,7 @@ class SignInPageScaffold extends StatelessWidget {
                                       BlendMode.srcIn,
                                     ),
                                   ),
-                                  textStyle: adaptiveTextFont.copyWith(
+                                  textStyle: adaptiveTextFont().copyWith(
                                     fontSize: 16.0,
                                     fontWeight: FontWeight.w600,
                                     color: colorScheme().inversePrimary,

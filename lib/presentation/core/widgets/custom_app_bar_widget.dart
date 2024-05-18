@@ -41,7 +41,7 @@ class CustomAppBarWidget extends StatelessWidget
             const SizedBox(width: 8.0),
             Text(
               'back'.tr,
-              style: adaptiveTextFont.copyWith(
+              style: adaptiveTextFont().copyWith(
                 fontSize: 14.0,
                 color: contentColor ?? colorScheme().inversePrimary,
               ),
@@ -54,7 +54,7 @@ class CustomAppBarWidget extends StatelessWidget
         children: [
           Text(
             title,
-            style: adaptiveTextFont.copyWith(
+            style: adaptiveTextFont().copyWith(
               fontSize: 18.0,
               color: contentColor ?? colorScheme().inversePrimary,
             ),
@@ -63,7 +63,7 @@ class CustomAppBarWidget extends StatelessWidget
               ? const SizedBox()
               : Text(
                   desc!,
-                  style: adaptiveTextFont.copyWith(
+                  style: adaptiveTextFont().copyWith(
                     fontSize: 10.0,
                     color: contentColor ?? colorScheme().inversePrimary,
                   ),

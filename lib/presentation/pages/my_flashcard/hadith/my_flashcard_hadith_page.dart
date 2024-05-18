@@ -336,7 +336,9 @@ class MyFlashcardHadithPageScaffold extends StatelessWidget {
                                         flashcardState.myHadithFlashcards[index]
                                             .translation
                                             .getOrCrash(),
-                                        style: greyTextFont.copyWith(
+                                        style:
+                                            adaptiveTextFont(applyOpacity: true)
+                                                .copyWith(
                                           fontSize: 12.0,
                                           height: 1.6,
                                         ),

@@ -116,10 +116,11 @@ class ProfilePageScaffold extends StatelessWidget {
                             const SizedBox(height: 14.0),
                             Text(
                               'profile'.tr,
-                              style: adaptiveTextFont.copyWith(
+                              style: adaptiveTextFont().copyWith(
                                 fontSize: 20.0,
                                 letterSpacing: 3,
-                                color: colorScheme(context: context).onSurface,
+                                color: colorScheme(context: context)
+                                    .inversePrimary,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -244,10 +245,10 @@ class ProfilePageScaffold extends StatelessWidget {
                                     onTap: () {
                                       // Dialog
                                       CommonUtils.openCustomDialog(
-                                        context: context,
+                                        context: Get.context!,
                                         title: Text(
                                           'areYouSureWannaDeleteAccount'.tr,
-                                          style: adaptiveTextFont.copyWith(
+                                          style: adaptiveTextFont().copyWith(
                                             fontWeight: FontWeight.w500,
                                             color: colorScheme().primary,
                                           ),
@@ -271,8 +272,9 @@ class ProfilePageScaffold extends StatelessWidget {
                                                       CustomElevatedButtonWidget(
                                                     text: 'no'.tr,
                                                     backgroundColor: redColor,
-                                                    textStyle: adaptiveTextFont
-                                                        .copyWith(
+                                                    textStyle:
+                                                        adaptiveTextFont()
+                                                            .copyWith(
                                                       fontWeight:
                                                           FontWeight.w600,
                                                       color: colorScheme()
@@ -290,8 +292,9 @@ class ProfilePageScaffold extends StatelessWidget {
                                                     text: 'yes'.tr,
                                                     backgroundColor:
                                                         primaryColor,
-                                                    textStyle: adaptiveTextFont
-                                                        .copyWith(
+                                                    textStyle:
+                                                        adaptiveTextFont()
+                                                            .copyWith(
                                                       fontWeight:
                                                           FontWeight.w600,
                                                       color: colorScheme()
@@ -346,7 +349,9 @@ class ProfilePageScaffold extends StatelessWidget {
                                 const SizedBox(height: 20.0),
                                 // Sign out
                                 const SignOut(),
-                                const SizedBox(height: 10.0),
+                                const SizedBox(height: 20.0),
+                                // Space for bottom nav bar
+                                const SizedBox(height: 40)
                               ],
                             ),
                           ),
@@ -550,7 +555,7 @@ class ChooseLanguageSection extends StatelessWidget {
               children: [
                 Text(
                   'chooseLanguage'.tr,
-                  style: adaptiveTextFont.copyWith(
+                  style: adaptiveTextFont().copyWith(
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
                   ),
@@ -591,7 +596,7 @@ class ChooseLanguageSection extends StatelessWidget {
                               ),
                               Text(
                                 languages[index].name,
-                                style: adaptiveTextFont.copyWith(
+                                style: adaptiveTextFont().copyWith(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 14,
                                 ),
@@ -723,7 +728,7 @@ class UserInfomation extends StatelessWidget {
                   Text(
                     userState.user?.name.getOrNull() ?? 'youAreInGuestMode'.tr,
                     maxLines: 3,
-                    style: adaptiveTextFont.copyWith(
+                    style: adaptiveTextFont().copyWith(
                       fontSize: 18.0,
                       fontWeight: FontWeight.w600,
                     ),
@@ -731,7 +736,7 @@ class UserInfomation extends StatelessWidget {
                   const SizedBox(height: 3.0),
                   Text(
                     userState.user?.email.getOrNull() ?? '',
-                    style: greyTextFont,
+                    style: adaptiveTextFont(applyOpacity: true),
                   ),
                 ],
               ),

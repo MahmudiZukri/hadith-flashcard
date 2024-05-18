@@ -117,7 +117,7 @@ class CommonUtils {
                 ),
               ),
               title: title,
-              titleTextStyle: adaptiveTextFont.copyWith(
+              titleTextStyle: adaptiveTextFont().copyWith(
                 fontSize: 20.0,
               ),
               content: content,

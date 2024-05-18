@@ -33,7 +33,7 @@ class CustomListTile extends StatelessWidget {
           ? null
           : Text(
               subtitle!,
-              style: greyTextFont,
+              style: adaptiveTextFont(applyOpacity: true),
             ),
       contentPadding: contentPadding,
       onTap: onTap,

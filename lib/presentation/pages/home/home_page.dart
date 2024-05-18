@@ -87,167 +87,177 @@ class HomePageScaffold extends StatelessWidget {
         return BlocBuilder<UserBloc, UserState>(
           builder: (context, userState) {
             return Scaffold(
-                bottomNavigationBar: CustomBottomNavigation(
-                    pageSelectedIndex: pageViewState.pageViewIndex,
-                    pageController: pageController,
-                    isEnableOntap:
-                        // disable when user is null or user is disactive
-                        userState.user != null && userState.user!.isActive),
-                body: Stack(
-                  children: [
-                    Column(
-                      children: [
-                        Container(
-                          height: statusBarHeight(),
+              body: Stack(
+                children: [
+                  Column(
+                    children: [
+                      Container(
+                        height: statusBarHeight(),
+                        color: primaryColor,
+                      ),
+                      Container(
+                        height:
+                            userState.user != null && userState.user!.isActive
+                                ? screenHeight() / 3
+                                : screenHeight() / 6,
+                        decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(
+                              70.0,
+                            ),
+                            bottomRight: Radius.circular(
+                              70.0,
+                            ),
+                          ),
                           color: primaryColor,
                         ),
-                        Container(
-                          height:
-                              userState.user != null && userState.user!.isActive
-                                  ? screenHeight() / 3
-                                  : screenHeight() / 6,
-                          decoration: const BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(
-                                70.0,
-                              ),
-                              bottomRight: Radius.circular(
-                                70.0,
-                              ),
-                            ),
-                            color: primaryColor,
-                          ),
-                        ),
-                      ],
-                    ),
-                    SafeArea(
-                      child: userState.user == null
-                          ? const CustomCircularProgressIndicatorWidget()
-                          : userState.user != null && userState.user!.isActive
-                              ?
+                      ),
+                    ],
+                  ),
+                  SafeArea(
+                    child: userState.user == null
+                        ? const CustomCircularProgressIndicatorWidget()
+                        : userState.user != null && userState.user!.isActive
+                            ?
 
-                              // If user is active
-                              PageView(
-                                  controller: pageController,
-                                  onPageChanged: (value) {
-                                    context.read<PageViewBloc>().add(
-                                          PageViewEvent.pageViewChanged(
-                                            pageViewIndex: value,
-                                          ),
-                                        );
-                                  },
+                            // If user is active
+                            PageView(
+                                controller: pageController,
+                                onPageChanged: (value) {
+                                  context.read<PageViewBloc>().add(
+                                        PageViewEvent.pageViewChanged(
+                                          pageViewIndex: value,
+                                        ),
+                                      );
+                                },
+                                children: [
+                                  // Narrator page
+                                  NarratorPage(
+                                    userID: userID,
+                                  ),
+                                  // Review page
+                                  ReviewPage(
+                                    userID: userID,
+                                    gotoNarratorPageOnPressed: () {
+                                      pageController.jumpToPage(0);
+                                      context.read<PageViewBloc>().add(
+                                            const PageViewEvent.pageViewChanged(
+                                              pageViewIndex: 0,
+                                            ),
+                                          );
+                                    },
+                                  ),
+                                  // Profile page
+                                  ProfilePage(
+                                    userID: userID,
+                                  ),
+                                ],
+                              )
+                            :
+
+                            // If user is disactive
+
+                            Container(
+                                width: screenWidth(),
+                                margin: EdgeInsets.only(
+                                  top: screenHeight() / 16,
+                                ),
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 24.0,
+                                ),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
-                                    // Narrator page
-                                    NarratorPage(
-                                      userID: userID,
+                                    Text(
+                                      'reactiveAccount'.tr,
+                                      textAlign: TextAlign.center,
                                     ),
-                                    // Review page
-                                    ReviewPage(
-                                      userID: userID,
-                                      gotoNarratorPageOnPressed: () {
-                                        pageController.jumpToPage(0);
-                                        context.read<PageViewBloc>().add(
-                                              const PageViewEvent
-                                                  .pageViewChanged(
-                                                pageViewIndex: 0,
-                                              ),
-                                            );
-                                      },
-                                    ),
-                                    // Profile page
-                                    ProfilePage(
-                                      userID: userID,
-                                    ),
-                                  ],
-                                )
-                              :
+                                    const SizedBox(height: 30.0),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Expanded(
+                                          child: CustomElevatedButtonWidget(
+                                            text: 'no'.tr,
+                                            backgroundColor: redColor,
+                                            textStyle:
+                                                adaptiveTextFont().copyWith(
+                                              fontWeight: FontWeight.w600,
+                                              color:
+                                                  colorScheme().inversePrimary,
+                                            ),
+                                            onPressed: () {
+                                              // No button action
+                                              context.read<AuthBloc>().add(
+                                                    const AuthEvent.signOut(),
+                                                  );
 
-                              // If user is disactive
+                                              Get.offAll(
+                                                () => const SignInPage(),
+                                              );
+                                            },
+                                          ),
+                                        ),
+                                        const SizedBox(width: 24.0),
+                                        Expanded(
+                                          child: CustomElevatedButtonWidget(
+                                            text: 'yes'.tr,
+                                            backgroundColor: primaryColor,
+                                            textStyle:
+                                                adaptiveTextFont().copyWith(
+                                              fontWeight: FontWeight.w600,
+                                              color:
+                                                  colorScheme().inversePrimary,
+                                            ),
+                                            onPressed: () {
+                                              // Yes button action
 
-                              Container(
-                                  width: screenWidth(),
-                                  margin: EdgeInsets.only(
-                                    top: screenHeight() / 16,
-                                  ),
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 24.0,
-                                  ),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        'reactiveAccount'.tr,
-                                        textAlign: TextAlign.center,
-                                      ),
-                                      const SizedBox(height: 30.0),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Expanded(
-                                            child: CustomElevatedButtonWidget(
-                                              text: 'no'.tr,
-                                              backgroundColor: redColor,
-                                              textStyle:
-                                                  adaptiveTextFont.copyWith(
-                                                fontWeight: FontWeight.w600,
-                                                color: colorScheme()
-                                                    .inversePrimary,
-                                              ),
-                                              onPressed: () {
-                                                // No button action
+                                              if (userState.user != null) {
                                                 context.read<AuthBloc>().add(
-                                                      const AuthEvent.signOut(),
+                                                      AuthEvent
+                                                          .activeOrDeactivateAccount(
+                                                        user: userState.user!,
+                                                        isActivated: true,
+                                                      ),
                                                     );
 
-                                                Get.offAll(
-                                                  () => const SignInPage(),
-                                                );
-                                              },
-                                            ),
+                                                context.read<UserBloc>().add(
+                                                      UserEvent.loadUser(
+                                                        userID: userID,
+                                                      ),
+                                                    );
+                                              }
+                                            },
                                           ),
-                                          const SizedBox(width: 24.0),
-                                          Expanded(
-                                            child: CustomElevatedButtonWidget(
-                                              text: 'yes'.tr,
-                                              backgroundColor: primaryColor,
-                                              textStyle:
-                                                  adaptiveTextFont.copyWith(
-                                                fontWeight: FontWeight.w600,
-                                                color: colorScheme()
-                                                    .inversePrimary,
-                                              ),
-                                              onPressed: () {
-                                                // Yes button action
-
-                                                if (userState.user != null) {
-                                                  context.read<AuthBloc>().add(
-                                                        AuthEvent
-                                                            .activeOrDeactivateAccount(
-                                                          user: userState.user!,
-                                                          isActivated: true,
-                                                        ),
-                                                      );
-
-                                                  context.read<UserBloc>().add(
-                                                        UserEvent.loadUser(
-                                                          userID: userID,
-                                                        ),
-                                                      );
-                                                }
-                                              },
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
                                 ),
-                    )
-                  ],
-                ));
+                              ),
+                  ),
+                  Align(
+                    alignment: Alignment.bottomCenter,
+                    child: CustomBottomNavigation(
+                      pageSelectedIndex: pageViewState.pageViewIndex,
+                      pageController: pageController,
+                      isEnableOntap:
+                          // disable when user is null or user is disactive
+                          userState.user != null && userState.user!.isActive,
+                    ),
+                  ),
+                  // Stack(
+                  //   children: [
+                  //     Container(
+                  //       color: blackColor.withOpacity(0.3),
+                  //     ),
+                  //   ],
+                  // ),
+                ],
+              ),
+            );
           },
         );
       },

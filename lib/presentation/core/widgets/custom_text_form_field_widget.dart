@@ -25,7 +25,7 @@ class CustomTextFormFieldWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      style: adaptiveTextFont,
+      style: adaptiveTextFont(),
       obscureText: isPasswordTextField
           ? isEyeOpen!
               ? true
@@ -37,7 +37,7 @@ class CustomTextFormFieldWidget extends StatelessWidget {
         labelText: labelText,
         labelStyle: primaryTextFont.copyWith(fontSize: 15.0),
         hintText: hintText,
-        hintStyle: greyTextFont,
+        hintStyle: adaptiveTextFont(applyOpacity: true),
         filled: true,
         fillColor: fillColor,
         suffix: isPasswordTextField

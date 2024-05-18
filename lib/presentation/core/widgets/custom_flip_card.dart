@@ -34,7 +34,7 @@ class CustomFlipCard extends StatelessWidget {
                     context: context,
                     title: Text(
                       'help'.tr,
-                      style: adaptiveTextFont.copyWith(
+                      style: adaptiveTextFont().copyWith(
                         fontWeight: FontWeight.w500,
                         color: colorScheme().primary,
                       ),
@@ -45,7 +45,7 @@ class CustomFlipCard extends StatelessWidget {
                       children: [
                         Text(
                           'helpSection'.tr,
-                          style: greyTextFont.copyWith(
+                          style: adaptiveTextFont(applyOpacity: true).copyWith(
                             fontSize: 13.0,
                           ),
                         ),
@@ -60,17 +60,24 @@ class CustomFlipCard extends StatelessWidget {
                             children: [
                               TableRow(
                                 children: [
-                                  Text('0',
-                                      style: greyTextFont.copyWith(
-                                        fontSize: 13.0,
-                                      )),
-                                  Text(':',
-                                      style: greyTextFont.copyWith(
-                                        fontSize: 13.0,
-                                      )),
+                                  Text(
+                                    '0',
+                                    style: adaptiveTextFont(applyOpacity: true)
+                                        .copyWith(
+                                      fontSize: 13.0,
+                                    ),
+                                  ),
+                                  Text(
+                                    ':',
+                                    style: adaptiveTextFont(applyOpacity: true)
+                                        .copyWith(
+                                      fontSize: 13.0,
+                                    ),
+                                  ),
                                   Text(
                                     'quality0'.tr,
-                                    style: greyTextFont.copyWith(
+                                    style: adaptiveTextFont(applyOpacity: true)
+                                        .copyWith(
                                       fontSize: 13.0,
                                     ),
                                     maxLines: 2,
@@ -79,17 +86,24 @@ class CustomFlipCard extends StatelessWidget {
                               ),
                               TableRow(
                                 children: [
-                                  Text('1',
-                                      style: greyTextFont.copyWith(
-                                        fontSize: 13.0,
-                                      )),
-                                  Text(':',
-                                      style: greyTextFont.copyWith(
-                                        fontSize: 13.0,
-                                      )),
+                                  Text(
+                                    '1',
+                                    style: adaptiveTextFont(applyOpacity: true)
+                                        .copyWith(
+                                      fontSize: 13.0,
+                                    ),
+                                  ),
+                                  Text(
+                                    ':',
+                                    style: adaptiveTextFont(applyOpacity: true)
+                                        .copyWith(
+                                      fontSize: 13.0,
+                                    ),
+                                  ),
                                   Text(
                                     'quality1'.tr,
-                                    style: greyTextFont.copyWith(
+                                    style: adaptiveTextFont(applyOpacity: true)
+                                        .copyWith(
                                       fontSize: 13.0,
                                     ),
                                     maxLines: 2,
@@ -98,17 +112,24 @@ class CustomFlipCard extends StatelessWidget {
                               ),
                               TableRow(
                                 children: [
-                                  Text('2',
-                                      style: greyTextFont.copyWith(
-                                        fontSize: 13.0,
-                                      )),
-                                  Text(':',
-                                      style: greyTextFont.copyWith(
-                                        fontSize: 13.0,
-                                      )),
+                                  Text(
+                                    '2',
+                                    style: adaptiveTextFont(applyOpacity: true)
+                                        .copyWith(
+                                      fontSize: 13.0,
+                                    ),
+                                  ),
+                                  Text(
+                                    ':',
+                                    style: adaptiveTextFont(applyOpacity: true)
+                                        .copyWith(
+                                      fontSize: 13.0,
+                                    ),
+                                  ),
                                   Text(
                                     'quality2'.tr,
-                                    style: greyTextFont.copyWith(
+                                    style: adaptiveTextFont(applyOpacity: true)
+                                        .copyWith(
                                       fontSize: 13.0,
                                     ),
                                     maxLines: 2,
@@ -117,17 +138,24 @@ class CustomFlipCard extends StatelessWidget {
                               ),
                               TableRow(
                                 children: [
-                                  Text('3',
-                                      style: greyTextFont.copyWith(
-                                        fontSize: 13.0,
-                                      )),
-                                  Text(':',
-                                      style: greyTextFont.copyWith(
-                                        fontSize: 13.0,
-                                      )),
+                                  Text(
+                                    '3',
+                                    style: adaptiveTextFont(applyOpacity: true)
+                                        .copyWith(
+                                      fontSize: 13.0,
+                                    ),
+                                  ),
+                                  Text(
+                                    ':',
+                                    style: adaptiveTextFont(applyOpacity: true)
+                                        .copyWith(
+                                      fontSize: 13.0,
+                                    ),
+                                  ),
                                   Text(
                                     'quality3'.tr,
-                                    style: greyTextFont.copyWith(
+                                    style: adaptiveTextFont(applyOpacity: true)
+                                        .copyWith(
                                       fontSize: 13.0,
                                     ),
                                     maxLines: 2,
@@ -136,17 +164,24 @@ class CustomFlipCard extends StatelessWidget {
                               ),
                               TableRow(
                                 children: [
-                                  Text('4',
-                                      style: greyTextFont.copyWith(
-                                        fontSize: 13.0,
-                                      )),
-                                  Text(':',
-                                      style: greyTextFont.copyWith(
-                                        fontSize: 13.0,
-                                      )),
+                                  Text(
+                                    '4',
+                                    style: adaptiveTextFont(applyOpacity: true)
+                                        .copyWith(
+                                      fontSize: 13.0,
+                                    ),
+                                  ),
+                                  Text(
+                                    ':',
+                                    style: adaptiveTextFont(applyOpacity: true)
+                                        .copyWith(
+                                      fontSize: 13.0,
+                                    ),
+                                  ),
                                   Text(
                                     'quality4'.tr,
-                                    style: greyTextFont.copyWith(
+                                    style: adaptiveTextFont(applyOpacity: true)
+                                        .copyWith(
                                       fontSize: 13.0,
                                     ),
                                     maxLines: 2,
@@ -155,17 +190,24 @@ class CustomFlipCard extends StatelessWidget {
                               ),
                               TableRow(
                                 children: [
-                                  Text('5',
-                                      style: greyTextFont.copyWith(
-                                        fontSize: 13.0,
-                                      )),
-                                  Text(':',
-                                      style: greyTextFont.copyWith(
-                                        fontSize: 13.0,
-                                      )),
+                                  Text(
+                                    '5',
+                                    style: adaptiveTextFont(applyOpacity: true)
+                                        .copyWith(
+                                      fontSize: 13.0,
+                                    ),
+                                  ),
+                                  Text(
+                                    ':',
+                                    style: adaptiveTextFont(applyOpacity: true)
+                                        .copyWith(
+                                      fontSize: 13.0,
+                                    ),
+                                  ),
                                   Text(
                                     'quality5'.tr,
-                                    style: greyTextFont.copyWith(
+                                    style: adaptiveTextFont(applyOpacity: true)
+                                        .copyWith(
                                       fontSize: 13.0,
                                     ),
                                     maxLines: 2,
@@ -180,7 +222,7 @@ class CustomFlipCard extends StatelessWidget {
                         CustomElevatedButtonWidget(
                           text: 'close'.tr,
                           backgroundColor: primaryColor,
-                          textStyle: adaptiveTextFont.copyWith(
+                          textStyle: adaptiveTextFont().copyWith(
                             fontSize: 14.0,
                             fontWeight: FontWeight.w600,
                             color: colorScheme().inversePrimary,
@@ -205,7 +247,7 @@ class CustomFlipCard extends StatelessWidget {
             Center(
               child: Text(
                 '${selectedLanguage.questionPrefix} ${card.hadithNarratorName.getOrFailureText()} ${card.hadithNumber.getOrZero()} ?',
-                style: adaptiveTextFont.copyWith(
+                style: adaptiveTextFont().copyWith(
                   fontSize: 15,
                 ),
                 textAlign: TextAlign.center,

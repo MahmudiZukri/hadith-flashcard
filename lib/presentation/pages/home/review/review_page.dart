@@ -89,6 +89,9 @@ class ReviewPage extends StatelessWidget {
                               CustomAdWidget(
                                 bannerAd: adState.reviewPageBannerAd!,
                               ),
+
+                            // Space for bottom nav bar
+                            const SizedBox(height: 40)
                           ],
                         );
                       },
@@ -221,7 +224,7 @@ class FlashcardToReviewIsEmptyContainer extends StatelessWidget {
                 ? "congratsYouHaveCompletedToday'sFlashcard".tr
                 : "youDon'tHaveFlashcardsToReview".tr,
             textAlign: TextAlign.center,
-            style: adaptiveTextFont.copyWith(
+            style: adaptiveTextFont().copyWith(
               fontSize: 15,
             ),
           ),
@@ -265,7 +268,7 @@ class EmptyFlashcardContainer extends StatelessWidget {
           Text(
             "youDon'tHaveAnyFlashcard".tr,
             textAlign: TextAlign.center,
-            style: adaptiveTextFont.copyWith(
+            style: adaptiveTextFont().copyWith(
               fontSize: 15,
             ),
           ),
