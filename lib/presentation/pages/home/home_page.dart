@@ -82,97 +82,167 @@ class HomePageScaffold extends StatelessWidget {
       initialPage: pageIndex,
     );
 
-    return BlocBuilder<PageViewBloc, PageViewState>(
-      builder: (context, pageViewState) {
-        return BlocBuilder<UserBloc, UserState>(
-          builder: (context, userState) {
-            return Scaffold(
-              body: Stack(
-                children: [
-                  Column(
+    return BlocBuilder<RemoteConfigBloc, RemoteConfigState>(
+      builder: (context, remoteConfigState) {
+        return BlocBuilder<PageViewBloc, PageViewState>(
+          builder: (context, pageViewState) {
+            return BlocBuilder<UserBloc, UserState>(
+              builder: (context, userState) {
+                return Scaffold(
+                  body: Stack(
                     children: [
-                      Container(
-                        height: statusBarHeight(),
-                        color: primaryColor,
-                      ),
-                      Container(
-                        height:
-                            userState.user != null && userState.user!.isActive
+                      Column(
+                        children: [
+                          Container(
+                            height: statusBarHeight(),
+                            color: primaryColor,
+                          ),
+                          Container(
+                            height: userState.user != null &&
+                                    userState.user!.isActive
                                 ? screenHeight() / 3
                                 : screenHeight() / 6,
-                        decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(
-                              70.0,
-                            ),
-                            bottomRight: Radius.circular(
-                              70.0,
+                            decoration: const BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                bottomLeft: Radius.circular(
+                                  70.0,
+                                ),
+                                bottomRight: Radius.circular(
+                                  70.0,
+                                ),
+                              ),
+                              color: primaryColor,
                             ),
                           ),
-                          color: primaryColor,
+                        ],
+                      ),
+                      SafeArea(
+                        child: userState.user == null
+                            ? const CustomCircularProgressIndicatorWidget()
+                            : userState.user != null && userState.user!.isActive
+                                ?
+                                // If user is active
+                                Stack(
+                                    children: [
+                                      PageView(
+                                        controller: pageController,
+                                        onPageChanged: (value) {
+                                          context.read<PageViewBloc>().add(
+                                                PageViewEvent.pageViewChanged(
+                                                  pageViewIndex: value,
+                                                ),
+                                              );
+                                        },
+                                        children: [
+                                          // Narrator page
+                                          NarratorPage(
+                                            userID: userID,
+                                          ),
+                                          // Review page
+                                          ReviewPage(
+                                            userID: userID,
+                                            gotoNarratorPageOnPressed: () {
+                                              pageController.jumpToPage(0);
+                                              context.read<PageViewBloc>().add(
+                                                    const PageViewEvent
+                                                        .pageViewChanged(
+                                                      pageViewIndex: 0,
+                                                    ),
+                                                  );
+                                            },
+                                          ),
+                                          // Profile page
+                                          ProfilePage(
+                                            userID: userID,
+                                          ),
+                                        ],
+                                      ),
+
+                                      // Update version dialog
+                                      if (remoteConfigState
+                                              .packageInfo?.version !=
+                                          null)
+                                        remoteConfigState
+                                            .optionFailureOrAppVersionInformation
+                                            .match(
+                                          () => const SizedBox(),
+                                          (either) => either.fold(
+                                            (l) => const SizedBox(),
+                                            (r) {
+                                              if (CommonUtils
+                                                  .isVersionGreaterThan(
+                                                remoteConfigState
+                                                    .packageInfo!.version,
+                                                r.canUpdateVersion.getOrCrash(),
+                                              )) {
+                                                return UpdateApplicationVersionDialog(
+                                                  yesOnTap: () {
+                                                    context
+                                                        .read<
+                                                            RemoteConfigBloc>()
+                                                        .add(
+                                                          const RemoteConfigEvent
+                                                              .closeDialog(),
+                                                        );
+                                                    final playstoreUrl = r
+                                                        .playstoreUrl
+                                                        .getOrCrash();
+                                                    final appstoreUrl = r
+                                                        .appstoreUrl
+                                                        .getOrCrash();
+
+                                                    if (Platform.isAndroid) {
+                                                      launchUrl(
+                                                        Uri.parse(playstoreUrl),
+                                                      );
+                                                    } else if (Platform.isIOS) {
+                                                      launchUrl(
+                                                        Uri.parse(appstoreUrl),
+                                                      );
+                                                    }
+                                                  },
+                                                  noOnTap: () {
+                                                    context
+                                                        .read<
+                                                            RemoteConfigBloc>()
+                                                        .add(
+                                                          const RemoteConfigEvent
+                                                              .closeDialog(),
+                                                        );
+                                                  },
+                                                );
+                                              }
+
+                                              return const SizedBox();
+                                            },
+                                          ),
+                                        ),
+                                    ],
+                                  )
+                                :
+
+                                // If user is inactive
+
+                                InactiveAccountDialog(userID: userID),
+                      ),
+                      Align(
+                        alignment: Alignment.bottomCenter,
+                        child: SizedBox(
+                          height: screenHeight() / 10,
+                          child: CustomBottomNavigation(
+                            pageSelectedIndex: pageViewState.pageViewIndex,
+                            pageController: pageController,
+                            isEnableOntap:
+                                // disable when user is null or user is disactive
+                                userState.user != null &&
+                                    userState.user!.isActive,
+                          ),
                         ),
                       ),
                     ],
                   ),
-                  SafeArea(
-                    child: userState.user == null
-                        ? const CustomCircularProgressIndicatorWidget()
-                        : userState.user != null && userState.user!.isActive
-                            ?
-                            // If user is active
-                            PageView(
-                                controller: pageController,
-                                onPageChanged: (value) {
-                                  context.read<PageViewBloc>().add(
-                                        PageViewEvent.pageViewChanged(
-                                          pageViewIndex: value,
-                                        ),
-                                      );
-                                },
-                                children: [
-                                  // Narrator page
-                                  NarratorPage(
-                                    userID: userID,
-                                  ),
-                                  // Review page
-                                  ReviewPage(
-                                    userID: userID,
-                                    gotoNarratorPageOnPressed: () {
-                                      pageController.jumpToPage(0);
-                                      context.read<PageViewBloc>().add(
-                                            const PageViewEvent.pageViewChanged(
-                                              pageViewIndex: 0,
-                                            ),
-                                          );
-                                    },
-                                  ),
-                                  // Profile page
-                                  ProfilePage(
-                                    userID: userID,
-                                  ),
-                                ],
-                              )
-                            :
-
-                            // If user is inactive
-
-                            InactiveAccountDialog(userID: userID),
-                  ),
-                  Align(
-                    alignment: Alignment.bottomCenter,
-                    child: SizedBox(
-                      height: screenHeight() / 10,
-                      child: CustomBottomNavigation(
-                        pageSelectedIndex: pageViewState.pageViewIndex,
-                        pageController: pageController,
-                        isEnableOntap:
-                            // disable when user is null or user is disactive
-                            userState.user != null && userState.user!.isActive,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+                );
+              },
             );
           },
         );
@@ -206,71 +276,144 @@ class InactiveAccountDialog extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           content: Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 24.0,
+            padding: const EdgeInsets.only(
+              top: 8.0,
             ),
-            child: Padding(
-              padding: const EdgeInsets.only(
-                top: 10.0,
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    child: CustomElevatedButtonWidget(
-                      text: 'no'.tr,
-                      backgroundColor: redColor,
-                      textStyle: adaptiveTextFont().copyWith(
-                        fontWeight: FontWeight.w600,
-                        color: colorScheme().inversePrimary,
-                      ),
-                      onPressed: () {
-                        // No button action
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  child: CustomElevatedButtonWidget(
+                    text: 'no'.tr,
+                    backgroundColor: redColor,
+                    textStyle: adaptiveTextFont().copyWith(
+                      fontWeight: FontWeight.w600,
+                      color: colorScheme().inversePrimary,
+                    ),
+                    onPressed: () {
+                      // No button action
+                      context.read<AuthBloc>().add(
+                            const AuthEvent.signOut(),
+                          );
+
+                      Get.offAll(
+                        () => const SignInPage(),
+                      );
+                    },
+                  ),
+                ),
+                const SizedBox(width: 24.0),
+                Expanded(
+                  child: CustomElevatedButtonWidget(
+                    text: 'yes'.tr,
+                    backgroundColor: primaryColor,
+                    textStyle: adaptiveTextFont().copyWith(
+                      fontWeight: FontWeight.w600,
+                      color: colorScheme().inversePrimary,
+                    ),
+                    onPressed: () {
+                      var userState = context.read<UserBloc>().state;
+
+                      // Yes button action
+
+                      if (userState.user != null) {
+                        Navigator.pop(context);
+
                         context.read<AuthBloc>().add(
-                              const AuthEvent.signOut(),
+                              AuthEvent.activeOrDeactivateAccount(
+                                user: userState.user!,
+                                isActivated: true,
+                              ),
                             );
 
-                        Get.offAll(
-                          () => const SignInPage(),
-                        );
-                      },
-                    ),
+                        context.read<UserBloc>().add(
+                              UserEvent.loadUser(
+                                userID: userID,
+                              ),
+                            );
+                      }
+                    },
                   ),
-                  const SizedBox(width: 24.0),
-                  Expanded(
-                    child: CustomElevatedButtonWidget(
-                      text: 'yes'.tr,
-                      backgroundColor: primaryColor,
-                      textStyle: adaptiveTextFont().copyWith(
-                        fontWeight: FontWeight.w600,
-                        color: colorScheme().inversePrimary,
-                      ),
-                      onPressed: () {
-                        var userState = context.read<UserBloc>().state;
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+      child: Container(
+        color: Colors.transparent,
+      ),
+    );
+  }
+}
 
-                        // Yes button action
+class UpdateApplicationVersionDialog extends StatelessWidget {
+  const UpdateApplicationVersionDialog({
+    super.key,
+    required this.yesOnTap,
+    required this.noOnTap,
+  });
 
-                        if (userState.user != null) {
-                          Navigator.pop(context);
+  final Function() yesOnTap;
+  final Function() noOnTap;
 
-                          context.read<AuthBloc>().add(
-                                AuthEvent.activeOrDeactivateAccount(
-                                  user: userState.user!,
-                                  isActivated: true,
-                                ),
-                              );
-
-                          context.read<UserBloc>().add(
-                                UserEvent.loadUser(
-                                  userID: userID,
-                                ),
-                              );
-                        }
-                      },
+  @override
+  Widget build(BuildContext context) {
+    return FocusDetector(
+      onFocusGained: () {
+        // Dialog
+        CommonUtils.openCustomDialog(
+          context: context,
+          title: Text(
+            'Mau mencoba serunya fitur baru? Yuk, perbarui aplikasi sekarang!',
+            style: adaptiveTextFont().copyWith(
+              fontSize: 17.0,
+              fontWeight: FontWeight.w500,
+              color: colorScheme().primary,
+            ),
+            textAlign: TextAlign.center,
+          ),
+          content: Padding(
+            padding: const EdgeInsets.only(
+              top: 8.0,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  child: CustomElevatedButtonWidget(
+                    text: 'maybeLater'.tr,
+                    backgroundColor: redColor,
+                    textStyle: adaptiveTextFont().copyWith(
+                      fontWeight: FontWeight.w600,
+                      color: colorScheme().inversePrimary,
                     ),
+                    onPressed: () {
+                      // No button action
+
+                      noOnTap();
+                      Navigator.pop(context);
+                    },
                   ),
-                ],
-              ),
+                ),
+                const SizedBox(width: 24.0),
+                Expanded(
+                  child: CustomElevatedButtonWidget(
+                    text: 'tryNow'.tr,
+                    backgroundColor: primaryColor,
+                    textStyle: adaptiveTextFont().copyWith(
+                      fontWeight: FontWeight.w600,
+                      color: colorScheme().inversePrimary,
+                    ),
+                    onPressed: () {
+                      // Yes button action
+
+                      yesOnTap();
+                      Navigator.pop(context);
+                    },
+                  ),
+                ),
+              ],
             ),
           ),
         );

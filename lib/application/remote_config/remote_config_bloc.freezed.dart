@@ -18,18 +18,24 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$RemoteConfigEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() closeDialog,
+    required TResult Function() getPackageInfo,
     required TResult Function() getUpdateVersionInfo,
     required TResult Function() getAdsStatus,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? closeDialog,
+    TResult? Function()? getPackageInfo,
     TResult? Function()? getUpdateVersionInfo,
     TResult? Function()? getAdsStatus,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? closeDialog,
+    TResult Function()? getPackageInfo,
     TResult Function()? getUpdateVersionInfo,
     TResult Function()? getAdsStatus,
     required TResult orElse(),
@@ -37,18 +43,24 @@ mixin _$RemoteConfigEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_CloseDialog value) closeDialog,
+    required TResult Function(_GetPackageInfo value) getPackageInfo,
     required TResult Function(_GetUpdateVersionInfo value) getUpdateVersionInfo,
     required TResult Function(_GetAdsStatus value) getAdsStatus,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CloseDialog value)? closeDialog,
+    TResult? Function(_GetPackageInfo value)? getPackageInfo,
     TResult? Function(_GetUpdateVersionInfo value)? getUpdateVersionInfo,
     TResult? Function(_GetAdsStatus value)? getAdsStatus,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CloseDialog value)? closeDialog,
+    TResult Function(_GetPackageInfo value)? getPackageInfo,
     TResult Function(_GetUpdateVersionInfo value)? getUpdateVersionInfo,
     TResult Function(_GetAdsStatus value)? getAdsStatus,
     required TResult orElse(),
@@ -72,6 +84,234 @@ class _$RemoteConfigEventCopyWithImpl<$Res, $Val extends RemoteConfigEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+}
+
+/// @nodoc
+abstract class _$$CloseDialogImplCopyWith<$Res> {
+  factory _$$CloseDialogImplCopyWith(
+          _$CloseDialogImpl value, $Res Function(_$CloseDialogImpl) then) =
+      __$$CloseDialogImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$CloseDialogImplCopyWithImpl<$Res>
+    extends _$RemoteConfigEventCopyWithImpl<$Res, _$CloseDialogImpl>
+    implements _$$CloseDialogImplCopyWith<$Res> {
+  __$$CloseDialogImplCopyWithImpl(
+      _$CloseDialogImpl _value, $Res Function(_$CloseDialogImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$CloseDialogImpl implements _CloseDialog {
+  const _$CloseDialogImpl();
+
+  @override
+  String toString() {
+    return 'RemoteConfigEvent.closeDialog()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$CloseDialogImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() closeDialog,
+    required TResult Function() getPackageInfo,
+    required TResult Function() getUpdateVersionInfo,
+    required TResult Function() getAdsStatus,
+  }) {
+    return closeDialog();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? closeDialog,
+    TResult? Function()? getPackageInfo,
+    TResult? Function()? getUpdateVersionInfo,
+    TResult? Function()? getAdsStatus,
+  }) {
+    return closeDialog?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? closeDialog,
+    TResult Function()? getPackageInfo,
+    TResult Function()? getUpdateVersionInfo,
+    TResult Function()? getAdsStatus,
+    required TResult orElse(),
+  }) {
+    if (closeDialog != null) {
+      return closeDialog();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CloseDialog value) closeDialog,
+    required TResult Function(_GetPackageInfo value) getPackageInfo,
+    required TResult Function(_GetUpdateVersionInfo value) getUpdateVersionInfo,
+    required TResult Function(_GetAdsStatus value) getAdsStatus,
+  }) {
+    return closeDialog(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CloseDialog value)? closeDialog,
+    TResult? Function(_GetPackageInfo value)? getPackageInfo,
+    TResult? Function(_GetUpdateVersionInfo value)? getUpdateVersionInfo,
+    TResult? Function(_GetAdsStatus value)? getAdsStatus,
+  }) {
+    return closeDialog?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CloseDialog value)? closeDialog,
+    TResult Function(_GetPackageInfo value)? getPackageInfo,
+    TResult Function(_GetUpdateVersionInfo value)? getUpdateVersionInfo,
+    TResult Function(_GetAdsStatus value)? getAdsStatus,
+    required TResult orElse(),
+  }) {
+    if (closeDialog != null) {
+      return closeDialog(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CloseDialog implements RemoteConfigEvent {
+  const factory _CloseDialog() = _$CloseDialogImpl;
+}
+
+/// @nodoc
+abstract class _$$GetPackageInfoImplCopyWith<$Res> {
+  factory _$$GetPackageInfoImplCopyWith(_$GetPackageInfoImpl value,
+          $Res Function(_$GetPackageInfoImpl) then) =
+      __$$GetPackageInfoImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GetPackageInfoImplCopyWithImpl<$Res>
+    extends _$RemoteConfigEventCopyWithImpl<$Res, _$GetPackageInfoImpl>
+    implements _$$GetPackageInfoImplCopyWith<$Res> {
+  __$$GetPackageInfoImplCopyWithImpl(
+      _$GetPackageInfoImpl _value, $Res Function(_$GetPackageInfoImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$GetPackageInfoImpl implements _GetPackageInfo {
+  const _$GetPackageInfoImpl();
+
+  @override
+  String toString() {
+    return 'RemoteConfigEvent.getPackageInfo()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$GetPackageInfoImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() closeDialog,
+    required TResult Function() getPackageInfo,
+    required TResult Function() getUpdateVersionInfo,
+    required TResult Function() getAdsStatus,
+  }) {
+    return getPackageInfo();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? closeDialog,
+    TResult? Function()? getPackageInfo,
+    TResult? Function()? getUpdateVersionInfo,
+    TResult? Function()? getAdsStatus,
+  }) {
+    return getPackageInfo?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? closeDialog,
+    TResult Function()? getPackageInfo,
+    TResult Function()? getUpdateVersionInfo,
+    TResult Function()? getAdsStatus,
+    required TResult orElse(),
+  }) {
+    if (getPackageInfo != null) {
+      return getPackageInfo();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CloseDialog value) closeDialog,
+    required TResult Function(_GetPackageInfo value) getPackageInfo,
+    required TResult Function(_GetUpdateVersionInfo value) getUpdateVersionInfo,
+    required TResult Function(_GetAdsStatus value) getAdsStatus,
+  }) {
+    return getPackageInfo(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CloseDialog value)? closeDialog,
+    TResult? Function(_GetPackageInfo value)? getPackageInfo,
+    TResult? Function(_GetUpdateVersionInfo value)? getUpdateVersionInfo,
+    TResult? Function(_GetAdsStatus value)? getAdsStatus,
+  }) {
+    return getPackageInfo?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CloseDialog value)? closeDialog,
+    TResult Function(_GetPackageInfo value)? getPackageInfo,
+    TResult Function(_GetUpdateVersionInfo value)? getUpdateVersionInfo,
+    TResult Function(_GetAdsStatus value)? getAdsStatus,
+    required TResult orElse(),
+  }) {
+    if (getPackageInfo != null) {
+      return getPackageInfo(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetPackageInfo implements RemoteConfigEvent {
+  const factory _GetPackageInfo() = _$GetPackageInfoImpl;
 }
 
 /// @nodoc
@@ -113,6 +353,8 @@ class _$GetUpdateVersionInfoImpl implements _GetUpdateVersionInfo {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() closeDialog,
+    required TResult Function() getPackageInfo,
     required TResult Function() getUpdateVersionInfo,
     required TResult Function() getAdsStatus,
   }) {
@@ -122,6 +364,8 @@ class _$GetUpdateVersionInfoImpl implements _GetUpdateVersionInfo {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? closeDialog,
+    TResult? Function()? getPackageInfo,
     TResult? Function()? getUpdateVersionInfo,
     TResult? Function()? getAdsStatus,
   }) {
@@ -131,6 +375,8 @@ class _$GetUpdateVersionInfoImpl implements _GetUpdateVersionInfo {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? closeDialog,
+    TResult Function()? getPackageInfo,
     TResult Function()? getUpdateVersionInfo,
     TResult Function()? getAdsStatus,
     required TResult orElse(),
@@ -144,6 +390,8 @@ class _$GetUpdateVersionInfoImpl implements _GetUpdateVersionInfo {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_CloseDialog value) closeDialog,
+    required TResult Function(_GetPackageInfo value) getPackageInfo,
     required TResult Function(_GetUpdateVersionInfo value) getUpdateVersionInfo,
     required TResult Function(_GetAdsStatus value) getAdsStatus,
   }) {
@@ -153,6 +401,8 @@ class _$GetUpdateVersionInfoImpl implements _GetUpdateVersionInfo {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CloseDialog value)? closeDialog,
+    TResult? Function(_GetPackageInfo value)? getPackageInfo,
     TResult? Function(_GetUpdateVersionInfo value)? getUpdateVersionInfo,
     TResult? Function(_GetAdsStatus value)? getAdsStatus,
   }) {
@@ -162,6 +412,8 @@ class _$GetUpdateVersionInfoImpl implements _GetUpdateVersionInfo {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CloseDialog value)? closeDialog,
+    TResult Function(_GetPackageInfo value)? getPackageInfo,
     TResult Function(_GetUpdateVersionInfo value)? getUpdateVersionInfo,
     TResult Function(_GetAdsStatus value)? getAdsStatus,
     required TResult orElse(),
@@ -215,6 +467,8 @@ class _$GetAdsStatusImpl implements _GetAdsStatus {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() closeDialog,
+    required TResult Function() getPackageInfo,
     required TResult Function() getUpdateVersionInfo,
     required TResult Function() getAdsStatus,
   }) {
@@ -224,6 +478,8 @@ class _$GetAdsStatusImpl implements _GetAdsStatus {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? closeDialog,
+    TResult? Function()? getPackageInfo,
     TResult? Function()? getUpdateVersionInfo,
     TResult? Function()? getAdsStatus,
   }) {
@@ -233,6 +489,8 @@ class _$GetAdsStatusImpl implements _GetAdsStatus {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? closeDialog,
+    TResult Function()? getPackageInfo,
     TResult Function()? getUpdateVersionInfo,
     TResult Function()? getAdsStatus,
     required TResult orElse(),
@@ -246,6 +504,8 @@ class _$GetAdsStatusImpl implements _GetAdsStatus {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_CloseDialog value) closeDialog,
+    required TResult Function(_GetPackageInfo value) getPackageInfo,
     required TResult Function(_GetUpdateVersionInfo value) getUpdateVersionInfo,
     required TResult Function(_GetAdsStatus value) getAdsStatus,
   }) {
@@ -255,6 +515,8 @@ class _$GetAdsStatusImpl implements _GetAdsStatus {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CloseDialog value)? closeDialog,
+    TResult? Function(_GetPackageInfo value)? getPackageInfo,
     TResult? Function(_GetUpdateVersionInfo value)? getUpdateVersionInfo,
     TResult? Function(_GetAdsStatus value)? getAdsStatus,
   }) {
@@ -264,6 +526,8 @@ class _$GetAdsStatusImpl implements _GetAdsStatus {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CloseDialog value)? closeDialog,
+    TResult Function(_GetPackageInfo value)? getPackageInfo,
     TResult Function(_GetUpdateVersionInfo value)? getUpdateVersionInfo,
     TResult Function(_GetAdsStatus value)? getAdsStatus,
     required TResult orElse(),
@@ -281,6 +545,7 @@ abstract class _GetAdsStatus implements RemoteConfigEvent {
 
 /// @nodoc
 mixin _$RemoteConfigState {
+  PackageInfo? get packageInfo => throw _privateConstructorUsedError;
   Option<Either<CommonFailures, bool>> get optionFailureOrIsEnabledAds =>
       throw _privateConstructorUsedError;
   Option<Either<CommonFailures, AppVersionInformation>>
@@ -299,7 +564,8 @@ abstract class $RemoteConfigStateCopyWith<$Res> {
       _$RemoteConfigStateCopyWithImpl<$Res, RemoteConfigState>;
   @useResult
   $Res call(
-      {Option<Either<CommonFailures, bool>> optionFailureOrIsEnabledAds,
+      {PackageInfo? packageInfo,
+      Option<Either<CommonFailures, bool>> optionFailureOrIsEnabledAds,
       Option<Either<CommonFailures, AppVersionInformation>>
           optionFailureOrAppVersionInformation});
 }
@@ -317,10 +583,15 @@ class _$RemoteConfigStateCopyWithImpl<$Res, $Val extends RemoteConfigState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? packageInfo = freezed,
     Object? optionFailureOrIsEnabledAds = null,
     Object? optionFailureOrAppVersionInformation = null,
   }) {
     return _then(_value.copyWith(
+      packageInfo: freezed == packageInfo
+          ? _value.packageInfo
+          : packageInfo // ignore: cast_nullable_to_non_nullable
+              as PackageInfo?,
       optionFailureOrIsEnabledAds: null == optionFailureOrIsEnabledAds
           ? _value.optionFailureOrIsEnabledAds
           : optionFailureOrIsEnabledAds // ignore: cast_nullable_to_non_nullable
@@ -343,7 +614,8 @@ abstract class _$$RemoteConfigStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {Option<Either<CommonFailures, bool>> optionFailureOrIsEnabledAds,
+      {PackageInfo? packageInfo,
+      Option<Either<CommonFailures, bool>> optionFailureOrIsEnabledAds,
       Option<Either<CommonFailures, AppVersionInformation>>
           optionFailureOrAppVersionInformation});
 }
@@ -359,10 +631,15 @@ class __$$RemoteConfigStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? packageInfo = freezed,
     Object? optionFailureOrIsEnabledAds = null,
     Object? optionFailureOrAppVersionInformation = null,
   }) {
     return _then(_$RemoteConfigStateImpl(
+      packageInfo: freezed == packageInfo
+          ? _value.packageInfo
+          : packageInfo // ignore: cast_nullable_to_non_nullable
+              as PackageInfo?,
       optionFailureOrIsEnabledAds: null == optionFailureOrIsEnabledAds
           ? _value.optionFailureOrIsEnabledAds
           : optionFailureOrIsEnabledAds // ignore: cast_nullable_to_non_nullable
@@ -380,9 +657,12 @@ class __$$RemoteConfigStateImplCopyWithImpl<$Res>
 
 class _$RemoteConfigStateImpl implements _RemoteConfigState {
   const _$RemoteConfigStateImpl(
-      {required this.optionFailureOrIsEnabledAds,
+      {required this.packageInfo,
+      required this.optionFailureOrIsEnabledAds,
       required this.optionFailureOrAppVersionInformation});
 
+  @override
+  final PackageInfo? packageInfo;
   @override
   final Option<Either<CommonFailures, bool>> optionFailureOrIsEnabledAds;
   @override
@@ -391,7 +671,7 @@ class _$RemoteConfigStateImpl implements _RemoteConfigState {
 
   @override
   String toString() {
-    return 'RemoteConfigState(optionFailureOrIsEnabledAds: $optionFailureOrIsEnabledAds, optionFailureOrAppVersionInformation: $optionFailureOrAppVersionInformation)';
+    return 'RemoteConfigState(packageInfo: $packageInfo, optionFailureOrIsEnabledAds: $optionFailureOrIsEnabledAds, optionFailureOrAppVersionInformation: $optionFailureOrAppVersionInformation)';
   }
 
   @override
@@ -399,6 +679,8 @@ class _$RemoteConfigStateImpl implements _RemoteConfigState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RemoteConfigStateImpl &&
+            (identical(other.packageInfo, packageInfo) ||
+                other.packageInfo == packageInfo) &&
             (identical(other.optionFailureOrIsEnabledAds,
                     optionFailureOrIsEnabledAds) ||
                 other.optionFailureOrIsEnabledAds ==
@@ -410,8 +692,8 @@ class _$RemoteConfigStateImpl implements _RemoteConfigState {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, optionFailureOrIsEnabledAds,
-      optionFailureOrAppVersionInformation);
+  int get hashCode => Object.hash(runtimeType, packageInfo,
+      optionFailureOrIsEnabledAds, optionFailureOrAppVersionInformation);
 
   @JsonKey(ignore: true)
   @override
@@ -423,11 +705,14 @@ class _$RemoteConfigStateImpl implements _RemoteConfigState {
 
 abstract class _RemoteConfigState implements RemoteConfigState {
   const factory _RemoteConfigState(
-      {required final Option<Either<CommonFailures, bool>>
+      {required final PackageInfo? packageInfo,
+      required final Option<Either<CommonFailures, bool>>
           optionFailureOrIsEnabledAds,
       required final Option<Either<CommonFailures, AppVersionInformation>>
           optionFailureOrAppVersionInformation}) = _$RemoteConfigStateImpl;
 
+  @override
+  PackageInfo? get packageInfo;
   @override
   Option<Either<CommonFailures, bool>> get optionFailureOrIsEnabledAds;
   @override

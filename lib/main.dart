@@ -66,6 +66,9 @@ class MyApp extends StatelessWidget {
             )
             ..add(
               const RemoteConfigEvent.getAdsStatus(),
+            )
+            ..add(
+              const RemoteConfigEvent.getPackageInfo(),
             ),
         ),
       ],

@@ -41,6 +41,7 @@ class CustomElevatedButtonWidget extends StatelessWidget {
       width: width ?? double.infinity,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
+          padding: EdgeInsets.zero,
           elevation: isWithElevation ? null : 0.0,
           shape: RoundedRectangleBorder(
             side: isWithBorder

@@ -186,6 +186,33 @@ class CommonUtils {
     );
   }
 
+  static bool isVersionGreaterThan(
+      String currentVersion, String versionToCompare) {
+    List<String> currentParts = currentVersion.split('.');
+    List<String> compareParts = versionToCompare.split('.');
+
+    // Ensure both versions have the same number of parts
+    while (currentParts.length < compareParts.length) {
+      currentParts.add('0');
+    }
+    while (compareParts.length < currentParts.length) {
+      compareParts.add('0');
+    }
+
+    // Compare each part
+    for (int i = 0; i < currentParts.length; i++) {
+      int currentPart = int.parse(currentParts[i]);
+      int comparePart = int.parse(compareParts[i]);
+
+      if (currentPart < comparePart) {
+        return true;
+      } else if (currentPart > comparePart) {
+        return false;
+      }
+    }
+    return false;
+  }
+
   //comment for now
 
   //   static final RegExp _emailRegExp = RegExp(

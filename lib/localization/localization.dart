@@ -103,7 +103,11 @@ class Localization extends Translations {
               "Anda tidak memiliki flashcard perawi @narrator",
           "userNotFound": "User tidak ditemukan",
           "reactiveAccount":
-              "Akun Anda telah dinonaktifkan. Apakah Anda ingin mengaktifkan kembali akun Anda ?"
+              "Akun Anda telah dinonaktifkan. Apakah Anda ingin mengaktifkan kembali akun Anda ?",
+          "tryNewFeature":
+              "Mau mencoba serunya fitur baru? Yuk, perbarui aplikasi sekarang!",
+          "maybeLater": "Lain kali",
+          "tryNow": "Coba!"
         },
         "en": {
           "welcome": "Welcome !",
@@ -206,7 +210,11 @@ class Localization extends Translations {
               "You don't have narrator @narrator flashcards",
           "userNotFound": "User Not Found",
           "reactiveAccount":
-              "Your account has been deactivated. Do you want to reactivate your account ?"
+              "Your account has been deactivated. Do you want to reactivate your account ?",
+          "tryNewFeature":
+              "Want to try the exciting new features? Update the app now!",
+          "maybeLater": "Maybe later",
+          "tryNow": "Try later!"
         },
       };
 }

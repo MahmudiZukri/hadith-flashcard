@@ -40,7 +40,7 @@ class RemoteConfigRepository implements IRemoteConfigRepository {
     try {
       // Get remote config value base on key string
       var remoteConfigValue = await RemoteConfigServices.getRemoteConfigValue(
-        key: 'enable_ads',
+        key: 'update_app_version',
       );
 
       var stringValue = remoteConfigValue.asString();
