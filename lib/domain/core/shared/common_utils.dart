@@ -100,6 +100,10 @@ class CommonUtils {
     List<Widget>? actions,
   }) {
     showGeneralDialog(
+      context: context,
+      barrierDismissible: false,
+      transitionDuration: const Duration(milliseconds: 200),
+      pageBuilder: (context, animation1, animation2) => const SizedBox(),
       barrierColor: Colors.black.withOpacity(0.5),
       transitionBuilder: (context, a1, a2, widget) {
         return Transform.scale(
@@ -126,11 +130,6 @@ class CommonUtils {
           ),
         );
       },
-      transitionDuration: const Duration(milliseconds: 200),
-      barrierDismissible: true,
-      barrierLabel: '',
-      context: context,
-      pageBuilder: (context, animation1, animation2) => const SizedBox(),
     );
   }
 

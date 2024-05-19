@@ -119,7 +119,6 @@ class HomePageScaffold extends StatelessWidget {
                         ? const CustomCircularProgressIndicatorWidget()
                         : userState.user != null && userState.user!.isActive
                             ?
-
                             // If user is active
                             PageView(
                                 controller: pageController,
@@ -155,112 +154,130 @@ class HomePageScaffold extends StatelessWidget {
                               )
                             :
 
-                            // If user is disactive
+                            // If user is inactive
 
-                            Container(
-                                width: screenWidth(),
-                                margin: EdgeInsets.only(
-                                  top: screenHeight() / 16,
-                                ),
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 24.0,
-                                ),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      'reactiveAccount'.tr,
-                                      textAlign: TextAlign.center,
-                                    ),
-                                    const SizedBox(height: 30.0),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Expanded(
-                                          child: CustomElevatedButtonWidget(
-                                            text: 'no'.tr,
-                                            backgroundColor: redColor,
-                                            textStyle:
-                                                adaptiveTextFont().copyWith(
-                                              fontWeight: FontWeight.w600,
-                                              color:
-                                                  colorScheme().inversePrimary,
-                                            ),
-                                            onPressed: () {
-                                              // No button action
-                                              context.read<AuthBloc>().add(
-                                                    const AuthEvent.signOut(),
-                                                  );
-
-                                              Get.offAll(
-                                                () => const SignInPage(),
-                                              );
-                                            },
-                                          ),
-                                        ),
-                                        const SizedBox(width: 24.0),
-                                        Expanded(
-                                          child: CustomElevatedButtonWidget(
-                                            text: 'yes'.tr,
-                                            backgroundColor: primaryColor,
-                                            textStyle:
-                                                adaptiveTextFont().copyWith(
-                                              fontWeight: FontWeight.w600,
-                                              color:
-                                                  colorScheme().inversePrimary,
-                                            ),
-                                            onPressed: () {
-                                              // Yes button action
-
-                                              if (userState.user != null) {
-                                                context.read<AuthBloc>().add(
-                                                      AuthEvent
-                                                          .activeOrDeactivateAccount(
-                                                        user: userState.user!,
-                                                        isActivated: true,
-                                                      ),
-                                                    );
-
-                                                context.read<UserBloc>().add(
-                                                      UserEvent.loadUser(
-                                                        userID: userID,
-                                                      ),
-                                                    );
-                                              }
-                                            },
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
+                            InactiveAccountDialog(userID: userID),
                   ),
                   Align(
                     alignment: Alignment.bottomCenter,
-                    child: CustomBottomNavigation(
-                      pageSelectedIndex: pageViewState.pageViewIndex,
-                      pageController: pageController,
-                      isEnableOntap:
-                          // disable when user is null or user is disactive
-                          userState.user != null && userState.user!.isActive,
+                    child: SizedBox(
+                      height: screenHeight() / 10,
+                      child: CustomBottomNavigation(
+                        pageSelectedIndex: pageViewState.pageViewIndex,
+                        pageController: pageController,
+                        isEnableOntap:
+                            // disable when user is null or user is disactive
+                            userState.user != null && userState.user!.isActive,
+                      ),
                     ),
                   ),
-                  // Stack(
-                  //   children: [
-                  //     Container(
-                  //       color: blackColor.withOpacity(0.3),
-                  //     ),
-                  //   ],
-                  // ),
                 ],
               ),
             );
           },
         );
       },
+    );
+  }
+}
+
+class InactiveAccountDialog extends StatelessWidget {
+  const InactiveAccountDialog({
+    super.key,
+    required this.userID,
+  });
+
+  final UniqueString userID;
+
+  @override
+  Widget build(BuildContext context) {
+    return FocusDetector(
+      onFocusGained: () {
+        // Dialog
+        CommonUtils.openCustomDialog(
+          context: context,
+          title: Text(
+            'reactiveAccount'.tr,
+            style: adaptiveTextFont().copyWith(
+              fontSize: 17.0,
+              fontWeight: FontWeight.w500,
+              color: colorScheme().primary,
+            ),
+            textAlign: TextAlign.center,
+          ),
+          content: Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 24.0,
+            ),
+            child: Padding(
+              padding: const EdgeInsets.only(
+                top: 10.0,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: CustomElevatedButtonWidget(
+                      text: 'no'.tr,
+                      backgroundColor: redColor,
+                      textStyle: adaptiveTextFont().copyWith(
+                        fontWeight: FontWeight.w600,
+                        color: colorScheme().inversePrimary,
+                      ),
+                      onPressed: () {
+                        // No button action
+                        context.read<AuthBloc>().add(
+                              const AuthEvent.signOut(),
+                            );
+
+                        Get.offAll(
+                          () => const SignInPage(),
+                        );
+                      },
+                    ),
+                  ),
+                  const SizedBox(width: 24.0),
+                  Expanded(
+                    child: CustomElevatedButtonWidget(
+                      text: 'yes'.tr,
+                      backgroundColor: primaryColor,
+                      textStyle: adaptiveTextFont().copyWith(
+                        fontWeight: FontWeight.w600,
+                        color: colorScheme().inversePrimary,
+                      ),
+                      onPressed: () {
+                        var userState = context.read<UserBloc>().state;
+
+                        // Yes button action
+
+                        if (userState.user != null) {
+                          Navigator.pop(context);
+
+                          context.read<AuthBloc>().add(
+                                AuthEvent.activeOrDeactivateAccount(
+                                  user: userState.user!,
+                                  isActivated: true,
+                                ),
+                              );
+
+                          context.read<UserBloc>().add(
+                                UserEvent.loadUser(
+                                  userID: userID,
+                                ),
+                              );
+                        }
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+      },
+      child: Container(
+        color: Colors.transparent,
+      ),
     );
   }
 }

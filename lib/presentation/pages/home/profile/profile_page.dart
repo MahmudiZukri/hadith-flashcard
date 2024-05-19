@@ -249,6 +249,7 @@ class ProfilePageScaffold extends StatelessWidget {
                                         title: Text(
                                           'areYouSureWannaDeleteAccount'.tr,
                                           style: adaptiveTextFont().copyWith(
+                                            fontSize: 17.0,
                                             fontWeight: FontWeight.w500,
                                             color: colorScheme().primary,
                                           ),
