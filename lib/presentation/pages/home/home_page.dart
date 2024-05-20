@@ -222,7 +222,6 @@ class HomePageScaffold extends StatelessWidget {
                                 :
 
                                 // If user is inactive
-
                                 InactiveAccountDialog(userID: userID),
                       ),
                       Align(

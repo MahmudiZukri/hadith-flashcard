@@ -121,11 +121,8 @@ class NarratorPage extends StatelessWidget {
                         margin: const EdgeInsets.symmetric(
                           horizontal: 20,
                         ),
-                        padding: const EdgeInsets.fromLTRB(
-                          14,
-                          14,
-                          14,
-                          14,
+                        padding: const EdgeInsets.all(
+                          20,
                         ),
                         decoration: BoxDecoration(
                           color: colorScheme().background,
@@ -144,8 +141,15 @@ class NarratorPage extends StatelessWidget {
                               hadithNarrators.length,
                               (index) => CustomListTile(
                                 dense: true,
-                                title: hadithNarrators[index].name.getOrCrash(),
                                 titleFontSize: 14,
+                                title: hadithNarrators[index].name.getOrCrash(),
+                                contentPadding: EdgeInsets.only(
+                                  bottom: index == hadithNarrators.length - 1
+                                      ?
+                                      // Space for bottom nav bar
+                                      screenHeight() / 10
+                                      : 0,
+                                ),
                                 subtitle: '${CommonUtils.currencyFormat(
                                   hadithNarrators[index].total.getOrCrash(),
                                   showSymbol: false,
@@ -168,55 +172,19 @@ class NarratorPage extends StatelessWidget {
                                               .getOrEmpty(),
                                         )
                                     ? const SizedBox()
-                                    : FittedBox(
-                                        child: Container(
-                                          constraints: const BoxConstraints(
-                                              minWidth: 34.0),
-                                          padding: const EdgeInsets.all(10.0),
-                                          decoration: BoxDecoration(
-                                            color: primaryColor,
-                                            borderRadius:
-                                                BorderRadius.circular(16.0),
-                                          ),
-                                          child: FocusDetector(
-                                            onVisibilityGained: () {
-                                              context
-                                                  .read<HadithFlashcardBloc>()
-                                                  .add(
-                                                    HadithFlashcardEvent
-                                                        .getFlashcard(
-                                                      userID: userID,
-                                                    ),
-                                                  );
-                                            },
-                                            child: Text(
-                                              CommonUtils.currencyFormat(
-                                                hadithFlashcardState
-                                                    .getLengthOfSavedFlashcardByNarratorName
-                                                    .map((element) => element ==
-                                                            hadithNarrators[
-                                                                    index]
-                                                                .name
-                                                                .getOrEmpty()
-                                                        ? 1
-                                                        : 0)
-                                                    .reduce(
-                                                      (value, element) =>
-                                                          value + element,
-                                                    ),
-                                                showSymbol: false,
-                                              ),
-                                              textAlign: TextAlign.center,
-                                              style:
-                                                  adaptiveTextFont().copyWith(
-                                                fontSize: 13.0,
-                                                color: colorScheme()
-                                                    .inversePrimary,
-                                                fontWeight: FontWeight.w600,
-                                              ),
+                                    : CustomNumberContainerWidget(
+                                        number: hadithFlashcardState
+                                            .getLengthOfSavedFlashcardByNarratorName
+                                            .map((element) => element ==
+                                                    hadithNarrators[index]
+                                                        .name
+                                                        .getOrEmpty()
+                                                ? 1
+                                                : 0)
+                                            .reduce(
+                                              (value, element) =>
+                                                  value + element,
                                             ),
-                                          ),
-                                        ),
                                       ),
                               ),
                             )
@@ -224,9 +192,6 @@ class NarratorPage extends StatelessWidget {
                         ),
                       ),
                     ),
-
-                    // Space for bottom nav bar
-                    const SizedBox(height: 40)
                   ],
                 ),
               ),
@@ -327,13 +292,15 @@ class NarratorFilterAndSearchRow extends StatelessWidget {
             const SizedBox(width: 20.0),
             CustomSearchWidget(
               height: 45,
+              isDense: true,
+              hintFontSize: 14.0,
               fontColor: blackColor,
               hintText: 'hadithNumber'.tr,
+              contentPadding: EdgeInsets.zero,
               borderRadius: mediumBorderRadius(),
               iconColor: colorScheme().background,
               borderColor: colorScheme().background,
               backgroundColor: colorScheme().background.withOpacity(0.5),
-              hintFontSize: 14.0,
               hintColor: blackColor.withOpacity(0.5),
               onChanged: (val) {
                 context.read<HadithNarratorBloc>().add(
