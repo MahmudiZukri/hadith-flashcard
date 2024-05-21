@@ -352,7 +352,9 @@ class ProfilePageScaffold extends StatelessWidget {
                                 const SignOut(),
                                 const SizedBox(height: 20.0),
                                 // Space for bottom nav bar
-                                const SizedBox(height: 40)
+                                SizedBox(
+                                  height: screenHeight() / 10,
+                                )
                               ],
                             ),
                           ),
@@ -467,10 +469,15 @@ class MyFlashcardSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final hadithFlashcardState = context.read<HadithFlashcardBloc>().state;
+
     return CustomListTile(
       title: title,
       dense: true,
       contentPadding: EdgeInsets.zero,
+      trailing: CustomNumberContainerWidget(
+        number: hadithFlashcardState.getFlashcards.length,
+      ),
       onTap: () {
         Get.to(
           () => MyFlashcardNarratorPage(
@@ -588,9 +595,18 @@ class ChooseLanguageSection extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              Image.asset(
-                                languages[index].imageUrl,
-                                height: 30.0,
+                              Container(
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: greyColor,
+                                    width: 2.0,
+                                  ),
+                                  shape: BoxShape.circle,
+                                ),
+                                child: Image.asset(
+                                  languages[index].imageUrl,
+                                  height: 30.0,
+                                ),
                               ),
                               const SizedBox(
                                 width: 10.0,
@@ -627,7 +643,10 @@ class ChooseLanguageSection extends StatelessWidget {
       },
       trailing: Container(
         decoration: BoxDecoration(
-          border: Border.all(color: greyColor),
+          border: Border.all(
+            color: greyColor,
+            width: 2.0,
+          ),
           shape: BoxShape.circle,
         ),
         child: Image.asset(

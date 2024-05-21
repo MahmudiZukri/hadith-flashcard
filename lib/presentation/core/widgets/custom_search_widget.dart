@@ -47,7 +47,6 @@ class CustomSearchWidget extends StatelessWidget {
       child: Container(
         height: height,
         width: width,
-        padding: const EdgeInsets.only(right: 14.0),
         decoration: BoxDecoration(
           color: colorScheme().background,
           border: Border.all(
@@ -57,12 +56,13 @@ class CustomSearchWidget extends StatelessWidget {
         ),
         child: TextField(
           textAlign: TextAlign.left,
+          textAlignVertical: TextAlignVertical.center,
           keyboardType: TextInputType.number,
+          cursorColor: cursorColor,
+          onChanged: onChanged,
           style: TextStyle(
             fontSize: fontSize,
           ),
-          cursorColor: cursorColor,
-          onChanged: onChanged,
           decoration: InputDecoration(
             isDense: isDense,
             hintText: hintText,
@@ -75,6 +75,7 @@ class CustomSearchWidget extends StatelessWidget {
             prefixIcon: Icon(
               Icons.search,
               color: iconColor,
+              size: 22.0,
             ),
           ),
         ),

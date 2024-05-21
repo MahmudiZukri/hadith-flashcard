@@ -91,7 +91,9 @@ class ReviewPage extends StatelessWidget {
                               ),
 
                             // Space for bottom nav bar
-                            const SizedBox(height: 40)
+                            SizedBox(
+                              height: screenHeight() / 10,
+                            )
                           ],
                         );
                       },

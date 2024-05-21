@@ -28,3 +28,4 @@ part 'custom_bottom_navigation.dart';
 part 'custom_review_button.dart';
 part 'custom_list_tile.dart';
 part 'custom_ad_widget.dart';
+part 'custom_number_container_widget.dart';
