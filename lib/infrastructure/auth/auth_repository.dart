@@ -319,11 +319,9 @@ class AuthRepository implements IAuthRepository {
   @override
   Future<Either<CommonFailures, Unit>> deleteAccount() async {
     final currentUser = IAuthRepository.auth.currentUser;
-    debugPrint("asdasdasd 1");
+
     try {
       if (currentUser != null) {
-        debugPrint("asdasdasd 2");
-
         IAuthRepository.auth.currentUser!.delete();
 
         return (right(
@@ -331,16 +329,12 @@ class AuthRepository implements IAuthRepository {
         ));
       }
 
-      debugPrint("asdasdasd 3");
-
       return left(
         CommonFailures.other(
           message: 'userNotFound'.tr,
         ),
       );
     } on PlatformException catch (e, stackTrace) {
-      debugPrint("asdasdasd 4");
-
       debugPrint('1------- $stackTrace -------1');
 
       return left(
@@ -349,8 +343,6 @@ class AuthRepository implements IAuthRepository {
         ),
       );
     } on FirebaseAuthException catch (e, stackTrace) {
-      debugPrint("asdasdasd 5");
-
       debugPrint('2------- $stackTrace -------2');
       return left(
         CommonFailures.handledByFirebase(
@@ -358,8 +350,6 @@ class AuthRepository implements IAuthRepository {
         ),
       );
     } catch (e, stackTrace) {
-      debugPrint("asdasdasd 6");
-
       debugPrint('1------- $stackTrace -------1');
       return left(
         CommonFailures.handledByFirebase(

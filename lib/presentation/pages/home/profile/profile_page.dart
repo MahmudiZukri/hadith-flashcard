@@ -469,7 +469,7 @@ class MyFlashcardSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final hadithFlashcardState = context.read<HadithFlashcardBloc>().state;
+    final hadithFlashcardState = context.watch<HadithFlashcardBloc>().state;
 
     return CustomListTile(
       title: title,

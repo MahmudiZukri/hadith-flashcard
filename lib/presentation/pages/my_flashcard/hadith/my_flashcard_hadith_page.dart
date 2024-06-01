@@ -77,7 +77,7 @@ class MyFlashcardHadithPageScaffold extends StatelessWidget {
             padding: const EdgeInsets.symmetric(
               horizontal: defaultMargin / 2,
             ),
-            child: ListView(
+            child: Column(
               children: [
                 const SizedBox(height: 22.0),
                 SvgPicture.asset(
@@ -106,10 +106,10 @@ class MyFlashcardHadithPageScaffold extends StatelessWidget {
                           textAlign: TextAlign.center,
                         ),
                       )
-                    : Column(
-                        children: List.generate(
-                          flashcardState.myHadithFlashcards.length,
-                          (index) => Padding(
+                    : Expanded(
+                        child: ListView.builder(
+                          itemCount: flashcardState.myHadithFlashcards.length,
+                          itemBuilder: (context, index) => Padding(
                             padding: const EdgeInsets.symmetric(vertical: 12.0),
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.start,

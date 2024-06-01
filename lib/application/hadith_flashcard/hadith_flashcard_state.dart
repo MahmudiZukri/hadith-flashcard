@@ -81,4 +81,15 @@ extension HadithFlashcardStateX on HadithFlashcardState {
           },
         ),
       );
+
+  IList<HadithFlashcard> get getFilteredMyFlashcardByNarratorName =>
+      optionFailureOrGetFlashcard.match(
+        () => <HadithFlashcard>[].lock,
+        (either) => either
+            .fold(
+              (l) => <HadithFlashcard>[].lock,
+              (flashcards) => CommonUtils.removeDuplicatesNarrator(flashcards),
+            )
+            .toIList(),
+      );
 }

@@ -89,156 +89,172 @@ class HomePageScaffold extends StatelessWidget {
             return BlocBuilder<UserBloc, UserState>(
               builder: (context, userState) {
                 return Scaffold(
-                  body: Stack(
-                    children: [
-                      Column(
-                        children: [
-                          Container(
-                            height: statusBarHeight(),
-                            color: primaryColor,
-                          ),
-                          Container(
-                            height: userState.user != null &&
-                                    userState.user!.isActive
-                                ? screenHeight() / 3
-                                : screenHeight() / 6,
-                            decoration: const BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                bottomLeft: Radius.circular(
-                                  70.0,
-                                ),
-                                bottomRight: Radius.circular(
-                                  70.0,
-                                ),
-                              ),
+                  body: FocusDetector(
+                    onFocusGained: () {
+                      context.read<HadithFlashcardBloc>().add(
+                            HadithFlashcardEvent.getFlashcard(
+                              userID: userID,
+                            ),
+                          );
+                    },
+                    child: Stack(
+                      children: [
+                        Column(
+                          children: [
+                            Container(
+                              height: statusBarHeight(),
                               color: primaryColor,
                             ),
-                          ),
-                        ],
-                      ),
-                      SafeArea(
-                        child: userState.user == null
-                            ? const CustomCircularProgressIndicatorWidget()
-                            : userState.user != null && userState.user!.isActive
-                                ?
-                                // If user is active
-                                Stack(
-                                    children: [
-                                      PageView(
-                                        controller: pageController,
-                                        onPageChanged: (value) {
-                                          context.read<PageViewBloc>().add(
-                                                PageViewEvent.pageViewChanged(
-                                                  pageViewIndex: value,
-                                                ),
-                                              );
-                                        },
-                                        children: [
-                                          // Narrator page
-                                          NarratorPage(
-                                            userID: userID,
-                                          ),
-                                          // Review page
-                                          ReviewPage(
-                                            userID: userID,
-                                            gotoNarratorPageOnPressed: () {
-                                              pageController.jumpToPage(0);
-                                              context.read<PageViewBloc>().add(
-                                                    const PageViewEvent
-                                                        .pageViewChanged(
-                                                      pageViewIndex: 0,
-                                                    ),
-                                                  );
-                                            },
-                                          ),
-                                          // Profile page
-                                          ProfilePage(
-                                            userID: userID,
-                                          ),
-                                        ],
-                                      ),
-
-                                      // Update version dialog
-                                      if (remoteConfigState
-                                              .packageInfo?.version !=
-                                          null)
-                                        remoteConfigState
-                                            .optionFailureOrAppVersionInformation
-                                            .match(
-                                          () => const SizedBox(),
-                                          (either) => either.fold(
-                                            (l) => const SizedBox(),
-                                            (r) {
-                                              if (CommonUtils
-                                                  .isVersionGreaterThan(
-                                                remoteConfigState
-                                                    .packageInfo!.version,
-                                                r.canUpdateVersion.getOrCrash(),
-                                              )) {
-                                                return UpdateApplicationVersionDialog(
-                                                  yesOnTap: () {
-                                                    context
-                                                        .read<
-                                                            RemoteConfigBloc>()
-                                                        .add(
-                                                          const RemoteConfigEvent
-                                                              .closeDialog(),
-                                                        );
-                                                    final playstoreUrl = r
-                                                        .playstoreUrl
-                                                        .getOrCrash();
-                                                    final appstoreUrl = r
-                                                        .appstoreUrl
-                                                        .getOrCrash();
-
-                                                    if (Platform.isAndroid) {
-                                                      launchUrl(
-                                                        Uri.parse(playstoreUrl),
-                                                      );
-                                                    } else if (Platform.isIOS) {
-                                                      launchUrl(
-                                                        Uri.parse(appstoreUrl),
-                                                      );
-                                                    }
-                                                  },
-                                                  noOnTap: () {
-                                                    context
-                                                        .read<
-                                                            RemoteConfigBloc>()
-                                                        .add(
-                                                          const RemoteConfigEvent
-                                                              .closeDialog(),
-                                                        );
-                                                  },
+                            Container(
+                              height: userState.user != null &&
+                                      userState.user!.isActive
+                                  ? screenHeight() / 3
+                                  : screenHeight() / 6,
+                              decoration: const BoxDecoration(
+                                borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(
+                                    70.0,
+                                  ),
+                                  bottomRight: Radius.circular(
+                                    70.0,
+                                  ),
+                                ),
+                                color: primaryColor,
+                              ),
+                            ),
+                          ],
+                        ),
+                        SafeArea(
+                          child: userState.user == null
+                              ? const CustomCircularProgressIndicatorWidget()
+                              : userState.user != null &&
+                                      userState.user!.isActive
+                                  ?
+                                  // If user is active
+                                  Stack(
+                                      children: [
+                                        PageView(
+                                          controller: pageController,
+                                          onPageChanged: (value) {
+                                            context.read<PageViewBloc>().add(
+                                                  PageViewEvent.pageViewChanged(
+                                                    pageViewIndex: value,
+                                                  ),
                                                 );
-                                              }
-
-                                              return const SizedBox();
-                                            },
-                                          ),
+                                          },
+                                          children: [
+                                            // Narrator page
+                                            NarratorPage(
+                                              userID: userID,
+                                            ),
+                                            // Review page
+                                            ReviewPage(
+                                              userID: userID,
+                                              gotoNarratorPageOnPressed: () {
+                                                pageController.jumpToPage(0);
+                                                context
+                                                    .read<PageViewBloc>()
+                                                    .add(
+                                                      const PageViewEvent
+                                                          .pageViewChanged(
+                                                        pageViewIndex: 0,
+                                                      ),
+                                                    );
+                                              },
+                                            ),
+                                            // Profile page
+                                            ProfilePage(
+                                              userID: userID,
+                                            ),
+                                          ],
                                         ),
-                                    ],
-                                  )
-                                :
 
-                                // If user is inactive
-                                InactiveAccountDialog(userID: userID),
-                      ),
-                      Align(
-                        alignment: Alignment.bottomCenter,
-                        child: SizedBox(
-                          height: screenHeight() / 10,
-                          child: CustomBottomNavigation(
-                            pageSelectedIndex: pageViewState.pageViewIndex,
-                            pageController: pageController,
-                            isEnableOntap:
-                                // disable when user is null or user is disactive
-                                userState.user != null &&
-                                    userState.user!.isActive,
+                                        // Update version dialog
+                                        if (remoteConfigState
+                                                .packageInfo?.version !=
+                                            null)
+                                          remoteConfigState
+                                              .optionFailureOrAppVersionInformation
+                                              .match(
+                                            () => const SizedBox(),
+                                            (either) => either.fold(
+                                              (l) => const SizedBox(),
+                                              (r) {
+                                                if (CommonUtils
+                                                    .isVersionGreaterThan(
+                                                  remoteConfigState
+                                                      .packageInfo!.version,
+                                                  r.canUpdateVersion
+                                                      .getOrCrash(),
+                                                )) {
+                                                  return UpdateApplicationVersionDialog(
+                                                    yesOnTap: () {
+                                                      context
+                                                          .read<
+                                                              RemoteConfigBloc>()
+                                                          .add(
+                                                            const RemoteConfigEvent
+                                                                .closeDialog(),
+                                                          );
+                                                      final playstoreUrl = r
+                                                          .playstoreUrl
+                                                          .getOrCrash();
+                                                      final appstoreUrl = r
+                                                          .appstoreUrl
+                                                          .getOrCrash();
+
+                                                      if (Platform.isAndroid) {
+                                                        launchUrl(
+                                                          Uri.parse(
+                                                              playstoreUrl),
+                                                        );
+                                                      } else if (Platform
+                                                          .isIOS) {
+                                                        launchUrl(
+                                                          Uri.parse(
+                                                              appstoreUrl),
+                                                        );
+                                                      }
+                                                    },
+                                                    noOnTap: () {
+                                                      context
+                                                          .read<
+                                                              RemoteConfigBloc>()
+                                                          .add(
+                                                            const RemoteConfigEvent
+                                                                .closeDialog(),
+                                                          );
+                                                    },
+                                                  );
+                                                }
+
+                                                return const SizedBox();
+                                              },
+                                            ),
+                                          ),
+                                      ],
+                                    )
+                                  :
+
+                                  // If user is inactive
+                                  InactiveAccountDialog(userID: userID),
+                        ),
+                        Align(
+                          alignment: Alignment.bottomCenter,
+                          child: SizedBox(
+                            height: screenHeight() / 10,
+                            child: CustomBottomNavigation(
+                              pageSelectedIndex: pageViewState.pageViewIndex,
+                              pageController: pageController,
+                              isEnableOntap:
+                                  // disable when user is null or user is disactive
+                                  userState.user != null &&
+                                      userState.user!.isActive,
+                            ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 );
               },
