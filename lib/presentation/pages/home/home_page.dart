@@ -57,6 +57,7 @@ class HomePage extends StatelessWidget {
               ),
             ),
         ),
+        BlocProvider<ShowcaseBloc>(create: (context) => getIt<ShowcaseBloc>()),
       ],
       child: HomePageScaffold(
         userID: userID,
@@ -243,13 +244,30 @@ class HomePageScaffold extends StatelessWidget {
                           alignment: Alignment.bottomCenter,
                           child: SizedBox(
                             height: screenHeight() / 10,
-                            child: CustomBottomNavigation(
-                              pageSelectedIndex: pageViewState.pageViewIndex,
-                              pageController: pageController,
-                              isEnableOntap:
-                                  // disable when user is null or user is disactive
-                                  userState.user != null &&
-                                      userState.user!.isActive,
+                            child: ShowCaseWidget(
+                              builder: (context) => FocusDetector(
+                                onFocusGained: () {
+                                  debugPrint('asdasd 222 asem');
+
+                                  // TODO : makes condition later whether its first time or not
+                                  context.read<ShowcaseBloc>().add(
+                                        ShowcaseEvent.started(
+                                          context: context,
+                                        ),
+                                      );
+                                },
+                                child: CustomBottomNavigation(
+                                  showcaseState:
+                                      context.watch<ShowcaseBloc>().state,
+                                  pageSelectedIndex:
+                                      pageViewState.pageViewIndex,
+                                  pageController: pageController,
+                                  isEnableOntap:
+                                      // disable when user is null or user is disactive
+                                      userState.user != null &&
+                                          userState.user!.isActive,
+                                ),
+                              ),
                             ),
                           ),
                         ),

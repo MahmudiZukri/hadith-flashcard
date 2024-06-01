@@ -7,11 +7,13 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:hadith_flashcard/application/showcase/showcase_bloc.dart';
 import 'package:hadith_flashcard/domain/core/enums/enums.dart';
 import 'package:hadith_flashcard/domain/core/shared/shared.dart';
 import 'package:hadith_flashcard/domain/hadith_flashcard/hadith_flashcard.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:showcaseview/showcaseview.dart';
 
 part 'custom_text_form_field_widget.dart';
 part 'custom_elevated_button_widget.dart';
