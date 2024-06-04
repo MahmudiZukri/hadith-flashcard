@@ -25,15 +25,15 @@ void main() async {
   await GetStorage.init();
   configureInjection(Environment.prod);
   await Firebase.initializeApp(
-      // TODO: find out later
-      // options: const FirebaseOptions(
-      //   apiKey: 'AIzaSyDY_bUSdCWDf3idRHStG1YfPPo5owesg48',
-      //   appId: '1:988688359058:android:09e23bc6cab1f3fc58d04b',
-      //   messagingSenderId: '988688359058',
-      //   projectId: 'hadith-flashcard',
-      // ),
-      // options: DefaultFirebaseOptions.currentPlatform,
-      );
+    // TODO: find out later
+    options: const FirebaseOptions(
+      apiKey: 'AIzaSyDY_bUSdCWDf3idRHStG1YfPPo5owesg48',
+      appId: '1:988688359058:android:09e23bc6cab1f3fc58d04b',
+      messagingSenderId: '988688359058',
+      projectId: 'hadith-flashcard',
+    ),
+    // options: DefaultFirebaseOptions.currentPlatform,
+  );
   Bloc.observer = getIt<SimpleBlocObserver>();
 
   runApp(
