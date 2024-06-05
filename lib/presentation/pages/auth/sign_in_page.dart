@@ -52,7 +52,7 @@ class SignInPageScaffold extends StatelessWidget {
               top: screenHeight() / 8,
             ),
             child: Text(
-              'Hadith Flashcard',
+              'hadithFlashcard'.tr,
               textAlign: TextAlign.center,
               style: adaptiveTextFont().copyWith(
                 fontSize: 24.0,
@@ -61,6 +61,7 @@ class SignInPageScaffold extends StatelessWidget {
               ),
             ),
           ),
+
           Padding(
             padding: EdgeInsets.only(
               top: screenHeight() / 4.4,
@@ -346,6 +347,16 @@ class SignInPageScaffold extends StatelessWidget {
                   ),
                 ),
               ],
+            ),
+          ),
+          // Choose language
+
+          const Padding(
+            padding: EdgeInsets.only(right: 20.0),
+            child: SafeArea(
+              child: ChooseLanguageSection(
+                title: '',
+              ),
             ),
           ),
         ],
