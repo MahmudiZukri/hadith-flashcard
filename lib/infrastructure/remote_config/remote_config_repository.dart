@@ -18,8 +18,6 @@ class RemoteConfigRepository implements IRemoteConfigRepository {
         key: 'enable_ads',
       );
 
-      debugPrint(remoteConfigValue.asBool().toString() + 'tesssssss');
-
       return right(
         remoteConfigValue.asBool(),
       );

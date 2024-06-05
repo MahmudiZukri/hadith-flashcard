@@ -44,7 +44,7 @@ class SignUpPageScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: colorScheme().background,
+      backgroundColor: colorScheme().surface,
       body: Stack(
         children: [
           Container(
@@ -73,7 +73,7 @@ class SignUpPageScaffold extends StatelessWidget {
                 horizontal: 6.0,
               ),
               decoration: BoxDecoration(
-                color: colorScheme().background.withOpacity(0.5),
+                color: colorScheme().surface.withOpacity(0.5),
                 borderRadius: const BorderRadius.only(
                   topRight: Radius.circular(34),
                   topLeft: Radius.circular(34),
@@ -102,7 +102,7 @@ class SignUpPageScaffold extends StatelessWidget {
                     horizontal: defaultMargin,
                   ),
                   decoration: BoxDecoration(
-                    color: colorScheme().background,
+                    color: colorScheme().surface,
                     borderRadius: const BorderRadius.only(
                       topRight: Radius.circular(24),
                       topLeft: Radius.circular(24),
@@ -152,8 +152,7 @@ class SignUpPageScaffold extends StatelessWidget {
                           CustomTextFormFieldWidget(
                             labelText: 'name'.tr,
                             hintText: 'enterYourName'.tr,
-                            fillColor:
-                                colorScheme().background.withOpacity(0.6),
+                            fillColor: colorScheme().surface.withOpacity(0.6),
                             onChanged: (val) => context.read<AuthBloc>().add(
                                   AuthEvent.nameChanged(
                                     nameStr: val,
@@ -166,8 +165,7 @@ class SignUpPageScaffold extends StatelessWidget {
                           CustomTextFormFieldWidget(
                             labelText: 'Email',
                             hintText: 'enterYourEmail'.tr,
-                            fillColor:
-                                colorScheme().background.withOpacity(0.6),
+                            fillColor: colorScheme().surface.withOpacity(0.6),
                             onChanged: (val) => context.read<AuthBloc>().add(
                                   AuthEvent.emailChanged(
                                     emailStr: val,
@@ -185,7 +183,7 @@ class SignUpPageScaffold extends StatelessWidget {
                                 labelText: 'password'.tr,
                                 hintText: 'enterYourPassword'.tr,
                                 fillColor:
-                                    colorScheme().background.withOpacity(0.2),
+                                    colorScheme().surface.withOpacity(0.2),
                                 onChanged: (val) =>
                                     context.read<AuthBloc>().add(
                                           AuthEvent.passwordChanged(

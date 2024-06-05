@@ -9,6 +9,7 @@ extension FirebaseUserExtension on User {
         email: email,
         name: name!,
         isActive: true,
+        createdAt: DateTime.now(),
         photoUrl: photoURL,
       );
 

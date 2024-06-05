@@ -107,7 +107,7 @@ class ForgotPasswordPageScaffold extends StatelessWidget {
                         CustomTextFormFieldWidget(
                           labelText: 'Email',
                           hintText: 'enterYourEmail'.tr,
-                          fillColor: colorScheme().background.withOpacity(0.2),
+                          fillColor: colorScheme().surface.withOpacity(0.2),
                           onChanged: (val) {
                             context.read<ForgotPasswordBloc>().add(
                                   ForgotPasswordEvent.emailChanged(

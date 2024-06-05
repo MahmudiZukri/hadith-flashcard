@@ -12,6 +12,7 @@ class AppUserModel with _$AppUserModel {
     required String? email,
     required String name,
     required bool isActive,
+    required DateTime? createdAt,
     required String? photoUrl,
   }) = _AppUserModel;
 
@@ -24,6 +25,7 @@ class AppUserModel with _$AppUserModel {
       email: user.email.getOrNull(),
       name: user.name.getOrCrash(),
       isActive: user.isActive,
+      createdAt: user.createdAt,
       photoUrl: user.photoUrl?.getOrNull(),
     );
   }
@@ -35,6 +37,7 @@ extension AppUserModelX on AppUserModel {
         email: email != null ? EmailAddress(email!) : EmailAddress.empty(),
         name: PersonName(name),
         isActive: isActive,
+        createdAt: createdAt,
         photoUrl: photoUrl == null
             ? null
             : UrlAddress(

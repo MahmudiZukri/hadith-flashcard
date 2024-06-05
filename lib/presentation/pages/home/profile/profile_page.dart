@@ -134,7 +134,7 @@ class ProfilePageScaffold extends StatelessWidget {
                               defaultMargin,
                             ),
                             decoration: BoxDecoration(
-                              color: colorScheme(context: context).background,
+                              color: colorScheme(context: context).surface,
                               borderRadius: const BorderRadius.only(
                                 topRight: Radius.circular(
                                   45,
@@ -735,7 +735,7 @@ class UserInfomation extends StatelessWidget {
                             AssetUrl.profileIcon,
                             height: 28,
                             colorFilter: ColorFilter.mode(
-                              colorScheme(context: context).background,
+                              colorScheme(context: context).surface,
                               BlendMode.srcIn,
                             ),
                           ),

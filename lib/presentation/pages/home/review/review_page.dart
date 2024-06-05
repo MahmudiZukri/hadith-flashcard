@@ -130,7 +130,7 @@ class ReviewedFlashcardBarColumn extends StatelessWidget {
           '${hadithFlashcardState.numofReviewedFlashcard} / ${hadithFlashcardState.flashcardToReviewTodayLength}',
           style: TextStyle(
             fontSize: 18.0,
-            color: colorScheme().background,
+            color: colorScheme().surface,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -208,7 +208,7 @@ class FlashcardToReviewIsEmptyContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomContainer(
-      color: colorScheme().background,
+      color: colorScheme().surface,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -258,7 +258,7 @@ class EmptyFlashcardContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomContainer(
-      color: colorScheme().background,
+      color: colorScheme().surface,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -335,7 +335,7 @@ class ReviewedFlashcardBar extends StatelessWidget {
                 child: Container(
                   height: 8.0,
                   decoration: BoxDecoration(
-                    color: colorScheme().background.withOpacity(
+                    color: colorScheme().surface.withOpacity(
                           0.5,
                         ),
                     borderRadius: mediumBorderRadius(),
