@@ -10,6 +10,7 @@ class UserServices {
         'email': user.email,
         'name': user.name,
         'photoUrl': user.photoUrl,
+        'createdAt': user.createdAt,
         'isActive': user.isActive,
       },
     );
@@ -24,6 +25,7 @@ class UserServices {
       email: snapshot.data()?['email'],
       name: snapshot.data()?['name'],
       photoUrl: snapshot.data()?['photoUrl'],
+      createdAt: (snapshot.data()?['createdAt'] as Timestamp).toDate(),
       isActive: snapshot.data()?['isActive'],
     );
   }
@@ -37,6 +39,7 @@ class UserServices {
         'email': user.email,
         'name': user.name,
         'photoUrl': user.photoUrl,
+        'createdAt': user.createdAt,
         'isActive': isActivated ?? user.isActive,
       },
     );

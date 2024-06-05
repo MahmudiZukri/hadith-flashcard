@@ -10,6 +10,7 @@ class AppUser with _$AppUser {
     required EmailAddress email,
     required PersonName name,
     required bool isActive,
+    required DateTime? createdAt,
     required UrlAddress? photoUrl,
   }) = _AppUser;
 }

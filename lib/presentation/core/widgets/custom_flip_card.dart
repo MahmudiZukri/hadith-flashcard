@@ -18,7 +18,7 @@ class CustomFlipCard extends StatelessWidget {
       controller: controller,
       direction: FlipDirection.HORIZONTAL,
       front: CustomContainer(
-        color: colorScheme().background,
+        color: colorScheme().surface,
         child: Stack(
           alignment: Alignment.topRight,
           children: [
@@ -240,7 +240,7 @@ class CustomFlipCard extends StatelessWidget {
                   // Question mark icon
                   Icons.question_mark_rounded,
                   size: 16.0,
-                  color: colorScheme().background,
+                  color: colorScheme().surface,
                 ),
               ),
             ),
@@ -262,7 +262,7 @@ class CustomFlipCard extends StatelessWidget {
         fadeDuration: const Duration(seconds: 3),
         padding: EdgeInsets.only(top: screenHeight() / 24),
         child: CustomContainer(
-          color: colorScheme().background,
+          color: colorScheme().surface,
           child: Center(
             child: SingleChildScrollView(
               physics: const BouncingScrollPhysics(),

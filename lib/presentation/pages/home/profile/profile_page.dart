@@ -134,7 +134,7 @@ class ProfilePageScaffold extends StatelessWidget {
                               defaultMargin,
                             ),
                             decoration: BoxDecoration(
-                              color: colorScheme(context: context).background,
+                              color: colorScheme(context: context).surface,
                               borderRadius: const BorderRadius.only(
                                 topRight: Radius.circular(
                                   45,
@@ -416,10 +416,11 @@ class DarkModeSection extends StatelessWidget {
         inactiveThumbColor: greyColor,
         inactiveTrackColor:
             Platform.isIOS ? greyColor.withOpacity(0.5) : whiteColor,
-        trackOutlineColor: MaterialStateProperty.resolveWith<Color?>(
-            (Set<MaterialState> states) {
-          return Colors.grey; // Use the default color.
-        }),
+        trackOutlineColor: WidgetStateProperty.resolveWith<Color?>(
+          (Set<WidgetState> states) {
+            return Colors.grey; // Use the default color.
+          },
+        ),
         value: value,
         onChanged: (_) {
           onChanged();
@@ -735,7 +736,7 @@ class UserInfomation extends StatelessWidget {
                             AssetUrl.profileIcon,
                             height: 28,
                             colorFilter: ColorFilter.mode(
-                              colorScheme(context: context).background,
+                              colorScheme(context: context).surface,
                               BlendMode.srcIn,
                             ),
                           ),

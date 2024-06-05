@@ -33,7 +33,7 @@ class CustomTheme {
     colorScheme: ColorScheme.light(
       primary: blackColor,
       inversePrimary: whiteColor,
-      background: whiteColor.withOpacity(0.7),
+      surface: whiteColor.withOpacity(0.7),
     ),
   );
 
@@ -45,7 +45,7 @@ class CustomTheme {
     colorScheme: ColorScheme.dark(
       primary: whiteColor,
       inversePrimary: blackColor,
-      background: blackColor.withOpacity(0.5),
+      surface: blackColor.withOpacity(0.5),
     ),
   );
 

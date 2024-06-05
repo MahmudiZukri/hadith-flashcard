@@ -41,7 +41,7 @@ class SignInPageScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: colorScheme().background,
+      backgroundColor: colorScheme().surface,
       body: Stack(
         children: [
           Container(
@@ -52,7 +52,7 @@ class SignInPageScaffold extends StatelessWidget {
               top: screenHeight() / 8,
             ),
             child: Text(
-              'Hadith Flashcard',
+              'hadithFlashcard'.tr,
               textAlign: TextAlign.center,
               style: adaptiveTextFont().copyWith(
                 fontSize: 24.0,
@@ -61,6 +61,7 @@ class SignInPageScaffold extends StatelessWidget {
               ),
             ),
           ),
+
           Padding(
             padding: EdgeInsets.only(
               top: screenHeight() / 4.4,
@@ -70,7 +71,7 @@ class SignInPageScaffold extends StatelessWidget {
                 horizontal: 6.0,
               ),
               decoration: BoxDecoration(
-                color: colorScheme().background.withOpacity(0.5),
+                color: colorScheme().surface.withOpacity(0.5),
                 borderRadius: const BorderRadius.only(
                   topRight: Radius.circular(34),
                   topLeft: Radius.circular(34),
@@ -99,7 +100,7 @@ class SignInPageScaffold extends StatelessWidget {
                     horizontal: defaultMargin,
                   ),
                   decoration: BoxDecoration(
-                    color: colorScheme().background,
+                    color: colorScheme().surface,
                     borderRadius: const BorderRadius.only(
                       topRight: Radius.circular(24),
                       topLeft: Radius.circular(24),
@@ -149,8 +150,7 @@ class SignInPageScaffold extends StatelessWidget {
                           CustomTextFormFieldWidget(
                             labelText: 'Email',
                             hintText: 'enterYourEmail'.tr,
-                            fillColor:
-                                colorScheme().background.withOpacity(0.6),
+                            fillColor: colorScheme().surface.withOpacity(0.6),
                             onChanged: (val) => context.read<AuthBloc>().add(
                                   AuthEvent.emailChanged(
                                     emailStr: val,
@@ -168,7 +168,7 @@ class SignInPageScaffold extends StatelessWidget {
                                 labelText: 'password'.tr,
                                 hintText: 'enterYourPassword'.tr,
                                 fillColor:
-                                    colorScheme().background.withOpacity(0.6),
+                                    colorScheme().surface.withOpacity(0.6),
                                 onChanged: (val) =>
                                     context.read<AuthBloc>().add(
                                           AuthEvent.passwordChanged(
@@ -347,6 +347,16 @@ class SignInPageScaffold extends StatelessWidget {
                   ),
                 ),
               ],
+            ),
+          ),
+          // Choose language
+
+          const Padding(
+            padding: EdgeInsets.only(right: 20.0),
+            child: SafeArea(
+              child: ChooseLanguageSection(
+                title: '',
+              ),
             ),
           ),
         ],

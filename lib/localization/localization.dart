@@ -4,6 +4,7 @@ class Localization extends Translations {
   @override
   Map<String, Map<String, String>> get keys => {
         "id": {
+          "hadithFlashcard": "Kartu Hafalan Hadis",
           "welcome": "Selamat datang !",
           "somethingWentWrong": "Terjadi kesalahan",
           "enterYourEmail": "Masukkan email Anda",
@@ -110,6 +111,7 @@ class Localization extends Translations {
           "tryNow": "Coba!"
         },
         "en": {
+          "hadithFlashcard": "Hadith Flashcard",
           "welcome": "Welcome !",
           "somethingWentWrong": "Something went wrong",
           "enterYourEmail": "Enter your email",

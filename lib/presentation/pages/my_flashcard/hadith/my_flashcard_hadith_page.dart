@@ -225,7 +225,7 @@ class MyFlashcardHadithPageScaffold extends StatelessWidget {
                                                             size: 16.0,
                                                             Icons.delete,
                                                             color: colorScheme()
-                                                                .background,
+                                                                .surface,
                                                           ),
                                                         ),
                                                         title: Align(

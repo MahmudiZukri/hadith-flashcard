@@ -125,7 +125,7 @@ class NarratorPage extends StatelessWidget {
                           20,
                         ),
                         decoration: BoxDecoration(
-                          color: colorScheme().background,
+                          color: colorScheme().surface,
                           borderRadius: const BorderRadius.only(
                             topRight: Radius.circular(
                               45.0,
@@ -259,8 +259,8 @@ class NarratorFilterAndSearchRow extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             CustomDropdownButtonWidget<HadithNarrator>(
-              borderColor: colorScheme().background,
-              backgroundColor: colorScheme().background,
+              borderColor: colorScheme().surface,
+              backgroundColor: colorScheme().surface,
               value: selectedNarratorName,
               hint: Text(
                 'chooseNarrator'.tr,
@@ -298,9 +298,9 @@ class NarratorFilterAndSearchRow extends StatelessWidget {
               hintText: 'hadithNumber'.tr,
               contentPadding: EdgeInsets.zero,
               borderRadius: mediumBorderRadius(),
-              iconColor: colorScheme().background,
-              borderColor: colorScheme().background,
-              backgroundColor: colorScheme().background.withOpacity(0.5),
+              iconColor: colorScheme().surface,
+              borderColor: colorScheme().surface,
+              backgroundColor: colorScheme().surface.withOpacity(0.5),
               hintColor: blackColor.withOpacity(0.5),
               onChanged: (val) {
                 context.read<HadithNarratorBloc>().add(
@@ -324,11 +324,11 @@ class NarratorFilterAndSearchRow extends StatelessWidget {
           isEnabled: isEnabled,
           isWithBorder: true,
           isLoading: isSearching,
-          backgroundColor: colorScheme().background.withOpacity(0.5),
+          backgroundColor: colorScheme().surface.withOpacity(0.5),
           disabledBackgroundColor: greyColor.withOpacity(0.5),
           textStyle: adaptiveTextFont(),
-          disabledTextColor: colorScheme().background.withOpacity(0.5),
-          disabledBorderColor: colorScheme().background.withOpacity(0.5),
+          disabledTextColor: colorScheme().surface.withOpacity(0.5),
+          disabledBorderColor: colorScheme().surface.withOpacity(0.5),
           onPressed: () {
             // Search hadith
             context.read<HadithNarratorBloc>().add(

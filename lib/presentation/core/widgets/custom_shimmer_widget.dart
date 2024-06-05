@@ -16,7 +16,7 @@ class CustomShimmerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Shimmer.fromColors(
       baseColor: blackColor,
-      highlightColor: colorScheme().background,
+      highlightColor: colorScheme().surface,
       period: const Duration(
         milliseconds: 2000,
       ),
