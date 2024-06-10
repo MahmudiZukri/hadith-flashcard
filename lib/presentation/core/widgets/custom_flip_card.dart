@@ -5,11 +5,13 @@ class CustomFlipCard extends StatelessWidget {
     required this.card,
     required this.controller,
     required this.selectedLanguage,
+    required this.showcaseState,
     super.key,
   });
   final HadithFlashcard card;
   final FlipCardController controller;
   final ELanguage selectedLanguage;
+  final ShowcaseState showcaseState;
 
   @override
   Widget build(BuildContext context) {

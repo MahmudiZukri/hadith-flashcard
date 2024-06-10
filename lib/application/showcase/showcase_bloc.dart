@@ -17,16 +17,16 @@ class ShowcaseBloc extends Bloc<ShowcaseEvent, ShowcaseState> {
     on<ShowcaseEvent>(
       (event, emit) async {
         await event.map(
-          started: (e) async {
-            debugPrint('started asemm');
-
+          start: (e) async {
             WidgetsBinding.instance.addPostFrameCallback(
               (_) async {
                 ShowCaseWidget.of(e.context).startShowCase(
                   [
-                    state.narratorGlobalKey,
-                    state.reviewGlobalKey,
-                    state.profileGlobalKey,
+                    state.welcomeGlobalKey,
+                    state.narratorNavBarGlobalKey,
+                    state.reviewNavBarGlobalKey,
+                    state.profileNavBarGlobalKey,
+                    state.enjoyGlobalKey,
                   ],
                 );
               },

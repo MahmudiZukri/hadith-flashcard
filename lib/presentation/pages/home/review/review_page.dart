@@ -21,11 +21,11 @@ class ReviewPage extends StatelessWidget {
         horizontal: defaultMargin,
       ),
       child: BlocBuilder<RemoteConfigBloc, RemoteConfigState>(
-        builder: (context, remoteConfigState) {
+        builder: (_, remoteConfigState) {
           return BlocBuilder<AdBloc, AdState>(
-            builder: (context, adState) {
+            builder: (_, adState) {
               return BlocBuilder<HadithFlashcardBloc, HadithFlashcardState>(
-                builder: (context, hadithFlashcardState) {
+                builder: (_, hadithFlashcardState) {
                   return hadithFlashcardState.optionFailureOrGetFlashcard.match(
                     () => const SizedBox(),
                     (either) => either.fold(
@@ -33,6 +33,8 @@ class ReviewPage extends StatelessWidget {
                         l.message,
                       ),
                       (flashcards) {
+                        var showcaseState = context.watch<ShowcaseBloc>().state;
+
                         final flashcardIsEmpty =
                             flashcards == <HadithFlashcard>[].lock;
                         final flashcardToReviewIsEmpty =
@@ -46,32 +48,60 @@ class ReviewPage extends StatelessWidget {
                             ReviewedFlashcardBarColumn(
                               hadithFlashcardState: hadithFlashcardState,
                             ),
-                            flashcardIsEmpty
-                                // Empty flashcard
-                                ? EmptyFlashcardContainer(
-                                    gotoNarratorPageOnPressed:
-                                        gotoNarratorPageOnPressed,
-                                  )
-                                : flashcardToReviewIsEmpty
-                                    // Flashcard to review is empty
-                                    ? FlashcardToReviewIsEmptyContainer(
-                                        hadithFlashcardState:
-                                            hadithFlashcardState,
+                            Stack(
+                              alignment: Alignment.center,
+                              children: [
+                                flashcardIsEmpty
+                                    // Empty flashcard
+                                    ? EmptyFlashcardContainer(
                                         gotoNarratorPageOnPressed:
                                             gotoNarratorPageOnPressed,
                                       )
-                                    // Flip card
-                                    : CustomFlipCard(
-                                        card: hadithFlashcardState
-                                            .getFlashcardsToReview.first,
-                                        controller: cardController,
-                                        selectedLanguage:
-                                            ELanguage.values.firstWhere(
-                                          (element) =>
-                                              element.locale ==
-                                              Get.locale.toString(),
-                                        ),
-                                      ),
+                                    : flashcardToReviewIsEmpty
+                                        // Flashcard to review is empty
+                                        ? FlashcardToReviewIsEmptyContainer(
+                                            hadithFlashcardState:
+                                                hadithFlashcardState,
+                                            gotoNarratorPageOnPressed:
+                                                gotoNarratorPageOnPressed,
+                                          )
+                                        // Flip card
+                                        : CustomFlipCard(
+                                            showcaseState: context
+                                                .watch<ShowcaseBloc>()
+                                                .state,
+                                            card: hadithFlashcardState
+                                                .getFlashcardsToReview.first,
+                                            controller: cardController,
+                                            selectedLanguage:
+                                                ELanguage.values.firstWhere(
+                                              (element) =>
+                                                  element.locale ==
+                                                  Get.locale.toString(),
+                                            ),
+                                          ),
+                                Positioned(
+                                  top: screenHeight() / 10,
+                                  child: Showcase(
+                                    key: showcaseState.welcomeGlobalKey,
+                                    showArrow: false,
+                                    description: 'welcomeText'.tr,
+                                    descriptionAlignment: TextAlign.center,
+                                    child: const SizedBox(),
+                                  ),
+                                ),
+                                Positioned(
+                                  top: screenHeight() / 10,
+                                  child: Showcase(
+                                    key: showcaseState.enjoyGlobalKey,
+                                    showArrow: false,
+                                    description: 'enjoyText'.tr,
+                                    descriptionAlignment: TextAlign.center,
+                                    child: const SizedBox(),
+                                  ),
+                                ),
+                              ],
+                            ),
 
                             // Qualities button
                             QualitiesButtonRow(

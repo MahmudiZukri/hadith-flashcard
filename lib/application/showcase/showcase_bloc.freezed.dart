@@ -19,33 +19,33 @@ mixin _$ShowcaseEvent {
   BuildContext get context => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(BuildContext context) started,
+    required TResult Function(BuildContext context) start,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(BuildContext context)? started,
+    TResult? Function(BuildContext context)? start,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(BuildContext context)? started,
+    TResult Function(BuildContext context)? start,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(_Start value) start,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(_Start value)? start,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(_Start value)? start,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -89,22 +89,22 @@ class _$ShowcaseEventCopyWithImpl<$Res, $Val extends ShowcaseEvent>
 }
 
 /// @nodoc
-abstract class _$$StartedImplCopyWith<$Res>
+abstract class _$$StartImplCopyWith<$Res>
     implements $ShowcaseEventCopyWith<$Res> {
-  factory _$$StartedImplCopyWith(
-          _$StartedImpl value, $Res Function(_$StartedImpl) then) =
-      __$$StartedImplCopyWithImpl<$Res>;
+  factory _$$StartImplCopyWith(
+          _$StartImpl value, $Res Function(_$StartImpl) then) =
+      __$$StartImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({BuildContext context});
 }
 
 /// @nodoc
-class __$$StartedImplCopyWithImpl<$Res>
-    extends _$ShowcaseEventCopyWithImpl<$Res, _$StartedImpl>
-    implements _$$StartedImplCopyWith<$Res> {
-  __$$StartedImplCopyWithImpl(
-      _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
+class __$$StartImplCopyWithImpl<$Res>
+    extends _$ShowcaseEventCopyWithImpl<$Res, _$StartImpl>
+    implements _$$StartImplCopyWith<$Res> {
+  __$$StartImplCopyWithImpl(
+      _$StartImpl _value, $Res Function(_$StartImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -112,7 +112,7 @@ class __$$StartedImplCopyWithImpl<$Res>
   $Res call({
     Object? context = null,
   }) {
-    return _then(_$StartedImpl(
+    return _then(_$StartImpl(
       context: null == context
           ? _value.context
           : context // ignore: cast_nullable_to_non_nullable
@@ -123,22 +123,22 @@ class __$$StartedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$StartedImpl implements _Started {
-  const _$StartedImpl({required this.context});
+class _$StartImpl implements _Start {
+  const _$StartImpl({required this.context});
 
   @override
   final BuildContext context;
 
   @override
   String toString() {
-    return 'ShowcaseEvent.started(context: $context)';
+    return 'ShowcaseEvent.start(context: $context)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$StartedImpl &&
+            other is _$StartImpl &&
             (identical(other.context, context) || other.context == context));
   }
 
@@ -148,33 +148,33 @@ class _$StartedImpl implements _Started {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$StartedImplCopyWith<_$StartedImpl> get copyWith =>
-      __$$StartedImplCopyWithImpl<_$StartedImpl>(this, _$identity);
+  _$$StartImplCopyWith<_$StartImpl> get copyWith =>
+      __$$StartImplCopyWithImpl<_$StartImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(BuildContext context) started,
+    required TResult Function(BuildContext context) start,
   }) {
-    return started(context);
+    return start(context);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(BuildContext context)? started,
+    TResult? Function(BuildContext context)? start,
   }) {
-    return started?.call(context);
+    return start?.call(context);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(BuildContext context)? started,
+    TResult Function(BuildContext context)? start,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started(context);
+    if (start != null) {
+      return start(context);
     }
     return orElse();
   }
@@ -182,50 +182,54 @@ class _$StartedImpl implements _Started {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(_Start value) start,
   }) {
-    return started(this);
+    return start(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(_Start value)? start,
   }) {
-    return started?.call(this);
+    return start?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(_Start value)? start,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started(this);
+    if (start != null) {
+      return start(this);
     }
     return orElse();
   }
 }
 
-abstract class _Started implements ShowcaseEvent {
-  const factory _Started({required final BuildContext context}) = _$StartedImpl;
+abstract class _Start implements ShowcaseEvent {
+  const factory _Start({required final BuildContext context}) = _$StartImpl;
 
   @override
   BuildContext get context;
   @override
   @JsonKey(ignore: true)
-  _$$StartedImplCopyWith<_$StartedImpl> get copyWith =>
+  _$$StartImplCopyWith<_$StartImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 mixin _$ShowcaseState {
-  GlobalKey<State<StatefulWidget>> get reviewGlobalKey =>
+  GlobalKey<State<StatefulWidget>> get welcomeGlobalKey =>
       throw _privateConstructorUsedError;
-  GlobalKey<State<StatefulWidget>> get narratorGlobalKey =>
+  GlobalKey<State<StatefulWidget>> get reviewNavBarGlobalKey =>
       throw _privateConstructorUsedError;
-  GlobalKey<State<StatefulWidget>> get profileGlobalKey =>
+  GlobalKey<State<StatefulWidget>> get narratorNavBarGlobalKey =>
+      throw _privateConstructorUsedError;
+  GlobalKey<State<StatefulWidget>> get profileNavBarGlobalKey =>
+      throw _privateConstructorUsedError;
+  GlobalKey<State<StatefulWidget>> get enjoyGlobalKey =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -240,9 +244,11 @@ abstract class $ShowcaseStateCopyWith<$Res> {
       _$ShowcaseStateCopyWithImpl<$Res, ShowcaseState>;
   @useResult
   $Res call(
-      {GlobalKey<State<StatefulWidget>> reviewGlobalKey,
-      GlobalKey<State<StatefulWidget>> narratorGlobalKey,
-      GlobalKey<State<StatefulWidget>> profileGlobalKey});
+      {GlobalKey<State<StatefulWidget>> welcomeGlobalKey,
+      GlobalKey<State<StatefulWidget>> reviewNavBarGlobalKey,
+      GlobalKey<State<StatefulWidget>> narratorNavBarGlobalKey,
+      GlobalKey<State<StatefulWidget>> profileNavBarGlobalKey,
+      GlobalKey<State<StatefulWidget>> enjoyGlobalKey});
 }
 
 /// @nodoc
@@ -258,22 +264,32 @@ class _$ShowcaseStateCopyWithImpl<$Res, $Val extends ShowcaseState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? reviewGlobalKey = null,
-    Object? narratorGlobalKey = null,
-    Object? profileGlobalKey = null,
+    Object? welcomeGlobalKey = null,
+    Object? reviewNavBarGlobalKey = null,
+    Object? narratorNavBarGlobalKey = null,
+    Object? profileNavBarGlobalKey = null,
+    Object? enjoyGlobalKey = null,
   }) {
     return _then(_value.copyWith(
-      reviewGlobalKey: null == reviewGlobalKey
-          ? _value.reviewGlobalKey
-          : reviewGlobalKey // ignore: cast_nullable_to_non_nullable
+      welcomeGlobalKey: null == welcomeGlobalKey
+          ? _value.welcomeGlobalKey
+          : welcomeGlobalKey // ignore: cast_nullable_to_non_nullable
               as GlobalKey<State<StatefulWidget>>,
-      narratorGlobalKey: null == narratorGlobalKey
-          ? _value.narratorGlobalKey
-          : narratorGlobalKey // ignore: cast_nullable_to_non_nullable
+      reviewNavBarGlobalKey: null == reviewNavBarGlobalKey
+          ? _value.reviewNavBarGlobalKey
+          : reviewNavBarGlobalKey // ignore: cast_nullable_to_non_nullable
               as GlobalKey<State<StatefulWidget>>,
-      profileGlobalKey: null == profileGlobalKey
-          ? _value.profileGlobalKey
-          : profileGlobalKey // ignore: cast_nullable_to_non_nullable
+      narratorNavBarGlobalKey: null == narratorNavBarGlobalKey
+          ? _value.narratorNavBarGlobalKey
+          : narratorNavBarGlobalKey // ignore: cast_nullable_to_non_nullable
+              as GlobalKey<State<StatefulWidget>>,
+      profileNavBarGlobalKey: null == profileNavBarGlobalKey
+          ? _value.profileNavBarGlobalKey
+          : profileNavBarGlobalKey // ignore: cast_nullable_to_non_nullable
+              as GlobalKey<State<StatefulWidget>>,
+      enjoyGlobalKey: null == enjoyGlobalKey
+          ? _value.enjoyGlobalKey
+          : enjoyGlobalKey // ignore: cast_nullable_to_non_nullable
               as GlobalKey<State<StatefulWidget>>,
     ) as $Val);
   }
@@ -288,9 +304,11 @@ abstract class _$$ShowcaseStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {GlobalKey<State<StatefulWidget>> reviewGlobalKey,
-      GlobalKey<State<StatefulWidget>> narratorGlobalKey,
-      GlobalKey<State<StatefulWidget>> profileGlobalKey});
+      {GlobalKey<State<StatefulWidget>> welcomeGlobalKey,
+      GlobalKey<State<StatefulWidget>> reviewNavBarGlobalKey,
+      GlobalKey<State<StatefulWidget>> narratorNavBarGlobalKey,
+      GlobalKey<State<StatefulWidget>> profileNavBarGlobalKey,
+      GlobalKey<State<StatefulWidget>> enjoyGlobalKey});
 }
 
 /// @nodoc
@@ -304,22 +322,32 @@ class __$$ShowcaseStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? reviewGlobalKey = null,
-    Object? narratorGlobalKey = null,
-    Object? profileGlobalKey = null,
+    Object? welcomeGlobalKey = null,
+    Object? reviewNavBarGlobalKey = null,
+    Object? narratorNavBarGlobalKey = null,
+    Object? profileNavBarGlobalKey = null,
+    Object? enjoyGlobalKey = null,
   }) {
     return _then(_$ShowcaseStateImpl(
-      reviewGlobalKey: null == reviewGlobalKey
-          ? _value.reviewGlobalKey
-          : reviewGlobalKey // ignore: cast_nullable_to_non_nullable
+      welcomeGlobalKey: null == welcomeGlobalKey
+          ? _value.welcomeGlobalKey
+          : welcomeGlobalKey // ignore: cast_nullable_to_non_nullable
               as GlobalKey<State<StatefulWidget>>,
-      narratorGlobalKey: null == narratorGlobalKey
-          ? _value.narratorGlobalKey
-          : narratorGlobalKey // ignore: cast_nullable_to_non_nullable
+      reviewNavBarGlobalKey: null == reviewNavBarGlobalKey
+          ? _value.reviewNavBarGlobalKey
+          : reviewNavBarGlobalKey // ignore: cast_nullable_to_non_nullable
               as GlobalKey<State<StatefulWidget>>,
-      profileGlobalKey: null == profileGlobalKey
-          ? _value.profileGlobalKey
-          : profileGlobalKey // ignore: cast_nullable_to_non_nullable
+      narratorNavBarGlobalKey: null == narratorNavBarGlobalKey
+          ? _value.narratorNavBarGlobalKey
+          : narratorNavBarGlobalKey // ignore: cast_nullable_to_non_nullable
+              as GlobalKey<State<StatefulWidget>>,
+      profileNavBarGlobalKey: null == profileNavBarGlobalKey
+          ? _value.profileNavBarGlobalKey
+          : profileNavBarGlobalKey // ignore: cast_nullable_to_non_nullable
+              as GlobalKey<State<StatefulWidget>>,
+      enjoyGlobalKey: null == enjoyGlobalKey
+          ? _value.enjoyGlobalKey
+          : enjoyGlobalKey // ignore: cast_nullable_to_non_nullable
               as GlobalKey<State<StatefulWidget>>,
     ));
   }
@@ -329,20 +357,26 @@ class __$$ShowcaseStateImplCopyWithImpl<$Res>
 
 class _$ShowcaseStateImpl implements _ShowcaseState {
   const _$ShowcaseStateImpl(
-      {required this.reviewGlobalKey,
-      required this.narratorGlobalKey,
-      required this.profileGlobalKey});
+      {required this.welcomeGlobalKey,
+      required this.reviewNavBarGlobalKey,
+      required this.narratorNavBarGlobalKey,
+      required this.profileNavBarGlobalKey,
+      required this.enjoyGlobalKey});
 
   @override
-  final GlobalKey<State<StatefulWidget>> reviewGlobalKey;
+  final GlobalKey<State<StatefulWidget>> welcomeGlobalKey;
   @override
-  final GlobalKey<State<StatefulWidget>> narratorGlobalKey;
+  final GlobalKey<State<StatefulWidget>> reviewNavBarGlobalKey;
   @override
-  final GlobalKey<State<StatefulWidget>> profileGlobalKey;
+  final GlobalKey<State<StatefulWidget>> narratorNavBarGlobalKey;
+  @override
+  final GlobalKey<State<StatefulWidget>> profileNavBarGlobalKey;
+  @override
+  final GlobalKey<State<StatefulWidget>> enjoyGlobalKey;
 
   @override
   String toString() {
-    return 'ShowcaseState(reviewGlobalKey: $reviewGlobalKey, narratorGlobalKey: $narratorGlobalKey, profileGlobalKey: $profileGlobalKey)';
+    return 'ShowcaseState(welcomeGlobalKey: $welcomeGlobalKey, reviewNavBarGlobalKey: $reviewNavBarGlobalKey, narratorNavBarGlobalKey: $narratorNavBarGlobalKey, profileNavBarGlobalKey: $profileNavBarGlobalKey, enjoyGlobalKey: $enjoyGlobalKey)';
   }
 
   @override
@@ -350,17 +384,27 @@ class _$ShowcaseStateImpl implements _ShowcaseState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ShowcaseStateImpl &&
-            (identical(other.reviewGlobalKey, reviewGlobalKey) ||
-                other.reviewGlobalKey == reviewGlobalKey) &&
-            (identical(other.narratorGlobalKey, narratorGlobalKey) ||
-                other.narratorGlobalKey == narratorGlobalKey) &&
-            (identical(other.profileGlobalKey, profileGlobalKey) ||
-                other.profileGlobalKey == profileGlobalKey));
+            (identical(other.welcomeGlobalKey, welcomeGlobalKey) ||
+                other.welcomeGlobalKey == welcomeGlobalKey) &&
+            (identical(other.reviewNavBarGlobalKey, reviewNavBarGlobalKey) ||
+                other.reviewNavBarGlobalKey == reviewNavBarGlobalKey) &&
+            (identical(
+                    other.narratorNavBarGlobalKey, narratorNavBarGlobalKey) ||
+                other.narratorNavBarGlobalKey == narratorNavBarGlobalKey) &&
+            (identical(other.profileNavBarGlobalKey, profileNavBarGlobalKey) ||
+                other.profileNavBarGlobalKey == profileNavBarGlobalKey) &&
+            (identical(other.enjoyGlobalKey, enjoyGlobalKey) ||
+                other.enjoyGlobalKey == enjoyGlobalKey));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, reviewGlobalKey, narratorGlobalKey, profileGlobalKey);
+      runtimeType,
+      welcomeGlobalKey,
+      reviewNavBarGlobalKey,
+      narratorNavBarGlobalKey,
+      profileNavBarGlobalKey,
+      enjoyGlobalKey);
 
   @JsonKey(ignore: true)
   @override
@@ -371,17 +415,23 @@ class _$ShowcaseStateImpl implements _ShowcaseState {
 
 abstract class _ShowcaseState implements ShowcaseState {
   const factory _ShowcaseState(
-          {required final GlobalKey<State<StatefulWidget>> reviewGlobalKey,
-          required final GlobalKey<State<StatefulWidget>> narratorGlobalKey,
-          required final GlobalKey<State<StatefulWidget>> profileGlobalKey}) =
-      _$ShowcaseStateImpl;
+      {required final GlobalKey<State<StatefulWidget>> welcomeGlobalKey,
+      required final GlobalKey<State<StatefulWidget>> reviewNavBarGlobalKey,
+      required final GlobalKey<State<StatefulWidget>> narratorNavBarGlobalKey,
+      required final GlobalKey<State<StatefulWidget>> profileNavBarGlobalKey,
+      required final GlobalKey<State<StatefulWidget>>
+          enjoyGlobalKey}) = _$ShowcaseStateImpl;
 
   @override
-  GlobalKey<State<StatefulWidget>> get reviewGlobalKey;
+  GlobalKey<State<StatefulWidget>> get welcomeGlobalKey;
   @override
-  GlobalKey<State<StatefulWidget>> get narratorGlobalKey;
+  GlobalKey<State<StatefulWidget>> get reviewNavBarGlobalKey;
   @override
-  GlobalKey<State<StatefulWidget>> get profileGlobalKey;
+  GlobalKey<State<StatefulWidget>> get narratorNavBarGlobalKey;
+  @override
+  GlobalKey<State<StatefulWidget>> get profileNavBarGlobalKey;
+  @override
+  GlobalKey<State<StatefulWidget>> get enjoyGlobalKey;
   @override
   @JsonKey(ignore: true)
   _$$ShowcaseStateImplCopyWith<_$ShowcaseStateImpl> get copyWith =>

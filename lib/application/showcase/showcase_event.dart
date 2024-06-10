@@ -2,7 +2,7 @@ part of 'showcase_bloc.dart';
 
 @freezed
 class ShowcaseEvent with _$ShowcaseEvent {
-  const factory ShowcaseEvent.started({
+  const factory ShowcaseEvent.start({
     required BuildContext context,
-  }) = _Started;
+  }) = _Start;
 }

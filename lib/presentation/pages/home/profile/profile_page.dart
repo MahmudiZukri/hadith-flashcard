@@ -476,9 +476,11 @@ class MyFlashcardSection extends StatelessWidget {
       title: title,
       dense: true,
       contentPadding: EdgeInsets.zero,
-      trailing: CustomNumberContainerWidget(
-        number: hadithFlashcardState.getFlashcards.length,
-      ),
+      trailing: hadithFlashcardState.getFlashcards.isEmpty
+          ? null
+          : CustomNumberContainerWidget(
+              number: hadithFlashcardState.getFlashcards.length,
+            ),
       onTap: () {
         Get.to(
           () => MyFlashcardNarratorPage(

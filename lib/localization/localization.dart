@@ -6,7 +6,19 @@ class Localization extends Translations {
         "id": {
           "hadithFlashcard": "Kartu Hafalan Hadis",
           "welcome": "Selamat datang !",
-          "somethingWentWrong": "Terjadi kesalahan",
+          "welcomeText":
+              "Selamat datang di Kartu Hafalan Hadis! Kami senang menyambut Anda bergabung dengan komunitas pembelajar kami. Aplikasi ini dirancang untuk membantu Anda memperdalam pemahaman tentang Hadis melalui kartu flash yang menarik dan interaktif. Mari kita lakukan tur singkat untuk mengenalkan Anda pada fitur-fitur utama.",
+          "addCardTitle": "Tambah Kartu",
+          "addCardText":
+              "Anda bisa menjelajahi dan menambahkan hadis yang ingin Anda hafalkan disini.",
+          "reviewTitle": "Ulas",
+          "reviewText":
+              "Anda bisa menghafalkan kartu-kartu yang telah Anda tambahkan sebelumnya disini.",
+          "profileTitle": "Profil",
+          "profileText":
+              "Anda dapat mengakses profil Anda, melihat kartu yang sudah ditambahkan, mendapatkan bantuan, dan hal lainnya.",
+          "enjoyText":
+              "Anda siap memulai petualangan belajar dengan Kartu Hafalan Hadis! Kami berharap aplikasi ini menjadi teman setia yang penuh inspirasi dan pengetahuan dalam studi Hadis Anda. Selamat belajar, semoga perjalanan Anda penuh pencerahan dan kepuasan. Mari kita mulai!",
           "enterYourEmail": "Masukkan email Anda",
           "password": "Kata sandi",
           "enterYourPassword": "Masukkan kata sandi Anda",
@@ -113,6 +125,19 @@ class Localization extends Translations {
         "en": {
           "hadithFlashcard": "Hadith Flashcard",
           "welcome": "Welcome !",
+          "welcomeText":
+              "Welcome to Hadith Flashcard! We're thrilled to have you join our community of learners. This app is designed to help you deepen your understanding of Hadith through engaging and interactive flashcards. Let's take a quick tour to introduce you to the key features.",
+          "addCardTitle": "Add Card",
+          "addCardText":
+              "Here, you can explore and add Hadiths you want to memorize.",
+          "reviewTitle": "Review",
+          "reviewText":
+              "Here, you can review the cards you've added before to help you memorize them.",
+          "profileTitle": "Profile",
+          "profileText":
+              "Here, you can access your profile, view added cards, get assistance, and more.",
+          "enjoyText":
+              "You're ready to embark on your learning adventure with Hadith Flashcard! We hope this app becomes your loyal companion, full of inspiration and knowledge in your Hadith studies. Happy learning, and may your journey be enlightening and fulfilling. Let's get started!",
           "somethingWentWrong": "Something went wrong",
           "enterYourEmail": "Enter your email",
           "password": "Password",
