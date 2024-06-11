@@ -587,11 +587,11 @@ class ChooseLanguageSection extends StatelessWidget {
                         GestureDetector(
                           behavior: HitTestBehavior.translucent,
                           onTap: () {
-                            Get.updateLocale(
-                              Locale(
-                                languages[index].locale,
-                              ),
-                            );
+                            context.read<SettingBloc>().add(
+                                  SettingEvent.updateLocale(
+                                    localeStr: languages[index].locale,
+                                  ),
+                                );
 
                             Navigator.pop(context);
                           },

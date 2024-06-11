@@ -39,11 +39,15 @@ class CustomAppBarWidget extends StatelessWidget
               color: contentColor ?? colorScheme().inversePrimary,
             ),
             const SizedBox(width: 8.0),
-            Text(
-              'back'.tr,
-              style: adaptiveTextFont().copyWith(
-                fontSize: 14.0,
-                color: contentColor ?? colorScheme().inversePrimary,
+            Flexible(
+              child: FittedBox(
+                child: Text(
+                  'back'.tr,
+                  style: adaptiveTextFont().copyWith(
+                    fontSize: 14.0,
+                    color: contentColor ?? colorScheme().inversePrimary,
+                  ),
+                ),
               ),
             )
           ],

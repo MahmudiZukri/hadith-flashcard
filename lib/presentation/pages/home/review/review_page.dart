@@ -242,35 +242,42 @@ class FlashcardToReviewIsEmptyContainer extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Lottie.asset(
-            hadithFlashcardState.isShowCongratsAnimation
-                ? AssetUrl.congratsLottie
-                : AssetUrl.emptyFlashcardLottie,
-            height: hadithFlashcardState.isShowCongratsAnimation
-                ? screenWidth() / 1.6
-                : screenWidth() / 2.4,
-          ),
-          const SizedBox(height: 40),
-          Text(
-            hadithFlashcardState.isShowCongratsAnimation
-                ? "congratsYouHaveCompletedToday'sFlashcard".tr
-                : "youDon'tHaveFlashcardsToReview".tr,
-            textAlign: TextAlign.center,
-            style: adaptiveTextFont().copyWith(
-              fontSize: 15,
+          Expanded(
+            child: Lottie.asset(
+              hadithFlashcardState.isShowCongratsAnimation
+                  ? AssetUrl.congratsLottie
+                  : AssetUrl.emptyFlashcardLottie,
+              height: hadithFlashcardState.isShowCongratsAnimation
+                  ? screenWidth() / 1.6
+                  : screenWidth() / 2.4,
             ),
           ),
-          TextButton(
-            onPressed: gotoNarratorPageOnPressed,
-            child: Text(
-              'addMoreFlashcards'.tr,
-              textAlign: TextAlign.center,
-              style: primaryTextFont.copyWith(
-                fontSize: 15,
-                decoration: TextDecoration.underline,
+          Column(
+            children: [
+              Text(
+                hadithFlashcardState.isShowCongratsAnimation
+                    ? "congratsYouHaveCompletedToday'sFlashcard".tr
+                    : "youDon'tHaveFlashcardsToReview".tr,
+                textAlign: TextAlign.center,
+                maxLines: 2,
+                style: adaptiveTextFont().copyWith(
+                  fontSize: 14,
+                ),
               ),
-            ),
-          ),
+              TextButton(
+                onPressed: gotoNarratorPageOnPressed,
+                child: Text(
+                  'addMoreFlashcards'.tr,
+                  textAlign: TextAlign.center,
+                  maxLines: 2,
+                  style: primaryTextFont.copyWith(
+                    fontSize: 14,
+                    decoration: TextDecoration.underline,
+                  ),
+                ),
+              ),
+            ],
+          )
         ],
       ),
     );

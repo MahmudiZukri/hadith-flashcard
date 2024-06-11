@@ -10,6 +10,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:focus_detector_v2/focus_detector_v2.dart';
 import 'package:get/get.dart';
 import 'package:hadith_flashcard/application/showcase/showcase_bloc.dart';
+import 'package:hadith_flashcard/domain/core/shared/storage.dart';
 import 'package:lottie/lottie.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';

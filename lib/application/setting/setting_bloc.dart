@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hadith_flashcard/domain/core/shared/shared.dart';
+import 'package:hadith_flashcard/domain/core/shared/storage.dart';
 import 'package:injectable/injectable.dart';
 
 part 'setting_event.dart';
@@ -13,13 +13,21 @@ class SettingBloc extends Bloc<SettingEvent, SettingState> {
     on<SettingEvent>(
       (event, emit) {
         event.map(
+          openAppFirstTime: (e) {
+            OpenedFirstTimeStorage().openApp();
+          },
           changeToDarkMode: (_) {
-            ThemeHelper().switchTheme();
+            ThemeStorage().switchTheme();
 
             emit(
               state.copyWith(
                 isDarkMode: !state.isDarkMode,
               ),
+            );
+          },
+          updateLocale: (e) {
+            LocalizationStorage().switchLocale(
+              localeStr: e.localeStr,
             );
           },
         );

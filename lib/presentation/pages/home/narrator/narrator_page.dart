@@ -116,7 +116,7 @@ class NarratorPage extends StatelessWidget {
 
                     // Main container
                     Expanded(
-                      flex: 8,
+                      flex: 10,
                       child: Container(
                         margin: const EdgeInsets.symmetric(
                           horizontal: 20,

@@ -19,32 +19,44 @@ mixin _$SettingEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() changeToDarkMode,
+    required TResult Function() openAppFirstTime,
+    required TResult Function(String localeStr) updateLocale,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? changeToDarkMode,
+    TResult? Function()? openAppFirstTime,
+    TResult? Function(String localeStr)? updateLocale,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? changeToDarkMode,
+    TResult Function()? openAppFirstTime,
+    TResult Function(String localeStr)? updateLocale,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_changeToDarkMode value) changeToDarkMode,
+    required TResult Function(_ChangeToDarkMode value) changeToDarkMode,
+    required TResult Function(_OpenAppFirstTime value) openAppFirstTime,
+    required TResult Function(_UpdateLocale value) updateLocale,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_changeToDarkMode value)? changeToDarkMode,
+    TResult? Function(_ChangeToDarkMode value)? changeToDarkMode,
+    TResult? Function(_OpenAppFirstTime value)? openAppFirstTime,
+    TResult? Function(_UpdateLocale value)? updateLocale,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_changeToDarkMode value)? changeToDarkMode,
+    TResult Function(_ChangeToDarkMode value)? changeToDarkMode,
+    TResult Function(_OpenAppFirstTime value)? openAppFirstTime,
+    TResult Function(_UpdateLocale value)? updateLocale,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -69,25 +81,25 @@ class _$SettingEventCopyWithImpl<$Res, $Val extends SettingEvent>
 }
 
 /// @nodoc
-abstract class _$$changeToDarkModeImplCopyWith<$Res> {
-  factory _$$changeToDarkModeImplCopyWith(_$changeToDarkModeImpl value,
-          $Res Function(_$changeToDarkModeImpl) then) =
-      __$$changeToDarkModeImplCopyWithImpl<$Res>;
+abstract class _$$ChangeToDarkModeImplCopyWith<$Res> {
+  factory _$$ChangeToDarkModeImplCopyWith(_$ChangeToDarkModeImpl value,
+          $Res Function(_$ChangeToDarkModeImpl) then) =
+      __$$ChangeToDarkModeImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$changeToDarkModeImplCopyWithImpl<$Res>
-    extends _$SettingEventCopyWithImpl<$Res, _$changeToDarkModeImpl>
-    implements _$$changeToDarkModeImplCopyWith<$Res> {
-  __$$changeToDarkModeImplCopyWithImpl(_$changeToDarkModeImpl _value,
-      $Res Function(_$changeToDarkModeImpl) _then)
+class __$$ChangeToDarkModeImplCopyWithImpl<$Res>
+    extends _$SettingEventCopyWithImpl<$Res, _$ChangeToDarkModeImpl>
+    implements _$$ChangeToDarkModeImplCopyWith<$Res> {
+  __$$ChangeToDarkModeImplCopyWithImpl(_$ChangeToDarkModeImpl _value,
+      $Res Function(_$ChangeToDarkModeImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$changeToDarkModeImpl implements _changeToDarkMode {
-  const _$changeToDarkModeImpl();
+class _$ChangeToDarkModeImpl implements _ChangeToDarkMode {
+  const _$ChangeToDarkModeImpl();
 
   @override
   String toString() {
@@ -97,7 +109,7 @@ class _$changeToDarkModeImpl implements _changeToDarkMode {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$changeToDarkModeImpl);
+        (other.runtimeType == runtimeType && other is _$ChangeToDarkModeImpl);
   }
 
   @override
@@ -107,6 +119,8 @@ class _$changeToDarkModeImpl implements _changeToDarkMode {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() changeToDarkMode,
+    required TResult Function() openAppFirstTime,
+    required TResult Function(String localeStr) updateLocale,
   }) {
     return changeToDarkMode();
   }
@@ -115,6 +129,8 @@ class _$changeToDarkModeImpl implements _changeToDarkMode {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? changeToDarkMode,
+    TResult? Function()? openAppFirstTime,
+    TResult? Function(String localeStr)? updateLocale,
   }) {
     return changeToDarkMode?.call();
   }
@@ -123,6 +139,8 @@ class _$changeToDarkModeImpl implements _changeToDarkMode {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? changeToDarkMode,
+    TResult Function()? openAppFirstTime,
+    TResult Function(String localeStr)? updateLocale,
     required TResult orElse(),
   }) {
     if (changeToDarkMode != null) {
@@ -134,7 +152,9 @@ class _$changeToDarkModeImpl implements _changeToDarkMode {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_changeToDarkMode value) changeToDarkMode,
+    required TResult Function(_ChangeToDarkMode value) changeToDarkMode,
+    required TResult Function(_OpenAppFirstTime value) openAppFirstTime,
+    required TResult Function(_UpdateLocale value) updateLocale,
   }) {
     return changeToDarkMode(this);
   }
@@ -142,7 +162,9 @@ class _$changeToDarkModeImpl implements _changeToDarkMode {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_changeToDarkMode value)? changeToDarkMode,
+    TResult? Function(_ChangeToDarkMode value)? changeToDarkMode,
+    TResult? Function(_OpenAppFirstTime value)? openAppFirstTime,
+    TResult? Function(_UpdateLocale value)? updateLocale,
   }) {
     return changeToDarkMode?.call(this);
   }
@@ -150,7 +172,9 @@ class _$changeToDarkModeImpl implements _changeToDarkMode {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_changeToDarkMode value)? changeToDarkMode,
+    TResult Function(_ChangeToDarkMode value)? changeToDarkMode,
+    TResult Function(_OpenAppFirstTime value)? openAppFirstTime,
+    TResult Function(_UpdateLocale value)? updateLocale,
     required TResult orElse(),
   }) {
     if (changeToDarkMode != null) {
@@ -160,8 +184,257 @@ class _$changeToDarkModeImpl implements _changeToDarkMode {
   }
 }
 
-abstract class _changeToDarkMode implements SettingEvent {
-  const factory _changeToDarkMode() = _$changeToDarkModeImpl;
+abstract class _ChangeToDarkMode implements SettingEvent {
+  const factory _ChangeToDarkMode() = _$ChangeToDarkModeImpl;
+}
+
+/// @nodoc
+abstract class _$$OpenAppFirstTimeImplCopyWith<$Res> {
+  factory _$$OpenAppFirstTimeImplCopyWith(_$OpenAppFirstTimeImpl value,
+          $Res Function(_$OpenAppFirstTimeImpl) then) =
+      __$$OpenAppFirstTimeImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$OpenAppFirstTimeImplCopyWithImpl<$Res>
+    extends _$SettingEventCopyWithImpl<$Res, _$OpenAppFirstTimeImpl>
+    implements _$$OpenAppFirstTimeImplCopyWith<$Res> {
+  __$$OpenAppFirstTimeImplCopyWithImpl(_$OpenAppFirstTimeImpl _value,
+      $Res Function(_$OpenAppFirstTimeImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$OpenAppFirstTimeImpl implements _OpenAppFirstTime {
+  const _$OpenAppFirstTimeImpl();
+
+  @override
+  String toString() {
+    return 'SettingEvent.openAppFirstTime()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$OpenAppFirstTimeImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() changeToDarkMode,
+    required TResult Function() openAppFirstTime,
+    required TResult Function(String localeStr) updateLocale,
+  }) {
+    return openAppFirstTime();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? changeToDarkMode,
+    TResult? Function()? openAppFirstTime,
+    TResult? Function(String localeStr)? updateLocale,
+  }) {
+    return openAppFirstTime?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? changeToDarkMode,
+    TResult Function()? openAppFirstTime,
+    TResult Function(String localeStr)? updateLocale,
+    required TResult orElse(),
+  }) {
+    if (openAppFirstTime != null) {
+      return openAppFirstTime();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ChangeToDarkMode value) changeToDarkMode,
+    required TResult Function(_OpenAppFirstTime value) openAppFirstTime,
+    required TResult Function(_UpdateLocale value) updateLocale,
+  }) {
+    return openAppFirstTime(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeToDarkMode value)? changeToDarkMode,
+    TResult? Function(_OpenAppFirstTime value)? openAppFirstTime,
+    TResult? Function(_UpdateLocale value)? updateLocale,
+  }) {
+    return openAppFirstTime?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ChangeToDarkMode value)? changeToDarkMode,
+    TResult Function(_OpenAppFirstTime value)? openAppFirstTime,
+    TResult Function(_UpdateLocale value)? updateLocale,
+    required TResult orElse(),
+  }) {
+    if (openAppFirstTime != null) {
+      return openAppFirstTime(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _OpenAppFirstTime implements SettingEvent {
+  const factory _OpenAppFirstTime() = _$OpenAppFirstTimeImpl;
+}
+
+/// @nodoc
+abstract class _$$UpdateLocaleImplCopyWith<$Res> {
+  factory _$$UpdateLocaleImplCopyWith(
+          _$UpdateLocaleImpl value, $Res Function(_$UpdateLocaleImpl) then) =
+      __$$UpdateLocaleImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String localeStr});
+}
+
+/// @nodoc
+class __$$UpdateLocaleImplCopyWithImpl<$Res>
+    extends _$SettingEventCopyWithImpl<$Res, _$UpdateLocaleImpl>
+    implements _$$UpdateLocaleImplCopyWith<$Res> {
+  __$$UpdateLocaleImplCopyWithImpl(
+      _$UpdateLocaleImpl _value, $Res Function(_$UpdateLocaleImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? localeStr = null,
+  }) {
+    return _then(_$UpdateLocaleImpl(
+      localeStr: null == localeStr
+          ? _value.localeStr
+          : localeStr // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UpdateLocaleImpl implements _UpdateLocale {
+  const _$UpdateLocaleImpl({required this.localeStr});
+
+  @override
+  final String localeStr;
+
+  @override
+  String toString() {
+    return 'SettingEvent.updateLocale(localeStr: $localeStr)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateLocaleImpl &&
+            (identical(other.localeStr, localeStr) ||
+                other.localeStr == localeStr));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, localeStr);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateLocaleImplCopyWith<_$UpdateLocaleImpl> get copyWith =>
+      __$$UpdateLocaleImplCopyWithImpl<_$UpdateLocaleImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() changeToDarkMode,
+    required TResult Function() openAppFirstTime,
+    required TResult Function(String localeStr) updateLocale,
+  }) {
+    return updateLocale(localeStr);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? changeToDarkMode,
+    TResult? Function()? openAppFirstTime,
+    TResult? Function(String localeStr)? updateLocale,
+  }) {
+    return updateLocale?.call(localeStr);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? changeToDarkMode,
+    TResult Function()? openAppFirstTime,
+    TResult Function(String localeStr)? updateLocale,
+    required TResult orElse(),
+  }) {
+    if (updateLocale != null) {
+      return updateLocale(localeStr);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ChangeToDarkMode value) changeToDarkMode,
+    required TResult Function(_OpenAppFirstTime value) openAppFirstTime,
+    required TResult Function(_UpdateLocale value) updateLocale,
+  }) {
+    return updateLocale(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeToDarkMode value)? changeToDarkMode,
+    TResult? Function(_OpenAppFirstTime value)? openAppFirstTime,
+    TResult? Function(_UpdateLocale value)? updateLocale,
+  }) {
+    return updateLocale?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ChangeToDarkMode value)? changeToDarkMode,
+    TResult Function(_OpenAppFirstTime value)? openAppFirstTime,
+    TResult Function(_UpdateLocale value)? updateLocale,
+    required TResult orElse(),
+  }) {
+    if (updateLocale != null) {
+      return updateLocale(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateLocale implements SettingEvent {
+  const factory _UpdateLocale({required final String localeStr}) =
+      _$UpdateLocaleImpl;
+
+  String get localeStr;
+  @JsonKey(ignore: true)
+  _$$UpdateLocaleImplCopyWith<_$UpdateLocaleImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

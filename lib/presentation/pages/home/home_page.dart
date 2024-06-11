@@ -102,13 +102,17 @@ class HomePageScaffold extends StatelessWidget {
                               ),
                             );
 
-                        // TODO : make condition later wheter its first time or not with shared preference
+                        if (OpenedFirstTimeStorage().isOpenedFirstTime) {
+                          context.read<ShowcaseBloc>().add(
+                                ShowcaseEvent.start(
+                                  context: context,
+                                ),
+                              );
 
-                        context.read<ShowcaseBloc>().add(
-                              ShowcaseEvent.start(
-                                context: context,
-                              ),
-                            );
+                          context.read<SettingBloc>().add(
+                                const SettingEvent.openAppFirstTime(),
+                              );
+                        }
                       },
                       child: Stack(
                         children: [
