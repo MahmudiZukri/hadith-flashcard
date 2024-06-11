@@ -19,6 +19,7 @@ class Localization extends Translations {
               "Anda dapat mengakses profil Anda, melihat kartu yang sudah ditambahkan, mendapatkan bantuan, dan hal lainnya.",
           "enjoyText":
               "Anda siap memulai petualangan belajar dengan Kartu Hafalan Hadis! Kami berharap aplikasi ini menjadi teman setia yang penuh inspirasi dan pengetahuan dalam studi Hadis Anda. Selamat belajar, semoga perjalanan Anda penuh pencerahan dan kepuasan. Mari kita mulai!",
+          "somethingWentWrong": "Terjadi masalah",
           "enterYourEmail": "Masukkan email Anda",
           "password": "Kata sandi",
           "enterYourPassword": "Masukkan kata sandi Anda",

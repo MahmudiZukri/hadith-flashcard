@@ -26,6 +26,7 @@ class AuthRepository implements IAuthRepository {
         email: email,
         password: password,
       );
+
       // Uid and email automatically passed
       AppUserModel user = credential.user!.convertToAppUser(
         name: name,

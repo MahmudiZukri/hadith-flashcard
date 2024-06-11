@@ -183,7 +183,7 @@ class SignUpPageScaffold extends StatelessWidget {
                                 labelText: 'password'.tr,
                                 hintText: 'enterYourPassword'.tr,
                                 fillColor:
-                                    colorScheme().surface.withOpacity(0.2),
+                                    colorScheme().surface.withOpacity(0.6),
                                 onChanged: (val) =>
                                     context.read<AuthBloc>().add(
                                           AuthEvent.passwordChanged(

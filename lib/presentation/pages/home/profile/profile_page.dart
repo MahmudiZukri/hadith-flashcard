@@ -689,9 +689,9 @@ class SignOut extends StatelessWidget {
                   const AuthEvent.signOut(),
                 );
 
-            Get.offAll(
-              () => const SignInPage(),
-            );
+            // Get.offAll(
+            //   () => const SignInPage(),
+            // );
           },
           child: Text(
             'signOut'.tr,
