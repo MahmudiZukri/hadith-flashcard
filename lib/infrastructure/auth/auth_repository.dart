@@ -107,9 +107,7 @@ class AuthRepository implements IAuthRepository {
         credential,
       );
 
-      // userCredential.user.photoURL
-
-      if (userCredential.user != null) {
+      if (userCredential.user != null && googleUser == null) {
         // Uid and email automatically passed
         AppUserModel user = userCredential.user!.convertToAppUser(
           name: userCredential.user?.displayName,
@@ -129,7 +127,12 @@ class AuthRepository implements IAuthRepository {
         return right(
           unit,
         );
+      } else if (googleUser != null) {
+        return right(
+          unit,
+        );
       } else if (userCredential.user == null) {
+        IAuthRepository.googleSignIn.signOut();
         return left(
           const CommonFailures.other(
             message: 'User Not Found',
@@ -137,6 +140,7 @@ class AuthRepository implements IAuthRepository {
         );
       }
 
+      IAuthRepository.googleSignIn.signOut();
       return left(
         const CommonFailures.handledByFirebase(
           message: 'Something went wrong in auth repository',
@@ -144,6 +148,8 @@ class AuthRepository implements IAuthRepository {
       );
     } on PlatformException catch (e, stackTrace) {
       debugPrint('1------- $stackTrace -------1');
+
+      IAuthRepository.googleSignIn.signOut();
       return left(
         CommonFailures.platformException(
           message: e.message.toString(),
@@ -151,6 +157,8 @@ class AuthRepository implements IAuthRepository {
       );
     } on FirebaseAuthException catch (e, stackTrace) {
       debugPrint('2------- $stackTrace -------2');
+
+      IAuthRepository.googleSignIn.signOut();
       return left(
         CommonFailures.handledByFirebase(
           message: e.message.toString(),
@@ -158,11 +166,13 @@ class AuthRepository implements IAuthRepository {
       );
     } catch (e, stackTrace) {
       debugPrint('3------- $stackTrace -------3');
-      return (left(
+
+      IAuthRepository.googleSignIn.signOut();
+      return left(
         CommonFailures.handledByFirebase(
           message: e.toString(),
         ),
-      ));
+      );
     }
   }
 
@@ -209,11 +219,11 @@ class AuthRepository implements IAuthRepository {
       );
     } catch (e, stackTrace) {
       debugPrint('3------- $stackTrace -------3');
-      return (left(
+      return left(
         CommonFailures.handledByFirebase(
           message: e.toString(),
         ),
-      ));
+      );
     }
   }
 
@@ -221,6 +231,7 @@ class AuthRepository implements IAuthRepository {
   Future<Either<CommonFailures, Unit>> signOut() async {
     try {
       await IAuthRepository.auth.signOut();
+
       return (right(
         unit,
       ));
@@ -242,9 +253,9 @@ class AuthRepository implements IAuthRepository {
       await IAuthRepository.auth.sendPasswordResetEmail(
         email: email,
       );
-      return (right(
+      return right(
         unit,
-      ));
+      );
     } on PlatformException catch (e, stackTrace) {
       debugPrint('1------- $stackTrace -------1');
       return left(

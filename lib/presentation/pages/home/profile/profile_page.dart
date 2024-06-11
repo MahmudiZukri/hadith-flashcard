@@ -685,9 +685,12 @@ class SignOut extends StatelessWidget {
         ),
         child: TextButton(
           onPressed: () {
-            context.read<AuthBloc>().add(
-                  const AuthEvent.signOut(),
-                );
+            // condition just to make sure
+            if (FirebaseAuth.instance.currentUser != null) {
+              context.read<AuthBloc>().add(
+                    const AuthEvent.signOut(),
+                  );
+            }
 
             // Get.offAll(
             //   () => const SignInPage(),
