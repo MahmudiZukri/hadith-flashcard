@@ -25,7 +25,8 @@ class UserServices {
       email: snapshot.data()?['email'],
       name: snapshot.data()?['name'],
       photoUrl: snapshot.data()?['photoUrl'],
-      createdAt: (snapshot.data()?['createdAt'] as Timestamp).toDate(),
+      // because the createdAt one is not exist in very first time so we make it nullable
+      createdAt: (snapshot.data()?['createdAt'] as Timestamp?)?.toDate(),
       isActive: snapshot.data()?['isActive'],
     );
   }

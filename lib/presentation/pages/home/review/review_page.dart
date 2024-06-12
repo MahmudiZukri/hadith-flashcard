@@ -29,8 +29,11 @@ class ReviewPage extends StatelessWidget {
                   return hadithFlashcardState.optionFailureOrGetFlashcard.match(
                     () => const SizedBox(),
                     (either) => either.fold(
-                      (l) => Text(
-                        l.message,
+                      (l) => Center(
+                        child: Text(
+                          l.message,
+                          textAlign: TextAlign.center,
+                        ),
                       ),
                       (flashcards) {
                         var showcaseState = context.watch<ShowcaseBloc>().state;

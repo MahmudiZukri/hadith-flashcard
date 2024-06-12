@@ -416,8 +416,8 @@ class DarkModeSection extends StatelessWidget {
         inactiveThumbColor: greyColor,
         inactiveTrackColor:
             Platform.isIOS ? greyColor.withOpacity(0.5) : whiteColor,
-        trackOutlineColor: WidgetStateProperty.resolveWith<Color?>(
-          (Set<WidgetState> states) {
+        trackOutlineColor: MaterialStateProperty.resolveWith<Color?>(
+          (Set<MaterialState> states) {
             return Colors.grey; // Use the default color.
           },
         ),

@@ -72,6 +72,7 @@ class HadithFlashcardBloc
             }
 
             cardModel = HadithFlashcardModel(
+              userName: e.flashcard.userName?.getOrNull(),
               hadithNarratorName: e.flashcard.hadithNarratorName.getOrCrash(),
               hadithNumber: e.flashcard.hadithNumber.getOrCrash().toInt(),
               arab: e.flashcard.arab.getOrCrash(),
@@ -80,6 +81,7 @@ class HadithFlashcardBloc
               repetition: smResponse?.interval ?? e.flashcard.interval,
               easeFactor: smResponse?.easeFactor ?? e.flashcard.easeFactor,
               reviewedDate: DateTime.now(),
+              createdAt: e.flashcard.createdAt,
             );
 
             final failureOrResponse =

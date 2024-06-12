@@ -9,6 +9,7 @@ part of 'hadith_flashcard_model.dart';
 _$HadithFlashcardModelImpl _$$HadithFlashcardModelImplFromJson(
         Map<String, dynamic> json) =>
     _$HadithFlashcardModelImpl(
+      userName: json['userName'] as String?,
       hadithNarratorName: json['hadithNarratorName'] as String,
       hadithNumber: json['hadithNumber'] as int,
       arab: json['arab'] as String,
@@ -17,11 +18,15 @@ _$HadithFlashcardModelImpl _$$HadithFlashcardModelImplFromJson(
       repetition: json['repetition'] as int,
       easeFactor: (json['easeFactor'] as num).toDouble(),
       reviewedDate: DateTime.parse(json['reviewedDate'] as String),
+      createdAt: json['createdAt'] == null
+          ? null
+          : DateTime.parse(json['createdAt'] as String),
     );
 
 Map<String, dynamic> _$$HadithFlashcardModelImplToJson(
         _$HadithFlashcardModelImpl instance) =>
     <String, dynamic>{
+      'userName': instance.userName,
       'hadithNarratorName': instance.hadithNarratorName,
       'hadithNumber': instance.hadithNumber,
       'arab': instance.arab,
@@ -30,4 +35,5 @@ Map<String, dynamic> _$$HadithFlashcardModelImplToJson(
       'repetition': instance.repetition,
       'easeFactor': instance.easeFactor,
       'reviewedDate': instance.reviewedDate.toIso8601String(),
+      'createdAt': instance.createdAt?.toIso8601String(),
     };

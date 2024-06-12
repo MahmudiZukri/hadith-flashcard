@@ -107,6 +107,7 @@ class AuthRepository implements IAuthRepository {
         credential,
       );
 
+      // If user already have an account goggleUser != null
       if (userCredential.user != null && googleUser == null) {
         // Uid and email automatically passed
         AppUserModel user = userCredential.user!.convertToAppUser(
