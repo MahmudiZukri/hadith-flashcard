@@ -753,9 +753,13 @@ class SignOut extends StatelessWidget {
                                 // Delete guest account completely when he signed out
 
                                 // Delete auth account
-                                context.read<AuthBloc>().add(
-                                      const AuthEvent.deleteAccount(),
-                                    );
+                                context.read<AuthBloc>()
+                                  ..add(
+                                    const AuthEvent.deleteAccount(),
+                                  )
+                                  ..add(
+                                    const AuthEvent.signOut(),
+                                  );
 
                                 // TODO: Delete document account and flashcard on Firestore if user is guest
                                 // maybe we should apply this later
@@ -842,23 +846,40 @@ class UserInfomation extends StatelessWidget {
                           ),
                         ),
                       ),
-                      const SizedBox(height: 3.0),
                       userState.user?.email.getOrNull() == null
-                          ? GestureDetector(
-                              onTap: () {
-                                Get.to(
-                                  () => SignUpPage(
-                                    flashcards: context
-                                        .read<HadithFlashcardBloc>()
-                                        .state
-                                        .getFlashcards,
+                          ? Expanded(
+                              child: GestureDetector(
+                                behavior: HitTestBehavior.translucent,
+                                onTap: () {
+                                  final flashcards = context
+                                      .read<HadithFlashcardBloc>()
+                                      .state
+                                      .getFlashcards;
+
+                                  if (flashcards.isEmpty) {
+                                    CommonUtils.customSnackbar(
+                                      isSuccess: false,
+                                      message: 'youCantLink'.tr,
+                                    );
+                                  } else {
+                                    Get.to(
+                                      () => SignUpPage(
+                                        flashcards: context
+                                            .read<HadithFlashcardBloc>()
+                                            .state
+                                            .getFlashcards,
+                                      ),
+                                    );
+                                  }
+                                },
+                                child: Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(
+                                    'linkYourAccount'.tr,
+                                    style: const TextStyle(
+                                      color: primaryColor,
+                                    ),
                                   ),
-                                );
-                              },
-                              child: Text(
-                                'linkYourAccount'.tr,
-                                style: const TextStyle(
-                                  color: primaryColor,
                                 ),
                               ),
                             )

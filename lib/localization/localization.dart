@@ -125,6 +125,8 @@ class Localization extends Translations {
           "maybeLater": "Lain kali",
           "tryNow": "Coba!",
           "linkYourAccount": "Hubungkan akun",
+          "youCantLink":
+              "Anda tidak bisa menghubungkan akun jika tidak memiliki flashcard.",
           "linkAccount": "Hubungkan Akun",
           "link": "Hubungkan"
         },
@@ -251,6 +253,8 @@ class Localization extends Translations {
           "maybeLater": "Maybe later",
           "tryNow": "Try later!",
           "linkYourAccount": "Link your account",
+          "youCantLink":
+              "Linking an account is not possible without any flashcards.",
           "linkAccount": "Link Account",
           "link": "Hubungkan"
         },

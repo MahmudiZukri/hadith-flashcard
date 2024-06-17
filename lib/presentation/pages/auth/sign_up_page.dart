@@ -42,10 +42,10 @@ class SignUpPage extends StatelessWidget {
                   );
             }
 
-            if (user?.uid != null) {
+            if (user != null) {
               return HomePage(
                 userID: UniqueString.fromUniqueString(
-                  user!.uid,
+                  user.uid,
                 ),
                 pageIndex: 1,
               );
