@@ -17,8 +17,9 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$AppUser {
   UniqueString get id => throw _privateConstructorUsedError;
-  EmailAddress get email => throw _privateConstructorUsedError;
-  PersonName get name => throw _privateConstructorUsedError;
+  EmailAddress get email =>
+      throw _privateConstructorUsedError; // we changed this to UnemptyString because guest name is filled with number
+  UnemptyString get name => throw _privateConstructorUsedError;
   bool get isActive => throw _privateConstructorUsedError;
   DateTime? get createdAt => throw _privateConstructorUsedError;
   UrlAddress? get photoUrl => throw _privateConstructorUsedError;
@@ -35,7 +36,7 @@ abstract class $AppUserCopyWith<$Res> {
   $Res call(
       {UniqueString id,
       EmailAddress email,
-      PersonName name,
+      UnemptyString name,
       bool isActive,
       DateTime? createdAt,
       UrlAddress? photoUrl});
@@ -73,7 +74,7 @@ class _$AppUserCopyWithImpl<$Res, $Val extends AppUser>
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as PersonName,
+              as UnemptyString,
       isActive: null == isActive
           ? _value.isActive
           : isActive // ignore: cast_nullable_to_non_nullable
@@ -100,7 +101,7 @@ abstract class _$$AppUserImplCopyWith<$Res> implements $AppUserCopyWith<$Res> {
   $Res call(
       {UniqueString id,
       EmailAddress email,
-      PersonName name,
+      UnemptyString name,
       bool isActive,
       DateTime? createdAt,
       UrlAddress? photoUrl});
@@ -136,7 +137,7 @@ class __$$AppUserImplCopyWithImpl<$Res>
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as PersonName,
+              as UnemptyString,
       isActive: null == isActive
           ? _value.isActive
           : isActive // ignore: cast_nullable_to_non_nullable
@@ -168,8 +169,9 @@ class _$AppUserImpl implements _AppUser {
   final UniqueString id;
   @override
   final EmailAddress email;
+// we changed this to UnemptyString because guest name is filled with number
   @override
-  final PersonName name;
+  final UnemptyString name;
   @override
   final bool isActive;
   @override
@@ -213,7 +215,7 @@ abstract class _AppUser implements AppUser {
   const factory _AppUser(
       {required final UniqueString id,
       required final EmailAddress email,
-      required final PersonName name,
+      required final UnemptyString name,
       required final bool isActive,
       required final DateTime? createdAt,
       required final UrlAddress? photoUrl}) = _$AppUserImpl;
@@ -222,8 +224,8 @@ abstract class _AppUser implements AppUser {
   UniqueString get id;
   @override
   EmailAddress get email;
-  @override
-  PersonName get name;
+  @override // we changed this to UnemptyString because guest name is filled with number
+  UnemptyString get name;
   @override
   bool get isActive;
   @override

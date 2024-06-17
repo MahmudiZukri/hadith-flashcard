@@ -23,11 +23,25 @@ class HadithFlashcardModel with _$HadithFlashcardModel {
 
   factory HadithFlashcardModel.fromJson(Map<String, dynamic> json) =>
       _$HadithFlashcardModelFromJson(json);
+
+  factory HadithFlashcardModel.fromDomain(HadithFlashcard user) {
+    return HadithFlashcardModel(
+      userName: user.userName?.getOrNull(),
+      hadithNarratorName: user.hadithNarratorName.getOrCrash(),
+      hadithNumber: user.hadithNumber.getOrCrash().toInt(),
+      arab: user.arab.getOrCrash(),
+      translation: user.translation.getOrCrash(),
+      interval: user.interval,
+      repetition: user.repetition,
+      easeFactor: user.easeFactor,
+      reviewedDate: user.reviewedDate,
+    );
+  }
 }
 
 extension HadithFlashcardModelX on HadithFlashcardModel {
   HadithFlashcard toDomain() => HadithFlashcard(
-        userName: userName == null ? null : PersonName(userName!),
+        userName: userName == null ? null : UnemptyString(userName!),
         hadithNarratorName: PersonName(hadithNarratorName),
         hadithNumber: PositiveNumber(hadithNumber),
         arab: UnemptyString(arab),

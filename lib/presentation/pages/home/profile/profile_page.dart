@@ -105,8 +105,8 @@ class ProfilePageScaffold extends StatelessWidget {
                     // );
                   },
                   child: Container(
-                    height: double.infinity,
-                    width: double.infinity,
+                    height: screenHeight(),
+                    width: screenWidth(),
                     padding: const EdgeInsets.symmetric(horizontal: 20.0),
                     child: Column(
                       children: [
@@ -130,8 +130,13 @@ class ProfilePageScaffold extends StatelessWidget {
                         // Main container
                         Expanded(
                           child: Container(
-                            padding: const EdgeInsets.all(
+                            padding: EdgeInsets.fromLTRB(
                               defaultMargin,
+                              defaultMargin,
+                              defaultMargin,
+                              Platform.isAndroid
+                                  ? 8 + (screenHeight() / 10)
+                                  : defaultMargin,
                             ),
                             decoration: BoxDecoration(
                               color: colorScheme(context: context).surface,
@@ -243,7 +248,7 @@ class ProfilePageScaffold extends StatelessWidget {
                                 Center(
                                   child: GestureDetector(
                                     onTap: () {
-                                      // Dialog
+                                      // Delete account dialog
                                       CommonUtils.openCustomDialog(
                                         context: Get.context!,
                                         title: Text(
@@ -309,6 +314,9 @@ class ProfilePageScaffold extends StatelessWidget {
                                                       //           .deleteAccount(),
                                                       //     );
 
+                                                      // TODO: Delete document account and flashcard on Firestore if user is guest
+                                                      // maybe we should apply this later
+
                                                       if (userState.user !=
                                                           null) {
                                                         context.read<AuthBloc>()
@@ -349,12 +357,12 @@ class ProfilePageScaffold extends StatelessWidget {
                                 ),
                                 const SizedBox(height: 20.0),
                                 // Sign out
-                                const SignOut(),
+                                SignOut(
+                                  email: userState.user?.email.getOrNull(),
+                                ),
                                 const SizedBox(height: 20.0),
                                 // Space for bottom nav bar
-                                SizedBox(
-                                  height: screenHeight() / 10,
-                                )
+                                const Spacer()
                               ],
                             ),
                           ),
@@ -668,7 +676,10 @@ class ChooseLanguageSection extends StatelessWidget {
 class SignOut extends StatelessWidget {
   const SignOut({
     super.key,
+    required this.email,
   });
+
+  final String? email;
 
   @override
   Widget build(BuildContext context) {
@@ -685,16 +696,81 @@ class SignOut extends StatelessWidget {
         ),
         child: TextButton(
           onPressed: () {
-            // condition just to make sure
             if (FirebaseAuth.instance.currentUser != null) {
-              context.read<AuthBloc>().add(
-                    const AuthEvent.signOut(),
-                  );
-            }
+              if (email != null) {
+                context.read<AuthBloc>().add(
+                      const AuthEvent.signOut(),
+                    );
 
-            // Get.offAll(
-            //   () => const SignInPage(),
-            // );
+                // User sign in as guest
+              } else if (email == null) {
+                // Hard delete account dialog
+                CommonUtils.openCustomDialog(
+                  context: Get.context!,
+                  title: Text(
+                    'areYouSureWannaDeleteGuestAccount'.tr,
+                    style: adaptiveTextFont().copyWith(
+                      fontSize: 17.0,
+                      fontWeight: FontWeight.w500,
+                      color: colorScheme().primary,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  content: Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 24.0,
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                        top: 10.0,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Expanded(
+                            child: CustomElevatedButtonWidget(
+                              text: 'no'.tr,
+                              backgroundColor: redColor,
+                              textStyle: adaptiveTextFont().copyWith(
+                                fontWeight: FontWeight.w600,
+                                color: colorScheme().inversePrimary,
+                              ),
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                            ),
+                          ),
+                          const SizedBox(width: 24.0),
+                          Expanded(
+                            child: CustomElevatedButtonWidget(
+                              text: 'yes'.tr,
+                              backgroundColor: primaryColor,
+                              textStyle: adaptiveTextFont().copyWith(
+                                fontWeight: FontWeight.w600,
+                                color: colorScheme().inversePrimary,
+                              ),
+                              onPressed: () {
+                                // Delete guest account completely when he signed out
+
+                                // Delete auth account
+                                context.read<AuthBloc>().add(
+                                      const AuthEvent.deleteAccount(),
+                                    );
+
+                                // TODO: Delete document account and flashcard on Firestore if user is guest
+                                // maybe we should apply this later
+
+                                Navigator.pop(context);
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                );
+              }
+            }
           },
           child: Text(
             'signOut'.tr,
@@ -723,52 +799,80 @@ class UserInfomation extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Row(
-            children: [
-              CircleAvatar(
-                minRadius: 32,
-                maxRadius: 32,
-                backgroundColor: greyColor.withOpacity(0.6),
-                child:
-                    userState.user != null && userState.user?.photoUrl != null
-                        ? ClipOval(
-                            child: Image.network(
-                              userState.user!.photoUrl!.getOrCrash(),
-                              fit: BoxFit.cover,
+          Expanded(
+            child: Row(
+              children: [
+                CircleAvatar(
+                  minRadius: 32,
+                  maxRadius: 32,
+                  backgroundColor: greyColor.withOpacity(0.6),
+                  child:
+                      userState.user != null && userState.user?.photoUrl != null
+                          ? ClipOval(
+                              child: Image.network(
+                                userState.user!.photoUrl!.getOrCrash(),
+                                fit: BoxFit.cover,
+                              ),
+                            )
+                          : SvgPicture.asset(
+                              AssetUrl.profileIcon,
+                              height: 28,
+                              colorFilter: ColorFilter.mode(
+                                colorScheme(context: context).surface,
+                                BlendMode.srcIn,
+                              ),
                             ),
-                          )
-                        : SvgPicture.asset(
-                            AssetUrl.profileIcon,
-                            height: 28,
-                            colorFilter: ColorFilter.mode(
-                              colorScheme(context: context).surface,
-                              BlendMode.srcIn,
-                            ),
+                ),
+                const SizedBox(width: 18.0),
+                Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Flexible(
+                        child: Text(
+                          userState.user?.name.getOrCrash() ??
+                              'youAreInGuestMode'.tr,
+                          maxLines: 3,
+                          style: adaptiveTextFont().copyWith(
+                            fontSize: userState.user?.name.getOrNull() == null
+                                ? 16
+                                : 18.0,
+                            fontWeight: FontWeight.w600,
                           ),
-              ),
-              const SizedBox(width: 18.0),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    userState.user?.name.getOrNull() ?? 'youAreInGuestMode'.tr,
-                    maxLines: 3,
-                    style: adaptiveTextFont().copyWith(
-                      fontSize: 18.0,
-                      fontWeight: FontWeight.w600,
-                    ),
+                        ),
+                      ),
+                      const SizedBox(height: 3.0),
+                      userState.user?.email.getOrNull() == null
+                          ? GestureDetector(
+                              onTap: () {
+                                Get.to(
+                                  () => SignUpPage(
+                                    flashcards: context
+                                        .read<HadithFlashcardBloc>()
+                                        .state
+                                        .getFlashcards,
+                                  ),
+                                );
+                              },
+                              child: Text(
+                                'linkYourAccount'.tr,
+                                style: const TextStyle(
+                                  color: primaryColor,
+                                ),
+                              ),
+                            )
+                          : Text(
+                              userState.user!.email.getOrCrash(),
+                              style: adaptiveTextFont(applyOpacity: true),
+                            ),
+                    ],
                   ),
-                  const SizedBox(height: 3.0),
-                  Text(
-                    userState.user?.email.getOrNull() ?? '',
-                    style: adaptiveTextFont(applyOpacity: true),
-                  ),
-                ],
-              ),
-            ],
+                ),
+              ],
+            ),
           ),
-          const SizedBox(width: 14.0),
+          // const SizedBox(width: 14.0),
           // Edit button
           // GestureDetector(
           //   onTap: () {

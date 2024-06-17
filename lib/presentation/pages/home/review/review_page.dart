@@ -318,6 +318,7 @@ class EmptyFlashcardContainer extends StatelessWidget {
             onPressed: gotoNarratorPageOnPressed,
             child: Text(
               'addYourFlashcard'.tr,
+              textAlign: TextAlign.center,
               style: primaryTextFont.copyWith(
                 fontSize: 15,
                 decoration: TextDecoration.underline,

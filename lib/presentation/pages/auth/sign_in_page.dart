@@ -19,9 +19,11 @@ class SignInPage extends StatelessWidget {
         builder: (context, snapshot) {
           final user = snapshot.data;
 
-          if (user != null) {
+          if (user != null && user.displayName != null) {
             return HomePage(
-              userID: UniqueString.fromUniqueString(user.uid),
+              userID: UniqueString.fromUniqueString(
+                user.uid,
+              ),
               pageIndex: 1,
             );
           }
@@ -281,6 +283,33 @@ class SignInPageScaffold extends StatelessWidget {
                               // const SizedBox(width: 18),
                               Expanded(
                                 child: CustomElevatedButtonWidget(
+                                  text: 'Guest',
+                                  backgroundColor: primaryColor,
+                                  icon: SvgPicture.asset(
+                                    AssetUrl.profileIcon,
+                                    colorFilter: ColorFilter.mode(
+                                      colorScheme().inversePrimary,
+                                      BlendMode.srcIn,
+                                    ),
+                                    height: 18,
+                                  ),
+                                  textStyle: adaptiveTextFont().copyWith(
+                                    fontSize: 16.0,
+                                    fontWeight: FontWeight.w600,
+                                    color: colorScheme().inversePrimary,
+                                  ),
+                                  onPressed: () {
+                                    // Guest login
+
+                                    context.read<AuthBloc>().add(
+                                          const AuthEvent.guestSignUpOrSignIn(),
+                                        );
+                                  },
+                                ),
+                              ),
+                              const SizedBox(width: 18),
+                              Expanded(
+                                child: CustomElevatedButtonWidget(
                                   text: 'Gmail',
                                   backgroundColor: googleColor,
                                   icon: SvgPicture.asset(
@@ -297,6 +326,8 @@ class SignInPageScaffold extends StatelessWidget {
                                     color: colorScheme().inversePrimary,
                                   ),
                                   onPressed: () {
+                                    // Gmail login
+
                                     context.read<AuthBloc>().add(
                                           const AuthEvent
                                               .signUpOrSignInWithGoogle(),

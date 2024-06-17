@@ -3,6 +3,8 @@ part of 'hadith_flashcard_bloc.dart';
 @freezed
 class HadithFlashcardState with _$HadithFlashcardState {
   const factory HadithFlashcardState({
+    required bool isMigrating,
+    required bool isMigrationSuccess,
     required UnemptyString? searchFlashcardText,
     required int numofReviewedFlashcard,
     required int flashcardToReviewTodayLength,
@@ -11,12 +13,16 @@ class HadithFlashcardState with _$HadithFlashcardState {
     required IList<HadithFlashcard> myHadithFlashcards,
     required Option<Either<CommonFailures, Unit>> optionFailureOrSaveFlashcard,
     required Option<Either<CommonFailures, Unit>>
+        optionFailureOrMigrateFlashcard,
+    required Option<Either<CommonFailures, Unit>>
         optionFailureOrDeleteFlashcard,
     required Option<Either<CommonFailures, IList<HadithFlashcard>>>
         optionFailureOrGetFlashcard,
   }) = _HadithFlashcardState;
 
   factory HadithFlashcardState.initial() => HadithFlashcardState(
+        isMigrating: false,
+        isMigrationSuccess: false,
         searchFlashcardText: null,
         numofReviewedFlashcard: 0,
         flashcardToReviewTodayLength: 0,
@@ -24,6 +30,7 @@ class HadithFlashcardState with _$HadithFlashcardState {
         flashcards: <HadithFlashcard>[].lock,
         myHadithFlashcards: <HadithFlashcard>[].lock,
         optionFailureOrSaveFlashcard: none(),
+        optionFailureOrMigrateFlashcard: none(),
         optionFailureOrDeleteFlashcard: none(),
         optionFailureOrGetFlashcard: none(),
       );

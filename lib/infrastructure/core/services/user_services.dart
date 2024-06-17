@@ -1,11 +1,11 @@
 part of 'services.dart';
 
 class UserServices {
-  static final CollectionReference<Map<String, dynamic>> _userCollection =
+  static final CollectionReference<Map<String, dynamic>> userCollection =
       FirebaseFirestore.instance.collection('users');
 
   static Future<void> addUser(AppUserModel user) async {
-    await _userCollection.doc(user.id).set(
+    await userCollection.doc(user.id).set(
       {
         'email': user.email,
         'name': user.name,
@@ -18,7 +18,7 @@ class UserServices {
 
   static Future<AppUserModel> getUser(String userID) async {
     DocumentSnapshot<Map<String, dynamic>> snapshot =
-        await _userCollection.doc(userID).get();
+        await userCollection.doc(userID).get();
 
     return AppUserModel(
       id: userID,
@@ -35,7 +35,7 @@ class UserServices {
     AppUserModel user, {
     bool? isActivated,
   }) async {
-    await _userCollection.doc(user.id).set(
+    await userCollection.doc(user.id).set(
       {
         'email': user.email,
         'name': user.name,
@@ -44,5 +44,9 @@ class UserServices {
         'isActive': isActivated ?? user.isActive,
       },
     );
+  }
+
+  static Future<void> deleteUser(String userID) async {
+    await userCollection.doc(userID).delete();
   }
 }

@@ -35,7 +35,7 @@ extension AppUserModelX on AppUserModel {
   AppUser toDomain() => AppUser(
         id: UniqueString.fromUniqueString(id),
         email: email != null ? EmailAddress(email!) : EmailAddress.empty(),
-        name: PersonName(name),
+        name: UnemptyString(name),
         isActive: isActive,
         createdAt: createdAt,
         photoUrl: photoUrl == null

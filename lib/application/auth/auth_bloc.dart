@@ -75,28 +75,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
               ),
             );
           },
-          signUpOrSignInWithGoogle: (e) async {
-            emit(
-              state.copyWith(
-                onLoading: true,
-                optionFailureOrSuccess: none(),
-              ),
-            );
-
-            final failureOrSuccess =
-                await _authRepository.signUpOrSignInWithGoogle();
-
-            emit(
-              state.copyWith(
-                onLoading: false,
-                showSnackbar: !state.showSnackbar,
-                optionFailureOrSuccess: optionOf(
-                  failureOrSuccess,
-                ),
-              ),
-            );
-          },
-          signUpOrSignInWithFacebook: (e) {},
           signIn: (e) async {
             Either<CommonFailures, Unit>? failureOrSuccess;
 
@@ -125,6 +103,49 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
               ),
             );
           },
+          guestSignUpOrSignIn: (e) async {
+            Either<CommonFailures, Unit>? failureOrSuccess;
+            emit(
+              state.copyWith(
+                onLoading: true,
+                optionFailureOrSuccess: none(),
+              ),
+            );
+
+            failureOrSuccess = await _authRepository.guestSignUpOrSignIn();
+
+            emit(
+              state.copyWith(
+                onLoading: false,
+                showSnackbar: !state.showSnackbar,
+                optionFailureOrSuccess: optionOf(
+                  failureOrSuccess,
+                ),
+              ),
+            );
+          },
+          signUpOrSignInWithGoogle: (e) async {
+            emit(
+              state.copyWith(
+                onLoading: true,
+                optionFailureOrSuccess: none(),
+              ),
+            );
+
+            final failureOrSuccess =
+                await _authRepository.signUpOrSignInWithGoogle();
+
+            emit(
+              state.copyWith(
+                onLoading: false,
+                showSnackbar: !state.showSnackbar,
+                optionFailureOrSuccess: optionOf(
+                  failureOrSuccess,
+                ),
+              ),
+            );
+          },
+          signUpOrSignInWithFacebook: (e) {},
           signOut: (e) async {
             Either<CommonFailures, Unit>? failureOrSuccess;
 

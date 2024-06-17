@@ -108,6 +108,49 @@ class HadithFlashcardBloc
               ),
             );
           },
+          isMigrating: (e) {
+            emit(
+              state.copyWith(
+                isMigrating: e.value,
+              ),
+            );
+          },
+          migrateFlashcards: (e) async {
+            List<bool> isSuccesses = <bool>[];
+
+            for (var element in e.flashcards) {
+              final failureOrResponse = await hadithFlashcardRepository
+                  .saveFlashcard(
+                userID: e.userID.getOrCrash(),
+                flashcard: HadithFlashcardModel.fromDomain(
+                  element,
+                ),
+              )
+                  .then(
+                (value) {
+                  isSuccesses.add(
+                    value.isRight(),
+                  );
+                },
+              );
+
+              emit(
+                state.copyWith(
+                  optionFailureOrMigrateFlashcard: optionOf(
+                    failureOrResponse,
+                  ),
+                ),
+              );
+            }
+
+            emit(
+              state.copyWith(
+                isMigrationSuccess: isSuccesses.everyIs(
+                  true,
+                ),
+              ),
+            );
+          },
           deleteFlashcard: (e) async {
             final failureOrResponse =
                 await hadithFlashcardRepository.deleteFlashcard(

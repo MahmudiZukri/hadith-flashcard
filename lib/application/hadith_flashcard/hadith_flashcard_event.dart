@@ -7,6 +7,13 @@ class HadithFlashcardEvent with _$HadithFlashcardEvent {
     required HadithFlashcard flashcard,
     int? quality,
   }) = _SaveFlashcard;
+  const factory HadithFlashcardEvent.migrateFlashcards({
+    required UniqueString userID,
+    required IList<HadithFlashcard> flashcards,
+  }) = _MigrateFlashcards;
+  const factory HadithFlashcardEvent.isMigrating({
+    required bool value,
+  }) = _IsMigrating;
   const factory HadithFlashcardEvent.deleteFlashcard({
     required UniqueString userID,
     required UnemptyString flashcardID,

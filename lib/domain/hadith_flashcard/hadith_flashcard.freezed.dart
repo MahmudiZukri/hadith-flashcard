@@ -16,8 +16,9 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$HadithFlashcard {
-// because the userName one is not exist in very first time so we make it nullable
-  PersonName? get userName => throw _privateConstructorUsedError;
+// because the userName one is not exist in very first time we make the app so we make it nullable
+// we changed this to UnemptyString because guest name is filled with number
+  UnemptyString? get userName => throw _privateConstructorUsedError;
   PersonName get hadithNarratorName => throw _privateConstructorUsedError;
   PositiveNumber get hadithNumber => throw _privateConstructorUsedError;
   UnemptyString get arab => throw _privateConstructorUsedError;
@@ -40,7 +41,7 @@ abstract class $HadithFlashcardCopyWith<$Res> {
       _$HadithFlashcardCopyWithImpl<$Res, HadithFlashcard>;
   @useResult
   $Res call(
-      {PersonName? userName,
+      {UnemptyString? userName,
       PersonName hadithNarratorName,
       PositiveNumber hadithNumber,
       UnemptyString arab,
@@ -80,7 +81,7 @@ class _$HadithFlashcardCopyWithImpl<$Res, $Val extends HadithFlashcard>
       userName: freezed == userName
           ? _value.userName
           : userName // ignore: cast_nullable_to_non_nullable
-              as PersonName?,
+              as UnemptyString?,
       hadithNarratorName: null == hadithNarratorName
           ? _value.hadithNarratorName
           : hadithNarratorName // ignore: cast_nullable_to_non_nullable
@@ -130,7 +131,7 @@ abstract class _$$HadithFlashcardImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {PersonName? userName,
+      {UnemptyString? userName,
       PersonName hadithNarratorName,
       PositiveNumber hadithNumber,
       UnemptyString arab,
@@ -168,7 +169,7 @@ class __$$HadithFlashcardImplCopyWithImpl<$Res>
       userName: freezed == userName
           ? _value.userName
           : userName // ignore: cast_nullable_to_non_nullable
-              as PersonName?,
+              as UnemptyString?,
       hadithNarratorName: null == hadithNarratorName
           ? _value.hadithNarratorName
           : hadithNarratorName // ignore: cast_nullable_to_non_nullable
@@ -224,9 +225,10 @@ class _$HadithFlashcardImpl implements _HadithFlashcard {
       required this.easeFactor,
       this.createdAt});
 
-// because the userName one is not exist in very first time so we make it nullable
+// because the userName one is not exist in very first time we make the app so we make it nullable
+// we changed this to UnemptyString because guest name is filled with number
   @override
-  final PersonName? userName;
+  final UnemptyString? userName;
   @override
   final PersonName hadithNarratorName;
   @override
@@ -301,7 +303,7 @@ class _$HadithFlashcardImpl implements _HadithFlashcard {
 
 abstract class _HadithFlashcard implements HadithFlashcard {
   const factory _HadithFlashcard(
-      {required final PersonName? userName,
+      {required final UnemptyString? userName,
       required final PersonName hadithNarratorName,
       required final PositiveNumber hadithNumber,
       required final UnemptyString arab,
@@ -312,8 +314,9 @@ abstract class _HadithFlashcard implements HadithFlashcard {
       required final double easeFactor,
       final DateTime? createdAt}) = _$HadithFlashcardImpl;
 
-  @override // because the userName one is not exist in very first time so we make it nullable
-  PersonName? get userName;
+  @override // because the userName one is not exist in very first time we make the app so we make it nullable
+// we changed this to UnemptyString because guest name is filled with number
+  UnemptyString? get userName;
   @override
   PersonName get hadithNarratorName;
   @override

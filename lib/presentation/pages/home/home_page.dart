@@ -273,8 +273,6 @@ class HomePageScaffold extends StatelessWidget {
                                     userState.user != null &&
                                         userState.user!.isActive,
                               ),
-
-                              // ),
                             ),
                           ),
                         ],
