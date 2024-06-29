@@ -15,16 +15,20 @@ class SignInPage extends StatelessWidget {
       ],
       child: StreamBuilder(
         stream: IAuthRepository.userStream,
-        initialData: FirebaseAuth.instance.currentUser,
+        initialData: IAuthRepository.auth.currentUser,
         builder: (context, snapshot) {
           final user = snapshot.data;
 
-          if (user != null && user.displayName != null) {
-            return HomePage(
-              userID: UniqueString.fromUniqueString(
-                user.uid,
-              ),
-              pageIndex: 1,
+          if (user != null) {
+            WidgetsBinding.instance.addPostFrameCallback(
+              (_) {
+                Get.to(
+                  () => HomePage(
+                    userID: UniqueString.fromUniqueString(user.uid),
+                    pageIndex: 1,
+                  ),
+                );
+              },
             );
           }
 

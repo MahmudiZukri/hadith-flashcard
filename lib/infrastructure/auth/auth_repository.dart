@@ -20,16 +20,32 @@ class AuthRepository implements IAuthRepository {
     required String email,
     required String name,
     required String password,
+    bool? isLinking,
   }) async {
     try {
-      final credential =
-          await IAuthRepository.auth.createUserWithEmailAndPassword(
-        email: email,
-        password: password,
-      );
+      // Create a new credential
+      AuthCredential credential =
+          EmailAuthProvider.credential(email: email, password: password);
+
+      final UserCredential userCredential;
+
+      if (isLinking != null && isLinking) {
+        // Link the new credential to the current instance user (guest)
+        userCredential =
+            await IAuthRepository.auth.currentUser!.linkWithCredential(
+          credential,
+        );
+      } else {
+        // Create new user credential
+        userCredential =
+            await IAuthRepository.auth.createUserWithEmailAndPassword(
+          email: email,
+          password: password,
+        );
+      }
 
       // Uid and email automatically passed
-      AppUserModel user = credential.user!.convertToAppUser(
+      AppUserModel user = userCredential.user!.convertToAppUser(
         name: name,
       );
 
@@ -45,11 +61,11 @@ class AuthRepository implements IAuthRepository {
         );
       }
 
-      if (credential.user != null) {
+      if (userCredential.user != null) {
         return right(
           unit,
         );
-      } else if (credential.user == null) {
+      } else if (userCredential.user == null) {
         return left(
           const CommonFailures.other(
             message: 'User Not Found',
@@ -190,7 +206,9 @@ class AuthRepository implements IAuthRepository {
   }
 
   @override
-  Future<Either<CommonFailures, Unit>> signUpOrSignInWithGoogle() async {
+  Future<Either<CommonFailures, Unit>> signUpOrSignInWithGoogle({
+    bool? isLinking,
+  }) async {
     try {
       // Trigger the authentication flow
       final googleUser = await IAuthRepository.googleSignIn.signIn();
@@ -205,11 +223,23 @@ class AuthRepository implements IAuthRepository {
         idToken: googleAuth?.idToken,
       );
 
-      // Once signed in, get the UserCredential
-      final UserCredential userCredential =
-          await FirebaseAuth.instance.signInWithCredential(
-        credential,
-      );
+      // Initialized the UserCredential
+      final UserCredential userCredential;
+
+      if (isLinking != null && isLinking) {
+        // Link the new credential to the current instance user (guest)
+        userCredential =
+            await IAuthRepository.auth.currentUser!.linkWithCredential(
+          credential,
+        );
+
+        debugPrint('asdasd $userCredential ');
+      } else {
+        // Get the UserCredential
+        userCredential = await IAuthRepository.auth.signInWithCredential(
+          credential,
+        );
+      }
 
       DocumentSnapshot<Map<String, dynamic>> snapshot =
           await UserServices.userCollection.doc(googleUser?.id).get();
@@ -218,7 +248,9 @@ class AuthRepository implements IAuthRepository {
       if (userCredential.user != null && !snapshot.exists) {
         // Uid and email automatically passed
         AppUserModel user = userCredential.user!.convertToAppUser(
-          name: userCredential.user?.displayName,
+          name: userCredential.user?.displayName ??
+              userCredential.additionalUserInfo?.profile!['name'],
+          photo: userCredential.additionalUserInfo?.profile?['picture'],
         );
 
         // Add to firestore
@@ -401,8 +433,10 @@ class AuthRepository implements IAuthRepository {
 
     try {
       if (currentUser != null) {
-        IAuthRepository.auth.currentUser!.delete();
-        UserServices.deleteUser(currentUser.uid);
+        currentUser.delete();
+        UserServices.deleteUser(
+          currentUser.uid,
+        );
 
         return (right(
           unit,

@@ -35,6 +35,7 @@ class HadithFlashcardModel with _$HadithFlashcardModel {
       repetition: user.repetition,
       easeFactor: user.easeFactor,
       reviewedDate: user.reviewedDate,
+      createdAt: user.createdAt,
     );
   }
 }

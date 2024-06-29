@@ -3,10 +3,7 @@ part of '../pages.dart';
 class SignUpPage extends StatelessWidget {
   const SignUpPage({
     super.key,
-    this.flashcards,
   });
-
-  final IList<HadithFlashcard>? flashcards;
 
   @override
   Widget build(BuildContext context) {
@@ -18,46 +15,27 @@ class SignUpPage extends StatelessWidget {
         BlocProvider<PasswordTextFieldBloc>(
           create: (context) => getIt<PasswordTextFieldBloc>(),
         ),
-        BlocProvider<HadithFlashcardBloc>(
-          create: (context) => getIt<HadithFlashcardBloc>(),
-        ),
       ],
       child: StreamBuilder(
         stream: IAuthRepository.userStream,
-        initialData: FirebaseAuth.instance.currentUser,
+        initialData: IAuthRepository.auth.currentUser,
         builder: (context, snapshot) {
-          final flashcardState = context.watch<HadithFlashcardBloc>().state;
-
           final user = snapshot.data;
 
-          if (user != null && user.displayName != null ||
-              flashcardState.isMigrating) {
-            if (flashcards != null && user?.uid != null) {
-              // migrate after listening migrating
-              context.read<HadithFlashcardBloc>().add(
-                    HadithFlashcardEvent.migrateFlashcards(
-                      userID: UniqueString.fromUniqueString(user!.uid),
-                      flashcards: flashcards!,
-                    ),
-                  );
-            }
-
-            if (user != null) {
-              return HomePage(
-                userID: UniqueString.fromUniqueString(
-                  user.uid,
-                ),
-                pageIndex: 1,
-              );
-            }
+          if (user != null) {
+            WidgetsBinding.instance.addPostFrameCallback(
+              (_) {
+                Get.to(
+                  () => HomePage(
+                    userID: UniqueString.fromUniqueString(user.uid),
+                    pageIndex: 1,
+                  ),
+                );
+              },
+            );
           }
 
-          return SignUpPageScaffold(
-            flashcards:
-                user != null && user.displayName == null && flashcards != null
-                    ? flashcards
-                    : null,
-          );
+          return const SignUpPageScaffold();
         },
       ),
     );
@@ -67,15 +45,10 @@ class SignUpPage extends StatelessWidget {
 class SignUpPageScaffold extends StatelessWidget {
   const SignUpPageScaffold({
     super.key,
-    this.flashcards,
   });
-
-  final IList<HadithFlashcard>? flashcards;
 
   @override
   Widget build(BuildContext context) {
-    bool wannaLinkAccount = flashcards != null;
-
     return Scaffold(
       backgroundColor: colorScheme().surface,
       body: Stack(
@@ -172,9 +145,7 @@ class SignUpPageScaffold extends StatelessWidget {
                           SizedBox(height: screenHeight() / 16),
                           keyboardSize() == 0
                               ? Text(
-                                  wannaLinkAccount
-                                      ? 'linkAccount'.tr
-                                      : 'createAnAccount'.tr,
+                                  'createAnAccount'.tr,
                                   style: adaptiveTextFont().copyWith(
                                     fontSize: 24,
                                     color:
@@ -248,9 +219,7 @@ class SignUpPageScaffold extends StatelessWidget {
                                       ? 0.5
                                       : 1,
                                   child: CustomElevatedButtonWidget(
-                                    text: wannaLinkAccount
-                                        ? 'link'.tr
-                                        : 'signUp'.tr,
+                                    text: 'signUp'.tr,
                                     isEnabled:
                                         state.email != EmailAddress('') &&
                                             state.password != Password(''),
@@ -262,23 +231,6 @@ class SignUpPageScaffold extends StatelessWidget {
                                     ),
                                     onPressed: () {
                                       // Link account with email and password
-                                      if (wannaLinkAccount) {
-                                        // Delete auth account
-                                        context.read<AuthBloc>()
-                                          ..add(
-                                            const AuthEvent.deleteAccount(),
-                                          )
-                                          ..add(
-                                            const AuthEvent.signOut(),
-                                          );
-
-                                        context.read<HadithFlashcardBloc>().add(
-                                              const HadithFlashcardEvent
-                                                  .isMigrating(
-                                                value: true,
-                                              ),
-                                            );
-                                      }
 
                                       // Sign up
                                       context.read<AuthBloc>().add(
@@ -337,38 +289,36 @@ class SignUpPageScaffold extends StatelessWidget {
                               // ),
                               // const SizedBox(width: 18),
 
-                              if (wannaLinkAccount == false)
-                                Expanded(
-                                  child: CustomElevatedButtonWidget(
-                                    text: 'Guest',
-                                    backgroundColor: primaryColor,
-                                    icon: SvgPicture.asset(
-                                      AssetUrl.profileIcon,
-                                      colorFilter: ColorFilter.mode(
-                                        colorScheme().inversePrimary,
-                                        BlendMode.srcIn,
-                                      ),
-                                      height: 18,
+                              Expanded(
+                                child: CustomElevatedButtonWidget(
+                                  text: 'Guest',
+                                  backgroundColor: primaryColor,
+                                  icon: SvgPicture.asset(
+                                    AssetUrl.profileIcon,
+                                    colorFilter: ColorFilter.mode(
+                                      colorScheme().inversePrimary,
+                                      BlendMode.srcIn,
                                     ),
-                                    textStyle: adaptiveTextFont().copyWith(
-                                      fontSize: 16.0,
-                                      fontWeight: FontWeight.w600,
-                                      color: colorScheme().inversePrimary,
-                                    ),
-                                    onPressed: () {
-                                      // Guest login
-
-                                      context.read<AuthBloc>().add(
-                                            const AuthEvent
-                                                .guestSignUpOrSignIn(),
-                                          );
-                                    },
+                                    height: 18,
                                   ),
+                                  textStyle: adaptiveTextFont().copyWith(
+                                    fontSize: 16.0,
+                                    fontWeight: FontWeight.w600,
+                                    color: colorScheme().inversePrimary,
+                                  ),
+                                  onPressed: () {
+                                    // Guest login
+
+                                    context.read<AuthBloc>().add(
+                                          const AuthEvent.guestSignUpOrSignIn(),
+                                        );
+                                  },
                                 ),
-                              if (wannaLinkAccount == false)
-                                const SizedBox(
-                                  width: 18,
-                                ),
+                              ),
+
+                              const SizedBox(
+                                width: 18,
+                              ),
 
                               Expanded(
                                 child: CustomElevatedButtonWidget(
@@ -388,25 +338,6 @@ class SignUpPageScaffold extends StatelessWidget {
                                     color: colorScheme().inversePrimary,
                                   ),
                                   onPressed: () {
-                                    // Link account with google
-                                    if (wannaLinkAccount) {
-                                      // Delete auth account
-                                      context.read<AuthBloc>()
-                                        ..add(
-                                          const AuthEvent.deleteAccount(),
-                                        )
-                                        ..add(
-                                          const AuthEvent.signOut(),
-                                        );
-
-                                      context.read<HadithFlashcardBloc>().add(
-                                            const HadithFlashcardEvent
-                                                .isMigrating(
-                                              value: true,
-                                            ),
-                                          );
-                                    }
-
                                     // Sign up
                                     context.read<AuthBloc>().add(
                                           const AuthEvent
@@ -417,38 +348,37 @@ class SignUpPageScaffold extends StatelessWidget {
                               ),
                             ],
                           ),
-                          if (wannaLinkAccount == false)
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  'alreadyHaveAnAccount'.tr,
-                                  style: secondaryTextFont.copyWith(
-                                    fontSize: 12.0,
-                                  ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'alreadyHaveAnAccount'.tr,
+                                style: secondaryTextFont.copyWith(
+                                  fontSize: 12.0,
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 4,
-                                    vertical: 10,
-                                  ),
-                                  child: GestureDetector(
-                                    onTap: () {
-                                      Get.to(
-                                        () => const SignInPage(),
-                                      );
-                                    },
-                                    child: Text(
-                                      'signIn'.tr,
-                                      style: primaryTextFont.copyWith(
-                                        fontSize: 12.0,
-                                        decoration: TextDecoration.underline,
-                                      ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 4,
+                                  vertical: 10,
+                                ),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Get.to(
+                                      () => const SignInPage(),
+                                    );
+                                  },
+                                  child: Text(
+                                    'signIn'.tr,
+                                    style: primaryTextFont.copyWith(
+                                      fontSize: 12.0,
+                                      decoration: TextDecoration.underline,
                                     ),
                                   ),
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
+                          ),
                           AnimatedContainer(
                             duration: defaultDuration(),
                             height: keyboardSize() == 0 ? 40 : 10,
@@ -461,35 +391,6 @@ class SignUpPageScaffold extends StatelessWidget {
               ],
             ),
           ),
-          if (wannaLinkAccount)
-            SafeArea(
-              child: GestureDetector(
-                onTap: () {
-                  Get.back();
-                },
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 10.0),
-                  child: Row(
-                    children: [
-                      const SizedBox(width: defaultMargin),
-                      Icon(
-                        MdiIcons.arrowLeft,
-                        size: 26.0,
-                        color: colorScheme().inversePrimary,
-                      ),
-                      const SizedBox(width: 6.0),
-                      Text(
-                        'back'.tr,
-                        style: adaptiveTextFont().copyWith(
-                          fontSize: 14.0,
-                          color: colorScheme().inversePrimary,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
         ],
       ),
     );

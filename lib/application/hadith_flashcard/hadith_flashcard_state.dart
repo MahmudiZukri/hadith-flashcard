@@ -11,6 +11,7 @@ class HadithFlashcardState with _$HadithFlashcardState {
     required bool isShowResetFlashcardClarification,
     required IList<HadithFlashcard> flashcards,
     required IList<HadithFlashcard> myHadithFlashcards,
+    required IList<HadithFlashcard> flashcardsToMigrate,
     required Option<Either<CommonFailures, Unit>> optionFailureOrSaveFlashcard,
     required Option<Either<CommonFailures, Unit>>
         optionFailureOrMigrateFlashcard,
@@ -29,6 +30,7 @@ class HadithFlashcardState with _$HadithFlashcardState {
         isShowResetFlashcardClarification: false,
         flashcards: <HadithFlashcard>[].lock,
         myHadithFlashcards: <HadithFlashcard>[].lock,
+        flashcardsToMigrate: <HadithFlashcard>[].lock,
         optionFailureOrSaveFlashcard: none(),
         optionFailureOrMigrateFlashcard: none(),
         optionFailureOrDeleteFlashcard: none(),

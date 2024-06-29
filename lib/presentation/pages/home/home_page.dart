@@ -22,6 +22,9 @@ class HomePage extends StatelessWidget {
               ),
             ),
         ),
+        BlocProvider<HadithFlashcardBloc>(
+          create: (context) => getIt<HadithFlashcardBloc>(),
+        ),
         BlocProvider<PageViewBloc>(
           create: (context) => getIt<PageViewBloc>()
             ..add(
@@ -34,14 +37,6 @@ class HomePage extends StatelessWidget {
           create: (context) => getIt<HadithNarratorBloc>()
             ..add(
               const HadithNarratorEvent.getHadithNarrators(),
-            ),
-        ),
-        BlocProvider<HadithFlashcardBloc>(
-          create: (context) => getIt<HadithFlashcardBloc>()
-            ..add(
-              HadithFlashcardEvent.getFlashcard(
-                userID: userID,
-              ),
             ),
         ),
         BlocProvider<AdBloc>(

@@ -12,7 +12,7 @@ class MyFlashcardHadithPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
+    return BlocProvider<HadithFlashcardBloc>(
       create: (context) => getIt<HadithFlashcardBloc>()
         ..add(
           HadithFlashcardEvent.addToMyFlashcard(

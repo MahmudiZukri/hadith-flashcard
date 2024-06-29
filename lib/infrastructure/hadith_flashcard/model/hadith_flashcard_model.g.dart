@@ -11,11 +11,11 @@ _$HadithFlashcardModelImpl _$$HadithFlashcardModelImplFromJson(
     _$HadithFlashcardModelImpl(
       userName: json['userName'] as String?,
       hadithNarratorName: json['hadithNarratorName'] as String,
-      hadithNumber: json['hadithNumber'] as int,
+      hadithNumber: (json['hadithNumber'] as num).toInt(),
       arab: json['arab'] as String,
       translation: json['translation'] as String,
-      interval: json['interval'] as int,
-      repetition: json['repetition'] as int,
+      interval: (json['interval'] as num).toInt(),
+      repetition: (json['repetition'] as num).toInt(),
       easeFactor: (json['easeFactor'] as num).toDouble(),
       reviewedDate: DateTime.parse(json['reviewedDate'] as String),
       createdAt: json['createdAt'] == null

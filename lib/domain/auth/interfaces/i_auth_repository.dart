@@ -13,15 +13,17 @@ abstract class IAuthRepository {
     required String email,
     required String name,
     required String password,
+    required bool isLinking,
   });
   Future<Either<CommonFailures, Unit>> signIn({
     required String email,
     required String password,
   });
   Future<Either<CommonFailures, Unit>> guestSignUpOrSignIn();
-  Future<Either<CommonFailures, Unit>> signUpOrSignInWithGoogle();
+  Future<Either<CommonFailures, Unit>> signUpOrSignInWithGoogle({
+    required bool isLinking,
+  });
   Future<Either<CommonFailures, AppUser>> signUpOrSignInWithFacebook();
-
   Future<Either<CommonFailures, Unit>> signOut();
   Future<Either<CommonFailures, Unit>> resetPassword({
     required String email,

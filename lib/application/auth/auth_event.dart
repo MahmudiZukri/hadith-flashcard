@@ -2,11 +2,14 @@ part of 'auth_bloc.dart';
 
 @freezed
 class AuthEvent with _$AuthEvent {
-  const factory AuthEvent.signUp() = _SignUp;
+  const factory AuthEvent.signUp({
+    bool? isLinking,
+  }) = _SignUp;
   const factory AuthEvent.signIn() = _SignIn;
   const factory AuthEvent.guestSignUpOrSignIn() = _GuestSignUpOrSignIn;
-  const factory AuthEvent.signUpOrSignInWithGoogle() =
-      _SignUpOrSignInWithGoogle;
+  const factory AuthEvent.signUpOrSignInWithGoogle({
+    bool? isLinking,
+  }) = _SignUpOrSignInWithGoogle;
   const factory AuthEvent.signUpOrSignInWithFacebook() =
       _SignUpOrSignInWithFacebook;
   const factory AuthEvent.signOut() = _SignOut;

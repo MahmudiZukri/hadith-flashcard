@@ -39,7 +39,9 @@ class MyFlashcardNarratorPageScaffold extends StatelessWidget {
         return Scaffold(
           appBar: CustomAppBarWidget(
             title: 'MyFlashcard'.tr,
-            desc: '${hadithFlashcardState.getFlashcards.length} ${'hadith'.tr}',
+            desc: hadithFlashcardState.getFlashcards.isEmpty
+                ? null
+                : '${hadithFlashcardState.getFlashcards.length} ${'hadith'.tr}',
             actions: [
               GestureDetector(
                 onTap: () {

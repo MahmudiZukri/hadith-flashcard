@@ -28,6 +28,13 @@ class HadithFlashcardBloc
     on<HadithFlashcardEvent>(
       (event, emit) async {
         await event.map(
+          saveMigrateFlashcards: (e) {
+            emit(
+              state.copyWith(
+                flashcardsToMigrate: e.flashcards,
+              ),
+            );
+          },
           resetFlashcardSnackBar: (_) {
             emit(
               state.copyWith(
@@ -118,38 +125,40 @@ class HadithFlashcardBloc
           migrateFlashcards: (e) async {
             List<bool> isSuccesses = <bool>[];
 
-            for (var element in e.flashcards) {
-              final failureOrResponse = await hadithFlashcardRepository
-                  .saveFlashcard(
-                userID: e.userID.getOrCrash(),
-                flashcard: HadithFlashcardModel.fromDomain(
-                  element,
-                ),
-              )
-                  .then(
-                (value) {
-                  isSuccesses.add(
-                    value.isRight(),
-                  );
-                },
-              );
+            if (e.flashcards != null) {
+              for (var element in e.flashcards!) {
+                final failureOrResponse = await hadithFlashcardRepository
+                    .saveFlashcard(
+                  userID: e.userID.getOrCrash(),
+                  flashcard: HadithFlashcardModel.fromDomain(
+                    element,
+                  ),
+                )
+                    .then(
+                  (value) {
+                    isSuccesses.add(
+                      value.isRight(),
+                    );
+                  },
+                );
+
+                emit(
+                  state.copyWith(
+                    optionFailureOrMigrateFlashcard: optionOf(
+                      failureOrResponse,
+                    ),
+                  ),
+                );
+              }
 
               emit(
                 state.copyWith(
-                  optionFailureOrMigrateFlashcard: optionOf(
-                    failureOrResponse,
+                  isMigrationSuccess: isSuccesses.everyIs(
+                    true,
                   ),
                 ),
               );
             }
-
-            emit(
-              state.copyWith(
-                isMigrationSuccess: isSuccesses.everyIs(
-                  true,
-                ),
-              ),
-            );
           },
           deleteFlashcard: (e) async {
             final failureOrResponse =

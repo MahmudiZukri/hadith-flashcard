@@ -24,6 +24,9 @@ class HadithPage extends StatelessWidget {
               ),
             ),
         ),
+        BlocProvider<HadithFlashcardBloc>(
+          create: (context) => getIt<HadithFlashcardBloc>(),
+        ),
         BlocProvider<HadithNarratorBloc>(
           create: (context) => getIt<HadithNarratorBloc>()
             ..add(
@@ -31,14 +34,6 @@ class HadithPage extends StatelessWidget {
                 narratorName: hadithNarrator.slug,
                 hadithNumber: hadithNumber,
                 limit: hadithNumber != null ? PositiveNumber(1) : null,
-              ),
-            ),
-        ),
-        BlocProvider<HadithFlashcardBloc>(
-          create: (context) => getIt<HadithFlashcardBloc>()
-            ..add(
-              HadithFlashcardEvent.getFlashcard(
-                userID: userID,
               ),
             ),
         ),

@@ -61,6 +61,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
                 name: state.name.getOrCrash(),
                 email: state.email.getOrCrash(),
                 password: state.password.getOrCrash(),
+                isLinking: e.isLinking != null && e.isLinking!,
               );
             }
 
@@ -133,7 +134,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             );
 
             final failureOrSuccess =
-                await _authRepository.signUpOrSignInWithGoogle();
+                await _authRepository.signUpOrSignInWithGoogle(
+              isLinking: e.isLinking != null && e.isLinking!,
+            );
 
             emit(
               state.copyWith(

@@ -9,8 +9,11 @@ class HadithFlashcardEvent with _$HadithFlashcardEvent {
   }) = _SaveFlashcard;
   const factory HadithFlashcardEvent.migrateFlashcards({
     required UniqueString userID,
-    required IList<HadithFlashcard> flashcards,
+    required IList<HadithFlashcard>? flashcards,
   }) = _MigrateFlashcards;
+  const factory HadithFlashcardEvent.saveMigrateFlashcards({
+    required IList<HadithFlashcard> flashcards,
+  }) = _SaveMigrateFlashcards;
   const factory HadithFlashcardEvent.isMigrating({
     required bool value,
   }) = _IsMigrating;

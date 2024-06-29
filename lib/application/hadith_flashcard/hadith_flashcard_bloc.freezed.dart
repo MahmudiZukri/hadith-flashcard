@@ -22,8 +22,10 @@ mixin _$HadithFlashcardEvent {
             UniqueString userID, HadithFlashcard flashcard, int? quality)
         saveFlashcard,
     required TResult Function(
-            UniqueString userID, IList<HadithFlashcard> flashcards)
+            UniqueString userID, IList<HadithFlashcard>? flashcards)
         migrateFlashcards,
+    required TResult Function(IList<HadithFlashcard> flashcards)
+        saveMigrateFlashcards,
     required TResult Function(bool value) isMigrating,
     required TResult Function(UniqueString userID, UnemptyString flashcardID)
         deleteFlashcard,
@@ -41,8 +43,9 @@ mixin _$HadithFlashcardEvent {
     TResult? Function(
             UniqueString userID, HadithFlashcard flashcard, int? quality)?
         saveFlashcard,
-    TResult? Function(UniqueString userID, IList<HadithFlashcard> flashcards)?
+    TResult? Function(UniqueString userID, IList<HadithFlashcard>? flashcards)?
         migrateFlashcards,
+    TResult? Function(IList<HadithFlashcard> flashcards)? saveMigrateFlashcards,
     TResult? Function(bool value)? isMigrating,
     TResult? Function(UniqueString userID, UnemptyString flashcardID)?
         deleteFlashcard,
@@ -58,8 +61,9 @@ mixin _$HadithFlashcardEvent {
     TResult Function(
             UniqueString userID, HadithFlashcard flashcard, int? quality)?
         saveFlashcard,
-    TResult Function(UniqueString userID, IList<HadithFlashcard> flashcards)?
+    TResult Function(UniqueString userID, IList<HadithFlashcard>? flashcards)?
         migrateFlashcards,
+    TResult Function(IList<HadithFlashcard> flashcards)? saveMigrateFlashcards,
     TResult Function(bool value)? isMigrating,
     TResult Function(UniqueString userID, UnemptyString flashcardID)?
         deleteFlashcard,
@@ -75,6 +79,8 @@ mixin _$HadithFlashcardEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_SaveFlashcard value) saveFlashcard,
     required TResult Function(_MigrateFlashcards value) migrateFlashcards,
+    required TResult Function(_SaveMigrateFlashcards value)
+        saveMigrateFlashcards,
     required TResult Function(_IsMigrating value) isMigrating,
     required TResult Function(_DeleteFlashcard value) deleteFlashcard,
     required TResult Function(_GetFlashcard value) getFlashcard,
@@ -91,6 +97,7 @@ mixin _$HadithFlashcardEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SaveFlashcard value)? saveFlashcard,
     TResult? Function(_MigrateFlashcards value)? migrateFlashcards,
+    TResult? Function(_SaveMigrateFlashcards value)? saveMigrateFlashcards,
     TResult? Function(_IsMigrating value)? isMigrating,
     TResult? Function(_DeleteFlashcard value)? deleteFlashcard,
     TResult? Function(_GetFlashcard value)? getFlashcard,
@@ -105,6 +112,7 @@ mixin _$HadithFlashcardEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SaveFlashcard value)? saveFlashcard,
     TResult Function(_MigrateFlashcards value)? migrateFlashcards,
+    TResult Function(_SaveMigrateFlashcards value)? saveMigrateFlashcards,
     TResult Function(_IsMigrating value)? isMigrating,
     TResult Function(_DeleteFlashcard value)? deleteFlashcard,
     TResult Function(_GetFlashcard value)? getFlashcard,
@@ -233,8 +241,10 @@ class _$SaveFlashcardImpl implements _SaveFlashcard {
             UniqueString userID, HadithFlashcard flashcard, int? quality)
         saveFlashcard,
     required TResult Function(
-            UniqueString userID, IList<HadithFlashcard> flashcards)
+            UniqueString userID, IList<HadithFlashcard>? flashcards)
         migrateFlashcards,
+    required TResult Function(IList<HadithFlashcard> flashcards)
+        saveMigrateFlashcards,
     required TResult Function(bool value) isMigrating,
     required TResult Function(UniqueString userID, UnemptyString flashcardID)
         deleteFlashcard,
@@ -255,8 +265,9 @@ class _$SaveFlashcardImpl implements _SaveFlashcard {
     TResult? Function(
             UniqueString userID, HadithFlashcard flashcard, int? quality)?
         saveFlashcard,
-    TResult? Function(UniqueString userID, IList<HadithFlashcard> flashcards)?
+    TResult? Function(UniqueString userID, IList<HadithFlashcard>? flashcards)?
         migrateFlashcards,
+    TResult? Function(IList<HadithFlashcard> flashcards)? saveMigrateFlashcards,
     TResult? Function(bool value)? isMigrating,
     TResult? Function(UniqueString userID, UnemptyString flashcardID)?
         deleteFlashcard,
@@ -275,8 +286,9 @@ class _$SaveFlashcardImpl implements _SaveFlashcard {
     TResult Function(
             UniqueString userID, HadithFlashcard flashcard, int? quality)?
         saveFlashcard,
-    TResult Function(UniqueString userID, IList<HadithFlashcard> flashcards)?
+    TResult Function(UniqueString userID, IList<HadithFlashcard>? flashcards)?
         migrateFlashcards,
+    TResult Function(IList<HadithFlashcard> flashcards)? saveMigrateFlashcards,
     TResult Function(bool value)? isMigrating,
     TResult Function(UniqueString userID, UnemptyString flashcardID)?
         deleteFlashcard,
@@ -298,6 +310,8 @@ class _$SaveFlashcardImpl implements _SaveFlashcard {
   TResult map<TResult extends Object?>({
     required TResult Function(_SaveFlashcard value) saveFlashcard,
     required TResult Function(_MigrateFlashcards value) migrateFlashcards,
+    required TResult Function(_SaveMigrateFlashcards value)
+        saveMigrateFlashcards,
     required TResult Function(_IsMigrating value) isMigrating,
     required TResult Function(_DeleteFlashcard value) deleteFlashcard,
     required TResult Function(_GetFlashcard value) getFlashcard,
@@ -317,6 +331,7 @@ class _$SaveFlashcardImpl implements _SaveFlashcard {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SaveFlashcard value)? saveFlashcard,
     TResult? Function(_MigrateFlashcards value)? migrateFlashcards,
+    TResult? Function(_SaveMigrateFlashcards value)? saveMigrateFlashcards,
     TResult? Function(_IsMigrating value)? isMigrating,
     TResult? Function(_DeleteFlashcard value)? deleteFlashcard,
     TResult? Function(_GetFlashcard value)? getFlashcard,
@@ -334,6 +349,7 @@ class _$SaveFlashcardImpl implements _SaveFlashcard {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SaveFlashcard value)? saveFlashcard,
     TResult Function(_MigrateFlashcards value)? migrateFlashcards,
+    TResult Function(_SaveMigrateFlashcards value)? saveMigrateFlashcards,
     TResult Function(_IsMigrating value)? isMigrating,
     TResult Function(_DeleteFlashcard value)? deleteFlashcard,
     TResult Function(_GetFlashcard value)? getFlashcard,
@@ -371,7 +387,7 @@ abstract class _$$MigrateFlashcardsImplCopyWith<$Res> {
           $Res Function(_$MigrateFlashcardsImpl) then) =
       __$$MigrateFlashcardsImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({UniqueString userID, IList<HadithFlashcard> flashcards});
+  $Res call({UniqueString userID, IList<HadithFlashcard>? flashcards});
 }
 
 /// @nodoc
@@ -386,17 +402,17 @@ class __$$MigrateFlashcardsImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? userID = null,
-    Object? flashcards = null,
+    Object? flashcards = freezed,
   }) {
     return _then(_$MigrateFlashcardsImpl(
       userID: null == userID
           ? _value.userID
           : userID // ignore: cast_nullable_to_non_nullable
               as UniqueString,
-      flashcards: null == flashcards
+      flashcards: freezed == flashcards
           ? _value.flashcards
           : flashcards // ignore: cast_nullable_to_non_nullable
-              as IList<HadithFlashcard>,
+              as IList<HadithFlashcard>?,
     ));
   }
 }
@@ -410,7 +426,7 @@ class _$MigrateFlashcardsImpl implements _MigrateFlashcards {
   @override
   final UniqueString userID;
   @override
-  final IList<HadithFlashcard> flashcards;
+  final IList<HadithFlashcard>? flashcards;
 
   @override
   String toString() {
@@ -445,8 +461,10 @@ class _$MigrateFlashcardsImpl implements _MigrateFlashcards {
             UniqueString userID, HadithFlashcard flashcard, int? quality)
         saveFlashcard,
     required TResult Function(
-            UniqueString userID, IList<HadithFlashcard> flashcards)
+            UniqueString userID, IList<HadithFlashcard>? flashcards)
         migrateFlashcards,
+    required TResult Function(IList<HadithFlashcard> flashcards)
+        saveMigrateFlashcards,
     required TResult Function(bool value) isMigrating,
     required TResult Function(UniqueString userID, UnemptyString flashcardID)
         deleteFlashcard,
@@ -467,8 +485,9 @@ class _$MigrateFlashcardsImpl implements _MigrateFlashcards {
     TResult? Function(
             UniqueString userID, HadithFlashcard flashcard, int? quality)?
         saveFlashcard,
-    TResult? Function(UniqueString userID, IList<HadithFlashcard> flashcards)?
+    TResult? Function(UniqueString userID, IList<HadithFlashcard>? flashcards)?
         migrateFlashcards,
+    TResult? Function(IList<HadithFlashcard> flashcards)? saveMigrateFlashcards,
     TResult? Function(bool value)? isMigrating,
     TResult? Function(UniqueString userID, UnemptyString flashcardID)?
         deleteFlashcard,
@@ -487,8 +506,9 @@ class _$MigrateFlashcardsImpl implements _MigrateFlashcards {
     TResult Function(
             UniqueString userID, HadithFlashcard flashcard, int? quality)?
         saveFlashcard,
-    TResult Function(UniqueString userID, IList<HadithFlashcard> flashcards)?
+    TResult Function(UniqueString userID, IList<HadithFlashcard>? flashcards)?
         migrateFlashcards,
+    TResult Function(IList<HadithFlashcard> flashcards)? saveMigrateFlashcards,
     TResult Function(bool value)? isMigrating,
     TResult Function(UniqueString userID, UnemptyString flashcardID)?
         deleteFlashcard,
@@ -510,6 +530,8 @@ class _$MigrateFlashcardsImpl implements _MigrateFlashcards {
   TResult map<TResult extends Object?>({
     required TResult Function(_SaveFlashcard value) saveFlashcard,
     required TResult Function(_MigrateFlashcards value) migrateFlashcards,
+    required TResult Function(_SaveMigrateFlashcards value)
+        saveMigrateFlashcards,
     required TResult Function(_IsMigrating value) isMigrating,
     required TResult Function(_DeleteFlashcard value) deleteFlashcard,
     required TResult Function(_GetFlashcard value) getFlashcard,
@@ -529,6 +551,7 @@ class _$MigrateFlashcardsImpl implements _MigrateFlashcards {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SaveFlashcard value)? saveFlashcard,
     TResult? Function(_MigrateFlashcards value)? migrateFlashcards,
+    TResult? Function(_SaveMigrateFlashcards value)? saveMigrateFlashcards,
     TResult? Function(_IsMigrating value)? isMigrating,
     TResult? Function(_DeleteFlashcard value)? deleteFlashcard,
     TResult? Function(_GetFlashcard value)? getFlashcard,
@@ -546,6 +569,7 @@ class _$MigrateFlashcardsImpl implements _MigrateFlashcards {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SaveFlashcard value)? saveFlashcard,
     TResult Function(_MigrateFlashcards value)? migrateFlashcards,
+    TResult Function(_SaveMigrateFlashcards value)? saveMigrateFlashcards,
     TResult Function(_IsMigrating value)? isMigrating,
     TResult Function(_DeleteFlashcard value)? deleteFlashcard,
     TResult Function(_GetFlashcard value)? getFlashcard,
@@ -566,14 +590,224 @@ class _$MigrateFlashcardsImpl implements _MigrateFlashcards {
 abstract class _MigrateFlashcards implements HadithFlashcardEvent {
   const factory _MigrateFlashcards(
           {required final UniqueString userID,
-          required final IList<HadithFlashcard> flashcards}) =
+          required final IList<HadithFlashcard>? flashcards}) =
       _$MigrateFlashcardsImpl;
 
   UniqueString get userID;
-  IList<HadithFlashcard> get flashcards;
+  IList<HadithFlashcard>? get flashcards;
   @JsonKey(ignore: true)
   _$$MigrateFlashcardsImplCopyWith<_$MigrateFlashcardsImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SaveMigrateFlashcardsImplCopyWith<$Res> {
+  factory _$$SaveMigrateFlashcardsImplCopyWith(
+          _$SaveMigrateFlashcardsImpl value,
+          $Res Function(_$SaveMigrateFlashcardsImpl) then) =
+      __$$SaveMigrateFlashcardsImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({IList<HadithFlashcard> flashcards});
+}
+
+/// @nodoc
+class __$$SaveMigrateFlashcardsImplCopyWithImpl<$Res>
+    extends _$HadithFlashcardEventCopyWithImpl<$Res,
+        _$SaveMigrateFlashcardsImpl>
+    implements _$$SaveMigrateFlashcardsImplCopyWith<$Res> {
+  __$$SaveMigrateFlashcardsImplCopyWithImpl(_$SaveMigrateFlashcardsImpl _value,
+      $Res Function(_$SaveMigrateFlashcardsImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? flashcards = null,
+  }) {
+    return _then(_$SaveMigrateFlashcardsImpl(
+      flashcards: null == flashcards
+          ? _value.flashcards
+          : flashcards // ignore: cast_nullable_to_non_nullable
+              as IList<HadithFlashcard>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SaveMigrateFlashcardsImpl implements _SaveMigrateFlashcards {
+  const _$SaveMigrateFlashcardsImpl({required this.flashcards});
+
+  @override
+  final IList<HadithFlashcard> flashcards;
+
+  @override
+  String toString() {
+    return 'HadithFlashcardEvent.saveMigrateFlashcards(flashcards: $flashcards)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SaveMigrateFlashcardsImpl &&
+            const DeepCollectionEquality()
+                .equals(other.flashcards, flashcards));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(flashcards));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SaveMigrateFlashcardsImplCopyWith<_$SaveMigrateFlashcardsImpl>
+      get copyWith => __$$SaveMigrateFlashcardsImplCopyWithImpl<
+          _$SaveMigrateFlashcardsImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            UniqueString userID, HadithFlashcard flashcard, int? quality)
+        saveFlashcard,
+    required TResult Function(
+            UniqueString userID, IList<HadithFlashcard>? flashcards)
+        migrateFlashcards,
+    required TResult Function(IList<HadithFlashcard> flashcards)
+        saveMigrateFlashcards,
+    required TResult Function(bool value) isMigrating,
+    required TResult Function(UniqueString userID, UnemptyString flashcardID)
+        deleteFlashcard,
+    required TResult Function(UniqueString userID) getFlashcard,
+    required TResult Function() resetFlashcardSnackBar,
+    required TResult Function(bool isShowClarification)
+        resetFlashcardClarification,
+    required TResult Function(IList<HadithFlashcard> flashcards)
+        addToMyFlashcard,
+    required TResult Function(HadithFlashcard flashcard) deleteFromMyFlashcard,
+  }) {
+    return saveMigrateFlashcards(flashcards);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+            UniqueString userID, HadithFlashcard flashcard, int? quality)?
+        saveFlashcard,
+    TResult? Function(UniqueString userID, IList<HadithFlashcard>? flashcards)?
+        migrateFlashcards,
+    TResult? Function(IList<HadithFlashcard> flashcards)? saveMigrateFlashcards,
+    TResult? Function(bool value)? isMigrating,
+    TResult? Function(UniqueString userID, UnemptyString flashcardID)?
+        deleteFlashcard,
+    TResult? Function(UniqueString userID)? getFlashcard,
+    TResult? Function()? resetFlashcardSnackBar,
+    TResult? Function(bool isShowClarification)? resetFlashcardClarification,
+    TResult? Function(IList<HadithFlashcard> flashcards)? addToMyFlashcard,
+    TResult? Function(HadithFlashcard flashcard)? deleteFromMyFlashcard,
+  }) {
+    return saveMigrateFlashcards?.call(flashcards);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            UniqueString userID, HadithFlashcard flashcard, int? quality)?
+        saveFlashcard,
+    TResult Function(UniqueString userID, IList<HadithFlashcard>? flashcards)?
+        migrateFlashcards,
+    TResult Function(IList<HadithFlashcard> flashcards)? saveMigrateFlashcards,
+    TResult Function(bool value)? isMigrating,
+    TResult Function(UniqueString userID, UnemptyString flashcardID)?
+        deleteFlashcard,
+    TResult Function(UniqueString userID)? getFlashcard,
+    TResult Function()? resetFlashcardSnackBar,
+    TResult Function(bool isShowClarification)? resetFlashcardClarification,
+    TResult Function(IList<HadithFlashcard> flashcards)? addToMyFlashcard,
+    TResult Function(HadithFlashcard flashcard)? deleteFromMyFlashcard,
+    required TResult orElse(),
+  }) {
+    if (saveMigrateFlashcards != null) {
+      return saveMigrateFlashcards(flashcards);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SaveFlashcard value) saveFlashcard,
+    required TResult Function(_MigrateFlashcards value) migrateFlashcards,
+    required TResult Function(_SaveMigrateFlashcards value)
+        saveMigrateFlashcards,
+    required TResult Function(_IsMigrating value) isMigrating,
+    required TResult Function(_DeleteFlashcard value) deleteFlashcard,
+    required TResult Function(_GetFlashcard value) getFlashcard,
+    required TResult Function(_ResetFlashcardSnackBar value)
+        resetFlashcardSnackBar,
+    required TResult Function(_ResetFlashcardClarification value)
+        resetFlashcardClarification,
+    required TResult Function(_AddToMyFlashcard value) addToMyFlashcard,
+    required TResult Function(_DeleteFromMyFlashcard value)
+        deleteFromMyFlashcard,
+  }) {
+    return saveMigrateFlashcards(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SaveFlashcard value)? saveFlashcard,
+    TResult? Function(_MigrateFlashcards value)? migrateFlashcards,
+    TResult? Function(_SaveMigrateFlashcards value)? saveMigrateFlashcards,
+    TResult? Function(_IsMigrating value)? isMigrating,
+    TResult? Function(_DeleteFlashcard value)? deleteFlashcard,
+    TResult? Function(_GetFlashcard value)? getFlashcard,
+    TResult? Function(_ResetFlashcardSnackBar value)? resetFlashcardSnackBar,
+    TResult? Function(_ResetFlashcardClarification value)?
+        resetFlashcardClarification,
+    TResult? Function(_AddToMyFlashcard value)? addToMyFlashcard,
+    TResult? Function(_DeleteFromMyFlashcard value)? deleteFromMyFlashcard,
+  }) {
+    return saveMigrateFlashcards?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SaveFlashcard value)? saveFlashcard,
+    TResult Function(_MigrateFlashcards value)? migrateFlashcards,
+    TResult Function(_SaveMigrateFlashcards value)? saveMigrateFlashcards,
+    TResult Function(_IsMigrating value)? isMigrating,
+    TResult Function(_DeleteFlashcard value)? deleteFlashcard,
+    TResult Function(_GetFlashcard value)? getFlashcard,
+    TResult Function(_ResetFlashcardSnackBar value)? resetFlashcardSnackBar,
+    TResult Function(_ResetFlashcardClarification value)?
+        resetFlashcardClarification,
+    TResult Function(_AddToMyFlashcard value)? addToMyFlashcard,
+    TResult Function(_DeleteFromMyFlashcard value)? deleteFromMyFlashcard,
+    required TResult orElse(),
+  }) {
+    if (saveMigrateFlashcards != null) {
+      return saveMigrateFlashcards(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SaveMigrateFlashcards implements HadithFlashcardEvent {
+  const factory _SaveMigrateFlashcards(
+          {required final IList<HadithFlashcard> flashcards}) =
+      _$SaveMigrateFlashcardsImpl;
+
+  IList<HadithFlashcard> get flashcards;
+  @JsonKey(ignore: true)
+  _$$SaveMigrateFlashcardsImplCopyWith<_$SaveMigrateFlashcardsImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -644,8 +878,10 @@ class _$IsMigratingImpl implements _IsMigrating {
             UniqueString userID, HadithFlashcard flashcard, int? quality)
         saveFlashcard,
     required TResult Function(
-            UniqueString userID, IList<HadithFlashcard> flashcards)
+            UniqueString userID, IList<HadithFlashcard>? flashcards)
         migrateFlashcards,
+    required TResult Function(IList<HadithFlashcard> flashcards)
+        saveMigrateFlashcards,
     required TResult Function(bool value) isMigrating,
     required TResult Function(UniqueString userID, UnemptyString flashcardID)
         deleteFlashcard,
@@ -666,8 +902,9 @@ class _$IsMigratingImpl implements _IsMigrating {
     TResult? Function(
             UniqueString userID, HadithFlashcard flashcard, int? quality)?
         saveFlashcard,
-    TResult? Function(UniqueString userID, IList<HadithFlashcard> flashcards)?
+    TResult? Function(UniqueString userID, IList<HadithFlashcard>? flashcards)?
         migrateFlashcards,
+    TResult? Function(IList<HadithFlashcard> flashcards)? saveMigrateFlashcards,
     TResult? Function(bool value)? isMigrating,
     TResult? Function(UniqueString userID, UnemptyString flashcardID)?
         deleteFlashcard,
@@ -686,8 +923,9 @@ class _$IsMigratingImpl implements _IsMigrating {
     TResult Function(
             UniqueString userID, HadithFlashcard flashcard, int? quality)?
         saveFlashcard,
-    TResult Function(UniqueString userID, IList<HadithFlashcard> flashcards)?
+    TResult Function(UniqueString userID, IList<HadithFlashcard>? flashcards)?
         migrateFlashcards,
+    TResult Function(IList<HadithFlashcard> flashcards)? saveMigrateFlashcards,
     TResult Function(bool value)? isMigrating,
     TResult Function(UniqueString userID, UnemptyString flashcardID)?
         deleteFlashcard,
@@ -709,6 +947,8 @@ class _$IsMigratingImpl implements _IsMigrating {
   TResult map<TResult extends Object?>({
     required TResult Function(_SaveFlashcard value) saveFlashcard,
     required TResult Function(_MigrateFlashcards value) migrateFlashcards,
+    required TResult Function(_SaveMigrateFlashcards value)
+        saveMigrateFlashcards,
     required TResult Function(_IsMigrating value) isMigrating,
     required TResult Function(_DeleteFlashcard value) deleteFlashcard,
     required TResult Function(_GetFlashcard value) getFlashcard,
@@ -728,6 +968,7 @@ class _$IsMigratingImpl implements _IsMigrating {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SaveFlashcard value)? saveFlashcard,
     TResult? Function(_MigrateFlashcards value)? migrateFlashcards,
+    TResult? Function(_SaveMigrateFlashcards value)? saveMigrateFlashcards,
     TResult? Function(_IsMigrating value)? isMigrating,
     TResult? Function(_DeleteFlashcard value)? deleteFlashcard,
     TResult? Function(_GetFlashcard value)? getFlashcard,
@@ -745,6 +986,7 @@ class _$IsMigratingImpl implements _IsMigrating {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SaveFlashcard value)? saveFlashcard,
     TResult Function(_MigrateFlashcards value)? migrateFlashcards,
+    TResult Function(_SaveMigrateFlashcards value)? saveMigrateFlashcards,
     TResult Function(_IsMigrating value)? isMigrating,
     TResult Function(_DeleteFlashcard value)? deleteFlashcard,
     TResult Function(_GetFlashcard value)? getFlashcard,
@@ -850,8 +1092,10 @@ class _$DeleteFlashcardImpl implements _DeleteFlashcard {
             UniqueString userID, HadithFlashcard flashcard, int? quality)
         saveFlashcard,
     required TResult Function(
-            UniqueString userID, IList<HadithFlashcard> flashcards)
+            UniqueString userID, IList<HadithFlashcard>? flashcards)
         migrateFlashcards,
+    required TResult Function(IList<HadithFlashcard> flashcards)
+        saveMigrateFlashcards,
     required TResult Function(bool value) isMigrating,
     required TResult Function(UniqueString userID, UnemptyString flashcardID)
         deleteFlashcard,
@@ -872,8 +1116,9 @@ class _$DeleteFlashcardImpl implements _DeleteFlashcard {
     TResult? Function(
             UniqueString userID, HadithFlashcard flashcard, int? quality)?
         saveFlashcard,
-    TResult? Function(UniqueString userID, IList<HadithFlashcard> flashcards)?
+    TResult? Function(UniqueString userID, IList<HadithFlashcard>? flashcards)?
         migrateFlashcards,
+    TResult? Function(IList<HadithFlashcard> flashcards)? saveMigrateFlashcards,
     TResult? Function(bool value)? isMigrating,
     TResult? Function(UniqueString userID, UnemptyString flashcardID)?
         deleteFlashcard,
@@ -892,8 +1137,9 @@ class _$DeleteFlashcardImpl implements _DeleteFlashcard {
     TResult Function(
             UniqueString userID, HadithFlashcard flashcard, int? quality)?
         saveFlashcard,
-    TResult Function(UniqueString userID, IList<HadithFlashcard> flashcards)?
+    TResult Function(UniqueString userID, IList<HadithFlashcard>? flashcards)?
         migrateFlashcards,
+    TResult Function(IList<HadithFlashcard> flashcards)? saveMigrateFlashcards,
     TResult Function(bool value)? isMigrating,
     TResult Function(UniqueString userID, UnemptyString flashcardID)?
         deleteFlashcard,
@@ -915,6 +1161,8 @@ class _$DeleteFlashcardImpl implements _DeleteFlashcard {
   TResult map<TResult extends Object?>({
     required TResult Function(_SaveFlashcard value) saveFlashcard,
     required TResult Function(_MigrateFlashcards value) migrateFlashcards,
+    required TResult Function(_SaveMigrateFlashcards value)
+        saveMigrateFlashcards,
     required TResult Function(_IsMigrating value) isMigrating,
     required TResult Function(_DeleteFlashcard value) deleteFlashcard,
     required TResult Function(_GetFlashcard value) getFlashcard,
@@ -934,6 +1182,7 @@ class _$DeleteFlashcardImpl implements _DeleteFlashcard {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SaveFlashcard value)? saveFlashcard,
     TResult? Function(_MigrateFlashcards value)? migrateFlashcards,
+    TResult? Function(_SaveMigrateFlashcards value)? saveMigrateFlashcards,
     TResult? Function(_IsMigrating value)? isMigrating,
     TResult? Function(_DeleteFlashcard value)? deleteFlashcard,
     TResult? Function(_GetFlashcard value)? getFlashcard,
@@ -951,6 +1200,7 @@ class _$DeleteFlashcardImpl implements _DeleteFlashcard {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SaveFlashcard value)? saveFlashcard,
     TResult Function(_MigrateFlashcards value)? migrateFlashcards,
+    TResult Function(_SaveMigrateFlashcards value)? saveMigrateFlashcards,
     TResult Function(_IsMigrating value)? isMigrating,
     TResult Function(_DeleteFlashcard value)? deleteFlashcard,
     TResult Function(_GetFlashcard value)? getFlashcard,
@@ -1048,8 +1298,10 @@ class _$GetFlashcardImpl implements _GetFlashcard {
             UniqueString userID, HadithFlashcard flashcard, int? quality)
         saveFlashcard,
     required TResult Function(
-            UniqueString userID, IList<HadithFlashcard> flashcards)
+            UniqueString userID, IList<HadithFlashcard>? flashcards)
         migrateFlashcards,
+    required TResult Function(IList<HadithFlashcard> flashcards)
+        saveMigrateFlashcards,
     required TResult Function(bool value) isMigrating,
     required TResult Function(UniqueString userID, UnemptyString flashcardID)
         deleteFlashcard,
@@ -1070,8 +1322,9 @@ class _$GetFlashcardImpl implements _GetFlashcard {
     TResult? Function(
             UniqueString userID, HadithFlashcard flashcard, int? quality)?
         saveFlashcard,
-    TResult? Function(UniqueString userID, IList<HadithFlashcard> flashcards)?
+    TResult? Function(UniqueString userID, IList<HadithFlashcard>? flashcards)?
         migrateFlashcards,
+    TResult? Function(IList<HadithFlashcard> flashcards)? saveMigrateFlashcards,
     TResult? Function(bool value)? isMigrating,
     TResult? Function(UniqueString userID, UnemptyString flashcardID)?
         deleteFlashcard,
@@ -1090,8 +1343,9 @@ class _$GetFlashcardImpl implements _GetFlashcard {
     TResult Function(
             UniqueString userID, HadithFlashcard flashcard, int? quality)?
         saveFlashcard,
-    TResult Function(UniqueString userID, IList<HadithFlashcard> flashcards)?
+    TResult Function(UniqueString userID, IList<HadithFlashcard>? flashcards)?
         migrateFlashcards,
+    TResult Function(IList<HadithFlashcard> flashcards)? saveMigrateFlashcards,
     TResult Function(bool value)? isMigrating,
     TResult Function(UniqueString userID, UnemptyString flashcardID)?
         deleteFlashcard,
@@ -1113,6 +1367,8 @@ class _$GetFlashcardImpl implements _GetFlashcard {
   TResult map<TResult extends Object?>({
     required TResult Function(_SaveFlashcard value) saveFlashcard,
     required TResult Function(_MigrateFlashcards value) migrateFlashcards,
+    required TResult Function(_SaveMigrateFlashcards value)
+        saveMigrateFlashcards,
     required TResult Function(_IsMigrating value) isMigrating,
     required TResult Function(_DeleteFlashcard value) deleteFlashcard,
     required TResult Function(_GetFlashcard value) getFlashcard,
@@ -1132,6 +1388,7 @@ class _$GetFlashcardImpl implements _GetFlashcard {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SaveFlashcard value)? saveFlashcard,
     TResult? Function(_MigrateFlashcards value)? migrateFlashcards,
+    TResult? Function(_SaveMigrateFlashcards value)? saveMigrateFlashcards,
     TResult? Function(_IsMigrating value)? isMigrating,
     TResult? Function(_DeleteFlashcard value)? deleteFlashcard,
     TResult? Function(_GetFlashcard value)? getFlashcard,
@@ -1149,6 +1406,7 @@ class _$GetFlashcardImpl implements _GetFlashcard {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SaveFlashcard value)? saveFlashcard,
     TResult Function(_MigrateFlashcards value)? migrateFlashcards,
+    TResult Function(_SaveMigrateFlashcards value)? saveMigrateFlashcards,
     TResult Function(_IsMigrating value)? isMigrating,
     TResult Function(_DeleteFlashcard value)? deleteFlashcard,
     TResult Function(_GetFlashcard value)? getFlashcard,
@@ -1222,8 +1480,10 @@ class _$ResetFlashcardSnackBarImpl implements _ResetFlashcardSnackBar {
             UniqueString userID, HadithFlashcard flashcard, int? quality)
         saveFlashcard,
     required TResult Function(
-            UniqueString userID, IList<HadithFlashcard> flashcards)
+            UniqueString userID, IList<HadithFlashcard>? flashcards)
         migrateFlashcards,
+    required TResult Function(IList<HadithFlashcard> flashcards)
+        saveMigrateFlashcards,
     required TResult Function(bool value) isMigrating,
     required TResult Function(UniqueString userID, UnemptyString flashcardID)
         deleteFlashcard,
@@ -1244,8 +1504,9 @@ class _$ResetFlashcardSnackBarImpl implements _ResetFlashcardSnackBar {
     TResult? Function(
             UniqueString userID, HadithFlashcard flashcard, int? quality)?
         saveFlashcard,
-    TResult? Function(UniqueString userID, IList<HadithFlashcard> flashcards)?
+    TResult? Function(UniqueString userID, IList<HadithFlashcard>? flashcards)?
         migrateFlashcards,
+    TResult? Function(IList<HadithFlashcard> flashcards)? saveMigrateFlashcards,
     TResult? Function(bool value)? isMigrating,
     TResult? Function(UniqueString userID, UnemptyString flashcardID)?
         deleteFlashcard,
@@ -1264,8 +1525,9 @@ class _$ResetFlashcardSnackBarImpl implements _ResetFlashcardSnackBar {
     TResult Function(
             UniqueString userID, HadithFlashcard flashcard, int? quality)?
         saveFlashcard,
-    TResult Function(UniqueString userID, IList<HadithFlashcard> flashcards)?
+    TResult Function(UniqueString userID, IList<HadithFlashcard>? flashcards)?
         migrateFlashcards,
+    TResult Function(IList<HadithFlashcard> flashcards)? saveMigrateFlashcards,
     TResult Function(bool value)? isMigrating,
     TResult Function(UniqueString userID, UnemptyString flashcardID)?
         deleteFlashcard,
@@ -1287,6 +1549,8 @@ class _$ResetFlashcardSnackBarImpl implements _ResetFlashcardSnackBar {
   TResult map<TResult extends Object?>({
     required TResult Function(_SaveFlashcard value) saveFlashcard,
     required TResult Function(_MigrateFlashcards value) migrateFlashcards,
+    required TResult Function(_SaveMigrateFlashcards value)
+        saveMigrateFlashcards,
     required TResult Function(_IsMigrating value) isMigrating,
     required TResult Function(_DeleteFlashcard value) deleteFlashcard,
     required TResult Function(_GetFlashcard value) getFlashcard,
@@ -1306,6 +1570,7 @@ class _$ResetFlashcardSnackBarImpl implements _ResetFlashcardSnackBar {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SaveFlashcard value)? saveFlashcard,
     TResult? Function(_MigrateFlashcards value)? migrateFlashcards,
+    TResult? Function(_SaveMigrateFlashcards value)? saveMigrateFlashcards,
     TResult? Function(_IsMigrating value)? isMigrating,
     TResult? Function(_DeleteFlashcard value)? deleteFlashcard,
     TResult? Function(_GetFlashcard value)? getFlashcard,
@@ -1323,6 +1588,7 @@ class _$ResetFlashcardSnackBarImpl implements _ResetFlashcardSnackBar {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SaveFlashcard value)? saveFlashcard,
     TResult Function(_MigrateFlashcards value)? migrateFlashcards,
+    TResult Function(_SaveMigrateFlashcards value)? saveMigrateFlashcards,
     TResult Function(_IsMigrating value)? isMigrating,
     TResult Function(_DeleteFlashcard value)? deleteFlashcard,
     TResult Function(_GetFlashcard value)? getFlashcard,
@@ -1418,8 +1684,10 @@ class _$ResetFlashcardClarificationImpl
             UniqueString userID, HadithFlashcard flashcard, int? quality)
         saveFlashcard,
     required TResult Function(
-            UniqueString userID, IList<HadithFlashcard> flashcards)
+            UniqueString userID, IList<HadithFlashcard>? flashcards)
         migrateFlashcards,
+    required TResult Function(IList<HadithFlashcard> flashcards)
+        saveMigrateFlashcards,
     required TResult Function(bool value) isMigrating,
     required TResult Function(UniqueString userID, UnemptyString flashcardID)
         deleteFlashcard,
@@ -1440,8 +1708,9 @@ class _$ResetFlashcardClarificationImpl
     TResult? Function(
             UniqueString userID, HadithFlashcard flashcard, int? quality)?
         saveFlashcard,
-    TResult? Function(UniqueString userID, IList<HadithFlashcard> flashcards)?
+    TResult? Function(UniqueString userID, IList<HadithFlashcard>? flashcards)?
         migrateFlashcards,
+    TResult? Function(IList<HadithFlashcard> flashcards)? saveMigrateFlashcards,
     TResult? Function(bool value)? isMigrating,
     TResult? Function(UniqueString userID, UnemptyString flashcardID)?
         deleteFlashcard,
@@ -1460,8 +1729,9 @@ class _$ResetFlashcardClarificationImpl
     TResult Function(
             UniqueString userID, HadithFlashcard flashcard, int? quality)?
         saveFlashcard,
-    TResult Function(UniqueString userID, IList<HadithFlashcard> flashcards)?
+    TResult Function(UniqueString userID, IList<HadithFlashcard>? flashcards)?
         migrateFlashcards,
+    TResult Function(IList<HadithFlashcard> flashcards)? saveMigrateFlashcards,
     TResult Function(bool value)? isMigrating,
     TResult Function(UniqueString userID, UnemptyString flashcardID)?
         deleteFlashcard,
@@ -1483,6 +1753,8 @@ class _$ResetFlashcardClarificationImpl
   TResult map<TResult extends Object?>({
     required TResult Function(_SaveFlashcard value) saveFlashcard,
     required TResult Function(_MigrateFlashcards value) migrateFlashcards,
+    required TResult Function(_SaveMigrateFlashcards value)
+        saveMigrateFlashcards,
     required TResult Function(_IsMigrating value) isMigrating,
     required TResult Function(_DeleteFlashcard value) deleteFlashcard,
     required TResult Function(_GetFlashcard value) getFlashcard,
@@ -1502,6 +1774,7 @@ class _$ResetFlashcardClarificationImpl
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SaveFlashcard value)? saveFlashcard,
     TResult? Function(_MigrateFlashcards value)? migrateFlashcards,
+    TResult? Function(_SaveMigrateFlashcards value)? saveMigrateFlashcards,
     TResult? Function(_IsMigrating value)? isMigrating,
     TResult? Function(_DeleteFlashcard value)? deleteFlashcard,
     TResult? Function(_GetFlashcard value)? getFlashcard,
@@ -1519,6 +1792,7 @@ class _$ResetFlashcardClarificationImpl
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SaveFlashcard value)? saveFlashcard,
     TResult Function(_MigrateFlashcards value)? migrateFlashcards,
+    TResult Function(_SaveMigrateFlashcards value)? saveMigrateFlashcards,
     TResult Function(_IsMigrating value)? isMigrating,
     TResult Function(_DeleteFlashcard value)? deleteFlashcard,
     TResult Function(_GetFlashcard value)? getFlashcard,
@@ -1618,8 +1892,10 @@ class _$AddToMyFlashcardImpl implements _AddToMyFlashcard {
             UniqueString userID, HadithFlashcard flashcard, int? quality)
         saveFlashcard,
     required TResult Function(
-            UniqueString userID, IList<HadithFlashcard> flashcards)
+            UniqueString userID, IList<HadithFlashcard>? flashcards)
         migrateFlashcards,
+    required TResult Function(IList<HadithFlashcard> flashcards)
+        saveMigrateFlashcards,
     required TResult Function(bool value) isMigrating,
     required TResult Function(UniqueString userID, UnemptyString flashcardID)
         deleteFlashcard,
@@ -1640,8 +1916,9 @@ class _$AddToMyFlashcardImpl implements _AddToMyFlashcard {
     TResult? Function(
             UniqueString userID, HadithFlashcard flashcard, int? quality)?
         saveFlashcard,
-    TResult? Function(UniqueString userID, IList<HadithFlashcard> flashcards)?
+    TResult? Function(UniqueString userID, IList<HadithFlashcard>? flashcards)?
         migrateFlashcards,
+    TResult? Function(IList<HadithFlashcard> flashcards)? saveMigrateFlashcards,
     TResult? Function(bool value)? isMigrating,
     TResult? Function(UniqueString userID, UnemptyString flashcardID)?
         deleteFlashcard,
@@ -1660,8 +1937,9 @@ class _$AddToMyFlashcardImpl implements _AddToMyFlashcard {
     TResult Function(
             UniqueString userID, HadithFlashcard flashcard, int? quality)?
         saveFlashcard,
-    TResult Function(UniqueString userID, IList<HadithFlashcard> flashcards)?
+    TResult Function(UniqueString userID, IList<HadithFlashcard>? flashcards)?
         migrateFlashcards,
+    TResult Function(IList<HadithFlashcard> flashcards)? saveMigrateFlashcards,
     TResult Function(bool value)? isMigrating,
     TResult Function(UniqueString userID, UnemptyString flashcardID)?
         deleteFlashcard,
@@ -1683,6 +1961,8 @@ class _$AddToMyFlashcardImpl implements _AddToMyFlashcard {
   TResult map<TResult extends Object?>({
     required TResult Function(_SaveFlashcard value) saveFlashcard,
     required TResult Function(_MigrateFlashcards value) migrateFlashcards,
+    required TResult Function(_SaveMigrateFlashcards value)
+        saveMigrateFlashcards,
     required TResult Function(_IsMigrating value) isMigrating,
     required TResult Function(_DeleteFlashcard value) deleteFlashcard,
     required TResult Function(_GetFlashcard value) getFlashcard,
@@ -1702,6 +1982,7 @@ class _$AddToMyFlashcardImpl implements _AddToMyFlashcard {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SaveFlashcard value)? saveFlashcard,
     TResult? Function(_MigrateFlashcards value)? migrateFlashcards,
+    TResult? Function(_SaveMigrateFlashcards value)? saveMigrateFlashcards,
     TResult? Function(_IsMigrating value)? isMigrating,
     TResult? Function(_DeleteFlashcard value)? deleteFlashcard,
     TResult? Function(_GetFlashcard value)? getFlashcard,
@@ -1719,6 +2000,7 @@ class _$AddToMyFlashcardImpl implements _AddToMyFlashcard {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SaveFlashcard value)? saveFlashcard,
     TResult Function(_MigrateFlashcards value)? migrateFlashcards,
+    TResult Function(_SaveMigrateFlashcards value)? saveMigrateFlashcards,
     TResult Function(_IsMigrating value)? isMigrating,
     TResult Function(_DeleteFlashcard value)? deleteFlashcard,
     TResult Function(_GetFlashcard value)? getFlashcard,
@@ -1829,8 +2111,10 @@ class _$DeleteFromMyFlashcardImpl implements _DeleteFromMyFlashcard {
             UniqueString userID, HadithFlashcard flashcard, int? quality)
         saveFlashcard,
     required TResult Function(
-            UniqueString userID, IList<HadithFlashcard> flashcards)
+            UniqueString userID, IList<HadithFlashcard>? flashcards)
         migrateFlashcards,
+    required TResult Function(IList<HadithFlashcard> flashcards)
+        saveMigrateFlashcards,
     required TResult Function(bool value) isMigrating,
     required TResult Function(UniqueString userID, UnemptyString flashcardID)
         deleteFlashcard,
@@ -1851,8 +2135,9 @@ class _$DeleteFromMyFlashcardImpl implements _DeleteFromMyFlashcard {
     TResult? Function(
             UniqueString userID, HadithFlashcard flashcard, int? quality)?
         saveFlashcard,
-    TResult? Function(UniqueString userID, IList<HadithFlashcard> flashcards)?
+    TResult? Function(UniqueString userID, IList<HadithFlashcard>? flashcards)?
         migrateFlashcards,
+    TResult? Function(IList<HadithFlashcard> flashcards)? saveMigrateFlashcards,
     TResult? Function(bool value)? isMigrating,
     TResult? Function(UniqueString userID, UnemptyString flashcardID)?
         deleteFlashcard,
@@ -1871,8 +2156,9 @@ class _$DeleteFromMyFlashcardImpl implements _DeleteFromMyFlashcard {
     TResult Function(
             UniqueString userID, HadithFlashcard flashcard, int? quality)?
         saveFlashcard,
-    TResult Function(UniqueString userID, IList<HadithFlashcard> flashcards)?
+    TResult Function(UniqueString userID, IList<HadithFlashcard>? flashcards)?
         migrateFlashcards,
+    TResult Function(IList<HadithFlashcard> flashcards)? saveMigrateFlashcards,
     TResult Function(bool value)? isMigrating,
     TResult Function(UniqueString userID, UnemptyString flashcardID)?
         deleteFlashcard,
@@ -1894,6 +2180,8 @@ class _$DeleteFromMyFlashcardImpl implements _DeleteFromMyFlashcard {
   TResult map<TResult extends Object?>({
     required TResult Function(_SaveFlashcard value) saveFlashcard,
     required TResult Function(_MigrateFlashcards value) migrateFlashcards,
+    required TResult Function(_SaveMigrateFlashcards value)
+        saveMigrateFlashcards,
     required TResult Function(_IsMigrating value) isMigrating,
     required TResult Function(_DeleteFlashcard value) deleteFlashcard,
     required TResult Function(_GetFlashcard value) getFlashcard,
@@ -1913,6 +2201,7 @@ class _$DeleteFromMyFlashcardImpl implements _DeleteFromMyFlashcard {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SaveFlashcard value)? saveFlashcard,
     TResult? Function(_MigrateFlashcards value)? migrateFlashcards,
+    TResult? Function(_SaveMigrateFlashcards value)? saveMigrateFlashcards,
     TResult? Function(_IsMigrating value)? isMigrating,
     TResult? Function(_DeleteFlashcard value)? deleteFlashcard,
     TResult? Function(_GetFlashcard value)? getFlashcard,
@@ -1930,6 +2219,7 @@ class _$DeleteFromMyFlashcardImpl implements _DeleteFromMyFlashcard {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SaveFlashcard value)? saveFlashcard,
     TResult Function(_MigrateFlashcards value)? migrateFlashcards,
+    TResult Function(_SaveMigrateFlashcards value)? saveMigrateFlashcards,
     TResult Function(_IsMigrating value)? isMigrating,
     TResult Function(_DeleteFlashcard value)? deleteFlashcard,
     TResult Function(_GetFlashcard value)? getFlashcard,
@@ -1969,6 +2259,8 @@ mixin _$HadithFlashcardState {
   IList<HadithFlashcard> get flashcards => throw _privateConstructorUsedError;
   IList<HadithFlashcard> get myHadithFlashcards =>
       throw _privateConstructorUsedError;
+  IList<HadithFlashcard> get flashcardsToMigrate =>
+      throw _privateConstructorUsedError;
   Option<Either<CommonFailures, Unit>> get optionFailureOrSaveFlashcard =>
       throw _privateConstructorUsedError;
   Option<Either<CommonFailures, Unit>> get optionFailureOrMigrateFlashcard =>
@@ -1998,6 +2290,7 @@ abstract class $HadithFlashcardStateCopyWith<$Res> {
       bool isShowResetFlashcardClarification,
       IList<HadithFlashcard> flashcards,
       IList<HadithFlashcard> myHadithFlashcards,
+      IList<HadithFlashcard> flashcardsToMigrate,
       Option<Either<CommonFailures, Unit>> optionFailureOrSaveFlashcard,
       Option<Either<CommonFailures, Unit>> optionFailureOrMigrateFlashcard,
       Option<Either<CommonFailures, Unit>> optionFailureOrDeleteFlashcard,
@@ -2027,6 +2320,7 @@ class _$HadithFlashcardStateCopyWithImpl<$Res,
     Object? isShowResetFlashcardClarification = null,
     Object? flashcards = null,
     Object? myHadithFlashcards = null,
+    Object? flashcardsToMigrate = null,
     Object? optionFailureOrSaveFlashcard = null,
     Object? optionFailureOrMigrateFlashcard = null,
     Object? optionFailureOrDeleteFlashcard = null,
@@ -2066,6 +2360,10 @@ class _$HadithFlashcardStateCopyWithImpl<$Res,
           ? _value.myHadithFlashcards
           : myHadithFlashcards // ignore: cast_nullable_to_non_nullable
               as IList<HadithFlashcard>,
+      flashcardsToMigrate: null == flashcardsToMigrate
+          ? _value.flashcardsToMigrate
+          : flashcardsToMigrate // ignore: cast_nullable_to_non_nullable
+              as IList<HadithFlashcard>,
       optionFailureOrSaveFlashcard: null == optionFailureOrSaveFlashcard
           ? _value.optionFailureOrSaveFlashcard
           : optionFailureOrSaveFlashcard // ignore: cast_nullable_to_non_nullable
@@ -2103,6 +2401,7 @@ abstract class _$$HadithFlashcardStateImplCopyWith<$Res>
       bool isShowResetFlashcardClarification,
       IList<HadithFlashcard> flashcards,
       IList<HadithFlashcard> myHadithFlashcards,
+      IList<HadithFlashcard> flashcardsToMigrate,
       Option<Either<CommonFailures, Unit>> optionFailureOrSaveFlashcard,
       Option<Either<CommonFailures, Unit>> optionFailureOrMigrateFlashcard,
       Option<Either<CommonFailures, Unit>> optionFailureOrDeleteFlashcard,
@@ -2129,6 +2428,7 @@ class __$$HadithFlashcardStateImplCopyWithImpl<$Res>
     Object? isShowResetFlashcardClarification = null,
     Object? flashcards = null,
     Object? myHadithFlashcards = null,
+    Object? flashcardsToMigrate = null,
     Object? optionFailureOrSaveFlashcard = null,
     Object? optionFailureOrMigrateFlashcard = null,
     Object? optionFailureOrDeleteFlashcard = null,
@@ -2168,6 +2468,10 @@ class __$$HadithFlashcardStateImplCopyWithImpl<$Res>
           ? _value.myHadithFlashcards
           : myHadithFlashcards // ignore: cast_nullable_to_non_nullable
               as IList<HadithFlashcard>,
+      flashcardsToMigrate: null == flashcardsToMigrate
+          ? _value.flashcardsToMigrate
+          : flashcardsToMigrate // ignore: cast_nullable_to_non_nullable
+              as IList<HadithFlashcard>,
       optionFailureOrSaveFlashcard: null == optionFailureOrSaveFlashcard
           ? _value.optionFailureOrSaveFlashcard
           : optionFailureOrSaveFlashcard // ignore: cast_nullable_to_non_nullable
@@ -2200,6 +2504,7 @@ class _$HadithFlashcardStateImpl implements _HadithFlashcardState {
       required this.isShowResetFlashcardClarification,
       required this.flashcards,
       required this.myHadithFlashcards,
+      required this.flashcardsToMigrate,
       required this.optionFailureOrSaveFlashcard,
       required this.optionFailureOrMigrateFlashcard,
       required this.optionFailureOrDeleteFlashcard,
@@ -2222,6 +2527,8 @@ class _$HadithFlashcardStateImpl implements _HadithFlashcardState {
   @override
   final IList<HadithFlashcard> myHadithFlashcards;
   @override
+  final IList<HadithFlashcard> flashcardsToMigrate;
+  @override
   final Option<Either<CommonFailures, Unit>> optionFailureOrSaveFlashcard;
   @override
   final Option<Either<CommonFailures, Unit>> optionFailureOrMigrateFlashcard;
@@ -2233,7 +2540,7 @@ class _$HadithFlashcardStateImpl implements _HadithFlashcardState {
 
   @override
   String toString() {
-    return 'HadithFlashcardState(isMigrating: $isMigrating, isMigrationSuccess: $isMigrationSuccess, searchFlashcardText: $searchFlashcardText, numofReviewedFlashcard: $numofReviewedFlashcard, flashcardToReviewTodayLength: $flashcardToReviewTodayLength, isShowResetFlashcardClarification: $isShowResetFlashcardClarification, flashcards: $flashcards, myHadithFlashcards: $myHadithFlashcards, optionFailureOrSaveFlashcard: $optionFailureOrSaveFlashcard, optionFailureOrMigrateFlashcard: $optionFailureOrMigrateFlashcard, optionFailureOrDeleteFlashcard: $optionFailureOrDeleteFlashcard, optionFailureOrGetFlashcard: $optionFailureOrGetFlashcard)';
+    return 'HadithFlashcardState(isMigrating: $isMigrating, isMigrationSuccess: $isMigrationSuccess, searchFlashcardText: $searchFlashcardText, numofReviewedFlashcard: $numofReviewedFlashcard, flashcardToReviewTodayLength: $flashcardToReviewTodayLength, isShowResetFlashcardClarification: $isShowResetFlashcardClarification, flashcards: $flashcards, myHadithFlashcards: $myHadithFlashcards, flashcardsToMigrate: $flashcardsToMigrate, optionFailureOrSaveFlashcard: $optionFailureOrSaveFlashcard, optionFailureOrMigrateFlashcard: $optionFailureOrMigrateFlashcard, optionFailureOrDeleteFlashcard: $optionFailureOrDeleteFlashcard, optionFailureOrGetFlashcard: $optionFailureOrGetFlashcard)';
   }
 
   @override
@@ -2260,6 +2567,8 @@ class _$HadithFlashcardStateImpl implements _HadithFlashcardState {
                 .equals(other.flashcards, flashcards) &&
             const DeepCollectionEquality()
                 .equals(other.myHadithFlashcards, myHadithFlashcards) &&
+            const DeepCollectionEquality()
+                .equals(other.flashcardsToMigrate, flashcardsToMigrate) &&
             (identical(other.optionFailureOrSaveFlashcard,
                     optionFailureOrSaveFlashcard) ||
                 other.optionFailureOrSaveFlashcard ==
@@ -2273,8 +2582,7 @@ class _$HadithFlashcardStateImpl implements _HadithFlashcardState {
                 other.optionFailureOrDeleteFlashcard ==
                     optionFailureOrDeleteFlashcard) &&
             (identical(other.optionFailureOrGetFlashcard, optionFailureOrGetFlashcard) ||
-                other.optionFailureOrGetFlashcard ==
-                    optionFailureOrGetFlashcard));
+                other.optionFailureOrGetFlashcard == optionFailureOrGetFlashcard));
   }
 
   @override
@@ -2288,6 +2596,7 @@ class _$HadithFlashcardStateImpl implements _HadithFlashcardState {
       isShowResetFlashcardClarification,
       const DeepCollectionEquality().hash(flashcards),
       const DeepCollectionEquality().hash(myHadithFlashcards),
+      const DeepCollectionEquality().hash(flashcardsToMigrate),
       optionFailureOrSaveFlashcard,
       optionFailureOrMigrateFlashcard,
       optionFailureOrDeleteFlashcard,
@@ -2312,6 +2621,7 @@ abstract class _HadithFlashcardState implements HadithFlashcardState {
       required final bool isShowResetFlashcardClarification,
       required final IList<HadithFlashcard> flashcards,
       required final IList<HadithFlashcard> myHadithFlashcards,
+      required final IList<HadithFlashcard> flashcardsToMigrate,
       required final Option<Either<CommonFailures, Unit>>
           optionFailureOrSaveFlashcard,
       required final Option<Either<CommonFailures, Unit>>
@@ -2337,6 +2647,8 @@ abstract class _HadithFlashcardState implements HadithFlashcardState {
   IList<HadithFlashcard> get flashcards;
   @override
   IList<HadithFlashcard> get myHadithFlashcards;
+  @override
+  IList<HadithFlashcard> get flashcardsToMigrate;
   @override
   Option<Either<CommonFailures, Unit>> get optionFailureOrSaveFlashcard;
   @override
