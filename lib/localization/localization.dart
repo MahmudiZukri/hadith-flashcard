@@ -4,8 +4,22 @@ class Localization extends Translations {
   @override
   Map<String, Map<String, String>> get keys => {
         "id": {
+          "hadithFlashcard": "Kartu Hafalan Hadis",
           "welcome": "Selamat datang !",
-          "somethingWentWrong": "Terjadi kesalahan",
+          "welcomeText":
+              "Selamat datang di Kartu Hafalan Hadis! Kami senang menyambut Anda bergabung dengan komunitas pembelajar kami. Aplikasi ini dirancang untuk membantu Anda memperdalam pemahaman tentang Hadis melalui kartu flash yang menarik dan interaktif. Mari kita lakukan tur singkat untuk mengenalkan Anda pada fitur-fitur utama.",
+          "addCardTitle": "Tambah Kartu",
+          "addCardText":
+              "Anda bisa menjelajahi dan menambahkan hadis yang ingin Anda hafalkan disini.",
+          "reviewTitle": "Ulas",
+          "reviewText":
+              "Anda bisa menghafalkan kartu-kartu yang telah Anda tambahkan sebelumnya disini.",
+          "profileTitle": "Profil",
+          "profileText":
+              "Anda dapat mengakses profil Anda, melihat kartu yang sudah ditambahkan, mendapatkan bantuan, dan hal lainnya.",
+          "enjoyText":
+              "Anda siap memulai petualangan belajar dengan Kartu Hafalan Hadis! Kami berharap aplikasi ini menjadi teman setia yang penuh inspirasi dan pengetahuan dalam studi Hadis Anda. Selamat belajar, semoga perjalanan Anda penuh pencerahan dan kepuasan. Mari kita mulai!",
+          "somethingWentWrong": "Terjadi masalah",
           "enterYourEmail": "Masukkan email Anda",
           "password": "Kata sandi",
           "enterYourPassword": "Masukkan kata sandi Anda",
@@ -51,7 +65,7 @@ class Localization extends Translations {
           "MyFlashcard": "Flashcard Saya",
           "myFlashcard": "Flashcard saya",
           "language": "Bahasa",
-          "darkMode": "Mode Gelap",
+          "darkMode": "Mode gelap",
           "rateUs": "Beri rating",
           "help": "Bantuan",
           "aboutApp": "Tentang aplikasi",
@@ -62,6 +76,8 @@ class Localization extends Translations {
           "accountSuccessfullyDeleted": "Akun berhasil dihapus",
           "areYouSureWannaDeleteAccount":
               "Apakah Anda yakin ingin menghapus akun?",
+          "areYouSureWannaDeleteGuestAccount":
+              "Anda saat ini masuk dengan akun tamu. Semua data Anda akan dihapus jika Anda keluar. Apakah Anda yakin ingin melanjutkan?",
           "signOut": "Keluar",
           "thisCannotBeEmpty": "Tidak boleh kosong",
           "invalidEmailFormat": "Format email salah",
@@ -107,10 +123,29 @@ class Localization extends Translations {
           "tryNewFeature":
               "Mau mencoba serunya fitur baru? Yuk, perbarui aplikasi sekarang!",
           "maybeLater": "Lain kali",
-          "tryNow": "Coba!"
+          "tryNow": "Coba!",
+          "linkYourAccount": "Hubungkan akun",
+          "youCantLink":
+              "Anda tidak bisa menghubungkan akun jika tidak memiliki flashcard.",
+          "linkAccount": "Hubungkan Akun",
+          "link": "Hubungkan"
         },
         "en": {
+          "hadithFlashcard": "Hadith Flashcard",
           "welcome": "Welcome !",
+          "welcomeText":
+              "Welcome to Hadith Flashcard! We're thrilled to have you join our community of learners. This app is designed to help you deepen your understanding of Hadith through engaging and interactive flashcards. Let's take a quick tour to introduce you to the key features.",
+          "addCardTitle": "Add Card",
+          "addCardText":
+              "Here, you can explore and add Hadiths you want to memorize.",
+          "reviewTitle": "Review",
+          "reviewText":
+              "Here, you can review the cards you've added before to help you memorize them.",
+          "profileTitle": "Profile",
+          "profileText":
+              "Here, you can access your profile, view added cards, get assistance, and more.",
+          "enjoyText":
+              "You're ready to embark on your learning adventure with Hadith Flashcard! We hope this app becomes your loyal companion, full of inspiration and knowledge in your Hadith studies. Happy learning, and may your journey be enlightening and fulfilling. Let's get started!",
           "somethingWentWrong": "Something went wrong",
           "enterYourEmail": "Enter your email",
           "password": "Password",
@@ -157,7 +192,7 @@ class Localization extends Translations {
           "MyFlashcard": "My Flashcard",
           "myFlashcard": "My flashcard",
           "language": "Language",
-          "darkMode": "Dark Mode",
+          "darkMode": "Dark mode",
           "rateUs": "Rate us",
           "help": "Help",
           "aboutApp": "About app",
@@ -167,7 +202,9 @@ class Localization extends Translations {
           "deleteAccount": "Delete Account",
           "accountSuccessfullyDeleted": "Account duccessfully deleted",
           "areYouSureWannaDeleteAccount":
-              "Are you sure you want to delete your account?",
+              "You are currently signed in with a guest account. Are you sure you want to delete it?",
+          "areYouSureWannaDeleteGuestAccount":
+              "You are currently signed in with a guest account. All of your data will be erased if you sign out. Are you sure you want to proceed?",
           "signOut": "Sign Out",
           "thisCannotBeEmpty": "This cannot be empty",
           "invalidEmailFormat": "Invalid email format",
@@ -214,7 +251,12 @@ class Localization extends Translations {
           "tryNewFeature":
               "Want to try the exciting new features? Update the app now!",
           "maybeLater": "Maybe later",
-          "tryNow": "Try later!"
+          "tryNow": "Try later!",
+          "linkYourAccount": "Link your account",
+          "youCantLink":
+              "Linking an account is not possible without any flashcards.",
+          "linkAccount": "Link Account",
+          "link": "Hubungkan"
         },
       };
 }

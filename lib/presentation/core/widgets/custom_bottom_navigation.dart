@@ -5,12 +5,14 @@ class CustomBottomNavigation extends StatelessWidget {
     required this.pageSelectedIndex,
     required this.pageController,
     required this.isEnableOntap,
+    required this.showcaseState,
     super.key,
   });
 
   final int pageSelectedIndex;
   final PageController pageController;
   final bool isEnableOntap;
+  final ShowcaseState showcaseState;
 
   @override
   Widget build(BuildContext context) {
@@ -31,10 +33,10 @@ class CustomBottomNavigation extends StatelessWidget {
           ),
           child: GNav(
             selectedIndex: pageSelectedIndex,
-            color: colorScheme().background,
+            color: colorScheme().surface,
             backgroundColor: primaryColor,
             activeColor: primaryColor,
-            tabBackgroundColor: colorScheme().background,
+            tabBackgroundColor: colorScheme().surface,
             duration: const Duration(
               milliseconds: 300,
             ),
@@ -78,7 +80,33 @@ class CustomBottomNavigation extends StatelessWidget {
         if (!isEnableOntap)
           Container(
             color: Colors.transparent,
-          )
+          ),
+        Padding(
+          padding: EdgeInsets.only(bottom: screenHeight() / 20),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Showcase(
+                key: showcaseState.narratorNavBarGlobalKey,
+                title: 'addCardTitle'.tr,
+                description: 'addCardText'.tr,
+                child: const SizedBox(),
+              ),
+              Showcase(
+                key: showcaseState.reviewNavBarGlobalKey,
+                title: 'reviewTitle'.tr,
+                description: 'reviewText'.tr,
+                child: const SizedBox(),
+              ),
+              Showcase(
+                key: showcaseState.profileNavBarGlobalKey,
+                title: 'profileTitle'.tr,
+                description: 'profileText'.tr,
+                child: const SizedBox(),
+              ),
+            ],
+          ),
+        )
       ],
     );
   }

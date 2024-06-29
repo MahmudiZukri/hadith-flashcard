@@ -21,18 +21,23 @@ class ReviewPage extends StatelessWidget {
         horizontal: defaultMargin,
       ),
       child: BlocBuilder<RemoteConfigBloc, RemoteConfigState>(
-        builder: (context, remoteConfigState) {
+        builder: (_, remoteConfigState) {
           return BlocBuilder<AdBloc, AdState>(
-            builder: (context, adState) {
+            builder: (_, adState) {
               return BlocBuilder<HadithFlashcardBloc, HadithFlashcardState>(
-                builder: (context, hadithFlashcardState) {
+                builder: (_, hadithFlashcardState) {
                   return hadithFlashcardState.optionFailureOrGetFlashcard.match(
                     () => const SizedBox(),
                     (either) => either.fold(
-                      (l) => Text(
-                        l.message,
+                      (l) => Center(
+                        child: Text(
+                          l.message,
+                          textAlign: TextAlign.center,
+                        ),
                       ),
                       (flashcards) {
+                        var showcaseState = context.watch<ShowcaseBloc>().state;
+
                         final flashcardIsEmpty =
                             flashcards == <HadithFlashcard>[].lock;
                         final flashcardToReviewIsEmpty =
@@ -46,32 +51,60 @@ class ReviewPage extends StatelessWidget {
                             ReviewedFlashcardBarColumn(
                               hadithFlashcardState: hadithFlashcardState,
                             ),
-                            flashcardIsEmpty
-                                // Empty flashcard
-                                ? EmptyFlashcardContainer(
-                                    gotoNarratorPageOnPressed:
-                                        gotoNarratorPageOnPressed,
-                                  )
-                                : flashcardToReviewIsEmpty
-                                    // Flashcard to review is empty
-                                    ? FlashcardToReviewIsEmptyContainer(
-                                        hadithFlashcardState:
-                                            hadithFlashcardState,
+                            Stack(
+                              alignment: Alignment.center,
+                              children: [
+                                flashcardIsEmpty
+                                    // Empty flashcard
+                                    ? EmptyFlashcardContainer(
                                         gotoNarratorPageOnPressed:
                                             gotoNarratorPageOnPressed,
                                       )
-                                    // Flip card
-                                    : CustomFlipCard(
-                                        card: hadithFlashcardState
-                                            .getFlashcardsToReview.first,
-                                        controller: cardController,
-                                        selectedLanguage:
-                                            ELanguage.values.firstWhere(
-                                          (element) =>
-                                              element.locale ==
-                                              Get.locale.toString(),
-                                        ),
-                                      ),
+                                    : flashcardToReviewIsEmpty
+                                        // Flashcard to review is empty
+                                        ? FlashcardToReviewIsEmptyContainer(
+                                            hadithFlashcardState:
+                                                hadithFlashcardState,
+                                            gotoNarratorPageOnPressed:
+                                                gotoNarratorPageOnPressed,
+                                          )
+                                        // Flip card
+                                        : CustomFlipCard(
+                                            showcaseState: context
+                                                .watch<ShowcaseBloc>()
+                                                .state,
+                                            card: hadithFlashcardState
+                                                .getFlashcardsToReview.first,
+                                            controller: cardController,
+                                            selectedLanguage:
+                                                ELanguage.values.firstWhere(
+                                              (element) =>
+                                                  element.locale ==
+                                                  Get.locale.toString(),
+                                            ),
+                                          ),
+                                Positioned(
+                                  top: screenHeight() / 10,
+                                  child: Showcase(
+                                    key: showcaseState.welcomeGlobalKey,
+                                    showArrow: false,
+                                    description: 'welcomeText'.tr,
+                                    descriptionAlignment: TextAlign.center,
+                                    child: const SizedBox(),
+                                  ),
+                                ),
+                                Positioned(
+                                  top: screenHeight() / 10,
+                                  child: Showcase(
+                                    key: showcaseState.enjoyGlobalKey,
+                                    showArrow: false,
+                                    description: 'enjoyText'.tr,
+                                    descriptionAlignment: TextAlign.center,
+                                    child: const SizedBox(),
+                                  ),
+                                ),
+                              ],
+                            ),
 
                             // Qualities button
                             QualitiesButtonRow(
@@ -130,7 +163,7 @@ class ReviewedFlashcardBarColumn extends StatelessWidget {
           '${hadithFlashcardState.numofReviewedFlashcard} / ${hadithFlashcardState.flashcardToReviewTodayLength}',
           style: TextStyle(
             fontSize: 18.0,
-            color: colorScheme().background,
+            color: colorScheme().surface,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -208,39 +241,46 @@ class FlashcardToReviewIsEmptyContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomContainer(
-      color: colorScheme().background,
+      color: colorScheme().surface,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Lottie.asset(
-            hadithFlashcardState.isShowCongratsAnimation
-                ? AssetUrl.congratsLottie
-                : AssetUrl.emptyFlashcardLottie,
-            height: hadithFlashcardState.isShowCongratsAnimation
-                ? screenWidth() / 1.6
-                : screenWidth() / 2.4,
-          ),
-          const SizedBox(height: 40),
-          Text(
-            hadithFlashcardState.isShowCongratsAnimation
-                ? "congratsYouHaveCompletedToday'sFlashcard".tr
-                : "youDon'tHaveFlashcardsToReview".tr,
-            textAlign: TextAlign.center,
-            style: adaptiveTextFont().copyWith(
-              fontSize: 15,
+          Expanded(
+            child: Lottie.asset(
+              hadithFlashcardState.isShowCongratsAnimation
+                  ? AssetUrl.congratsLottie
+                  : AssetUrl.emptyFlashcardLottie,
+              height: hadithFlashcardState.isShowCongratsAnimation
+                  ? screenWidth() / 1.6
+                  : screenWidth() / 2.4,
             ),
           ),
-          TextButton(
-            onPressed: gotoNarratorPageOnPressed,
-            child: Text(
-              'addMoreFlashcards'.tr,
-              textAlign: TextAlign.center,
-              style: primaryTextFont.copyWith(
-                fontSize: 15,
-                decoration: TextDecoration.underline,
+          Column(
+            children: [
+              Text(
+                hadithFlashcardState.isShowCongratsAnimation
+                    ? "congratsYouHaveCompletedToday'sFlashcard".tr
+                    : "youDon'tHaveFlashcardsToReview".tr,
+                textAlign: TextAlign.center,
+                maxLines: 2,
+                style: adaptiveTextFont().copyWith(
+                  fontSize: 14,
+                ),
               ),
-            ),
-          ),
+              TextButton(
+                onPressed: gotoNarratorPageOnPressed,
+                child: Text(
+                  'addMoreFlashcards'.tr,
+                  textAlign: TextAlign.center,
+                  maxLines: 2,
+                  style: primaryTextFont.copyWith(
+                    fontSize: 14,
+                    decoration: TextDecoration.underline,
+                  ),
+                ),
+              ),
+            ],
+          )
         ],
       ),
     );
@@ -258,7 +298,7 @@ class EmptyFlashcardContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomContainer(
-      color: colorScheme().background,
+      color: colorScheme().surface,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -278,6 +318,7 @@ class EmptyFlashcardContainer extends StatelessWidget {
             onPressed: gotoNarratorPageOnPressed,
             child: Text(
               'addYourFlashcard'.tr,
+              textAlign: TextAlign.center,
               style: primaryTextFont.copyWith(
                 fontSize: 15,
                 decoration: TextDecoration.underline,
@@ -335,7 +376,7 @@ class ReviewedFlashcardBar extends StatelessWidget {
                 child: Container(
                   height: 8.0,
                   decoration: BoxDecoration(
-                    color: colorScheme().background.withOpacity(
+                    color: colorScheme().surface.withOpacity(
                           0.5,
                         ),
                     borderRadius: mediumBorderRadius(),

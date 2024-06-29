@@ -16,6 +16,9 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$HadithFlashcard {
+// because the userName one is not exist in very first time we make the app so we make it nullable
+// we changed this to UnemptyString because guest name is filled with number
+  UnemptyString? get userName => throw _privateConstructorUsedError;
   PersonName get hadithNarratorName => throw _privateConstructorUsedError;
   PositiveNumber get hadithNumber => throw _privateConstructorUsedError;
   UnemptyString get arab => throw _privateConstructorUsedError;
@@ -24,6 +27,7 @@ mixin _$HadithFlashcard {
   int get interval => throw _privateConstructorUsedError;
   int get repetition => throw _privateConstructorUsedError;
   double get easeFactor => throw _privateConstructorUsedError;
+  DateTime? get createdAt => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HadithFlashcardCopyWith<HadithFlashcard> get copyWith =>
@@ -37,14 +41,16 @@ abstract class $HadithFlashcardCopyWith<$Res> {
       _$HadithFlashcardCopyWithImpl<$Res, HadithFlashcard>;
   @useResult
   $Res call(
-      {PersonName hadithNarratorName,
+      {UnemptyString? userName,
+      PersonName hadithNarratorName,
       PositiveNumber hadithNumber,
       UnemptyString arab,
       UnemptyString translation,
       DateTime reviewedDate,
       int interval,
       int repetition,
-      double easeFactor});
+      double easeFactor,
+      DateTime? createdAt});
 }
 
 /// @nodoc
@@ -60,6 +66,7 @@ class _$HadithFlashcardCopyWithImpl<$Res, $Val extends HadithFlashcard>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? userName = freezed,
     Object? hadithNarratorName = null,
     Object? hadithNumber = null,
     Object? arab = null,
@@ -68,8 +75,13 @@ class _$HadithFlashcardCopyWithImpl<$Res, $Val extends HadithFlashcard>
     Object? interval = null,
     Object? repetition = null,
     Object? easeFactor = null,
+    Object? createdAt = freezed,
   }) {
     return _then(_value.copyWith(
+      userName: freezed == userName
+          ? _value.userName
+          : userName // ignore: cast_nullable_to_non_nullable
+              as UnemptyString?,
       hadithNarratorName: null == hadithNarratorName
           ? _value.hadithNarratorName
           : hadithNarratorName // ignore: cast_nullable_to_non_nullable
@@ -102,6 +114,10 @@ class _$HadithFlashcardCopyWithImpl<$Res, $Val extends HadithFlashcard>
           ? _value.easeFactor
           : easeFactor // ignore: cast_nullable_to_non_nullable
               as double,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ) as $Val);
   }
 }
@@ -115,14 +131,16 @@ abstract class _$$HadithFlashcardImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {PersonName hadithNarratorName,
+      {UnemptyString? userName,
+      PersonName hadithNarratorName,
       PositiveNumber hadithNumber,
       UnemptyString arab,
       UnemptyString translation,
       DateTime reviewedDate,
       int interval,
       int repetition,
-      double easeFactor});
+      double easeFactor,
+      DateTime? createdAt});
 }
 
 /// @nodoc
@@ -136,6 +154,7 @@ class __$$HadithFlashcardImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? userName = freezed,
     Object? hadithNarratorName = null,
     Object? hadithNumber = null,
     Object? arab = null,
@@ -144,8 +163,13 @@ class __$$HadithFlashcardImplCopyWithImpl<$Res>
     Object? interval = null,
     Object? repetition = null,
     Object? easeFactor = null,
+    Object? createdAt = freezed,
   }) {
     return _then(_$HadithFlashcardImpl(
+      userName: freezed == userName
+          ? _value.userName
+          : userName // ignore: cast_nullable_to_non_nullable
+              as UnemptyString?,
       hadithNarratorName: null == hadithNarratorName
           ? _value.hadithNarratorName
           : hadithNarratorName // ignore: cast_nullable_to_non_nullable
@@ -178,6 +202,10 @@ class __$$HadithFlashcardImplCopyWithImpl<$Res>
           ? _value.easeFactor
           : easeFactor // ignore: cast_nullable_to_non_nullable
               as double,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ));
   }
 }
@@ -186,15 +214,21 @@ class __$$HadithFlashcardImplCopyWithImpl<$Res>
 
 class _$HadithFlashcardImpl implements _HadithFlashcard {
   const _$HadithFlashcardImpl(
-      {required this.hadithNarratorName,
+      {required this.userName,
+      required this.hadithNarratorName,
       required this.hadithNumber,
       required this.arab,
       required this.translation,
       required this.reviewedDate,
       required this.interval,
       required this.repetition,
-      required this.easeFactor});
+      required this.easeFactor,
+      this.createdAt});
 
+// because the userName one is not exist in very first time we make the app so we make it nullable
+// we changed this to UnemptyString because guest name is filled with number
+  @override
+  final UnemptyString? userName;
   @override
   final PersonName hadithNarratorName;
   @override
@@ -211,10 +245,12 @@ class _$HadithFlashcardImpl implements _HadithFlashcard {
   final int repetition;
   @override
   final double easeFactor;
+  @override
+  final DateTime? createdAt;
 
   @override
   String toString() {
-    return 'HadithFlashcard(hadithNarratorName: $hadithNarratorName, hadithNumber: $hadithNumber, arab: $arab, translation: $translation, reviewedDate: $reviewedDate, interval: $interval, repetition: $repetition, easeFactor: $easeFactor)';
+    return 'HadithFlashcard(userName: $userName, hadithNarratorName: $hadithNarratorName, hadithNumber: $hadithNumber, arab: $arab, translation: $translation, reviewedDate: $reviewedDate, interval: $interval, repetition: $repetition, easeFactor: $easeFactor, createdAt: $createdAt)';
   }
 
   @override
@@ -222,6 +258,8 @@ class _$HadithFlashcardImpl implements _HadithFlashcard {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$HadithFlashcardImpl &&
+            (identical(other.userName, userName) ||
+                other.userName == userName) &&
             (identical(other.hadithNarratorName, hadithNarratorName) ||
                 other.hadithNarratorName == hadithNarratorName) &&
             (identical(other.hadithNumber, hadithNumber) ||
@@ -236,12 +274,24 @@ class _$HadithFlashcardImpl implements _HadithFlashcard {
             (identical(other.repetition, repetition) ||
                 other.repetition == repetition) &&
             (identical(other.easeFactor, easeFactor) ||
-                other.easeFactor == easeFactor));
+                other.easeFactor == easeFactor) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, hadithNarratorName, hadithNumber,
-      arab, translation, reviewedDate, interval, repetition, easeFactor);
+  int get hashCode => Object.hash(
+      runtimeType,
+      userName,
+      hadithNarratorName,
+      hadithNumber,
+      arab,
+      translation,
+      reviewedDate,
+      interval,
+      repetition,
+      easeFactor,
+      createdAt);
 
   @JsonKey(ignore: true)
   @override
@@ -253,15 +303,20 @@ class _$HadithFlashcardImpl implements _HadithFlashcard {
 
 abstract class _HadithFlashcard implements HadithFlashcard {
   const factory _HadithFlashcard(
-      {required final PersonName hadithNarratorName,
+      {required final UnemptyString? userName,
+      required final PersonName hadithNarratorName,
       required final PositiveNumber hadithNumber,
       required final UnemptyString arab,
       required final UnemptyString translation,
       required final DateTime reviewedDate,
       required final int interval,
       required final int repetition,
-      required final double easeFactor}) = _$HadithFlashcardImpl;
+      required final double easeFactor,
+      final DateTime? createdAt}) = _$HadithFlashcardImpl;
 
+  @override // because the userName one is not exist in very first time we make the app so we make it nullable
+// we changed this to UnemptyString because guest name is filled with number
+  UnemptyString? get userName;
   @override
   PersonName get hadithNarratorName;
   @override
@@ -278,6 +333,8 @@ abstract class _HadithFlashcard implements HadithFlashcard {
   int get repetition;
   @override
   double get easeFactor;
+  @override
+  DateTime? get createdAt;
   @override
   @JsonKey(ignore: true)
   _$$HadithFlashcardImplCopyWith<_$HadithFlashcardImpl> get copyWith =>

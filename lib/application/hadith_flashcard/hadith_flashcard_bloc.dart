@@ -28,6 +28,13 @@ class HadithFlashcardBloc
     on<HadithFlashcardEvent>(
       (event, emit) async {
         await event.map(
+          saveMigrateFlashcards: (e) {
+            emit(
+              state.copyWith(
+                flashcardsToMigrate: e.flashcards,
+              ),
+            );
+          },
           resetFlashcardSnackBar: (_) {
             emit(
               state.copyWith(
@@ -72,6 +79,7 @@ class HadithFlashcardBloc
             }
 
             cardModel = HadithFlashcardModel(
+              userName: e.flashcard.userName?.getOrNull(),
               hadithNarratorName: e.flashcard.hadithNarratorName.getOrCrash(),
               hadithNumber: e.flashcard.hadithNumber.getOrCrash().toInt(),
               arab: e.flashcard.arab.getOrCrash(),
@@ -80,6 +88,7 @@ class HadithFlashcardBloc
               repetition: smResponse?.interval ?? e.flashcard.interval,
               easeFactor: smResponse?.easeFactor ?? e.flashcard.easeFactor,
               reviewedDate: DateTime.now(),
+              createdAt: e.flashcard.createdAt,
             );
 
             final failureOrResponse =
@@ -105,6 +114,51 @@ class HadithFlashcardBloc
                     : state.numofReviewedFlashcard,
               ),
             );
+          },
+          isMigrating: (e) {
+            emit(
+              state.copyWith(
+                isMigrating: e.value,
+              ),
+            );
+          },
+          migrateFlashcards: (e) async {
+            List<bool> isSuccesses = <bool>[];
+
+            if (e.flashcards != null) {
+              for (var element in e.flashcards!) {
+                final failureOrResponse = await hadithFlashcardRepository
+                    .saveFlashcard(
+                  userID: e.userID.getOrCrash(),
+                  flashcard: HadithFlashcardModel.fromDomain(
+                    element,
+                  ),
+                )
+                    .then(
+                  (value) {
+                    isSuccesses.add(
+                      value.isRight(),
+                    );
+                  },
+                );
+
+                emit(
+                  state.copyWith(
+                    optionFailureOrMigrateFlashcard: optionOf(
+                      failureOrResponse,
+                    ),
+                  ),
+                );
+              }
+
+              emit(
+                state.copyWith(
+                  isMigrationSuccess: isSuccesses.everyIs(
+                    true,
+                  ),
+                ),
+              );
+            }
           },
           deleteFlashcard: (e) async {
             final failureOrResponse =

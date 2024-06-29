@@ -48,7 +48,7 @@ class CustomElevatedButtonWidget extends StatelessWidget {
                 ? BorderSide(
                     color: disabledBorderColor != null && isEnabled == false
                         ? disabledBorderColor!
-                        : colorScheme().background,
+                        : colorScheme().surface,
                   )
                 : BorderSide.none,
             borderRadius: largeBorderRadius(),
@@ -76,7 +76,7 @@ class CustomElevatedButtonWidget extends StatelessWidget {
                     style: textStyle.copyWith(
                       color: isEnabled
                           ? textStyle.color
-                          : disabledTextColor ?? colorScheme().background,
+                          : disabledTextColor ?? colorScheme().surface,
                     ),
                   ),
           ],

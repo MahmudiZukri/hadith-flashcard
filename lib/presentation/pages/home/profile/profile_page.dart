@@ -26,349 +26,388 @@ class ProfilePageScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<RemoteConfigBloc, RemoteConfigState>(
-      builder: (context, remoteConfigState) {
-        return BlocBuilder<AdBloc, AdState>(
-          builder: (context, adState) {
-            return BlocBuilder<UserBloc, UserState>(
-              builder: (context, userState) {
-                return BlocListener<AuthBloc, AuthState>(
-                  listenWhen: (previous, current) =>
-                      previous.showSnackbar != current.showSnackbar,
-                  listener: (context, state) {
-                    state.optionFailureOrSuccess.match(
-                      () => null,
-                      (either) => either.fold(
-                        (f) {
-                          CommonUtils.customSnackbar(
-                            isSuccess: false,
-                            message: f.maybeMap(
-                              handledByFirebase: (s) => s.message,
-                              orElse: () =>
-                                  '${'somethingWentWrong'.tr} (${f.message}).',
+    return StreamBuilder<User?>(
+        stream: IAuthRepository.userStream,
+        initialData: IAuthRepository.auth.currentUser,
+        builder: (context, snapshot) {
+          return BlocBuilder<RemoteConfigBloc, RemoteConfigState>(
+            builder: (context, remoteConfigState) {
+              return BlocBuilder<AdBloc, AdState>(
+                builder: (context, adState) {
+                  return BlocSelector<UserBloc, UserState, AppUser?>(
+                    selector: (state) => state.user,
+                    builder: (context, appUser) {
+                      return BlocListener<AuthBloc, AuthState>(
+                        listenWhen: (previous, current) =>
+                            previous.showSnackbar != current.showSnackbar,
+                        listener: (context, state) {
+                          state.optionFailureOrSuccess.match(
+                            () => null,
+                            (either) => either.fold(
+                              (f) {
+                                CommonUtils.customSnackbar(
+                                  isSuccess: false,
+                                  message: f.maybeMap(
+                                    handledByFirebase: (s) => s.message,
+                                    orElse: () =>
+                                        '${'somethingWentWrong'.tr} (${f.message}).',
+                                  ),
+                                );
+                              },
+                              (_) {},
                             ),
                           );
-                        },
-                        (_) {},
-                      ),
-                    );
 
-                    // note : we use this state for deactivating user account rn
+                          // note : we use this state for deactivating user account rn
 
-                    state.optionDeleteFailureOrSuccess.match(
-                      () => null,
-                      (either) => either.fold(
-                        (f) {
-                          CommonUtils.customSnackbar(
-                            isSuccess: false,
-                            message: f.maybeMap(
-                              handledByFirebase: (s) => s.message,
-                              orElse: () =>
-                                  '${'somethingWentWrong'.tr} (${f.message}).',
+                          state.optionDeleteFailureOrSuccess.match(
+                            () => null,
+                            (either) => either.fold(
+                              (f) {
+                                CommonUtils.customSnackbar(
+                                  isSuccess: false,
+                                  message: f.maybeMap(
+                                    handledByFirebase: (s) => s.message,
+                                    orElse: () =>
+                                        '${'somethingWentWrong'.tr} (${f.message}).',
+                                  ),
+                                );
+                              },
+                              (_) {
+                                CommonUtils.customSnackbar(
+                                  isSuccess: true,
+                                  // note : rn deactivating acc message is just the same like deleting acc snackbar
+                                  message: 'accountSuccessfullyDeleted'.tr,
+                                );
+                              },
                             ),
                           );
+
+                          // note : we need to comment this rn, cause we need to try soft delete / deactivate first ( this is the hard delete one )
+
+                          // state.optionDeleteFailureOrSuccess.match(
+                          //   () => null,
+                          //   (either) => either.fold(
+                          //     (f) {
+                          //       CommonUtils.customSnackbar(
+                          //         isSuccess: false,
+                          //         message: f.maybeMap(
+                          //           handledByFirebase: (s) => s.message,
+                          //           orElse: () =>
+                          //               '${'somethingWentWrong'.tr} (${f.message}).',
+                          //         ),
+                          //       );
+                          //     },
+                          //     (_) {
+                          //       CommonUtils.customSnackbar(
+                          //         isSuccess: true,
+                          //         message: 'accountSuccessfullyDeleted'.tr,
+                          //       );
+
+                          //       // TODO : goto sign in page
+                          //     },
+                          //   ),
+                          // );
                         },
-                        (_) {
-                          CommonUtils.customSnackbar(
-                            isSuccess: true,
-                            // note : rn deactivating acc message is just the same like deleting acc snackbar
-                            message: 'accountSuccessfullyDeleted'.tr,
-                          );
-                        },
-                      ),
-                    );
-
-                    // note : we need to comment this rn, cause we need to try soft delete / deactivate first ( this is the hard delete one )
-
-                    // state.optionDeleteFailureOrSuccess.match(
-                    //   () => null,
-                    //   (either) => either.fold(
-                    //     (f) {
-                    //       CommonUtils.customSnackbar(
-                    //         isSuccess: false,
-                    //         message: f.maybeMap(
-                    //           handledByFirebase: (s) => s.message,
-                    //           orElse: () =>
-                    //               '${'somethingWentWrong'.tr} (${f.message}).',
-                    //         ),
-                    //       );
-                    //     },
-                    //     (_) {
-                    //       CommonUtils.customSnackbar(
-                    //         isSuccess: true,
-                    //         message: 'accountSuccessfullyDeleted'.tr,
-                    //       );
-
-                    //       // TODO : goto sign in page
-                    //     },
-                    //   ),
-                    // );
-                  },
-                  child: Container(
-                    height: double.infinity,
-                    width: double.infinity,
-                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                    child: Column(
-                      children: [
-                        // Title
-                        Column(
-                          children: [
-                            const SizedBox(height: 14.0),
-                            Text(
-                              'profile'.tr,
-                              style: adaptiveTextFont().copyWith(
-                                fontSize: 20.0,
-                                letterSpacing: 3,
-                                color: colorScheme(context: context)
-                                    .inversePrimary,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            const SizedBox(height: 24.0),
-                          ],
-                        ),
-                        // Main container
-                        Expanded(
-                          child: Container(
-                            padding: const EdgeInsets.all(
-                              defaultMargin,
-                            ),
-                            decoration: BoxDecoration(
-                              color: colorScheme(context: context).background,
-                              borderRadius: const BorderRadius.only(
-                                topRight: Radius.circular(
-                                  45,
-                                ),
-                                topLeft: Radius.circular(
-                                  45,
-                                ),
-                              ),
-                            ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                // User information
-                                UserInfomation(
-                                  userState: userState,
-                                ),
-                                const SizedBox(height: 24.0),
-                                // Divider
-                                const CustomDivider(),
-                                const SizedBox(height: 24.0),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    // My flashcard
-                                    MyFlashcardSection(
-                                      userID: userID,
-                                      title: 'myFlashcard',
+                        child: Container(
+                          height: screenHeight(),
+                          width: screenWidth(),
+                          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                          child: Column(
+                            children: [
+                              // Title
+                              Column(
+                                children: [
+                                  const SizedBox(height: 14.0),
+                                  Text(
+                                    'profile'.tr,
+                                    style: adaptiveTextFont().copyWith(
+                                      fontSize: 20.0,
+                                      letterSpacing: 3,
+                                      color: colorScheme(context: context)
+                                          .inversePrimary,
+                                      fontWeight: FontWeight.bold,
                                     ),
-
-                                    // Choose language
-                                    const ChooseLanguageSection(
-                                      title: 'language',
-                                    ),
-
-                                    // Dark mode section
-                                    BlocSelector<SettingBloc, SettingState,
-                                        bool>(
-                                      selector: (state) => state.isDarkMode,
-                                      builder: (context, isDarkMode) => Column(
-                                        children: [
-                                          DarkModeSection(
-                                            title: 'darkMode',
-                                            value: isDarkMode,
-                                            onChanged: () {
-                                              context.read<SettingBloc>().add(
-                                                    const SettingEvent
-                                                        .changeToDarkMode(),
-                                                  );
-                                            },
-                                          ),
-                                        ],
+                                  ),
+                                  const SizedBox(height: 24.0),
+                                ],
+                              ),
+                              // Main container
+                              Expanded(
+                                child: Container(
+                                  padding: EdgeInsets.fromLTRB(
+                                    defaultMargin,
+                                    defaultMargin,
+                                    defaultMargin,
+                                    Platform.isAndroid
+                                        ? 8 + (screenHeight() / 10)
+                                        : defaultMargin,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color:
+                                        colorScheme(context: context).surface,
+                                    borderRadius: const BorderRadius.only(
+                                      topRight: Radius.circular(
+                                        45,
+                                      ),
+                                      topLeft: Radius.circular(
+                                        45,
                                       ),
                                     ),
-
-                                    // Uncomment later
-                                    // Rate us
-                                    // RateUsSection(
-                                    //   title: 'rateUs',
-                                    //   onTap: () {
-                                    //     //rate
-                                    //   },
-                                    // ),
-
-                                    // Help
-                                    HelpSection(
-                                      userID: userID,
-                                      title: 'help',
-                                    ),
-
-                                    // Privacy policy
-                                    PrivacyPolicySection(
-                                      userID: userID,
-                                      title: 'privacyPolicy',
-                                    ),
-
-                                    // Uncomment later
-                                    // About app
-                                    // AboutAppSection(
-                                    //   userID: userID,
-                                    //   title: 'aboutApp',
-                                    // ),
-
-                                    // Uncomment later
-                                    // Share app
-                                    // AboutAppSection(
-                                    //   userID: userID,
-                                    //   title: 'shareApp',
-                                    // ),
-
-                                    // consider makes rating feature, analitycs
-                                    // think about the content here, maybe like how many hadith
-                                    // that already mastered or something else
-                                  ],
-                                ),
-                                const Spacer(),
-
-                                // Profile page banner ads
-                                if (remoteConfigState.isEnableAds &&
-                                    adState.profilePageBannerAd != null)
-                                  CustomAdWidget(
-                                    bannerAd: adState.profilePageBannerAd!,
                                   ),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      // User information
+                                      UserInfomation(
+                                        userID: userID,
+                                        user: appUser,
+                                      ),
+                                      const SizedBox(height: 24.0),
+                                      // Divider
+                                      const CustomDivider(),
+                                      const SizedBox(height: 24.0),
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          // My flashcard
+                                          MyFlashcardSection(
+                                            userID: userID,
+                                            title: 'myFlashcard',
+                                          ),
 
-                                const Spacer(),
-                                // Delete account
-                                Center(
-                                  child: GestureDetector(
-                                    onTap: () {
-                                      // Dialog
-                                      CommonUtils.openCustomDialog(
-                                        context: Get.context!,
-                                        title: Text(
-                                          'areYouSureWannaDeleteAccount'.tr,
-                                          style: adaptiveTextFont().copyWith(
-                                            fontSize: 17.0,
-                                            fontWeight: FontWeight.w500,
-                                            color: colorScheme().primary,
+                                          // Choose language
+                                          const ChooseLanguageSection(
+                                            title: 'language',
                                           ),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                        content: Padding(
-                                          padding: const EdgeInsets.symmetric(
-                                            horizontal: 24.0,
-                                          ),
-                                          child: Padding(
-                                            padding: const EdgeInsets.only(
-                                              top: 10.0,
-                                            ),
-                                            child: Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
+
+                                          // Dark mode section
+                                          BlocSelector<SettingBloc,
+                                              SettingState, bool>(
+                                            selector: (state) =>
+                                                state.isDarkMode,
+                                            builder: (context, isDarkMode) =>
+                                                Column(
                                               children: [
-                                                Expanded(
-                                                  child:
-                                                      CustomElevatedButtonWidget(
-                                                    text: 'no'.tr,
-                                                    backgroundColor: redColor,
-                                                    textStyle:
-                                                        adaptiveTextFont()
-                                                            .copyWith(
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      color: colorScheme()
-                                                          .inversePrimary,
-                                                    ),
-                                                    onPressed: () {
-                                                      Navigator.pop(context);
-                                                    },
-                                                  ),
-                                                ),
-                                                const SizedBox(width: 24.0),
-                                                Expanded(
-                                                  child:
-                                                      CustomElevatedButtonWidget(
-                                                    text: 'yes'.tr,
-                                                    backgroundColor:
-                                                        primaryColor,
-                                                    textStyle:
-                                                        adaptiveTextFont()
-                                                            .copyWith(
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      color: colorScheme()
-                                                          .inversePrimary,
-                                                    ),
-                                                    onPressed: () {
-                                                      // note : we need to comment this rn, cause we need to try soft delete first ( this is the hard delete one )
-
-                                                      // context.read<AuthBloc>().add(
-                                                      //       const AuthEvent
-                                                      //           .deleteAccount(),
-                                                      //     );
-
-                                                      if (userState.user !=
-                                                          null) {
-                                                        context.read<AuthBloc>()
-                                                          ..add(
-                                                            AuthEvent
-                                                                .activeOrDeactivateAccount(
-                                                              user: userState
-                                                                  .user!,
-                                                              isActivated:
-                                                                  false,
-                                                            ),
-                                                          )
-                                                          ..add(
-                                                            const AuthEvent
-                                                                .signOut(),
-                                                          );
-
-                                                        Navigator.pop(context);
-                                                      }
-                                                    },
-                                                  ),
+                                                DarkModeSection(
+                                                  title: 'darkMode',
+                                                  value: isDarkMode,
+                                                  onChanged: () {
+                                                    context
+                                                        .read<SettingBloc>()
+                                                        .add(
+                                                          const SettingEvent
+                                                              .changeToDarkMode(),
+                                                        );
+                                                  },
                                                 ),
                                               ],
                                             ),
                                           ),
-                                        ),
-                                      );
-                                    },
-                                    child: Text(
-                                      'deleteAccount'.tr,
-                                      style: redTextFont.copyWith(
-                                        fontWeight: FontWeight.w600,
-                                        decoration: TextDecoration.underline,
-                                        decorationColor: redColor,
+
+                                          // Uncomment later
+                                          // Rate us
+                                          // RateUsSection(
+                                          //   title: 'rateUs',
+                                          //   onTap: () {
+                                          //     //rate
+                                          //   },
+                                          // ),
+
+                                          // Help
+                                          HelpSection(
+                                            userID: userID,
+                                            title: 'help',
+                                          ),
+
+                                          // Privacy policy
+                                          PrivacyPolicySection(
+                                            userID: userID,
+                                            title: 'privacyPolicy',
+                                          ),
+
+                                          // Uncomment later
+                                          // About app
+                                          // AboutAppSection(
+                                          //   userID: userID,
+                                          //   title: 'aboutApp',
+                                          // ),
+
+                                          // Uncomment later
+                                          // Share app
+                                          // AboutAppSection(
+                                          //   userID: userID,
+                                          //   title: 'shareApp',
+                                          // ),
+
+                                          // consider makes rating feature, analitycs
+                                          // think about the content here, maybe like how many hadith
+                                          // that already mastered or something else
+                                        ],
                                       ),
-                                    ),
+                                      const Spacer(),
+
+                                      // Profile page banner ads
+                                      if (remoteConfigState.isEnableAds &&
+                                          adState.profilePageBannerAd != null)
+                                        CustomAdWidget(
+                                          bannerAd:
+                                              adState.profilePageBannerAd!,
+                                        ),
+
+                                      const Spacer(),
+                                      // Delete account
+                                      Center(
+                                        child: GestureDetector(
+                                          onTap: () {
+                                            // Delete account dialog
+                                            CommonUtils.openCustomDialog(
+                                              context: Get.context!,
+                                              title: Text(
+                                                'areYouSureWannaDeleteAccount'
+                                                    .tr,
+                                                style:
+                                                    adaptiveTextFont().copyWith(
+                                                  fontSize: 17.0,
+                                                  fontWeight: FontWeight.w500,
+                                                  color: colorScheme().primary,
+                                                ),
+                                                textAlign: TextAlign.center,
+                                              ),
+                                              content: Padding(
+                                                padding:
+                                                    const EdgeInsets.symmetric(
+                                                  horizontal: 24.0,
+                                                ),
+                                                child: Padding(
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                    top: 10.0,
+                                                  ),
+                                                  child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
+                                                    children: [
+                                                      Expanded(
+                                                        child:
+                                                            CustomElevatedButtonWidget(
+                                                          text: 'no'.tr,
+                                                          backgroundColor:
+                                                              redColor,
+                                                          textStyle:
+                                                              adaptiveTextFont()
+                                                                  .copyWith(
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                            color: colorScheme()
+                                                                .inversePrimary,
+                                                          ),
+                                                          onPressed: () {
+                                                            Navigator.pop(
+                                                                context);
+                                                          },
+                                                        ),
+                                                      ),
+                                                      const SizedBox(
+                                                          width: 24.0),
+                                                      Expanded(
+                                                        child:
+                                                            CustomElevatedButtonWidget(
+                                                          text: 'yes'.tr,
+                                                          backgroundColor:
+                                                              primaryColor,
+                                                          textStyle:
+                                                              adaptiveTextFont()
+                                                                  .copyWith(
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                            color: colorScheme()
+                                                                .inversePrimary,
+                                                          ),
+                                                          onPressed: () {
+                                                            // note : we need to comment this rn, cause we need to try soft delete first ( this is the hard delete one )
+
+                                                            // context.read<AuthBloc>().add(
+                                                            //       const AuthEvent
+                                                            //           .deleteAccount(),
+                                                            //     );
+
+                                                            if (appUser !=
+                                                                null) {
+                                                              context.read<
+                                                                  AuthBloc>()
+                                                                ..add(
+                                                                  AuthEvent
+                                                                      .activeOrDeactivateAccount(
+                                                                    user:
+                                                                        appUser,
+                                                                    isActivated:
+                                                                        false,
+                                                                  ),
+                                                                )
+                                                                ..add(
+                                                                  const AuthEvent
+                                                                      .signOut(),
+                                                                );
+
+                                                              Navigator.pop(
+                                                                context,
+                                                              );
+
+                                                              if (Get.currentRoute ==
+                                                                  '/HomePage') {
+                                                                Get.offAll(
+                                                                  () =>
+                                                                      const SignInPage(),
+                                                                );
+                                                              }
+                                                            }
+                                                          },
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                            );
+                                          },
+                                          child: Text(
+                                            'deleteAccount'.tr,
+                                            style: redTextFont.copyWith(
+                                              fontWeight: FontWeight.w600,
+                                              decoration:
+                                                  TextDecoration.underline,
+                                              decorationColor: redColor,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      const SizedBox(height: 20.0),
+                                      // Sign out
+                                      SignOut(
+                                        email: appUser?.email.getOrNull(),
+                                      ),
+                                      const SizedBox(height: 20.0),
+                                      // Space for bottom nav bar
+                                      const Spacer()
+                                    ],
                                   ),
                                 ),
-                                const SizedBox(height: 20.0),
-                                // Sign out
-                                const SignOut(),
-                                const SizedBox(height: 20.0),
-                                // Space for bottom nav bar
-                                SizedBox(
-                                  height: screenHeight() / 10,
-                                )
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
                         ),
-                      ],
-                    ),
-                  ),
-                );
-              },
-            );
-          },
-        );
-      },
-    );
+                      );
+                    },
+                  );
+                },
+              );
+            },
+          );
+        });
   }
 }
 
@@ -417,9 +456,10 @@ class DarkModeSection extends StatelessWidget {
         inactiveTrackColor:
             Platform.isIOS ? greyColor.withOpacity(0.5) : whiteColor,
         trackOutlineColor: MaterialStateProperty.resolveWith<Color?>(
-            (Set<MaterialState> states) {
-          return Colors.grey; // Use the default color.
-        }),
+          (Set<MaterialState> states) {
+            return Colors.grey; // Use the default color.
+          },
+        ),
         value: value,
         onChanged: (_) {
           onChanged();
@@ -469,15 +509,17 @@ class MyFlashcardSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final hadithFlashcardState = context.read<HadithFlashcardBloc>().state;
+    final hadithFlashcardState = context.watch<HadithFlashcardBloc>().state;
 
     return CustomListTile(
       title: title,
       dense: true,
       contentPadding: EdgeInsets.zero,
-      trailing: CustomNumberContainerWidget(
-        number: hadithFlashcardState.getFlashcards.length,
-      ),
+      trailing: hadithFlashcardState.getFlashcards.isEmpty
+          ? null
+          : CustomNumberContainerWidget(
+              number: hadithFlashcardState.getFlashcards.length,
+            ),
       onTap: () {
         Get.to(
           () => MyFlashcardNarratorPage(
@@ -584,11 +626,11 @@ class ChooseLanguageSection extends StatelessWidget {
                         GestureDetector(
                           behavior: HitTestBehavior.translucent,
                           onTap: () {
-                            Get.updateLocale(
-                              Locale(
-                                languages[index].locale,
-                              ),
-                            );
+                            context.read<SettingBloc>().add(
+                                  SettingEvent.updateLocale(
+                                    localeStr: languages[index].locale,
+                                  ),
+                                );
 
                             Navigator.pop(context);
                           },
@@ -665,7 +707,10 @@ class ChooseLanguageSection extends StatelessWidget {
 class SignOut extends StatelessWidget {
   const SignOut({
     super.key,
+    required this.email,
   });
+
+  final String? email;
 
   @override
   Widget build(BuildContext context) {
@@ -682,13 +727,100 @@ class SignOut extends StatelessWidget {
         ),
         child: TextButton(
           onPressed: () {
-            context.read<AuthBloc>().add(
-                  const AuthEvent.signOut(),
-                );
+            if (IAuthRepository.auth.currentUser != null) {
+              if (email != null) {
+                context.read<AuthBloc>().add(
+                      const AuthEvent.signOut(),
+                    );
 
-            Get.offAll(
-              () => const SignInPage(),
-            );
+                if (Get.currentRoute == '/HomePage') {
+                  Get.offAll(
+                    () => const SignInPage(),
+                  );
+                }
+
+                // User sign in as guest
+              } else if (email == null) {
+                // Hard delete account dialog
+                CommonUtils.openCustomDialog(
+                  context: Get.context!,
+                  title: Text(
+                    'areYouSureWannaDeleteGuestAccount'.tr,
+                    style: adaptiveTextFont().copyWith(
+                      fontSize: 17.0,
+                      fontWeight: FontWeight.w500,
+                      color: colorScheme().primary,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  content: Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 24.0,
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                        top: 10.0,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Expanded(
+                            child: CustomElevatedButtonWidget(
+                              text: 'no'.tr,
+                              backgroundColor: redColor,
+                              textStyle: adaptiveTextFont().copyWith(
+                                fontWeight: FontWeight.w600,
+                                color: colorScheme().inversePrimary,
+                              ),
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                            ),
+                          ),
+                          const SizedBox(width: 24.0),
+                          Expanded(
+                            child: CustomElevatedButtonWidget(
+                              text: 'yes'.tr,
+                              backgroundColor: primaryColor,
+                              textStyle: adaptiveTextFont().copyWith(
+                                fontWeight: FontWeight.w600,
+                                color: colorScheme().inversePrimary,
+                              ),
+                              onPressed: () {
+                                // Delete auth account
+                                context.read<AuthBloc>()
+                                  ..add(
+                                    const AuthEvent.deleteAccount(),
+                                  )
+                                  ..add(
+                                    const AuthEvent.signOut(),
+                                  );
+
+                                if (Get.currentRoute == '/HomePage') {
+                                  Get.offAll(
+                                    () => const SignInPage(),
+                                  );
+                                }
+
+                                // TODO: Delete document account and flashcard on Firestore if user is guest
+
+                                Navigator.pop(context);
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                );
+              }
+            } else {
+              if (Get.currentRoute == '/HomePage') {
+                Get.offAll(
+                  () => const SignInPage(),
+                );
+              }
+            }
           },
           child: Text(
             'signOut'.tr,
@@ -704,11 +836,13 @@ class SignOut extends StatelessWidget {
 
 class UserInfomation extends StatelessWidget {
   const UserInfomation({
-    required this.userState,
+    required this.user,
+    required this.userID,
     super.key,
   });
 
-  final UserState userState;
+  final AppUser? user;
+  final UniqueString userID;
 
   @override
   Widget build(BuildContext context) {
@@ -717,52 +851,113 @@ class UserInfomation extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Row(
-            children: [
-              CircleAvatar(
-                minRadius: 32,
-                maxRadius: 32,
-                backgroundColor: greyColor.withOpacity(0.6),
-                child:
-                    userState.user != null && userState.user?.photoUrl != null
-                        ? ClipOval(
-                            child: Image.network(
-                              userState.user!.photoUrl!.getOrCrash(),
-                              fit: BoxFit.cover,
-                            ),
-                          )
-                        : SvgPicture.asset(
-                            AssetUrl.profileIcon,
-                            height: 28,
-                            colorFilter: ColorFilter.mode(
-                              colorScheme(context: context).background,
-                              BlendMode.srcIn,
-                            ),
+          Expanded(
+            child: Row(
+              children: [
+                CircleAvatar(
+                  minRadius: 32,
+                  maxRadius: 32,
+                  backgroundColor: greyColor.withOpacity(0.6),
+                  child: user != null && user?.photoUrl != null
+                      ? ClipOval(
+                          child: Image.network(
+                            user!.photoUrl!.getOrCrash(),
+                            fit: BoxFit.cover,
                           ),
-              ),
-              const SizedBox(width: 18.0),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    userState.user?.name.getOrNull() ?? 'youAreInGuestMode'.tr,
-                    maxLines: 3,
-                    style: adaptiveTextFont().copyWith(
-                      fontSize: 18.0,
-                      fontWeight: FontWeight.w600,
-                    ),
+                        )
+                      : SvgPicture.asset(
+                          AssetUrl.profileIcon,
+                          height: 28,
+                          colorFilter: ColorFilter.mode(
+                            colorScheme(context: context).surface,
+                            BlendMode.srcIn,
+                          ),
+                        ),
+                ),
+                const SizedBox(width: 18.0),
+                Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Flexible(
+                        child: Text(
+                          user?.name.getOrCrash() ?? 'youAreInGuestMode'.tr,
+                          maxLines: 3,
+                          style: adaptiveTextFont().copyWith(
+                            fontSize:
+                                user?.name.getOrNull() == null ? 16 : 18.0,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                      user?.email.getOrNull() == null
+                          ? BlocProvider<HadithFlashcardBloc>.value(
+                              value:
+                                  BlocProvider.of<HadithFlashcardBloc>(context),
+                              child: Expanded(
+                                child: GestureDetector(
+                                  behavior: HitTestBehavior.translucent,
+                                  onTap: () async {
+                                    final flashcards = context
+                                        .read<HadithFlashcardBloc>()
+                                        .state
+                                        .getFlashcards;
+
+                                    if (flashcards.isEmpty) {
+                                      CommonUtils.customSnackbar(
+                                        isSuccess: false,
+                                        message: 'youCantLink'.tr,
+                                      );
+                                    } else {
+                                      context.read<HadithFlashcardBloc>().add(
+                                            HadithFlashcardEvent
+                                                .saveMigrateFlashcards(
+                                              flashcards: flashcards,
+                                            ),
+                                          );
+
+                                      await Get.to<bool>(
+                                        () => LinkAccountPage(
+                                          userID: userID,
+                                        ),
+                                      )!
+                                          .then(
+                                        (value) {
+                                          if (value != null && value) {
+                                            context.read<UserBloc>().add(
+                                                  UserEvent.loadUser(
+                                                    userID: userID,
+                                                  ),
+                                                );
+                                          }
+                                        },
+                                      );
+                                    }
+                                  },
+                                  child: Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: Text(
+                                      'linkYourAccount'.tr,
+                                      style: const TextStyle(
+                                        color: primaryColor,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            )
+                          : Text(
+                              user!.email.getOrCrash(),
+                              style: adaptiveTextFont(applyOpacity: true),
+                            ),
+                    ],
                   ),
-                  const SizedBox(height: 3.0),
-                  Text(
-                    userState.user?.email.getOrNull() ?? '',
-                    style: adaptiveTextFont(applyOpacity: true),
-                  ),
-                ],
-              ),
-            ],
+                ),
+              ],
+            ),
           ),
-          const SizedBox(width: 14.0),
+          // const SizedBox(width: 14.0),
           // Edit button
           // GestureDetector(
           //   onTap: () {

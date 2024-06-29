@@ -9,12 +9,36 @@
       "client_info": {
         "mobilesdk_app_id": "1:988688359058:android:09e23bc6cab1f3fc58d04b",
         "android_client_info": {
-          "package_name": "com.hadith.flashcard"
+          "package_name": "com.example.hadith_flashcard"
         }
       },
       "oauth_client": [
         {
-          "client_id": "988688359058-4lhrdihomafl6tmuit1ovfmak4msbur0.apps.googleusercontent.com",
+          "client_id": "988688359058-e4fbnbh9fq8b6s5egvtj6l369enc5jiu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hadith_flashcard",
+            "certificate_hash": "483610c55322145433e5acd7af63164504a17a4b"
+          }
+        },
+        {
+          "client_id": "988688359058-lqqolb1hdirq06u5so2hhtcbtm4ep5r5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hadith_flashcard",
+            "certificate_hash": "a41451b8d8542e01213b97aed60cbc46808111ed"
+          }
+        },
+        {
+          "client_id": "988688359058-mcnvvabd2r0cc4hv5kjgac18ifpc1o37.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hadith_flashcard",
+            "certificate_hash": "47fcb80c40a07ede8c0e9137082665a9734affbb"
+          }
+        },
+        {
+          "client_id": "988688359058-1dinq9ccmvn6q0lg80d7nma8uam61qk8.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -27,7 +51,7 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "988688359058-4lhrdihomafl6tmuit1ovfmak4msbur0.apps.googleusercontent.com",
+              "client_id": "988688359058-1dinq9ccmvn6q0lg80d7nma8uam61qk8.apps.googleusercontent.com",
               "client_type": 3
             },
             {
@@ -40,6 +64,83 @@
           ]
         }
       }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:988688359058:android:8efe6fb90e44144558d04b",
+        "android_client_info": {
+          "package_name": "com.hadith.flashcard"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "988688359058-3dfgr0klbg5cjvvekttc1e4p33md5e2t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hadith.flashcard",
+            "certificate_hash": "a41451b8d8542e01213b97aed60cbc46808111ed"
+          }
+        },
+        {
+          "client_id": "988688359058-9lt31uish5ius663b1vj3tqb632gosf8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hadith.flashcard",
+            "certificate_hash": "4228db71e229afbd16862b2c5a54bf8bf903600c"
+          }
+        },
+        {
+          "client_id": "988688359058-bfnleduqfhto92cm2ehcolv5fofsorft.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hadith.flashcard",
+            "certificate_hash": "47fcb80c40a07ede8c0e9137082665a9734affbb"
+          }
+        },
+        {
+          "client_id": "988688359058-e2aajb4hb8jbnc0mhhasqstusomr9k6f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hadith.flashcard",
+            "certificate_hash": "e289d7e3decfe24d9678a1926fe2d10228d56e57"
+          }
+        },
+        {
+          "client_id": "988688359058-rvbmatijalubf2khgu4amg5lmclmeeel.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hadith.flashcard",
+            "certificate_hash": "483610c55322145433e5acd7af63164504a17a4b"
+          }
+        },
+        {
+          "client_id": "988688359058-1dinq9ccmvn6q0lg80d7nma8uam61qk8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDY_bUSdCWDf3idRHStG1YfPPo5owesg48"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "988688359058-1dinq9ccmvn6q0lg80d7nma8uam61qk8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "988688359058-8qabvj79ve0cr4fa065che9t4lkhubme.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.hadithFlashcard"
+              }
+            }
+          ]
+        }
+      },
+      "admob_app_id": "ca-app-pub-4205579795336385~7378797497"
     }
   ],
   "configuration_version": "1"

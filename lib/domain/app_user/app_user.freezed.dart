@@ -17,9 +17,11 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$AppUser {
   UniqueString get id => throw _privateConstructorUsedError;
-  EmailAddress get email => throw _privateConstructorUsedError;
-  PersonName get name => throw _privateConstructorUsedError;
+  EmailAddress get email =>
+      throw _privateConstructorUsedError; // we changed this to UnemptyString because guest name is filled with number
+  UnemptyString get name => throw _privateConstructorUsedError;
   bool get isActive => throw _privateConstructorUsedError;
+  DateTime? get createdAt => throw _privateConstructorUsedError;
   UrlAddress? get photoUrl => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -34,8 +36,9 @@ abstract class $AppUserCopyWith<$Res> {
   $Res call(
       {UniqueString id,
       EmailAddress email,
-      PersonName name,
+      UnemptyString name,
       bool isActive,
+      DateTime? createdAt,
       UrlAddress? photoUrl});
 }
 
@@ -56,6 +59,7 @@ class _$AppUserCopyWithImpl<$Res, $Val extends AppUser>
     Object? email = null,
     Object? name = null,
     Object? isActive = null,
+    Object? createdAt = freezed,
     Object? photoUrl = freezed,
   }) {
     return _then(_value.copyWith(
@@ -70,11 +74,15 @@ class _$AppUserCopyWithImpl<$Res, $Val extends AppUser>
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as PersonName,
+              as UnemptyString,
       isActive: null == isActive
           ? _value.isActive
           : isActive // ignore: cast_nullable_to_non_nullable
               as bool,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
       photoUrl: freezed == photoUrl
           ? _value.photoUrl
           : photoUrl // ignore: cast_nullable_to_non_nullable
@@ -93,8 +101,9 @@ abstract class _$$AppUserImplCopyWith<$Res> implements $AppUserCopyWith<$Res> {
   $Res call(
       {UniqueString id,
       EmailAddress email,
-      PersonName name,
+      UnemptyString name,
       bool isActive,
+      DateTime? createdAt,
       UrlAddress? photoUrl});
 }
 
@@ -113,6 +122,7 @@ class __$$AppUserImplCopyWithImpl<$Res>
     Object? email = null,
     Object? name = null,
     Object? isActive = null,
+    Object? createdAt = freezed,
     Object? photoUrl = freezed,
   }) {
     return _then(_$AppUserImpl(
@@ -127,11 +137,15 @@ class __$$AppUserImplCopyWithImpl<$Res>
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as PersonName,
+              as UnemptyString,
       isActive: null == isActive
           ? _value.isActive
           : isActive // ignore: cast_nullable_to_non_nullable
               as bool,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
       photoUrl: freezed == photoUrl
           ? _value.photoUrl
           : photoUrl // ignore: cast_nullable_to_non_nullable
@@ -148,22 +162,26 @@ class _$AppUserImpl implements _AppUser {
       required this.email,
       required this.name,
       required this.isActive,
+      required this.createdAt,
       required this.photoUrl});
 
   @override
   final UniqueString id;
   @override
   final EmailAddress email;
+// we changed this to UnemptyString because guest name is filled with number
   @override
-  final PersonName name;
+  final UnemptyString name;
   @override
   final bool isActive;
+  @override
+  final DateTime? createdAt;
   @override
   final UrlAddress? photoUrl;
 
   @override
   String toString() {
-    return 'AppUser(id: $id, email: $email, name: $name, isActive: $isActive, photoUrl: $photoUrl)';
+    return 'AppUser(id: $id, email: $email, name: $name, isActive: $isActive, createdAt: $createdAt, photoUrl: $photoUrl)';
   }
 
   @override
@@ -176,13 +194,15 @@ class _$AppUserImpl implements _AppUser {
             (identical(other.name, name) || other.name == name) &&
             (identical(other.isActive, isActive) ||
                 other.isActive == isActive) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
             (identical(other.photoUrl, photoUrl) ||
                 other.photoUrl == photoUrl));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, id, email, name, isActive, photoUrl);
+      Object.hash(runtimeType, id, email, name, isActive, createdAt, photoUrl);
 
   @JsonKey(ignore: true)
   @override
@@ -195,18 +215,21 @@ abstract class _AppUser implements AppUser {
   const factory _AppUser(
       {required final UniqueString id,
       required final EmailAddress email,
-      required final PersonName name,
+      required final UnemptyString name,
       required final bool isActive,
+      required final DateTime? createdAt,
       required final UrlAddress? photoUrl}) = _$AppUserImpl;
 
   @override
   UniqueString get id;
   @override
   EmailAddress get email;
-  @override
-  PersonName get name;
+  @override // we changed this to UnemptyString because guest name is filled with number
+  UnemptyString get name;
   @override
   bool get isActive;
+  @override
+  DateTime? get createdAt;
   @override
   UrlAddress? get photoUrl;
   @override

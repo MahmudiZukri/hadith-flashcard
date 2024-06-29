@@ -7,6 +7,6 @@ class SettingState with _$SettingState {
   }) = _SettingState;
 
   factory SettingState.initial() => SettingState(
-        isDarkMode: ThemeHelper().theme.name == 'dark',
+        isDarkMode: ThemeStorage().theme.name == 'dark',
       );
 }

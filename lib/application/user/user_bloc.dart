@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hadith_flashcard/domain/app_user/app_user.dart';
 import 'package:hadith_flashcard/domain/core/objects/objects.dart';
@@ -12,11 +13,16 @@ part 'user_bloc.freezed.dart';
 
 @injectable
 class UserBloc extends Bloc<UserEvent, UserState> {
-  UserBloc() : super(UserState.initial()) {
+  UserBloc()
+      : super(
+          UserState.initial(),
+        ) {
     on<UserEvent>(
       (event, emit) async {
         await event.map(
           loadUser: (e) async {
+            debugPrint('asdasdasdasd 66666');
+
             final user = await UserServices.getUser(
               e.userID.getOrCrash(),
             );

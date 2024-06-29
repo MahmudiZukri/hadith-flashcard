@@ -61,6 +61,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
                 name: state.name.getOrCrash(),
                 email: state.email.getOrCrash(),
                 password: state.password.getOrCrash(),
+                isLinking: e.isLinking != null && e.isLinking!,
               );
             }
 
@@ -75,28 +76,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
               ),
             );
           },
-          signUpOrSignInWithGoogle: (e) async {
-            emit(
-              state.copyWith(
-                onLoading: true,
-                optionFailureOrSuccess: none(),
-              ),
-            );
-
-            final failureOrSuccess =
-                await _authRepository.signUpOrSignInWithGoogle();
-
-            emit(
-              state.copyWith(
-                onLoading: false,
-                showSnackbar: !state.showSnackbar,
-                optionFailureOrSuccess: optionOf(
-                  failureOrSuccess,
-                ),
-              ),
-            );
-          },
-          signUpOrSignInWithFacebook: (e) {},
           signIn: (e) async {
             Either<CommonFailures, Unit>? failureOrSuccess;
 
@@ -125,6 +104,51 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
               ),
             );
           },
+          guestSignUpOrSignIn: (e) async {
+            Either<CommonFailures, Unit>? failureOrSuccess;
+            emit(
+              state.copyWith(
+                onLoading: true,
+                optionFailureOrSuccess: none(),
+              ),
+            );
+
+            failureOrSuccess = await _authRepository.guestSignUpOrSignIn();
+
+            emit(
+              state.copyWith(
+                onLoading: false,
+                showSnackbar: !state.showSnackbar,
+                optionFailureOrSuccess: optionOf(
+                  failureOrSuccess,
+                ),
+              ),
+            );
+          },
+          signUpOrSignInWithGoogle: (e) async {
+            emit(
+              state.copyWith(
+                onLoading: true,
+                optionFailureOrSuccess: none(),
+              ),
+            );
+
+            final failureOrSuccess =
+                await _authRepository.signUpOrSignInWithGoogle(
+              isLinking: e.isLinking != null && e.isLinking!,
+            );
+
+            emit(
+              state.copyWith(
+                onLoading: false,
+                showSnackbar: !state.showSnackbar,
+                optionFailureOrSuccess: optionOf(
+                  failureOrSuccess,
+                ),
+              ),
+            );
+          },
+          signUpOrSignInWithFacebook: (e) {},
           signOut: (e) async {
             Either<CommonFailures, Unit>? failureOrSuccess;
 

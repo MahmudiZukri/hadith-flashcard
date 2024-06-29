@@ -14,6 +14,7 @@ class HadithFlashcardServices {
         .set(
       {
         'userID': userID,
+        'userName': flashcard.userName,
         'hadithNarratorName': flashcard.hadithNarratorName,
         'hadithNumber': flashcard.hadithNumber,
         'arab': flashcard.arab,
@@ -22,6 +23,7 @@ class HadithFlashcardServices {
         'interval': flashcard.interval,
         'easeFactor': flashcard.easeFactor,
         'reviewedDate': flashcard.reviewedDate.millisecondsSinceEpoch,
+        'createdAt': flashcard.createdAt,
       },
     ).onError(
       (error, stackTrace) {
@@ -60,6 +62,7 @@ class HadithFlashcardServices {
     for (var document in documents) {
       flashcards.add(
         HadithFlashcardModel(
+          userName: document.data()['userName'],
           hadithNarratorName: document.data()['hadithNarratorName'],
           hadithNumber: document.data()['hadithNumber'],
           arab: document.data()['arab'],
@@ -70,6 +73,8 @@ class HadithFlashcardServices {
           reviewedDate: DateTime.fromMillisecondsSinceEpoch(
             document.data()['reviewedDate'],
           ),
+          // because the createdAt one is not exist in very first time so we make it nullable
+          createdAt: (document.data()['createdAt'] as Timestamp?)?.toDate(),
         ),
       );
     }

@@ -13,6 +13,7 @@ import 'package:hadith_flashcard/application/user/user_bloc.dart';
 import 'package:hadith_flashcard/domain/auth/interfaces/i_auth_repository.dart';
 import 'package:hadith_flashcard/domain/core/objects/objects.dart';
 import 'package:hadith_flashcard/domain/core/shared/shared.dart';
+import 'package:hadith_flashcard/domain/core/shared/storage.dart';
 import 'package:hadith_flashcard/injection.dart';
 import 'package:hadith_flashcard/localization/localization.dart';
 import 'package:hadith_flashcard/presentation/pages/pages.dart';
@@ -81,11 +82,13 @@ class MyApp extends StatelessWidget {
           return GetMaterialApp(
             debugShowCheckedModeBanner: false,
             translations: Localization(),
-            locale: const Locale('id'),
+            locale: Locale(
+              LocalizationStorage().locale,
+            ),
             title: 'Hadith Flashcard',
             theme: CustomTheme.lightTheme,
             darkTheme: CustomTheme.darkTheme,
-            themeMode: ThemeHelper().theme,
+            themeMode: ThemeStorage().theme,
             home: user == null
                 ? const SignInPage()
                 : HomePage(

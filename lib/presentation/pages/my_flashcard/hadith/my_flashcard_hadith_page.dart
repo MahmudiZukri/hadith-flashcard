@@ -12,7 +12,7 @@ class MyFlashcardHadithPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
+    return BlocProvider<HadithFlashcardBloc>(
       create: (context) => getIt<HadithFlashcardBloc>()
         ..add(
           HadithFlashcardEvent.addToMyFlashcard(
@@ -77,7 +77,7 @@ class MyFlashcardHadithPageScaffold extends StatelessWidget {
             padding: const EdgeInsets.symmetric(
               horizontal: defaultMargin / 2,
             ),
-            child: ListView(
+            child: Column(
               children: [
                 const SizedBox(height: 22.0),
                 SvgPicture.asset(
@@ -106,10 +106,10 @@ class MyFlashcardHadithPageScaffold extends StatelessWidget {
                           textAlign: TextAlign.center,
                         ),
                       )
-                    : Column(
-                        children: List.generate(
-                          flashcardState.myHadithFlashcards.length,
-                          (index) => Padding(
+                    : Expanded(
+                        child: ListView.builder(
+                          itemCount: flashcardState.myHadithFlashcards.length,
+                          itemBuilder: (context, index) => Padding(
                             padding: const EdgeInsets.symmetric(vertical: 12.0),
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -225,7 +225,7 @@ class MyFlashcardHadithPageScaffold extends StatelessWidget {
                                                             size: 16.0,
                                                             Icons.delete,
                                                             color: colorScheme()
-                                                                .background,
+                                                                .surface,
                                                           ),
                                                         ),
                                                         title: Align(

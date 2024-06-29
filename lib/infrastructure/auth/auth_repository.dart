@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -19,15 +20,32 @@ class AuthRepository implements IAuthRepository {
     required String email,
     required String name,
     required String password,
+    bool? isLinking,
   }) async {
     try {
-      final credential =
-          await IAuthRepository.auth.createUserWithEmailAndPassword(
-        email: email,
-        password: password,
-      );
+      // Create a new credential
+      AuthCredential credential =
+          EmailAuthProvider.credential(email: email, password: password);
+
+      final UserCredential userCredential;
+
+      if (isLinking != null && isLinking) {
+        // Link the new credential to the current instance user (guest)
+        userCredential =
+            await IAuthRepository.auth.currentUser!.linkWithCredential(
+          credential,
+        );
+      } else {
+        // Create new user credential
+        userCredential =
+            await IAuthRepository.auth.createUserWithEmailAndPassword(
+          email: email,
+          password: password,
+        );
+      }
+
       // Uid and email automatically passed
-      AppUserModel user = credential.user!.convertToAppUser(
+      AppUserModel user = userCredential.user!.convertToAppUser(
         name: name,
       );
 
@@ -43,11 +61,11 @@ class AuthRepository implements IAuthRepository {
         );
       }
 
-      if (credential.user != null) {
+      if (userCredential.user != null) {
         return right(
           unit,
         );
-      } else if (credential.user == null) {
+      } else if (userCredential.user == null) {
         return left(
           const CommonFailures.other(
             message: 'User Not Found',
@@ -82,93 +100,6 @@ class AuthRepository implements IAuthRepository {
         ),
       );
     }
-  }
-
-  @override
-  Future<Either<CommonFailures, Unit>> signUpOrSignInWithGoogle() async {
-    try {
-      // Trigger the authentication flow
-      final googleUser = await IAuthRepository.googleSignIn.signIn();
-
-      // Obtain the auth details from the request
-      final GoogleSignInAuthentication? googleAuth =
-          await googleUser?.authentication;
-
-      // Create a new credential
-      final credential = GoogleAuthProvider.credential(
-        accessToken: googleAuth?.accessToken,
-        idToken: googleAuth?.idToken,
-      );
-
-      // Once signed in, get the UserCredential
-      final UserCredential userCredential =
-          await FirebaseAuth.instance.signInWithCredential(
-        credential,
-      );
-
-      // userCredential.user.photoURL
-
-      if (userCredential.user != null) {
-        // Uid and email automatically passed
-        AppUserModel user = userCredential.user!.convertToAppUser(
-          name: userCredential.user?.displayName,
-        );
-
-        // Add to firestore
-        try {
-          await UserServices.addUser(user);
-        } catch (e, stackTrace) {
-          debugPrint('1------- $stackTrace -------1');
-          return left(
-            CommonFailures.other(
-              message: e.toString(),
-            ),
-          );
-        }
-        return right(
-          unit,
-        );
-      } else if (userCredential.user == null) {
-        return left(
-          const CommonFailures.other(
-            message: 'User Not Found',
-          ),
-        );
-      }
-
-      return left(
-        const CommonFailures.handledByFirebase(
-          message: 'Something went wrong in auth repository',
-        ),
-      );
-    } on PlatformException catch (e, stackTrace) {
-      debugPrint('1------- $stackTrace -------1');
-      return left(
-        CommonFailures.platformException(
-          message: e.message.toString(),
-        ),
-      );
-    } on FirebaseAuthException catch (e, stackTrace) {
-      debugPrint('2------- $stackTrace -------2');
-      return left(
-        CommonFailures.handledByFirebase(
-          message: e.message.toString(),
-        ),
-      );
-    } catch (e, stackTrace) {
-      debugPrint('3------- $stackTrace -------3');
-      return (left(
-        CommonFailures.handledByFirebase(
-          message: e.toString(),
-        ),
-      ));
-    }
-  }
-
-  @override
-  Future<Either<CommonFailures, AppUser>> signUpOrSignInWithFacebook() {
-    // TODO: implement signUpWithFacebook
-    throw UnimplementedError();
   }
 
   @override
@@ -208,18 +139,198 @@ class AuthRepository implements IAuthRepository {
       );
     } catch (e, stackTrace) {
       debugPrint('3------- $stackTrace -------3');
-      return (left(
+      return left(
         CommonFailures.handledByFirebase(
           message: e.toString(),
         ),
-      ));
+      );
     }
+  }
+
+  @override
+  Future<Either<CommonFailures, Unit>> guestSignUpOrSignIn() async {
+    try {
+      final credential = await IAuthRepository.auth.signInAnonymously();
+
+      // Uid and email automatically passed
+      AppUserModel user = credential.user!.convertToAppUser(
+        name: 'Guest${DateTime.now().millisecondsSinceEpoch}',
+      );
+
+      // Add to firestore
+      try {
+        await UserServices.addUser(user);
+      } catch (e, stackTrace) {
+        debugPrint('1------- $stackTrace -------1');
+        return left(
+          CommonFailures.other(
+            message: e.toString(),
+          ),
+        );
+      }
+
+      if (credential.user != null) {
+        return right(
+          unit,
+        );
+      } else {
+        return left(
+          CommonFailures.handledByFirebase(
+            message: 'somethingWentWrong'.tr,
+          ),
+        );
+      }
+    } on PlatformException catch (e, stackTrace) {
+      debugPrint('2------- $stackTrace -------2');
+      return left(
+        CommonFailures.platformException(
+          message: e.message.toString(),
+        ),
+      );
+    } on FirebaseAuthException catch (e, stackTrace) {
+      debugPrint('3------- $stackTrace -------3');
+      return left(
+        CommonFailures.handledByFirebase(
+          message: e.message.toString(),
+        ),
+      );
+    } catch (e, stackTrace) {
+      debugPrint('4------- $stackTrace -------4');
+
+      return left(
+        CommonFailures.handledByFirebase(
+          message: e.toString(),
+        ),
+      );
+    }
+  }
+
+  @override
+  Future<Either<CommonFailures, Unit>> signUpOrSignInWithGoogle({
+    bool? isLinking,
+  }) async {
+    try {
+      // Trigger the authentication flow
+      final googleUser = await IAuthRepository.googleSignIn.signIn();
+
+      // Obtain the auth details from the request
+      final GoogleSignInAuthentication? googleAuth =
+          await googleUser?.authentication;
+
+      // Create a new credential
+      final credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth?.accessToken,
+        idToken: googleAuth?.idToken,
+      );
+
+      // Initialized the UserCredential
+      final UserCredential userCredential;
+
+      if (isLinking != null && isLinking) {
+        // Link the new credential to the current instance user (guest)
+        userCredential =
+            await IAuthRepository.auth.currentUser!.linkWithCredential(
+          credential,
+        );
+
+        debugPrint('asdasd $userCredential ');
+      } else {
+        // Get the UserCredential
+        userCredential = await IAuthRepository.auth.signInWithCredential(
+          credential,
+        );
+      }
+
+      DocumentSnapshot<Map<String, dynamic>> snapshot =
+          await UserServices.userCollection.doc(googleUser?.id).get();
+
+      // If user already have an account goggleUser != null
+      if (userCredential.user != null && !snapshot.exists) {
+        // Uid and email automatically passed
+        AppUserModel user = userCredential.user!.convertToAppUser(
+          name: userCredential.user?.displayName ??
+              userCredential.additionalUserInfo?.profile!['name'],
+          photo: userCredential.additionalUserInfo?.profile?['picture'],
+        );
+
+        // Add to firestore
+        try {
+          await UserServices.addUser(user);
+        } catch (e, stackTrace) {
+          debugPrint('1------- $stackTrace -------1');
+          return left(
+            CommonFailures.other(
+              message: e.toString(),
+            ),
+          );
+        }
+        return right(
+          unit,
+        );
+      } else if (snapshot.exists) {
+        return right(
+          unit,
+        );
+      } else if (userCredential.user == null) {
+        IAuthRepository.googleSignIn.signOut();
+        return left(
+          const CommonFailures.other(
+            message: 'User Not Found',
+          ),
+        );
+      }
+
+      IAuthRepository.googleSignIn.signOut();
+      return left(
+        CommonFailures.handledByFirebase(
+          message: 'somethingWentWrong'.tr,
+        ),
+      );
+    } on PlatformException catch (e, stackTrace) {
+      debugPrint('1------- $stackTrace -------1');
+
+      IAuthRepository.googleSignIn.signOut();
+      return left(
+        CommonFailures.platformException(
+          message: e.message.toString(),
+        ),
+      );
+    } on FirebaseAuthException catch (e, stackTrace) {
+      debugPrint('2------- $stackTrace -------2');
+
+      IAuthRepository.googleSignIn.signOut();
+      return left(
+        CommonFailures.handledByFirebase(
+          message: e.message.toString(),
+        ),
+      );
+    } catch (e, stackTrace) {
+      debugPrint('3------- $stackTrace -------3');
+
+      IAuthRepository.googleSignIn.signOut();
+      return left(
+        CommonFailures.handledByFirebase(
+          message: e.toString(),
+        ),
+      );
+    }
+  }
+
+  @override
+  Future<Either<CommonFailures, AppUser>> signUpOrSignInWithFacebook() {
+    // TODO: implement signUpWithFacebook
+    throw UnimplementedError();
   }
 
   @override
   Future<Either<CommonFailures, Unit>> signOut() async {
     try {
       await IAuthRepository.auth.signOut();
+
+      if (IAuthRepository.googleSignIn.currentUser != null) {
+        IAuthRepository.googleSignIn.signOut();
+      }
+
       return (right(
         unit,
       ));
@@ -241,9 +352,9 @@ class AuthRepository implements IAuthRepository {
       await IAuthRepository.auth.sendPasswordResetEmail(
         email: email,
       );
-      return (right(
+      return right(
         unit,
-      ));
+      );
     } on PlatformException catch (e, stackTrace) {
       debugPrint('1------- $stackTrace -------1');
       return left(
@@ -319,19 +430,18 @@ class AuthRepository implements IAuthRepository {
   @override
   Future<Either<CommonFailures, Unit>> deleteAccount() async {
     final currentUser = IAuthRepository.auth.currentUser;
-    debugPrint("asdasdasd 1");
+
     try {
       if (currentUser != null) {
-        debugPrint("asdasdasd 2");
-
-        IAuthRepository.auth.currentUser!.delete();
+        currentUser.delete();
+        UserServices.deleteUser(
+          currentUser.uid,
+        );
 
         return (right(
           unit,
         ));
       }
-
-      debugPrint("asdasdasd 3");
 
       return left(
         CommonFailures.other(
@@ -339,8 +449,6 @@ class AuthRepository implements IAuthRepository {
         ),
       );
     } on PlatformException catch (e, stackTrace) {
-      debugPrint("asdasdasd 4");
-
       debugPrint('1------- $stackTrace -------1');
 
       return left(
@@ -349,8 +457,6 @@ class AuthRepository implements IAuthRepository {
         ),
       );
     } on FirebaseAuthException catch (e, stackTrace) {
-      debugPrint("asdasdasd 5");
-
       debugPrint('2------- $stackTrace -------2');
       return left(
         CommonFailures.handledByFirebase(
@@ -358,8 +464,6 @@ class AuthRepository implements IAuthRepository {
         ),
       );
     } catch (e, stackTrace) {
-      debugPrint("asdasdasd 6");
-
       debugPrint('1------- $stackTrace -------1');
       return left(
         CommonFailures.handledByFirebase(

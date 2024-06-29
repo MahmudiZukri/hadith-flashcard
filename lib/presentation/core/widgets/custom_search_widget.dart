@@ -48,7 +48,7 @@ class CustomSearchWidget extends StatelessWidget {
         height: height,
         width: width,
         decoration: BoxDecoration(
-          color: colorScheme().background,
+          color: colorScheme().surface,
           border: Border.all(
             color: borderColor,
           ),

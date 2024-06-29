@@ -24,6 +24,7 @@ mixin _$AppUserModel {
   String? get email => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   bool get isActive => throw _privateConstructorUsedError;
+  DateTime? get createdAt => throw _privateConstructorUsedError;
   String? get photoUrl => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -39,7 +40,12 @@ abstract class $AppUserModelCopyWith<$Res> {
       _$AppUserModelCopyWithImpl<$Res, AppUserModel>;
   @useResult
   $Res call(
-      {String id, String? email, String name, bool isActive, String? photoUrl});
+      {String id,
+      String? email,
+      String name,
+      bool isActive,
+      DateTime? createdAt,
+      String? photoUrl});
 }
 
 /// @nodoc
@@ -59,6 +65,7 @@ class _$AppUserModelCopyWithImpl<$Res, $Val extends AppUserModel>
     Object? email = freezed,
     Object? name = null,
     Object? isActive = null,
+    Object? createdAt = freezed,
     Object? photoUrl = freezed,
   }) {
     return _then(_value.copyWith(
@@ -78,6 +85,10 @@ class _$AppUserModelCopyWithImpl<$Res, $Val extends AppUserModel>
           ? _value.isActive
           : isActive // ignore: cast_nullable_to_non_nullable
               as bool,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
       photoUrl: freezed == photoUrl
           ? _value.photoUrl
           : photoUrl // ignore: cast_nullable_to_non_nullable
@@ -95,7 +106,12 @@ abstract class _$$AppUserModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String id, String? email, String name, bool isActive, String? photoUrl});
+      {String id,
+      String? email,
+      String name,
+      bool isActive,
+      DateTime? createdAt,
+      String? photoUrl});
 }
 
 /// @nodoc
@@ -113,6 +129,7 @@ class __$$AppUserModelImplCopyWithImpl<$Res>
     Object? email = freezed,
     Object? name = null,
     Object? isActive = null,
+    Object? createdAt = freezed,
     Object? photoUrl = freezed,
   }) {
     return _then(_$AppUserModelImpl(
@@ -132,6 +149,10 @@ class __$$AppUserModelImplCopyWithImpl<$Res>
           ? _value.isActive
           : isActive // ignore: cast_nullable_to_non_nullable
               as bool,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
       photoUrl: freezed == photoUrl
           ? _value.photoUrl
           : photoUrl // ignore: cast_nullable_to_non_nullable
@@ -148,6 +169,7 @@ class _$AppUserModelImpl implements _AppUserModel {
       required this.email,
       required this.name,
       required this.isActive,
+      required this.createdAt,
       required this.photoUrl});
 
   factory _$AppUserModelImpl.fromJson(Map<String, dynamic> json) =>
@@ -162,11 +184,13 @@ class _$AppUserModelImpl implements _AppUserModel {
   @override
   final bool isActive;
   @override
+  final DateTime? createdAt;
+  @override
   final String? photoUrl;
 
   @override
   String toString() {
-    return 'AppUserModel(id: $id, email: $email, name: $name, isActive: $isActive, photoUrl: $photoUrl)';
+    return 'AppUserModel(id: $id, email: $email, name: $name, isActive: $isActive, createdAt: $createdAt, photoUrl: $photoUrl)';
   }
 
   @override
@@ -179,6 +203,8 @@ class _$AppUserModelImpl implements _AppUserModel {
             (identical(other.name, name) || other.name == name) &&
             (identical(other.isActive, isActive) ||
                 other.isActive == isActive) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
             (identical(other.photoUrl, photoUrl) ||
                 other.photoUrl == photoUrl));
   }
@@ -186,7 +212,7 @@ class _$AppUserModelImpl implements _AppUserModel {
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, id, email, name, isActive, photoUrl);
+      Object.hash(runtimeType, id, email, name, isActive, createdAt, photoUrl);
 
   @JsonKey(ignore: true)
   @override
@@ -208,6 +234,7 @@ abstract class _AppUserModel implements AppUserModel {
       required final String? email,
       required final String name,
       required final bool isActive,
+      required final DateTime? createdAt,
       required final String? photoUrl}) = _$AppUserModelImpl;
 
   factory _AppUserModel.fromJson(Map<String, dynamic> json) =
@@ -221,6 +248,8 @@ abstract class _AppUserModel implements AppUserModel {
   String get name;
   @override
   bool get isActive;
+  @override
+  DateTime? get createdAt;
   @override
   String? get photoUrl;
   @override

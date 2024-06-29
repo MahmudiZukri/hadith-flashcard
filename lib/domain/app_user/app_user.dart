@@ -8,8 +8,10 @@ class AppUser with _$AppUser {
   const factory AppUser({
     required UniqueString id,
     required EmailAddress email,
-    required PersonName name,
+    // we changed this to UnemptyString because guest name is filled with number
+    required UnemptyString name,
     required bool isActive,
+    required DateTime? createdAt,
     required UrlAddress? photoUrl,
   }) = _AppUser;
 }

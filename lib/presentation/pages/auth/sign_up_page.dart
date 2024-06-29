@@ -18,14 +18,20 @@ class SignUpPage extends StatelessWidget {
       ],
       child: StreamBuilder(
         stream: IAuthRepository.userStream,
-        initialData: FirebaseAuth.instance.currentUser,
+        initialData: IAuthRepository.auth.currentUser,
         builder: (context, snapshot) {
           final user = snapshot.data;
 
           if (user != null) {
-            return HomePage(
-              userID: UniqueString.fromUniqueString(user.uid),
-              pageIndex: 1,
+            WidgetsBinding.instance.addPostFrameCallback(
+              (_) {
+                Get.to(
+                  () => HomePage(
+                    userID: UniqueString.fromUniqueString(user.uid),
+                    pageIndex: 1,
+                  ),
+                );
+              },
             );
           }
 
@@ -44,7 +50,7 @@ class SignUpPageScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: colorScheme().background,
+      backgroundColor: colorScheme().surface,
       body: Stack(
         children: [
           Container(
@@ -73,7 +79,7 @@ class SignUpPageScaffold extends StatelessWidget {
                 horizontal: 6.0,
               ),
               decoration: BoxDecoration(
-                color: colorScheme().background.withOpacity(0.5),
+                color: colorScheme().surface.withOpacity(0.5),
                 borderRadius: const BorderRadius.only(
                   topRight: Radius.circular(34),
                   topLeft: Radius.circular(34),
@@ -102,7 +108,7 @@ class SignUpPageScaffold extends StatelessWidget {
                     horizontal: defaultMargin,
                   ),
                   decoration: BoxDecoration(
-                    color: colorScheme().background,
+                    color: colorScheme().surface,
                     borderRadius: const BorderRadius.only(
                       topRight: Radius.circular(24),
                       topLeft: Radius.circular(24),
@@ -152,8 +158,7 @@ class SignUpPageScaffold extends StatelessWidget {
                           CustomTextFormFieldWidget(
                             labelText: 'name'.tr,
                             hintText: 'enterYourName'.tr,
-                            fillColor:
-                                colorScheme().background.withOpacity(0.6),
+                            fillColor: colorScheme().surface.withOpacity(0.6),
                             onChanged: (val) => context.read<AuthBloc>().add(
                                   AuthEvent.nameChanged(
                                     nameStr: val,
@@ -166,8 +171,7 @@ class SignUpPageScaffold extends StatelessWidget {
                           CustomTextFormFieldWidget(
                             labelText: 'Email',
                             hintText: 'enterYourEmail'.tr,
-                            fillColor:
-                                colorScheme().background.withOpacity(0.6),
+                            fillColor: colorScheme().surface.withOpacity(0.6),
                             onChanged: (val) => context.read<AuthBloc>().add(
                                   AuthEvent.emailChanged(
                                     emailStr: val,
@@ -185,7 +189,7 @@ class SignUpPageScaffold extends StatelessWidget {
                                 labelText: 'password'.tr,
                                 hintText: 'enterYourPassword'.tr,
                                 fillColor:
-                                    colorScheme().background.withOpacity(0.2),
+                                    colorScheme().surface.withOpacity(0.6),
                                 onChanged: (val) =>
                                     context.read<AuthBloc>().add(
                                           AuthEvent.passwordChanged(
@@ -225,10 +229,14 @@ class SignUpPageScaffold extends StatelessWidget {
                                       fontWeight: FontWeight.w600,
                                       color: colorScheme().inversePrimary,
                                     ),
-                                    onPressed: () =>
-                                        context.read<AuthBloc>().add(
-                                              const AuthEvent.signUp(),
-                                            ),
+                                    onPressed: () {
+                                      // Link account with email and password
+
+                                      // Sign up
+                                      context.read<AuthBloc>().add(
+                                            const AuthEvent.signUp(),
+                                          );
+                                    },
                                   ),
                                 ),
                           const SizedBox(height: 16.0),
@@ -280,6 +288,38 @@ class SignUpPageScaffold extends StatelessWidget {
                               //   ),
                               // ),
                               // const SizedBox(width: 18),
+
+                              Expanded(
+                                child: CustomElevatedButtonWidget(
+                                  text: 'Guest',
+                                  backgroundColor: primaryColor,
+                                  icon: SvgPicture.asset(
+                                    AssetUrl.profileIcon,
+                                    colorFilter: ColorFilter.mode(
+                                      colorScheme().inversePrimary,
+                                      BlendMode.srcIn,
+                                    ),
+                                    height: 18,
+                                  ),
+                                  textStyle: adaptiveTextFont().copyWith(
+                                    fontSize: 16.0,
+                                    fontWeight: FontWeight.w600,
+                                    color: colorScheme().inversePrimary,
+                                  ),
+                                  onPressed: () {
+                                    // Guest login
+
+                                    context.read<AuthBloc>().add(
+                                          const AuthEvent.guestSignUpOrSignIn(),
+                                        );
+                                  },
+                                ),
+                              ),
+
+                              const SizedBox(
+                                width: 18,
+                              ),
+
                               Expanded(
                                 child: CustomElevatedButtonWidget(
                                   text: 'Gmail',
@@ -298,6 +338,7 @@ class SignUpPageScaffold extends StatelessWidget {
                                     color: colorScheme().inversePrimary,
                                   ),
                                   onPressed: () {
+                                    // Sign up
                                     context.read<AuthBloc>().add(
                                           const AuthEvent
                                               .signUpOrSignInWithGoogle(),
