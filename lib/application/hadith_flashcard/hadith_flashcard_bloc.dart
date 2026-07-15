@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:fast_immutable_collections/fast_immutable_collections.dart';
+import 'package:flutter/foundation.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hadith_flashcard/domain/core/failures/common_failures/common_failures.dart';
@@ -27,8 +28,9 @@ class HadithFlashcardBloc
         ) {
     on<HadithFlashcardEvent>(
       (event, emit) async {
-        await event.map(
-          saveMigrateFlashcards: (e) {
+        try {
+          await event.map(
+            saveMigrateFlashcards: (e) {
             emit(
               state.copyWith(
                 flashcardsToMigrate: e.flashcards,
@@ -199,6 +201,9 @@ class HadithFlashcardBloc
             }
           },
         );
+        } catch (e, stackTrace) {
+          debugPrint('❌ CRASH in HadithFlashcardBloc handling ${event.runtimeType}: $e\n$stackTrace');
+        }
       },
     );
   }

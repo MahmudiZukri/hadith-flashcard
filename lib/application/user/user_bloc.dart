@@ -19,21 +19,25 @@ class UserBloc extends Bloc<UserEvent, UserState> {
         ) {
     on<UserEvent>(
       (event, emit) async {
-        await event.map(
-          loadUser: (e) async {
-            debugPrint('asdasdasdasd 66666');
+        try {
+          await event.map(
+            loadUser: (e) async {
+              debugPrint('Attempting to load user: ${e.userID.getOrCrash()}');
 
-            final user = await UserServices.getUser(
-              e.userID.getOrCrash(),
-            );
+              final user = await UserServices.getUser(
+                e.userID.getOrCrash(),
+              );
 
-            emit(
-              state.copyWith(
-                user: user.toDomain(),
-              ),
-            );
-          },
-        );
+              emit(
+                state.copyWith(
+                  user: user.toDomain(),
+                ),
+              );
+            },
+          );
+        } catch (e, stackTrace) {
+          debugPrint('❌ CRASH in UserBloc handling ${event.runtimeType}: $e\n$stackTrace');
+        }
       },
     );
   }

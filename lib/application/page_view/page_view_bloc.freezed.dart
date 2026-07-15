@@ -50,7 +50,9 @@ mixin _$PageViewEvent {
   }) =>
       throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PageViewEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $PageViewEventCopyWith<PageViewEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -74,6 +76,8 @@ class _$PageViewEventCopyWithImpl<$Res, $Val extends PageViewEvent>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of PageViewEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -107,6 +111,8 @@ class __$$PageViewChangedImplCopyWithImpl<$Res>
       _$PageViewChangedImpl _value, $Res Function(_$PageViewChangedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of PageViewEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -146,7 +152,9 @@ class _$PageViewChangedImpl implements _PageViewChanged {
   @override
   int get hashCode => Object.hash(runtimeType, pageViewIndex);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PageViewEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$PageViewChangedImplCopyWith<_$PageViewChangedImpl> get copyWith =>
@@ -216,8 +224,11 @@ abstract class _PageViewChanged implements PageViewEvent {
 
   @override
   int get pageViewIndex;
+
+  /// Create a copy of PageViewEvent
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PageViewChangedImplCopyWith<_$PageViewChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -226,7 +237,9 @@ abstract class _PageViewChanged implements PageViewEvent {
 mixin _$PageViewState {
   int get pageViewIndex => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PageViewState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $PageViewStateCopyWith<PageViewState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -250,6 +263,8 @@ class _$PageViewStateCopyWithImpl<$Res, $Val extends PageViewState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of PageViewState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -283,6 +298,8 @@ class __$$PageViewStateImplCopyWithImpl<$Res>
       _$PageViewStateImpl _value, $Res Function(_$PageViewStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of PageViewState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -322,7 +339,9 @@ class _$PageViewStateImpl implements _PageViewState {
   @override
   int get hashCode => Object.hash(runtimeType, pageViewIndex);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PageViewState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$PageViewStateImplCopyWith<_$PageViewStateImpl> get copyWith =>
@@ -335,8 +354,11 @@ abstract class _PageViewState implements PageViewState {
 
   @override
   int get pageViewIndex;
+
+  /// Create a copy of PageViewState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PageViewStateImplCopyWith<_$PageViewStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

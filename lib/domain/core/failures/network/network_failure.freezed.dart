@@ -84,6 +84,9 @@ class _$NetworkFailureCopyWithImpl<$Res, $Val extends NetworkFailure>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of NetworkFailure
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -100,6 +103,9 @@ class __$$NoInternetImplCopyWithImpl<$Res>
   __$$NoInternetImplCopyWithImpl(
       _$NoInternetImpl _value, $Res Function(_$NoInternetImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of NetworkFailure
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -217,6 +223,8 @@ class __$$ServerErrorImplCopyWithImpl<$Res>
       _$ServerErrorImpl _value, $Res Function(_$ServerErrorImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of NetworkFailure
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -256,7 +264,9 @@ class _$ServerErrorImpl implements _ServerError {
   @override
   int get hashCode => Object.hash(runtimeType, response);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of NetworkFailure
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ServerErrorImplCopyWith<_$ServerErrorImpl> get copyWith =>
@@ -342,7 +352,10 @@ abstract class _ServerError implements NetworkFailure {
       _$ServerErrorImpl;
 
   Response<dynamic>? get response;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of NetworkFailure
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ServerErrorImplCopyWith<_$ServerErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -361,6 +374,9 @@ class __$$TimeoutImplCopyWithImpl<$Res>
   __$$TimeoutImplCopyWithImpl(
       _$TimeoutImpl _value, $Res Function(_$TimeoutImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of NetworkFailure
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -478,6 +494,8 @@ class __$$OtherImplCopyWithImpl<$Res>
       _$OtherImpl _value, $Res Function(_$OtherImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of NetworkFailure
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -516,7 +534,9 @@ class _$OtherImpl implements _Other {
   @override
   int get hashCode => Object.hash(runtimeType, e);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of NetworkFailure
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$OtherImplCopyWith<_$OtherImpl> get copyWith =>
@@ -601,7 +621,10 @@ abstract class _Other implements NetworkFailure {
   const factory _Other({required final DioError e}) = _$OtherImpl;
 
   DioError get e;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of NetworkFailure
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$OtherImplCopyWith<_$OtherImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

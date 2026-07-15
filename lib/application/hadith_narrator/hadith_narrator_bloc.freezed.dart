@@ -102,6 +102,9 @@ class _$HadithNarratorEventCopyWithImpl<$Res, $Val extends HadithNarratorEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of HadithNarratorEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -118,6 +121,9 @@ class __$$GetHadithNarratorsImplCopyWithImpl<$Res>
   __$$GetHadithNarratorsImplCopyWithImpl(_$GetHadithNarratorsImpl _value,
       $Res Function(_$GetHadithNarratorsImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of HadithNarratorEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -260,6 +266,8 @@ class __$$GetHadithByNarratorNameImplCopyWithImpl<$Res>
       $Res Function(_$GetHadithByNarratorNameImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of HadithNarratorEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -330,7 +338,9 @@ class _$GetHadithByNarratorNameImpl implements _GetHadithByNarratorName {
   int get hashCode =>
       Object.hash(runtimeType, narratorName, hadithNumber, isNextPage, limit);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of HadithNarratorEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$GetHadithByNarratorNameImplCopyWith<_$GetHadithByNarratorNameImpl>
@@ -444,7 +454,10 @@ abstract class _GetHadithByNarratorName implements HadithNarratorEvent {
   PositiveNumber? get hadithNumber;
   bool? get isNextPage;
   PositiveNumber? get limit;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of HadithNarratorEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GetHadithByNarratorNameImplCopyWith<_$GetHadithByNarratorNameImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -469,6 +482,8 @@ class __$$NarratorFilterChangedImplCopyWithImpl<$Res>
       $Res Function(_$NarratorFilterChangedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of HadithNarratorEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -482,6 +497,8 @@ class __$$NarratorFilterChangedImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of HadithNarratorEvent
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $HadithNarratorCopyWith<$Res> get selectedNarrator {
@@ -516,7 +533,9 @@ class _$NarratorFilterChangedImpl implements _NarratorFilterChanged {
   @override
   int get hashCode => Object.hash(runtimeType, selectedNarrator);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of HadithNarratorEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$NarratorFilterChangedImplCopyWith<_$NarratorFilterChangedImpl>
@@ -622,7 +641,10 @@ abstract class _NarratorFilterChanged implements HadithNarratorEvent {
       _$NarratorFilterChangedImpl;
 
   HadithNarrator get selectedNarrator;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of HadithNarratorEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$NarratorFilterChangedImplCopyWith<_$NarratorFilterChangedImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -644,6 +666,8 @@ class __$$HadithNumberSearchImplCopyWithImpl<$Res>
       $Res Function(_$HadithNumberSearchImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of HadithNarratorEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -682,7 +706,9 @@ class _$HadithNumberSearchImpl implements _HadithNumberSearch {
   @override
   int get hashCode => Object.hash(runtimeType, number);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of HadithNarratorEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$HadithNumberSearchImplCopyWith<_$HadithNumberSearchImpl> get copyWith =>
@@ -787,7 +813,10 @@ abstract class _HadithNumberSearch implements HadithNarratorEvent {
       _$HadithNumberSearchImpl;
 
   PositiveNumber? get number;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of HadithNarratorEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$HadithNumberSearchImplCopyWith<_$HadithNumberSearchImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -806,6 +835,9 @@ class __$$SearchHadithImplCopyWithImpl<$Res>
   __$$SearchHadithImplCopyWithImpl(
       _$SearchHadithImpl _value, $Res Function(_$SearchHadithImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of HadithNarratorEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -936,7 +968,9 @@ mixin _$HadithNarratorState {
       get optionFailureOrHadithNarratorByName =>
           throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of HadithNarratorState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $HadithNarratorStateCopyWith<HadithNarratorState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -970,6 +1004,8 @@ class _$HadithNarratorStateCopyWithImpl<$Res, $Val extends HadithNarratorState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of HadithNarratorState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1009,6 +1045,8 @@ class _$HadithNarratorStateCopyWithImpl<$Res, $Val extends HadithNarratorState>
     ) as $Val);
   }
 
+  /// Create a copy of HadithNarratorState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $HadithNarratorCopyWith<$Res>? get selectedNarrator {
@@ -1052,6 +1090,8 @@ class __$$HadithNarratorStateImplCopyWithImpl<$Res>
       $Res Function(_$HadithNarratorStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of HadithNarratorState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1155,7 +1195,9 @@ class _$HadithNarratorStateImpl implements _HadithNarratorState {
       optionFailureOrHadithNarrators,
       optionFailureOrHadithNarratorByName);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of HadithNarratorState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$HadithNarratorStateImplCopyWith<_$HadithNarratorStateImpl> get copyWith =>
@@ -1188,8 +1230,11 @@ abstract class _HadithNarratorState implements HadithNarratorState {
   @override
   Option<Either<CommonFailures, HadithNarrator>>
       get optionFailureOrHadithNarratorByName;
+
+  /// Create a copy of HadithNarratorState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$HadithNarratorStateImplCopyWith<_$HadithNarratorStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -69,7 +69,9 @@ mixin _$NumberFailure {
   }) =>
       throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of NumberFailure
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $NumberFailureCopyWith<NumberFailure> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -93,6 +95,8 @@ class _$NumberFailureCopyWithImpl<$Res, $Val extends NumberFailure>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of NumberFailure
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -126,6 +130,8 @@ class __$$EmptyImplCopyWithImpl<$Res>
       _$EmptyImpl _value, $Res Function(_$EmptyImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of NumberFailure
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -165,7 +171,9 @@ class _$EmptyImpl implements Empty {
   @override
   int get hashCode => Object.hash(runtimeType, failedValue);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of NumberFailure
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$EmptyImplCopyWith<_$EmptyImpl> get copyWith =>
@@ -252,8 +260,11 @@ abstract class Empty implements NumberFailure {
 
   @override
   num? get failedValue;
+
+  /// Create a copy of NumberFailure
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$EmptyImplCopyWith<_$EmptyImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -279,6 +290,8 @@ class __$$NumberBelowLowestRangeImplCopyWithImpl<$Res>
       $Res Function(_$NumberBelowLowestRangeImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of NumberFailure
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -328,7 +341,9 @@ class _$NumberBelowLowestRangeImpl implements NumberBelowLowestRange {
   @override
   int get hashCode => Object.hash(runtimeType, failedValue, lowestRange);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of NumberFailure
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$NumberBelowLowestRangeImplCopyWith<_$NumberBelowLowestRangeImpl>
@@ -419,8 +434,11 @@ abstract class NumberBelowLowestRange implements NumberFailure {
   @override
   num? get failedValue;
   num get lowestRange;
+
+  /// Create a copy of NumberFailure
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$NumberBelowLowestRangeImplCopyWith<_$NumberBelowLowestRangeImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -446,6 +464,8 @@ class __$$NumberExceedHighestRangeImplCopyWithImpl<$Res>
       $Res Function(_$NumberExceedHighestRangeImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of NumberFailure
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -495,7 +515,9 @@ class _$NumberExceedHighestRangeImpl implements NumberExceedHighestRange {
   @override
   int get hashCode => Object.hash(runtimeType, failedValue, highestRange);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of NumberFailure
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$NumberExceedHighestRangeImplCopyWith<_$NumberExceedHighestRangeImpl>
@@ -586,8 +608,11 @@ abstract class NumberExceedHighestRange implements NumberFailure {
   @override
   num? get failedValue;
   num get highestRange;
+
+  /// Create a copy of NumberFailure
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$NumberExceedHighestRangeImplCopyWith<_$NumberExceedHighestRangeImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

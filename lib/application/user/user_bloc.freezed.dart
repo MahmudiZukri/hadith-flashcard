@@ -50,7 +50,9 @@ mixin _$UserEvent {
   }) =>
       throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of UserEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $UserEventCopyWith<UserEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -73,6 +75,8 @@ class _$UserEventCopyWithImpl<$Res, $Val extends UserEvent>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of UserEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -106,6 +110,8 @@ class __$$LoadUserImplCopyWithImpl<$Res>
       _$LoadUserImpl _value, $Res Function(_$LoadUserImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of UserEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -144,7 +150,9 @@ class _$LoadUserImpl implements _LoadUser {
   @override
   int get hashCode => Object.hash(runtimeType, userID);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of UserEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LoadUserImplCopyWith<_$LoadUserImpl> get copyWith =>
@@ -213,8 +221,11 @@ abstract class _LoadUser implements UserEvent {
 
   @override
   UniqueString get userID;
+
+  /// Create a copy of UserEvent
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LoadUserImplCopyWith<_$LoadUserImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -223,7 +234,9 @@ abstract class _LoadUser implements UserEvent {
 mixin _$UserState {
   AppUser? get user => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of UserState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $UserStateCopyWith<UserState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -248,6 +261,8 @@ class _$UserStateCopyWithImpl<$Res, $Val extends UserState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of UserState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -261,6 +276,8 @@ class _$UserStateCopyWithImpl<$Res, $Val extends UserState>
     ) as $Val);
   }
 
+  /// Create a copy of UserState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $AppUserCopyWith<$Res>? get user {
@@ -296,6 +313,8 @@ class __$$UserStateImplCopyWithImpl<$Res>
       _$UserStateImpl _value, $Res Function(_$UserStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of UserState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -334,7 +353,9 @@ class _$UserStateImpl implements _UserState {
   @override
   int get hashCode => Object.hash(runtimeType, user);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of UserState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UserStateImplCopyWith<_$UserStateImpl> get copyWith =>
@@ -346,8 +367,11 @@ abstract class _UserState implements UserState {
 
   @override
   AppUser? get user;
+
+  /// Create a copy of UserState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UserStateImplCopyWith<_$UserStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

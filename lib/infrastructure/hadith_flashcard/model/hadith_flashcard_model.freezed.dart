@@ -32,8 +32,12 @@ mixin _$HadithFlashcardModel {
   DateTime get reviewedDate => throw _privateConstructorUsedError;
   DateTime? get createdAt => throw _privateConstructorUsedError;
 
+  /// Serializes this HadithFlashcardModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of HadithFlashcardModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $HadithFlashcardModelCopyWith<HadithFlashcardModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -68,6 +72,8 @@ class _$HadithFlashcardModelCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of HadithFlashcardModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -156,6 +162,8 @@ class __$$HadithFlashcardModelImplCopyWithImpl<$Res>
       $Res Function(_$HadithFlashcardModelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of HadithFlashcardModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -286,7 +294,7 @@ class _$HadithFlashcardModelImpl implements _HadithFlashcardModel {
                 other.createdAt == createdAt));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -301,7 +309,9 @@ class _$HadithFlashcardModelImpl implements _HadithFlashcardModel {
       reviewedDate,
       createdAt);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of HadithFlashcardModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$HadithFlashcardModelImplCopyWith<_$HadithFlashcardModelImpl>
@@ -333,7 +343,8 @@ abstract class _HadithFlashcardModel implements HadithFlashcardModel {
   factory _HadithFlashcardModel.fromJson(Map<String, dynamic> json) =
       _$HadithFlashcardModelImpl.fromJson;
 
-  @override // because the userName one is not exist in very first time so we make it nullable
+// because the userName one is not exist in very first time so we make it nullable
+  @override
   String? get userName;
   @override
   String get hadithNarratorName;
@@ -353,8 +364,11 @@ abstract class _HadithFlashcardModel implements HadithFlashcardModel {
   DateTime get reviewedDate;
   @override
   DateTime? get createdAt;
+
+  /// Create a copy of HadithFlashcardModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$HadithFlashcardModelImplCopyWith<_$HadithFlashcardModelImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

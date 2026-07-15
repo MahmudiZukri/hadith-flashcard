@@ -26,8 +26,12 @@ mixin _$AppVersionInformationModel {
   String get playstoreUrl => throw _privateConstructorUsedError;
   String get appstoreUrl => throw _privateConstructorUsedError;
 
+  /// Serializes this AppVersionInformationModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AppVersionInformationModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $AppVersionInformationModelCopyWith<AppVersionInformationModel>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -57,6 +61,8 @@ class _$AppVersionInformationModelCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of AppVersionInformationModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -112,6 +118,8 @@ class __$$AppVersionInformationModelImplCopyWithImpl<$Res>
       $Res Function(_$AppVersionInformationModelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AppVersionInformationModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -183,12 +191,14 @@ class _$AppVersionInformationModelImpl implements _AppVersionInformationModel {
                 other.appstoreUrl == appstoreUrl));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, canUpdateVersion,
       forceUpdateVersion, playstoreUrl, appstoreUrl);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AppVersionInformationModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AppVersionInformationModelImplCopyWith<_$AppVersionInformationModelImpl>
@@ -222,8 +232,11 @@ abstract class _AppVersionInformationModel
   String get playstoreUrl;
   @override
   String get appstoreUrl;
+
+  /// Create a copy of AppVersionInformationModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AppVersionInformationModelImplCopyWith<_$AppVersionInformationModelImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

@@ -51,7 +51,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyDY_bUSdCWDf3idRHStG1YfPPo5owesg48',
-    appId: '1:988688359058:android:09e23bc6cab1f3fc58d04b',
+    appId: '1:988688359058:android:8efe6fb90e44144558d04b',
     messagingSenderId: '988688359058',
     projectId: 'hadith-flashcard',
     storageBucket: 'hadith-flashcard.appspot.com',

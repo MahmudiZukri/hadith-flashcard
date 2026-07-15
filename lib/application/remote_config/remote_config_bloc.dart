@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/foundation.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hadith_flashcard/domain/core/failures/common_failures/common_failures.dart';
@@ -22,48 +23,52 @@ class RemoteConfigBloc extends Bloc<RemoteConfigEvent, RemoteConfigState> {
         ) {
     on<RemoteConfigEvent>(
       (event, emit) async {
-        await event.map(
-          closeDialog: (e) {
-            emit(
-              state.copyWith(
-                optionFailureOrAppVersionInformation: none(),
-              ),
-            );
-          },
-          getPackageInfo: (e) async {
-            var packageInfo = await PackageInfo.fromPlatform();
-
-            emit(
-              state.copyWith(
-                packageInfo: packageInfo,
-              ),
-            );
-          },
-          getUpdateVersionInfo: (e) async {
-            final failureOrSuccess =
-                await remoteConfigRepository.getUpdateVersionInfo();
-
-            emit(
-              state.copyWith(
-                optionFailureOrAppVersionInformation: optionOf(
-                  failureOrSuccess,
+        try {
+          await event.map(
+            closeDialog: (e) {
+              emit(
+                state.copyWith(
+                  optionFailureOrAppVersionInformation: none(),
                 ),
-              ),
-            );
-          },
-          getAdsStatus: (e) async {
-            final failureOrSuccess =
-                await remoteConfigRepository.getAdsStatus();
+              );
+            },
+            getPackageInfo: (e) async {
+              var packageInfo = await PackageInfo.fromPlatform();
 
-            emit(
-              state.copyWith(
-                optionFailureOrIsEnabledAds: optionOf(
-                  failureOrSuccess,
+              emit(
+                state.copyWith(
+                  packageInfo: packageInfo,
                 ),
-              ),
-            );
-          },
-        );
+              );
+            },
+            getUpdateVersionInfo: (e) async {
+              final failureOrSuccess =
+                  await remoteConfigRepository.getUpdateVersionInfo();
+
+              emit(
+                state.copyWith(
+                  optionFailureOrAppVersionInformation: optionOf(
+                    failureOrSuccess,
+                  ),
+                ),
+              );
+            },
+            getAdsStatus: (e) async {
+              final failureOrSuccess =
+                  await remoteConfigRepository.getAdsStatus();
+
+              emit(
+                state.copyWith(
+                  optionFailureOrIsEnabledAds: optionOf(
+                    failureOrSuccess,
+                  ),
+                ),
+              );
+            },
+          );
+        } catch (e, stackTrace) {
+          debugPrint('❌ CRASH in RemoteConfigBloc handling ${event.runtimeType}: $e\n$stackTrace');
+        }
       },
     );
   }

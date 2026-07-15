@@ -29,7 +29,9 @@ mixin _$HadithFlashcard {
   double get easeFactor => throw _privateConstructorUsedError;
   DateTime? get createdAt => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of HadithFlashcard
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $HadithFlashcardCopyWith<HadithFlashcard> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -63,6 +65,8 @@ class _$HadithFlashcardCopyWithImpl<$Res, $Val extends HadithFlashcard>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of HadithFlashcard
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -151,6 +155,8 @@ class __$$HadithFlashcardImplCopyWithImpl<$Res>
       _$HadithFlashcardImpl _value, $Res Function(_$HadithFlashcardImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of HadithFlashcard
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -293,7 +299,9 @@ class _$HadithFlashcardImpl implements _HadithFlashcard {
       easeFactor,
       createdAt);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of HadithFlashcard
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$HadithFlashcardImplCopyWith<_$HadithFlashcardImpl> get copyWith =>
@@ -314,8 +322,9 @@ abstract class _HadithFlashcard implements HadithFlashcard {
       required final double easeFactor,
       final DateTime? createdAt}) = _$HadithFlashcardImpl;
 
-  @override // because the userName one is not exist in very first time we make the app so we make it nullable
+// because the userName one is not exist in very first time we make the app so we make it nullable
 // we changed this to UnemptyString because guest name is filled with number
+  @override
   UnemptyString? get userName;
   @override
   PersonName get hadithNarratorName;
@@ -335,8 +344,11 @@ abstract class _HadithFlashcard implements HadithFlashcard {
   double get easeFactor;
   @override
   DateTime? get createdAt;
+
+  /// Create a copy of HadithFlashcard
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$HadithFlashcardImplCopyWith<_$HadithFlashcardImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

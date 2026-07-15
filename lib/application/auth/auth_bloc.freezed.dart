@@ -139,6 +139,9 @@ class _$AuthEventCopyWithImpl<$Res, $Val extends AuthEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -158,6 +161,8 @@ class __$$SignUpImplCopyWithImpl<$Res>
       _$SignUpImpl _value, $Res Function(_$SignUpImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -174,15 +179,23 @@ class __$$SignUpImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SignUpImpl implements _SignUp {
+class _$SignUpImpl with DiagnosticableTreeMixin implements _SignUp {
   const _$SignUpImpl({this.isLinking});
 
   @override
   final bool? isLinking;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'AuthEvent.signUp(isLinking: $isLinking)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'AuthEvent.signUp'))
+      ..add(DiagnosticsProperty('isLinking', isLinking));
   }
 
   @override
@@ -197,7 +210,9 @@ class _$SignUpImpl implements _SignUp {
   @override
   int get hashCode => Object.hash(runtimeType, isLinking);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SignUpImplCopyWith<_$SignUpImpl> get copyWith =>
@@ -338,7 +353,10 @@ abstract class _SignUp implements AuthEvent {
   const factory _SignUp({final bool? isLinking}) = _$SignUpImpl;
 
   bool? get isLinking;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SignUpImplCopyWith<_$SignUpImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -357,16 +375,25 @@ class __$$SignInImplCopyWithImpl<$Res>
   __$$SignInImplCopyWithImpl(
       _$SignInImpl _value, $Res Function(_$SignInImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$SignInImpl implements _SignIn {
+class _$SignInImpl with DiagnosticableTreeMixin implements _SignIn {
   const _$SignInImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'AuthEvent.signIn()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'AuthEvent.signIn'));
   }
 
   @override
@@ -527,16 +554,28 @@ class __$$GuestSignUpOrSignInImplCopyWithImpl<$Res>
   __$$GuestSignUpOrSignInImplCopyWithImpl(_$GuestSignUpOrSignInImpl _value,
       $Res Function(_$GuestSignUpOrSignInImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$GuestSignUpOrSignInImpl implements _GuestSignUpOrSignIn {
+class _$GuestSignUpOrSignInImpl
+    with DiagnosticableTreeMixin
+    implements _GuestSignUpOrSignIn {
   const _$GuestSignUpOrSignInImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'AuthEvent.guestSignUpOrSignIn()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'AuthEvent.guestSignUpOrSignIn'));
   }
 
   @override
@@ -703,6 +742,8 @@ class __$$SignUpOrSignInWithGoogleImplCopyWithImpl<$Res>
       $Res Function(_$SignUpOrSignInWithGoogleImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -719,15 +760,25 @@ class __$$SignUpOrSignInWithGoogleImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SignUpOrSignInWithGoogleImpl implements _SignUpOrSignInWithGoogle {
+class _$SignUpOrSignInWithGoogleImpl
+    with DiagnosticableTreeMixin
+    implements _SignUpOrSignInWithGoogle {
   const _$SignUpOrSignInWithGoogleImpl({this.isLinking});
 
   @override
   final bool? isLinking;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'AuthEvent.signUpOrSignInWithGoogle(isLinking: $isLinking)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'AuthEvent.signUpOrSignInWithGoogle'))
+      ..add(DiagnosticsProperty('isLinking', isLinking));
   }
 
   @override
@@ -742,7 +793,9 @@ class _$SignUpOrSignInWithGoogleImpl implements _SignUpOrSignInWithGoogle {
   @override
   int get hashCode => Object.hash(runtimeType, isLinking);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SignUpOrSignInWithGoogleImplCopyWith<_$SignUpOrSignInWithGoogleImpl>
@@ -885,7 +938,10 @@ abstract class _SignUpOrSignInWithGoogle implements AuthEvent {
       _$SignUpOrSignInWithGoogleImpl;
 
   bool? get isLinking;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SignUpOrSignInWithGoogleImplCopyWith<_$SignUpOrSignInWithGoogleImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -906,16 +962,29 @@ class __$$SignUpOrSignInWithFacebookImplCopyWithImpl<$Res>
       _$SignUpOrSignInWithFacebookImpl _value,
       $Res Function(_$SignUpOrSignInWithFacebookImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$SignUpOrSignInWithFacebookImpl implements _SignUpOrSignInWithFacebook {
+class _$SignUpOrSignInWithFacebookImpl
+    with DiagnosticableTreeMixin
+    implements _SignUpOrSignInWithFacebook {
   const _$SignUpOrSignInWithFacebookImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'AuthEvent.signUpOrSignInWithFacebook()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(
+          DiagnosticsProperty('type', 'AuthEvent.signUpOrSignInWithFacebook'));
   }
 
   @override
@@ -1078,16 +1147,25 @@ class __$$SignOutImplCopyWithImpl<$Res>
   __$$SignOutImplCopyWithImpl(
       _$SignOutImpl _value, $Res Function(_$SignOutImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$SignOutImpl implements _SignOut {
+class _$SignOutImpl with DiagnosticableTreeMixin implements _SignOut {
   const _$SignOutImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'AuthEvent.signOut()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'AuthEvent.signOut'));
   }
 
   @override
@@ -1251,6 +1329,8 @@ class __$$NameChangedImplCopyWithImpl<$Res>
       _$NameChangedImpl _value, $Res Function(_$NameChangedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1267,15 +1347,23 @@ class __$$NameChangedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$NameChangedImpl implements _NameChanged {
+class _$NameChangedImpl with DiagnosticableTreeMixin implements _NameChanged {
   const _$NameChangedImpl({required this.nameStr});
 
   @override
   final String nameStr;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'AuthEvent.nameChanged(nameStr: $nameStr)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'AuthEvent.nameChanged'))
+      ..add(DiagnosticsProperty('nameStr', nameStr));
   }
 
   @override
@@ -1289,7 +1377,9 @@ class _$NameChangedImpl implements _NameChanged {
   @override
   int get hashCode => Object.hash(runtimeType, nameStr);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$NameChangedImplCopyWith<_$NameChangedImpl> get copyWith =>
@@ -1431,7 +1521,10 @@ abstract class _NameChanged implements AuthEvent {
       _$NameChangedImpl;
 
   String get nameStr;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$NameChangedImplCopyWith<_$NameChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1453,6 +1546,8 @@ class __$$EmailChangedImplCopyWithImpl<$Res>
       _$EmailChangedImpl _value, $Res Function(_$EmailChangedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1469,15 +1564,23 @@ class __$$EmailChangedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$EmailChangedImpl implements _EmailChanged {
+class _$EmailChangedImpl with DiagnosticableTreeMixin implements _EmailChanged {
   const _$EmailChangedImpl({required this.emailStr});
 
   @override
   final String emailStr;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'AuthEvent.emailChanged(emailStr: $emailStr)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'AuthEvent.emailChanged'))
+      ..add(DiagnosticsProperty('emailStr', emailStr));
   }
 
   @override
@@ -1492,7 +1595,9 @@ class _$EmailChangedImpl implements _EmailChanged {
   @override
   int get hashCode => Object.hash(runtimeType, emailStr);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$EmailChangedImplCopyWith<_$EmailChangedImpl> get copyWith =>
@@ -1634,7 +1739,10 @@ abstract class _EmailChanged implements AuthEvent {
       _$EmailChangedImpl;
 
   String get emailStr;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$EmailChangedImplCopyWith<_$EmailChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1656,6 +1764,8 @@ class __$$PasswordChangedImplCopyWithImpl<$Res>
       _$PasswordChangedImpl _value, $Res Function(_$PasswordChangedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1672,15 +1782,25 @@ class __$$PasswordChangedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$PasswordChangedImpl implements _PasswordChanged {
+class _$PasswordChangedImpl
+    with DiagnosticableTreeMixin
+    implements _PasswordChanged {
   const _$PasswordChangedImpl({required this.passwordStr});
 
   @override
   final String passwordStr;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'AuthEvent.passwordChanged(passwordStr: $passwordStr)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'AuthEvent.passwordChanged'))
+      ..add(DiagnosticsProperty('passwordStr', passwordStr));
   }
 
   @override
@@ -1695,7 +1815,9 @@ class _$PasswordChangedImpl implements _PasswordChanged {
   @override
   int get hashCode => Object.hash(runtimeType, passwordStr);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$PasswordChangedImplCopyWith<_$PasswordChangedImpl> get copyWith =>
@@ -1838,7 +1960,10 @@ abstract class _PasswordChanged implements AuthEvent {
       _$PasswordChangedImpl;
 
   String get passwordStr;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PasswordChangedImplCopyWith<_$PasswordChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1860,6 +1985,8 @@ class __$$ResetPasswordImplCopyWithImpl<$Res>
       _$ResetPasswordImpl _value, $Res Function(_$ResetPasswordImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1876,15 +2003,25 @@ class __$$ResetPasswordImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ResetPasswordImpl implements _ResetPassword {
+class _$ResetPasswordImpl
+    with DiagnosticableTreeMixin
+    implements _ResetPassword {
   const _$ResetPasswordImpl({required this.emailStr});
 
   @override
   final String emailStr;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'AuthEvent.resetPassword(emailStr: $emailStr)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'AuthEvent.resetPassword'))
+      ..add(DiagnosticsProperty('emailStr', emailStr));
   }
 
   @override
@@ -1899,7 +2036,9 @@ class _$ResetPasswordImpl implements _ResetPassword {
   @override
   int get hashCode => Object.hash(runtimeType, emailStr);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ResetPasswordImplCopyWith<_$ResetPasswordImpl> get copyWith =>
@@ -2041,7 +2180,10 @@ abstract class _ResetPassword implements AuthEvent {
       _$ResetPasswordImpl;
 
   String get emailStr;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ResetPasswordImplCopyWith<_$ResetPasswordImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -2065,6 +2207,8 @@ class __$$DeactivateAccountImplCopyWithImpl<$Res>
       $Res Function(_$DeactivateAccountImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -2083,6 +2227,8 @@ class __$$DeactivateAccountImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $AppUserCopyWith<$Res> get user {
@@ -2094,7 +2240,9 @@ class __$$DeactivateAccountImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DeactivateAccountImpl implements _DeactivateAccount {
+class _$DeactivateAccountImpl
+    with DiagnosticableTreeMixin
+    implements _DeactivateAccount {
   const _$DeactivateAccountImpl(
       {required this.user, required this.isActivated});
 
@@ -2104,8 +2252,17 @@ class _$DeactivateAccountImpl implements _DeactivateAccount {
   final bool isActivated;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'AuthEvent.activeOrDeactivateAccount(user: $user, isActivated: $isActivated)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'AuthEvent.activeOrDeactivateAccount'))
+      ..add(DiagnosticsProperty('user', user))
+      ..add(DiagnosticsProperty('isActivated', isActivated));
   }
 
   @override
@@ -2121,7 +2278,9 @@ class _$DeactivateAccountImpl implements _DeactivateAccount {
   @override
   int get hashCode => Object.hash(runtimeType, user, isActivated);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DeactivateAccountImplCopyWith<_$DeactivateAccountImpl> get copyWith =>
@@ -2266,7 +2425,10 @@ abstract class _DeactivateAccount implements AuthEvent {
 
   AppUser get user;
   bool get isActivated;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DeactivateAccountImplCopyWith<_$DeactivateAccountImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -2285,16 +2447,27 @@ class __$$DeleteAccountImplCopyWithImpl<$Res>
   __$$DeleteAccountImplCopyWithImpl(
       _$DeleteAccountImpl _value, $Res Function(_$DeleteAccountImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$DeleteAccountImpl implements _DeleteAccount {
+class _$DeleteAccountImpl
+    with DiagnosticableTreeMixin
+    implements _DeleteAccount {
   const _$DeleteAccountImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'AuthEvent.deleteAccount()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'AuthEvent.deleteAccount'));
   }
 
   @override
@@ -2454,7 +2627,9 @@ mixin _$AuthState {
   Option<Either<CommonFailures, Unit>> get optionDeleteFailureOrSuccess =>
       throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $AuthStateCopyWith<AuthState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -2485,6 +2660,8 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -2561,6 +2738,8 @@ class __$$AuthStateImplCopyWithImpl<$Res>
       _$AuthStateImpl _value, $Res Function(_$AuthStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -2612,7 +2791,7 @@ class __$$AuthStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AuthStateImpl implements _AuthState {
+class _$AuthStateImpl with DiagnosticableTreeMixin implements _AuthState {
   const _$AuthStateImpl(
       {required this.onLoading,
       required this.email,
@@ -2641,8 +2820,25 @@ class _$AuthStateImpl implements _AuthState {
   final Option<Either<CommonFailures, Unit>> optionDeleteFailureOrSuccess;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'AuthState(onLoading: $onLoading, email: $email, name: $name, password: $password, showErrorMessages: $showErrorMessages, showSnackbar: $showSnackbar, optionFailureOrSuccess: $optionFailureOrSuccess, optionDeleteFailureOrSuccess: $optionDeleteFailureOrSuccess)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'AuthState'))
+      ..add(DiagnosticsProperty('onLoading', onLoading))
+      ..add(DiagnosticsProperty('email', email))
+      ..add(DiagnosticsProperty('name', name))
+      ..add(DiagnosticsProperty('password', password))
+      ..add(DiagnosticsProperty('showErrorMessages', showErrorMessages))
+      ..add(DiagnosticsProperty('showSnackbar', showSnackbar))
+      ..add(
+          DiagnosticsProperty('optionFailureOrSuccess', optionFailureOrSuccess))
+      ..add(DiagnosticsProperty(
+          'optionDeleteFailureOrSuccess', optionDeleteFailureOrSuccess));
   }
 
   @override
@@ -2680,7 +2876,9 @@ class _$AuthStateImpl implements _AuthState {
       optionFailureOrSuccess,
       optionDeleteFailureOrSuccess);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AuthStateImplCopyWith<_$AuthStateImpl> get copyWith =>
@@ -2716,8 +2914,11 @@ abstract class _AuthState implements AuthState {
   Option<Either<CommonFailures, Unit>> get optionFailureOrSuccess;
   @override
   Option<Either<CommonFailures, Unit>> get optionDeleteFailureOrSuccess;
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AuthStateImplCopyWith<_$AuthStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

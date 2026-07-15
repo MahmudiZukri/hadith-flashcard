@@ -143,6 +143,9 @@ class _$HadithFlashcardEventCopyWithImpl<$Res,
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of HadithFlashcardEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -164,6 +167,8 @@ class __$$SaveFlashcardImplCopyWithImpl<$Res>
       _$SaveFlashcardImpl _value, $Res Function(_$SaveFlashcardImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of HadithFlashcardEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -187,6 +192,8 @@ class __$$SaveFlashcardImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of HadithFlashcardEvent
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $HadithFlashcardCopyWith<$Res> get flashcard {
@@ -198,7 +205,9 @@ class __$$SaveFlashcardImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SaveFlashcardImpl implements _SaveFlashcard {
+class _$SaveFlashcardImpl
+    with DiagnosticableTreeMixin
+    implements _SaveFlashcard {
   const _$SaveFlashcardImpl(
       {required this.userID, required this.flashcard, this.quality});
 
@@ -210,8 +219,18 @@ class _$SaveFlashcardImpl implements _SaveFlashcard {
   final int? quality;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'HadithFlashcardEvent.saveFlashcard(userID: $userID, flashcard: $flashcard, quality: $quality)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'HadithFlashcardEvent.saveFlashcard'))
+      ..add(DiagnosticsProperty('userID', userID))
+      ..add(DiagnosticsProperty('flashcard', flashcard))
+      ..add(DiagnosticsProperty('quality', quality));
   }
 
   @override
@@ -228,7 +247,9 @@ class _$SaveFlashcardImpl implements _SaveFlashcard {
   @override
   int get hashCode => Object.hash(runtimeType, userID, flashcard, quality);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of HadithFlashcardEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SaveFlashcardImplCopyWith<_$SaveFlashcardImpl> get copyWith =>
@@ -376,7 +397,10 @@ abstract class _SaveFlashcard implements HadithFlashcardEvent {
   UniqueString get userID;
   HadithFlashcard get flashcard;
   int? get quality;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of HadithFlashcardEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SaveFlashcardImplCopyWith<_$SaveFlashcardImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -398,6 +422,8 @@ class __$$MigrateFlashcardsImplCopyWithImpl<$Res>
       $Res Function(_$MigrateFlashcardsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of HadithFlashcardEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -419,7 +445,9 @@ class __$$MigrateFlashcardsImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$MigrateFlashcardsImpl implements _MigrateFlashcards {
+class _$MigrateFlashcardsImpl
+    with DiagnosticableTreeMixin
+    implements _MigrateFlashcards {
   const _$MigrateFlashcardsImpl(
       {required this.userID, required this.flashcards});
 
@@ -429,8 +457,18 @@ class _$MigrateFlashcardsImpl implements _MigrateFlashcards {
   final IList<HadithFlashcard>? flashcards;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'HadithFlashcardEvent.migrateFlashcards(userID: $userID, flashcards: $flashcards)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(
+          DiagnosticsProperty('type', 'HadithFlashcardEvent.migrateFlashcards'))
+      ..add(DiagnosticsProperty('userID', userID))
+      ..add(DiagnosticsProperty('flashcards', flashcards));
   }
 
   @override
@@ -447,7 +485,9 @@ class _$MigrateFlashcardsImpl implements _MigrateFlashcards {
   int get hashCode => Object.hash(
       runtimeType, userID, const DeepCollectionEquality().hash(flashcards));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of HadithFlashcardEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MigrateFlashcardsImplCopyWith<_$MigrateFlashcardsImpl> get copyWith =>
@@ -595,7 +635,10 @@ abstract class _MigrateFlashcards implements HadithFlashcardEvent {
 
   UniqueString get userID;
   IList<HadithFlashcard>? get flashcards;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of HadithFlashcardEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MigrateFlashcardsImplCopyWith<_$MigrateFlashcardsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -619,6 +662,8 @@ class __$$SaveMigrateFlashcardsImplCopyWithImpl<$Res>
       $Res Function(_$SaveMigrateFlashcardsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of HadithFlashcardEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -635,15 +680,26 @@ class __$$SaveMigrateFlashcardsImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SaveMigrateFlashcardsImpl implements _SaveMigrateFlashcards {
+class _$SaveMigrateFlashcardsImpl
+    with DiagnosticableTreeMixin
+    implements _SaveMigrateFlashcards {
   const _$SaveMigrateFlashcardsImpl({required this.flashcards});
 
   @override
   final IList<HadithFlashcard> flashcards;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'HadithFlashcardEvent.saveMigrateFlashcards(flashcards: $flashcards)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'HadithFlashcardEvent.saveMigrateFlashcards'))
+      ..add(DiagnosticsProperty('flashcards', flashcards));
   }
 
   @override
@@ -659,7 +715,9 @@ class _$SaveMigrateFlashcardsImpl implements _SaveMigrateFlashcards {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(flashcards));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of HadithFlashcardEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SaveMigrateFlashcardsImplCopyWith<_$SaveMigrateFlashcardsImpl>
@@ -805,7 +863,10 @@ abstract class _SaveMigrateFlashcards implements HadithFlashcardEvent {
       _$SaveMigrateFlashcardsImpl;
 
   IList<HadithFlashcard> get flashcards;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of HadithFlashcardEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SaveMigrateFlashcardsImplCopyWith<_$SaveMigrateFlashcardsImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -827,6 +888,8 @@ class __$$IsMigratingImplCopyWithImpl<$Res>
       _$IsMigratingImpl _value, $Res Function(_$IsMigratingImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of HadithFlashcardEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -843,15 +906,23 @@ class __$$IsMigratingImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$IsMigratingImpl implements _IsMigrating {
+class _$IsMigratingImpl with DiagnosticableTreeMixin implements _IsMigrating {
   const _$IsMigratingImpl({required this.value});
 
   @override
   final bool value;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'HadithFlashcardEvent.isMigrating(value: $value)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'HadithFlashcardEvent.isMigrating'))
+      ..add(DiagnosticsProperty('value', value));
   }
 
   @override
@@ -865,7 +936,9 @@ class _$IsMigratingImpl implements _IsMigrating {
   @override
   int get hashCode => Object.hash(runtimeType, value);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of HadithFlashcardEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$IsMigratingImplCopyWith<_$IsMigratingImpl> get copyWith =>
@@ -1008,7 +1081,10 @@ abstract class _IsMigrating implements HadithFlashcardEvent {
   const factory _IsMigrating({required final bool value}) = _$IsMigratingImpl;
 
   bool get value;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of HadithFlashcardEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$IsMigratingImplCopyWith<_$IsMigratingImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1030,6 +1106,8 @@ class __$$DeleteFlashcardImplCopyWithImpl<$Res>
       _$DeleteFlashcardImpl _value, $Res Function(_$DeleteFlashcardImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of HadithFlashcardEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1051,7 +1129,9 @@ class __$$DeleteFlashcardImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DeleteFlashcardImpl implements _DeleteFlashcard {
+class _$DeleteFlashcardImpl
+    with DiagnosticableTreeMixin
+    implements _DeleteFlashcard {
   const _$DeleteFlashcardImpl(
       {required this.userID, required this.flashcardID});
 
@@ -1061,8 +1141,17 @@ class _$DeleteFlashcardImpl implements _DeleteFlashcard {
   final UnemptyString flashcardID;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'HadithFlashcardEvent.deleteFlashcard(userID: $userID, flashcardID: $flashcardID)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'HadithFlashcardEvent.deleteFlashcard'))
+      ..add(DiagnosticsProperty('userID', userID))
+      ..add(DiagnosticsProperty('flashcardID', flashcardID));
   }
 
   @override
@@ -1078,7 +1167,9 @@ class _$DeleteFlashcardImpl implements _DeleteFlashcard {
   @override
   int get hashCode => Object.hash(runtimeType, userID, flashcardID);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of HadithFlashcardEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DeleteFlashcardImplCopyWith<_$DeleteFlashcardImpl> get copyWith =>
@@ -1225,7 +1316,10 @@ abstract class _DeleteFlashcard implements HadithFlashcardEvent {
 
   UniqueString get userID;
   UnemptyString get flashcardID;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of HadithFlashcardEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DeleteFlashcardImplCopyWith<_$DeleteFlashcardImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1247,6 +1341,8 @@ class __$$GetFlashcardImplCopyWithImpl<$Res>
       _$GetFlashcardImpl _value, $Res Function(_$GetFlashcardImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of HadithFlashcardEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1263,15 +1359,23 @@ class __$$GetFlashcardImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$GetFlashcardImpl implements _GetFlashcard {
+class _$GetFlashcardImpl with DiagnosticableTreeMixin implements _GetFlashcard {
   const _$GetFlashcardImpl({required this.userID});
 
   @override
   final UniqueString userID;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'HadithFlashcardEvent.getFlashcard(userID: $userID)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'HadithFlashcardEvent.getFlashcard'))
+      ..add(DiagnosticsProperty('userID', userID));
   }
 
   @override
@@ -1285,7 +1389,9 @@ class _$GetFlashcardImpl implements _GetFlashcard {
   @override
   int get hashCode => Object.hash(runtimeType, userID);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of HadithFlashcardEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$GetFlashcardImplCopyWith<_$GetFlashcardImpl> get copyWith =>
@@ -1429,7 +1535,10 @@ abstract class _GetFlashcard implements HadithFlashcardEvent {
       _$GetFlashcardImpl;
 
   UniqueString get userID;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of HadithFlashcardEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GetFlashcardImplCopyWith<_$GetFlashcardImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1451,16 +1560,29 @@ class __$$ResetFlashcardSnackBarImplCopyWithImpl<$Res>
       _$ResetFlashcardSnackBarImpl _value,
       $Res Function(_$ResetFlashcardSnackBarImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of HadithFlashcardEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$ResetFlashcardSnackBarImpl implements _ResetFlashcardSnackBar {
+class _$ResetFlashcardSnackBarImpl
+    with DiagnosticableTreeMixin
+    implements _ResetFlashcardSnackBar {
   const _$ResetFlashcardSnackBarImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'HadithFlashcardEvent.resetFlashcardSnackBar()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'HadithFlashcardEvent.resetFlashcardSnackBar'));
   }
 
   @override
@@ -1630,6 +1752,8 @@ class __$$ResetFlashcardClarificationImplCopyWithImpl<$Res>
       $Res Function(_$ResetFlashcardClarificationImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of HadithFlashcardEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1647,6 +1771,7 @@ class __$$ResetFlashcardClarificationImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ResetFlashcardClarificationImpl
+    with DiagnosticableTreeMixin
     implements _ResetFlashcardClarification {
   const _$ResetFlashcardClarificationImpl({required this.isShowClarification});
 
@@ -1654,8 +1779,17 @@ class _$ResetFlashcardClarificationImpl
   final bool isShowClarification;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'HadithFlashcardEvent.resetFlashcardClarification(isShowClarification: $isShowClarification)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'HadithFlashcardEvent.resetFlashcardClarification'))
+      ..add(DiagnosticsProperty('isShowClarification', isShowClarification));
   }
 
   @override
@@ -1670,7 +1804,9 @@ class _$ResetFlashcardClarificationImpl
   @override
   int get hashCode => Object.hash(runtimeType, isShowClarification);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of HadithFlashcardEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ResetFlashcardClarificationImplCopyWith<_$ResetFlashcardClarificationImpl>
@@ -1816,7 +1952,10 @@ abstract class _ResetFlashcardClarification implements HadithFlashcardEvent {
       _$ResetFlashcardClarificationImpl;
 
   bool get isShowClarification;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of HadithFlashcardEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ResetFlashcardClarificationImplCopyWith<_$ResetFlashcardClarificationImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -1838,6 +1977,8 @@ class __$$AddToMyFlashcardImplCopyWithImpl<$Res>
       $Res Function(_$AddToMyFlashcardImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of HadithFlashcardEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1854,15 +1995,26 @@ class __$$AddToMyFlashcardImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AddToMyFlashcardImpl implements _AddToMyFlashcard {
+class _$AddToMyFlashcardImpl
+    with DiagnosticableTreeMixin
+    implements _AddToMyFlashcard {
   const _$AddToMyFlashcardImpl({required this.flashcards});
 
   @override
   final IList<HadithFlashcard> flashcards;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'HadithFlashcardEvent.addToMyFlashcard(flashcards: $flashcards)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(
+          DiagnosticsProperty('type', 'HadithFlashcardEvent.addToMyFlashcard'))
+      ..add(DiagnosticsProperty('flashcards', flashcards));
   }
 
   @override
@@ -1878,7 +2030,9 @@ class _$AddToMyFlashcardImpl implements _AddToMyFlashcard {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(flashcards));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of HadithFlashcardEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AddToMyFlashcardImplCopyWith<_$AddToMyFlashcardImpl> get copyWith =>
@@ -2024,7 +2178,10 @@ abstract class _AddToMyFlashcard implements HadithFlashcardEvent {
       _$AddToMyFlashcardImpl;
 
   IList<HadithFlashcard> get flashcards;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of HadithFlashcardEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AddToMyFlashcardImplCopyWith<_$AddToMyFlashcardImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -2050,6 +2207,8 @@ class __$$DeleteFromMyFlashcardImplCopyWithImpl<$Res>
       $Res Function(_$DeleteFromMyFlashcardImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of HadithFlashcardEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -2063,6 +2222,8 @@ class __$$DeleteFromMyFlashcardImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of HadithFlashcardEvent
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $HadithFlashcardCopyWith<$Res> get flashcard {
@@ -2074,15 +2235,26 @@ class __$$DeleteFromMyFlashcardImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DeleteFromMyFlashcardImpl implements _DeleteFromMyFlashcard {
+class _$DeleteFromMyFlashcardImpl
+    with DiagnosticableTreeMixin
+    implements _DeleteFromMyFlashcard {
   const _$DeleteFromMyFlashcardImpl({required this.flashcard});
 
   @override
   final HadithFlashcard flashcard;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'HadithFlashcardEvent.deleteFromMyFlashcard(flashcard: $flashcard)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'HadithFlashcardEvent.deleteFromMyFlashcard'))
+      ..add(DiagnosticsProperty('flashcard', flashcard));
   }
 
   @override
@@ -2097,7 +2269,9 @@ class _$DeleteFromMyFlashcardImpl implements _DeleteFromMyFlashcard {
   @override
   int get hashCode => Object.hash(runtimeType, flashcard);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of HadithFlashcardEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DeleteFromMyFlashcardImplCopyWith<_$DeleteFromMyFlashcardImpl>
@@ -2242,7 +2416,10 @@ abstract class _DeleteFromMyFlashcard implements HadithFlashcardEvent {
       {required final HadithFlashcard flashcard}) = _$DeleteFromMyFlashcardImpl;
 
   HadithFlashcard get flashcard;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of HadithFlashcardEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DeleteFromMyFlashcardImplCopyWith<_$DeleteFromMyFlashcardImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -2270,7 +2447,9 @@ mixin _$HadithFlashcardState {
   Option<Either<CommonFailures, IList<HadithFlashcard>>>
       get optionFailureOrGetFlashcard => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of HadithFlashcardState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $HadithFlashcardStateCopyWith<HadithFlashcardState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -2309,6 +2488,8 @@ class _$HadithFlashcardStateCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of HadithFlashcardState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -2417,6 +2598,8 @@ class __$$HadithFlashcardStateImplCopyWithImpl<$Res>
       $Res Function(_$HadithFlashcardStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of HadithFlashcardState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -2494,7 +2677,9 @@ class __$$HadithFlashcardStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$HadithFlashcardStateImpl implements _HadithFlashcardState {
+class _$HadithFlashcardStateImpl
+    with DiagnosticableTreeMixin
+    implements _HadithFlashcardState {
   const _$HadithFlashcardStateImpl(
       {required this.isMigrating,
       required this.isMigrationSuccess,
@@ -2539,8 +2724,35 @@ class _$HadithFlashcardStateImpl implements _HadithFlashcardState {
       optionFailureOrGetFlashcard;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'HadithFlashcardState(isMigrating: $isMigrating, isMigrationSuccess: $isMigrationSuccess, searchFlashcardText: $searchFlashcardText, numofReviewedFlashcard: $numofReviewedFlashcard, flashcardToReviewTodayLength: $flashcardToReviewTodayLength, isShowResetFlashcardClarification: $isShowResetFlashcardClarification, flashcards: $flashcards, myHadithFlashcards: $myHadithFlashcards, flashcardsToMigrate: $flashcardsToMigrate, optionFailureOrSaveFlashcard: $optionFailureOrSaveFlashcard, optionFailureOrMigrateFlashcard: $optionFailureOrMigrateFlashcard, optionFailureOrDeleteFlashcard: $optionFailureOrDeleteFlashcard, optionFailureOrGetFlashcard: $optionFailureOrGetFlashcard)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'HadithFlashcardState'))
+      ..add(DiagnosticsProperty('isMigrating', isMigrating))
+      ..add(DiagnosticsProperty('isMigrationSuccess', isMigrationSuccess))
+      ..add(DiagnosticsProperty('searchFlashcardText', searchFlashcardText))
+      ..add(
+          DiagnosticsProperty('numofReviewedFlashcard', numofReviewedFlashcard))
+      ..add(DiagnosticsProperty(
+          'flashcardToReviewTodayLength', flashcardToReviewTodayLength))
+      ..add(DiagnosticsProperty('isShowResetFlashcardClarification',
+          isShowResetFlashcardClarification))
+      ..add(DiagnosticsProperty('flashcards', flashcards))
+      ..add(DiagnosticsProperty('myHadithFlashcards', myHadithFlashcards))
+      ..add(DiagnosticsProperty('flashcardsToMigrate', flashcardsToMigrate))
+      ..add(DiagnosticsProperty(
+          'optionFailureOrSaveFlashcard', optionFailureOrSaveFlashcard))
+      ..add(DiagnosticsProperty(
+          'optionFailureOrMigrateFlashcard', optionFailureOrMigrateFlashcard))
+      ..add(DiagnosticsProperty(
+          'optionFailureOrDeleteFlashcard', optionFailureOrDeleteFlashcard))
+      ..add(DiagnosticsProperty(
+          'optionFailureOrGetFlashcard', optionFailureOrGetFlashcard));
   }
 
   @override
@@ -2602,7 +2814,9 @@ class _$HadithFlashcardStateImpl implements _HadithFlashcardState {
       optionFailureOrDeleteFlashcard,
       optionFailureOrGetFlashcard);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of HadithFlashcardState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$HadithFlashcardStateImplCopyWith<_$HadithFlashcardStateImpl>
@@ -2658,8 +2872,11 @@ abstract class _HadithFlashcardState implements HadithFlashcardState {
   @override
   Option<Either<CommonFailures, IList<HadithFlashcard>>>
       get optionFailureOrGetFlashcard;
+
+  /// Create a copy of HadithFlashcardState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$HadithFlashcardStateImplCopyWith<_$HadithFlashcardStateImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

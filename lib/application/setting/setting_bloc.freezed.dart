@@ -78,6 +78,9 @@ class _$SettingEventCopyWithImpl<$Res, $Val extends SettingEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of SettingEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -94,16 +97,28 @@ class __$$OpenAppFirstTimeImplCopyWithImpl<$Res>
   __$$OpenAppFirstTimeImplCopyWithImpl(_$OpenAppFirstTimeImpl _value,
       $Res Function(_$OpenAppFirstTimeImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of SettingEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$OpenAppFirstTimeImpl implements _OpenAppFirstTime {
+class _$OpenAppFirstTimeImpl
+    with DiagnosticableTreeMixin
+    implements _OpenAppFirstTime {
   const _$OpenAppFirstTimeImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SettingEvent.openAppFirstTime()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SettingEvent.openAppFirstTime'));
   }
 
   @override
@@ -202,16 +217,28 @@ class __$$ChangeToDarkModeImplCopyWithImpl<$Res>
   __$$ChangeToDarkModeImplCopyWithImpl(_$ChangeToDarkModeImpl _value,
       $Res Function(_$ChangeToDarkModeImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of SettingEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$ChangeToDarkModeImpl implements _ChangeToDarkMode {
+class _$ChangeToDarkModeImpl
+    with DiagnosticableTreeMixin
+    implements _ChangeToDarkMode {
   const _$ChangeToDarkModeImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SettingEvent.changeToDarkMode()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SettingEvent.changeToDarkMode'));
   }
 
   @override
@@ -313,6 +340,8 @@ class __$$UpdateLocaleImplCopyWithImpl<$Res>
       _$UpdateLocaleImpl _value, $Res Function(_$UpdateLocaleImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SettingEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -329,15 +358,23 @@ class __$$UpdateLocaleImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UpdateLocaleImpl implements _UpdateLocale {
+class _$UpdateLocaleImpl with DiagnosticableTreeMixin implements _UpdateLocale {
   const _$UpdateLocaleImpl({required this.localeStr});
 
   @override
   final String localeStr;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SettingEvent.updateLocale(localeStr: $localeStr)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SettingEvent.updateLocale'))
+      ..add(DiagnosticsProperty('localeStr', localeStr));
   }
 
   @override
@@ -352,7 +389,9 @@ class _$UpdateLocaleImpl implements _UpdateLocale {
   @override
   int get hashCode => Object.hash(runtimeType, localeStr);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SettingEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UpdateLocaleImplCopyWith<_$UpdateLocaleImpl> get copyWith =>
@@ -432,7 +471,10 @@ abstract class _UpdateLocale implements SettingEvent {
       _$UpdateLocaleImpl;
 
   String get localeStr;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SettingEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UpdateLocaleImplCopyWith<_$UpdateLocaleImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -441,7 +483,9 @@ abstract class _UpdateLocale implements SettingEvent {
 mixin _$SettingState {
   bool get isDarkMode => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SettingState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $SettingStateCopyWith<SettingState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -465,6 +509,8 @@ class _$SettingStateCopyWithImpl<$Res, $Val extends SettingState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of SettingState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -498,6 +544,8 @@ class __$$SettingStateImplCopyWithImpl<$Res>
       _$SettingStateImpl _value, $Res Function(_$SettingStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SettingState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -514,15 +562,23 @@ class __$$SettingStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SettingStateImpl implements _SettingState {
+class _$SettingStateImpl with DiagnosticableTreeMixin implements _SettingState {
   const _$SettingStateImpl({required this.isDarkMode});
 
   @override
   final bool isDarkMode;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SettingState(isDarkMode: $isDarkMode)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SettingState'))
+      ..add(DiagnosticsProperty('isDarkMode', isDarkMode));
   }
 
   @override
@@ -537,7 +593,9 @@ class _$SettingStateImpl implements _SettingState {
   @override
   int get hashCode => Object.hash(runtimeType, isDarkMode);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SettingState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SettingStateImplCopyWith<_$SettingStateImpl> get copyWith =>
@@ -550,8 +608,11 @@ abstract class _SettingState implements SettingState {
 
   @override
   bool get isDarkMode;
+
+  /// Create a copy of SettingState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SettingStateImplCopyWith<_$SettingStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

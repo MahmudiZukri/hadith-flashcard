@@ -11,7 +11,7 @@ _$HadithNarratorModelImpl _$$HadithNarratorModelImplFromJson(
     _$HadithNarratorModelImpl(
       name: json['name'] as String,
       slug: json['slug'] as String,
-      total: json['total'] as int,
+      total: (json['total'] as num).toInt(),
       pagination: json['pagination'] == null
           ? null
           : PaginationModel.fromJson(
@@ -37,15 +37,16 @@ Map<String, dynamic> _$$HadithNarratorModelImplToJson(
 _$PaginationModelImpl _$$PaginationModelImplFromJson(
         Map<String, dynamic> json) =>
     _$PaginationModelImpl(
-      totalItems: json['totalItems'] as int,
-      currentPage: json['currentPage'] as int,
-      pageSize: json['pageSize'] as int,
-      totalPages: json['totalPages'] as int,
-      startPage: json['startPage'] as int,
-      endPage: json['endPage'] as int,
-      endIndex: json['endIndex'] as int,
-      startIndex: json['startIndex'] as int,
-      pages: IList<int>.fromJson(json['pages'], (value) => value as int),
+      totalItems: (json['totalItems'] as num).toInt(),
+      currentPage: (json['currentPage'] as num).toInt(),
+      pageSize: (json['pageSize'] as num).toInt(),
+      totalPages: (json['totalPages'] as num).toInt(),
+      startPage: (json['startPage'] as num).toInt(),
+      endPage: (json['endPage'] as num).toInt(),
+      endIndex: (json['endIndex'] as num).toInt(),
+      startIndex: (json['startIndex'] as num).toInt(),
+      pages:
+          IList<int>.fromJson(json['pages'], (value) => (value as num).toInt()),
     );
 
 Map<String, dynamic> _$$PaginationModelImplToJson(
@@ -66,7 +67,7 @@ Map<String, dynamic> _$$PaginationModelImplToJson(
 
 _$ItemModelImpl _$$ItemModelImplFromJson(Map<String, dynamic> json) =>
     _$ItemModelImpl(
-      number: json['number'] as int,
+      number: (json['number'] as num).toInt(),
       arab: json['arab'] as String,
       id: json['id'] as String,
     );

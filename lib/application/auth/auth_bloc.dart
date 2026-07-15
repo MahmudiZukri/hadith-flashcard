@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/foundation.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hadith_flashcard/domain/app_user/app_user.dart';
@@ -19,7 +20,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   AuthBloc(this._authRepository) : super(AuthState.initial()) {
     on<AuthEvent>(
       (event, emit) async {
-        await event.map(
+        try {
+          await event.map(
           nameChanged: (e) {
             emit(
               state.copyWith(
@@ -114,6 +116,11 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             );
 
             failureOrSuccess = await _authRepository.guestSignUpOrSignIn();
+
+            failureOrSuccess.fold(
+              (failure) => debugPrint('❌ AuthBloc guest login failed: $failure'),
+              (success) => debugPrint('✅ AuthBloc guest login success'),
+            );
 
             emit(
               state.copyWith(
@@ -220,6 +227,18 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             );
           },
         );
+        } catch (e, stackTrace) {
+          debugPrint('❌ CRASH in AuthBloc handling ${event.runtimeType}: $e\n$stackTrace');
+          emit(
+            state.copyWith(
+              onLoading: false,
+              showSnackbar: !state.showSnackbar,
+              optionFailureOrSuccess: optionOf(
+                left(CommonFailures.other(message: 'Error: $e')),
+              ),
+            ),
+          );
+        }
       },
     );
   }

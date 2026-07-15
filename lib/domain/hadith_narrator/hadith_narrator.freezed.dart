@@ -22,7 +22,9 @@ mixin _$HadithNarrator {
   Pagination? get pagination => throw _privateConstructorUsedError;
   IList<Item>? get items => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of HadithNarrator
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $HadithNarratorCopyWith<HadithNarrator> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -53,6 +55,8 @@ class _$HadithNarratorCopyWithImpl<$Res, $Val extends HadithNarrator>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of HadithNarrator
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -86,6 +90,8 @@ class _$HadithNarratorCopyWithImpl<$Res, $Val extends HadithNarrator>
     ) as $Val);
   }
 
+  /// Create a copy of HadithNarrator
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $PaginationCopyWith<$Res>? get pagination {
@@ -126,6 +132,8 @@ class __$$HadithNarratorImplCopyWithImpl<$Res>
       _$HadithNarratorImpl _value, $Res Function(_$HadithNarratorImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of HadithNarrator
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -203,7 +211,9 @@ class _$HadithNarratorImpl implements _HadithNarrator {
   int get hashCode => Object.hash(runtimeType, name, slug, total, pagination,
       const DeepCollectionEquality().hash(items));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of HadithNarrator
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$HadithNarratorImplCopyWith<_$HadithNarratorImpl> get copyWith =>
@@ -229,8 +239,11 @@ abstract class _HadithNarrator implements HadithNarrator {
   Pagination? get pagination;
   @override
   IList<Item>? get items;
+
+  /// Create a copy of HadithNarrator
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$HadithNarratorImplCopyWith<_$HadithNarratorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -247,7 +260,9 @@ mixin _$Pagination {
   int get startIndex => throw _privateConstructorUsedError;
   IList<int> get pages => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Pagination
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $PaginationCopyWith<Pagination> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -280,6 +295,8 @@ class _$PaginationCopyWithImpl<$Res, $Val extends Pagination>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Pagination
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -362,6 +379,8 @@ class __$$PaginationImplCopyWithImpl<$Res>
       _$PaginationImpl _value, $Res Function(_$PaginationImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Pagination
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -490,7 +509,9 @@ class _$PaginationImpl implements _Pagination {
       startIndex,
       const DeepCollectionEquality().hash(pages));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Pagination
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$PaginationImplCopyWith<_$PaginationImpl> get copyWith =>
@@ -527,8 +548,11 @@ abstract class _Pagination implements Pagination {
   int get startIndex;
   @override
   IList<int> get pages;
+
+  /// Create a copy of Pagination
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PaginationImplCopyWith<_$PaginationImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -539,7 +563,9 @@ mixin _$Item {
   UnemptyString get arab => throw _privateConstructorUsedError;
   UnemptyString get id => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Item
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ItemCopyWith<Item> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -561,6 +587,8 @@ class _$ItemCopyWithImpl<$Res, $Val extends Item>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Item
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -602,6 +630,8 @@ class __$$ItemImplCopyWithImpl<$Res>
   __$$ItemImplCopyWithImpl(_$ItemImpl _value, $Res Function(_$ItemImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Item
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -657,7 +687,9 @@ class _$ItemImpl implements _Item {
   @override
   int get hashCode => Object.hash(runtimeType, number, arab, id);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Item
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ItemImplCopyWith<_$ItemImpl> get copyWith =>
@@ -676,8 +708,11 @@ abstract class _Item implements Item {
   UnemptyString get arab;
   @override
   UnemptyString get id;
+
+  /// Create a copy of Item
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ItemImplCopyWith<_$ItemImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

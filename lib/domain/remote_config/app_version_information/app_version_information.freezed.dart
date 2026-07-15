@@ -21,7 +21,9 @@ mixin _$AppVersionInformation {
   UnemptyString get playstoreUrl => throw _privateConstructorUsedError;
   UnemptyString get appstoreUrl => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AppVersionInformation
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $AppVersionInformationCopyWith<AppVersionInformation> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -50,6 +52,8 @@ class _$AppVersionInformationCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of AppVersionInformation
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -104,6 +108,8 @@ class __$$AppVersionInformationImplCopyWithImpl<$Res>
       $Res Function(_$AppVersionInformationImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AppVersionInformation
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -175,7 +181,9 @@ class _$AppVersionInformationImpl implements _AppVersionInformation {
   int get hashCode => Object.hash(runtimeType, canUpdateVersion,
       forceUpdateVersion, playstoreUrl, appstoreUrl);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AppVersionInformation
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AppVersionInformationImplCopyWith<_$AppVersionInformationImpl>
@@ -198,8 +206,11 @@ abstract class _AppVersionInformation implements AppVersionInformation {
   UnemptyString get playstoreUrl;
   @override
   UnemptyString get appstoreUrl;
+
+  /// Create a copy of AppVersionInformation
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AppVersionInformationImplCopyWith<_$AppVersionInformationImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

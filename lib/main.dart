@@ -14,6 +14,7 @@ import 'package:hadith_flashcard/domain/auth/interfaces/i_auth_repository.dart';
 import 'package:hadith_flashcard/domain/core/objects/objects.dart';
 import 'package:hadith_flashcard/domain/core/shared/shared.dart';
 import 'package:hadith_flashcard/domain/core/shared/storage.dart';
+import 'package:hadith_flashcard/firebase_options.dart';
 import 'package:hadith_flashcard/injection.dart';
 import 'package:hadith_flashcard/localization/localization.dart';
 import 'package:hadith_flashcard/presentation/pages/pages.dart';
@@ -26,15 +27,8 @@ void main() async {
   await GetStorage.init();
   configureInjection(Environment.prod);
   await Firebase.initializeApp(
-      // TODO: find out later
-      // options: const FirebaseOptions(
-      //   apiKey: 'AIzaSyDY_bUSdCWDf3idRHStG1YfPPo5owesg48',
-      //   appId: '1:988688359058:android:09e23bc6cab1f3fc58d04b',
-      //   messagingSenderId: '988688359058',
-      //   projectId: 'hadith-flashcard',
-      // ),
-      // options: DefaultFirebaseOptions.currentPlatform,
-      );
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   Bloc.observer = getIt<SimpleBlocObserver>();
 
   runApp(

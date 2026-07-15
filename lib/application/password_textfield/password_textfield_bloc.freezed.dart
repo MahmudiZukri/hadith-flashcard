@@ -79,6 +79,9 @@ class _$PasswordTextFieldEventCopyWithImpl<$Res,
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of PasswordTextFieldEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -98,6 +101,9 @@ class __$$SignUpTextFieldObscureChangedImplCopyWithImpl<$Res>
       _$SignUpTextFieldObscureChangedImpl _value,
       $Res Function(_$SignUpTextFieldObscureChangedImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of PasswordTextFieldEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -213,6 +219,9 @@ class __$$SignInTextFieldObscureChangedImplCopyWithImpl<$Res>
       _$SignInTextFieldObscureChangedImpl _value,
       $Res Function(_$SignInTextFieldObscureChangedImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of PasswordTextFieldEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -316,7 +325,9 @@ mixin _$PasswordTextFieldState {
   bool get isSignUpTextFieldObscure => throw _privateConstructorUsedError;
   bool get isSignInTextFieldObscure => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PasswordTextFieldState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $PasswordTextFieldStateCopyWith<PasswordTextFieldState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -341,6 +352,8 @@ class _$PasswordTextFieldStateCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of PasswordTextFieldState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -382,6 +395,8 @@ class __$$PasswordTextfieldStateImplCopyWithImpl<$Res>
       $Res Function(_$PasswordTextfieldStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of PasswordTextFieldState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -435,7 +450,9 @@ class _$PasswordTextfieldStateImpl implements _PasswordTextfieldState {
   int get hashCode => Object.hash(
       runtimeType, isSignUpTextFieldObscure, isSignInTextFieldObscure);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PasswordTextFieldState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$PasswordTextfieldStateImplCopyWith<_$PasswordTextfieldStateImpl>
@@ -453,8 +470,11 @@ abstract class _PasswordTextfieldState implements PasswordTextFieldState {
   bool get isSignUpTextFieldObscure;
   @override
   bool get isSignInTextFieldObscure;
+
+  /// Create a copy of PasswordTextFieldState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PasswordTextfieldStateImplCopyWith<_$PasswordTextfieldStateImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

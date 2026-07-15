@@ -50,7 +50,9 @@ mixin _$ShowcaseEvent {
   }) =>
       throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ShowcaseEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ShowcaseEventCopyWith<ShowcaseEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -74,6 +76,8 @@ class _$ShowcaseEventCopyWithImpl<$Res, $Val extends ShowcaseEvent>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ShowcaseEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -107,6 +111,8 @@ class __$$StartImplCopyWithImpl<$Res>
       _$StartImpl _value, $Res Function(_$StartImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ShowcaseEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -145,7 +151,9 @@ class _$StartImpl implements _Start {
   @override
   int get hashCode => Object.hash(runtimeType, context);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ShowcaseEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$StartImplCopyWith<_$StartImpl> get copyWith =>
@@ -213,8 +221,11 @@ abstract class _Start implements ShowcaseEvent {
 
   @override
   BuildContext get context;
+
+  /// Create a copy of ShowcaseEvent
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$StartImplCopyWith<_$StartImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -232,7 +243,9 @@ mixin _$ShowcaseState {
   GlobalKey<State<StatefulWidget>> get enjoyGlobalKey =>
       throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ShowcaseState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ShowcaseStateCopyWith<ShowcaseState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -261,6 +274,8 @@ class _$ShowcaseStateCopyWithImpl<$Res, $Val extends ShowcaseState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ShowcaseState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -319,6 +334,8 @@ class __$$ShowcaseStateImplCopyWithImpl<$Res>
       _$ShowcaseStateImpl _value, $Res Function(_$ShowcaseStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ShowcaseState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -406,7 +423,9 @@ class _$ShowcaseStateImpl implements _ShowcaseState {
       profileNavBarGlobalKey,
       enjoyGlobalKey);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ShowcaseState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ShowcaseStateImplCopyWith<_$ShowcaseStateImpl> get copyWith =>
@@ -432,8 +451,11 @@ abstract class _ShowcaseState implements ShowcaseState {
   GlobalKey<State<StatefulWidget>> get profileNavBarGlobalKey;
   @override
   GlobalKey<State<StatefulWidget>> get enjoyGlobalKey;
+
+  /// Create a copy of ShowcaseState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ShowcaseStateImplCopyWith<_$ShowcaseStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -20,14 +20,15 @@ class UserServices {
     DocumentSnapshot<Map<String, dynamic>> snapshot =
         await userCollection.doc(userID).get();
 
+    final data = snapshot.data();
     return AppUserModel(
       id: userID,
-      email: snapshot.data()?['email'],
-      name: snapshot.data()?['name'],
-      photoUrl: snapshot.data()?['photoUrl'],
+      email: data?['email'] as String?,
+      name: (data?['name'] as String?) ?? 'Guest',
+      photoUrl: data?['photoUrl'] as String?,
       // because the createdAt one is not exist in very first time so we make it nullable
-      createdAt: (snapshot.data()?['createdAt'] as Timestamp?)?.toDate(),
-      isActive: snapshot.data()?['isActive'],
+      createdAt: (data?['createdAt'] as Timestamp?)?.toDate() ?? DateTime.now(),
+      isActive: (data?['isActive'] as bool?) ?? true,
     );
   }
 

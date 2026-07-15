@@ -27,8 +27,12 @@ mixin _$AppUserModel {
   DateTime? get createdAt => throw _privateConstructorUsedError;
   String? get photoUrl => throw _privateConstructorUsedError;
 
+  /// Serializes this AppUserModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AppUserModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $AppUserModelCopyWith<AppUserModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -58,6 +62,8 @@ class _$AppUserModelCopyWithImpl<$Res, $Val extends AppUserModel>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of AppUserModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -122,6 +128,8 @@ class __$$AppUserModelImplCopyWithImpl<$Res>
       _$AppUserModelImpl _value, $Res Function(_$AppUserModelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AppUserModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -209,12 +217,14 @@ class _$AppUserModelImpl implements _AppUserModel {
                 other.photoUrl == photoUrl));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, id, email, name, isActive, createdAt, photoUrl);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AppUserModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AppUserModelImplCopyWith<_$AppUserModelImpl> get copyWith =>
@@ -252,8 +262,11 @@ abstract class _AppUserModel implements AppUserModel {
   DateTime? get createdAt;
   @override
   String? get photoUrl;
+
+  /// Create a copy of AppUserModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AppUserModelImplCopyWith<_$AppUserModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

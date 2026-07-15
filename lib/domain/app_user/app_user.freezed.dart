@@ -24,7 +24,9 @@ mixin _$AppUser {
   DateTime? get createdAt => throw _privateConstructorUsedError;
   UrlAddress? get photoUrl => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AppUser
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $AppUserCopyWith<AppUser> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -52,6 +54,8 @@ class _$AppUserCopyWithImpl<$Res, $Val extends AppUser>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of AppUser
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -115,6 +119,8 @@ class __$$AppUserImplCopyWithImpl<$Res>
       _$AppUserImpl _value, $Res Function(_$AppUserImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AppUser
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -204,7 +210,9 @@ class _$AppUserImpl implements _AppUser {
   int get hashCode =>
       Object.hash(runtimeType, id, email, name, isActive, createdAt, photoUrl);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AppUser
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AppUserImplCopyWith<_$AppUserImpl> get copyWith =>
@@ -223,8 +231,9 @@ abstract class _AppUser implements AppUser {
   @override
   UniqueString get id;
   @override
-  EmailAddress get email;
-  @override // we changed this to UnemptyString because guest name is filled with number
+  EmailAddress
+      get email; // we changed this to UnemptyString because guest name is filled with number
+  @override
   UnemptyString get name;
   @override
   bool get isActive;
@@ -232,8 +241,11 @@ abstract class _AppUser implements AppUser {
   DateTime? get createdAt;
   @override
   UrlAddress? get photoUrl;
+
+  /// Create a copy of AppUser
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AppUserImplCopyWith<_$AppUserImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

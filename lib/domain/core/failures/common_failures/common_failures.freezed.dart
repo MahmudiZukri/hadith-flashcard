@@ -108,6 +108,9 @@ class _$CommonFailuresCopyWithImpl<$Res, $Val extends CommonFailures>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of CommonFailures
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -127,6 +130,8 @@ class __$$HandledByFirebaseImplCopyWithImpl<$Res>
       $Res Function(_$HandledByFirebaseImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CommonFailures
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -165,7 +170,9 @@ class _$HandledByFirebaseImpl implements _HandledByFirebase {
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CommonFailures
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$HandledByFirebaseImplCopyWith<_$HandledByFirebaseImpl> get copyWith =>
@@ -276,7 +283,10 @@ abstract class _HandledByFirebase implements CommonFailures {
       _$HandledByFirebaseImpl;
 
   String get message;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CommonFailures
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$HandledByFirebaseImplCopyWith<_$HandledByFirebaseImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -298,6 +308,8 @@ class __$$PlatformExceptionImplCopyWithImpl<$Res>
       $Res Function(_$PlatformExceptionImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CommonFailures
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -336,7 +348,9 @@ class _$PlatformExceptionImpl implements _PlatformException {
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CommonFailures
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$PlatformExceptionImplCopyWith<_$PlatformExceptionImpl> get copyWith =>
@@ -447,7 +461,10 @@ abstract class _PlatformException implements CommonFailures {
       _$PlatformExceptionImpl;
 
   String get message;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CommonFailures
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PlatformExceptionImplCopyWith<_$PlatformExceptionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -466,6 +483,9 @@ class __$$EmptyImplCopyWithImpl<$Res>
   __$$EmptyImplCopyWithImpl(
       _$EmptyImpl _value, $Res Function(_$EmptyImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of CommonFailures
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -604,6 +624,9 @@ class __$$NoInternetImplCopyWithImpl<$Res>
   __$$NoInternetImplCopyWithImpl(
       _$NoInternetImpl _value, $Res Function(_$NoInternetImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of CommonFailures
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -745,6 +768,8 @@ class __$$ServerErrorImplCopyWithImpl<$Res>
       _$ServerErrorImpl _value, $Res Function(_$ServerErrorImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CommonFailures
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -783,7 +808,9 @@ class _$ServerErrorImpl implements _ServerError {
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CommonFailures
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ServerErrorImplCopyWith<_$ServerErrorImpl> get copyWith =>
@@ -893,7 +920,10 @@ abstract class _ServerError implements CommonFailures {
       _$ServerErrorImpl;
 
   String? get message;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CommonFailures
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ServerErrorImplCopyWith<_$ServerErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -912,6 +942,9 @@ class __$$TimeoutImplCopyWithImpl<$Res>
   __$$TimeoutImplCopyWithImpl(
       _$TimeoutImpl _value, $Res Function(_$TimeoutImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of CommonFailures
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1053,6 +1086,8 @@ class __$$ParseErrorImplCopyWithImpl<$Res>
       _$ParseErrorImpl _value, $Res Function(_$ParseErrorImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CommonFailures
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1091,7 +1126,9 @@ class _$ParseErrorImpl implements _ParseError {
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CommonFailures
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ParseErrorImplCopyWith<_$ParseErrorImpl> get copyWith =>
@@ -1200,7 +1237,10 @@ abstract class _ParseError implements CommonFailures {
   const factory _ParseError({required final String message}) = _$ParseErrorImpl;
 
   String get message;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CommonFailures
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ParseErrorImplCopyWith<_$ParseErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1222,6 +1262,8 @@ class __$$OtherImplCopyWithImpl<$Res>
       _$OtherImpl _value, $Res Function(_$OtherImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CommonFailures
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1260,7 +1302,9 @@ class _$OtherImpl implements _Other {
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CommonFailures
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$OtherImplCopyWith<_$OtherImpl> get copyWith =>
@@ -1369,7 +1413,10 @@ abstract class _Other implements CommonFailures {
   const factory _Other({required final String? message}) = _$OtherImpl;
 
   String? get message;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CommonFailures
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$OtherImplCopyWith<_$OtherImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

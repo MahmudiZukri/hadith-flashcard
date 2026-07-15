@@ -84,6 +84,9 @@ class _$RemoteConfigEventCopyWithImpl<$Res, $Val extends RemoteConfigEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of RemoteConfigEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -100,16 +103,26 @@ class __$$CloseDialogImplCopyWithImpl<$Res>
   __$$CloseDialogImplCopyWithImpl(
       _$CloseDialogImpl _value, $Res Function(_$CloseDialogImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of RemoteConfigEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$CloseDialogImpl implements _CloseDialog {
+class _$CloseDialogImpl with DiagnosticableTreeMixin implements _CloseDialog {
   const _$CloseDialogImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'RemoteConfigEvent.closeDialog()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'RemoteConfigEvent.closeDialog'));
   }
 
   @override
@@ -214,16 +227,28 @@ class __$$GetPackageInfoImplCopyWithImpl<$Res>
   __$$GetPackageInfoImplCopyWithImpl(
       _$GetPackageInfoImpl _value, $Res Function(_$GetPackageInfoImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of RemoteConfigEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$GetPackageInfoImpl implements _GetPackageInfo {
+class _$GetPackageInfoImpl
+    with DiagnosticableTreeMixin
+    implements _GetPackageInfo {
   const _$GetPackageInfoImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'RemoteConfigEvent.getPackageInfo()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'RemoteConfigEvent.getPackageInfo'));
   }
 
   @override
@@ -328,16 +353,29 @@ class __$$GetUpdateVersionInfoImplCopyWithImpl<$Res>
   __$$GetUpdateVersionInfoImplCopyWithImpl(_$GetUpdateVersionInfoImpl _value,
       $Res Function(_$GetUpdateVersionInfoImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of RemoteConfigEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$GetUpdateVersionInfoImpl implements _GetUpdateVersionInfo {
+class _$GetUpdateVersionInfoImpl
+    with DiagnosticableTreeMixin
+    implements _GetUpdateVersionInfo {
   const _$GetUpdateVersionInfoImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'RemoteConfigEvent.getUpdateVersionInfo()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'RemoteConfigEvent.getUpdateVersionInfo'));
   }
 
   @override
@@ -443,16 +481,26 @@ class __$$GetAdsStatusImplCopyWithImpl<$Res>
   __$$GetAdsStatusImplCopyWithImpl(
       _$GetAdsStatusImpl _value, $Res Function(_$GetAdsStatusImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of RemoteConfigEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$GetAdsStatusImpl implements _GetAdsStatus {
+class _$GetAdsStatusImpl with DiagnosticableTreeMixin implements _GetAdsStatus {
   const _$GetAdsStatusImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'RemoteConfigEvent.getAdsStatus()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'RemoteConfigEvent.getAdsStatus'));
   }
 
   @override
@@ -552,7 +600,9 @@ mixin _$RemoteConfigState {
       get optionFailureOrAppVersionInformation =>
           throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RemoteConfigState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $RemoteConfigStateCopyWith<RemoteConfigState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -580,6 +630,8 @@ class _$RemoteConfigStateCopyWithImpl<$Res, $Val extends RemoteConfigState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of RemoteConfigState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -628,6 +680,8 @@ class __$$RemoteConfigStateImplCopyWithImpl<$Res>
       $Res Function(_$RemoteConfigStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of RemoteConfigState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -655,7 +709,9 @@ class __$$RemoteConfigStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$RemoteConfigStateImpl implements _RemoteConfigState {
+class _$RemoteConfigStateImpl
+    with DiagnosticableTreeMixin
+    implements _RemoteConfigState {
   const _$RemoteConfigStateImpl(
       {required this.packageInfo,
       required this.optionFailureOrIsEnabledAds,
@@ -670,8 +726,20 @@ class _$RemoteConfigStateImpl implements _RemoteConfigState {
       optionFailureOrAppVersionInformation;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'RemoteConfigState(packageInfo: $packageInfo, optionFailureOrIsEnabledAds: $optionFailureOrIsEnabledAds, optionFailureOrAppVersionInformation: $optionFailureOrAppVersionInformation)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'RemoteConfigState'))
+      ..add(DiagnosticsProperty('packageInfo', packageInfo))
+      ..add(DiagnosticsProperty(
+          'optionFailureOrIsEnabledAds', optionFailureOrIsEnabledAds))
+      ..add(DiagnosticsProperty('optionFailureOrAppVersionInformation',
+          optionFailureOrAppVersionInformation));
   }
 
   @override
@@ -695,7 +763,9 @@ class _$RemoteConfigStateImpl implements _RemoteConfigState {
   int get hashCode => Object.hash(runtimeType, packageInfo,
       optionFailureOrIsEnabledAds, optionFailureOrAppVersionInformation);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RemoteConfigState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$RemoteConfigStateImplCopyWith<_$RemoteConfigStateImpl> get copyWith =>
@@ -718,8 +788,11 @@ abstract class _RemoteConfigState implements RemoteConfigState {
   @override
   Option<Either<CommonFailures, AppVersionInformation>>
       get optionFailureOrAppVersionInformation;
+
+  /// Create a copy of RemoteConfigState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$RemoteConfigStateImplCopyWith<_$RemoteConfigStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

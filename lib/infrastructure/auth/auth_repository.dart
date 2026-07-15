@@ -150,7 +150,9 @@ class AuthRepository implements IAuthRepository {
   @override
   Future<Either<CommonFailures, Unit>> guestSignUpOrSignIn() async {
     try {
+      debugPrint('Attempting IAuthRepository.auth.signInAnonymously()...');
       final credential = await IAuthRepository.auth.signInAnonymously();
+      debugPrint('Anonymous sign-in success! UID: ${credential.user?.uid}');
 
       // Uid and email automatically passed
       AppUserModel user = credential.user!.convertToAppUser(
@@ -159,12 +161,14 @@ class AuthRepository implements IAuthRepository {
 
       // Add to firestore
       try {
+        debugPrint('Adding anonymous user to Firestore collection...');
         await UserServices.addUser(user);
+        debugPrint('Successfully added anonymous user to Firestore!');
       } catch (e, stackTrace) {
-        debugPrint('1------- $stackTrace -------1');
+        debugPrint('❌ UserServices.addUser failed: $e\n$stackTrace');
         return left(
           CommonFailures.other(
-            message: e.toString(),
+            message: 'Firestore error: $e',
           ),
         );
       }
@@ -181,22 +185,21 @@ class AuthRepository implements IAuthRepository {
         );
       }
     } on PlatformException catch (e, stackTrace) {
-      debugPrint('2------- $stackTrace -------2');
+      debugPrint('❌ PlatformException in guest login: ${e.code} - ${e.message}\n$stackTrace');
       return left(
         CommonFailures.platformException(
-          message: e.message.toString(),
+          message: '${e.code}: ${e.message}',
         ),
       );
     } on FirebaseAuthException catch (e, stackTrace) {
-      debugPrint('3------- $stackTrace -------3');
+      debugPrint('❌ FirebaseAuthException in guest login: [${e.code}] ${e.message}\n$stackTrace');
       return left(
         CommonFailures.handledByFirebase(
-          message: e.message.toString(),
+          message: '${e.code}: ${e.message}',
         ),
       );
     } catch (e, stackTrace) {
-      debugPrint('4------- $stackTrace -------4');
-
+      debugPrint('❌ General error in guest login: $e\n$stackTrace');
       return left(
         CommonFailures.handledByFirebase(
           message: e.toString(),

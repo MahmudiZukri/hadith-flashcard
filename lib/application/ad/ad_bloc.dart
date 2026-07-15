@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:hadith_flashcard/domain/core/enums/enums.dart';
@@ -17,75 +18,64 @@ class AdBloc extends Bloc<AdEvent, AdState> {
         ) {
     on<AdEvent>(
       (event, emit) async {
-        await event.map(
-          loadAd: (e) async {
-            bool result = await InternetConnection().hasInternetAccess;
+        try {
+          await event.map(
+            loadAd: (e) async {
+              bool result = await InternetConnection().hasInternetAccess;
 
-            if (result) {
-              if (e.adEnum == EAd.reviewPageAd) {
-                emit(
-                  state.copyWith(
-                    reviewPageBannerAd: BannerAd(
-                      // adUnitId: 'ca-app-pub-3940256099942544/6300978111',
-                      adUnitId: e.adEnum.adUnitId!,
-                      request: const AdRequest(),
-                      size: AdSize.banner,
-                      listener: BannerAdListener(
-                        // Called when an ad is successfully received.
-                        onAdLoaded: (ad) {},
-                        // Called when an ad request failed.
-                        onAdFailedToLoad: (ad, err) {
-                          // Dispose the ad here to free resources.
-                          ad.dispose();
-                        },
-                      ),
-                    )..load(),
+              if (result) {
+                if (e.adEnum == EAd.reviewPageAd) {
+                  // Dispose existing ad before creating a new one
+                  state.reviewPageBannerAd?.dispose();
+                  emit(state.copyWith(reviewPageBannerAd: null));
+                } else if (e.adEnum == EAd.profilePageAd) {
+                  state.profilePageBannerAd?.dispose();
+                  emit(state.copyWith(profilePageBannerAd: null));
+                } else if (e.adEnum == EAd.hadithPageAd) {
+                  state.hadithPageBannerAd?.dispose();
+                  emit(state.copyWith(hadithPageBannerAd: null));
+                }
+
+                BannerAd(
+                  adUnitId: e.adEnum.adUnitId!,
+                  request: const AdRequest(),
+                  size: AdSize.banner,
+                  listener: BannerAdListener(
+                    onAdLoaded: (ad) {
+                      debugPrint('✅ BannerAd loaded for ${e.adEnum}');
+                      add(AdEvent.adLoaded(adEnum: e.adEnum, bannerAd: ad as BannerAd));
+                    },
+                    onAdFailedToLoad: (ad, err) {
+                      debugPrint('❌ BannerAd failed to load for ${e.adEnum}: $err');
+                      ad.dispose();
+                      add(AdEvent.adFailedToLoad(adEnum: e.adEnum));
+                    },
                   ),
-                );
-              } else if (e.adEnum == EAd.profilePageAd) {
-                emit(
-                  state.copyWith(
-                    profilePageBannerAd: BannerAd(
-                      // adUnitId: 'ca-app-pub-3940256099942544/6300978111',
-                      adUnitId: e.adEnum.adUnitId!,
-                      request: const AdRequest(),
-                      size: AdSize.banner,
-                      listener: BannerAdListener(
-                        // Called when an ad is successfully received.
-                        onAdLoaded: (ad) {},
-                        // Called when an ad request failed.
-                        onAdFailedToLoad: (ad, err) {
-                          // Dispose the ad here to free resources.
-                          ad.dispose();
-                        },
-                      ),
-                    )..load(),
-                  ),
-                );
-              } else if (e.adEnum == EAd.hadithPageAd) {
-                emit(
-                  state.copyWith(
-                    hadithPageBannerAd: BannerAd(
-                      // adUnitId: 'ca-app-pub-3940256099942544/6300978111',
-                      adUnitId: e.adEnum.adUnitId!,
-                      request: const AdRequest(),
-                      size: AdSize.banner,
-                      listener: BannerAdListener(
-                        // Called when an ad is successfully received.
-                        onAdLoaded: (ad) {},
-                        // Called when an ad request failed.
-                        onAdFailedToLoad: (ad, err) {
-                          // Dispose the ad here to free resources.
-                          ad.dispose();
-                        },
-                      ),
-                    )..load(),
-                  ),
-                );
+                ).load();
               }
-            }
-          },
-        );
+            },
+            adLoaded: (e) async {
+              if (e.adEnum == EAd.reviewPageAd) {
+                emit(state.copyWith(reviewPageBannerAd: e.bannerAd));
+              } else if (e.adEnum == EAd.profilePageAd) {
+                emit(state.copyWith(profilePageBannerAd: e.bannerAd));
+              } else if (e.adEnum == EAd.hadithPageAd) {
+                emit(state.copyWith(hadithPageBannerAd: e.bannerAd));
+              }
+            },
+            adFailedToLoad: (e) async {
+              if (e.adEnum == EAd.reviewPageAd) {
+                emit(state.copyWith(reviewPageBannerAd: null));
+              } else if (e.adEnum == EAd.profilePageAd) {
+                emit(state.copyWith(profilePageBannerAd: null));
+              } else if (e.adEnum == EAd.hadithPageAd) {
+                emit(state.copyWith(hadithPageBannerAd: null));
+              }
+            },
+          );
+        } catch (e, stackTrace) {
+          debugPrint('❌ CRASH in AdBloc handling ${event.runtimeType}: $e\n$stackTrace');
+        }
       },
     );
   }

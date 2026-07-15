@@ -1,9 +1,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.hadith.flashcard">
+    xmlns:tools="http://schemas.android.com/tools">
    <application
         android:label="Kartu Hafalan Hadis"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+        <property
+            android:name="android.adservices.AD_SERVICES_CONFIG"
+            android:resource="@xml/gma_ad_services_config"
+            tools:replace="android:resource" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
